@@ -50,6 +50,8 @@ export default function ThemeToggle() {
         color: "var(--text-main)",
         cursor: "pointer",
         fontSize: "0.85rem",
+        whiteSpace: "nowrap",
+        flexShrink: 0,
       }}
     >
       <span>{theme === "dark" ? "☀️" : "🌙"}</span>

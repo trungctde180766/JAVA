@@ -61,13 +61,13 @@ export default function Navbar({ user }) {
             </Link>
           )}
 
-          <div style={{ marginLeft: "0.25rem", marginRight: "0.25rem" }}>
+          <div style={{ marginLeft: "0.2rem", marginRight: "0.2rem", flexShrink: 0, whiteSpace: "nowrap" }}>
             <ThemeToggle />
           </div>
 
           {user ? (
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginLeft: "0.25rem" }}>
-              <Link href="/profile" className={`nav-link ${pathname === "/profile" ? "active" : ""}`}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", marginLeft: "0.2rem", flexShrink: 0, whiteSpace: "nowrap" }}>
+              <Link href="/profile" className={`nav-link ${pathname === "/profile" ? "active" : ""}`} style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
                 <span>👤</span>
                 <span style={{ fontWeight: 600 }}>{user.username}</span>
               </Link>
@@ -76,16 +76,17 @@ export default function Navbar({ user }) {
                 disabled={loggingOut}
                 className="btn btn-ghost btn-sm"
                 title="Đăng xuất"
+                style={{ flexShrink: 0, whiteSpace: "nowrap", padding: "0.35rem 0.65rem" }}
               >
                 {loggingOut ? "..." : "Thoát"}
               </button>
             </div>
           ) : (
-            <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", marginLeft: "0.5rem" }}>
-              <Link href="/login" className="btn btn-secondary btn-sm">
+            <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", marginLeft: "0.2rem", flexShrink: 0, whiteSpace: "nowrap" }}>
+              <Link href="/login" className="btn btn-secondary btn-sm" style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
                 Đăng nhập
               </Link>
-              <Link href="/register" className="btn btn-primary btn-sm">
+              <Link href="/register" className="btn btn-primary btn-sm" style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
                 Đăng ký
               </Link>
             </div>
