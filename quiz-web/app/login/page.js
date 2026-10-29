@@ -103,24 +103,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Admin hint info box */}
-        <div
-          style={{
-            marginTop: "1.5rem",
-            padding: "0.85rem",
-            borderRadius: "var(--radius-sm)",
-            background: "rgba(245, 158, 11, 0.1)",
-            border: "1px dashed rgba(245, 158, 11, 0.3)",
-            fontSize: "0.82rem",
-            color: "#fde68a",
-          }}
-        >
-          👑 <strong>Tài khoản Quản trị mặc định:</strong>
-          <div style={{ marginTop: "0.25rem", fontFamily: "monospace" }}>
-            Tên: <strong>trungadmin</strong> • Mật khẩu: <strong>trungadmin123</strong>
-          </div>
-        </div>
-
         <div style={{ textAlign: "center", marginTop: "1.5rem", fontSize: "0.9rem", color: "var(--text-muted)" }}>
           Chưa có tài khoản?{" "}
           <Link href="/register" style={{ color: "var(--primary)", fontWeight: 600 }}>

@@ -16,6 +16,11 @@ export async function getDb() {
     const client = new MongoClient(uri, { maxPoolSize: 10, serverSelectionTimeoutMS: 10000 });
     g.__jq.clientPromise = client.connect().catch((err) => {
       g.__jq.clientPromise = null;
+      if (err?.message?.includes("alert number 80") || err?.message?.includes("tlsv1 alert internal error")) {
+        throw new Error(
+          "MongoDB Atlas từ chối kết nối IP từ Vercel. Bạn cần vào MongoDB Atlas -> mục 'Network Access' -> bấm 'Add IP Address' -> chọn 'Allow Access from Anywhere' (0.0.0.0/0) rồi bấm Confirm."
+        );
+      }
       throw err;
     });
   }
