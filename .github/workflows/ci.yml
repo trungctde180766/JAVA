@@ -1,0 +1,38 @@
+name: CI - Build & Test
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./quiz-web
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: quiz-web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test Build Next.js Application
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI || 'mongodb+srv://thanhtrungse18b05_db_user:doO4DjnFsZsvNUGM@cluster0.bhtl8lr.mongodb.net/javaquiz?retryWrites=true&w=majority' }}
+          MONGODB_DB: javaquiz
+          JWT_SECRET: ${{ secrets.JWT_SECRET || 'ci-build-test-secret-key-32charslong' }}
+          ADMIN_USERNAME: trungadmin
+          ADMIN_PASSWORD: trungadmin123
+        run: npm run build
