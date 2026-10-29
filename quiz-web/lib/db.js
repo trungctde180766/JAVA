@@ -42,8 +42,12 @@ function ignoreDup(err) {
   throw err;
 }
 
-// Chạy 1 lần mỗi instance: tạo index, seed 3 bộ đề, tạo tài khoản admin mặc định
+// Chạy 1 lần khi DB trống: tạo index, seed bộ đề, tạo tài khoản admin mặc định
 async function setup(db) {
+  // Nếu DB đã có dữ liệu, bỏ qua bước khởi tạo để tăng tốc tối đa
+  const existingCount = await db.collection("quizzes").countDocuments({}, { limit: 1 });
+  if (existingCount > 0) return;
+
   await Promise.all([
     db.collection("users").createIndex({ username: 1 }, { unique: true }),
     db.collection("quizzes").createIndex({ slug: 1 }, { unique: true }),

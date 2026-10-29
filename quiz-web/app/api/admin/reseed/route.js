@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { requireAdmin, jsonError } from "@/lib/auth";
 import { SEED_QUIZZES } from "@/lib/seedData";
+import { clearQuizCache } from "@/lib/quizzes";
 
 // mode = "missing": thêm lại bộ đề gốc nào đã bị xóa
 // mode = "reset"  : ghi đè 3 bộ đề gốc về nội dung mặc định
@@ -33,5 +34,6 @@ export async function POST(req) {
       changed += r.modifiedCount + r.upsertedCount;
     }
   }
+  clearQuizCache();
   return NextResponse.json({ ok: true, changed });
 }

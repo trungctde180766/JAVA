@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { requireAdmin, jsonError } from "@/lib/auth";
 import { slugify } from "@/lib/validate";
+import { clearQuizCache } from "@/lib/quizzes";
 
 // Tạo bộ đề mới (rỗng), sau đó admin thêm câu hỏi trong trang chỉnh sửa
 export async function POST(req) {
@@ -32,5 +33,6 @@ export async function POST(req) {
     createdAt: now,
     updatedAt: now,
   });
+  clearQuizCache();
   return NextResponse.json({ ok: true, slug });
 }

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { requireAdmin, jsonError } from "@/lib/auth";
 import { normalizeQuestions } from "@/lib/validate";
+import { clearQuizCache } from "@/lib/quizzes";
 
 // Cập nhật toàn bộ bộ đề (thông tin + danh sách câu hỏi)
 export async function PUT(req, { params }) {
@@ -32,6 +33,7 @@ export async function PUT(req, { params }) {
     }
   );
   if (!r.matchedCount) return jsonError("Không tìm thấy bộ đề", 404);
+  clearQuizCache();
   return NextResponse.json({ ok: true, count: questions.length });
 }
 
@@ -42,5 +44,6 @@ export async function DELETE(req, { params }) {
   const db = await getDb();
   const r = await db.collection("quizzes").deleteOne({ slug });
   if (!r.deletedCount) return jsonError("Không tìm thấy bộ đề", 404);
+  clearQuizCache();
   return NextResponse.json({ ok: true });
 }

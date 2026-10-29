@@ -4,35 +4,46 @@ export { TOPICS, ALL_TOPICS, topicName };
 
 const signature = (q) => `${q.text}|${q.code || ""}|${(q.options || []).join("|")}`;
 
-/** Danh sách bộ đề (không kèm câu hỏi) + số câu. */
-export async function getQuizList() {
+// Cache in-memory: 3 phút (sub-millisecond navigation)
+const CACHE_TTL_MS = 1000 * 60 * 3;
+let cachedQuizzesRaw = null;
+let lastCacheFetchTime = 0;
+
+export function clearQuizCache() {
+  cachedQuizzesRaw = null;
+  lastCacheFetchTime = 0;
+}
+
+async function getCachedQuizzesRaw() {
+  const now = Date.now();
+  if (cachedQuizzesRaw && now - lastCacheFetchTime < CACHE_TTL_MS) {
+    return cachedQuizzesRaw;
+  }
   const db = await getDb();
-  return db
-    .collection("quizzes")
-    .aggregate([
-      { $sort: { order: 1, createdAt: 1 } },
-      {
-        $project: {
-          _id: 0,
-          slug: 1,
-          title: 1,
-          description: 1,
-          color: 1,
-          icon: 1,
-          order: 1,
-          hidden: 1,
-          count: { $size: { $ifNull: ["$questions", []] } },
-        },
-      },
-    ])
-    .toArray();
+  cachedQuizzesRaw = await db.collection("quizzes").find({}).sort({ order: 1, createdAt: 1 }).toArray();
+  lastCacheFetchTime = now;
+  return cachedQuizzesRaw;
+}
+
+/** Danh sách bộ đề (không kèm câu hỏi) + số câu. Phục vụ trong < 0.1ms từ RAM. */
+export async function getQuizList() {
+  const quizzes = await getCachedQuizzesRaw();
+  return quizzes.map((q) => ({
+    slug: q.slug,
+    title: q.title,
+    description: q.description,
+    color: q.color,
+    icon: q.icon,
+    order: q.order || 99,
+    hidden: !!q.hidden,
+    count: (q.questions || []).length,
+  }));
 }
 
 /** Tất cả câu hỏi (dạng phẳng), mỗi câu có key duy nhất "slug:id". */
 export async function getAllQuestions({ includeHidden = false } = {}) {
-  const db = await getDb();
-  const filter = includeHidden ? {} : { hidden: { $ne: true } };
-  const quizzes = await db.collection("quizzes").find(filter).sort({ order: 1 }).toArray();
+  const raw = await getCachedQuizzesRaw();
+  const quizzes = includeHidden ? raw : raw.filter((q) => !q.hidden);
   const out = [];
   for (const quiz of quizzes) {
     for (const q of quiz.questions || []) {
@@ -124,8 +135,8 @@ export async function buildQuizSession(slug, user) {
     };
   }
 
-  const db = await getDb();
-  const quiz = await db.collection("quizzes").findOne({ slug });
+  const raw = await getCachedQuizzesRaw();
+  const quiz = raw.find((q) => q.slug === slug);
   if (!quiz || (quiz.hidden && user.role !== "admin")) return null;
   return {
     slug,

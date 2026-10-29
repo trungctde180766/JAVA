@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getCurrentUser } from "@/lib/auth";
+import NavigationProgress from "@/components/NavigationProgress";
+import { getSession } from "@/lib/auth";
 
 export const metadata = {
   title: "JavaQuiz Pro - 3 Bộ Đề Ôn Thi Java Trắc Nghiệm Có Giải Thích Chi Tiết",
@@ -14,7 +16,10 @@ export const dynamic = "force-dynamic";
 export default async function RootLayout({ children }) {
   let user = null;
   try {
-    user = await getCurrentUser();
+    const session = await getSession();
+    if (session) {
+      user = { id: session.uid, username: session.username, role: session.role };
+    }
   } catch (err) {
     console.error("Error reading current user in RootLayout:", err.message);
   }
@@ -25,8 +30,11 @@ export default async function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
+        <Suspense fallback={null}>
+          <NavigationProgress />
+        </Suspense>
         <div className="bg-glow" />
-        <Navbar user={user ? { id: String(user._id), username: user.username, role: user.role } : null} />
+        <Navbar user={user} />
         <main className="main-wrapper">{children}</main>
         <Footer />
       </body>

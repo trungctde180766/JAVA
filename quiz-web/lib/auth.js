@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
@@ -48,15 +49,15 @@ export async function getSession() {
   }
 }
 
-/** Lấy user đầy đủ từ DB (kiểm tra bị khóa / bị xóa). */
-export async function getCurrentUser() {
+/** Lấy user đầy đủ từ DB (kiểm tra bị khóa / bị xóa), tự động deduplicate trong cùng 1 request qua React cache. */
+export const getCurrentUser = cache(async () => {
   const session = await getSession();
   if (!session) return null;
   const db = await getDb();
   const user = await db.collection("users").findOne({ _id: toId(session.uid) }, { projection: { passwordHash: 0 } });
   if (!user || user.banned) return null;
   return user;
-}
+});
 
 export function jsonError(message, status = 400) {
   return NextResponse.json({ error: message }, { status });
