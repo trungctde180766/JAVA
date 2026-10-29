@@ -32,7 +32,7 @@ export default async function QuizPage({ params, searchParams }) {
   return (
     <QuizClient
       session={session}
-      initialUser={user}
+      initialUser={user ? { username: user.username, bookmarks: user.bookmarks || [] } : null}
       defaultMode={defaultMode}
     />
   );

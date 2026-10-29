@@ -26,7 +26,7 @@ export default async function RootLayout({ children }) {
       </head>
       <body>
         <div className="bg-glow" />
-        <Navbar user={user} />
+        <Navbar user={user ? { id: String(user._id), username: user.username, role: user.role } : null} />
         <main className="main-wrapper">{children}</main>
         <Footer />
       </body>
