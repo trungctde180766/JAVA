@@ -1,20 +1,32 @@
-# 🎓 JAVA QUIZ MASTER - NỀN TẢNG LUYỆN THI TRẮC NGHIỆM JAVA
+# 🎓 JAVA QUIZ MASTER & INTERVIEW PRO - NỀN TẢNG ÔN THI & PHỎNG VẤN 1-1
 
-Hệ thống ôn luyện và thi thử trắc nghiệm Java toàn diện với **3 bộ đề chuẩn (80 câu hỏi chọn lọc)**, giải thích chi tiết bằng tiếng Việt, tích hợp trình biên dịch/highlight code cú pháp Java, lưu vết tiến độ học tập trên MongoDB Atlas và quy trình **CI/CD tự động**.
+Hệ thống ôn luyện thi trắc nghiệm Java và **bộ câu hỏi ôn tập phỏng vấn 1-1 toàn diện**, giải thích chi tiết bằng tiếng Việt, tích hợp trình biên dịch/highlight code cú pháp, lưu vết tiến độ học tập trên **MongoDB Atlas** và quy trình **CI/CD tự động**.
 
 ---
 
 ## 🚀 Tính năng nổi bật
 
-### 1. 📚 3 Bộ đề thực tế & Chế độ học linh hoạt
+### 1. 🎯 Bộ Câu Hỏi Ôn Tập Phỏng Vấn 1-1 (Theo Từng Dạng Chuyên Sâu)
+Hệ thống câu hỏi phỏng vấn thực chiến được phân loại rõ ràng theo từng mảng kỹ năng:
+- **🗄️ SQL & Cơ Sở Dữ Liệu (`interview-sql`)**: Inner Join vs Left Join, Group By & Having, Lọc Top sinh viên tuổi bé nhất/điểm cao nhất, DML vs DDL (Delete vs Truncate vs Drop), Thứ tự thực thi SQL, Indexing & Tối ưu hiệu năng, Composite Key, View.
+- **☕ Java Core & OOP Chuyên Sâu (`interview-javacore`)**: 4 đặc tính OOP, Vùng nhớ Stack vs Heap, Bẫy Integer Cache (-128 đến 127), ConcurrentModificationException khi remove trong vòng lặp for, HashSet trap khi sửa thuộc tính, Try-catch-finally return, Comparable vs Comparator, String vs StringBuilder vs StringBuffer, map() vs flatMap() Stream API.
+- **🍃 Spring Boot & REST API (`interview-spring`)**: Spring vs Spring Boot, Vòng đời của một Bean (Bean Lifecycle), Dependency Injection (Constructor vs Field vs Setter), Luồng xử lý một Request trong Spring Boot (DispatcherServlet -> Service -> Repository), Cấu hình CORS & Spring Security, Global Exception Handling với `@RestControllerAdvice`.
+- **🌐 Web & Frontend (`interview-web`)**: Session vs Cookie, Phương thức HTTP (GET, POST, PUT), Toán tử `==` vs `===` trong JavaScript, Virtual DOM trong React vs Real DOM, State vs Props, Validation phía Client vs Server.
+- **🛠️ Git, Testing & Quy Trình Dự Án (`interview-devops`)**: Quy trình xử lý Git Conflict, Unit Test & Mocking với Mockito/JUnit, Thiết kế Test cases cho trang Đăng Nhập, Software Development Life Cycle (SDLC), Scrum Framework & các sự kiện trong một Sprint, Môi trường Dev/Staging/Production.
+- **🤖 AI, LLM & Prompt Engineering (`interview-ai`)**: Kiến trúc LLM và ứng dụng trong phát triển phần mềm, Kỹ thuật viết Prompt hiệu quả (RC-TCO framework), Đánh giá và kiểm tra code do AI sinh ra, Khái niệm AI Agent & Tool calling.
+- **🎯 Đề Tổng Hợp Phỏng Vấn 1-1 (`interview-all`)**: Trộn toàn bộ 48 câu hỏi phỏng vấn giúp bạn thi thử phản xạ như khi đi phỏng vấn trực tiếp!
+
+### 2. 📚 3 Bộ Đề Thi Trắc Nghiệm Môn Học (Gốc)
 - **Bộ đề 1 (Quiz 1 - 39 câu)**: Kiến thức tổng hợp cốt lõi Java (OOP, cú pháp, collection, keyword, method).
 - **Bộ đề 2 (Quiz 2 - 20 câu)**: Chuyên sâu Kế thừa (Inheritance), Constructor, Đa hình (Polymorphism), Interface & Abstract class.
 - **Bộ đề 3 (Quiz Day 3 - 21 câu)**: Phân tích code output, Exception Handling, String/StringBuffer, static context, phạm vi truy cập (Access Modifiers).
-- **Chế độ Ôn luyện (Practice Mode)**: Làm từng câu, biết kết quả tức thì kèm **giải thích tường tận bằng tiếng Việt** và phân tích tại sao các đáp án khác sai.
+
+### 3. 💡 Chế Độ Ôn Luyện & Thi Thử Linh Hoạt
+- **Chế độ Ôn luyện (Practice Mode)**: Làm từng câu, biết kết quả tức thì kèm **giải thích tường tận bằng tiếng Việt** và phân tích tại sao các đáp án khác sai + **mẹo trả lời ghi điểm phỏng vấn**.
 - **Chế độ Thi thử (Exam Mode)**: Bấm giờ đếm ngược thực chiến, bảng câu hỏi nhanh (Question Palette), gắn cờ câu phân vân, nộp bài chấm điểm tự động.
-- **Chế độ Ôn câu sai (Mistakes Tracker)**: Tự động gom những câu làm sai để luyện lại đến khi nắm vững.
-- **Bộ sưu tập câu hỏi (Bookmarks ⭐)**: Đánh dấu những câu hỏi hay hoặc mẹo thi để xem lại bất cứ lúc nào.
-- **Luyện theo Chuyên đề (Topic Mode)**: Luyện riêng từng phần: OOP, Constructor, Interface, String, Exception, Static,...
+- **Chế độ Ôn câu sai (Mistakes Tracker)**: Tự động gom những câu làm sai để luyện lại đến khi nắm vững (Spaced Repetition).
+- **Bộ sưu tập câu hỏi (Bookmarks ⭐)**: Đánh dấu những câu hỏi hay hoặc bẫy phỏng vấn để xem lại bất cứ lúc nào.
+- **Luyện theo Chuyên đề (Topic Mode)**: Luyện riêng từng phần: SQL, Java Core, Spring Boot, Web Frontend, Git/DevOps, AI, OOP, Constructor, Interface, String,...
 
 ### 2. 🔐 Hệ thống Xác thực & Người dùng
 - Đăng ký tài khoản nhanh chóng chỉ với **Tên đăng nhập** & **Mật khẩu**.

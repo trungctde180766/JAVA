@@ -1178,4 +1178,6 @@ class D {
   ],
 };
 
-export const SEED_QUIZZES = [quiz1, quiz2, quiz3];
+import { ALL_INTERVIEW_QUIZZES } from "./interviewData.js";
+
+export const SEED_QUIZZES = [quiz1, quiz2, quiz3, ...ALL_INTERVIEW_QUIZZES];

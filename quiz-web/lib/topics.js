@@ -8,6 +8,12 @@ export const TOPICS = {
   string: "String & StringBuffer",
   jdbc: "JDBC",
   exception: "Exception & Runtime",
+  sql: "SQL & Cơ sở dữ liệu",
+  javacore: "Java Core & Bộ nhớ",
+  spring: "Spring Boot & REST API",
+  web: "Web & Frontend (JS/React)",
+  devops: "Git, Testing & Quy trình",
+  ai: "AI, LLM & Prompting",
 };
 
 export const ALL_TOPICS = { ...TOPICS, other: "Khác" };

@@ -35,6 +35,10 @@ export default function Navbar({ user }) {
             <span>📚</span>
             <span>Bộ đề</span>
           </Link>
+          <Link href="/quiz/interview-all?mode=practice" className={`nav-link ${pathname.includes("interview") ? "active" : ""}`}>
+            <span>🎯</span>
+            <span>Phỏng vấn 1-1</span>
+          </Link>
           <Link href="/quiz/mix" className={`nav-link ${pathname === "/quiz/mix" ? "active" : ""}`}>
             <span>🎲</span>
             <span>Thi thử Mix</span>

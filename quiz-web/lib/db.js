@@ -46,13 +46,14 @@ async function setup(db) {
     db.collection("attempts").createIndex({ quizSlug: 1, mode: 1, percent: -1 }),
   ]);
 
-  if ((await db.collection("quizzes").countDocuments()) === 0) {
-    const now = new Date();
+  const now = new Date();
+  for (const q of SEED_QUIZZES) {
     await db
       .collection("quizzes")
-      .insertMany(
-        SEED_QUIZZES.map((q) => ({ ...q, createdAt: now, updatedAt: now })),
-        { ordered: false }
+      .updateOne(
+        { slug: q.slug },
+        { $setOnInsert: { ...q, createdAt: now, updatedAt: now } },
+        { upsert: true }
       )
       .catch(ignoreDup);
   }

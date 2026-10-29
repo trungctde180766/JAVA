@@ -32,6 +32,8 @@ export default async function HomePage() {
   }
 
   const totalQuestions = quizzes.reduce((sum, q) => sum + (q.count || 0), 0);
+  const interviewQuizzes = quizzes.filter((q) => q.slug.startsWith("interview-"));
+  const examQuizzes = quizzes.filter((q) => !q.slug.startsWith("interview-"));
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
@@ -48,10 +50,10 @@ export default async function HomePage() {
           overflow: "hidden",
         }}
       >
-        <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem" }}>
-          <span className="badge badge-primary">Java OOP &amp; JDBC</span>
-          <span className="badge badge-accent">3 Bộ Đề Chuẩn</span>
-          <span className="badge badge-success">Giải Thích Chi Tiết 100%</span>
+        <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
+          <span className="badge badge-primary">🎯 Phỏng Vấn 1-1 Theo Dạng</span>
+          <span className="badge badge-accent">📚 3 Bộ Đề Chuẩn Môn Học</span>
+          <span className="badge badge-success">💡 100% Giải Thích Chi Tiết Tiếng Việt</span>
         </div>
 
         <h1
@@ -63,27 +65,31 @@ export default async function HomePage() {
             lineHeight: 1.25,
           }}
         >
-          Nền Tảng Ôn Thi Trắc Nghiệm Java
+          Nền Tảng Ôn Thi &amp; Phỏng Vấn Java Fullstack
         </h1>
         <p
           style={{
-            fontSize: "1.1rem",
+            fontSize: "1.08rem",
             color: "var(--text-muted)",
-            maxWidth: 720,
+            maxWidth: 780,
             margin: "0 auto 1.8rem",
+            lineHeight: 1.6,
           }}
         >
-          Tổng hợp <strong>{totalQuestions || 80} câu hỏi</strong> thực chiến từ 3 bộ đề trắc nghiệm Java:
-          OOP, Polymorphism, Access Modifiers, Interface, String, StringBuffer &amp; JDBC.
-          Mỗi câu đều có lời giải thích cặn kẽ giúp bạn hiểu tận gốc bản chất!
+          Hệ thống gồm <strong>{totalQuestions} câu hỏi</strong>: 3 bộ đề thi trắc nghiệm môn học và trọn bộ 
+          <strong> câu hỏi phỏng vấn 1-1 thực tế</strong> (SQL, Java Core, Spring Boot, Web Frontend, Git &amp; AI).
+          Mỗi câu đều có lời giải thích cặn kẽ và mẹo trả lời phỏng vấn ghi điểm!
         </p>
 
         <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
-          <Link href="/quiz/quiz-1" className="btn btn-primary btn-lg">
-            <span>🚀</span> Bắt đầu ngay (Quiz 1)
+          <Link href="/quiz/interview-all?mode=practice" className="btn btn-primary btn-lg">
+            <span>🎯</span> Luyện Phỏng Vấn 1-1 (Tổng Hợp)
           </Link>
-          <Link href="/quiz/mix?mode=exam" className="btn btn-secondary btn-lg">
-            <span>⏱️</span> Thi thử 40 câu có bấm giờ
+          <Link href="/quiz/quiz-1?mode=practice" className="btn btn-secondary btn-lg">
+            <span>🚀</span> Đề Thi Môn Học (Quiz 1)
+          </Link>
+          <Link href="/quiz/mix?mode=exam" className="btn btn-ghost btn-lg" style={{ border: "1px solid var(--border)" }}>
+            <span>⏱️</span> Thi Thử Bấm Giờ
           </Link>
         </div>
 
@@ -137,21 +143,87 @@ export default async function HomePage() {
         )}
       </section>
 
-      {/* 3 Main Quiz Sets */}
+      {/* SECTION 1: Bộ Câu Hỏi Phỏng Vấn 1-1 Theo Từng Dạng */}
+      {interviewQuizzes.length > 0 && (
+        <section>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.25rem", flexWrap: "wrap", gap: "0.5rem" }}>
+            <div>
+              <div style={{ display: "inline-flex", gap: "0.4rem", marginBottom: "0.35rem" }}>
+                <span className="badge badge-accent">🔥 Bộ Đề Mới Bổ Sung</span>
+                <span className="badge badge-primary">Ôn Phỏng Vấn 1-1 Thực Chiến</span>
+              </div>
+              <h2 style={{ fontSize: "1.6rem", fontWeight: 700, marginBottom: "0.25rem" }}>
+                Bộ Câu Hỏi Ôn Tập Phỏng Vấn 1-1 (Theo Từng Dạng)
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
+                Được chia tách thành từng dạng chuyên biệt: SQL, Java Core, Spring Boot, Web Frontend, Git &amp; AI giúp bạn cày nát từng phần!
+              </p>
+            </div>
+            <Link href="/quiz/interview-all?mode=practice" className="btn btn-secondary btn-sm">
+              <span>🎯</span> Ôn toàn bộ câu phỏng vấn &rarr;
+            </Link>
+          </div>
+
+          <div className="grid-3">
+            {interviewQuizzes.map((q) => (
+              <div
+                key={q.slug}
+                className="card"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderTop: `4px solid ${q.color || "var(--primary)"}`,
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
+                  <span style={{ fontSize: "2rem" }}>{q.icon || "🎯"}</span>
+                  <span className="badge badge-primary">{q.count || 0} câu hỏi</span>
+                </div>
+
+                <h3 style={{ fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+                  {q.title}
+                </h3>
+                <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", flex: 1, marginBottom: "1.25rem", lineHeight: 1.5 }}>
+                  {q.description}
+                </p>
+
+                <div style={{ display: "flex", gap: "0.6rem" }}>
+                  <Link
+                    href={`/quiz/${q.slug}?mode=practice`}
+                    className="btn btn-secondary btn-sm"
+                    style={{ flex: 1 }}
+                  >
+                    📖 Luyện tập
+                  </Link>
+                  <Link
+                    href={`/quiz/${q.slug}?mode=exam`}
+                    className="btn btn-primary btn-sm"
+                    style={{ flex: 1 }}
+                  >
+                    ⏱️ Thi thử
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 2: 3 Bộ Đề Trắc Nghiệm Môn Học Gốc */}
       <section>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.25rem" }}>
           <div>
             <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
-              3 Bộ Đề Trắc Nghiệm Chính
+              3 Bộ Đề Trắc Nghiệm Môn Học (Gốc)
             </h2>
             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
-              Chuyển thể nguyên vẹn từ đề thi chụp lại, 100% kèm code Java và giải thích.
+              Chuyển thể nguyên vẹn từ 76 ảnh chụp màn hình đề thi, 100% kèm code Java và giải thích.
             </p>
           </div>
         </div>
 
         <div className="grid-3">
-          {quizzes.map((q) => (
+          {examQuizzes.map((q) => (
             <div
               key={q.slug}
               className="card"
