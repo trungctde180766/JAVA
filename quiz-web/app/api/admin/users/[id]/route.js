@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { getDb, toId } from "@/lib/db";
 import { requireAdmin, jsonError } from "@/lib/auth";
+import { logActivity } from "@/lib/telemetry";
 
 // PATCH { action: "role"|"ban"|"password"|"clear", ... }
 export async function PATCH(req, { params }) {
@@ -23,23 +24,51 @@ export async function PATCH(req, { params }) {
       if (isSelf) return jsonError("Không thể tự đổi quyền của chính mình");
       const role = body.role === "admin" ? "admin" : "user";
       await users.updateOne({ _id }, { $set: { role } });
+      await logActivity(db, {
+        userId: admin._id,
+        username: admin.username,
+        action: "ADMIN_ROLE_CHANGE",
+        details: { targetUser: target.username, newRole: role },
+        req,
+      });
       return NextResponse.json({ ok: true, role });
     }
     case "ban": {
       if (isSelf) return jsonError("Không thể tự khóa chính mình");
       const banned = !!body.banned;
       await users.updateOne({ _id }, { $set: { banned } });
+      await logActivity(db, {
+        userId: admin._id,
+        username: admin.username,
+        action: banned ? "ADMIN_BAN_USER" : "ADMIN_UNBAN_USER",
+        details: { targetUser: target.username },
+        req,
+      });
       return NextResponse.json({ ok: true, banned });
     }
     case "password": {
       const pw = String(body.password || "");
       if (pw.length < 6) return jsonError("Mật khẩu tối thiểu 6 ký tự");
       await users.updateOne({ _id }, { $set: { passwordHash: await bcrypt.hash(pw, 10) } });
+      await logActivity(db, {
+        userId: admin._id,
+        username: admin.username,
+        action: "ADMIN_RESET_PASSWORD",
+        details: { targetUser: target.username },
+        req,
+      });
       return NextResponse.json({ ok: true });
     }
     case "clear": {
       await users.updateOne({ _id }, { $set: { mistakes: {}, bookmarks: [] } });
       await db.collection("attempts").deleteMany({ userId: _id });
+      await logActivity(db, {
+        userId: admin._id,
+        username: admin.username,
+        action: "ADMIN_CLEAR_DATA",
+        details: { targetUser: target.username },
+        req,
+      });
       return NextResponse.json({ ok: true });
     }
     default:

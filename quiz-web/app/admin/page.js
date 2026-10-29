@@ -38,11 +38,33 @@ export default async function AdminPage() {
     .limit(50)
     .toArray();
 
+  // Load recent activity logs
+  const activityLogs = await db
+    .collection("activity_logs")
+    .find({})
+    .sort({ createdAt: -1 })
+    .limit(50)
+    .toArray();
+
   // Calculate stats
   const totalUsers = users.length;
   const totalQuizzes = quizzes.length;
   const totalQuestions = quizzes.reduce((sum, q) => sum + (q.questions?.length || 0), 0);
   const totalAttempts = await db.collection("attempts").countDocuments();
+  const totalLogs = await db.collection("activity_logs").countDocuments();
+
+  const mem = process.memoryUsage();
+  const initialSystem = {
+    nodeVersion: process.version,
+    platform: process.platform,
+    arch: process.arch,
+    uptime: Math.floor(process.uptime()),
+    memory: {
+      rss: Math.round((mem.rss / 1024 / 1024) * 10) / 10,
+      heapTotal: Math.round((mem.heapTotal / 1024 / 1024) * 10) / 10,
+      heapUsed: Math.round((mem.heapUsed / 1024 / 1024) * 10) / 10,
+    },
+  };
 
   const serializedUsers = users.map((u) => ({
     id: String(u._id),
@@ -51,6 +73,14 @@ export default async function AdminPage() {
     banned: !!u.banned,
     mistakesCount: Object.keys(u.mistakes || {}).length,
     bookmarksCount: (u.bookmarks || []).length,
+    lastLoginAt: u.lastLoginAt ? u.lastLoginAt.toISOString() : null,
+    lastLoginIp: u.lastLoginIp || "Chưa có",
+    lastDevice: u.lastDevice || "Desktop",
+    lastOs: u.lastOs || "Khác",
+    lastBrowser: u.lastBrowser || "Khác",
+    lastCity: u.lastCity || "Việt Nam",
+    lastCountry: u.lastCountry || "VN",
+    knownIps: u.knownIps || [],
     createdAt: u.createdAt ? u.createdAt.toISOString() : null,
   }));
 
@@ -79,13 +109,31 @@ export default async function AdminPage() {
     createdAt: a.createdAt ? a.createdAt.toISOString() : null,
   }));
 
+  const serializedLogs = activityLogs.map((l) => ({
+    id: String(l._id),
+    userId: l.userId ? String(l.userId) : null,
+    username: l.username,
+    action: l.action,
+    details: l.details || {},
+    ip: l.ip || "127.0.0.1",
+    country: l.country || "VN",
+    city: l.city || "Việt Nam",
+    device: l.device || "Desktop",
+    os: l.os || "Khác",
+    browser: l.browser || "Khác",
+    userAgent: l.userAgent || "",
+    createdAt: l.createdAt ? l.createdAt.toISOString() : null,
+  }));
+
   return (
     <AdminClient
       currentUser={{ id: String(user._id), username: user.username }}
-      stats={{ totalUsers, totalQuizzes, totalQuestions, totalAttempts }}
+      stats={{ totalUsers, totalQuizzes, totalQuestions, totalAttempts, totalLogs }}
       initialUsers={serializedUsers}
       initialQuizzes={serializedQuizzes}
       initialAttempts={serializedAttempts}
+      initialLogs={serializedLogs}
+      initialSystem={initialSystem}
     />
   );
 }

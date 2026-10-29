@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { getDb } from "@/lib/db";
 import { createToken, setSessionCookie, jsonError } from "@/lib/auth";
+import { logActivity } from "@/lib/telemetry";
 
 const USERNAME_RE = /^[a-z0-9_.]{3,24}$/;
 
@@ -30,6 +31,15 @@ export async function POST(req) {
       lastLoginAt: new Date(),
     };
     const { insertedId } = await users.insertOne(doc);
+
+    await logActivity(db, {
+      userId: insertedId,
+      username,
+      action: "REGISTER",
+      details: { role: doc.role },
+      req,
+    });
+
     const token = await createToken({ ...doc, _id: insertedId });
     return setSessionCookie(NextResponse.json({ ok: true, role: doc.role }), token);
   } catch (err) {

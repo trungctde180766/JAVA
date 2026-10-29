@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { getDb } from "@/lib/db";
 import { createToken, setSessionCookie, jsonError } from "@/lib/auth";
+import { logActivity } from "@/lib/telemetry";
 
 export async function POST(req) {
   try {
@@ -16,7 +17,14 @@ export async function POST(req) {
       return jsonError("Sai tên đăng nhập hoặc mật khẩu", 401);
     if (user.banned) return jsonError("Tài khoản đã bị khóa. Liên hệ admin.", 403);
 
-    await db.collection("users").updateOne({ _id: user._id }, { $set: { lastLoginAt: new Date() } });
+    await logActivity(db, {
+      userId: user._id,
+      username: user.username,
+      action: "LOGIN",
+      details: { role: user.role },
+      req,
+    });
+
     const token = await createToken(user);
     return setSessionCookie(NextResponse.json({ ok: true, role: user.role }), token);
   } catch (err) {

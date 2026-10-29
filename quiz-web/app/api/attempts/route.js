@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { requireUser, jsonError } from "@/lib/auth";
 import { getAllQuestions, getQuizList, sessionTitle } from "@/lib/quizzes";
+import { logActivity } from "@/lib/telemetry";
 
 // Nộp bài: chấm điểm phía server (không tin điểm từ client), lưu lịch sử, cập nhật "câu sai".
 export async function POST(req) {
@@ -68,6 +69,21 @@ export async function POST(req) {
       }
     }
     await db.collection("users").updateOne({ _id: user._id }, { $set: { mistakes } });
+
+    await logActivity(db, {
+      userId: user._id,
+      username: user.username,
+      action: "SUBMIT_QUIZ",
+      details: {
+        quizSlug: slug,
+        quizTitle: sessionTitle(slug, titleMap),
+        mode,
+        percent,
+        score: `${correct}/${total}`,
+        durationSec,
+      },
+      req,
+    });
 
     return NextResponse.json({ ok: true, id: String(insertedId), correct, total, percent, mastered: removed });
   } catch (e) {
