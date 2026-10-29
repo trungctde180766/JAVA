@@ -20,6 +20,14 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [filterReview, setFilterReview] = useState("all"); // "all" | "wrong" | "correct"
 
+  // Assistive features state
+  const [confidence, setConfidence] = useState({}); // { [qKey]: "high" | "med" | "low" }
+  const [eliminated, setEliminated] = useState({}); // { [qKey]: [optIdx, ...] }
+  const [notes, setNotes] = useState({}); // { [qKey]: string }
+  const [showNotesBox, setShowNotesBox] = useState(false);
+  const [fontScale, setFontScale] = useState(1); // 1 = 100%, 1.15 = 115%, 1.3 = 130%
+  const [showShortcuts, setShowShortcuts] = useState(false);
+
   // Exam timer
   const [timeLeft, setTimeLeft] = useState(0);
   const [elapsedSec, setElapsedSec] = useState(0);
@@ -36,6 +44,18 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
     const duration = Math.max(10, list.length * 60); // 1 minute per question
     setTimeLeft(duration);
   }, [session]);
+
+  // Load personal notes from localStorage
+  useEffect(() => {
+    try {
+      const saved = {};
+      questions.forEach((item) => {
+        const val = localStorage.getItem(`jq_note_${item.key}`);
+        if (val) saved[item.key] = val;
+      });
+      setNotes(saved);
+    } catch {}
+  }, [questions]);
 
   // Timer tick for exam mode
   useEffect(() => {
@@ -61,6 +81,96 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
     return () => clearInterval(timerRef.current);
   }, [mode, submitted, questions, answers]);
 
+  const q = questions && questions.length > 0 ? questions[currentIndex] : null;
+  const qKey = q?.key;
+  const chosen = qKey ? answers[qKey] : undefined;
+  const isBookmarked = qKey ? bookmarks.has(qKey) : false;
+  const isFlagged = qKey ? flagged.has(qKey) : false;
+
+  const handleSelectOption = (idx) => {
+    if (submitted || !qKey) return;
+    setAnswers((prev) => ({ ...prev, [qKey]: idx }));
+    if (mode === "practice") {
+      setShowExplanation((prev) => ({ ...prev, [qKey]: true }));
+    }
+  };
+
+  const toggleBookmark = async () => {
+    if (!qKey) return;
+    const next = new Set(bookmarks);
+    if (next.has(qKey)) next.delete(qKey);
+    else next.add(qKey);
+    setBookmarks(next);
+
+    try {
+      await fetch("/api/bookmarks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key: qKey }),
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const toggleFlag = () => {
+    if (!qKey) return;
+    const next = new Set(flagged);
+    if (next.has(qKey)) next.delete(qKey);
+    else next.add(qKey);
+    setFlagged(next);
+  };
+
+  const handleSetConfidence = (level) => {
+    if (!qKey) return;
+    setConfidence((prev) => ({
+      ...prev,
+      [qKey]: prev[qKey] === level ? undefined : level,
+    }));
+  };
+
+  const toggleEliminate = (e, optIdx) => {
+    e.stopPropagation();
+    if (!qKey) return;
+    setEliminated((prev) => {
+      const current = new Set(prev[qKey] || []);
+      if (current.has(optIdx)) current.delete(optIdx);
+      else current.add(optIdx);
+      return { ...prev, [qKey]: Array.from(current) };
+    });
+  };
+
+  const handleSaveNote = (text) => {
+    if (!qKey) return;
+    setNotes((prev) => ({ ...prev, [qKey]: text }));
+    try {
+      if (text.trim()) localStorage.setItem(`jq_note_${qKey}`, text);
+      else localStorage.removeItem(`jq_note_${qKey}`);
+    } catch {}
+  };
+
+  // Keyboard navigation & shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (["INPUT", "TEXTAREA"].includes(e.target?.tagName)) return;
+      if (!questions || questions.length === 0 || submitted) return;
+      const k = e.key.toLowerCase();
+      if (k === "1" || k === "a") handleSelectOption(0);
+      else if (k === "2" || k === "b") handleSelectOption(1);
+      else if (k === "3" || k === "c") handleSelectOption(2);
+      else if (k === "4" || k === "d") handleSelectOption(3);
+      else if (k === "arrowleft" || k === "j") setCurrentIndex((p) => Math.max(0, p - 1));
+      else if (k === "arrowright" || k === "k") setCurrentIndex((p) => Math.min(questions.length - 1, p + 1));
+      else if (k === "f") toggleFlag();
+      else if (k === "s") toggleBookmark();
+      else if (k === "?") setShowShortcuts((p) => !p);
+      else if (k === "n") setShowNotesBox((p) => !p);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentIndex, questions, qKey, submitted, bookmarks, flagged]);
+
   if (!questions || questions.length === 0) {
     return (
       <div className="card" style={{ textAlign: "center", padding: "3rem 1.5rem" }}>
@@ -79,44 +189,6 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
       </div>
     );
   }
-
-  const q = questions[currentIndex];
-  const qKey = q.key;
-  const chosen = answers[qKey];
-  const isBookmarked = bookmarks.has(qKey);
-  const isFlagged = flagged.has(qKey);
-
-  const handleSelectOption = (idx) => {
-    if (submitted) return;
-    setAnswers((prev) => ({ ...prev, [qKey]: idx }));
-    if (mode === "practice") {
-      setShowExplanation((prev) => ({ ...prev, [qKey]: true }));
-    }
-  };
-
-  const toggleBookmark = async () => {
-    const next = new Set(bookmarks);
-    if (next.has(qKey)) next.delete(qKey);
-    else next.add(qKey);
-    setBookmarks(next);
-
-    try {
-      await fetch("/api/bookmarks", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ key: qKey }),
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  const toggleFlag = () => {
-    const next = new Set(flagged);
-    if (next.has(qKey)) next.delete(qKey);
-    else next.add(qKey);
-    setFlagged(next);
-  };
 
   const handleSubmit = async (auto = false) => {
     if (submitting || submitted) return;
@@ -181,6 +253,28 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
       if (filterReview === "wrong") return !isCorrect;
       if (filterReview === "correct") return isCorrect;
       return true;
+    });
+
+    // Compute Confidence Matrix
+    let confHighCorrect = 0, confHighWrong = 0;
+    let confMedCorrect = 0, confMedWrong = 0;
+    let confLowCorrect = 0, confLowWrong = 0;
+    let hasConfidenceData = false;
+
+    questions.forEach((item) => {
+      const c = confidence[item.key];
+      const isCorrect = answers[item.key] === item.answer;
+      if (c) hasConfidenceData = true;
+      if (c === "high") {
+        if (isCorrect) confHighCorrect++;
+        else confHighWrong++;
+      } else if (c === "med") {
+        if (isCorrect) confMedCorrect++;
+        else confMedWrong++;
+      } else if (c === "low") {
+        if (isCorrect) confLowCorrect++;
+        else confLowWrong++;
+      }
     });
 
     return (
@@ -299,6 +393,71 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
             })}
           </div>
         </div>
+
+        {/* Confidence Matrix Card */}
+        {hasConfidenceData && (
+          <div className="card" style={{ borderTop: "4px solid var(--accent)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem", flexWrap: "wrap", gap: "0.5rem" }}>
+              <div>
+                <h3 style={{ fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.2rem" }}>
+                  🎯 Ma Trận Độ Tự Tin &amp; Phân Tích Điểm Mù
+                </h3>
+                <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                  Đối chiếu giữa cảm nhận chủ quan và kết quả làm bài thực tế giúp bạn nhận ra những lỗ hổng kiến thức tiềm ẩn.
+                </p>
+              </div>
+              <span className="badge badge-accent">AI Analysis</span>
+            </div>
+
+            <div className="grid-2" style={{ marginTop: "1rem" }}>
+              {/* Confident & Correct */}
+              <div style={{ padding: "1rem", borderRadius: "var(--radius-sm)", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, color: "var(--success)", marginBottom: "0.35rem" }}>
+                  <span>⭐ Tự Tin &amp; Trả Lời Đúng:</span>
+                  <span style={{ fontSize: "1.1rem" }}>{confHighCorrect} câu</span>
+                </div>
+                <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                  Kiến thức vững chắc! Bạn hoàn toàn làm chủ các câu hỏi này và không bị bẫy.
+                </p>
+              </div>
+
+              {/* Confident & Wrong - DANGER ALERT! */}
+              <div style={{ padding: "1rem", borderRadius: "var(--radius-sm)", background: "rgba(239, 68, 68, 0.1)", border: "1px solid rgba(239, 68, 68, 0.3)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, color: "var(--danger)", marginBottom: "0.35rem" }}>
+                  <span>⚠️ Tự Tin nhưng Chọn SAI (BẪY!):</span>
+                  <span style={{ fontSize: "1.1rem" }}>{confHighWrong} câu</span>
+                </div>
+                <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                  {confHighWrong > 0
+                    ? `CẢNH BÁO ĐIỂM MÙ: Có ${confHighWrong} câu bạn nghĩ mình làm đúng 100% nhưng thực tế lại sập bẫy! Hãy kéo xuống đọc kỹ giải thích chi tiết.`
+                    : "Tuyệt vời! Bạn không bị ảo tưởng kiến thức ở bất kỳ câu nào."}
+                </p>
+              </div>
+
+              {/* Guess/Med & Correct */}
+              <div style={{ padding: "1rem", borderRadius: "var(--radius-sm)", background: "rgba(245, 158, 11, 0.1)", border: "1px solid rgba(245, 158, 11, 0.3)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, color: "var(--warning)", marginBottom: "0.35rem" }}>
+                  <span>🎲 Phân Vân / Đoán Mò mà Đúng:</span>
+                  <span style={{ fontSize: "1.1rem" }}>{confMedCorrect + confLowCorrect} câu</span>
+                </div>
+                <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                  May mắn đoán trúng! Bạn nên đọc lại lý thuyết để nắm chắc bản chất, tránh bị bối rối khi đi thi thực tế.
+                </p>
+              </div>
+
+              {/* Guess/Med & Wrong */}
+              <div style={{ padding: "1rem", borderRadius: "var(--radius-sm)", background: "var(--bg-input)", border: "1px solid var(--border)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, color: "var(--text-main)", marginBottom: "0.35rem" }}>
+                  <span>📖 Chưa Vững &amp; Chọn Sai:</span>
+                  <span style={{ fontSize: "1.1rem" }}>{confMedWrong + confLowWrong} câu</span>
+                </div>
+                <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                  Chủ đề này còn mới với bạn. Hãy bấm lưu (⭐) để học lại trong mục Câu đã đánh dấu.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Review Questions List with Explanations */}
         <div>
@@ -486,26 +645,81 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
         {/* Left: Active Question Card */}
         <div className="card" style={{ padding: "1.75rem" }}>
           {/* Question Meta Header */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
             <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
               <span className="badge badge-primary">Câu {currentIndex + 1} / {questions.length}</span>
               <span className="badge badge-accent">{q.topic || "Java"}</span>
               {isFlagged && <span className="badge badge-warning">🚩 Xem lại sau</span>}
             </div>
 
-            <div style={{ display: "flex", gap: "0.5rem" }}>
+            {/* Assistive Controls Bar */}
+            <div style={{ display: "flex", gap: "0.4rem", alignItems: "center", flexWrap: "wrap" }}>
+              {/* Font Size Adjuster */}
+              <div style={{ display: "inline-flex", borderRadius: "var(--radius-sm)", border: "1px solid var(--border)", overflow: "hidden" }}>
+                <button
+                  type="button"
+                  onClick={() => setFontScale((p) => Math.max(0.85, +(p - 0.1).toFixed(2)))}
+                  className="btn btn-ghost btn-sm"
+                  title="Giảm cỡ chữ"
+                  style={{ padding: "0.2rem 0.5rem", fontSize: "0.78rem" }}
+                >
+                  A-
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFontScale((p) => Math.min(1.35, +(p + 0.1).toFixed(2)))}
+                  className="btn btn-ghost btn-sm"
+                  title="Tăng cỡ chữ"
+                  style={{ padding: "0.2rem 0.5rem", fontSize: "0.78rem", borderLeft: "1px solid var(--border)" }}
+                >
+                  A+
+                </button>
+              </div>
+
+              {/* Personal Notes Toggle */}
               <button
+                type="button"
+                onClick={() => setShowNotesBox((p) => !p)}
+                className={`btn btn-sm ${notes[qKey] ? "btn-primary" : "btn-secondary"}`}
+                title="Ghi chú cá nhân cho câu hỏi này"
+                style={{ padding: "0.25rem 0.6rem", fontSize: "0.82rem" }}
+              >
+                📝 {notes[qKey] ? "Ghi chú (Có)" : "Ghi chú"}
+              </button>
+
+              {/* Keyboard Shortcuts Helper */}
+              <button
+                type="button"
+                onClick={() => setShowShortcuts(true)}
+                className="btn btn-secondary btn-sm"
+                title="Xem phím tắt bàn phím"
+                style={{ padding: "0.25rem 0.5rem", fontSize: "0.82rem" }}
+              >
+                ⌨️
+              </button>
+
+              {/* Flag Toggle */}
+              <button
+                type="button"
                 onClick={toggleFlag}
                 className="btn btn-secondary btn-sm"
                 title="Đánh dấu cần xem lại"
+                style={{ padding: "0.25rem 0.6rem", fontSize: "0.82rem" }}
               >
                 🚩 {isFlagged ? "Bỏ cờ" : "Cờ"}
               </button>
+
+              {/* Bookmark Toggle */}
               <button
+                type="button"
                 onClick={toggleBookmark}
                 className="btn btn-secondary btn-sm"
-                title="Lưu câu hỏi"
-                style={{ color: isBookmarked ? "var(--warning)" : "var(--text-muted)" }}
+                title="Lưu câu hỏi khó"
+                style={{
+                  padding: "0.25rem 0.6rem",
+                  fontSize: "0.82rem",
+                  color: isBookmarked ? "var(--warning)" : "var(--text-muted)",
+                }}
               >
                 ⭐ {isBookmarked ? "Đã lưu" : "Lưu"}
               </button>
@@ -513,7 +727,15 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           </div>
 
           {/* Question Text */}
-          <h3 style={{ fontSize: "1.15rem", fontWeight: 600, marginBottom: "1rem", lineHeight: 1.5 }}>
+          <h3
+            style={{
+              fontSize: `${1.15 * fontScale}rem`,
+              fontWeight: 600,
+              marginBottom: "1rem",
+              lineHeight: 1.5,
+              transition: "font-size 0.15s ease",
+            }}
+          >
             {q.text}
           </h3>
 
@@ -521,6 +743,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           {q.code && (
             <div
               className="code-box"
+              style={{ fontSize: `${0.9 * fontScale}rem` }}
               dangerouslySetInnerHTML={{ __html: `<pre><code>${highlightJava(q.code)}</code></pre>` }}
             />
           )}
@@ -528,8 +751,10 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           {/* Options */}
           <div style={{ marginTop: "1.25rem" }}>
             {q.options.map((opt, idx) => {
+              const isElim = (eliminated[qKey] || []).includes(idx);
               let optClass = "option-btn";
               if (chosen === idx) optClass += " selected";
+              if (isElim) optClass += " eliminated";
 
               // If practice mode and option selected, reveal result immediately!
               if (mode === "practice" && chosen !== undefined) {
@@ -538,29 +763,95 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
               }
 
               return (
-                <button
-                  key={idx}
-                  onClick={() => handleSelectOption(idx)}
-                  className={optClass}
-                >
-                  <span className="option-label">{String.fromCharCode(65 + idx)}</span>
-                  <span style={{ flex: 1, fontSize: "0.95rem" }}>{opt}</span>
-                  {mode === "practice" && chosen !== undefined && idx === q.answer && (
-                    <span style={{ color: "var(--success)", fontWeight: 700 }}>✓ Đúng</span>
-                  )}
-                  {mode === "practice" && chosen === idx && idx !== q.answer && (
-                    <span style={{ color: "var(--danger)", fontWeight: 700 }}>✗ Sai</span>
-                  )}
-                </button>
+                <div key={idx} style={{ position: "relative", marginBottom: "0.6rem" }}>
+                  <button
+                    onClick={() => handleSelectOption(idx)}
+                    className={optClass}
+                    style={{
+                      width: "100%",
+                      marginBottom: 0,
+                      paddingRight: "4.5rem",
+                      fontSize: `${0.95 * fontScale}rem`,
+                    }}
+                  >
+                    <span className="option-label">{String.fromCharCode(65 + idx)}</span>
+                    <span style={{ flex: 1, textAlign: "left" }}>{opt}</span>
+                    {mode === "practice" && chosen !== undefined && idx === q.answer && (
+                      <span style={{ color: "var(--success)", fontWeight: 700 }}>✓ Đúng</span>
+                    )}
+                    {mode === "practice" && chosen === idx && idx !== q.answer && (
+                      <span style={{ color: "var(--danger)", fontWeight: 700 }}>✗ Sai</span>
+                    )}
+                  </button>
+
+                  {/* Strike-through / Option eliminator button */}
+                  <button
+                    type="button"
+                    onClick={(e) => toggleEliminate(e, idx)}
+                    className="strike-btn"
+                    title={isElim ? "Bỏ gạch đáp án" : "Gạch bỏ loại trừ đáp án này"}
+                  >
+                    {isElim ? "↩️ Bỏ gạch" : "✂️ Gạch"}
+                  </button>
+                </div>
               );
             })}
           </div>
+
+          {/* Confidence Selector (Đánh giá độ tự tin) */}
+          <div className="confidence-box">
+            <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "0.4rem" }}>
+              <span>🎯 Độ tự tin của bạn:</span>
+            </div>
+            <div className="confidence-pills">
+              <button
+                type="button"
+                className={`confidence-pill pill-high ${confidence[qKey] === "high" ? "active" : ""}`}
+                onClick={() => handleSetConfidence("high")}
+                title="Chắc chắn 100% đúng kiến thức"
+              >
+                🟢 Chắc chắn 100%
+              </button>
+              <button
+                type="button"
+                className={`confidence-pill pill-med ${confidence[qKey] === "med" ? "active" : ""}`}
+                onClick={() => handleSetConfidence("med")}
+                title="Phân vân giữa 2 đáp án hoặc chưa chắc lắm"
+              >
+                🟡 50/50 Phân vân
+              </button>
+              <button
+                type="button"
+                className={`confidence-pill pill-low ${confidence[qKey] === "low" ? "active" : ""}`}
+                onClick={() => handleSetConfidence("low")}
+                title="Đoán mò hoặc chưa biết câu này"
+              >
+                🔴 Đoán mò
+              </button>
+            </div>
+          </div>
+
+          {/* Personal Notes Box (Ghi chú cá nhân) */}
+          {showNotesBox && (
+            <div className="notes-container">
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                <span style={{ fontSize: "0.85rem", fontWeight: 600 }}>📝 Ghi chú cá nhân (Câu {currentIndex + 1}):</span>
+                <span style={{ fontSize: "0.75rem", color: "var(--text-dim)" }}>Tự động lưu vào máy</span>
+              </div>
+              <textarea
+                className="notes-textarea"
+                placeholder="Ghi chú kiến thức cần nhớ, lý do bẫy hoặc phương pháp nhớ cho câu này..."
+                value={notes[qKey] || ""}
+                onChange={(e) => handleSaveNote(e.target.value)}
+              />
+            </div>
+          )}
 
           {/* Detailed Explanation in Practice Mode */}
           {mode === "practice" && (showExplanation[qKey] || chosen !== undefined) && q.explanation && (
             <div className="explanation-box">
               <div className="explanation-title">💡 Giải thích chi tiết:</div>
-              <div className="explanation-text">{q.explanation}</div>
+              <div className="explanation-text" style={{ fontSize: `${0.92 * fontScale}rem` }}>{q.explanation}</div>
             </div>
           )}
 
@@ -675,6 +966,62 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                 disabled={submitting}
               >
                 {submitting ? "Đang chấm điểm..." : "Nộp bài ngay"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Keyboard Shortcuts Modal */}
+      {showShortcuts && (
+        <div className="modal-overlay" onClick={() => setShowShortcuts(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: 520 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 700 }}>⌨️ Phím Tắt Tiện Ích</h3>
+              <button className="btn btn-ghost btn-sm" onClick={() => setShowShortcuts(false)}>✕</button>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.9rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--border)", paddingBottom: "0.4rem" }}>
+                <span>Chọn đáp án A, B, C, D</span>
+                <div style={{ display: "flex", gap: "0.25rem" }}>
+                  <span className="kbd-badge">1-4</span>
+                  <span className="kbd-badge">A-D</span>
+                </div>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--border)", paddingBottom: "0.4rem" }}>
+                <span>Câu trước</span>
+                <div style={{ display: "flex", gap: "0.25rem" }}>
+                  <span className="kbd-badge">←</span>
+                  <span className="kbd-badge">J</span>
+                </div>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--border)", paddingBottom: "0.4rem" }}>
+                <span>Câu tiếp theo</span>
+                <div style={{ display: "flex", gap: "0.25rem" }}>
+                  <span className="kbd-badge">→</span>
+                  <span className="kbd-badge">K</span>
+                </div>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--border)", paddingBottom: "0.4rem" }}>
+                <span>Gắn / Bỏ cờ xem lại</span>
+                <span className="kbd-badge">F</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--border)", paddingBottom: "0.4rem" }}>
+                <span>Lưu câu hỏi (Bookmark)</span>
+                <span className="kbd-badge">S</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--border)", paddingBottom: "0.4rem" }}>
+                <span>Mở / Đóng ghi chú cá nhân</span>
+                <span className="kbd-badge">N</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span>Hiện / Tắt bảng phím tắt</span>
+                <span className="kbd-badge">?</span>
+              </div>
+            </div>
+            <div style={{ marginTop: "1.25rem", textAlign: "right" }}>
+              <button className="btn btn-primary btn-sm" onClick={() => setShowShortcuts(false)}>
+                Đã hiểu
               </button>
             </div>
           </div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar({ user }) {
   const pathname = usePathname();
@@ -60,8 +61,12 @@ export default function Navbar({ user }) {
             </Link>
           )}
 
+          <div style={{ marginLeft: "0.25rem", marginRight: "0.25rem" }}>
+            <ThemeToggle />
+          </div>
+
           {user ? (
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginLeft: "0.5rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginLeft: "0.25rem" }}>
               <Link href="/profile" className={`nav-link ${pathname === "/profile" ? "active" : ""}`}>
                 <span>👤</span>
                 <span style={{ fontWeight: 600 }}>{user.username}</span>
