@@ -14,8 +14,6 @@ Frontend & Backend Next.js application for Java Quiz Master.
    MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
    MONGODB_DB=javaquiz
    JWT_SECRET=your-secret-key-at-least-32-chars
-   ADMIN_USERNAME=trungadmin
-   ADMIN_PASSWORD=your-secure-admin-password
    ```
 
 3. Khởi động môi trường phát triển:
