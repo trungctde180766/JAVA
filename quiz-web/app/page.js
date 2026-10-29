@@ -38,18 +38,7 @@ export default async function HomePage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
       {/* Hero Section */}
-      <section
-        className="card card-glass"
-        style={{
-          padding: "2.75rem 2rem",
-          borderRadius: "var(--radius-lg)",
-          background: "linear-gradient(135deg, rgba(24, 34, 60, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%)",
-          border: "1px solid rgba(99, 102, 241, 0.25)",
-          textAlign: "center",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      <section className="card card-glass hero-banner">
         <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
           <span className="badge badge-primary">🎯 Phỏng Vấn 1-1 Theo Dạng</span>
           <span className="badge badge-accent">📚 3 Bộ Đề Chuẩn Môn Học</span>
@@ -127,17 +116,7 @@ export default async function HomePage() {
             </div>
           </div>
         ) : (
-          <div
-            style={{
-              marginTop: "1.8rem",
-              padding: "0.85rem 1.25rem",
-              borderRadius: "var(--radius-sm)",
-              background: "rgba(99, 102, 241, 0.1)",
-              border: "1px dashed rgba(99, 102, 241, 0.3)",
-              display: "inline-block",
-              fontSize: "0.92rem",
-            }}
-          >
+          <div className="hero-tip-box">
             💡 <em>Mẹo:</em> <Link href="/register" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "underline" }}>Đăng ký tài khoản</Link> hoặc <Link href="/login" style={{ color: "var(--accent)", fontWeight: 600, textDecoration: "underline" }}>Đăng nhập</Link> để hệ thống tự động ghi nhớ các câu bạn làm sai và theo dõi tiến độ học tập riêng của bạn!
           </div>
         )}
