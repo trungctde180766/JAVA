@@ -37,7 +37,7 @@ Hệ thống câu hỏi phỏng vấn thực chiến được phân loại rõ r
 ### 3. 🛡️ Trang Quản trị Admin (`/admin`)
 - Tài khoản quản trị mặc định:
   - **Tên đăng nhập:** `trungadmin`
-  - **Mật khẩu:** `trungadmin123`
+  - **Mật khẩu:** Cấu hình qua biến môi trường `ADMIN_PASSWORD` (tùy chọn theo dự án của bạn)
 - Quản lý danh sách người dùng (khóa/mở tài khoản, đổi quyền, reset mật khẩu, xóa tài khoản).
 - Trình biên tập đề thi trực quan (**Visual Quiz Editor**):
   - Thêm, sửa, xóa câu hỏi.
@@ -117,11 +117,10 @@ npm install
 Tạo file `.env.local` bên trong thư mục `quiz-web/` (hoặc sao chép từ `.env.example`):
 
 ```ini
-MONGODB_URI=mongodb+srv://thanhtrungse18b05_db_user:doO4DjnFsZsvNUGM@cluster0.bhtl8lr.mongodb.net/javaquiz?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
 MONGODB_DB=javaquiz
-JWT_SECRET=super-secret-key-java-quiz-2026-production
-ADMIN_USERNAME=trungadmin
-ADMIN_PASSWORD=trungadmin123
+JWT_SECRET=your-random-jwt-secret-key-at-least-32-chars
+
 ```
 
 > **Ghi chú**: Kết nối MongoDB Atlas đã được tạo sẵn cấu hình và tự động kích hoạt tạo bảng, chỉ mục và nạp dữ liệu 80 câu hỏi cùng tài khoản admin ngay lần chạy đầu tiên.
@@ -144,11 +143,11 @@ Truy cập trên trình duyệt tại: **`http://localhost:3000`**
 2. Bấm **"Add New..."** -> **"Project"** -> Chọn repository: `trungctde180766/JAVA`.
 3. Trong phần **Root Directory**: Chọn **`quiz-web`** (bấm *Edit* và chọn thư mục `quiz-web`).
 4. Trong phần **Environment Variables**, điền các biến môi trường sau:
-   - `MONGODB_URI`: `mongodb+srv://thanhtrungse18b05_db_user:doO4DjnFsZsvNUGM@cluster0.bhtl8lr.mongodb.net/javaquiz?retryWrites=true&w=majority`
+   - `MONGODB_URI`: Chuỗi kết nối MongoDB Atlas của bạn (dạng `mongodb+srv://<username>:<password>@cluster0.../javaquiz?retryWrites=true&w=majority`)
    - `MONGODB_DB`: `javaquiz`
-   - `JWT_SECRET`: một chuỗi ký tự bí mật bất kỳ (ví dụ: `my-super-secret-jwt-key-2026`)
+   - `JWT_SECRET`: một chuỗi ký tự bí mật bất kỳ tối thiểu 32 ký tự
    - `ADMIN_USERNAME`: `trungadmin`
-   - `ADMIN_PASSWORD`: `trungadmin123`
+   - `ADMIN_PASSWORD`: mật khẩu admin bảo mật do bạn tự đặt
 5. Bấm **"Deploy"**. Vercel sẽ tự động build và cấp domain HTTPS miễn phí trong vòng 1-2 phút!
 
 ---
@@ -169,7 +168,7 @@ Dự án đã tích hợp sẵn workflow tự động tại file [`.github/workf
 
 | Vai trò | Tên đăng nhập | Mật khẩu mặc định | Quyền hạn |
 | :--- | :--- | :--- | :--- |
-| **Quản trị viên (Admin)** | `trungadmin` | `trungadmin123` | Toàn quyền quản lý đề thi, sửa/thêm câu hỏi, quản lý thành viên, khôi phục DB |
+| **Quản trị viên (Admin)** | `trungadmin` | Cấu hình qua `ADMIN_PASSWORD` | Toàn quyền quản lý đề thi, sửa/thêm câu hỏi, quản lý thành viên, khôi phục DB |
 | **Học viên (User)** | Tự đăng ký qua form `/register` | Mật khẩu tự đặt | Thi thử, ôn luyện, đánh dấu câu hỏi, theo dõi lịch sử và tiến độ cá nhân |
 
 ---

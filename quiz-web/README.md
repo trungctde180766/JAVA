@@ -11,11 +11,11 @@ Frontend & Backend Next.js application for Java Quiz Master.
 
 2. Tạo file `.env.local` (tham khảo `.env.example`):
    ```ini
-   MONGODB_URI=mongodb+srv://thanhtrungse18b05_db_user:doO4DjnFsZsvNUGM@cluster0.bhtl8lr.mongodb.net/javaquiz?retryWrites=true&w=majority
+   MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
    MONGODB_DB=javaquiz
    JWT_SECRET=your-secret-key-at-least-32-chars
    ADMIN_USERNAME=trungadmin
-   ADMIN_PASSWORD=trungadmin123
+   ADMIN_PASSWORD=your-secure-admin-password
    ```
 
 3. Khởi động môi trường phát triển:
