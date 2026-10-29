@@ -57,7 +57,22 @@ async function setup(db) {
       .collection("quizzes")
       .updateOne(
         { slug: q.slug },
-        { $setOnInsert: { ...q, createdAt: now, updatedAt: now } },
+        {
+          $set: {
+            title: q.title,
+            description: q.description,
+            color: q.color,
+            icon: q.icon,
+            questions: q.questions,
+            updatedAt: now,
+          },
+          $setOnInsert: {
+            slug: q.slug,
+            createdAt: now,
+            hidden: false,
+            order: q.order || 99,
+          },
+        },
         { upsert: true }
       )
       .catch(ignoreDup);

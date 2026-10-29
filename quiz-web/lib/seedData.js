@@ -38,7 +38,7 @@ const quiz1 = {
       ],
       answer: 1,
       explanation:
-        "Đa hình (Polymorphism) = MỘT hành động được thực hiện theo NHIỀU cách khác nhau (overloading – đa hình lúc biên dịch, overriding – đa hình lúc chạy).\n• (a) là Inheritance (kế thừa)\n• (c) là Abstraction (trừu tượng)\n• (d) là Encapsulation (đóng gói)",
+        "💡 Bản chất kiến thức:\nĐa hình (Polymorphism) bắt nguồn từ tiếng Hy Lạp (Poly = nhiều, Morph = hình thái), thể hiện nguyên lý: 'Một thông điệp / hành động nhưng được thực hiện theo nhiều cách khác nhau tùy theo đối tượng tiếp nhận'.\nTrong Java có 2 cơ chế đa hình:\n1. Compile-time Polymorphism (Đa hình lúc biên dịch): Thực hiện qua Method Overloading (cùng tên, khác tham số).\n2. Runtime Polymorphism (Đa hình lúc chạy): Thực hiện qua Method Overriding (lớp con định nghĩa lại phương thức của lớp cha, JVM quyết định method nào dựa trên đối tượng thực tế trong Heap thông qua Dynamic Method Dispatch).\n\n❌ Phân tích các đáp án còn lại:\n• (A) 'When one object acquires all the properties...': Đây là Tính Kế Thừa (Inheritance - quan hệ IS-A).\n• (C) 'When hiding internal details and showing functionality': Đây là Tính Trừu Tượng (Abstraction - ẩn giấu logic phức tạp qua Interface / Abstract class).\n• (D) 'When binding code and data together': Đây là Tính Đóng Gói (Encapsulation - gom thuộc tính private và cấp getter/setter).\n\n⚠️ Lưu ý thi & phỏng vấn: Thuộc tính (field/variable) trong Java KHÔNG có tính đa hình, chỉ có phương thức mới có tính đa hình.",
     },
     {
       id: "q02",
@@ -47,7 +47,7 @@ const quiz1 = {
       options: ["Fields", "Methods", "Constructors", "Nested class and interface", "All of the above are TRUE"],
       answer: 4,
       explanation:
-        "Một class trong Java có thể chứa: field (thuộc tính), method, constructor, block khởi tạo, nested class và interface. Vì vậy chọn “All of the above”.",
+        "💡 Bản chất kiến thức:\nTheo chuẩn Java Language Specification (JLS), một Class trong Java là một bản thiết kế (blueprint) toàn diện và có thể chứa đầy đủ các thành phần sau:\n1. Fields (Thuộc tính / biến thành viên): Biến static hoặc biến instance.\n2. Methods (Phương thức): Chứa logic xử lý, gồm static và instance methods.\n3. Constructors (Hàm khởi tạo): Dùng để khởi tạo đối tượng khi gọi từ khóa `new`.\n4. Initialization Blocks: Khối static initialization `{}` hoặc instance initialization `{}`.\n5. Nested types: Gồm Nested class (static nested class, inner class, anonymous class) và Nested interface.\n\n❌ Vì tất cả 4 thành phần trên đều hoàn toàn hợp lệ trong cú pháp Java, đáp án chính xác là 'All of the above are TRUE'.",
     },
     {
       id: "q03",
@@ -56,7 +56,7 @@ const quiz1 = {
       options: ["By new keyword", "By newInstance() method", "By clone() method", "All of the answers"],
       answer: 3,
       explanation:
-        "Có nhiều cách tạo object: từ khóa new, newInstance() (Reflection), clone(), deserialization, factory method… nên cả 3 cách được liệt kê đều đúng.",
+        "💡 Bản chất kiến thức:\nTrong Java có tới 5 cách phổ biến để tạo một đối tượng (Object) trong bộ nhớ Heap:\n1. Từ khóa `new`: Cách phổ biến nhất (`Dog d = new Dog();`), gọi trực tiếp constructor.\n2. Reflection qua `newInstance()`: `Class.forName(\"Dog\").getDeclaredConstructor().newInstance();` (dùng nhiều trong các framework như Spring, Hibernate để tạo Bean động).\n3. Phương thức `clone()`: Tạo bản sao của một đối tượng hiện có mà không cần gọi constructor (yêu cầu class implement `Cloneable`).\n4. Deserialization: Tái tạo đối tượng từ luồng byte (`ObjectInputStream.readObject()`).\n5. Factory Methods / Builder Pattern.\n\n❌ Cả 3 cách liệt kê trong câu hỏi đều là chuẩn cú pháp Java, vì vậy chọn 'All of the answers'.",
     },
     {
       id: "q04",
@@ -71,7 +71,7 @@ const quiz1 = {
       ],
       answer: 4,
       explanation:
-        "2 quy tắc của constructor: (A) tên trùng với tên class, (B) không có kiểu trả về (kể cả void). Constructor HOÀN TOÀN có thể có tham số (parameterized constructor) nên (C) sai → chọn “Only A and B”.",
+        "💡 Hai quy tắc bắt buộc của Constructor trong Java:\n1. Tên của constructor BẮT BUỘC phải trùng khớp 100% với tên class (phân biệt chữ hoa/thường).\n2. Constructor KHÔNG ĐƯỢC CÓ KIỂU TRẢ VỀ rõ ràng (kể cả từ khóa `void`).\n\n❌ Vì sao (C) sai:\n• Constructor HOÀN TOÀN CÓ THỂ CÓ THAM SỐ (gọi là Parameterized Constructor), ví dụ: `public Student(String name, int age) {}`. Việc có tham số giúp truyền dữ liệu khởi tạo ngay khi tạo object.\n\n⚠️ Bẫy thi trắc nghiệm: Nếu bạn vô tình viết kiểu trả về `public void Student() {}`, Java sẽ KHÔNG báo lỗi biên dịch mà nó sẽ biến hàm này thành một METHOD THÔNG THƯỜNG trùng tên với class. Khi bạn gọi `new Student()`, hàm `void Student()` sẽ không được thực thi!",
     },
     {
       id: "q05",
@@ -84,7 +84,7 @@ const quiz1 = {
       ],
       answer: 0,
       explanation:
-        "Kế thừa thể hiện quan hệ IS-A (Dog IS-A Animal), còn gọi là quan hệ cha–con. HAS-A là quan hệ Aggregation/Composition. Kế thừa chính là cơ chế cho phép TẠO class mới dựa trên class có sẵn nên (c) sai.",
+        "💡 Bản chất Kế thừa (Inheritance):\n• Kế thừa thể hiện quan hệ IS-A (Là một loại...): Ví dụ `Dog IS-A Animal`, `Car IS-A Vehicle`. Class con kế thừa các thuộc tính và hành vi có phạm vi truy cập thích hợp từ class cha.\n\n❌ Phân tích các đáp án sai:\n• 'Represents the HAS-A relationship': SAI. Quan hệ HAS-A (Có một...) là quan hệ Chứa (Composition / Aggregation), ví dụ: `Car HAS-A Engine` (Class Car chứa 1 trường thuộc tính kiểu Engine).\n• 'Is a mechanism in which you can not create new classes...': SAI HOÀN TOÀN về mặt định nghĩa, vì kế thừa chính là cơ chế CHO PHÉP tạo ra lớp mới dựa trên các lớp hiện có để tái sử dụng mã nguồn.",
     },
     {
       id: "q06",
@@ -97,7 +97,7 @@ const quiz1 = {
       ],
       answer: 2,
       explanation:
-        "Overloading = nhiều method CÙNG TÊN nhưng KHÁC tham số (số lượng hoặc kiểu). Cùng tên + cùng tham số sẽ bị lỗi biên dịch; còn (b) thiếu điều kiện “cùng tên”.",
+        "💡 Bản chất Nạp chồng phương thức (Method Overloading):\n• Method Overloading là hiện tượng trong cùng một class (hoặc thông qua kế thừa) có nhiều phương thức CÙNG TÊN nhưng KHÁC NHAU VỀ DANH SÁCH THAM SỐ (Method Signature khác nhau).\n• Khác nhau về tham số bao gồm:\n  1. Khác số lượng tham số: `sum(int, int)` vs `sum(int, int, int)`\n  2. Khác kiểu dữ liệu: `sum(int, int)` vs `sum(double, double)`\n  3. Khác thứ tự kiểu dữ liệu: `log(int, String)` vs `log(String, int)`\n\n❌ Phân tích các đáp án sai:\n• 'same name and same parameters': Nếu cùng tên và cùng tham số, compiler sẽ báo lỗi `method already defined in class`.\n• 'different in parameters': Thiếu điều kiện quan trọng nhất là phải CÙNG TÊN.",
     },
     {
       id: "q07",
@@ -111,7 +111,7 @@ const quiz1 = {
       ],
       answer: 2,
       explanation:
-        "Có 2 cách overload: đổi số lượng tham số hoặc đổi kiểu dữ liệu tham số. Lưu ý: CHỈ đổi kiểu trả về thì KHÔNG phải overload (lỗi biên dịch).",
+        "💡 Hai cách hợp lệ để Overload method trong Java:\n1. Thay đổi số lượng tham số (Number of arguments).\n2. Thay đổi kiểu dữ liệu của tham số (Data type of arguments) hoặc thứ tự kiểu tham số.\n\n⚠️ Bẫy thi trắc nghiệm & phỏng vấn CỰC KỲ QUAN TRỌNG:\nCHỈ thay đổi kiểu trả về (Return Type) thì KHÔNG ĐƯỢC coi là Overloading. Trình biên dịch sẽ báo lỗi trùng lặp phương thức ngay lập tức! Ví dụ:\n`int get()` và `double get()` trong cùng class sẽ gây COMPILE ERROR vì khi gọi `get()`, compiler không biết bạn muốn nhận về kiểu gì.",
     },
     {
       id: "q08",
@@ -125,7 +125,7 @@ const quiz1 = {
       ],
       answer: 1,
       explanation:
-        "Overriding = class con khai báo lại method GIỐNG HỆT (tên + tham số) method của class cha để cung cấp cài đặt riêng. (a) là overloading. (d) sai vì override là cài đặt lại method ĐÃ CÓ ở class cha.",
+        "💡 Bản chất Ghi đè phương thức (Method Overriding):\n• Xảy ra giữa hai class có quan hệ kế thừa (cha - con).\n• Lớp con (subclass) định nghĩa lại phương thức ĐÃ ĐƯỢC KHAI BÁO ở lớp cha với CÙNG TÊN, CÙNG DANH SÁCH THAM SỐ và kiểu trả về tương thích (Covariant return type) nhằm thay đổi hoặc mở rộng hành vi của lớp cha.\n\n❌ Phân tích các đáp án sai:\n• (A) 'same name but different in parameters': Đây là Overloading.\n• (C) 'Represents HAS-A relationship': Overriding bắt buộc phải là quan hệ IS-A (Kế thừa).\n• (D) 'that has not been provided by one of its parent class': Sai vì method đó ĐÃ ĐƯỢC cung cấp ở lớp cha rồi.",
     },
     {
       id: "q09",
@@ -139,7 +139,7 @@ const quiz1 = {
       ],
       answer: 3,
       explanation:
-        "3 quy tắc override: cùng tên, cùng danh sách tham số, và phải có quan hệ IS-A (kế thừa). (Trong đề gốc đáp án c bị in trùng với b.)",
+        "💡 Toàn bộ các quy tắc bắt buộc của Method Overriding:\n1. Tên phương thức ở lớp con phải trùng khớp với lớp cha.\n2. Danh sách tham số phải trùng khớp hoàn toàn (số lượng, kiểu, thứ tự).\n3. Bắt buộc phải có quan hệ kế thừa IS-A (`extends` hoặc `implements`).\n4. Access modifier của phương thức ở lớp con KHÔNG ĐƯỢC HẸP HƠN lớp cha (ví dụ cha là `protected` thì con phải là `protected` hoặc `public`, không thể là `private` hay `default`).\n5. Không được ném checked exception rộng hơn checked exception của phương thức lớp cha.\n\nDo cả 3 mệnh đề A, B, C đều là quy tắc chuẩn, ta chọn 'All of the above'.",
     },
     {
       id: "q10",
@@ -148,7 +148,7 @@ const quiz1 = {
       options: ["Yes", "No", "Sometimes Yes, Sometimes No"],
       answer: 1,
       explanation:
-        "Không. Method static thuộc về CLASS chứ không thuộc object, được liên kết lúc biên dịch. Nếu class con khai báo static method cùng chữ ký thì đó là method HIDING, không phải overriding.",
+        "💡 Bản chất chuyên sâu về Static Method:\n• KHÔNG THỂ override phương thức `static` trong Java!\n• Lý do: Phương thức `static` thuộc về CLASS chứ không thuộc về đối tượng (object/instance). Nó được liên kết tĩnh ngay tại thời điểm biên dịch (Compile-time / Early Binding).\n• Trong khi đó, Overriding là đa hình lúc chạy (Runtime Polymorphism), đòi hỏi cơ chế Dynamic Method Dispatch dựa trên đối tượng thực tế trong bộ nhớ Heap.\n\n⚠️ Bẫy thi trắc nghiệm & phỏng vấn (Method Hiding):\nNếu lớp con viết một static method có tên và tham số giống hệt static method ở lớp cha, code VẪN BIÊN DỊCH ĐƯỢC, nhưng Java gọi đây là **METHOD HIDING** (che giấu phương thức), hoàn toàn không phải Overriding! Khi bạn gọi qua kiểu tham chiếu của lớp cha `Parent p = new Child(); p.staticMethod();`, phương thức của LỚP CHA vẫn sẽ chạy!",
     },
     {
       id: "q11",
@@ -162,7 +162,7 @@ const quiz1 = {
       ],
       answer: 3,
       explanation:
-        "Phạm vi truy cập: private (trong class) < default (trong package) < protected (trong package + class con ngoài package) < public (mọi nơi).",
+        "💡 Bảng phân cấp phạm vi truy cập (Access Modifiers) trong Java:\n1. `private`: Chỉ truy cập được bên trong class khai báo (`within class only`).\n2. `default` (package-private): Trong cùng class và cùng package (`within package only`).\n3. `protected`: Trong cùng package + lớp con ở package khác thông qua kế thừa (`within package and outside the package through inheritance only`).\n4. `public`: Có phạm vi rộng nhất, truy cập được ở MỌI NƠI trong toàn bộ project (`everywhere`).",
     },
     {
       id: "q12",
@@ -175,7 +175,8 @@ const quiz1 = {
         "everywhere.",
       ],
       answer: 1,
-      explanation: "private chỉ truy cập được BÊN TRONG class khai báo nó. (a) là default, (c) là protected, (d) là public.",
+      explanation:
+        "💡 Bản chất của `private`:\n• `private` là mức độ bảo mật cao nhất trong Java, dùng để thực hiện Tính Đóng Gói (Encapsulation).\n• Các trường hoặc phương thức `private` CHỈ có thể được truy cập trực tiếp từ BÊN TRONG CÙNG MỘT CLASS (`within class only`).\n• Các lớp bên ngoài (kể cả lớp con kế thừa hay các lớp trong cùng package) đều không thể truy cập trực tiếp được mà phải thông qua các phương thức public/protected (getter/setter).",
     },
     {
       id: "q13",
@@ -184,7 +185,7 @@ const quiz1 = {
       options: ["Right", "Wrong"],
       answer: 0,
       explanation:
-        "Đúng. Constructor không có kiểu trả về (kể cả void). Nếu thêm void vào thì nó trở thành một method bình thường trùng tên class.",
+        "💡 Bản chất:\n• ĐÚNG (Right). Constructor KHÔNG BAO GIỜ có kiểu trả về (kể cả `void`).\n• Cú pháp hợp lệ duy nhất: `[AccessModifier] ClassName([params]) { ... }`\n• Nếu bạn viết `public void MyClass()`, Java sẽ hiểu đây là một phương thức bình thường, làm mất đi tính chất của constructor.",
     },
     {
       id: "q14",
@@ -193,7 +194,7 @@ const quiz1 = {
       options: ["Right", "Wrong"],
       answer: 0,
       explanation:
-        "Đúng. java.lang.Object là gốc của mọi class. Class nào không extends gì thì mặc định extends Object.",
+        "💡 Bản chất cây phả hệ trong Java:\n• ĐÚNG (Right). Lớp `java.lang.Object` là tổ tiên gốc (Root Class / Superclass tối cao) của mọi class trong Java.\n• Nếu một class không khai báo từ khóa `extends`, trình biên dịch sẽ tự động ngầm thêm `extends java.lang.Object`.\n• Ngay cả mảng (arrays) cũng kế thừa từ `Object`. Nhờ đó, mọi đối tượng trong Java đều mặc định có các phương thức cơ bản như: `toString()`, `equals()`, `hashCode()`, `getClass()`, `clone()`, `wait()`, `notify()`.",
     },
     {
       id: "q15",
@@ -202,7 +203,7 @@ const quiz1 = {
       options: ["True", "False"],
       answer: 1,
       explanation:
-        "Sai. abstract nghĩa là PHẢI được kế thừa để hoàn thiện, còn final nghĩa là KHÔNG được kế thừa → mâu thuẫn, lỗi biên dịch “illegal combination of modifiers”.",
+        "💡 Mâu thuẫn logic triệt để giữa `abstract` và `final`:\n• `abstract` (trừu tượng): Là lớp chưa hoàn thiện, BẮT BUỘC PHẢI ĐƯỢC KẾ THỪA để lớp con cài đặt các phương thức trừu tượng.\n• `final`: Là lớp đóng, CẤM KHÔNG ĐƯỢC PHÉP KẾ THỪA (ví dụ: `String`, `Integer` là final class).\n→ Vì 2 từ khóa này mang ý nghĩa hoàn toàn triệt tiêu nhau, Java cấm kết hợp chúng. Khai báo `final abstract class A {}` sẽ bị lỗi biên dịch: `illegal combination of modifiers: abstract and final`.",
     },
     {
       id: "q16",
@@ -211,7 +212,7 @@ const quiz1 = {
       options: ["Interface", "Normal class", "Abstract class", "None of the above"],
       answer: 2,
       explanation:
-        "Class implements interface mà không cài đặt hết method thì bắt buộc phải khai báo là abstract class; class con cụ thể sẽ cài đặt phần còn lại.",
+        "💡 Quy tắc cài đặt Interface:\n• Một class thông thường (concrete class) khi `implements` một interface thì BẮT BUỘC phải cài đặt (override và cung cấp thân code) cho 100% các abstract method của interface đó.\n• Nếu class đó KHÔNG MUỐN hoặc CHƯA THỂ cài đặt hết các phương thức, class đó BẮT BUỘC PHẢI ĐƯỢC KHAI BÁO LÀ `abstract class`.\n• Các phương thức còn thiếu sẽ được trì hoãn để các class con cụ thể kế thừa sau này cài đặt.",
     },
     {
       id: "q17",
@@ -225,7 +226,7 @@ const quiz1 = {
       ],
       answer: 3,
       explanation:
-        "• Abstract method CÓ THỂ override abstract method khác (vd. abstract class con khai báo lại).\n• Method cụ thể CÓ THỂ override abstract method (đó chính là cách cài đặt).\n• Abstract method CÓ THỂ có throws.\n→ Không câu nào đúng.",
+        "💡 Phân tích tính đúng sai của từng câu:\n1. 'An abstract method can not override an another abstract method': SAI. Một abstract method HOÀN TOÀN CÓ THỂ override một abstract method khác (ví dụ: interface con ghi đè method của interface cha để đổi kiểu trả về Covariant return type hoặc thu hẹp throws clause).\n2. 'A specific method can not override an another abstract method': SAI. Đây chính là cách hoạt động cơ bản của OOP: một method cụ thể (concrete method) cài đặt và ghi đè abstract method.\n3. 'An abstract method can not be declared with the keyword throws': SAI. Abstract method hoàn toàn có thể khai báo `throws Exception` để quy định ngoại lệ mà lớp con được phép ném ra.\n→ Do cả 3 câu đều sai, đáp án đúng là 'No sentences above are true'.",
     },
     {
       id: "q18",
@@ -240,7 +241,7 @@ const quiz1 = {
       options: ["Prints nothing.", "Prints: null", "Compile-time error", "Throw a NullPointerException"],
       answer: 1,
       explanation:
-        "print(String) gọi String.valueOf(s) → với null sẽ in ra chữ \"null\". NullPointerException chỉ xảy ra khi GỌI METHOD trên biến null, ví dụ s.length().",
+        "💡 Trace code & Phân tích cơ chế JVM:\n• Dòng 1: Biến chuỗi `s` được gán giá trị `null` (không trỏ tới đối tượng nào trên Heap).\n• Dòng 2: `System.out.print(s)` được gọi.\n• Bên trong phương thức `PrintStream.print(String s)`, nó gọi `String.valueOf(s)`.\n• Mã nguồn của `String.valueOf(Object obj)`:\n  `return (obj == null) ? \"null\" : obj.toString();`\n• Do đó, khi đối số là `null`, nó trả về chuỗi ký tự `\"null\"` và in ra màn hình chuỗi `null`.\n\n⚠️ Bẫy thường gặp: `NullPointerException` CHỈ xảy ra khi bạn gọi một phương thức hoặc thuộc tính trên biến null (ví dụ: `s.length()`, `s.toUpperCase()`, `s.charAt(0)`). Còn truyền biến null vào lệnh in thì hoàn toàn an toàn!",
     },
     {
       id: "q19",
@@ -255,7 +256,7 @@ const quiz1 = {
       options: ["Prints nothing.", "Prints: null", "Compile-time error", "Throw a NullPointerException"],
       answer: 2,
       explanation:
-        "Dòng 3: static method trong interface (Java 8+) BẮT BUỘC phải có thân { }. `static void m3();` không có thân → lỗi biên dịch. Các dòng 1, 2, 4 hợp lệ (method interface mặc định public abstract).",
+        "💡 Quy tắc về phương thức trong Interface (từ Java 8 trở đi):\n• Dòng 1 (`void m1();`): Hợp lệ (mặc định ngầm hiểu là `public abstract`).\n• Dòng 2 (`public void m2();`): Hợp lệ (khai báo rõ `public abstract`).\n• Dòng 3 (`static void m3();`): LỖI BIÊN DỊCH (Compile-time error)! Từ Java 8, interface cho phép static method nhưng BẮT BUỘC PHẢI CÓ THÂN HÀM `{ }` (implementation). Bạn không thể khai báo một static method mà không có thân hàm trong interface!\n• Dòng 4 (`abstract void m4();`): Hợp lệ.",
     },
     {
       id: "q20",
@@ -264,7 +265,7 @@ const quiz1 = {
       options: ["private", "abstract", "final", "None of the above"],
       answer: 0,
       explanation:
-        "Constructor chỉ dùng được access modifier: public, protected, default, private (private dùng trong Singleton). Không được abstract, final, static, synchronized.",
+        "💡 Các Modifier dùng được cho Constructor:\n• Constructor CHỈ CÓ THỂ sử dụng 4 Access Modifier: `public`, `protected`, `default` (không ghi gì), và `private`.\n• `private constructor` được sử dụng rất phổ biến trong mẫu thiết kế Singleton Pattern hoặc trong Utility class (như `java.lang.Math`, `java.util.Collections`) để ngăn chặn việc khởi tạo đối tượng từ bên ngoài.\n\n❌ Các từ khóa KHÔNG BAO GIỜ được dùng cho constructor: `abstract`, `final`, `static`, `synchronized`, `native`.",
     },
     {
       id: "q21",
@@ -272,7 +273,8 @@ const quiz1 = {
       text: "Which of the following modifiers can not be applied to the declaration of a field?",
       options: ["abstract", "final", "private", "static"],
       answer: 0,
-      explanation: "abstract chỉ dùng cho class và method. Field có thể final, private, static, transient, volatile.",
+      explanation:
+        "💡 Phân tích Modifier cho Field (Thuộc tính):\n• `abstract` CHỈ DÀNH CHO Class và Method. Thuộc tính (field) đại diện cho dữ liệu cụ thể trong bộ nhớ, không có khái niệm 'thuộc tính trừu tượng' nên `abstract` KHÔNG THỂ áp dụng cho field.\n• Các modifier hợp lệ cho field: `private`, `protected`, `public`, `static`, `final`, `transient` (không serialize), `volatile` (đảm bảo visibility giữa các thread).",
     },
     {
       id: "q22",
@@ -280,7 +282,8 @@ const quiz1 = {
       text: "Which of the following modifiers can not be applied to a method?",
       options: ["abstract", "private", "static", "None of the above"],
       answer: 3,
-      explanation: "abstract, private, static đều dùng được cho method → không có đáp án nào sai → “None of the above”.",
+      explanation:
+        "💡 Cả 3 modifier `abstract`, `private`, `static` đều có thể áp dụng cho method một cách hợp lệ trong ngữ cảnh thích hợp:\n• `abstract`: Dùng trong abstract class hoặc interface để khai báo phương thức trừu tượng.\n• `private`: Dùng cho phương thức nội bộ chỉ gọi trong class.\n• `static`: Dùng cho phương thức ở cấp độ lớp (Class method).\n→ Do không có modifier nào bị cấm áp dụng cho method trong số các đáp án trên, ta chọn 'None of the above'.",
     },
     {
       id: "q23",
@@ -289,7 +292,7 @@ const quiz1 = {
       options: ["protected", "public", "private", "Static"],
       answer: 3,
       explanation:
-        "Constructor gắn với việc tạo OBJECT nên không thể static. protected/public/private đều hợp lệ.",
+        "💡 Constructor và từ khóa Static:\n• Constructor được gọi khi tạo một ĐỐI TƯỢNG CỤ THỂ (Instance) trong bộ nhớ Heap (`new ClassName()`).\n• Trong khi đó, `static` có nghĩa là thuộc về CLASS nói chung, tồn tại độc lập không cần đối tượng.\n• Do đó, Constructor KHÔNG THỂ LÀ STATIC! Nếu khai báo `static MyClass() {}`, trình biên dịch sẽ báo lỗi `modifier static not allowed here`.",
     },
     {
       id: "q24",
@@ -298,7 +301,7 @@ const quiz1 = {
       options: ["final", "private", "protected", "Static"],
       answer: 2,
       explanation:
-        "abstract method cần được override nên KHÔNG đi với final (cấm override), private (không thấy để override), static (không override được). Chỉ protected (hoặc public/default) là hợp lệ.",
+        "💡 Quy tắc tương thích với từ khóa `abstract`:\n• Bản chất của `abstract method` là CHƯA CÓ THÂN HÀM, bắt buộc phải được một lớp con nhìn thấy và Override lại.\n• `final`: Cấm override → Xung đột với abstract (Lỗi biên dịch).\n• `private`: Lớp con không nhìn thấy được để override → Xung đột với abstract (Lỗi biên dịch).\n• `static`: Không thể override bằng đa hình động → Xung đột với abstract (Lỗi biên dịch).\n• `protected`: Hoàn toàn hợp lệ! Cho phép các lớp con (kể cả ở package khác) nhìn thấy để override.",
     },
     {
       id: "q25",
@@ -306,7 +309,8 @@ const quiz1 = {
       text: "Which of the following modifiers can be used with the abstract modifier in a method declaration?",
       options: ["Static", "final", "private", "public"],
       answer: 3,
-      explanation: "Giống câu trước: abstract chỉ kết hợp được với public/protected/default. static, final, private đều xung đột.",
+      explanation:
+        "💡 Tương tự câu trên: `abstract method` chỉ có thể kết hợp với các mức truy cập cho phép lớp con kế thừa và override lại, cụ thể là `public`, `protected` hoặc `default` (package-private).\nCác từ khóa `static`, `final`, `private` đều mâu thuẫn hoàn toàn với nguyên lý hoạt động của `abstract`.",
     },
     {
       id: "q26",
@@ -321,7 +325,7 @@ const quiz1 = {
       options: ["1", "2", "3", "4"],
       answer: 2,
       explanation:
-        "Dòng 3 lỗi vì static method trong interface phải có thân. Dòng 1, 2, 4 là abstract method hợp lệ (public abstract được ngầm định).",
+        "💡 Phân tích từng dòng trong interface `A`:\n• Dòng 1 (`void m1();`): Hợp lệ (ngầm hiểu `public abstract`).\n• Dòng 2 (`public void m2();`): Hợp lệ.\n• Dòng 3 (`static void m3();`): LỖI BIÊN DỊCH. Trong Interface, `static method` bắt buộc phải có thân hàm `{ ... }`. Không được khai báo static method dạng abstract (thiếu thân hàm).\n• Dòng 4 (`abstract void m4();`): Hợp lệ.\n→ Lỗi biên dịch xảy ra tại dòng 3.",
     },
     {
       id: "q27",
@@ -336,7 +340,7 @@ const quiz1 = {
       options: ["1", "2", "3", "None of the above"],
       answer: 1,
       explanation:
-        "• Dòng 1: private method trong interface (Java 9+) phải có thân → lỗi.\n• Dòng 2: hợp lệ.\n• Dòng 3: interface không cho phép protected → lỗi.\n• Dòng 4: thiếu kiểu trả về → lỗi.\n→ Chỉ dòng 2 không lỗi.",
+        "💡 Phân tích từng dòng của interface `C`:\n• Dòng 1 (`private void m1();`): LỖI BIÊN DỊCH. Từ Java 9, interface cho phép `private method`, nhưng BẮT BUỘC PHẢI CÓ THÂN HÀM `{}` để chia sẻ code giữa các default method. `private` không có thân hàm sẽ báo lỗi.\n• Dòng 2 (`public void m2();`): HOÀN TOÀN HỢP LỆ (Abstract method chuẩn của interface).\n• Dòng 3 (`protected void m3();`): LỖI BIÊN DỊCH. Mọi thành viên trong interface nhằm cung cấp giao tiếp bên ngoài nên KHÔNG ĐƯỢC PHÉP dùng `protected` (`modifier protected not allowed here`).\n• Dòng 4 (`m4();`): LỖI BIÊN DỊCH vì thiếu kiểu trả về (return type).\n→ Dòng duy nhất KHÔNG bị lỗi biên dịch là dòng 2.",
     },
     {
       id: "q28",
@@ -345,7 +349,7 @@ const quiz1 = {
       options: ["abstract", "const", "final", "Private"],
       answer: 2,
       explanation:
-        "Field trong interface luôn ngầm định là public static final (hằng số). const là từ khóa dành riêng nhưng không dùng trong Java; abstract và private không hợp lệ.",
+        "💡 Bản chất Thuộc tính trong Interface:\n• Mọi biến/thuộc tính (field) khai báo trong một Interface trong Java ĐỀU MẶC ĐỊNH LÀ `public static final` (hằng số).\n• Dù bạn có viết các từ khóa này ra hay không, compiler sẽ tự động thêm vào.\n• Vì vậy, `final` là modifier hoàn toàn hợp lệ.\n• `abstract`: Thuộc tính không thể abstract.\n• `const`: Là từ khóa dành riêng (reserved keyword) nhưng không được dùng trong Java.\n• `private`: Thuộc tính trong interface không được phép private.",
     },
     {
       id: "q29",
@@ -353,7 +357,8 @@ const quiz1 = {
       text: "Which of the following are modifiers that can be applied to a field declaration within an interface?",
       options: ["abstract", "static", "private", "protected"],
       answer: 1,
-      explanation: "Field interface = public static final → static hợp lệ. abstract, private, protected đều không được.",
+      explanation:
+        "💡 Thuộc tính trong Interface luôn ngầm định là `public static final`.\nDo đó trong 4 lựa chọn, chỉ có `static` là hợp lệ. Các từ khóa `abstract`, `private`, `protected` đều bị trình biên dịch từ chối khi khai báo field trong interface.",
     },
     {
       id: "q30",
@@ -362,7 +367,7 @@ const quiz1 = {
       options: ["public", "private", "protected", "No modifier"],
       answer: 0,
       explanation:
-        "Trong số các MODIFIER được liệt kê, chỉ public hợp lệ (field interface = public static final). Ghi chú: không ghi modifier vẫn biên dịch được vì Java tự thêm public static final, nhưng “No modifier” không phải là một modifier.",
+        "💡 Trong số các MODIFIER được liệt kê, chỉ có `public` là hợp lệ vì thuộc tính trong interface luôn là `public static final`.\nLưu ý: Mặc dù bạn có thể không ghi từ khóa nào (Java sẽ tự ngầm hiểu), nhưng 'No modifier' là trạng thái không khai báo, chứ bản thân nó không phải là một modifier cụ thể.",
     },
     {
       id: "q31",
@@ -376,7 +381,7 @@ const quiz1 = {
       options: ["1", "2", "3", "None of the above"],
       answer: 3,
       explanation:
-        "Cả 3 dòng đều hợp lệ vì field interface tự động là public static final; ghi thêm một phần hay toàn bộ các từ khóa này đều được.",
+        "💡 Phân tích tính hợp lệ của cả 3 dòng:\n• Dòng 1 (`int a = 1;`): Trình biên dịch tự động chèn `public static final` → Hợp lệ.\n• Dòng 2 (`public static int c = 3;`): Khai báo rõ `public static`, compiler tự chèn thêm `final` → Hợp lệ.\n• Dòng 3 (`public static final int d = 4;`): Khai báo đầy đủ cả 3 từ khóa chuẩn → Hợp lệ.\n→ Cả 3 dòng đều biên dịch hoàn toàn thành công. Không có dòng nào bị lỗi → Chọn 'None of the above'.",
     },
     {
       id: "q32",
@@ -399,7 +404,7 @@ public class Y extends X {
       ],
       answer: 1,
       explanation:
-        "FIELD không có đa hình – Java chọn field theo KIỂU KHAI BÁO của biến (field hiding).\n• y.s1 → Y.s1 (Y che s1 của X)\n• y.s2 → X.s2 (kế thừa)\n• x.s1 → X.s1 (biến kiểu X)\n• x.s2 → X.s2",
+        "💡 NGUYÊN LÝ CỐT LÕI: FIELD HIDING (CHE GIẤU THUỘC TÍNH):\n• Trong Java, **THUỘC TÍNH (FIELDS) KHÔNG CÓ TÍNH ĐA HÌNH** (Variables are NOT polymorphic).\n• Thuộc tính được liên kết tại thời điểm BIÊN DỊCH dựa vào **KIỂU KHAI BÁO CỦA BIẾN (Reference Type)**, chứ không phụ thuộc vào đối tượng thực tế trong Heap!\n\n🔍 Trace từng biến:\n1. `y.s1`: Biến `y` khai báo kiểu `Y` → Lấy thuộc tính `s1` của lớp `Y` → in `\"Y.s1\"`.\n2. `y.s2`: Lớp `Y` không khai báo `s2`, nên kế thừa `s2` từ `X` → in `\"X.s2\"`.\n3. `x.s1`: Biến `x` khai báo kiểu `X` (`X x = (X) y;`) → Mặc dù đối tượng là `Y`, nhưng vì truy cập qua biến kiểu `X`, Java lấy thuộc tính `s1` của lớp `X` → in `\"X.s1\"`.\n4. `x.s2`: Biến `x` khai báo kiểu `X` → Lấy `s2` của lớp `X` → in `\"X.s2\"`.\n→ Kết quả ghép lại: `Y.s1 X.s2 X.s1 X.s2`.",
     },
     {
       id: "q33",
@@ -421,7 +426,7 @@ class D {
       options: ["Prints: AAA", "Prints: ABC", "Prints: CBA", "Prints: CCC"],
       answer: 1,
       explanation:
-        "Overloading được chọn lúc BIÊN DỊCH theo kiểu khai báo: m1(a) → m1(A), m1(b) → m1(B), m1(c) → m1(C). Trong mỗi method, x.s1 lấy field theo kiểu tham số (A, B, C) → in “ABC”.",
+        "💡 Phân tích luồng thực thi (Trace code):\n1. Trong `main`, cả 3 biến `a`, `b`, `c` đều tham chiếu tới cùng một đối tượng `new C()` trong bộ nhớ Heap:\n   • Biến `a` có kiểu khai báo là `A`.\n   • Biến `b` có kiểu khai báo là `B`.\n   • Biến `c` có kiểu khai báo là `C`.\n2. Phương thức `m1` bị nạp chồng (Overloading). Việc chọn phiên bản `m1` nào được JVM/Compiler quyết định tại thời điểm BIÊN DỊCH dựa trên **KIỂU KHAI BÁO CỦA THAM SỐ TRUYỀN VÀO**:\n   • `m1(a)` → Gọi `m1(A x)` → In `x.s1` của A → In `\"A\"`.\n   • `m1(b)` → Gọi `m1(B x)` → In `x.s1` của B → In `\"B\"`.\n   • `m1(c)` → Gọi `m1(C x)` → In `x.s1` của C → In `\"C\"`.\n→ Kết quả in liên tiếp trên màn hình là: `ABC`.",
     },
     {
       id: "q34",
@@ -430,7 +435,7 @@ class D {
       options: ["private", "protected", "abstract", "static"],
       answer: 2,
       explanation:
-        "Class cấp cao nhất (top-level) chỉ được dùng: public, default, abstract, final (và strictfp). private/protected/static chỉ dùng cho nested class.",
+        "💡 Quy tắc đối với Top-level Class (Lớp độc lập bên ngoài, không phải lồng trong class khác):\n• Chỉ được phép dùng 2 Access Modifier: `public` hoặc `default` (package-private, không ghi modifier).\n• Chỉ được phép dùng 2 Non-access Modifier: `abstract` (lớp trừu tượng) hoặc `final` (lớp không thể kế thừa).\n• `private`, `protected`, `static`: TUYỆT ĐỐI KHÔNG ĐƯỢC DÙNG cho top-level class! Chúng chỉ dùng được cho Inner class / Nested class.\n→ Trong 4 đáp án trên, chỉ có `abstract` là hợp lệ.",
     },
     {
       id: "q35",
@@ -438,7 +443,8 @@ class D {
       text: "Which of the following modifiers can be applied to a class that is not a nested class?",
       options: ["private", "protected", "static", "final"],
       answer: 3,
-      explanation: "Top-level class được phép final (không cho kế thừa, vd. String). private, protected, static thì không.",
+      explanation:
+        "💡 Tương tự câu trên: Top-level class chỉ có thể sử dụng `public`, `default`, `abstract` hoặc `final`.\nVí dụ kinh điển trong thư viện chuẩn Java: `public final class String` hay `public final class Math` đều là các top-level final class (ngăn không cho bất kỳ ai kế thừa để đảm bảo tính bất biến và bảo mật).\nCác từ khóa `private`, `protected`, `static` bị cấm hoàn toàn.",
     },
     {
       id: "q36",
@@ -446,7 +452,8 @@ class D {
       text: "Which of the following modifiers can be applied to a class that is not a nested class?",
       options: ["private", "protected", "default (no modifier)", "static"],
       answer: 2,
-      explanation: "Top-level class chỉ có 2 mức truy cập: public hoặc default (không ghi gì – chỉ dùng trong package).",
+      explanation:
+        "💡 Top-level class chỉ có 2 mức độ truy cập:\n1. `public`: Cho phép mọi class ở mọi package truy cập.\n2. `default` (Package-private - không ghi từ khóa modifier nào trước class): Chỉ các class nằm trong CÙNG MỘT PACKAGE mới có thể thấy và sử dụng.\nCác từ khóa `private`, `protected`, `static` đều không được phép áp dụng cho top-level class.",
     },
     {
       id: "q37",
@@ -460,7 +467,7 @@ class D {
       ],
       answer: 3,
       explanation:
-        "• Abstract method CÓ THỂ bị override bởi abstract method.\n• Method thường CÓ THỂ bị override thành abstract trong abstract class con.\n• Abstract method CÓ THỂ có throws.\n→ Cả 3 đều sai → None of the above.",
+        "💡 Phân tích kỹ từng mệnh đề:\n• (A) SAI: Một abstract method HOÀN TOÀN có thể bị override bởi một abstract method khác trong lớp con trừu tượng.\n• (B) SAI: Một method bình thường (concrete instance method) VẪN CÓ THỂ bị một lớp con abstract ghi đè và biến thành abstract method (ép các lớp cháu phải cài đặt lại theo cách khác).\n• (C) SAI: Abstract method hoàn toàn được phép có mệnh đề `throws`.\n→ Vì cả 3 câu trên đều sai sự thật, đáp án chính xác là 'None of the above.'",
     },
     {
       id: "q38",
@@ -486,7 +493,7 @@ class S extends R {
       ],
       answer: 1,
       explanation:
-        "private method KHÔNG được kế thừa nên không thể override → trong R, printS1() luôn gọi R.printS1. printS2() là protected và được S override → gọi theo object thật (S) → S.printS2.",
+        "💡 BẪY KINH ĐIỂN VỀ OVERRIDING VÀ PRIVATE METHOD:\n1. `printS1()` trong lớp `R` là `private`: Phương thức private KHÔNG ĐƯỢC KẾ THỪA bởi lớp con. Do đó, phương thức `printS1()` trong lớp `S` chỉ là một phương thức trùng tên hoàn toàn độc lập, KHÔNG PHẢI LÀ OVERRIDE!\n2. Khi gọi `new S().printS1S2()`:\n   • Phương thức `printS1S2()` được định nghĩa trong lớp `R`.\n   • Lệnh đầu tiên trong `printS1S2()` gọi `printS1()`. Vì `printS1()` là private trong `R`, trình biên dịch liên kết tĩnh ngay tại compile-time tới `R.printS1()` → In `\"R.printS1 \"`.\n3. Lệnh thứ hai trong `printS1S2()` gọi `printS2()`:\n   • `printS2()` là `protected` nên ĐƯỢC KẾ THỪA và ĐƯỢC LỚP S OVERRIDE.\n   • Tại thời điểm chạy (Runtime), đối tượng thực tế là `new S()`. Dynamic Method Dispatch sẽ gọi phương thức đã override của lớp `S` → In `\"S.printS2\"`.\n→ Kết quả cuối cùng in ra: `R.printS1 S.printS2`.",
     },
     {
       id: "q39",
@@ -503,7 +510,7 @@ class F {
       options: ["Prints: DD", "Prints: DE", "Prints: ED", "Prints: EE"],
       answer: 1,
       explanation:
-        "x.s1 → FIELD chọn theo kiểu khai báo D → \"D\". x.getS1() → METHOD được override, chọn theo object thật E → trả về s1 của E → \"E\". Kết quả “DE”.",
+        "💡 PHÂN BIỆT ĐA HÌNH GIỮA THUỘC TÍNH (FIELD) VÀ PHƯƠNG THỨC (METHOD):\n1. `D x = new E();`: Biến `x` có kiểu khai báo là `D`, nhưng trỏ tới đối tượng thực tế `new E()` trong Heap.\n2. `x.s1` (Thuộc tính):\n   • Thuộc tính KHÔNG CÓ ĐA HÌNH (Field Hiding). Java luôn chọn thuộc tính theo KIỂU KHAI BÁO CỦA BIẾN (`D x`).\n   • Do đó `x.s1` lấy giá trị từ lớp `D` → trả về `\"D\"`.\n3. `x.getS1()` (Phương thức):\n   • Phương thức có tính đa hình lúc chạy (Dynamic Binding).\n   • Java gọi phương thức override của ĐỐI TƯỢNG THỰC TẾ (`E`), phương thức `getS1()` của lớp `E` trả về `s1` của lớp `E` → trả về `\"E\"`.\n→ Ghép lại: `x.s1 + x.getS1()` in ra `\"DE\"`.",
     },
   ],
 };
