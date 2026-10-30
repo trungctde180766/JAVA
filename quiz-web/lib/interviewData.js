@@ -18,7 +18,7 @@ export const interviewSql = {
         "Cả hai có kết quả giống nhau, chỉ khác về tốc độ thực thi"
       ],
       "answer": 1,
-      "explanation": "• INNER JOIN: Chỉ lấy giao điểm (intersection) giữa 2 bảng.\n• LEFT JOIN (LEFT OUTER JOIN): Giữ nguyên 100% dòng của bảng trái. Bảng phải không có dữ liệu tương ứng sẽ điền NULL.\n💡 Mẹo phỏng vấn: Khi nhà tuyển dụng hỏi 'Làm sao tìm những khách hàng CHƯA từng đặt đơn hàng nào?', câu trả lời chuẩn là dùng LEFT JOIN bảng Customers với Orders và kiểm tra `WHERE Orders.id IS NULL` (hoặc dùng NOT EXISTS).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• INNER JOIN: Chỉ lấy phần giao nhau (Intersection) giữa 2 bảng. Chỉ những dòng nào có khóa khớp ở cả 2 bảng mới được xuất hiện trong kết quả.\n• LEFT JOIN: Lấy 100% tất cả các dòng của Bảng Bên Trái. Nếu bảng bên phải có dữ liệu khớp thì điền vào, nếu không có dữ liệu khớp thì điền giá trị `NULL`.\n\n💻 Tình huống phỏng vấn kinh điển:\n\"Làm thế nào để tìm danh sách những Khách Hàng CHƯA TỪNG mua đơn hàng nào?\"\n-> Dùng LEFT JOIN bảng Khách Hàng với Đơn Hàng, và thêm điều kiện `WHERE DonHang.id IS NULL`!",
       "textEn": "What is the difference between INNER JOIN and LEFT JOIN in SQL?",
       "optionsEn": [
         "INNER JOIN returns all rows from both tables; LEFT JOIN only returns matching rows",
@@ -38,7 +38,7 @@ export const interviewSql = {
         "WHERE chỉ áp dụng cho kiểu số, HAVING áp dụng cho kiểu chuỗi"
       ],
       "answer": 1,
-      "explanation": "• WHERE: Lọc dữ liệu ở cấp độ từng row trước khi nhóm. WHERE không được chứa hàm tổng hợp (ví dụ: `WHERE COUNT(*) > 5` sẽ báo lỗi cú pháp).\n• HAVING: Lọc ở cấp độ group sau khi đã tính toán hàm tổng hợp (ví dụ: `HAVING COUNT(*) >= 2`).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `WHERE`: Lọc từng dòng dữ liệu ĐƠN LẺ trước khi gom nhóm (GROUP BY). Trong WHERE tuyệt đối không được dùng các hàm tổng hợp như `COUNT()`, `SUM()`, `AVG()` (ví dụ viết `WHERE COUNT(*) > 5` sẽ bị báo lỗi cú pháp ngay).\n• `HAVING`: Lọc trên các NHÓM DỮ LIỆU sau khi đã gom nhóm bằng GROUP BY xong xuôi. Thường đi kèm với hàm tổng hợp (ví dụ: `HAVING COUNT(don_hang) >= 5`).\n\n💡 Thần chú ghi nhớ: \"WHERE lọc trước khi nhóm - HAVING lọc sau khi nhóm\".",
       "textEn": "What is the difference between WHERE and HAVING clauses in an SQL query?",
       "optionsEn": [
         "WHERE filters groups after GROUP BY; HAVING filters individual rows before grouping",
@@ -58,7 +58,7 @@ export const interviewSql = {
         "SELECT * FROM sinhvien GROUP BY ngay_sinh HAVING COUNT(*) <= 10;"
       ],
       "answer": 1,
-      "explanation": "• Bẫy tư duy phỏng vấn: Người có TUỔI BÉ NHẤT tức là người SINH RA GẦN ĐÂY NHẤT (ngày sinh lớn nhất / mới nhất).\n• Do đó phải sắp xếp theo ngày sinh giảm dần: `ORDER BY ngay_sinh DESC LIMIT 10`.\n• Nếu dùng ASC sẽ ra người có ngày sinh xa nhất trong quá khứ (tức là người nhiều tuổi nhất).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nĐể tìm người có TUỔI BÉ NHẤT, tức là người có NGÀY SINH GẦN VỚI HIỆN TẠI NHẤT (ngày sinh lớn nhất / mới nhất).\nDo đó ta phải sắp xếp ngày sinh giảm dần `ORDER BY ngay_sinh DESC` và lấy 10 người đầu tiên bằng `LIMIT 10`.\n(Rất nhiều bạn bị bẫy chọn `ASC` là ra những cụ già lớn tuổi nhất!).",
       "textEn": "Given table sinhvien (id, ho_ten, ngay_sinh). Which query retrieves the 10 youngest students?",
       "optionsEn": [
         "SELECT * FROM sinhvien ORDER BY ngay_sinh ASC LIMIT 10;",
@@ -78,7 +78,7 @@ export const interviewSql = {
         "REMOVE ung_vien WHERE tuoi < 18;"
       ],
       "answer": 2,
-      "explanation": "• `DELETE FROM <table> WHERE <condition>;` là câu lệnh DML chuẩn dùng để xoá các dòng thoả mãn điều kiện.\n• `TRUNCATE` không hỗ trợ mệnh đề WHERE (nó xoá sạch toàn bộ dữ liệu bảng).\n• `DROP` xoá luôn cả định nghĩa và cấu trúc bảng khỏi database.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCú pháp xóa dữ liệu có điều kiện trong SQL chuẩn:\n`DELETE FROM ten_bang WHERE dieu_kien;`\nỞ đây điều kiện là chưa đủ 18 tuổi (`tuoi < 18`), nên câu lệnh chính xác là:\n`DELETE FROM ung_vien WHERE tuoi < 18;`",
       "textEn": "Which statement is used to delete candidate records under 18 years old from table ung_vien (id, ho_ten, tuoi)?",
       "optionsEn": [
         "DROP FROM ung_vien WHERE tuoi < 18;",
@@ -98,7 +98,7 @@ export const interviewSql = {
         "CHAR chỉ chứa tối đa 255 ký tự, VARCHAR chứa không giới hạn ký tự"
       ],
       "answer": 0,
-      "explanation": "• CHAR(n): Chiếm đúng n ký tự dù chuỗi ngắn hơn. Dùng tối ưu cho dữ liệu có độ dài cố định như: Mã quốc gia (VN, US), Giới tính (M/F), Mã hash MD5, Mã CCCD -> Truy cập nhanh hơn và không bị phân mảnh bộ nhớ.\n• VARCHAR(n): Độ dài linh hoạt từ 0 đến n. Dùng cho: Họ tên, email, mô tả.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `CHAR(10)`: Kiểu chuỗi CỐ ĐỊNH độ dài. Nếu bạn chỉ lưu chữ \"ABC\" (3 ký tự), database vẫn tự động bù thêm 7 khoảng trắng vào sau để đủ 10 byte trên ổ cứng. Thích hợp cho các trường có độ dài luôn cố định như: Mã CCCD, Mã bưu chính, Mã màu Hex, Mã tiền tệ (USD, VND).\n• `VARCHAR(10)`: Kiểu chuỗi CO GIÃN độ dài (Variable Character). Lưu \"ABC\" thì chỉ tốn đúng 3 byte + 1 byte lưu độ dài, giúp tiết kiệm tối đa dung lượng ổ cứng. Dùng cho: Họ tên, Địa chỉ, Email.",
       "textEn": "What is the difference between CHAR and VARCHAR data types in a relational database?",
       "optionsEn": [
         "CHAR is fixed-length, padding with spaces if shorter; VARCHAR is variable-length, consuming only actual string bytes + length prefix bytes",
@@ -118,7 +118,7 @@ export const interviewSql = {
         "WHERE -> FROM -> GROUP BY -> SELECT -> HAVING -> LIMIT"
       ],
       "answer": 1,
-      "explanation": "💡 Mẹo phỏng vấn cực hay: SQL không chạy từ SELECT trước!\nThứ tự chạy logic thực tế của Database Engine:\n1. FROM & JOIN (Xác định nguồn bảng)\n2. WHERE (Lọc dòng thô)\n3. GROUP BY (Gom nhóm dữ liệu)\n4. HAVING (Lọc nhóm sau tính toán hàm tổng hợp)\n5. SELECT (Tính toán cột, đặt alias)\n6. DISTINCT (Loại bỏ bản ghi trùng)\n7. ORDER BY (Sắp xếp kết quả)\n8. LIMIT / OFFSET (Cắt trang)\n=> Vì WHERE chạy trước SELECT nên bạn không thể dùng alias được đặt ở SELECT trong mệnh đề WHERE!",
+      "explanation": "🎯 Bản chất dễ hiểu:\nThứ tự viết code SQL hoàn toàn KHÁC với thứ tự Database thực sự thực thi bên dưới!\nThứ tự logic chuẩn xác của RDBMS:\n1. `FROM` (Xác định nguồn bảng và JOIN)\n2. `WHERE` (Lọc các dòng thỏa điều kiện)\n3. `GROUP BY` (Gom nhóm các dòng)\n4. `HAVING` (Lọc trên các nhóm)\n5. `SELECT` (Chọn các cột hiển thị)\n6. `DISTINCT` (Loại bỏ dòng trùng lặp)\n7. `ORDER BY` (Sắp xếp kết quả tăng/giảm)\n8. `LIMIT / OFFSET` (Cắt lấy số dòng phân trang)\n\n💡 Mẹo phỏng vấn: Tại sao không thể dùng bí danh (Alias) đặt trong SELECT để lọc trong WHERE? Vì WHERE chạy ở bước 2, trong khi SELECT tận bước 5 mới chạy!",
       "textEn": "What is the standard logical execution order of an SQL query statement?",
       "optionsEn": [
         "SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY -> LIMIT",
@@ -138,7 +138,7 @@ export const interviewSql = {
         "SELECT que_quan, COUNT(diem < 5) FROM sinhvien GROUP BY que_quan;"
       ],
       "answer": 1,
-      "explanation": "• Lọc các sinh viên có điểm < 5 trước bằng mệnh đề `WHERE diem < 5`.\n• Gom nhóm theo quê quán bằng `GROUP BY que_quan`.\n• Đếm số lượng sinh viên trong mỗi nhóm bằng `COUNT(*)`.\n(Không dùng HAVING diem < 5 vì 'diem' không phải là hàm tổng hợp).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nĐề bài yêu cầu:\n1. Điểm dưới trung bình: `WHERE diem < 5`\n2. Thống kê theo từng quê quán: `GROUP BY que_quan`\n3. Đếm số lượng: `COUNT(*)`\n-> Câu hoàn chỉnh: `SELECT que_quan, COUNT(*) FROM sinhvien WHERE diem < 5 GROUP BY que_quan;`",
       "textEn": "Given table sinhvien (id, ho_ten, diem, que_quan). Which query counts the number of students with below-average scores (diem < 5) grouped by hometown?",
       "optionsEn": [
         "SELECT que_quan, COUNT(*) FROM sinhvien GROUP BY que_quan HAVING diem < 5;",
@@ -158,7 +158,7 @@ export const interviewSql = {
         "SELECT sv.* FROM sinhvien sv WHERE sv.id = (SELECT sinhvien_id FROM dang_ky);"
       ],
       "answer": 1,
-      "explanation": "• Dùng `LEFT JOIN dang_ky dk ON sv.id = dk.sinhvien_id` để giữ toàn bộ sinh viên.\n• Mệnh đề `WHERE dk.sinhvien_id IS NULL` sẽ lọc ra những bạn chưa hề có dòng nào tương ứng trong bảng đăng ký.\n• Cách 2 tương đương: `SELECT * FROM sinhvien sv WHERE NOT EXISTS (SELECT 1 FROM dang_ky dk WHERE dk.sinhvien_id = sv.id);`",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCó 2 cách chuẩn mực:\nCách 1: Dùng `LEFT JOIN` bảng sinhvien với dang_ky, rồi lọc `WHERE dang_ky.ma_sv IS NULL`.\nCách 2: Dùng `NOT EXISTS (SELECT 1 FROM dang_ky WHERE dang_ky.ma_sv = sinhvien.id)` (thường được tối ưu hóa rất tốt trên database hiện đại).",
       "textEn": "How do you find the list of students who have NOT registered for any courses (tables sinhvien and dang_ky)?",
       "optionsEn": [
         "SELECT sv.* FROM sinhvien sv INNER JOIN dang_ky dk ON sv.id = dk.sinhvien_id;",
@@ -178,7 +178,7 @@ export const interviewSql = {
         "Cả hai đều loại bỏ dòng trùng, chỉ khác nhau về thứ tự sắp xếp"
       ],
       "answer": 0,
-      "explanation": "• `UNION`: Tự động loại bỏ các bản ghi trùng lặp giữa các truy vấn. Để làm được điều này, database phải thực hiện thêm bước sắp xếp hoặc Hash (tốn CPU và RAM).\n• `UNION ALL`: Nối dữ liệu trực tiếp mà không kiểm tra trùng lặp -> Hiệu năng cao hơn nhiều.\n💡 Nếu biết chắc dữ liệu không trùng lặp hoặc cần giữ dữ liệu trùng, luôn dùng `UNION ALL`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `UNION`: Gộp kết quả của 2 câu truy vấn và TỰ ĐỘNG LOẠI BỎ CÁC DÒNG TRÙNG NHAU. Để loại bỏ trùng lặp, database bắt buộc phải tốn tài nguyên sắp xếp (Sort) toàn bộ dữ liệu.\n• `UNION ALL`: Gộp mù quáng toàn bộ dữ liệu của cả 2 câu truy vấn, CÓ TRÙNG CŨNG GIỮ NGUYÊN. Vì không phải lọc trùng nên tốc độ chạy nhanh hơn UNION rất nhiều lần.\n\n💡 Mẹo: Nếu bạn biết chắc 2 tập dữ liệu không thể trùng nhau (hoặc bài toán chấp nhận trùng), hãy luôn dùng `UNION ALL` để tối ưu hiệu năng.",
       "textEn": "What is the difference between UNION and UNION ALL operators in SQL?",
       "optionsEn": [
         "UNION merges results and eliminates duplicate rows (DISTINCT); UNION ALL retains all rows including duplicates, thus executing faster than UNION",
@@ -198,7 +198,7 @@ export const interviewSql = {
         "DELETE tự động reset cột ID tăng tự động về 1"
       ],
       "answer": 0,
-      "explanation": "• DELETE (DML): Xoá từng dòng, ghi nhật ký giao dịch (Transaction log) chi tiết cho từng dòng, có thể rollback trong transaction, kích hoạt trigger.\n• TRUNCATE (DDL): Giải phóng toàn bộ trang dữ liệu (data pages), reset bộ đếm auto-increment, cực nhanh, không hỗ trợ WHERE.\n• DROP (DDL): Xoá sổ cả cấu trúc bảng, index, trigger liên quan khỏi Database.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `DELETE`: Lệnh DML. Xóa từng dòng theo điều kiện WHERE, có ghi lại Transaction Log từng dòng nên có thể `ROLLBACK` (hoàn tác) được. Chạy chậm nhất.\n• `TRUNCATE`: Lệnh DDL. Xóa sạch bách toàn bộ dữ liệu trong bảng trong nháy mắt, reset bộ đếm Auto-Increment về 1. Cực nhanh vì giải phóng thẳng các Data Pages trên ổ cứng, không ghi log từng dòng và KHÔNG THỂ ROLLBACK được trong hầu hết CSDL.\n• `DROP`: Xóa sổ hoàn toàn cả dữ liệu lẫn cấu trúc bảng, biến mất vĩnh viễn khỏi Database.",
       "textEn": "Compare the 3 data deletion commands in SQL: DELETE, TRUNCATE, and DROP?",
       "optionsEn": [
         "DELETE is DML (rollbackable, supports WHERE, fires Triggers, slower); TRUNCATE is DDL (clears all data, resets auto_increment, no WHERE, does not fire row Triggers, very fast); DROP is DDL (removes both data and table structure)",
@@ -218,7 +218,7 @@ export const interviewSql = {
         "UPDATE diem = diem + 1 FROM sinhvien WHERE gioi_tinh = 'Nu';"
       ],
       "answer": 0,
-      "explanation": "Cú pháp chuẩn của câu lệnh cập nhật dữ liệu SQL:\n`UPDATE <tên_bảng> SET <tên_cột> = <giá_trị_mới> WHERE <điều_kiện>;`",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCú pháp cập nhật:\n`UPDATE sinhvien SET diem = diem + 1 WHERE gioi_tinh = 'Nu';`\nTăng điểm hiện tại lên 1 đơn vị cho những ai có giới tính là 'Nu'.",
       "textEn": "Given table sinhvien (id, ho_ten, gioi_tinh, diem). Which query retrieves students with higher scores than the average score of all students?",
       "optionsEn": [
         "SELECT * FROM sinhvien WHERE diem > AVG(diem);",
@@ -238,7 +238,7 @@ export const interviewSql = {
         "SELECT que_quan, COUNT(*) FROM sinhvien GROUP BY que_quan HAVING gioi_tinh = 'Nu';"
       ],
       "answer": 0,
-      "explanation": "Lọc sinh viên nữ trước bằng `WHERE gioi_tinh = 'Nu'`, sau đó gom nhóm theo `GROUP BY que_quan` và đếm bằng `COUNT(*)`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nLọc nữ trước: `WHERE gioi_tinh = 'Nu'`.\nGom nhóm theo quê: `GROUP BY que_quan`.\nĐếm số lượng: `COUNT(*)`.\n-> `SELECT que_quan, COUNT(*) FROM sinhvien WHERE gioi_tinh = 'Nu' GROUP BY que_quan;`",
       "textEn": "Given table sinhvien (id, ho_ten, gioi_tinh, que_quan). Which query counts the number of male and female students in each hometown?",
       "optionsEn": [
         "SELECT que_quan, gioi_tinh, COUNT(*) FROM sinhvien GROUP BY que_quan, gioi_tinh;",
@@ -258,7 +258,7 @@ export const interviewSql = {
         "Là khóa chính có thể chứa giá trị NULL"
       ],
       "answer": 1,
-      "explanation": "• Composite Primary Key là khóa chính gồm từ 2 cột trở lên. Ví dụ: Trong bảng trung gian `order_details`, cặp cột `(order_id, product_id)` cùng nhau làm khóa chính để đảm bảo 1 đơn hàng không bị thêm 1 sản phẩm 2 lần.\n• Tất cả các cột tham gia Composite Key đều KHÔNG được phép mang giá trị NULL.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKhóa chính tổng hợp (Composite Primary Key) là khóa chính được tạo thành từ **sự kết hợp của 2 hoặc nhiều cột** gom lại để định danh duy nhất một bản ghi.\nVí dụ: Bảng `dang_ky_mon_hoc (ma_sinh_vien, ma_mon_hoc)`. Một sinh viên có thể đăng ký nhiều môn, một môn có nhiều sinh viên, nhưng cặp `(ma_sinh_vien, ma_mon_hoc)` thì chỉ được xuất hiện duy nhất 1 lần.",
       "textEn": "What is a Composite Primary Key in a relational database?",
       "optionsEn": [
         "A primary key composed of two or more columns combined together to uniquely identify a record in a table",
@@ -278,7 +278,7 @@ export const interviewSql = {
         "SELECT * FROM users GROUP BY created_at LIMIT 100;"
       ],
       "answer": 0,
-      "explanation": "Người dùng mới nhất tức là thời gian `created_at` lớn nhất -> Sắp xếp giảm dần bằng `ORDER BY created_at DESC` và lấy 100 dòng đầu bằng `LIMIT 100`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nNgười dùng MỚI NHẤT tức là người có thời gian tạo `created_at` lớn nhất (gần hiện tại nhất).\nDo đó phải sắp xếp giảm dần `ORDER BY created_at DESC` và lấy 100 dòng đầu tiên bằng `LIMIT 100`.",
       "textEn": "Which query retrieves the 100 most recently registered users (sorted by registration timestamp in descending order)?",
       "optionsEn": [
         "SELECT * FROM users ORDER BY created_at ASC LIMIT 100;",
@@ -298,7 +298,7 @@ export const interviewSql = {
         "Chỉ cần đánh index trên bảng ít dữ liệu, bảng hàng triệu dòng thì không cần"
       ],
       "answer": 1,
-      "explanation": "💡 Kiến thức phỏng vấn quan trọng về Index:\n1. Đánh index quá nhiều sẽ làm CHẬM các thao tác ghi (INSERT/UPDATE/DELETE) vì database phải cập nhật lại cây B-Tree.\n2. Khi viết điều kiện `WHERE FUNCTION(col) = value` (ví dụ: `WHERE LOWER(email) = 'abc'`), bộ tối ưu truy vấn không dùng được index thông thường mà phải quét toàn bộ bảng (Full Table Scan).\n3. Tránh `SELECT *`, chỉ select các cột thực sự cần dùng để giảm tải I/O và băng thông mạng.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ mục lục sách):\nIndex trong database giống như Mục Lục ở cuối cuốn từ điển.\n• Cần đánh Index (thường là B-Tree Index) trên các cột thường xuyên xuất hiện trong mệnh đề `WHERE`, `JOIN`, `ORDER BY`.\n• BẪY TỐI KỴ: Không bao giờ bọc hàm xung quanh cột có Index, ví dụ viết `WHERE YEAR(created_at) = 2026` sẽ làm vô hiệu hóa hoàn toàn Index và khiến Database phải quét toàn bộ bảng (Full Table Scan)! Phải viết thành: `WHERE created_at >= '2026-01-01' AND created_at < '2027-01-01'`.",
       "textEn": "Regarding Database Indexing & Performance, which statement is ACCURATE?",
       "optionsEn": [
         "Creating an Index significantly speeds up SELECT queries, but slows down INSERT, UPDATE, DELETE operations and consumes extra disk/RAM space",
@@ -318,7 +318,7 @@ export const interviewSql = {
         "Là một thủ tục lưu trữ (Stored Procedure) có thể truyền tham số đầu vào"
       ],
       "answer": 1,
-      "explanation": "• View là một bảng ảo (Virtual Table). Khi bạn SELECT từ View, database sẽ thực thi câu lệnh SELECT bên dưới định nghĩa của View.\n• Mục đích: Che giấu các câu JOIN phức tạp, tính toán sẵn các cột nghiệp vụ, và phân quyền bảo mật (chỉ cho phép nhân viên xem View chứa thông tin không nhạy cảm thay vì bảng chính chứa lương hoặc mật khẩu).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nVIEW là một **Bảng Ảo** được định nghĩa bằng một câu lệnh SELECT lưu trữ trong Database. Bản thân View không hề chứa dữ liệu riêng trên ổ cứng.\nMục đích sử dụng:\n1. Bảo mật: Ẩn bớt các cột nhạy cảm (như mật khẩu, lương) và chỉ cấp quyền cho user xem qua View.\n2. Đơn giản hóa: Gom câu query JOIN 5-6 bảng phức tạp thành 1 View gọn gàng để lập trình viên chỉ cần `SELECT * FROM view_doanh_thu`.",
       "textEn": "What is a View in an SQL database management system and what is its primary purpose?",
       "optionsEn": [
         "A View is a virtual table based on the result set of an SQL query; it does not store raw data itself, helping encapsulate query logic, improve security, and simplify complex queries",
@@ -338,7 +338,7 @@ export const interviewSql = {
         "PreparedStatement chạy chậm hơn Statement vì phải qua bước kiểm tra kiểu dữ liệu"
       ],
       "answer": 1,
-      "explanation": "• Statement: Tạo câu lệnh SQL tĩnh bằng phép nối chuỗi (dễ bị SQL Injection và DB phải parse lại mỗi lần chạy).\n• PreparedStatement: Câu lệnh được biên dịch trước, tham số được truyền qua dấu `?`, tự động escape ký tự nguy hiểm và được DB cache Execution Plan.\n• CallableStatement: Dùng để thực thi Stored Procedure có tham số IN/OUT.\n💡 Mẹo phỏng vấn: Luôn khẳng định trong dự án thực tế luôn dùng PreparedStatement (hoặc qua ORM như JPA/Hibernate) để đảm bảo 100% bảo mật chống SQL Injection.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTrong JDBC có 3 loại Statement:\n1. `Statement`: Dùng cho câu lệnh SQL tĩnh không có tham số (Rất nguy hiểm vì dễ bị nối chuỗi dính SQL Injection).\n2. `PreparedStatement`: Dùng cho câu lệnh có tham số `?`. Được biên dịch trước, chống 100% SQL Injection và chạy nhanh hơn.\n3. `CallableStatement`: Dùng riêng để gọi các **Stored Procedure** hoặc Function được viết sẵn trong cơ sở dữ liệu.",
       "textEn": "In Java JDBC, what are the differences between Statement, PreparedStatement, and CallableStatement?",
       "optionsEn": [
         "Statement is used for SELECT; PreparedStatement is used for INSERT/UPDATE; CallableStatement is used for DELETE",
@@ -358,7 +358,7 @@ export const interviewSql = {
         "PreparedStatement ghi đè dữ liệu trực tiếp vào ổ cứng không qua bộ đệm RAM"
       ],
       "answer": 1,
-      "explanation": "💡 Giải thích chuyên sâu cho câu hỏi phỏng vấn hay gặp:\nKhi gửi 1 câu SQL, RDBMS phải trải qua: Syntax Checking -> Semantic Checking -> Query Optimization -> Compile Execution Plan. Với `PreparedStatement`, các bước tốn CPU này chỉ chạy 1 lần. Khi chạy vòng lặp 1.000 lần thêm dữ liệu, PreparedStatement giúp giảm tải 80-90% thời gian xử lý của Database Server so với Statement thường.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nNgoài chống SQL Injection, PreparedStatement vượt trội về hiệu năng nhờ cơ chế **Query Plan Caching**:\nMỗi khi nhận 1 câu SQL, CSDL phải tốn CPU làm 4 bước: Kiểm tra cú pháp -> Kiểm tra ngữ nghĩa -> Tối ưu hóa đường đi -> Biên dịch ra kế hoạch thực thi (Execution Plan).\nVới PreparedStatement, CSDL làm 4 bước này duy nhất 1 lần và lưu kế hoạch vào bộ nhớ Cache. Các lần gọi tiếp theo chỉ việc nạp tham số mới vào chạy ngay, giúp tiết kiệm tới 80% tải CPU cho Database Server khi chạy các vòng lặp thêm/sửa hàng loạt.",
       "textEn": "Besides preventing SQL Injection, what major performance advantage does PreparedStatement offer over standard Statement?",
       "optionsEn": [
         "PreparedStatement automatically compresses data transmitted over the network",
@@ -378,7 +378,7 @@ export const interviewSql = {
         "Ép buộc mọi bảng chỉ được có duy nhất 1 cột khóa chính là kiểu số nguyên"
       ],
       "answer": 1,
-      "explanation": "• 1NF: Mỗi cột chứa giá trị nguyên tố (Atomic values), không có cột lặp lại.\n• 2NF: Đạt 1NF và mọi thuộc tính không khóa phải phụ thuộc hoàn toàn vào toàn bộ khóa chính (loại bỏ phụ thuộc một phần vào Composite Key).\n• 3NF: Đạt 2NF và không có phụ thuộc bắc cầu giữa các thuộc tính không khóa.\n💡 Mẹo phỏng vấn: Chuẩn hóa cao (3NF) giúp dữ liệu nhất quán, không bị trùng lặp khi update; tuy nhiên trong hệ thống Big Data/Data Warehouse hoặc báo cáo, người ta có thể 'Khử chuẩn hóa' (Denormalization) có chủ đích để giảm JOIN tăng tốc độ đọc.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ tủ quần áo ngăn nắp):\n• Sơ đồ ERD: Bản vẽ thiết kế kiến trúc các thực thể và mối quan hệ giữa chúng trước khi bắt tay vào tạo bảng.\n• Chuẩn hóa dữ liệu (1NF, 2NF, 3NF): Giống như việc bạn phân loại đồ đạc vào đúng ngăn tủ để:\n  1. Loại bỏ Dư thừa dữ liệu (không lưu trùng lặp 1 thông tin ở 10 nơi khác nhau).\n  2. Tránh Dị thường khi cập nhật (sửa địa chỉ khách hàng ở bảng này nhưng quên sửa ở bảng kia).\n  3. Bảo vệ Tính toàn vẹn dữ liệu.",
       "textEn": "What is the primary purpose of Entity Relationship Diagram (ERD) design and Database Normalization (1NF, 2NF, 3NF)?",
       "optionsEn": [
         "To increase database storage size to utilize excess disk space",
@@ -409,7 +409,7 @@ export const interviewJavaCore = {
         "false true"
       ],
       "answer": 2,
-      "explanation": "💡 Câu hỏi kinh điển trong phỏng vấn Java:\n• Java có cơ chế Integer Cache lưu trữ sẵn các đối tượng Integer từ -128 đến 127 (theo Java Language Specification khi Autoboxing `Integer.valueOf()`).\n• Với 100: Cả `a` và `b` cùng trỏ tới 1 đối tượng duy nhất trong cache -> `a == b` so sánh địa chỉ tham chiếu cho kết quả `true`.\n• Với 200: Vượt ngoài vùng cache [-128, 127], JVM gọi `new Integer(200)` tạo ra 2 đối tượng độc lập trên Heap -> `c == d` so sánh tham chiếu trả về `false`!\n=> Để so sánh giá trị Wrapper Class luôn dùng `.equals()`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCâu hỏi bẫy kinh điển số 1 trong các buổi phỏng vấn Java!\n• Java có cơ chế \"Integer Cache\": JVM tự động tạo sẵn một hồ chứa các đối tượng Integer có giá trị từ **-128 đến 127** (theo quy chuẩn Java Language Specification khi Autoboxing).\n• Với giá trị 100: Nằm trong vùng Cache [-128, 127], nên cả biến `a` và `b` cùng trỏ tới 1 ô nhớ đối tượng duy nhất -> So sánh tham chiếu địa chỉ `a == b` cho kết quả `true`.\n• Với giá trị 200: Vượt ra ngoài vùng Cache, JVM bắt buộc phải gọi `new Integer(200)` tạo ra 2 đối tượng độc lập nằm ở 2 ô nhớ khác nhau trên Heap -> So sánh tham chiếu `c == d` trả về `false`!\n\n💡 Mẹo phỏng vấn:\nĐể so sánh giá trị của các Wrapper Class (Integer, Long, Double...), LUÔN LUÔN dùng phương thức `.equals()` (`c.equals(d)` sẽ là `true`), tuyệt đối không dùng toán tử `==`.",
       "textEn": "Given the following Java snippet:\nInteger a = 100, b = 100;\nInteger c = 200, d = 200;\nSystem.out.println((a == b) + \" \" + (c == d));\nWhat is printed to the console?",
       "optionsEn": [
         "true true",
@@ -429,7 +429,7 @@ export const interviewJavaCore = {
         "Chương trình chạy bình thường không có lỗi gì"
       ],
       "answer": 1,
-      "explanation": "• ArrayList áp dụng cơ chế Fail-Fast Iterator bằng biến đếm `modCount`.\n• Khi duyệt danh sách bằng for-each/Iterator mà tự ý gọi `list.remove()` của List thì `expectedModCount != modCount` -> Ném ngay `ConcurrentModificationException`.\n💡 Cách sửa chuẩn khi phỏng vấn:\n1. Dùng `Iterator.remove()`: `Iterator<String> it = list.iterator(); while(it.hasNext()){ if(...) it.remove(); }`\n2. Dùng Java 8: `list.removeIf(item -> ...);`",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKhi bạn duyệt qua một ArrayList bằng vòng lặp `for-each` (hoặc `for` thông thường) và gọi trực tiếp `list.remove(item)`, Java sẽ lập tức quăng lỗi `ConcurrentModificationException`.\n\nTại sao?\nBên dưới, vòng lặp for-each sử dụng một đối tượng `Iterator`. Trong ArrayList có một biến đếm gọi là `modCount` (số lần thêm/sửa/xóa danh sách). Iterator giữ một bản sao gọi là `expectedModCount`.\nKhi bạn gọi `list.remove()`, biến `modCount` tăng lên nhưng `expectedModCount` trong Iterator không hề hay biết. Ở bước lặp tiếp theo, Iterator phát hiện `modCount != expectedModCount` -> Nó nghi ngờ danh sách đang bị một luồng khác chỉnh sửa đồng thời làm sai lệch dữ liệu -> Nó lập tức báo lỗi ngay (Cơ chế Fail-Fast).\n\n💻 Cách giải quyết chuẩn mực:\n1. Dùng `Iterator`: `Iterator<String> it = list.iterator(); while(it.hasNext()) { if(...) it.remove(); }`\n2. Dùng Java 8 Lambda (Ngắn gọn và xịn nhất): `list.removeIf(item -> item.equals(\"X\"));`",
       "textEn": "What happens when using a regular for-each loop to remove elements from an ArrayList while iterating over it?",
       "optionsEn": [
         "Elements are deleted normally without error",
@@ -449,7 +449,7 @@ export const interviewJavaCore = {
         "Heap tự động giải phóng bộ nhớ ngay khi kết thúc hàm mà không cần Garbage Collector"
       ],
       "answer": 1,
-      "explanation": "• Stack: Lưu trữ frame gọi hàm, biến cục bộ (primitive) và biến tham chiếu. Cực nhanh, LIFO, mỗi Thread có Stack độc lập. Tràn bộ nhớ gây `StackOverflowError` (thường do đệ quy vô hạn).\n• Heap: Lưu toàn bộ Object thực tế và mảng (`new Object()`). Được chia sẻ giữa các Thread, do Garbage Collector thu gom giải phóng. Tràn bộ nhớ gây `OutOfMemoryError` (thường do memory leak).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ bàn làm việc và nhà kho):\n• Vùng nhớ STACK (Bàn làm việc cá nhân): Mỗi luồng (Thread) có 1 Stack riêng. Dùng để lưu trữ các lời gọi hàm (Stack Frame), các biến cục bộ kiểu nguyên thủy (`int`, `boolean`) và các con trỏ địa chỉ tham chiếu. Bộ nhớ Stack cực kỳ nhỏ nhưng tốc độ truy xuất siêu nhanh. Khi hàm chạy xong, Stack Frame tự động bị xóa sổ ngay lập tức.\n• Vùng nhớ HEAP (Kho hàng khổng lồ dùng chung): Nơi lưu trữ tất cả các ĐỐI TƯỢNG (Objects) thực tế và mảng trong Java (kể cả String, ArrayList hay User object). Khi không còn ai trỏ tới đối tượng trong Heap nữa, nó sẽ được dọn dẹp bởi Garbage Collector (GC).\n\n💡 Bẫy phỏng vấn (Hai loại lỗi tràn bộ nhớ):\n• `StackOverflowError`: Xảy ra khi gọi đệ quy vô tận không có điểm dừng làm đầy bộ nhớ Stack.\n• `OutOfMemoryError (OOM)`: Xảy ra khi tạo quá nhiều Object lớn trong Heap mà Garbage Collector dọn không kịp làm cạn kiệt RAM.",
       "textEn": "Distinguish between Stack and Heap memory in the Java Virtual Machine (JVM)?",
       "optionsEn": [
         "Stack stores all instantiated Objects; Heap stores primitive variables and method call frames",
@@ -470,7 +470,7 @@ export const interviewJavaCore = {
         "3"
       ],
       "answer": 1,
-      "explanation": "• Khối `finally` LUÔN LUÔN được thực thi sau khi khối `try` kết thúc (trừ trường hợp gọi `System.exit(0)` hoặc JVM crash).\n• Lệnh `return 2;` trong `finally` sẽ ghi đè (override) hoàn toàn giá trị trả về trước đó của `try`, do đó hàm trả về `2`.\n💡 Lưu ý: Trong code thực tế không bao giờ nên return trong khối finally vì nó có thể nuốt cả Exception đang được ném ra từ khối try!",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKết quả trả về chắc chắn bằng 2!\n\nTại sao?\nTrong cấu trúc `try-catch-finally`, quy tắc bất di bất dịch của Java là: **Khối finally LUÔN LUÔN được thực thi trước khi hàm thực sự trả quyền điều khiển về cho nơi gọi**.\nKhi gặp `return 1;` trong khối try, JVM đã chuẩn bị sẵn giá trị 1 để trả về. Nhưng trước khi thoát hàm, nó bắt buộc phải chạy qua khối `finally`. Tại đây nó gặp lệnh `return 2;` -> Lệnh return trong finally ghi đè hoàn toàn (override) giá trị trả về trước đó!\n\n💡 Cảnh báo thực tế:\nViết lệnh `return` trong khối `finally` là một \"Anti-pattern\" (viết code tối kỵ) vì nó sẽ nuốt chửng luôn cả các Exception văng ra từ khối try, khiến việc bắt lỗi trở nên bất khả thi. Các công cụ quét code như SonarQube sẽ cảnh báo đỏ lỗi này.",
       "textEn": "In Java, given the following method:\npublic static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}\nWhat does test() return when executed?",
       "optionsEn": [
         "Returns 1",
@@ -490,7 +490,7 @@ export const interviewJavaCore = {
         "Cả hai hoàn toàn giống nhau, chỉ khác tên gọi"
       ],
       "answer": 1,
-      "explanation": "• `Comparable<T>` (thuộc package `java.lang`): Có method `int compareTo(T o)`. Phải implements trực tiếp vào class Entity để định nghĩa thứ tự sắp xếp tự nhiên mặc định.\n• `Comparator<T>` (thuộc package `java.util`): Có method `int compare(T o1, T o2)`. Rất linh hoạt, có thể tạo nhiều tiêu chí sắp xếp bên ngoài mà không cần sửa code class gốc, hỗ trợ viết Lambda cực ngắn: `Comparator.comparing(Student::getAge)`. ",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `Comparable` (Nội lực bên trong): Class tự implement interface này và viết hàm `compareTo(other)` để định nghĩa thứ tự sắp xếp MẶC ĐỊNH của chính nó (ví dụ: Học sinh thì mặc định sắp xếp theo Mã số ID tăng dần).\n• `Comparator` (Bên ngoài chấm điểm): Là một class hoặc biểu thức Lambda độc lập bên ngoài, viết hàm `compare(o1, o2)` để cung cấp CÁC TIÊU CHÍ SẮP XẾP KHÁC NHAU tùy theo nhu cầu (ví dụ: Lúc thì cần xếp theo Điểm thi giảm dần, lúc thì cần xếp theo Tên bảng chữ cái A-Z).\n\n💻 Ví dụ code Java 8 cực đẹp:\n```java\n// Dùng Comparator linh hoạt:\nstudents.sort(Comparator.comparing(Student::getGpa).reversed()\n                        .thenComparing(Student::getName));\n```\n\n💡 Mẹo phỏng vấn: Hãy nhớ thần chú: \"Comparable là 1 tiêu chí tự nhiên nằm BÊN TRONG class; Comparator là nhiều tiêu chí linh hoạt nằm BÊN NGOÀI class\".",
       "textEn": "Distinguish between Comparable and Comparator interfaces in Java?",
       "optionsEn": [
         "Comparable defines natural ordering inside the class itself via compareTo(o); Comparator defines external custom sorting via compare(o1, o2)",
@@ -510,7 +510,7 @@ export const interviewJavaCore = {
         "Có, nhưng bắt buộc phải có annotation @Override"
       ],
       "answer": 1,
-      "explanation": "• Đa hình động (Dynamic Polymorphism / Overriding) chỉ áp dụng cho instance method dựa trên đối tượng thực tế lúc Runtime.\n• `static method` thuộc về Class, được liên kết tĩnh (Static Binding) ở thời điểm biên dịch (Compile-time). Khi lớp con viết static method trùng tên/tham số, nó chỉ ẩn phương thức của lớp cha (Method Hiding). Nếu thêm `@Override` compiler sẽ báo lỗi!",
+      "explanation": "🎯 Bản chất dễ hiểu:\nPhương thức `static` trong Java KHÔNG THỂ BỊ OVERRIDE (Ghi đè) bởi lớp con!\n\nNếu lớp con khai báo 1 static method có tên và tham số y hệt lớp cha thì sao?\nĐó là hiện tượng **Method Hiding (Ẩn phương thức)** chứ tuyệt đối không phải Đa hình (Polymorphism/Overriding).\nBởi vì phương thức static thuộc về CLASS chứ không thuộc về INSTANCE (đối tượng). Trình biên dịch sẽ liên kết tĩnh (Static Binding / Compile-time) dựa vào KIỂU KHAI BÁO của biến tham chiếu chứ không quan tâm đối tượng thực tế lúc chạy là gì!\n\n💻 Ví dụ:\n`Parent p = new Child(); p.print();` -> Sẽ in ra hàm của `Parent` chứ không bao giờ gọi hàm của `Child`!",
       "textEn": "Can a static method in Java be Overridden by a subclass?",
       "optionsEn": [
         "Yes, static methods can be overridden with dynamic polymorphism just like instance methods",
@@ -530,7 +530,7 @@ export const interviewJavaCore = {
         "HashSet tự động cập nhật lại vị trí bucket của đối tượng"
       ],
       "answer": 1,
-      "explanation": "• `HashSet` dựa vào `hashCode()` để tìm bucket index, rồi mới dùng `equals()` so sánh.\n• Khi bạn sửa thuộc tính tham gia tính `hashCode()`, mã băm mới sẽ trỏ tới một bucket khác. Khi gọi `contains()`, HashSet tìm ở bucket mới (vốn đang rỗng) nên trả về `false`!\n💡 Quy tắc vàng phỏng vấn: Các đối tượng dùng làm Key trong `HashMap` hoặc phần tử trong `HashSet` PHẢI là **Immutable** (Bất biến)!",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ tìm đồ trong tủ đồ):\nHashSet hoạt động bằng cách băm đối tượng (`hashCode()`) để chọn ngăn tủ (Bucket) cất giữ.\nKhi bạn sửa đổi thuộc tính của đối tượng đã nằm trong tủ, mã `hashCode()` mới của nó sẽ bị thay đổi hoàn toàn.\nKhi bạn gọi `hashSet.contains(object)`, HashSet dùng hashCode mới để tìm kiếm -> Nó chạy đến SAI NGĂN TỦ -> Kết quả trả về `false` (không tìm thấy), mặc dù đối tượng đó vẫn đang nằm chình ình trong HashSet!\n\n💡 Hậu quả kinh hoàng & Mẹo phỏng vấn:\nĐối tượng này sẽ bị kẹt vĩnh viễn trong HashSet, bạn không thể xóa nó bằng `remove()` được nữa -> Gây rò rỉ bộ nhớ (MEMORY LEAK) nghiêm trọng!\nQuy tắc vàng: \"Chỉ sử dụng các thuộc tính Bất biến (Immutable fields như ID, final string) để tham gia tính toán hàm hashCode() và equals()\".",
       "textEn": "If an object is added to a HashSet, and then the field used to compute its hashCode() is modified, what happens when calling set.contains(obj)?",
       "optionsEn": [
         "Always returns true because the object reference in memory has not changed",
@@ -550,7 +550,7 @@ export const interviewJavaCore = {
         "Checked Exception chỉ xảy ra ở Java phiên bản cũ"
       ],
       "answer": 1,
-      "explanation": "• Checked Exception: Trình biên dịch bắt buộc lập trình viên phải xử lý (`try-catch` hoặc `throws`) trước khi compile (ví dụ: `FileNotFoundException`, `SQLException`).\n• Unchecked Exception (`RuntimeException` và con cháu): Thường do lỗi lập trình logic (chia cho 0 `ArithmeticException`, con trỏ null `NullPointerException`), không bắt buộc khai báo ở compile-time.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Checked Exception (Ngoại lệ kiểm tra): Kế thừa từ `java.lang.Exception` (nhưng không kế thừa `RuntimeException`). Trình biên dịch BẮT BUỘC bạn phải xử lý ngay lúc viết code (bằng `try-catch` hoặc khai báo `throws` ở hàm). Thường là các lỗi khách quan do môi trường bên ngoài: Mất mạng, file không tồn tại (`FileNotFoundException`), lỗi database (`SQLException`).\n• Unchecked Exception (Ngoại lệ lúc chạy): Kế thừa từ `java.lang.RuntimeException`. Trình biên dịch KHÔNG BẮT BUỘC phải try-catch. Thường là lỗi ngớ ngẩn do lập trình viên viết ẩu: `NullPointerException` (quên kiểm tra null), `ArrayIndexOutOfBoundsException` (truy cập quá chỉ số mảng), `ArithmeticException` (chia cho 0).\n\n💡 Mẹo phỏng vấn: Trong các framework hiện đại như Spring Framework, hầu hết các exception đều được bọc lại thành Unchecked Exception (ví dụ `DataAccessException`) để tránh làm code bị rối rắm bởi hàng trăm khối try-catch không cần thiết.",
       "textEn": "What is the difference between Checked Exception and Unchecked Exception in Java?",
       "optionsEn": [
         "Checked Exceptions (inherit from Exception but not RuntimeException) are checked at compile time and MUST be handled via try-catch or throws; Unchecked Exceptions (inherit from RuntimeException/Error) occur at runtime and are not required to be caught",
@@ -570,7 +570,7 @@ export const interviewJavaCore = {
         "map() chạy song song (Parallel), flatMap() chạy tuần tự"
       ],
       "answer": 1,
-      "explanation": "• `map(x -> f(x))`: Ánh xạ 1 giá trị thành 1 giá trị mới. Ví dụ: List<Student> -> map(Student::getName) -> List<String>.\n• `flatMap(x -> f(x).stream())`: Biến đổi và làm phẳng. Ví dụ: Một đơn hàng có List<Item>. Danh sách đơn hàng `List<Order>` dùng flatMap sẽ gom toàn bộ Item của tất cả đơn hàng thành `Stream<Item>` duy nhất thay vì `Stream<List<Item>>` lồng nhau.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ làm phẳng hộp bánh):\n• `map()`: Chuyển đổi tỉ lệ 1 - 1. Cứ 1 phần tử đầu vào biến thành 1 phần tử đầu ra.\n  Ví dụ: Danh sách tên thường `[\"nam\", \"an\"]` qua `map(String::toUpperCase)` -> `[\"NAM\", \"AN\"]`.\n• `flatMap()`: Chuyển đổi và \"LÀM PHẲNG\" (Flattening) tỉ lệ 1 - N. Nhận vào các danh sách lồng nhau (List of Lists) và gộp tất cả các phần tử con thành MỘT LUỒNG PHẲNG DUY NHẤT.\n\n💻 Ví dụ thực tế:\nMỗi lớp học có 1 danh sách học sinh: `List<ClassRoom>` (mỗi classroom có `List<Student>`).\nNếu dùng `classes.stream().map(ClassRoom::getStudents)` -> Bạn sẽ nhận được `Stream<List<Student>>` (luồng chứa các danh sách con).\nNếu dùng `classes.stream().flatMap(c -> c.getStudents().stream())` -> Bạn nhận được `Stream<Student>` (danh sách phẳng của toàn bộ học sinh trong trường)!",
       "textEn": "What is the key difference between map() and flatMap() in Java 8 Stream API?",
       "optionsEn": [
         "map() transforms each element into another value (1-to-1); flatMap() transforms each element into a Stream and flattens multiple streams into a single stream (1-to-N flattening)",
@@ -590,7 +590,7 @@ export const interviewJavaCore = {
         "java.util.Disposable"
       ],
       "answer": 0,
-      "explanation": "Trong cú pháp: `try (Connection conn = ...; PreparedStatement ps = ...) { ... }`, bất kỳ đối tượng nào khai báo trong ngoặc tròn bắt buộc phải implement interface `java.lang.AutoCloseable` (hoặc `java.io.Closeable`). Khi khối try kết thúc, hàm `close()` sẽ được tự động gọi theo thứ tự ngược lại.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCơ chế Try-with-resources (ra đời từ Java 7) yêu cầu tài nguyên phải implement interface `java.lang.AutoCloseable` (hoặc `java.io.Closeable`).\n\nTại sao đây là tính năng tuyệt vời?\nTrước Java 7, mỗi lần mở kết nối JDBC hoặc đọc file, lập trình viên phải viết khối `finally` dài ngoằng để gọi `.close()`. Nếu trong finally lại bị văng lỗi thì lỗi gốc ban đầu trong khối try sẽ bị nuốt chửng!\nVới Try-with-resources:\n```java\ntry (Connection conn = dataSource.getConnection();\n     PreparedStatement ps = conn.prepareStatement(sql)) {\n  // Thực thi nghiệp vụ...\n} // Java TỰ ĐỘNG gọi close() đúng thứ tự ngược lại, kể cả khi có Exception văng ra!\n```",
       "textEn": "What requirement must a resource satisfy to be used within Java 7+ Try-with-resources statement?",
       "optionsEn": [
         "Must implement the java.lang.AutoCloseable or java.io.Closeable interface",
@@ -610,7 +610,7 @@ export const interviewJavaCore = {
         "Cả ba đều có tốc độ như nhau từ Java 11 trở đi"
       ],
       "answer": 1,
-      "explanation": "• `String`: Bất biến (Immutable), an toàn cho String Pool và đa luồng, nhưng nếu nối chuỗi trong vòng lặp `for` sẽ tạo hàng nghìn object rác làm chậm bộ nhớ.\n• `StringBuilder`: Khả biến (Mutable), không đồng bộ (Not thread-safe), tốc độ cao nhất -> Dùng trong 1 thread / hàm.\n• `StringBuffer`: Khả biến (Mutable), có từ khóa `synchronized` -> Thread-safe, an toàn khi nhiều luồng cùng thao tác.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ giấy nháp):\n• String (Bất biến - Immutable): Giống như viết chữ bằng bút mực không thể tẩy xóa. Mỗi lần bạn nối chuỗi `s = s + \"a\"`, Java không hề sửa chuỗi cũ mà âm thầm tạo ra một Đối Tượng Mới trên Heap. Nếu nối chuỗi trong vòng lặp 10.000 lần, Java sẽ tạo ra 10.000 đối tượng rác làm tràn RAM!\n• StringBuilder (Khả biến - Mutable): Giống như bảng phấn xóa được. Nó sửa trực tiếp trên mảng ký tự nội bộ `char[]` nên tốc độ nối chuỗi nhanh gấp hàng trăm lần String. Dành cho môi trường Đơn luồng (Single-thread).\n• StringBuffer: Giống hệt StringBuilder nhưng có thêm từ khóa `synchronized` trên các method để an toàn trong môi trường Đa luồng (Thread-safe). Tuy nhiên do phải khóa luồng (Locking) nên tốc độ chạy chậm hơn StringBuilder.\n\n💡 Mẹo phỏng vấn: 99% trường hợp nối chuỗi trong hàm chỉ chạy đơn luồng, hãy luôn dùng `StringBuilder` để đạt tốc độ tối đa!",
       "textEn": "Compare the performance and characteristics among String, StringBuilder, and StringBuffer in Java?",
       "optionsEn": [
         "String is immutable (thread-safe, creates new object on concatenation); StringBuilder is mutable (not thread-safe, fastest concatenation); StringBuffer is mutable (thread-safe via synchronized methods, slower than StringBuilder)",
@@ -630,7 +630,7 @@ export const interviewJavaCore = {
         "Public, Protected, Default, Private"
       ],
       "answer": 1,
-      "explanation": "💡 Tóm tắt phỏng vấn ngắn gọn và sắc sảo:\n1. Đóng gói (Encapsulation): Che giấu dữ liệu nội bộ bằng private và cung cấp getter/setter.\n2. Kế thừa (Inheritance): Tái sử dụng và mở rộng thuộc tính/phương thức từ class cha qua từ khóa `extends`.\n3. Đa hình (Polymorphism): Một hành vi có thể thể hiện dưới nhiều hình thái khác nhau (Overloading & Overriding).\n4. Trừu tượng (Abstraction): Tập trung vào đối tượng làm ĐƯỢC GÌ thay vì làm NHƯ THẾ NÀO (qua abstract class và interface).",
+      "explanation": "🎯 Bản chất dễ hiểu (4 trụ cột OOP):\n1. Đóng gói (Encapsulation): Che giấu dữ liệu nhạy cảm bên trong bằng `private`, chỉ cho bên ngoài truy cập thông qua các hàm `getter/setter` có kiểm tra hợp lệ. (Ví dụ: Số dư tài khoản không cho gán trực tiếp `soDu = -500`, phải qua hàm `rutTien()` kiểm tra xem có đủ tiền không).\n2. Kế thừa (Inheritance): Lớp con tái sử dụng và mở rộng thuộc tính, phương thức của lớp cha qua từ khóa `extends`, tránh viết lại code trùng lặp. (Ví dụ: Class `Dog` kế thừa từ class `Animal`).\n3. Đa hình (Polymorphism): Cùng một hành vi nhưng thể hiện khác nhau ở từng đối tượng. (Ví dụ: Cùng gọi hàm `keu()`, nhưng Chó thì sủa \"Gâu gâu\", Mèo thì kêu \"Meo meo\").\n4. Trừu tượng (Abstraction): Tập trung vào việc đối tượng \"LÀM ĐƯỢC GÌ\" thay vì chi tiết nó \"LÀM NHƯ THẾ NÀO\". (Ví dụ: Bạn lái ô tô chỉ cần đạp chân ga là xe chạy, không cần biết bugi đánh lửa phun xăng bên trong động cơ ra sao).",
       "textEn": "What are the four fundamental pillars of Object-Oriented Programming (OOP) in Java?",
       "optionsEn": [
         "Compilation, Execution, Garbage Collection, Multithreading",
@@ -650,7 +650,7 @@ export const interviewJavaCore = {
         "Cả hai đều xảy ra lúc chạy và không có gì khác biệt"
       ],
       "answer": 1,
-      "explanation": "• Method Overloading (Đa hình tĩnh / Compile-time): Trình biên dịch dựa vào số lượng và kiểu tham số để biết chính xác hàm nào được gọi.\n• Method Overriding (Đa hình động / Runtime): Biến tham chiếu kiểu cha trỏ đến đối tượng con (`Animal a = new Dog(); a.makeSound()`), JVM phải đợi đến lúc chạy mới biết đối tượng thực tế là `Dog` để gọi `Dog.makeSound()`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Đa hình lúc biên dịch (Compile-time / Đa hình tĩnh): Thể hiện qua **Method Overloading (Nạp chồng)**. Trong cùng 1 class có nhiều hàm cùng tên nhưng khác nhau về số lượng hoặc kiểu tham số. Trình biên dịch nhìn vào tham số lúc viết code là biết ngay hàm nào được gọi.\n• Đa hình lúc thực thi (Runtime / Đa hình động): Thể hiện qua **Method Overriding (Ghi đè)**. Lớp con viết lại method của lớp cha. Lúc viết code ta dùng biến cha trỏ vào con `Animal a = new Dog(); a.makeSound();`. Lúc biên dịch chỉ biết đó là Animal, phải đợi đến lúc chạy (Runtime), JVM mới nhìn vào vùng nhớ thực tế thấy đó là con Chó và gọi hàm sủa của Dog (cơ chế Dynamic Method Dispatch).",
       "textEn": "In Java, what is the difference between Compile-time Polymorphism and Runtime Polymorphism?",
       "optionsEn": [
         "Compile-time uses interfaces; Runtime uses abstract classes",
@@ -670,7 +670,7 @@ export const interviewJavaCore = {
         "protected < private < default < public"
       ],
       "answer": 1,
-      "explanation": "1. `private`: Chỉ truy cập được bên trong chính class đó.\n2. `default` (không khai báo gì): Truy cập được bởi tất cả class trong CÙNG package.\n3. `protected`: Truy cập được trong cùng package + các lớp con (subclass) kể cả ở package khác.\n4. `public`: Truy cập tự do từ mọi nơi trong toàn bộ project.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nSắp xếp phạm vi từ hẹp nhất đến rộng nhất:\n1. `private`: Ích kỷ nhất, chỉ duy nhất bên trong chính Class đó mới nhìn thấy.\n2. `default` (không ghi gì - package-private): Chỉ các Class nằm trong CÙNG MỘT PACKAGE mới nhìn thấy nhau.\n3. `protected`: Nằm trong cùng Package + Bất kỳ LỚP CON (Subclass) nào kế thừa nó kể cả nằm ở package khác.\n4. `public`: Hào phóng nhất, ai ở bất kỳ đâu trong toàn bộ project cũng gọi được.",
       "textEn": "Order Java's 4 Access Modifiers from narrowest to widest accessibility scope?",
       "optionsEn": [
         "default < private < protected < public",
@@ -690,7 +690,7 @@ export const interviewJavaCore = {
         "Biến tự động giải phóng vùng nhớ; Phương thức chạy đa luồng; Lớp không có constructor"
       ],
       "answer": 0,
-      "explanation": "• `final variable`: Giá trị chỉ được gán một lần duy nhất (hằng số).\n• `final method`: Lớp con không được phép override phương thức này (bảo toàn logic cốt lõi).\n• `final class`: Không class nào có thể kế thừa class này (ví dụ: `java.lang.String` là final class để đảm bảo tính bất biến Immutable và bảo mật).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTừ khóa `final` mang ý nghĩa là \"BẤT BIẾN / CHỐT CHẶN CUỐI CÙNG\":\n• `final variable`: Biến trở thành hằng số, chỉ được gán giá trị 1 lần duy nhất, không thể thay đổi giá trị (như số PI = 3.14).\n• `final method`: Lớp con không được phép Ghi đè (Override) phương thức này (để bảo vệ logic cốt lõi không bị lớp con sửa đổi làm sai lệch).\n• `final class`: Tuyệt đối không cho phép class nào khác Kế thừa (Inherit) nó.\n\n💡 Ví dụ đắt giá: Class `java.lang.String` là một `final class`! Java cố tình làm điều này để không ai có thể tạo ra một lớp con giả mạo String nhằm mục đích tấn công bảo mật hay phá vỡ String Pool.",
       "textEn": "What is the effect of the final keyword when applied to Variables, Methods, and Classes in Java?",
       "optionsEn": [
         "Variable becomes constant (cannot be reassigned); Method cannot be overridden by subclasses; Class cannot be extended (inherited)",
@@ -710,7 +710,7 @@ export const interviewJavaCore = {
         "Không được truyền tham số vào super()"
       ],
       "answer": 1,
-      "explanation": "• Trong Java, khi khởi tạo một đối tượng lớp con, trạng thái của lớp cha phải được khởi tạo TRƯỚC TIÊN. Do đó lệnh gọi `super(...)` (hoặc `this(...)`) bắt buộc phải là dòng lệnh đầu tiên trong Constructor.\n• Nếu lập trình viên không viết `super(...)`, trình biên dịch Java sẽ tự động chèn `super()` không tham số vào dòng đầu tiên.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKhi khởi tạo một đối tượng lớp con, nền móng của lớp cha bắt buộc phải được dựng lên TRƯỚC. Do đó, lệnh gọi `super()` (gọi constructor của cha) **bắt buộc phải là dòng code đầu tiên** trong Constructor của lớp con.\nNếu bạn để bất kỳ dòng lệnh nào khác lên trước `super()`, trình biên dịch Java sẽ báo lỗi ngay lập tức.\nNếu bạn không tự tay viết `super()`, trình biên dịch sẽ tự động chèn ngầm `super();` không tham số vào dòng đầu tiên cho bạn.",
       "textEn": "What is the mandatory rule when calling super() in a subclass constructor in Java?",
       "optionsEn": [
         "super() must be placed as the last statement in the subclass constructor",
@@ -730,7 +730,7 @@ export const interviewJavaCore = {
         "String Pool tự động xóa chuỗi sau 5 giây nếu không ai dùng"
       ],
       "answer": 1,
-      "explanation": "• Khi khai báo `String s1 = \"Java\"; String s2 = \"Java\";` -> Cả hai trỏ cùng 1 địa chỉ trong String Pool nên `s1 == s2` là `true`.\n• Khi khai báo `String s3 = new String(\"Java\");` -> Tạo đối tượng mới trên Heap nên `s1 == s3` là `false`!\n💡 Quy tắc bất biến: Luôn dùng `s1.equals(s3)` để so sánh nội dung chuỗi trong Java.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ hồ nước chung):\nString Pool là một vùng nhớ đặc biệt trong Heap do JVM quản lý để tiết kiệm bộ nhớ:\n• Khi bạn khai báo chuỗi dạng Literal: `String s1 = \"Java\"; String s2 = \"Java\";` -> JVM kiểm tra thấy \"Java\" đã có sẵn trong Pool, nó cho `s2` trỏ chung vào ô nhớ của `s1`. Do đó `s1 == s2` cho kết quả `true` (vì so sánh 2 địa chỉ ô nhớ giống nhau).\n• Nhưng khi bạn dùng từ khóa `new`: `String s3 = new String(\"Java\");` -> JVM bị ép buộc phải cấp phát một ô nhớ Object HOÀN TOÀN MỚI nằm ngoài Pool. Khi đó `s1 == s3` sẽ trả về `false`!\n\n💡 Quy tắc sống còn: Trong Java, 100% trường hợp so sánh chuỗi hãy dùng phương thức `s1.equals(s3)` (so sánh nội dung ký tự), không bao giờ dùng toán tử `==`.",
       "textEn": "How does the String Constant Pool work in Java, and why can comparing strings with == yield incorrect results?",
       "optionsEn": [
         "String Pool saves strings to disk to conserve RAM",
@@ -750,7 +750,7 @@ export const interviewJavaCore = {
         "Phụ thuộc vào việc hàm đó có gắn từ khóa static hay không"
       ],
       "answer": 1,
-      "explanation": "💡 Câu hỏi bẫy kinh điển trong phỏng vấn Java:\nJava KHÔNG CÓ Pass-by-reference. Java luôn là Pass-by-value.\nKhi truyền 1 object `Person p` vào hàm `change(Person person)`:\n- Nếu bạn gọi `person.setName(\"Nam\")`: Thuộc tính của object bị thay đổi vì cả 2 con trỏ cùng trỏ đến 1 vùng nhớ Heap.\n- Nhưng nếu bạn gán `person = new Person(\"Lan\")`: Object `p` ở ngoài hàm hoàn toàn KHÔNG THAY ĐỔI vì `person` chỉ là bản sao của địa chỉ tham chiếu!",
+      "explanation": "🎯 Bản chất dễ hiểu:\nJAVA LÀ 100% PASS-BY-VALUE (Truyền giá trị)! Java không hề có con trỏ tham chiếu như C++.\n\nNhiều người hay nhầm vì thấy sửa object trong hàm thì ở ngoài bị đổi theo. Hãy phân biệt rõ:\n• Khi truyền biến nguyên thủy (`int x = 10`): Java sao chép nguyên giá trị 10 vào hàm. Hàm có đổi `x = 20` thì ở ngoài x vẫn là 10.\n• Khi truyền Object (`Person p = new Person(\"Nam\")`): Java sao chép BẢN SAO CỦA ĐỊA CHỈ Ô NHỚ (Pointer value).\n  - Nếu bạn dùng bản sao địa chỉ đó để sửa thuộc tính: `p.setName(\"Bình\")` -> Tên bị đổi vì cùng trỏ vào 1 ngôi nhà trên Heap.\n  - Nhưng nếu bạn gán `p = new Person(\"Khác\")` bên trong hàm -> Đối tượng `p` ở bên ngoài hoàn toàn KHÔNG HỀ BỊ THAY ĐỔI, vì bạn chỉ vừa trỏ bản sao sang một ngôi nhà mới!",
       "textEn": "In Java, is argument passing Pass-by-value or Pass-by-reference?",
       "optionsEn": [
         "Java uses Pass-by-value for primitives and Pass-by-reference for Objects",
@@ -770,7 +770,7 @@ export const interviewJavaCore = {
         "List và Set không thể chứa phần tử null"
       ],
       "answer": 1,
-      "explanation": "• `List` (ArrayList, LinkedList): Có chỉ số (Index), duy trì thứ tự chèn, cho phép trùng lặp.\n• `Set` (HashSet, TreeSet): Không cho phép trùng lặp phần tử (dựa vào `hashCode` và `equals`).\n• `Map` (HashMap, TreeMap): Lưu theo cặp `Key - Value`. Key là duy nhất (nếu put trùng key sẽ ghi đè value cũ).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `List` (ArrayList, LinkedList): Giống như hàng người xếp hàng mua vé. Có thứ tự trước sau (Index 0, 1, 2...) và CHO PHÉP người trùng tên đứng lặp lại.\n• `Set` (HashSet, TreeSet): Giống như một túi đựng bóng độc nhất. KHÔNG CHO PHÉP phần tử trùng lặp (nếu thêm phần tử đã có rồi thì nó bỏ qua). Không đảm bảo thứ tự chèn (với HashSet).\n• `Map` (HashMap, TreeMap): Giống như cuốn Sổ danh bạ điện thoại lưu theo cặp **Key - Value** (Tên người - Số điện thoại). Các Key là duy nhất không được trùng nhau (nếu put trùng key sẽ ghi đè giá trị cũ).",
       "textEn": "What are the distinctions among the 3 core interfaces in Java Collections Framework: List, Set, and Map?",
       "optionsEn": [
         "List is a linked list; Set is a 1D array; Map is a 2D array",
@@ -790,7 +790,7 @@ export const interviewJavaCore = {
         "Khi dung lượng RAM của máy tính bị đầy 100%"
       ],
       "answer": 1,
-      "explanation": "• JVM dùng thuật toán Reachability Analysis (Truy vết khả năng tiếp cận) bắt đầu từ các GC Roots.\n• Nếu một object trong Heap không có đường dẫn nào kết nối tới GC Root, nó được coi là rác (Garbage) và đủ điều kiện bị thu dọn.\n💡 Mẹo phỏng vấn: Lệnh `System.gc()` chỉ là lời 'gợi ý' (suggestion) cho JVM chứ không hề cam kết JVM sẽ chạy GC ngay lập tức.",
+      "explanation": "🎯 Bản chất dễ hiểu (Cây tầm gửi và rễ cây):\nGarbage Collector (GC) trong JVM không đếm thời gian sống của đối tượng, mà dùng thuật toán **Truy vết khả năng tiếp cận (Reachability Analysis)** bắt đầu từ các GC Roots.\nGC Roots là những rễ cây vững chắc đang còn hoạt động: biến cục bộ trong Stack của luồng đang chạy, biến static của class, các luồng (Thread) đang active.\n• Nếu từ GC Roots có đường dây tham chiếu nối tới đối tượng -> Đối tượng còn sống.\n• Nếu đối tượng bị đứt toàn bộ liên lạc (Unreachable), trôi nổi vô thừa nhận trong Heap -> Nó bị coi là Rác và sẽ bị GC gom tiêu hủy giải phóng RAM.\n\n💡 Mẹo phỏng vấn: Lệnh `System.gc()` chỉ là lời \"thỉnh cầu\" JVM hãy dọn rác, còn việc JVM có dọn rác ngay hay không là do JVM tự quyết định, ta không thể ép buộc!",
       "textEn": "In JVM, what principle determines that an object is eligible for Garbage Collection (GC)?",
       "optionsEn": [
         "When the object has existed for more than 10 minutes without being accessed",
@@ -820,7 +820,7 @@ export const interviewSpring = {
         "Spring Boot chỉ chạy được trên nền tảng đám mây AWS"
       ],
       "answer": 1,
-      "explanation": "• Spring Framework thuần đòi hỏi cấu hình thủ công rất nhiều qua file XML hoặc class Config (DataSource, DispatcherServlet, ViewResolver...).\n• Spring Boot với phương châm 'Opinionated Defaults' tự động dò tìm dependencies trong classpath để cấu hình tự động (Auto-Configuration), tích hợp sẵn Web Server nhúng (Tomcat) giúp đóng gói thành 1 file JAR duy nhất (`java -jar app.jar`).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Spring Framework thuần giống như bạn đi mua linh kiện máy tính rời: Bạn phải tự mua CPU, RAM, nguồn, tự viết hàng trăm dòng cấu hình XML rườm rà, tự cài đặt web server Tomcat bên ngoài rồi deploy file `.war` lên rất cực khổ.\n• Spring Boot giống như chiếc máy tính xách tay Laptop đóng gói sẵn:\n  1. Auto-configuration: Tự động đoán và cấu hình những thứ phổ biến (thấy có MySQL driver là tự cấu hình DataSource).\n  2. Starter Dependencies: Chỉ cần khai báo 1 dòng `spring-boot-starter-web` là tự kéo đủ thư viện cần thiết.\n  3. Embedded Tomcat: Web server được nhúng thẳng vào file `.jar`, chỉ cần chạy `java -jar app.jar` là web hoạt động ngay lập tức!",
       "textEn": "What is the most significant difference between Spring Boot and the traditional Spring Framework?",
       "optionsEn": [
         "Spring Boot is a completely new language that replaces Java",
@@ -840,7 +840,7 @@ export const interviewSpring = {
         "Compile -> Bytecode -> Run -> Garbage Collect"
       ],
       "answer": 1,
-      "explanation": "Vòng đời đầy đủ của Bean trong Spring IoC:\n1. Instantiate: Khởi tạo instance bằng constructor.\n2. Populate Properties: Tiêm các dependency (@Autowired).\n3. BeanNameAware / BeanFactoryAware.\n4. BeanPostProcessor - postProcessBeforeInitialization.\n5. @PostConstruct / InitializingBean.afterPropertiesSet().\n6. BeanPostProcessor - postProcessAfterInitialization (nơi tạo Proxy cho AOP/Transactional).\n7. Ready: Bean sẵn sàng phục vụ.\n8. Container Shutdown -> @PreDestroy / DisposableBean.destroy().",
+      "explanation": "🎯 Bản chất dễ hiểu:\nVòng đời của một Spring Bean trải qua các giai đoạn chính:\n1. Khởi tạo (Instantiation): Gọi Constructor để tạo object trong RAM.\n2. Tiêm phụ thuộc (Populate Properties): Inject các dependency qua `@Autowired`.\n3. Gọi các Aware Interfaces: Nếu bean cần biết về môi trường (như `BeanNameAware`, `ApplicationContextAware`).\n4. Tiền khởi tạo & Khởi tạo: Chạy các hàm gắn annotation `@PostConstruct` hoặc phương thức `afterPropertiesSet()`.\n5. Sẵn sàng phục vụ (Ready for use): Bean nằm trong Container phục vụ ứng dụng.\n6. Hủy bỏ (Destruction): Khi ứng dụng tắt, gọi các hàm dọn dẹp `@PreDestroy` để đóng file, đóng kết nối database.",
       "textEn": "What is the sequence of key phases in a Spring Bean's Lifecycle?",
       "optionsEn": [
         "Instantiation -> Populate Properties -> BeanNameAware / BeanFactoryAware -> BeanPostProcessor (Before Init) -> @PostConstruct / init-method -> BeanPostProcessor (After Init) -> Ready for Use -> @PreDestroy / destroy",
@@ -860,7 +860,7 @@ export const interviewSpring = {
         "Khuyên dùng Setter Injection vì linh hoạt thay đổi được sau khi khởi tạo"
       ],
       "answer": 0,
-      "explanation": "Spring hỗ trợ 3 cách DI:\n1. Field Injection: `@Autowired private Service s;` (Dễ viết nhưng khó viết Unit Test độc lập và dễ che giấu lỗi phụ thuộc vòng Circular Dependency).\n2. Setter Injection: Dùng setter method (phù hợp với optional dependency).\n3. Constructor Injection (KHUYẾN NGHỊ): Giúp dependency là `final` (bất biến), đảm bảo object không bao giờ ở trạng thái null khi khởi tạo, và dễ dàng viết Unit Test mà không cần Spring Container.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCó 3 cách thực hiện Dependency Injection (DI):\n1. Field Injection: Gắn `@Autowired` trực tiếp lên thuộc tính (Tiện nhưng nguy hiểm, khó viết Unit Test).\n2. Setter Injection: Dùng hàm `setXyz()` (Dành cho các phụ thuộc không bắt buộc).\n3. **Constructor Injection (Được Spring Team khuyến nghị 100%)**: Truyền dependency qua hàm khởi tạo Constructor.\n\nTại sao Constructor Injection là số 1?\n• Cho phép khai báo biến là `final` -> Đảm bảo tính bất biến (Immutable), tránh bị đổi lén.\n• Rất dễ viết Unit Test với Mockito: Chỉ cần `new UserService(mockRepo)` mà không cần bật cả Spring IoC container nặng nề.\n• Phát hiện lỗi phụ thuộc vòng tròn (Circular Dependency) ngay lúc khởi động ứng dụng.",
       "textEn": "What are the ways to achieve Dependency Injection in Spring Boot, and which is recommended as best practice?",
       "optionsEn": [
         "Field Injection (@Autowired on field), Setter Injection, and Constructor Injection. Constructor Injection is the recommended best practice because it enforces immutability (final fields) and simplifies unit testing without mocking Spring container",
@@ -880,7 +880,7 @@ export const interviewSpring = {
         "DispatcherServlet -> Service -> Controller -> Database"
       ],
       "answer": 1,
-      "explanation": "Luồng chi tiết của Request trong Spring Boot:\n1. Request qua bộ lọc Servlet Filters (ví dụ: Spring Security Filter).\n2. Đi vào `DispatcherServlet` (Front Controller).\n3. Tra cứu `HandlerMapping` để tìm Controller và hàm xử lý tương ứng.\n4. Chạy qua `HandlerInterceptor` (hàm preHandle).\n5. Gọi method của `@RestController`.\n6. Controller gọi nghiệp vụ tại `@Service`.\n7. Service gọi truy vấn DB tại `@Repository` (Spring Data JPA).\n8. Kết quả trả về được `HttpMessageConverter` (Jackson) serialize thành JSON gửi về Client.",
+      "explanation": "🎯 Bản chất dễ hiểu (Hành trình của 1 Request):\nKhi người dùng gửi request `GET /api/users`:\n1. `DispatcherServlet` (Chàng lễ tân trung tâm): Nhận toàn bộ request đến đầu tiên.\n2. `HandlerMapping`: Lễ tân tra danh bạ xem URL này thuộc về Controller nào xử lý.\n3. `Controller`: Tiếp nhận request, đọc tham số và gọi xuống tầng nghiệp vụ.\n4. `Service`: Xử lý logic tính toán, kiểm tra quyền hạn, quản lý giao dịch (@Transactional).\n5. `Repository / DAO`: Tương tác với Database bằng Hibernate/JPA.\n6. Dữ liệu quay ngược trở lại Controller và được serialize thành JSON trả về cho Client.",
       "textEn": "What is the flow of an incoming HTTP Request in a Spring Boot MVC application?",
       "optionsEn": [
         "Client -> DispatcherServlet -> HandlerMapping -> Interceptor/Controller -> Service -> Repository (DB) -> View/ResponseBody (JSON) -> Client",
@@ -900,7 +900,7 @@ export const interviewSpring = {
         "@GlobalError và @CatchAll"
       ],
       "answer": 0,
-      "explanation": "• `@RestControllerAdvice`: Đánh dấu class xử lý lỗi toàn cục cho toàn bộ các Controller trong hệ thống.\n• `@ExceptionHandler(TênNgoạiLệ.class)`: Bắt chính xác loại exception đó và trả về định dạng JSON ApiResponse chuẩn (chứa timestamp, status code, error message) mà không làm lộ StackTrace nguy hiểm ra ngoài.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nĐể tránh việc ở mỗi Controller đều phải viết lặp đi lặp lại hàng trăm khối `try-catch`, Spring Boot cung cấp giải pháp xử lý ngoại lệ tập trung (Global Exception Handling) bằng cách kết hợp:\n• `@RestControllerAdvice` (hoặc `@ControllerAdvice`): Đánh dấu class là bộ lọc bắt lỗi toàn cục cho tất cả các Controller trong dự án.\n• `@ExceptionHandler(UserNotFoundException.class)`: Đặt trên từng method để bắt đúng loại lỗi cụ thể và trả về định dạng JSON lỗi chuẩn hóa thống nhất (gồm: timestamp, status code, error message).",
       "textEn": "How is Global Exception Handling implemented centrally in a Spring Boot REST API?",
       "optionsEn": [
         "Use @ControllerAdvice (or @RestControllerAdvice) combined with @ExceptionHandler methods to catch and format exceptions into uniform response bodies",
@@ -920,7 +920,7 @@ export const interviewSpring = {
         "Lỗi hết hạn Token xác thực"
       ],
       "answer": 1,
-      "explanation": "• CORS là cơ chế bảo mật do TRÌNH DUYỆT thực thi để ngăn chặn trang web này gửi request ngầm sang một trang web khác.\n• Ví dụ: Frontend chạy tại `http://localhost:3000` gọi sang Backend `http://localhost:8080`.\n• Cách giải quyết chuẩn trong Spring Boot: Thêm cấu hình `CorsRegistry` trong `WebMvcConfigurer` cho phép origin `http://localhost:3000` và các method GET, POST, PUT, DELETE.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCORS (Cross-Origin Resource Sharing) là một cơ chế BẢO MẬT CỦA TRÌNH DUYỆT.\nKhi frontend chạy ở `http://localhost:3000` gọi API sang backend ở `http://localhost:8080` (khác Port hoặc khác Domain), trình duyệt sẽ chặn đứng lại vì nghi ngờ trang web lạ đang lén gọi trộm API của bạn!\n\nCách xử lý chuẩn trong Spring Boot:\n1. Cấp Controller: Dùng `@CrossOrigin(origins = \"http://localhost:3000\")`.\n2. Cấp toàn cục (Khuyên dùng): Cấu hình bean `WebMvcConfigurer` và ghi đè hàm `addCorsMappings` để cho phép domain frontend, các HTTP method (GET, POST, PUT, DELETE) và headers cần thiết.",
       "textEn": "What is a CORS (Cross-Origin Resource Sharing) error and how is it resolved in Spring Boot?",
       "optionsEn": [
         "A browser security mechanism blocking requests from a different origin (domain, port, protocol); resolved in Spring Boot using @CrossOrigin on controllers or configuring a WebMvcConfigurer with CorsRegistry",
@@ -940,7 +940,7 @@ export const interviewSpring = {
         "singleton chỉ sống trong 1 request; prototype sống vĩnh viễn"
       ],
       "answer": 1,
-      "explanation": "• `singleton` (default scope): Spring IoC Container chỉ khởi tạo 1 instance duy nhất và chia sẻ cho tất cả các class inject nó (vô cùng tối ưu bộ nhớ, tuy nhiên phải thiết kế Stateless - không lưu trạng thái mutable để tránh Race Condition).\n• `prototype`: Mỗi lần inject (@Autowired) sẽ sinh ra 1 object hoàn toàn mới.\n• Các web scopes khác: `request`, `session`, `application`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `singleton` (Scope mặc định): Spring IoC Container chỉ tạo DUY NHẤT 1 instance của Bean và chia sẻ cho toàn bộ ứng dụng dùng chung. Cực kỳ tiết kiệm RAM, nhưng Bean bắt buộc phải thiết kế dạng **Stateless** (không lưu trạng thái riêng của người dùng để tránh xung đột đa luồng).\n• `prototype`: Mỗi khi có ai đó yêu cầu inject (@Autowired) hoặc gọi `getBean()`, Spring sẽ TẠO RA MỘT INSTANCE HOÀN TOÀN MỚI. Phù hợp cho các đối tượng cần lưu trạng thái tạm thời (Stateful).",
       "textEn": "In Spring Framework, what is Bean Scope and how do singleton and prototype scopes differ?",
       "optionsEn": [
         "singleton is only for databases; prototype is only for Web Controllers",
@@ -960,7 +960,7 @@ export const interviewSpring = {
         "Cả hai giống hệt nhau, @RestController chỉ là tên viết tắt"
       ],
       "answer": 1,
-      "explanation": "• `@Controller`: Dành cho ứng dụng MVC truyền thống (Server-Side Rendering). Return string `\"index\"` -> tìm file `index.html`.\n• `@RestController` = `@Controller` + `@ResponseBody`: Dành cho RESTful Web Services. Return object `User` -> Jackson ObjectMapper tự động parse sang chuỗi JSON `{\"id\": 1, \"name\": \"Trung\"}` và trả thẳng về client.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `@Controller`: Dành cho ứng dụng web truyền thống (Server-Side Rendering). Giá trị trả về của hàm là một chuỗi Tên View (ví dụ return `\"home\"` -> ViewResolver sẽ đi tìm file `home.html` hoặc `home.jsp` để hiển thị).\n• `@RestController`: Dành cho RESTful API. Thực chất nó là viết tắt của:\n`@RestController = @Controller + @ResponseBody`\nMọi dữ liệu trả về từ hàm (như User object, List) sẽ được thư viện Jackson tự động chuyển đổi thành chuỗi JSON/XML nằm trong HTTP Response Body trả thẳng về cho frontend/mobile app.",
       "textEn": "What is the core difference between @Controller and @RestController in Spring Boot?",
       "optionsEn": [
         "@Controller is for microservices; @RestController is for monoliths",
@@ -980,7 +980,7 @@ export const interviewSpring = {
         "@Repository không thể inject vào Service"
       ],
       "answer": 1,
-      "explanation": "• `@Component`: Đánh dấu class là một Spring-managed Bean để Component Scanning tự động phát hiện.\n• `@Service`: Chuyên biệt hóa của `@Component` ở tầng nghiệp vụ.\n• `@Repository`: Chuyên biệt hóa ở tầng dữ liệu, tự động kích hoạt cơ chế dịch lỗi database (PersistenceExceptionTranslationPostProcessor) sang Spring's DataAccessException.\n• `@Bean`: Áp dụng ở cấp độ Method, dùng khi bạn muốn tạo Bean từ class của thư viện bên ngoài mà bạn không thể chỉnh sửa source code để thêm `@Component`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `@Component`: Là annotation \"cha\" tổng quát, đánh dấu bất kỳ class nào là 1 Spring Bean để Spring tự động quét và quản lý (Component Scanning).\n• `@Service`: Chuyên biệt hóa của @Component ở tầng Nghiệp vụ (Business logic).\n• `@Repository`: Chuyên biệt hóa ở tầng Dữ liệu (DAO/Database). Nó có tính năng đặc biệt: Tự động bắt các lỗi SQL của database và dịch sang ngoại lệ `DataAccessException` của Spring.\n• `@Bean`: Dùng ở cấp độ METHOD bên trong class cấu hình `@Configuration`. Dùng khi bạn muốn khởi tạo bean từ thư viện của bên thứ 3 mà bạn không thể sửa code để gắn @Component lên đầu class của họ.",
       "textEn": "Distinguish between Spring's stereotype annotations: @Component, @Service, @Repository, and @Bean?",
       "optionsEn": [
         "@Component is only for networking; @Bean is only for databases",
@@ -1000,7 +1000,7 @@ export const interviewSpring = {
         "Không cần thư viện validation, Spring Boot tự động đoán đúng dữ liệu"
       ],
       "answer": 1,
-      "explanation": "• Dùng `spring-boot-starter-validation`.\n• `@NotBlank`: Áp dụng cho String (không null, độ dài > 0 sau khi trim).\n• `@NotNull`: Không được null (thường dùng cho ID, Số, Date).\n• `@Valid`: Chuẩn Java/Jakarta Specification, kích hoạt validation lồng nhau.\n• `@Validated`: Do Spring cung cấp, hỗ trợ kiểm tra trên method parameter và phân nhóm (`groups = {OnCreate.class, OnUpdate.class}`).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nSpring Boot dùng thư viện `spring-boot-starter-validation` (chuẩn Hibernate Validator):\n• Khai báo ràng buộc trên DTO: `@NotNull` (không null), `@NotBlank` (chuỗi không rỗng và không toàn khoảng trắng), `@Size(min=6, max=20)`, `@Email`.\n• `@Valid`: Là chuẩn tiêu chuẩn của Java/Jakarta Bean Validation (JSR-380).\n• `@Validated`: Là annotation do Spring cung cấp, mở rộng thêm tính năng **Validation Groups** (ví dụ: Lúc Tạo mới thì ID được null, nhưng lúc Cập nhật thì ID bắt buộc phải có).",
       "textEn": "In Spring Boot, how does input validation work and what is the difference between @Valid and @Validated?",
       "optionsEn": [
         "@Valid only validates even numbers; @Validated validates odd numbers",
@@ -1020,7 +1020,7 @@ export const interviewSpring = {
         "Bắt buộc phải gắn @Repository lên interface JpaRepository thì project mới chạy được"
       ],
       "answer": 1,
-      "explanation": "💡 Mẹo phỏng vấn cực hay:\n1. JPA là hợp đồng (Interface/Spec), Hibernate là người thực thi hợp đồng.\n2. Interface extends `JpaRepository` KHÔNG CẦN gắn `@Repository` vì Spring Data JPA tự động tạo Proxy bean cho mọi interface extends Repository.\n3. `JpaRepository` tiện hơn `CrudRepository` vì các hàm như `findAll()` trả về thẳng `List<T>` (thay vì `Iterable<T>`), và có sẵn các hàm `saveAndFlush()`, `deleteInBatch()`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• JPA (Java Persistence API): Là cuốn HỢP ĐỒNG / BỘ ĐẶC TẢ tiêu chuẩn (chỉ gồm các interface, không có code thực thi).\n• Hibernate: Là NGƯỜI THỰC THI hợp đồng đó (thư viện ORM cụ thể làm việc kết nối database).\n• Spring Data JPA: Là bộ khung tiện ích tầng trên giúp bạn không phải viết code Hibernate dài dòng, tự động sinh ra các câu query thông qua các Interface Repository.\n• `JpaRepository` kế thừa từ `PagingAndSortingRepository` và `CrudRepository`. Nó tiện hơn vì các hàm như `findAll()` trả về sẵn `List<T>` (thay vì `Iterable<T>`) và có thêm các hàm xịn như `flush()`, `saveAndFlush()`, `deleteInBatch()`.",
       "textEn": "What is the relationship among JPA, Hibernate, and Spring Data JPA? How do CrudRepository and JpaRepository differ?",
       "optionsEn": [
         "JPA is a NoSQL database; Hibernate is a diagramming library",
@@ -1040,7 +1040,7 @@ export const interviewSpring = {
         "JPA chỉ hỗ trợ tìm kiếm theo ID, không hỗ trợ các điều kiện khác"
       ],
       "answer": 1,
-      "explanation": "• Derived Queries: Tiện lợi cho câu ngắn (`findByAgeGreaterThan(int age)`).\n• JPQL (`@Query(\"SELECT u FROM User u WHERE u.email = :email\")`): Truy vấn dựa trên Tên Entity và Thuộc tính Java, độc lập với hệ quản trị CSDL.\n• Native Query (`@Query(value = \"SELECT * FROM users WHERE ...\", nativeQuery = true)`): Khi cần tận dụng tính năng riêng biệt của DBMS (như JSON operator, window functions).\n• Spring Data Specifications: Dùng khi form tìm kiếm có nhiều điều kiện lọc động (Dynamic Search).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCó 4 cách chính để viết query trong Spring Data JPA:\n1. Query Method (Derived Query): Spring tự sinh SQL từ tên hàm: `findByEmailAndStatus(String email, int status)`. Rất nhanh và tiện cho các câu query đơn giản.\n2. `@Query` với JPQL: Viết câu truy vấn dựa trên Tên Entity và Thuộc tính Java: `@Query(\"SELECT u FROM User u WHERE u.age > :age\")` (Độc lập với hệ quản trị CSDL).\n3. `@Query(nativeQuery = true)`: Viết câu lệnh SQL thuần của MySQL/Postgres khi cần dùng các hàm đặc thù của CSDL.\n4. Specifications / Criteria API: Dùng code Java để xây dựng câu truy vấn động khi form tìm kiếm có quá nhiều bộ lọc tùy chọn.",
       "textEn": "In Spring Data JPA, what are the primary ways to define database queries in a Repository interface?",
       "optionsEn": [
         "Only by writing manual raw JDBC code",
@@ -1060,7 +1060,7 @@ export const interviewSpring = {
         "Spring Boot không hỗ trợ Connection Pool, mỗi request tạo 1 kết nối mới rồi đóng lại"
       ],
       "answer": 1,
-      "explanation": "💡 Kiến trúc kết nối DB:\nKhởi tạo kết nối TCP và xác thực với Database Server tốn hàng chục đến hàng trăm mili-giây. Connection Pool (như HikariCP) duy trì sẵn một nhóm (pool) kết nối mở. Khi Service cần query, nó 'mượn' 1 connection từ pool, thực thi xong thì 'trả lại' cho pool thay vì đóng kết nối thật, giúp ứng dụng chịu tải hàng nghìn request/giây mà không làm nghẽn DB.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ hồ bơi kết nối):\nKhởi tạo một kết nối TCP và bắt tay xác thực với Database Server tốn hàng trăm mili-giây. Nếu mỗi request của user đều mở kết nối mới rồi đóng lại thì Database sẽ chết ngắc vì kiệt quệ tài nguyên!\nConnection Pool (như HikariCP) duy trì sẵn một đàn kết nối mở sẵn (ví dụ 10-20 kết nối). Khi Service cần truy vấn, nó chạy ra \"mượn\" 1 kết nối có sẵn, chạy xong thì \"trả lại\" cho hồ bơi.\nHikariCP là thư viện Connection Pool mặc định của Spring Boot vì nó được tối ưu mã bytecode siêu nhỏ, tiêu thụ ít CPU và đạt tốc độ mượn trả kết nối nhanh nhất thế giới hiện nay!",
       "textEn": "How does Spring Boot configure database connectivity and why does it use HikariCP as the default Connection Pool?",
       "optionsEn": [
         "Configured in HTML files; HikariCP is an in-memory database",
@@ -1090,7 +1090,7 @@ export const interviewReact = {
         "Virtual DOM làm ứng dụng tốn bộ nhớ hơn và không có lợi ích gì đáng kể"
       ],
       "answer": 1,
-      "explanation": "• Thao tác trực tiếp với Real DOM của trình duyệt rất tốn kém tài nguyên vì kích hoạt quá trình tính toán lại layout (Reflow) và vẽ lại pixel (Repaint).\n• React tạo Virtual DOM trên RAM (nhẹ hơn DOM thật rất nhiều), khi state thay đổi nó dùng thuật toán Diffing tìm ra phần khác biệt nhỏ nhất và cập nhật hàng loạt (Batching) lên Real DOM.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ bản vẽ nháp):\nHãy tưởng tượng bạn muốn sửa một ngôi nhà 10 tầng.\n• Real DOM giống như bạn mang búa đập tường gạch xây lại ngay lập tức: cực kỳ tốn công sức, bụi bặm và làm rung lắc cả tòa nhà (trình duyệt phải tính toán lại Layout và vẽ lại Pixel - Reflow & Repaint).\n• Virtual DOM giống như bạn lấy bút chì sửa trên một bản vẽ nháp 3D trong máy tính (RAM). Bạn có thể tẩy xóa, thay đổi 100 lần trên bản vẽ siêu nhanh. Sau khi chốt phương án cuối cùng, bạn so sánh bản vẽ mới với bản vẽ cũ (thuật toán Diffing) và chỉ cho thợ đến sửa đúng 1 viên gạch bị hỏng (Reconciliation & Batching).\n\n💻 Ví dụ thực tế:\nTrong danh sách 1.000 sản phẩm Shopee, khi người dùng bấm nút \"Thích\" ở sản phẩm số 500:\nNhờ Virtual DOM, React chỉ tìm ra đúng icon trái tim đổi từ màu xám sang đỏ và cập nhật đúng 1 thẻ <i> đó trên màn hình, 999 sản phẩm còn lại hoàn toàn không bị vẽ lại!\n\n💡 Mẹo phỏng vấn & Ghi điểm:\nNhớ 2 từ khóa kỹ thuật đắt giá: \"Diffing Algorithm\" (so sánh 2 cây ảo với độ phức tạp O(n)) và \"Batching\" (gộp nhiều thay đổi state liên tiếp để render 1 lần duy nhất). Tránh nói \"Virtual DOM luôn nhanh hơn DOM thật\" mà hãy nói \"Virtual DOM giúp tối ưu số lần chạm vào Real DOM\".",
       "textEn": "What is the Virtual DOM in React and how does the Reconciliation (Diffing) algorithm optimize UI performance?",
       "optionsEn": [
         "A database backup of the user interface stored on the backend",
@@ -1110,7 +1110,7 @@ export const interviewReact = {
         "Virtual DOM chỉ nhanh hơn khi có kết nối Internet tốc độ cao"
       ],
       "answer": 1,
-      "explanation": "💡 Câu hỏi phỏng vấn xuất sắc phân loại ứng viên:\nVirtual DOM KHÔNG PHẢI sinh ra để nhanh hơn Real DOM thuần túy (viết Vanilla JS tối ưu tay cho 1 element luôn nhanh hơn bất kỳ framework nào). Virtual DOM sinh ra để lập trình viên có thể viết code dạng Declarative (khai báo: 'giao diện trông như thế này dựa trên state'), và React đảm bảo hiệu năng ở mức 'đủ tốt' (good enough performance) trên các ứng dụng quy mô khổng lồ.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKHÔNG! Virtual DOM không phải là phép thuật và KHÔNG LUÔN LUÔN nhanh hơn Real DOM thật trong mọi tình huống.\n\nTại sao?\nBản thân việc tạo ra các JavaScript Object để làm Virtual DOM trên RAM và chạy thuật toán so sánh Diffing giữa 2 cây cũng tốn CPU và bộ nhớ.\n• Với trang web đơn giản: Chỉ có 1 nút bấm đổi màu chữ, việc viết JavaScript thuần `document.getElementById('btn').style.color = 'red'` chạy thẳng vào Real DOM trong 0.001 mili-giây, nhanh hơn React rất nhiều (vì React phải qua 5-6 bước tạo VDOM, so sánh rồi mới đụng vào Real DOM).\n\n💻 Ví dụ thực tế:\nCác framework hiện đại như Svelte không hề dùng Virtual DOM. Svelte biên dịch code ngay lúc build time thành các lệnh thao tác trực tiếp vào Real DOM nên chạy nhanh và nhẹ hơn React trong các bài test hiệu năng đơn giản.\n\n💡 Mẹo phỏng vấn (Bẫy nhà tuyển dụng hay gài):\nNgười phỏng vấn hỏi câu này để xem bạn có \"thần thánh hóa\" React hay không.\nHãy trả lời: \"Lợi thế lớn nhất của Virtual DOM không phải là đánh bại Real DOM ở các thao tác đơn lẻ, mà là mang lại trải nghiệm lập trình Khai báo (Declarative UI - UI = f(state)) và đảm bảo hiệu năng 'ĐỦ TỐT' (predictable performance) cho các ứng dụng quy mô khổng lồ hàng nghìn component phức tạp\". Trả lời như vậy bạn sẽ đạt điểm tuyệt đối!",
       "textEn": "Is the Virtual DOM always faster than the Real DOM under all circumstances? Why?",
       "optionsEn": [
         "Yes, Virtual DOM is 100% faster in every single case regardless of application complexity",
@@ -1130,7 +1130,7 @@ export const interviewReact = {
         "Chỉ có Class Component mới có State, Functional Component không thể có State"
       ],
       "answer": 1,
-      "explanation": "• `Props`: Do component cha truyền xuống con. Component con không được phép thay đổi props của chính mình (đảm bảo luồng dữ liệu 1 chiều One-Way Data Flow).\n• `State`: Biến trạng thái nội tại. Khi gọi `setCount(newVal)`, React lên lịch re-render lại component để cập nhật UI tương ứng.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ đời sống):\n• Props (Properties) giống như \"Họ tên hoặc Gen di truyền do bố mẹ đặt cho bạn\": Do component cha truyền xuống cho component con. Component con chỉ được phép đọc (Read-only / Immutable), tuyệt đối KHÔNG ĐƯỢC tự ý sửa đổi props của chính mình.\n• State giống như \"Tâm trạng hoặc Tiền trong ví của chính bạn\": Do chính component đó tự khai báo, tự quản lý và có thể thay đổi bất cứ lúc nào qua hàm setter (như `setCount`). Khi state thay đổi, component sẽ tự động re-render để cập nhật giao diện mới.\n\n💻 Ví dụ code thực tế:\n```jsx\n// Component Cha:\n<UserProfile username=\"trung_admin\" /> // \"trung_admin\" là PROPS truyền xuống\n\n// Component Con (UserProfile):\nfunction UserProfile({ username }) {\n  // username là read-only, không được gán username = \"khac\"\n  const [isOnline, setIsOnline] = useState(true); // isOnline là STATE nội tại\n  return <div>{username} - {isOnline ? \"🟢 Đang online\" : \"⚪ Vắng mặt\"}</div>;\n}\n```\n\n💡 Mẹo phỏng vấn & Câu hỏi mở rộng:\n\"Nếu component con muốn thay đổi dữ liệu của component cha thì làm thế nào?\"\n-> Trả lời: Áp dụng kỹ thuật \"Lifting State Up\" (Nâng state lên cha). Component cha truyền 1 hàm callback xuống làm props cho con, khi con cần đổi dữ liệu sẽ gọi hàm callback đó để cha tự update state của mình.",
       "textEn": "In React, what is the fundamental difference between State and Props?",
       "optionsEn": [
         "State is passed from parent to child; Props is private local data",
@@ -1150,7 +1150,7 @@ export const interviewReact = {
         "Cả hai hook này có thể đặt bên trong vòng lặp for hoặc câu lệnh if tùy ý"
       ],
       "answer": 1,
-      "explanation": "• `useState`: Quản lý state cục bộ. Mỗi lần gọi hàm setter (`setCount`), React xếp lịch re-render component.\n• `useEffect(callback, deps)`: Xử lý Side Effects.\n  - `deps = undefined`: Chạy sau mỗi lần render.\n  - `deps = []`: Chỉ chạy 1 lần duy nhất sau mount (tương đương `componentDidMount`).\n  - `deps = [a, b]`: Chạy lại khi `a` hoặc `b` thay đổi giá trị.\n  - Return cleanup function: Chạy trước khi unmount để tránh rò rỉ bộ nhớ (Memory Leak).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `useState`: Chuyên lo phần \"Dữ liệu hiển thị\" trên màn hình. Cứ mỗi lần state đổi giá trị -> React tự động vẽ lại (re-render) component.\n• `useEffect`: Chuyên lo các công việc \"Hậu trường / Tác vụ phụ\" (Side Effects) diễn ra SAU KHI giao diện đã được vẽ xong lên màn hình: gọi API backend lấy dữ liệu, lắng nghe sự kiện cuộn trang, hẹn giờ `setInterval`, hoặc đổi tiêu đề trang web `document.title`.\n\n💻 Ví dụ thực tế (Trang bảng tin):\n```jsx\nfunction NewsFeed() {\n  const [posts, setPosts] = useState([]); // 1. State lưu bài viết\n\n  useEffect(() => {\n    // 2. Chạy sau khi giao diện hiện lên: Gọi API lấy bài viết từ server\n    fetch('/api/posts')\n      .then(res => res.json())\n      .then(data => setPosts(data));\n  }, []); // 3. [] rỗng nghĩa là chỉ chạy 1 lần duy nhất khi vừa vào trang\n}\n```\n\n💡 Bẫy phỏng vấn kinh điển (Infinite Loop):\nNếu bạn gọi `setPosts()` bên trong `useEffect` mà KHÔNG CÓ mảng dependencies `[]`, component sẽ re-render liên tục vô tận (State đổi -> Render -> Chạy useEffect -> State lại đổi -> Lại render...) làm treo đơ trình duyệt của người dùng!",
       "textEn": "What are the distinct roles and mechanisms of the fundamental React Hooks: useState and useEffect?",
       "optionsEn": [
         "useState is used to call APIs; useEffect is used to store input values",
@@ -1170,7 +1170,7 @@ export const interviewReact = {
         "Hai hook này chỉ dùng được trong môi trường React Native"
       ],
       "answer": 1,
-      "explanation": "💡 Lưu ý phỏng vấn về việc tối ưu hiệu năng (Performance Optimization):\nKhông nên lạm dụng `useMemo`/`useCallback` bừa bãi vì bản thân việc khởi tạo hook và mảng dependencies cũng tốn RAM và chi phí so sánh.\n- Dùng `useMemo`: Khi có phép tính lặp phức tạp (sort/filter mảng hàng nghìn phần tử).\n- Dùng `useCallback`: Khi truyền callback function xuống component con (được bọc bởi `React.memo`) để tránh component con bị re-render vô ích.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ tủ lạnh):\n• `useMemo`: Ghi nhớ \"KẾT QUẢ của món ăn\" (đã nấu xong rồi cất vào tủ lạnh, lần sau đói lấy ra ăn ngay chứ không nấu lại từ đầu).\n• `useCallback`: Ghi nhớ \"CÔNG THỨC / ĐỊNH NGHĨA HÀM\" (giữ nguyên con trỏ hàm ở vùng nhớ cũ, không đẻ ra con trỏ hàm mới mỗi lần re-render).\n\n💻 Ví dụ thực tế:\n```jsx\n// useMemo: items có 50.000 sản phẩm, chỉ tính tổng lại khi mảng items thay đổi\nconst totalPrice = useMemo(() => {\n  return items.reduce((sum, item) => sum + item.price, 0);\n}, [items]);\n\n// useCallback: Giữ nguyên hàm handleDelete để truyền xuống component con <ProductItem />\n// Giúp ProductItem (được bọc React.memo) không bị re-render oan uổng\nconst handleDelete = useCallback((id) => {\n  setItems(prev => prev.filter(x => x.id !== id));\n}, []);\n```\n\n💡 Mẹo phỏng vấn:\n\"Có nên bọc useMemo và useCallback cho TẤT CẢ biến và hàm trong dự án không?\"\n-> Trả lời: TUYỆT ĐỐI KHÔNG! Bản thân việc gọi hook và duy trì mảng dependencies cũng tiêu tốn bộ nhớ RAM và CPU. Chỉ dùng khi phép tính thực sự nặng (xử lý hàng nghìn phần tử) hoặc khi truyền hàm xuống component con nặng có áp dụng `React.memo`.",
       "textEn": "When should useMemo and useCallback be used in React for performance optimization?",
       "optionsEn": [
         "All variables and functions must be wrapped in useMemo and useCallback to maximize application speed",
@@ -1190,7 +1190,7 @@ export const interviewReact = {
         "SSR chạy chậm hơn CSR 100 lần trong mọi tình huống"
       ],
       "answer": 1,
-      "explanation": "• `CSR`: Nhẹ server nhưng chậm lần đầu (FCP) và kém SEO.\n• `SSR` (`getServerSideProps` hoặc dynamic fetch): Luôn có dữ liệu mới nhất, tốt cho trang Dashboard cá nhân hóa theo từng user.\n• `SSG` (`generateStaticParams` / static export): Tốc độ cực nhanh vì phân phối qua CDN, hoàn hảo cho blog, tài liệu, landing page.\n• `ISR`: Lấy ưu điểm của cả SSG và SSR (trang tĩnh nhưng có thể tự động revalidate sau X giây khi có dữ liệu mới).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ gọi món nhà hàng):\n• CSR (Client-Side Rendering): Nhà hàng phát cho bạn nguyên liệu tươi mang về nhà tự nấu (Server chỉ gửi file HTML rỗng + file JS to, trình duyệt của bạn tự chạy JS để vẽ UI). Lần đầu mở web sẽ hơi chậm, nhưng khi đã tải xong thì chuyển trang mượt như bơ.\n• SSR (Server-Side Rendering): Khách gọi món nào, đầu bếp trong bếp nấu ngay lập tức trên chảo nóng món đó rồi bưng ra (Server render HTML tươi mới theo từng request của user). Dữ liệu luôn mới nhất, nhưng máy chủ phải hoạt động nhiều.\n• SSG (Static Site Generation): Đóng hộp sẵn 100 phần ăn từ 4h sáng (Build time). Khách đến là bốc phát ngay trong 0.01 giây qua CDN. Cực nhanh, siêu tiết kiệm server, nhưng không đổi được thực đơn trong ngày.\n• ISR (Incremental Static Regeneration): Vừa muốn nhanh như đồ hộp đóng sẵn (SSG), vừa muốn tự động cập nhật món mới mà không phải đóng cửa quán để nấu lại từ đầu (tự revalidate sau mỗi X giây ở chế độ nền).\n\n💡 Mẹo phỏng vấn: Khi nào dùng cái nào?\n• Trang tin tức, Landing Page, Blog, Tài liệu -> Chọn SSG.\n• Trang thương mại điện tử có hàng triệu sản phẩm -> Chọn ISR (revalidate: 60s).\n• Trang Dashboard cá nhân hóa tài khoản ngân hàng -> Chọn SSR hoặc CSR.",
       "textEn": "What rendering strategies does Next.js support, and what are their key distinctions?",
       "optionsEn": [
         "Next.js only supports standard Client-Side Rendering identical to Create-React-App",
@@ -1210,7 +1210,7 @@ export const interviewReact = {
         "Cho phép kết nối trực tiếp đến cơ sở dữ liệu MongoDB mà không cần bảo mật"
       ],
       "answer": 1,
-      "explanation": "• Trong Next.js App Router, mặc định tất cả component đều là React Server Components (RSC) - được render hoàn toàn trên server và không kèm JavaScript bundle xuống client, giúp web siêu nhẹ.\n• Khi bạn cần tính tương tác (Interactive): form input, click button, dùng `useState`, `useEffect`, `useRouter`,... thì BẮT BUỘC phải thêm `\"use client\";` ở dòng đầu tiên.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTrong Next.js App Router (từ phiên bản 13 trở lên), mặc định 100% component đều là React Server Components (RSC). Tức là code chỉ chạy trên máy chủ server, gửi về trình duyệt mã HTML siêu nhẹ và KHÔNG KÈM MÃ JAVASCRIPT nào.\nNhưng máy chủ thì làm sao biết người dùng bấm chuột vào đâu? Máy chủ cũng không có `localStorage` hay bàn phím!\nDo đó, chỉ thị `\"use client\";` đặt ở dòng 1 là chiếc cầu nối báo cho Next.js biết: \"Từ đây trở đi, hãy đóng gói JavaScript gửi xuống cho trình duyệt để người dùng có thể tương tác!\".\n\n💻 Khi nào BẮT BUỘC dùng `\"use client\"`:\n1. Dùng React Hooks: `useState`, `useEffect`, `useRef`, `useContext`.\n2. Dùng Event Listeners: `onClick`, `onChange`, `onSubmit`.\n3. Dùng API trình duyệt: `window`, `document`, `localStorage`, `navigator`.\n\n💡 Mẹo phỏng vấn:\nĐừng bao giờ bọc `\"use client\"` ở trang ngoài cùng (Page cha). Hãy đẩy nó xuống các component lá nhỏ nhất có thể (ví dụ chỉ bọc riêng cho nút bấm `<AddToCartButton />`) để giữ cho phần lớn trang web vẫn là Server Component giúp web đạt điểm tốc độ cao nhất.",
       "textEn": "In Next.js App Router (React Server Components), what does the \"use client\" directive signify and when is it required?",
       "optionsEn": [
         "It must be added at the top of 100% of files in a Next.js project",
@@ -1230,7 +1230,7 @@ export const interviewReact = {
         "SEO không phụ thuộc vào phương thức rendering của website"
       ],
       "answer": 1,
-      "explanation": "💡 Giải thích SEO phỏng vấn:\nVới CSR truyền thống, bot tìm kiếm nhận được thẻ `<div id=\"root\"></div>` trống rỗng và phải chờ JavaScript tải về thực thi (nhiều crawler mạng xã hội như Facebook, Zalo, Twitter bot thậm chí không chạy JS khi cào thẻ OpenGraph preview).\nVới SSR/SSG, máy chủ trả về mã HTML hoàn chỉnh có sẵn tiêu đề, đoạn văn và thẻ meta `<meta property=\"og:title\">`, giúp nội dung được lập chỉ mục (indexed) ngay lập tức và chính xác 100%.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nBot tìm kiếm của Google (Googlebot) hay crawler khi share link lên Facebook/Zalo hoạt động như một người đọc báo siêu lười.\n• Với React CSR truyền thống: Khi bot ghé thăm, nó chỉ nhìn thấy file HTML vỏn vẹn đúng 1 dòng: `<div id=\"root\"></div>`. Bot không rảnh chờ 3 giây để tải file JavaScript về chạy -> Bot kết luận trang web này trống rỗng -> Rớt hạng SEO thảm hại!\n• Với Next.js SSR / SSG: Máy chủ trả về ngay lập tức mã HTML hoàn chỉnh có sẵn tiêu đề `<h1>`, nội dung bài viết và thẻ `<meta property=\"og:title\">`. Bot đọc được nội dung trong 0.1 giây -> Lập chỉ mục (Index) ngay lập tức và hiển thị ảnh thumbnail cực đẹp khi chia sẻ link!\n\n💡 Mẹo phỏng vấn:\nNhắc thêm chỉ số Core Web Vitals của Google: FCP (First Contentful Paint) và LCP (Largest Contentful Paint) - thời gian hiển thị nội dung chính đầu tiên trên màn hình. SSR/SSG giúp điểm LCP xanh mướt (dưới 1.5 giây).",
       "textEn": "If the primary goal of a web project is SEO optimization, which Next.js rendering strategy should be favored and why?",
       "optionsEn": [
         "CSR (Client-Side Rendering) because browser payload size is minimal",
@@ -1250,7 +1250,7 @@ export const interviewReact = {
         "Cả hai giống hệt nhau về cả cấu trúc DOM lẫn hiệu năng"
       ],
       "answer": 1,
-      "explanation": "• `v-if`: Điều kiện sai -> phần tử hoàn toàn không tồn tại trong DOM. Rất tiết kiệm tài nguyên nếu điều kiện hiếm khi xảy ra.\n• `v-show`: Phần tử luôn được tạo trong DOM, chỉ thêm style `display: none`. Phù hợp tuyệt đối cho các thành phần bật/tắt liên tục (như Popup Modal, Tooltip, Tab chuyển đổi, Dropdown menu).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ ngôi nhà):\n• `v-if`: Giống như việc bạn \"Đập bỏ hoàn toàn ngôi nhà\" khi không dùng đến, và khi cần thì \"Xây lại từ móng\" (phần tử bị xóa hoàn toàn khỏi cây DOM, hủy hết state và event listener).\n• `v-show`: Giống như bạn vẫn giữ nguyên ngôi nhà đó, chỉ \"Kéo rèm che lại\" (phần tử vẫn luôn nằm trong cây DOM, chỉ gắn thêm thuộc tính CSS `display: none`).\n\n💻 Khi nào dùng cái nào?\n• Dùng `v-show`: Khi thành phần đó bị bật/tắt liên tục hàng chục lần (ví dụ: Popup Modal, Menu Dropdown, Tab chuyển đổi, Tooltip). Vì chi phí chuyển đổi (Toggle cost) gần như bằng 0.\n• Dùng `v-if`: Khi điều kiện ít khi thay đổi (ví dụ: Khu vực dành riêng cho Admin - nếu user không phải admin thì không cần tạo sẵn trong DOM làm tốn RAM).\n\n💡 Mẹo phỏng vấn: Trong React, cú pháp tương đương `v-if` là `{isOpen && <Modal />}` (render có điều kiện), còn tương đương `v-show` là `<Modal style={{ display: isOpen ? 'block' : 'none' }} />`.",
       "textEn": "In Vue.js (or conditional rendering concepts), what is the difference between v-if and v-show directives?",
       "optionsEn": [
         "v-if is strictly for images; v-show is strictly for data tables",
@@ -1280,7 +1280,7 @@ export const interviewWeb = {
         "Cả Cookie và Session đều được lưu trong LocalStorage"
       ],
       "answer": 1,
-      "explanation": "• Cookie: Lưu ở Browser, dung lượng nhỏ (~4KB), gửi kèm tự động trong header HTTP mỗi khi gọi request. Thuộc tính `HttpOnly` ngăn chặn JavaScript truy cập (chống XSS), `SameSite` chống CSRF.\n• Session: Lưu trữ dữ liệu phiên đăng nhập trên RAM của Server hoặc Redis. Server cấp cho client một `SessionId` (thường lưu trong cookie `JSESSIONID`).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ vé xe & bãi giữ xe):\n• Cookie: Giống như \"Vé xem phim giấy bạn tự cầm trong ví\" (lưu ở Client trình duyệt). Lần sau vào rạp bạn giơ vé ra. Nhược điểm: Dễ bị người khác móc túi hoặc sửa vé (xâm nhập bằng JavaScript XSS) nếu không cài cờ bảo vệ.\n• Session: Giống như \"Chiếc xe máy bạn gửi trong bãi đỗ xe an toàn của siêu thị\" (toàn bộ dữ liệu mật lưu ở Server). Bạn chỉ cầm duy nhất một mảnh vé nhựa có ghi mã số `Session ID = ABC123`. Khi bạn giơ thẻ ra, bảo vệ tự vào kho lấy xe ra cho bạn.\n\n💻 Thông số kỹ thuật cần nhớ:\n• Cookie lưu tối đa khoảng 4KB, tự động đính kèm vào mọi HTTP Request gửi lên server. Cần gắn cờ `HttpOnly` (chống JS đọc trộm) và `Secure` (chỉ gửi qua HTTPS).\n• Session lưu trên RAM server, database hoặc Redis (chuẩn nhất cho hệ thống phân tán nhiều server).\n\n💡 Mẹo phỏng vấn: Khi người phỏng vấn hỏi \"Làm sao duy trì đăng nhập giữa các microservices?\", hãy trả lời dùng JWT (JSON Web Token) lưu ở HttpOnly Cookie hoặc Session tập trung trên Redis Cache!",
       "textEn": "What is the difference between Session and Cookie storage mechanisms in web applications?",
       "optionsEn": [
         "Cookie is stored on the client browser (size limit ~4KB, sent with HTTP headers); Session is stored securely on the web server (stores sensitive user state, identified via a session ID cookie)",
@@ -1300,7 +1300,7 @@ export const interviewWeb = {
         "PUT chỉ dùng được với các file hình ảnh lớn"
       ],
       "answer": 1,
-      "explanation": "💡 Khái niệm Idempotent rất hay hỏi:\n• `Idempotent`: Thao tác gọi 1 lần hay n lần liên tiếp thì trạng thái hệ thống vẫn y như vậy (`GET`, `PUT`, `DELETE` là idempotent).\n• `POST`: Không idempotent (mỗi lần submit form sẽ tạo thêm 1 bản ghi mới).\n• `PUT` thay thế toàn bộ bản ghi; nếu muốn cập nhật một phần thuộc tính nên dùng `PATCH`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• GET: Dùng để LẤY dữ liệu (chỉ đọc, tham số nằm lộ trên URL `?page=1&limit=10`, trình duyệt tự động cache lại).\n• POST: Dùng để TẠO MỚI dữ liệu (dữ liệu giấu trong Request Body, an toàn và dung lượng không giới hạn).\n• PUT: Dùng để CẬP NHẬT THAY THẾ TOÀN BỘ một bản ghi đã tồn tại.\n\n💡 Khái niệm \"Idempotent\" (Ăn điểm tuyệt đối):\nNhà tuyển dụng rất thích hỏi từ này!\n• Idempotent nghĩa là: Bạn bấm gọi 1 lần hay bấm F5 gọi 100 lần liên tiếp thì trạng thái hệ thống vẫn y như vậy.\n  - `GET`, `PUT`, `DELETE` là Idempotent (sửa đè 100 lần thì bản ghi vẫn mang giá trị đó, xóa 100 lần thì bản ghi vẫn đã biến mất).\n  - `POST` KHÔNG PHẢI Idempotent (bạn bấm submit 5 lần sẽ tạo ra 5 đơn hàng khác nhau và trừ tiền 5 lần trong tài khoản!).\n\n💡 Mẹo mở rộng: Muốn cập nhật MỘT PHẦN thuộc tính (ví dụ chỉ đổi số điện thoại của user) thì chuẩn RESTful dùng `PATCH`.",
       "textEn": "Compare HTTP methods: GET, POST, and PUT in RESTful API design?",
       "optionsEn": [
         "GET retrieves data (idempotent, parameters in URL query string, cacheable); POST creates new resources (non-idempotent, payload in body); PUT updates/replaces an entire existing resource (idempotent)",
@@ -1320,7 +1320,7 @@ export const interviewWeb = {
         "Cả hai cho kết quả giống hệt nhau trong mọi trường hợp"
       ],
       "answer": 1,
-      "explanation": "• `==` (ép kiểu ngầm định): `5 == '5'` -> `true`; `false == 0` -> `true`; `null == undefined` -> `true`.\n• `===` (so sánh nghiêm ngặt): `5 === '5'` -> `false` (vì `number !== string`); `null === undefined` -> `false`.\n=> Trong dự án thực tế luôn luôn dùng `===` để tránh bẫy ép kiểu quái dị của JavaScript.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `==` là \"So sánh ba phải\" (Type Coercion - tự ý ép kiểu ngầm định). Hai kiểu dữ liệu khác nhau nó cũng ráng ép về cùng 1 kiểu để so sánh.\n• `===` là \"So sánh nghiêm ngặt\" (Strict Equality). Yêu cầu cả KIỂU DỮ LIỆU lẫn GIÁ TRỊ phải giống hệt nhau 100%, không hề có bất kỳ sự ép kiểu nào.\n\n💻 Những bẫy \"kinh dị\" của `==` trong JavaScript:\n```javascript\n5 == '5'        // true (ép string sang number)\nfalse == 0      // true (ép boolean sang number)\nnull == undefined // true\n[] == false     // true (mảng rỗng ép về boolean)\n```\nNhưng với toán tử `===`: Tất cả 4 phép so sánh trên đều trả về `false`!\n\n💡 Mẹo phỏng vấn: Luôn khẳng định trong dự án thực tế, bạn và đội ngũ 100% sử dụng `===` (kết hợp ESLint rule `eqeqeq`) để triệt tiêu các lỗi logic ngầm cực kỳ nguy hiểm.",
       "textEn": "In JavaScript, what is the difference between the equality operator == and strict equality operator ===?",
       "optionsEn": [
         "== performs type coercion before comparison; === compares both value and type without conversion (strict equality)",
@@ -1340,7 +1340,7 @@ export const interviewWeb = {
         "Làm ở đâu cũng được, phụ thuộc vào sở thích của lập trình viên"
       ],
       "answer": 2,
-      "explanation": "💡 Nguyên tắc vàng bảo mật phần mềm: 'Never trust user input'.\n• Phía Client có thể bị vượt qua dễ dàng bằng cách gọi thẳng API bằng Postman, tắt JS trên trình duyệt hoặc sửa DOM trong DevTools.\n• Do đó, Server Validation là bắt buộc sống còn để chống SQL Injection, dữ liệu hỏng. Client validation để tăng tốc độ phản hồi cho người dùng.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• DOM (Document Object Model): Cây phả hệ biểu diễn tài liệu HTML thành các đối tượng JavaScript, giúp bạn có thể dùng code để thêm, sửa, xóa thẻ HTML hoặc đổi màu CSS.\n• `document.getElementById('my-id')`: Giống như bạn tìm người qua Số Căn cước công dân duy nhất. Engine trình duyệt tìm trực tiếp trong Bảng băm (Hash Table) với độ phức tạp O(1) siêu nhanh.\n• `document.querySelector('.container > button.active')`: Giống như bạn cầm bản mô tả nhận dạng đi rà soát từng người trong phòng. Cú pháp cực kỳ linh hoạt (nhận mọi CSS selector), nhưng tốn CPU hơn một chút để duyệt cây.\n\n💡 Mẹo phỏng vấn: Nếu chỉ cần lấy 1 phần tử theo ID cố định, hãy ưu tiên `getElementById`. Nếu cần tìm phần tử theo class lồng nhau hoặc thuộc tính động `[data-status=\"active\"]`, hãy dùng `querySelector`.",
       "textEn": "When building input forms, why is client-side validation alone insufficient?",
       "optionsEn": [
         "Because client-side validation can be easily bypassed (using Postman, curl, or disabling JS); server-side validation is strictly required for data integrity and system security",
@@ -1360,7 +1360,7 @@ export const interviewWeb = {
         "Cả hai hoàn toàn giống nhau và có thể thay thế cho nhau trong mọi trường hợp"
       ],
       "answer": 1,
-      "explanation": "• CSS Box Model từ trong ra ngoài: Content -> Padding -> Border -> Margin.\n• `Padding`: Làm tăng kích thước vùng nền (background) của phần tử.\n• `Margin`: Tạo khoảng trống giữa phần tử này với phần tử khác (có hiện tượng Margin Collapsing giữa 2 margin dọc kề nhau).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ đóng gói hộp quà):\n• Content: Món quà quý giá bên trong.\n• Padding: Lớp xốp đệm bọc xung quanh món quà bên trong hộp.\n• Border: Vỏ hộp carton cứng bên ngoài.\n• Margin: Khoảng cách từ hộp quà của bạn đẩy lùi hộp quà của người khác để chúng không chạm vào nhau.\n\n💻 Bẫy CSS kinh điển:\nMặc định trong CSS (`box-sizing: content-box`), khi bạn set `width: 200px` rồi thêm `padding: 20px`, cái hộp sẽ bị phình to thành 240px làm vỡ tung layout giao diện!\n\n💡 Mẹo phỏng vấn:\nLuôn khai báo ở dòng đầu tiên của file CSS:\n```css\n* {\n  box-sizing: border-box;\n}\n```\nKhi đó dù bạn có thêm padding hay border bao nhiêu thì chiều rộng tổng thể của phần tử vẫn giữ nguyên đúng 200px như thiết kế!",
       "textEn": "In the CSS Box Model, what is the difference between margin and padding?",
       "optionsEn": [
         "margin controls background color; padding controls border color",
@@ -1380,7 +1380,7 @@ export const interviewWeb = {
         "document.getElementById chỉ chạy được trên điện thoại di động"
       ],
       "answer": 1,
-      "explanation": "• DOM: Cây đối tượng cho phép JavaScript đọc, sửa, thêm hoặc xóa các thẻ HTML và style CSS động.\n• `getElementById('my-btn')`: Tìm theo ID (rất nhanh, trả về 1 element hoặc null).\n• `querySelector('.nav > .active')`: Nhận CSS selector phức tạp, trả về phần tử đầu tiên khớp.\n• `querySelectorAll(...)`: Trả về NodeList chứa tất cả các phần tử khớp.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• DOM (Document Object Model): Cây phả hệ biểu diễn tài liệu HTML thành các đối tượng JavaScript, giúp bạn có thể dùng code để thêm, sửa, xóa thẻ HTML hoặc đổi màu CSS.\n• `document.getElementById('my-id')`: Giống như bạn tìm người qua Số Căn cước công dân duy nhất. Engine trình duyệt tìm trực tiếp trong Bảng băm (Hash Table) với độ phức tạp O(1) siêu nhanh.\n• `document.querySelector('.container > button.active')`: Giống như bạn cầm bản mô tả nhận dạng đi rà soát từng người trong phòng. Cú pháp cực kỳ linh hoạt (nhận mọi CSS selector), nhưng tốn CPU hơn một chút để duyệt cây.\n\n💡 Mẹo phỏng vấn: Nếu chỉ cần lấy 1 phần tử theo ID cố định, hãy ưu tiên `getElementById`. Nếu cần tìm phần tử theo class lồng nhau hoặc thuộc tính động `[data-status=\"active\"]`, hãy dùng `querySelector`.",
       "textEn": "What is the DOM in browser environments, and how do document.getElementById and document.querySelector differ?",
       "optionsEn": [
         "DOM is a networking protocol; getElementById is strictly for XML files",
@@ -1400,7 +1400,7 @@ export const interviewWeb = {
         "Để mã hóa mật khẩu người dùng thành dạng SHA-256"
       ],
       "answer": 1,
-      "explanation": "• Mặc định khi click submit button trong form, trình duyệt sẽ gửi request và reload lại toàn bộ trang (mất toàn bộ state hiện tại của ứng dụng Single Page App).\n• `event.preventDefault()` chặn hành vi reload mặc định, cho phép xử lý dữ liệu bằng JS (validate, hiển thị loading spinner, gọi `fetch('/api/login')`).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTừ những năm 1995, hành vi mặc định của thẻ `<form>` trong HTML là khi bấm Submit, trình duyệt sẽ gửi request đồng bộ và TẢI LẠI TOÀN BỘ TRANG WEB (Page Reload).\nTrong các ứng dụng web hiện đại (SPA như React, Vue, Next.js), nếu trang web bị reload thì:\n1. Toàn bộ state trên RAM bị xóa sạch.\n2. Màn hình bị chớp trắng giật cục làm trải nghiệm người dùng cực tệ.\n\nVì vậy, lập trình viên gọi `event.preventDefault()` để chặn đứng hành vi reload trang cổ lỗ sĩ đó, mở đường cho việc validate dữ liệu bằng JavaScript và gửi request ngầm qua `fetch()` hoặc `axios` mà màn hình vẫn đứng yên mượt mà!",
       "textEn": "When handling a `<form>` submit event in JavaScript, why do developers almost universally call event.preventDefault()?",
       "optionsEn": [
         "To wipe out the backend server database",
@@ -1420,7 +1420,7 @@ export const interviewWeb = {
         "Callback Hell không thể giải quyết được trong ngôn ngữ JavaScript"
       ],
       "answer": 1,
-      "explanation": "• Callback: `setTimeout(() => console.log('Done'), 1000)`.\n• Callback Hell (Pyramid of Doom): Khi các tác vụ bất đồng bộ phụ thuộc nhau (đọc file 1 -> đọc file 2 -> ghi DB) lồng nhau sâu hoắm.\n• Giải pháp: ES6 ra mắt `Promise`, và ES8 (ES2017) ra mắt `async/await` giúp viết mã bất đồng bộ trông tuần tự, sáng sủa và bắt lỗi dễ dàng qua `try/catch`.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ thẻ rung trà sữa):\nBạn đến quán gọi món trà sữa. Thu ngân đưa cho bạn một chiếc \"Thẻ rung báo lấy đồ\" (đó chính là Callback). Trong lúc chờ pha chế (tác vụ bất đồng bộ mất 5 phút), bạn thoải mái ngồi lướt TikTok hoặc trò chuyện (Non-blocking I/O). Khi trà sữa làm xong, thẻ rung lên bạn mới ra quầy lấy đồ.\n\nCallback Hell là gì?\nNếu bạn phải đợi làm trà sữa -> xong lại cầm thẻ đợi nướng bánh -> xong lại cầm thẻ đợi đóng gói... Các hàm callback lồng nhau 7-8 tầng hình kim tự tháp (Pyramid of Doom), khiến code thụt lề sâu hoắm, đọc đau mắt và nếu có lỗi thì không biết văng ra ở tầng nào!\n\n💡 Mẹo phỏng vấn:\nTrình bày lịch sử tiến hóa của JavaScript:\n1. Giai đoạn sơ khai: Dùng Callback (dễ dính Callback Hell).\n2. ES6 (2015): Ra mắt `Promise` với chuỗi `.then().catch()`.\n3. ES8 (2017): Đỉnh cao `async/await` - viết mã bất đồng bộ trông tuần tự, sáng sủa y hệt mã đồng bộ và bắt lỗi nhẹ nhàng bằng khối `try-catch`.",
       "textEn": "What is a Callback in JavaScript, and how was Callback Hell resolved in modern JavaScript?",
       "optionsEn": [
         "A callback is an audio phone call; Callback Hell is signal loss",
@@ -1440,7 +1440,7 @@ export const interviewWeb = {
         "Cả hai hàm đều dùng để xóa bộ nhớ cache của trình duyệt"
       ],
       "answer": 1,
-      "explanation": "• JSON: Cú pháp chuẩn dựa trên object literal của JavaScript, chuẩn giao tiếp số 1 của RESTful API.\n• `JSON.stringify(obj)`: Biến object `{ name: 'An', age: 20 }` -> chuỗi text `'{\"name\":\"An\",\"age\":20}'` để gửi qua HTTP body.\n• `JSON.parse(str)`: Biến chuỗi text JSON nhận được từ server -> JavaScript Object để truy xuất `obj.name`.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ tháo lắp xe đạp):\n• `JSON.stringify(object)`: Giống như bạn tháo rời chiếc xe đạp ra và đóng gói gọn gàng vào thùng các-tông (Biến đổi Object/Array trong RAM thành chuỗi văn bản Text thuần túy) để có thể gửi bưu điện qua đường truyền mạng internet hoặc lưu vào localStorage.\n• `JSON.parse(string)`: Giống như người nhận mở thùng các-tông và lắp ráp các bộ phận lại thành chiếc xe đạp hoàn chỉnh (Phân tích chuỗi Text thành JavaScript Object) để có thể leo lên chạy (`user.name`).\n\n💡 Bẫy phỏng vấn hay gài:\n1. `JSON.stringify()` sẽ tự động vứt bỏ các thuộc tính chứa hàm `function()`, `undefined` hoặc `Symbol`.\n2. Nếu chuỗi truyền vào `JSON.parse()` bị sai cú pháp (ví dụ thiếu dấu ngoặc kép, thừa dấu phẩy cuối cùng), nó sẽ quăng lỗi `SyntaxError` làm sập luôn ứng dụng nếu bạn không bọc trong khối `try-catch`!",
       "textEn": "What is JSON format, and how do JSON.stringify() and JSON.parse() differ in JavaScript?",
       "optionsEn": [
         "JSON is photo editing software; stringify renders images, parse exports video",
@@ -1460,7 +1460,7 @@ export const interviewWeb = {
         "Node.js chỉ chạy được trên các máy chủ có 64 core CPU"
       ],
       "answer": 1,
-      "explanation": "💡 Câu hỏi phỏng vấn hay hỏi về Node.js:\n• Không giống Tomcat/Java truyền thống (mỗi request = 1 luồng riêng - Thread-per-request), Node.js chỉ có 1 Main Thread chạy code JavaScript.\n• Khi gặp I/O (Database query, API call), nó chuyển cho libuv xử lý ngầm và đăng ký callback. Main thread lập tức rảnh tay phục vụ request tiếp theo. Khi I/O xong, callback được đẩy vào Event Loop để thực thi.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ quán ăn 1 bồi bàn):\nKhông giống như Tomcat/Java truyền thống (mỗi khách hàng là 1 nhân viên phục vụ riêng - Thread-per-request, 10.000 khách là tốn 10.000 luồng làm nghẽn RAM), Node.js chỉ có DUY NHẤT 1 người bồi bàn (Single Main Thread).\n• Khi khách gọi món hầm (I/O tốn thời gian như đọc file, query DB, gọi API bên thứ ba): Bồi bàn ghi phiếu rồi chuyển ngay cho nhà bếp (libuv thread pool chạy ngầm trong OS). Bồi bàn không hề đứng chờ mà quay sang nhận order của khách tiếp theo ngay lập tức (Non-blocking).\n• Khi bếp nấu xong, chuông reo (Event Loop), bồi bàn mới bưng món ra cho khách.\n\n💡 Điểm yếu chí mạng của Node.js:\nNếu có 1 vị khách bắt bồi bàn ngồi giải phương trình tích phân bậc 4 (tác vụ CPU-intensive như mã hóa video, nén file zip lớn, AI model), người bồi bàn sẽ bị kẹt cứng và HÀNG NGHÌN KHÁCH HÀNG KHÁC PHÍA SAU BỊ TREO HOÀN TOÀN! Do đó với tác vụ CPU nặng, người ta dùng Worker Threads hoặc chuyển sang dùng Go/Java.",
       "textEn": "What is Node.js and how does its Single-Threaded Event Loop handle high concurrent traffic?",
       "optionsEn": [
         "Node.js is a new operating system designed to replace Windows and Linux",
@@ -1490,7 +1490,7 @@ export const interviewDevOps = {
         "Đóng IDE lại và không đẩy code lên nữa"
       ],
       "answer": 2,
-      "explanation": "• Xung đột (Conflict) xảy ra khi 2 lập trình viên cùng chỉnh sửa trên cùng 1 dòng của 1 file.\n• Quy trình chuẩn: Dùng công cụ giải quyết xung đột (VS Code / Git Merge Tool), xem xét sự khác biệt, trao đổi với đồng nghiệp nếu cần, chọn phiên bản code đúng, xoá marker conflict, `git add` và commit.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nGit Conflict xảy ra khi 2 lập trình viên cùng sửa đổi trên CÙNG MỘT DÒNG CODE ở 2 nhánh khác nhau, khiến Git không biết nên nghe theo ai.\nQuy trình xử lý chuẩn của một kỹ sư chuyên nghiệp:\n1. Mở file xung đột lên (chú ý các dấu mốc `<<<<<<< HEAD` và `>>>>>>>`).\n2. Trao đổi trực tiếp với người đồng đội đã viết đoạn code đó để thống nhất giữ code nào, bỏ code nào hoặc kết hợp cả hai.\n3. Chỉnh sửa code, xóa sạch các dấu mốc xung đột của Git.\n4. Chạy lại bài test kiểm tra xem ứng dụng còn chạy tốt không.\n5. Thực hiện `git add` và `git commit` để hoàn tất việc giải quyết conflict.",
       "textEn": "When performing a git merge and encountering a Merge Conflict, what is the standard resolution process?",
       "optionsEn": [
         "Identify conflicting files with `git status`, manually resolve conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`), stage files with `git add`, and finalize with `git commit`",
@@ -1510,7 +1510,7 @@ export const interviewDevOps = {
         "Là công cụ tự động viết code thay cho lập trình viên"
       ],
       "answer": 1,
-      "explanation": "• Unit Test tập trung vào logic của 1 hàm đơn lẻ, chạy cực nhanh (mili-giây), dùng mock để giả lập database/service phụ thuộc (sử dụng JUnit 5 + Mockito trong Java).\n• Lợi ích lớn nhất: Giúp lập trình viên tự tin nâng cấp, tối ưu hóa (refactor) mà không sợ làm hỏng tính năng cũ (Regression testing).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nUnit Test là việc kiểm thử ở mức độ nhỏ nhất: kiểm tra từng hàm/method đơn lẻ của một Class xem có cho kết quả đúng như kỳ vọng hay không.\nTại sao Unit Test cực kỳ quan trọng?\nTheo mô hình Kim Tự Tháp Kiểm Thử (Testing Pyramid): Unit Test có tốc độ chạy nhanh nhất (vài mili-giây) và chi phí sửa lỗi rẻ nhất. Phát hiện bug ngay lúc viết code giúp bạn tự tin Refactor (tối ưu cấu trúc) mã nguồn trong tương lai mà không sợ làm hỏng các tính năng cũ đang chạy ổn định.",
       "textEn": "What is a Unit Test and why is writing Unit Tests critical in professional software projects?",
       "optionsEn": [
         "Automated tests that verify individual units of code (such as a single method or class) in isolation (often mocking dependencies), helping catch regressions early, improve design, and enable confident refactoring",
@@ -1530,7 +1530,7 @@ export const interviewDevOps = {
         "Chỉ gồm việc viết tài liệu và không cần lập trình"
       ],
       "answer": 1,
-      "explanation": "Khung làm việc Scrum:\n1. Sprint Planning: Chọn các Task từ Product Backlog đưa vào Sprint Backlog.\n2. Daily Scrum (Standup): 15 phút mỗi ngày (Hôm qua làm gì? Hôm nay làm gì? Có khó khăn gì không?).\n3. Sprint Review: Trình diễn (demo) sản phẩm hoàn thiện cho Product Owner và Stakeholders.\n4. Sprint Retrospective: Cả team họp đúc rút kinh nghiệm (Cái gì làm tốt? Cái gì cần cải thiện?).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTrong mô hình Agile/Scrum, một chu kỳ phát triển gọi là **Sprint**, thường kéo dài từ **1 đến 4 tuần** (phổ biến nhất là 2 tuần).\nMỗi Sprint bắt buộc gồm 4 sự kiện cốt lõi:\n1. Sprint Planning (Đầu Sprint): Họp lên kế hoạch chọn các công việc sẽ làm.\n2. Daily Scrum (Hàng ngày 15 phút): Báo cáo 3 câu hỏi (Hôm qua làm gì? Hôm nay làm gì? Có khó khăn gì cản trở không?).\n3. Sprint Review (Cuối Sprint): Demo sản phẩm chạy được cho khách hàng/Product Owner xem và nhận góp ý.\n4. Sprint Retrospective (Họp cải tiến nội bộ): Đội ngũ cùng nhìn lại xem Sprint qua điều gì làm tốt, điều gì làm dở và cần cải tiến hành động gì trong Sprint tới.",
       "textEn": "In the Scrum software development framework, how long does a typical Sprint cycle last?",
       "optionsEn": [
         "Typically 1 to 4 weeks (most commonly 2 weeks), ending with a potentially shippable product increment",
@@ -1550,7 +1550,7 @@ export const interviewDevOps = {
         "Chỉ test xem nút bấm có màu xanh không"
       ],
       "answer": 1,
-      "explanation": "💡 Thể hiện tư duy kiểm thử (Testing Mindset) toàn diện:\n• Functional: Đúng pass -> vào trang chủ; Sai pass -> thông báo lỗi phù hợp.\n• Boundary/Edge: Tên quá dài, ký tự unicode, để trống.\n• Security: Thử SQL Injection (`' OR 1=1 --`), mã hóa password bcrypt, bảo vệ brute-force khóa tài khoản sau 5 lần nhập sai.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nĐể phỏng vấn thể hiện tư duy kiểm thử sâu sắc của một kỹ sư phần mềm, đừng chỉ nói \"kiểm tra đúng pass thì vào\". Phải liệt kê đủ 4 nhóm test cases:\n1. Luồng chuẩn (Happy Path): Nhập đúng username/password -> Đăng nhập thành công, chuyển hướng trang đúng, lưu token vào cookie.\n2. Luồng lỗi nghiệp vụ (Bad Cases): Sai mật khẩu, tài khoản chưa kích hoạt email, tài khoản bị admin khóa.\n3. Kiểm tra tính hợp lệ (Validation): Để trống ô nhập, nhập ký tự đặc biệt, email sai định dạng.\n4. Bảo mật & Tấn công (Security): Thử tấn công SQL Injection (`' OR 1=1 --`), tấn công XSS, và cơ chế Rate Limiting (nhập sai 5 lần liên tiếp thì tạm khóa tài khoản 15 phút để chống Brute-force).",
       "textEn": "To design comprehensive test cases for a Login feature, what categories must be covered?",
       "optionsEn": [
         "Positive cases (valid credentials), Negative cases (wrong password, non-existent username, blank inputs, special characters/SQL injection), and Non-functional cases (rate limiting, password masking, remember me)",
@@ -1570,7 +1570,7 @@ export const interviewDevOps = {
         "Staging là nơi lưu trữ backup mã nguồn khi bị mất điện"
       ],
       "answer": 1,
-      "explanation": "• Dev: Chạy trên máy cá nhân, dùng DB local/docker.\n• Staging / UAT: Giống hệt môi trường thật 99%, dùng dữ liệu giả lập để kiểm thử toàn diện.\n• Production: Chạy cho khách hàng thật, yêu cầu ổn định 99.99%, backup liên tục, log giám sát chặt chẽ.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nMột dự án phần mềm chuyên nghiệp luôn có ít nhất 3 môi trường tách biệt:\n1. Dev (Development): Môi trường máy cá nhân của lập trình viên để tha hồ viết và test code nháp.\n2. Staging / UAT: Môi trường có cấu hình giống hệt máy chủ thật để đội tester và khách hàng vào nghiệm thu tính năng.\n3. Production (Prod): Môi trường máy chủ thật đang phục vụ hàng triệu người dùng thực tế.\nFile `prod.env` chứa các biến môi trường nhạy cảm của server thật (URL Database thật, API Key thanh toán thật, Secret Key JWT) và TUYỆT ĐỐI KHÔNG ĐƯỢC PUSH LÊN GITHUB CÔNG KHAI để tránh bị lộ lọt dữ liệu.",
       "textEn": "What are the standard software deployment environments in an enterprise project pipeline?",
       "optionsEn": [
         "Local (developer machine) -> DEV / SIT (development integration) -> UAT / Staging (user acceptance testing, pre-production mirror) -> PROD (live production environment)",
@@ -1590,7 +1590,7 @@ export const interviewDevOps = {
         "Mockito bắt buộc phải chạy trên máy chủ thật có kết nối Database"
       ],
       "answer": 1,
-      "explanation": "💡 Nguyên lý Unit Test cốt lõi: Kiểm tra 1 đơn vị code (1 method của Service) một cách độc lập.\nVí dụ khi test `UserService.createUser()`: Ta không muốn gọi Database thật. Ta dùng `@Mock UserRepository` và cấu hình hành vi giả: `when(userRepository.save(any())).thenReturn(fakeUser)`. Sau đó `@InjectMocks UserService userService` để test logic tính toán của Service.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ diễn viên đóng thế):\nKhi viết Unit Test cho tầng `UserService`, mục tiêu là chỉ kiểm tra xem logic tính toán của UserService có đúng hay không. Bạn KHÔNG MUỐN kết nối vào Database thật (vì DB thật chạy chậm và làm bẩn dữ liệu).\nMockito là thư viện tạo ra các \"Diễn viên đóng thế\" (Mock objects):\n• `@Mock UserRepository userRepository`: Tạo một repository giả.\n• `when(userRepository.findByEmail(\"a@gmail.com\")).thenReturn(Optional.of(fakeUser))`: Dạy cho diễn viên giả cách trả lời kịch bản.\n• `@InjectMocks UserService userService`: Tự động nhét các diễn viên giả này vào UserService để bạn an tâm test độc lập.",
       "textEn": "In Java/Spring Boot Unit Testing, what is Mockito used for and what do @Mock and @InjectMocks do?",
       "optionsEn": [
         "Mockito automatically generates user interfaces",
@@ -1610,7 +1610,7 @@ export const interviewDevOps = {
         "Manual Testing chạy nhanh hơn Automation Testing 10 lần"
       ],
       "answer": 1,
-      "explanation": "• `Manual Testing`: Tốt cho giai đoạn đầu của dự án, kiểm thử khám phá (Exploratory Testing), đánh giá cảm nhận trực quan của con người.\n• `Automation Testing`: Chi phí ban đầu cao để viết kịch bản, nhưng khi hệ thống đã ổn định thì chạy kiểm thử hồi quy (Regression Test) mỗi khi push code lên Git cực kỳ rẻ và phát hiện bug ngay lập tức.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Manual Testing (Thủ công): Con người tự click chuột và gõ phím. Cực kỳ tốt ở giai đoạn đầu của tính năng mới, kiểm tra cảm nhận người dùng (UX) và kiểm thử khám phá (Exploratory Testing). Nhược điểm: Chậm, tốn nhân lực và dễ sai sót khi phải lặp lại.\n• Automation Testing (Tự động): Dùng code kịch bản (Selenium, Playwright, JUnit) chạy tự động. Thích hợp nhất cho **Kiểm thử hồi quy (Regression Testing)**: Mỗi khi lập trình viên sửa code và tạo Pull Request lên Git, kịch bản tự động chạy lại 500 bài test trong 2 phút để đảm bảo không có tính năng cũ nào bị hỏng.",
       "textEn": "Compare Automation Testing and Manual Testing. When should each approach be utilized?",
       "optionsEn": [
         "Manual testing is obsolete and no longer used in professional companies",
@@ -1630,7 +1630,7 @@ export const interviewDevOps = {
         "Cả hai mô hình có tiến trình và cách quản lý giống hệt nhau"
       ],
       "answer": 1,
-      "explanation": "• Waterfall: Khách hàng chỉ thấy sản phẩm ở cuối dự án (rủi ro cao nếu yêu cầu ban đầu bị hiểu sai).\n• Agile/Scrum: Cứ sau mỗi Sprint (2 tuần), nhóm phát triển demo một phần phần mềm chạy được (working software) cho khách hàng xem và góp ý, giúp giảm thiểu rủi ro trễ hạn và đáp ứng thị trường nhanh chóng.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Waterfall (Thác nước): Làm tuần tự như xây nhà bê-tông (Phân tích 3 tháng -> Thiết kế 2 tháng -> Lập trình 6 tháng -> Test 3 tháng). Khách hàng phải đợi 1 năm mới nhìn thấy phần mềm. Rủi ro khổng lồ: Nếu sau 1 năm khách đổi ý thì toàn bộ dự án bị đập đi xây lại!\n• Agile / Scrum (Linh hoạt): Chia nhỏ thành từng chu kỳ ngắn 2 tuần (Sprint). Cứ sau 2 tuần là bàn giao 1 tính năng chạy được cho khách hàng sờ tận tay và góp ý ngay. Nhờ vậy thích ứng cực nhanh với thay đổi của thị trường và giảm thiểu rủi ro thất bại.",
       "textEn": "What is the primary difference between the Waterfall model and Agile/Scrum in software development?",
       "optionsEn": [
         "Waterfall is only for student projects; Scrum is for banking",
@@ -1650,7 +1650,7 @@ export const interviewDevOps = {
         "Gửi toàn bộ database về cho trình duyệt của client tự tìm"
       ],
       "answer": 1,
-      "explanation": "💡 Trả lời chuẩn kiến trúc hệ thống (System Architecture):\n1. `Client Debounce`: Tránh spam 10 request khi gõ 10 chữ cái.\n2. `Cache Layer`: Cache kết quả của các từ khóa phổ biến (top searches) trong Redis.\n3. `Full-Text Search Engine`: Khi dữ liệu lớn, câu `LIKE '%abc%'` sẽ Full Table Scan gây treo database. Cần dùng Elasticsearch/OpenSearch hoặc MySQL Fulltext Index.\n4. `Pagination`: Luôn giới hạn số lượng bản ghi trả về (ví dụ page=1&size=20).",
+      "explanation": "🎯 Bản chất dễ hiểu (Kiến trúc tìm kiếm chịu tải cao):\nKhi thiết kế ô tìm kiếm Shopee/Lazada, nếu người dùng gõ chữ \"áo\" mà backend query thẳng vào Database `SELECT * FROM sp WHERE ten LIKE '%áo%'` thì Database sẽ sập ngay lập tức!\nLuồng xử lý kiến trúc chuẩn Backend:\n1. Phía Client: Áp dụng **Debounce** (chờ user ngừng gõ phím 300-500ms mới phát request).\n2. Tầng Caching: Kiểm tra từ khóa trong **Redis Cache** trước. Nếu có sẵn trong cache -> Trả về ngay trong 2 mili-giây.\n3. Nếu Cache Miss: Dùng Search Engine chuyên dụng (**Elasticsearch**) hoặc truy vấn CSDL có đánh chỉ mục (Fulltext Index).\n4. Luôn luôn **Phân trang (Pagination)**: Chỉ trả về 20 kết quả đầu tiên và chỉ chọn những cột cần thiết (`id, name, thumbnail, price`), không bao giờ dùng `SELECT *`.",
       "textEn": "When designing a Search feature in software architecture, how should the backend flow be structured to optimize performance and prevent database overload?",
       "optionsEn": [
         "Allow clients to invoke the search API on every keystroke without throttling and execute unindexed SELECT * LIKE '%kw%' queries",
@@ -1680,7 +1680,7 @@ export const interviewAi = {
         "Là một ngôn ngữ lập trình hướng đối tượng mới cạnh tranh với Java"
       ],
       "answer": 1,
-      "explanation": "LLM (Gemini, Claude, GPT) sử dụng kiến trúc Transformer với cơ chế Self-Attention. Trong kỹ thuật phần mềm, LLM giúp tăng năng suất vượt bậc: chuyển mô tả nghiệp vụ thành code, tạo dữ liệu mẫu (mock data), phân tích log tìm bug, sinh tài liệu API (Swagger).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nLLM (Large Language Model - Mô hình ngôn ngữ lớn như GPT-4, Claude, Gemini) là mạng nơ-ron học sâu được huấn luyện trên hàng nghìn tỷ từ ngữ từ khắp Internet.\nVề bản chất xác suất: LLM hoạt động bằng cách dự đoán từ ngữ tiếp theo (Next-token prediction) có khả năng xuất hiện cao nhất dựa trên ngữ cảnh được cung cấp.\nTrong phát triển phần mềm, LLM được ứng dụng để: Tự động hoàn thành code (Autocompletion), giải thích các đoạn mã phức tạp (Code explanation), tạo Unit Test tự động, phát hiện lỗ hổng bảo mật và hỗ trợ giải quyết lỗi (Debugging).",
       "textEn": "What is an LLM (Large Language Model) and how is it typically applied in software engineering?",
       "optionsEn": [
         "A deep learning AI model trained on massive text codebases to predict tokens and understand context, applied to code generation, code review, test case generation, debugging, and smart documentation",
@@ -1700,7 +1700,7 @@ export const interviewAi = {
         "Viết bằng mã nhị phân 0 và 1"
       ],
       "answer": 1,
-      "explanation": "💡 Cấu trúc Prompt chuyên nghiệp (RC-TCO Framework):\n1. Role: 'Bạn là chuyên gia Senior Java Spring Boot...'\n2. Context: 'Hệ thống dùng Java 21, Spring Boot 3.3, MySQL 8...'\n3. Task: 'Hãy viết REST API đăng ký người dùng...'\n4. Constraints: 'Không dùng Lombok, mã hóa password bằng BCrypt, validate bằng jakarta.validation...'\n5. Output: 'Chỉ trả về code Controller và DTO kèm comment tiếng Việt'.",
+      "explanation": "🎯 Bản chất dễ hiểu (Công thức Prompt chuẩn 5 thành phần):\nĐể AI không trả lời lan man hoặc sinh ra code rác, một Prompt chuyên nghiệp cần có đủ 5 yếu tố:\n1. Role (Vai trò): \"Bạn là chuyên gia Senior Spring Boot & Database Architect.\"\n2. Context (Bối cảnh): \"Tôi đang xây dựng API giỏ hàng cho trang thương mại điện tử Next.js kết nối MongoDB.\"\n3. Task (Yêu cầu cụ thể): \"Hãy viết 1 API thêm sản phẩm vào giỏ hàng, có xử lý trừ số lượng tồn kho.\"\n4. Constraints (Ràng buộc): \"Sử dụng Java 17, xử lý Transaction bằng @Transactional, kiểm tra trường hợp tồn kho bằng 0 thì báo lỗi OutOfStockException.\"\n5. Output Format (Định dạng đầu ra): \"Chỉ trả về mã nguồn Service và DTO, có kèm chú thích tiếng Việt ngắn gọn.\"",
       "textEn": "To write an effective Prompt for an AI coding assistant, what core framework should be provided?",
       "optionsEn": [
         "Role (persona), Context (tech stack, existing architecture), Clear Task (specific goal), Constraints (libraries, forbidden patterns), and Expected Output format (code example, step-by-step diff)",
@@ -1720,7 +1720,7 @@ export const interviewAi = {
         "Yêu cầu AI tự ký cam kết bảo hành phần mềm"
       ],
       "answer": 1,
-      "explanation": "Lập trình viên là người chịu trách nhiệm cuối cùng (Responsible AI). AI có thể sinh ra code lỗi thời, thư viện bị deprecate, hoặc thậm chí sinh ra lỗ hổng bảo mật nghiêm trọng (SQL Injection, hardcoded password). Bắt buộc phải Code Review kỹ càng và chạy Test trước khi đưa vào codebase.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCode do AI sinh ra rất hay gặp hiện tượng **Ảo giác (Hallucination)** - tức là AI tự bịa ra những hàm hoặc thư viện hoàn toàn không tồn tại, hoặc sinh code có lỗ hổng bảo mật tiềm ẩn.\nQuy trình của một kỹ sư phần mềm khi dùng code AI:\n1. Đọc hiểu từng dòng code, không bao giờ Copy-Paste mù quáng.\n2. Viết Unit Test để xác minh tính đúng đắn với các trường hợp biên (Edge Cases).\n3. Kiểm tra bảo mật: Xem có bị lỗi SQL Injection, Hardcode mật khẩu hoặc rò rỉ dữ liệu nhạy cảm hay không.\n4. Tối ưu lại cho đúng chuẩn quy ước mã nguồn (Coding Conventions) của dự án.",
       "textEn": "When using code generated by AI, what principle must developers always maintain?",
       "optionsEn": [
         "Review every line of code, verify security vulnerabilities/hallucinations, run automated tests, and ensure full understanding before committing to production",
@@ -1740,7 +1740,7 @@ export const interviewAi = {
         "Cả hai hoàn toàn giống nhau"
       ],
       "answer": 1,
-      "explanation": "• Chatbot: Chỉ nhận prompt và trả về text 1 lần (Single-turn request/response).\n• AI Agent: Có bộ nhớ (Memory), có khả năng suy nghĩ (Thought), chọn công cụ (Tool execution) như đọc file, viết code, chạy lệnh terminal, quan sát kết quả (Observation), và lặp lại vòng lặp cho đến khi hoàn thành mục tiêu tổng thể được giao.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ Tư vấn viên vs Nhân viên thực thi):\n• Chatbot AI (như ChatGPT giao diện web): Hoạt động theo cơ chế Single-turn Request/Response. Bạn hỏi 1 câu thì nó trả lời 1 đoạn văn bản rồi đứng yên đó chờ lệnh tiếp theo. Nó không thể tự chạm vào máy tính của bạn.\n• AI Agent (như Antigravity, Devin, Claude Code): Là một thực thể có trí tuệ tự hành (Autonomous Agency). Nó có:\n  1. Mục tiêu (Goal): Nhận 1 nhiệm vụ lớn phức tạp.\n  2. Lập kế hoạch (Planning & Reasoning): Tự chia nhiệm vụ thành 10 bước nhỏ.\n  3. Sử dụng công cụ (Tool Use): Tự mở terminal chạy lệnh build, tự đọc file, tự sửa mã nguồn, tự chạy test.\n  4. Tự sửa sai (Self-Correction): Nếu test báo đỏ, Agent tự phân tích lỗi và sửa lại code cho đến khi test xanh mới thôi!",
       "textEn": "How does an AI Agent differ from a simple AI Chatbot in software development?",
       "optionsEn": [
         "An AI Agent has agency: it can perceive its environment, formulate multi-step plans, autonomously invoke tools (terminal, file edits, git, browser, APIs), observe outcomes, and self-correct until reaching a defined goal",
@@ -1760,7 +1760,7 @@ export const interviewAi = {
         "Chỉ dùng để đổi màu giao diện của IDE"
       ],
       "answer": 1,
-      "explanation": "💡 Xu hướng phỏng vấn AI Tooling mới nhất:\nFile `claude.md` / `AGENTS.md` hoạt động như một cuốn 'Sổ tay hướng dẫn dự án' dành riêng cho AI Agent. Nó chứa: Tech stack, kiến trúc thư mục, quy tắc đặt tên, cách chạy lệnh test/build, và các lỗi thường gặp, giúp AI không sinh ra code lạc đề hoặc dùng sai thư viện.",
+      "explanation": "🎯 Bản chất dễ hiểu (Cuốn sổ tay chỉ dẫn dự án):\nKhi bạn mới vào công ty, đồng đội đưa cho bạn cuốn sổ tay hướng dẫn dự án: Công ty dùng tech stack gì, code đặt ở thư mục nào, quy tắc đặt tên ra sao, cách chạy test thế nào.\nFile `claude.md` hoặc `AGENTS.md` chính là \"Cuốn sổ tay hướng dẫn dành riêng cho AI Coding Assistant\".\nNó cung cấp ngữ cảnh hệ thống bền vững (Persistent System Context) để mỗi khi AI tham gia vào dự án, nó luôn tuân thủ 100% chuẩn mực kỹ thuật của đội ngũ, không tự ý cài thư viện lung tung hoặc sinh code lạc quẻ.",
       "textEn": "In AI-assisted software engineering (tools like Antigravity, Cursor, Claude Code), what role do context configuration files like claude.md or AGENTS.md serve?",
       "optionsEn": [
         "They are malicious scripts used to attack servers",
@@ -1780,7 +1780,7 @@ export const interviewAi = {
         "Bắt buộc phải dùng WebSocket hai chiều, SSE không truyền được text"
       ],
       "answer": 1,
-      "explanation": "• LLM hoạt động theo cơ chế sinh từ tuần tự (Autoregressive generation). Nếu đợi model sinh xong toàn bộ bài viết 1000 từ mới trả về response, người dùng phải nhìn màn hình quay quay 15-30 giây.\n• Giao thức Server-Sent Events (SSE) với header `Content-Type: text/event-stream` cho phép Backend đẩy từng chữ (chunk) về trình duyệt ngay lập tức giống như chữ đang được gõ trực tiếp.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nMô hình LLM sinh văn bản theo từng từ một (Autoregressive generation - từng token nối tiếp nhau).\nNếu bạn đợi AI viết xong toàn bộ bài văn 1.000 từ rồi mới gửi về qua HTTP response thông thường, người dùng sẽ phải ngồi nhìn màn hình quay quay trong 20-30 giây (trải nghiệm cực kỳ tệ và tưởng ứng dụng bị đơ).\nBằng cách sử dụng **Server-Sent Events (SSE)** với header `Content-Type: text/event-stream`:\nBackend sẽ \"bắn\" từng chữ (token) về trình duyệt ngay khi nó vừa được AI nghĩ ra trong vòng 0.5 giây đầu tiên. Người dùng nhìn thấy con trỏ gõ chữ từng ký tự mượt mà trước mắt, tạo cảm giác hệ thống phản hồi tức thì!",
       "textEn": "When integrating LLM APIs (OpenAI, Gemini) into backend services, why are responses streamed to clients using Server-Sent Events (SSE)?",
       "optionsEn": [
         "Because streaming reduces database storage capacity",
@@ -1810,7 +1810,7 @@ export const interviewAll = {
         "Cả hai có kết quả giống nhau, chỉ khác về tốc độ thực thi"
       ],
       "answer": 1,
-      "explanation": "• INNER JOIN: Chỉ lấy giao điểm (intersection) giữa 2 bảng.\n• LEFT JOIN (LEFT OUTER JOIN): Giữ nguyên 100% dòng của bảng trái. Bảng phải không có dữ liệu tương ứng sẽ điền NULL.\n💡 Mẹo phỏng vấn: Khi nhà tuyển dụng hỏi 'Làm sao tìm những khách hàng CHƯA từng đặt đơn hàng nào?', câu trả lời chuẩn là dùng LEFT JOIN bảng Customers với Orders và kiểm tra `WHERE Orders.id IS NULL` (hoặc dùng NOT EXISTS).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• INNER JOIN: Chỉ lấy phần giao nhau (Intersection) giữa 2 bảng. Chỉ những dòng nào có khóa khớp ở cả 2 bảng mới được xuất hiện trong kết quả.\n• LEFT JOIN: Lấy 100% tất cả các dòng của Bảng Bên Trái. Nếu bảng bên phải có dữ liệu khớp thì điền vào, nếu không có dữ liệu khớp thì điền giá trị `NULL`.\n\n💻 Tình huống phỏng vấn kinh điển:\n\"Làm thế nào để tìm danh sách những Khách Hàng CHƯA TỪNG mua đơn hàng nào?\"\n-> Dùng LEFT JOIN bảng Khách Hàng với Đơn Hàng, và thêm điều kiện `WHERE DonHang.id IS NULL`!",
       "textEn": "What is the difference between INNER JOIN and LEFT JOIN in SQL?",
       "optionsEn": [
         "INNER JOIN returns all rows from both tables; LEFT JOIN only returns matching rows",
@@ -1830,7 +1830,7 @@ export const interviewAll = {
         "WHERE chỉ áp dụng cho kiểu số, HAVING áp dụng cho kiểu chuỗi"
       ],
       "answer": 1,
-      "explanation": "• WHERE: Lọc dữ liệu ở cấp độ từng row trước khi nhóm. WHERE không được chứa hàm tổng hợp (ví dụ: `WHERE COUNT(*) > 5` sẽ báo lỗi cú pháp).\n• HAVING: Lọc ở cấp độ group sau khi đã tính toán hàm tổng hợp (ví dụ: `HAVING COUNT(*) >= 2`).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `WHERE`: Lọc từng dòng dữ liệu ĐƠN LẺ trước khi gom nhóm (GROUP BY). Trong WHERE tuyệt đối không được dùng các hàm tổng hợp như `COUNT()`, `SUM()`, `AVG()` (ví dụ viết `WHERE COUNT(*) > 5` sẽ bị báo lỗi cú pháp ngay).\n• `HAVING`: Lọc trên các NHÓM DỮ LIỆU sau khi đã gom nhóm bằng GROUP BY xong xuôi. Thường đi kèm với hàm tổng hợp (ví dụ: `HAVING COUNT(don_hang) >= 5`).\n\n💡 Thần chú ghi nhớ: \"WHERE lọc trước khi nhóm - HAVING lọc sau khi nhóm\".",
       "textEn": "What is the difference between WHERE and HAVING clauses in an SQL query?",
       "optionsEn": [
         "WHERE filters groups after GROUP BY; HAVING filters individual rows before grouping",
@@ -1850,7 +1850,7 @@ export const interviewAll = {
         "SELECT * FROM sinhvien GROUP BY ngay_sinh HAVING COUNT(*) <= 10;"
       ],
       "answer": 1,
-      "explanation": "• Bẫy tư duy phỏng vấn: Người có TUỔI BÉ NHẤT tức là người SINH RA GẦN ĐÂY NHẤT (ngày sinh lớn nhất / mới nhất).\n• Do đó phải sắp xếp theo ngày sinh giảm dần: `ORDER BY ngay_sinh DESC LIMIT 10`.\n• Nếu dùng ASC sẽ ra người có ngày sinh xa nhất trong quá khứ (tức là người nhiều tuổi nhất).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nĐể tìm người có TUỔI BÉ NHẤT, tức là người có NGÀY SINH GẦN VỚI HIỆN TẠI NHẤT (ngày sinh lớn nhất / mới nhất).\nDo đó ta phải sắp xếp ngày sinh giảm dần `ORDER BY ngay_sinh DESC` và lấy 10 người đầu tiên bằng `LIMIT 10`.\n(Rất nhiều bạn bị bẫy chọn `ASC` là ra những cụ già lớn tuổi nhất!).",
       "textEn": "Given table sinhvien (id, ho_ten, ngay_sinh). Which query retrieves the 10 youngest students?",
       "optionsEn": [
         "SELECT * FROM sinhvien ORDER BY ngay_sinh ASC LIMIT 10;",
@@ -1870,7 +1870,7 @@ export const interviewAll = {
         "REMOVE ung_vien WHERE tuoi < 18;"
       ],
       "answer": 2,
-      "explanation": "• `DELETE FROM <table> WHERE <condition>;` là câu lệnh DML chuẩn dùng để xoá các dòng thoả mãn điều kiện.\n• `TRUNCATE` không hỗ trợ mệnh đề WHERE (nó xoá sạch toàn bộ dữ liệu bảng).\n• `DROP` xoá luôn cả định nghĩa và cấu trúc bảng khỏi database.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCú pháp xóa dữ liệu có điều kiện trong SQL chuẩn:\n`DELETE FROM ten_bang WHERE dieu_kien;`\nỞ đây điều kiện là chưa đủ 18 tuổi (`tuoi < 18`), nên câu lệnh chính xác là:\n`DELETE FROM ung_vien WHERE tuoi < 18;`",
       "textEn": "Which statement is used to delete candidate records under 18 years old from table ung_vien (id, ho_ten, tuoi)?",
       "optionsEn": [
         "DROP FROM ung_vien WHERE tuoi < 18;",
@@ -1890,7 +1890,7 @@ export const interviewAll = {
         "CHAR chỉ chứa tối đa 255 ký tự, VARCHAR chứa không giới hạn ký tự"
       ],
       "answer": 0,
-      "explanation": "• CHAR(n): Chiếm đúng n ký tự dù chuỗi ngắn hơn. Dùng tối ưu cho dữ liệu có độ dài cố định như: Mã quốc gia (VN, US), Giới tính (M/F), Mã hash MD5, Mã CCCD -> Truy cập nhanh hơn và không bị phân mảnh bộ nhớ.\n• VARCHAR(n): Độ dài linh hoạt từ 0 đến n. Dùng cho: Họ tên, email, mô tả.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `CHAR(10)`: Kiểu chuỗi CỐ ĐỊNH độ dài. Nếu bạn chỉ lưu chữ \"ABC\" (3 ký tự), database vẫn tự động bù thêm 7 khoảng trắng vào sau để đủ 10 byte trên ổ cứng. Thích hợp cho các trường có độ dài luôn cố định như: Mã CCCD, Mã bưu chính, Mã màu Hex, Mã tiền tệ (USD, VND).\n• `VARCHAR(10)`: Kiểu chuỗi CO GIÃN độ dài (Variable Character). Lưu \"ABC\" thì chỉ tốn đúng 3 byte + 1 byte lưu độ dài, giúp tiết kiệm tối đa dung lượng ổ cứng. Dùng cho: Họ tên, Địa chỉ, Email.",
       "textEn": "What is the difference between CHAR and VARCHAR data types in a relational database?",
       "optionsEn": [
         "CHAR is fixed-length, padding with spaces if shorter; VARCHAR is variable-length, consuming only actual string bytes + length prefix bytes",
@@ -1910,7 +1910,7 @@ export const interviewAll = {
         "WHERE -> FROM -> GROUP BY -> SELECT -> HAVING -> LIMIT"
       ],
       "answer": 1,
-      "explanation": "💡 Mẹo phỏng vấn cực hay: SQL không chạy từ SELECT trước!\nThứ tự chạy logic thực tế của Database Engine:\n1. FROM & JOIN (Xác định nguồn bảng)\n2. WHERE (Lọc dòng thô)\n3. GROUP BY (Gom nhóm dữ liệu)\n4. HAVING (Lọc nhóm sau tính toán hàm tổng hợp)\n5. SELECT (Tính toán cột, đặt alias)\n6. DISTINCT (Loại bỏ bản ghi trùng)\n7. ORDER BY (Sắp xếp kết quả)\n8. LIMIT / OFFSET (Cắt trang)\n=> Vì WHERE chạy trước SELECT nên bạn không thể dùng alias được đặt ở SELECT trong mệnh đề WHERE!",
+      "explanation": "🎯 Bản chất dễ hiểu:\nThứ tự viết code SQL hoàn toàn KHÁC với thứ tự Database thực sự thực thi bên dưới!\nThứ tự logic chuẩn xác của RDBMS:\n1. `FROM` (Xác định nguồn bảng và JOIN)\n2. `WHERE` (Lọc các dòng thỏa điều kiện)\n3. `GROUP BY` (Gom nhóm các dòng)\n4. `HAVING` (Lọc trên các nhóm)\n5. `SELECT` (Chọn các cột hiển thị)\n6. `DISTINCT` (Loại bỏ dòng trùng lặp)\n7. `ORDER BY` (Sắp xếp kết quả tăng/giảm)\n8. `LIMIT / OFFSET` (Cắt lấy số dòng phân trang)\n\n💡 Mẹo phỏng vấn: Tại sao không thể dùng bí danh (Alias) đặt trong SELECT để lọc trong WHERE? Vì WHERE chạy ở bước 2, trong khi SELECT tận bước 5 mới chạy!",
       "textEn": "What is the standard logical execution order of an SQL query statement?",
       "optionsEn": [
         "SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY -> LIMIT",
@@ -1930,7 +1930,7 @@ export const interviewAll = {
         "SELECT que_quan, COUNT(diem < 5) FROM sinhvien GROUP BY que_quan;"
       ],
       "answer": 1,
-      "explanation": "• Lọc các sinh viên có điểm < 5 trước bằng mệnh đề `WHERE diem < 5`.\n• Gom nhóm theo quê quán bằng `GROUP BY que_quan`.\n• Đếm số lượng sinh viên trong mỗi nhóm bằng `COUNT(*)`.\n(Không dùng HAVING diem < 5 vì 'diem' không phải là hàm tổng hợp).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nĐề bài yêu cầu:\n1. Điểm dưới trung bình: `WHERE diem < 5`\n2. Thống kê theo từng quê quán: `GROUP BY que_quan`\n3. Đếm số lượng: `COUNT(*)`\n-> Câu hoàn chỉnh: `SELECT que_quan, COUNT(*) FROM sinhvien WHERE diem < 5 GROUP BY que_quan;`",
       "textEn": "Given table sinhvien (id, ho_ten, diem, que_quan). Which query counts the number of students with below-average scores (diem < 5) grouped by hometown?",
       "optionsEn": [
         "SELECT que_quan, COUNT(*) FROM sinhvien GROUP BY que_quan HAVING diem < 5;",
@@ -1950,7 +1950,7 @@ export const interviewAll = {
         "SELECT sv.* FROM sinhvien sv WHERE sv.id = (SELECT sinhvien_id FROM dang_ky);"
       ],
       "answer": 1,
-      "explanation": "• Dùng `LEFT JOIN dang_ky dk ON sv.id = dk.sinhvien_id` để giữ toàn bộ sinh viên.\n• Mệnh đề `WHERE dk.sinhvien_id IS NULL` sẽ lọc ra những bạn chưa hề có dòng nào tương ứng trong bảng đăng ký.\n• Cách 2 tương đương: `SELECT * FROM sinhvien sv WHERE NOT EXISTS (SELECT 1 FROM dang_ky dk WHERE dk.sinhvien_id = sv.id);`",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCó 2 cách chuẩn mực:\nCách 1: Dùng `LEFT JOIN` bảng sinhvien với dang_ky, rồi lọc `WHERE dang_ky.ma_sv IS NULL`.\nCách 2: Dùng `NOT EXISTS (SELECT 1 FROM dang_ky WHERE dang_ky.ma_sv = sinhvien.id)` (thường được tối ưu hóa rất tốt trên database hiện đại).",
       "textEn": "How do you find the list of students who have NOT registered for any courses (tables sinhvien and dang_ky)?",
       "optionsEn": [
         "SELECT sv.* FROM sinhvien sv INNER JOIN dang_ky dk ON sv.id = dk.sinhvien_id;",
@@ -1970,7 +1970,7 @@ export const interviewAll = {
         "Cả hai đều loại bỏ dòng trùng, chỉ khác nhau về thứ tự sắp xếp"
       ],
       "answer": 0,
-      "explanation": "• `UNION`: Tự động loại bỏ các bản ghi trùng lặp giữa các truy vấn. Để làm được điều này, database phải thực hiện thêm bước sắp xếp hoặc Hash (tốn CPU và RAM).\n• `UNION ALL`: Nối dữ liệu trực tiếp mà không kiểm tra trùng lặp -> Hiệu năng cao hơn nhiều.\n💡 Nếu biết chắc dữ liệu không trùng lặp hoặc cần giữ dữ liệu trùng, luôn dùng `UNION ALL`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `UNION`: Gộp kết quả của 2 câu truy vấn và TỰ ĐỘNG LOẠI BỎ CÁC DÒNG TRÙNG NHAU. Để loại bỏ trùng lặp, database bắt buộc phải tốn tài nguyên sắp xếp (Sort) toàn bộ dữ liệu.\n• `UNION ALL`: Gộp mù quáng toàn bộ dữ liệu của cả 2 câu truy vấn, CÓ TRÙNG CŨNG GIỮ NGUYÊN. Vì không phải lọc trùng nên tốc độ chạy nhanh hơn UNION rất nhiều lần.\n\n💡 Mẹo: Nếu bạn biết chắc 2 tập dữ liệu không thể trùng nhau (hoặc bài toán chấp nhận trùng), hãy luôn dùng `UNION ALL` để tối ưu hiệu năng.",
       "textEn": "What is the difference between UNION and UNION ALL operators in SQL?",
       "optionsEn": [
         "UNION merges results and eliminates duplicate rows (DISTINCT); UNION ALL retains all rows including duplicates, thus executing faster than UNION",
@@ -1990,7 +1990,7 @@ export const interviewAll = {
         "DELETE tự động reset cột ID tăng tự động về 1"
       ],
       "answer": 0,
-      "explanation": "• DELETE (DML): Xoá từng dòng, ghi nhật ký giao dịch (Transaction log) chi tiết cho từng dòng, có thể rollback trong transaction, kích hoạt trigger.\n• TRUNCATE (DDL): Giải phóng toàn bộ trang dữ liệu (data pages), reset bộ đếm auto-increment, cực nhanh, không hỗ trợ WHERE.\n• DROP (DDL): Xoá sổ cả cấu trúc bảng, index, trigger liên quan khỏi Database.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `DELETE`: Lệnh DML. Xóa từng dòng theo điều kiện WHERE, có ghi lại Transaction Log từng dòng nên có thể `ROLLBACK` (hoàn tác) được. Chạy chậm nhất.\n• `TRUNCATE`: Lệnh DDL. Xóa sạch bách toàn bộ dữ liệu trong bảng trong nháy mắt, reset bộ đếm Auto-Increment về 1. Cực nhanh vì giải phóng thẳng các Data Pages trên ổ cứng, không ghi log từng dòng và KHÔNG THỂ ROLLBACK được trong hầu hết CSDL.\n• `DROP`: Xóa sổ hoàn toàn cả dữ liệu lẫn cấu trúc bảng, biến mất vĩnh viễn khỏi Database.",
       "textEn": "Compare the 3 data deletion commands in SQL: DELETE, TRUNCATE, and DROP?",
       "optionsEn": [
         "DELETE is DML (rollbackable, supports WHERE, fires Triggers, slower); TRUNCATE is DDL (clears all data, resets auto_increment, no WHERE, does not fire row Triggers, very fast); DROP is DDL (removes both data and table structure)",
@@ -2010,7 +2010,7 @@ export const interviewAll = {
         "UPDATE diem = diem + 1 FROM sinhvien WHERE gioi_tinh = 'Nu';"
       ],
       "answer": 0,
-      "explanation": "Cú pháp chuẩn của câu lệnh cập nhật dữ liệu SQL:\n`UPDATE <tên_bảng> SET <tên_cột> = <giá_trị_mới> WHERE <điều_kiện>;`",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCú pháp cập nhật:\n`UPDATE sinhvien SET diem = diem + 1 WHERE gioi_tinh = 'Nu';`\nTăng điểm hiện tại lên 1 đơn vị cho những ai có giới tính là 'Nu'.",
       "textEn": "Given table sinhvien (id, ho_ten, gioi_tinh, diem). Which query retrieves students with higher scores than the average score of all students?",
       "optionsEn": [
         "SELECT * FROM sinhvien WHERE diem > AVG(diem);",
@@ -2030,7 +2030,7 @@ export const interviewAll = {
         "SELECT que_quan, COUNT(*) FROM sinhvien GROUP BY que_quan HAVING gioi_tinh = 'Nu';"
       ],
       "answer": 0,
-      "explanation": "Lọc sinh viên nữ trước bằng `WHERE gioi_tinh = 'Nu'`, sau đó gom nhóm theo `GROUP BY que_quan` và đếm bằng `COUNT(*)`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nLọc nữ trước: `WHERE gioi_tinh = 'Nu'`.\nGom nhóm theo quê: `GROUP BY que_quan`.\nĐếm số lượng: `COUNT(*)`.\n-> `SELECT que_quan, COUNT(*) FROM sinhvien WHERE gioi_tinh = 'Nu' GROUP BY que_quan;`",
       "textEn": "Given table sinhvien (id, ho_ten, gioi_tinh, que_quan). Which query counts the number of male and female students in each hometown?",
       "optionsEn": [
         "SELECT que_quan, gioi_tinh, COUNT(*) FROM sinhvien GROUP BY que_quan, gioi_tinh;",
@@ -2050,7 +2050,7 @@ export const interviewAll = {
         "Là khóa chính có thể chứa giá trị NULL"
       ],
       "answer": 1,
-      "explanation": "• Composite Primary Key là khóa chính gồm từ 2 cột trở lên. Ví dụ: Trong bảng trung gian `order_details`, cặp cột `(order_id, product_id)` cùng nhau làm khóa chính để đảm bảo 1 đơn hàng không bị thêm 1 sản phẩm 2 lần.\n• Tất cả các cột tham gia Composite Key đều KHÔNG được phép mang giá trị NULL.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKhóa chính tổng hợp (Composite Primary Key) là khóa chính được tạo thành từ **sự kết hợp của 2 hoặc nhiều cột** gom lại để định danh duy nhất một bản ghi.\nVí dụ: Bảng `dang_ky_mon_hoc (ma_sinh_vien, ma_mon_hoc)`. Một sinh viên có thể đăng ký nhiều môn, một môn có nhiều sinh viên, nhưng cặp `(ma_sinh_vien, ma_mon_hoc)` thì chỉ được xuất hiện duy nhất 1 lần.",
       "textEn": "What is a Composite Primary Key in a relational database?",
       "optionsEn": [
         "A primary key composed of two or more columns combined together to uniquely identify a record in a table",
@@ -2070,7 +2070,7 @@ export const interviewAll = {
         "SELECT * FROM users GROUP BY created_at LIMIT 100;"
       ],
       "answer": 0,
-      "explanation": "Người dùng mới nhất tức là thời gian `created_at` lớn nhất -> Sắp xếp giảm dần bằng `ORDER BY created_at DESC` và lấy 100 dòng đầu bằng `LIMIT 100`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nNgười dùng MỚI NHẤT tức là người có thời gian tạo `created_at` lớn nhất (gần hiện tại nhất).\nDo đó phải sắp xếp giảm dần `ORDER BY created_at DESC` và lấy 100 dòng đầu tiên bằng `LIMIT 100`.",
       "textEn": "Which query retrieves the 100 most recently registered users (sorted by registration timestamp in descending order)?",
       "optionsEn": [
         "SELECT * FROM users ORDER BY created_at ASC LIMIT 100;",
@@ -2090,7 +2090,7 @@ export const interviewAll = {
         "Chỉ cần đánh index trên bảng ít dữ liệu, bảng hàng triệu dòng thì không cần"
       ],
       "answer": 1,
-      "explanation": "💡 Kiến thức phỏng vấn quan trọng về Index:\n1. Đánh index quá nhiều sẽ làm CHẬM các thao tác ghi (INSERT/UPDATE/DELETE) vì database phải cập nhật lại cây B-Tree.\n2. Khi viết điều kiện `WHERE FUNCTION(col) = value` (ví dụ: `WHERE LOWER(email) = 'abc'`), bộ tối ưu truy vấn không dùng được index thông thường mà phải quét toàn bộ bảng (Full Table Scan).\n3. Tránh `SELECT *`, chỉ select các cột thực sự cần dùng để giảm tải I/O và băng thông mạng.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ mục lục sách):\nIndex trong database giống như Mục Lục ở cuối cuốn từ điển.\n• Cần đánh Index (thường là B-Tree Index) trên các cột thường xuyên xuất hiện trong mệnh đề `WHERE`, `JOIN`, `ORDER BY`.\n• BẪY TỐI KỴ: Không bao giờ bọc hàm xung quanh cột có Index, ví dụ viết `WHERE YEAR(created_at) = 2026` sẽ làm vô hiệu hóa hoàn toàn Index và khiến Database phải quét toàn bộ bảng (Full Table Scan)! Phải viết thành: `WHERE created_at >= '2026-01-01' AND created_at < '2027-01-01'`.",
       "textEn": "Regarding Database Indexing & Performance, which statement is ACCURATE?",
       "optionsEn": [
         "Creating an Index significantly speeds up SELECT queries, but slows down INSERT, UPDATE, DELETE operations and consumes extra disk/RAM space",
@@ -2110,7 +2110,7 @@ export const interviewAll = {
         "Là một thủ tục lưu trữ (Stored Procedure) có thể truyền tham số đầu vào"
       ],
       "answer": 1,
-      "explanation": "• View là một bảng ảo (Virtual Table). Khi bạn SELECT từ View, database sẽ thực thi câu lệnh SELECT bên dưới định nghĩa của View.\n• Mục đích: Che giấu các câu JOIN phức tạp, tính toán sẵn các cột nghiệp vụ, và phân quyền bảo mật (chỉ cho phép nhân viên xem View chứa thông tin không nhạy cảm thay vì bảng chính chứa lương hoặc mật khẩu).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nVIEW là một **Bảng Ảo** được định nghĩa bằng một câu lệnh SELECT lưu trữ trong Database. Bản thân View không hề chứa dữ liệu riêng trên ổ cứng.\nMục đích sử dụng:\n1. Bảo mật: Ẩn bớt các cột nhạy cảm (như mật khẩu, lương) và chỉ cấp quyền cho user xem qua View.\n2. Đơn giản hóa: Gom câu query JOIN 5-6 bảng phức tạp thành 1 View gọn gàng để lập trình viên chỉ cần `SELECT * FROM view_doanh_thu`.",
       "textEn": "What is a View in an SQL database management system and what is its primary purpose?",
       "optionsEn": [
         "A View is a virtual table based on the result set of an SQL query; it does not store raw data itself, helping encapsulate query logic, improve security, and simplify complex queries",
@@ -2130,7 +2130,7 @@ export const interviewAll = {
         "PreparedStatement chạy chậm hơn Statement vì phải qua bước kiểm tra kiểu dữ liệu"
       ],
       "answer": 1,
-      "explanation": "• Statement: Tạo câu lệnh SQL tĩnh bằng phép nối chuỗi (dễ bị SQL Injection và DB phải parse lại mỗi lần chạy).\n• PreparedStatement: Câu lệnh được biên dịch trước, tham số được truyền qua dấu `?`, tự động escape ký tự nguy hiểm và được DB cache Execution Plan.\n• CallableStatement: Dùng để thực thi Stored Procedure có tham số IN/OUT.\n💡 Mẹo phỏng vấn: Luôn khẳng định trong dự án thực tế luôn dùng PreparedStatement (hoặc qua ORM như JPA/Hibernate) để đảm bảo 100% bảo mật chống SQL Injection.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTrong JDBC có 3 loại Statement:\n1. `Statement`: Dùng cho câu lệnh SQL tĩnh không có tham số (Rất nguy hiểm vì dễ bị nối chuỗi dính SQL Injection).\n2. `PreparedStatement`: Dùng cho câu lệnh có tham số `?`. Được biên dịch trước, chống 100% SQL Injection và chạy nhanh hơn.\n3. `CallableStatement`: Dùng riêng để gọi các **Stored Procedure** hoặc Function được viết sẵn trong cơ sở dữ liệu.",
       "textEn": "In Java JDBC, what are the differences between Statement, PreparedStatement, and CallableStatement?",
       "optionsEn": [
         "Statement is used for SELECT; PreparedStatement is used for INSERT/UPDATE; CallableStatement is used for DELETE",
@@ -2150,7 +2150,7 @@ export const interviewAll = {
         "PreparedStatement ghi đè dữ liệu trực tiếp vào ổ cứng không qua bộ đệm RAM"
       ],
       "answer": 1,
-      "explanation": "💡 Giải thích chuyên sâu cho câu hỏi phỏng vấn hay gặp:\nKhi gửi 1 câu SQL, RDBMS phải trải qua: Syntax Checking -> Semantic Checking -> Query Optimization -> Compile Execution Plan. Với `PreparedStatement`, các bước tốn CPU này chỉ chạy 1 lần. Khi chạy vòng lặp 1.000 lần thêm dữ liệu, PreparedStatement giúp giảm tải 80-90% thời gian xử lý của Database Server so với Statement thường.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nNgoài chống SQL Injection, PreparedStatement vượt trội về hiệu năng nhờ cơ chế **Query Plan Caching**:\nMỗi khi nhận 1 câu SQL, CSDL phải tốn CPU làm 4 bước: Kiểm tra cú pháp -> Kiểm tra ngữ nghĩa -> Tối ưu hóa đường đi -> Biên dịch ra kế hoạch thực thi (Execution Plan).\nVới PreparedStatement, CSDL làm 4 bước này duy nhất 1 lần và lưu kế hoạch vào bộ nhớ Cache. Các lần gọi tiếp theo chỉ việc nạp tham số mới vào chạy ngay, giúp tiết kiệm tới 80% tải CPU cho Database Server khi chạy các vòng lặp thêm/sửa hàng loạt.",
       "textEn": "Besides preventing SQL Injection, what major performance advantage does PreparedStatement offer over standard Statement?",
       "optionsEn": [
         "PreparedStatement automatically compresses data transmitted over the network",
@@ -2170,7 +2170,7 @@ export const interviewAll = {
         "Ép buộc mọi bảng chỉ được có duy nhất 1 cột khóa chính là kiểu số nguyên"
       ],
       "answer": 1,
-      "explanation": "• 1NF: Mỗi cột chứa giá trị nguyên tố (Atomic values), không có cột lặp lại.\n• 2NF: Đạt 1NF và mọi thuộc tính không khóa phải phụ thuộc hoàn toàn vào toàn bộ khóa chính (loại bỏ phụ thuộc một phần vào Composite Key).\n• 3NF: Đạt 2NF và không có phụ thuộc bắc cầu giữa các thuộc tính không khóa.\n💡 Mẹo phỏng vấn: Chuẩn hóa cao (3NF) giúp dữ liệu nhất quán, không bị trùng lặp khi update; tuy nhiên trong hệ thống Big Data/Data Warehouse hoặc báo cáo, người ta có thể 'Khử chuẩn hóa' (Denormalization) có chủ đích để giảm JOIN tăng tốc độ đọc.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ tủ quần áo ngăn nắp):\n• Sơ đồ ERD: Bản vẽ thiết kế kiến trúc các thực thể và mối quan hệ giữa chúng trước khi bắt tay vào tạo bảng.\n• Chuẩn hóa dữ liệu (1NF, 2NF, 3NF): Giống như việc bạn phân loại đồ đạc vào đúng ngăn tủ để:\n  1. Loại bỏ Dư thừa dữ liệu (không lưu trùng lặp 1 thông tin ở 10 nơi khác nhau).\n  2. Tránh Dị thường khi cập nhật (sửa địa chỉ khách hàng ở bảng này nhưng quên sửa ở bảng kia).\n  3. Bảo vệ Tính toàn vẹn dữ liệu.",
       "textEn": "What is the primary purpose of Entity Relationship Diagram (ERD) design and Database Normalization (1NF, 2NF, 3NF)?",
       "optionsEn": [
         "To increase database storage size to utilize excess disk space",
@@ -2191,7 +2191,7 @@ export const interviewAll = {
         "false true"
       ],
       "answer": 2,
-      "explanation": "💡 Câu hỏi kinh điển trong phỏng vấn Java:\n• Java có cơ chế Integer Cache lưu trữ sẵn các đối tượng Integer từ -128 đến 127 (theo Java Language Specification khi Autoboxing `Integer.valueOf()`).\n• Với 100: Cả `a` và `b` cùng trỏ tới 1 đối tượng duy nhất trong cache -> `a == b` so sánh địa chỉ tham chiếu cho kết quả `true`.\n• Với 200: Vượt ngoài vùng cache [-128, 127], JVM gọi `new Integer(200)` tạo ra 2 đối tượng độc lập trên Heap -> `c == d` so sánh tham chiếu trả về `false`!\n=> Để so sánh giá trị Wrapper Class luôn dùng `.equals()`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCâu hỏi bẫy kinh điển số 1 trong các buổi phỏng vấn Java!\n• Java có cơ chế \"Integer Cache\": JVM tự động tạo sẵn một hồ chứa các đối tượng Integer có giá trị từ **-128 đến 127** (theo quy chuẩn Java Language Specification khi Autoboxing).\n• Với giá trị 100: Nằm trong vùng Cache [-128, 127], nên cả biến `a` và `b` cùng trỏ tới 1 ô nhớ đối tượng duy nhất -> So sánh tham chiếu địa chỉ `a == b` cho kết quả `true`.\n• Với giá trị 200: Vượt ra ngoài vùng Cache, JVM bắt buộc phải gọi `new Integer(200)` tạo ra 2 đối tượng độc lập nằm ở 2 ô nhớ khác nhau trên Heap -> So sánh tham chiếu `c == d` trả về `false`!\n\n💡 Mẹo phỏng vấn:\nĐể so sánh giá trị của các Wrapper Class (Integer, Long, Double...), LUÔN LUÔN dùng phương thức `.equals()` (`c.equals(d)` sẽ là `true`), tuyệt đối không dùng toán tử `==`.",
       "textEn": "Given the following Java snippet:\nInteger a = 100, b = 100;\nInteger c = 200, d = 200;\nSystem.out.println((a == b) + \" \" + (c == d));\nWhat is printed to the console?",
       "optionsEn": [
         "true true",
@@ -2211,7 +2211,7 @@ export const interviewAll = {
         "Chương trình chạy bình thường không có lỗi gì"
       ],
       "answer": 1,
-      "explanation": "• ArrayList áp dụng cơ chế Fail-Fast Iterator bằng biến đếm `modCount`.\n• Khi duyệt danh sách bằng for-each/Iterator mà tự ý gọi `list.remove()` của List thì `expectedModCount != modCount` -> Ném ngay `ConcurrentModificationException`.\n💡 Cách sửa chuẩn khi phỏng vấn:\n1. Dùng `Iterator.remove()`: `Iterator<String> it = list.iterator(); while(it.hasNext()){ if(...) it.remove(); }`\n2. Dùng Java 8: `list.removeIf(item -> ...);`",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKhi bạn duyệt qua một ArrayList bằng vòng lặp `for-each` (hoặc `for` thông thường) và gọi trực tiếp `list.remove(item)`, Java sẽ lập tức quăng lỗi `ConcurrentModificationException`.\n\nTại sao?\nBên dưới, vòng lặp for-each sử dụng một đối tượng `Iterator`. Trong ArrayList có một biến đếm gọi là `modCount` (số lần thêm/sửa/xóa danh sách). Iterator giữ một bản sao gọi là `expectedModCount`.\nKhi bạn gọi `list.remove()`, biến `modCount` tăng lên nhưng `expectedModCount` trong Iterator không hề hay biết. Ở bước lặp tiếp theo, Iterator phát hiện `modCount != expectedModCount` -> Nó nghi ngờ danh sách đang bị một luồng khác chỉnh sửa đồng thời làm sai lệch dữ liệu -> Nó lập tức báo lỗi ngay (Cơ chế Fail-Fast).\n\n💻 Cách giải quyết chuẩn mực:\n1. Dùng `Iterator`: `Iterator<String> it = list.iterator(); while(it.hasNext()) { if(...) it.remove(); }`\n2. Dùng Java 8 Lambda (Ngắn gọn và xịn nhất): `list.removeIf(item -> item.equals(\"X\"));`",
       "textEn": "What happens when using a regular for-each loop to remove elements from an ArrayList while iterating over it?",
       "optionsEn": [
         "Elements are deleted normally without error",
@@ -2231,7 +2231,7 @@ export const interviewAll = {
         "Heap tự động giải phóng bộ nhớ ngay khi kết thúc hàm mà không cần Garbage Collector"
       ],
       "answer": 1,
-      "explanation": "• Stack: Lưu trữ frame gọi hàm, biến cục bộ (primitive) và biến tham chiếu. Cực nhanh, LIFO, mỗi Thread có Stack độc lập. Tràn bộ nhớ gây `StackOverflowError` (thường do đệ quy vô hạn).\n• Heap: Lưu toàn bộ Object thực tế và mảng (`new Object()`). Được chia sẻ giữa các Thread, do Garbage Collector thu gom giải phóng. Tràn bộ nhớ gây `OutOfMemoryError` (thường do memory leak).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ bàn làm việc và nhà kho):\n• Vùng nhớ STACK (Bàn làm việc cá nhân): Mỗi luồng (Thread) có 1 Stack riêng. Dùng để lưu trữ các lời gọi hàm (Stack Frame), các biến cục bộ kiểu nguyên thủy (`int`, `boolean`) và các con trỏ địa chỉ tham chiếu. Bộ nhớ Stack cực kỳ nhỏ nhưng tốc độ truy xuất siêu nhanh. Khi hàm chạy xong, Stack Frame tự động bị xóa sổ ngay lập tức.\n• Vùng nhớ HEAP (Kho hàng khổng lồ dùng chung): Nơi lưu trữ tất cả các ĐỐI TƯỢNG (Objects) thực tế và mảng trong Java (kể cả String, ArrayList hay User object). Khi không còn ai trỏ tới đối tượng trong Heap nữa, nó sẽ được dọn dẹp bởi Garbage Collector (GC).\n\n💡 Bẫy phỏng vấn (Hai loại lỗi tràn bộ nhớ):\n• `StackOverflowError`: Xảy ra khi gọi đệ quy vô tận không có điểm dừng làm đầy bộ nhớ Stack.\n• `OutOfMemoryError (OOM)`: Xảy ra khi tạo quá nhiều Object lớn trong Heap mà Garbage Collector dọn không kịp làm cạn kiệt RAM.",
       "textEn": "Distinguish between Stack and Heap memory in the Java Virtual Machine (JVM)?",
       "optionsEn": [
         "Stack stores all instantiated Objects; Heap stores primitive variables and method call frames",
@@ -2252,7 +2252,7 @@ export const interviewAll = {
         "3"
       ],
       "answer": 1,
-      "explanation": "• Khối `finally` LUÔN LUÔN được thực thi sau khi khối `try` kết thúc (trừ trường hợp gọi `System.exit(0)` hoặc JVM crash).\n• Lệnh `return 2;` trong `finally` sẽ ghi đè (override) hoàn toàn giá trị trả về trước đó của `try`, do đó hàm trả về `2`.\n💡 Lưu ý: Trong code thực tế không bao giờ nên return trong khối finally vì nó có thể nuốt cả Exception đang được ném ra từ khối try!",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKết quả trả về chắc chắn bằng 2!\n\nTại sao?\nTrong cấu trúc `try-catch-finally`, quy tắc bất di bất dịch của Java là: **Khối finally LUÔN LUÔN được thực thi trước khi hàm thực sự trả quyền điều khiển về cho nơi gọi**.\nKhi gặp `return 1;` trong khối try, JVM đã chuẩn bị sẵn giá trị 1 để trả về. Nhưng trước khi thoát hàm, nó bắt buộc phải chạy qua khối `finally`. Tại đây nó gặp lệnh `return 2;` -> Lệnh return trong finally ghi đè hoàn toàn (override) giá trị trả về trước đó!\n\n💡 Cảnh báo thực tế:\nViết lệnh `return` trong khối `finally` là một \"Anti-pattern\" (viết code tối kỵ) vì nó sẽ nuốt chửng luôn cả các Exception văng ra từ khối try, khiến việc bắt lỗi trở nên bất khả thi. Các công cụ quét code như SonarQube sẽ cảnh báo đỏ lỗi này.",
       "textEn": "In Java, given the following method:\npublic static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}\nWhat does test() return when executed?",
       "optionsEn": [
         "Returns 1",
@@ -2272,7 +2272,7 @@ export const interviewAll = {
         "Cả hai hoàn toàn giống nhau, chỉ khác tên gọi"
       ],
       "answer": 1,
-      "explanation": "• `Comparable<T>` (thuộc package `java.lang`): Có method `int compareTo(T o)`. Phải implements trực tiếp vào class Entity để định nghĩa thứ tự sắp xếp tự nhiên mặc định.\n• `Comparator<T>` (thuộc package `java.util`): Có method `int compare(T o1, T o2)`. Rất linh hoạt, có thể tạo nhiều tiêu chí sắp xếp bên ngoài mà không cần sửa code class gốc, hỗ trợ viết Lambda cực ngắn: `Comparator.comparing(Student::getAge)`. ",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `Comparable` (Nội lực bên trong): Class tự implement interface này và viết hàm `compareTo(other)` để định nghĩa thứ tự sắp xếp MẶC ĐỊNH của chính nó (ví dụ: Học sinh thì mặc định sắp xếp theo Mã số ID tăng dần).\n• `Comparator` (Bên ngoài chấm điểm): Là một class hoặc biểu thức Lambda độc lập bên ngoài, viết hàm `compare(o1, o2)` để cung cấp CÁC TIÊU CHÍ SẮP XẾP KHÁC NHAU tùy theo nhu cầu (ví dụ: Lúc thì cần xếp theo Điểm thi giảm dần, lúc thì cần xếp theo Tên bảng chữ cái A-Z).\n\n💻 Ví dụ code Java 8 cực đẹp:\n```java\n// Dùng Comparator linh hoạt:\nstudents.sort(Comparator.comparing(Student::getGpa).reversed()\n                        .thenComparing(Student::getName));\n```\n\n💡 Mẹo phỏng vấn: Hãy nhớ thần chú: \"Comparable là 1 tiêu chí tự nhiên nằm BÊN TRONG class; Comparator là nhiều tiêu chí linh hoạt nằm BÊN NGOÀI class\".",
       "textEn": "Distinguish between Comparable and Comparator interfaces in Java?",
       "optionsEn": [
         "Comparable defines natural ordering inside the class itself via compareTo(o); Comparator defines external custom sorting via compare(o1, o2)",
@@ -2292,7 +2292,7 @@ export const interviewAll = {
         "Có, nhưng bắt buộc phải có annotation @Override"
       ],
       "answer": 1,
-      "explanation": "• Đa hình động (Dynamic Polymorphism / Overriding) chỉ áp dụng cho instance method dựa trên đối tượng thực tế lúc Runtime.\n• `static method` thuộc về Class, được liên kết tĩnh (Static Binding) ở thời điểm biên dịch (Compile-time). Khi lớp con viết static method trùng tên/tham số, nó chỉ ẩn phương thức của lớp cha (Method Hiding). Nếu thêm `@Override` compiler sẽ báo lỗi!",
+      "explanation": "🎯 Bản chất dễ hiểu:\nPhương thức `static` trong Java KHÔNG THỂ BỊ OVERRIDE (Ghi đè) bởi lớp con!\n\nNếu lớp con khai báo 1 static method có tên và tham số y hệt lớp cha thì sao?\nĐó là hiện tượng **Method Hiding (Ẩn phương thức)** chứ tuyệt đối không phải Đa hình (Polymorphism/Overriding).\nBởi vì phương thức static thuộc về CLASS chứ không thuộc về INSTANCE (đối tượng). Trình biên dịch sẽ liên kết tĩnh (Static Binding / Compile-time) dựa vào KIỂU KHAI BÁO của biến tham chiếu chứ không quan tâm đối tượng thực tế lúc chạy là gì!\n\n💻 Ví dụ:\n`Parent p = new Child(); p.print();` -> Sẽ in ra hàm của `Parent` chứ không bao giờ gọi hàm của `Child`!",
       "textEn": "Can a static method in Java be Overridden by a subclass?",
       "optionsEn": [
         "Yes, static methods can be overridden with dynamic polymorphism just like instance methods",
@@ -2312,7 +2312,7 @@ export const interviewAll = {
         "HashSet tự động cập nhật lại vị trí bucket của đối tượng"
       ],
       "answer": 1,
-      "explanation": "• `HashSet` dựa vào `hashCode()` để tìm bucket index, rồi mới dùng `equals()` so sánh.\n• Khi bạn sửa thuộc tính tham gia tính `hashCode()`, mã băm mới sẽ trỏ tới một bucket khác. Khi gọi `contains()`, HashSet tìm ở bucket mới (vốn đang rỗng) nên trả về `false`!\n💡 Quy tắc vàng phỏng vấn: Các đối tượng dùng làm Key trong `HashMap` hoặc phần tử trong `HashSet` PHẢI là **Immutable** (Bất biến)!",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ tìm đồ trong tủ đồ):\nHashSet hoạt động bằng cách băm đối tượng (`hashCode()`) để chọn ngăn tủ (Bucket) cất giữ.\nKhi bạn sửa đổi thuộc tính của đối tượng đã nằm trong tủ, mã `hashCode()` mới của nó sẽ bị thay đổi hoàn toàn.\nKhi bạn gọi `hashSet.contains(object)`, HashSet dùng hashCode mới để tìm kiếm -> Nó chạy đến SAI NGĂN TỦ -> Kết quả trả về `false` (không tìm thấy), mặc dù đối tượng đó vẫn đang nằm chình ình trong HashSet!\n\n💡 Hậu quả kinh hoàng & Mẹo phỏng vấn:\nĐối tượng này sẽ bị kẹt vĩnh viễn trong HashSet, bạn không thể xóa nó bằng `remove()` được nữa -> Gây rò rỉ bộ nhớ (MEMORY LEAK) nghiêm trọng!\nQuy tắc vàng: \"Chỉ sử dụng các thuộc tính Bất biến (Immutable fields như ID, final string) để tham gia tính toán hàm hashCode() và equals()\".",
       "textEn": "If an object is added to a HashSet, and then the field used to compute its hashCode() is modified, what happens when calling set.contains(obj)?",
       "optionsEn": [
         "Always returns true because the object reference in memory has not changed",
@@ -2332,7 +2332,7 @@ export const interviewAll = {
         "Checked Exception chỉ xảy ra ở Java phiên bản cũ"
       ],
       "answer": 1,
-      "explanation": "• Checked Exception: Trình biên dịch bắt buộc lập trình viên phải xử lý (`try-catch` hoặc `throws`) trước khi compile (ví dụ: `FileNotFoundException`, `SQLException`).\n• Unchecked Exception (`RuntimeException` và con cháu): Thường do lỗi lập trình logic (chia cho 0 `ArithmeticException`, con trỏ null `NullPointerException`), không bắt buộc khai báo ở compile-time.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Checked Exception (Ngoại lệ kiểm tra): Kế thừa từ `java.lang.Exception` (nhưng không kế thừa `RuntimeException`). Trình biên dịch BẮT BUỘC bạn phải xử lý ngay lúc viết code (bằng `try-catch` hoặc khai báo `throws` ở hàm). Thường là các lỗi khách quan do môi trường bên ngoài: Mất mạng, file không tồn tại (`FileNotFoundException`), lỗi database (`SQLException`).\n• Unchecked Exception (Ngoại lệ lúc chạy): Kế thừa từ `java.lang.RuntimeException`. Trình biên dịch KHÔNG BẮT BUỘC phải try-catch. Thường là lỗi ngớ ngẩn do lập trình viên viết ẩu: `NullPointerException` (quên kiểm tra null), `ArrayIndexOutOfBoundsException` (truy cập quá chỉ số mảng), `ArithmeticException` (chia cho 0).\n\n💡 Mẹo phỏng vấn: Trong các framework hiện đại như Spring Framework, hầu hết các exception đều được bọc lại thành Unchecked Exception (ví dụ `DataAccessException`) để tránh làm code bị rối rắm bởi hàng trăm khối try-catch không cần thiết.",
       "textEn": "What is the difference between Checked Exception and Unchecked Exception in Java?",
       "optionsEn": [
         "Checked Exceptions (inherit from Exception but not RuntimeException) are checked at compile time and MUST be handled via try-catch or throws; Unchecked Exceptions (inherit from RuntimeException/Error) occur at runtime and are not required to be caught",
@@ -2352,7 +2352,7 @@ export const interviewAll = {
         "map() chạy song song (Parallel), flatMap() chạy tuần tự"
       ],
       "answer": 1,
-      "explanation": "• `map(x -> f(x))`: Ánh xạ 1 giá trị thành 1 giá trị mới. Ví dụ: List<Student> -> map(Student::getName) -> List<String>.\n• `flatMap(x -> f(x).stream())`: Biến đổi và làm phẳng. Ví dụ: Một đơn hàng có List<Item>. Danh sách đơn hàng `List<Order>` dùng flatMap sẽ gom toàn bộ Item của tất cả đơn hàng thành `Stream<Item>` duy nhất thay vì `Stream<List<Item>>` lồng nhau.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ làm phẳng hộp bánh):\n• `map()`: Chuyển đổi tỉ lệ 1 - 1. Cứ 1 phần tử đầu vào biến thành 1 phần tử đầu ra.\n  Ví dụ: Danh sách tên thường `[\"nam\", \"an\"]` qua `map(String::toUpperCase)` -> `[\"NAM\", \"AN\"]`.\n• `flatMap()`: Chuyển đổi và \"LÀM PHẲNG\" (Flattening) tỉ lệ 1 - N. Nhận vào các danh sách lồng nhau (List of Lists) và gộp tất cả các phần tử con thành MỘT LUỒNG PHẲNG DUY NHẤT.\n\n💻 Ví dụ thực tế:\nMỗi lớp học có 1 danh sách học sinh: `List<ClassRoom>` (mỗi classroom có `List<Student>`).\nNếu dùng `classes.stream().map(ClassRoom::getStudents)` -> Bạn sẽ nhận được `Stream<List<Student>>` (luồng chứa các danh sách con).\nNếu dùng `classes.stream().flatMap(c -> c.getStudents().stream())` -> Bạn nhận được `Stream<Student>` (danh sách phẳng của toàn bộ học sinh trong trường)!",
       "textEn": "What is the key difference between map() and flatMap() in Java 8 Stream API?",
       "optionsEn": [
         "map() transforms each element into another value (1-to-1); flatMap() transforms each element into a Stream and flattens multiple streams into a single stream (1-to-N flattening)",
@@ -2372,7 +2372,7 @@ export const interviewAll = {
         "java.util.Disposable"
       ],
       "answer": 0,
-      "explanation": "Trong cú pháp: `try (Connection conn = ...; PreparedStatement ps = ...) { ... }`, bất kỳ đối tượng nào khai báo trong ngoặc tròn bắt buộc phải implement interface `java.lang.AutoCloseable` (hoặc `java.io.Closeable`). Khi khối try kết thúc, hàm `close()` sẽ được tự động gọi theo thứ tự ngược lại.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCơ chế Try-with-resources (ra đời từ Java 7) yêu cầu tài nguyên phải implement interface `java.lang.AutoCloseable` (hoặc `java.io.Closeable`).\n\nTại sao đây là tính năng tuyệt vời?\nTrước Java 7, mỗi lần mở kết nối JDBC hoặc đọc file, lập trình viên phải viết khối `finally` dài ngoằng để gọi `.close()`. Nếu trong finally lại bị văng lỗi thì lỗi gốc ban đầu trong khối try sẽ bị nuốt chửng!\nVới Try-with-resources:\n```java\ntry (Connection conn = dataSource.getConnection();\n     PreparedStatement ps = conn.prepareStatement(sql)) {\n  // Thực thi nghiệp vụ...\n} // Java TỰ ĐỘNG gọi close() đúng thứ tự ngược lại, kể cả khi có Exception văng ra!\n```",
       "textEn": "What requirement must a resource satisfy to be used within Java 7+ Try-with-resources statement?",
       "optionsEn": [
         "Must implement the java.lang.AutoCloseable or java.io.Closeable interface",
@@ -2392,7 +2392,7 @@ export const interviewAll = {
         "Cả ba đều có tốc độ như nhau từ Java 11 trở đi"
       ],
       "answer": 1,
-      "explanation": "• `String`: Bất biến (Immutable), an toàn cho String Pool và đa luồng, nhưng nếu nối chuỗi trong vòng lặp `for` sẽ tạo hàng nghìn object rác làm chậm bộ nhớ.\n• `StringBuilder`: Khả biến (Mutable), không đồng bộ (Not thread-safe), tốc độ cao nhất -> Dùng trong 1 thread / hàm.\n• `StringBuffer`: Khả biến (Mutable), có từ khóa `synchronized` -> Thread-safe, an toàn khi nhiều luồng cùng thao tác.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ giấy nháp):\n• String (Bất biến - Immutable): Giống như viết chữ bằng bút mực không thể tẩy xóa. Mỗi lần bạn nối chuỗi `s = s + \"a\"`, Java không hề sửa chuỗi cũ mà âm thầm tạo ra một Đối Tượng Mới trên Heap. Nếu nối chuỗi trong vòng lặp 10.000 lần, Java sẽ tạo ra 10.000 đối tượng rác làm tràn RAM!\n• StringBuilder (Khả biến - Mutable): Giống như bảng phấn xóa được. Nó sửa trực tiếp trên mảng ký tự nội bộ `char[]` nên tốc độ nối chuỗi nhanh gấp hàng trăm lần String. Dành cho môi trường Đơn luồng (Single-thread).\n• StringBuffer: Giống hệt StringBuilder nhưng có thêm từ khóa `synchronized` trên các method để an toàn trong môi trường Đa luồng (Thread-safe). Tuy nhiên do phải khóa luồng (Locking) nên tốc độ chạy chậm hơn StringBuilder.\n\n💡 Mẹo phỏng vấn: 99% trường hợp nối chuỗi trong hàm chỉ chạy đơn luồng, hãy luôn dùng `StringBuilder` để đạt tốc độ tối đa!",
       "textEn": "Compare the performance and characteristics among String, StringBuilder, and StringBuffer in Java?",
       "optionsEn": [
         "String is immutable (thread-safe, creates new object on concatenation); StringBuilder is mutable (not thread-safe, fastest concatenation); StringBuffer is mutable (thread-safe via synchronized methods, slower than StringBuilder)",
@@ -2412,7 +2412,7 @@ export const interviewAll = {
         "Public, Protected, Default, Private"
       ],
       "answer": 1,
-      "explanation": "💡 Tóm tắt phỏng vấn ngắn gọn và sắc sảo:\n1. Đóng gói (Encapsulation): Che giấu dữ liệu nội bộ bằng private và cung cấp getter/setter.\n2. Kế thừa (Inheritance): Tái sử dụng và mở rộng thuộc tính/phương thức từ class cha qua từ khóa `extends`.\n3. Đa hình (Polymorphism): Một hành vi có thể thể hiện dưới nhiều hình thái khác nhau (Overloading & Overriding).\n4. Trừu tượng (Abstraction): Tập trung vào đối tượng làm ĐƯỢC GÌ thay vì làm NHƯ THẾ NÀO (qua abstract class và interface).",
+      "explanation": "🎯 Bản chất dễ hiểu (4 trụ cột OOP):\n1. Đóng gói (Encapsulation): Che giấu dữ liệu nhạy cảm bên trong bằng `private`, chỉ cho bên ngoài truy cập thông qua các hàm `getter/setter` có kiểm tra hợp lệ. (Ví dụ: Số dư tài khoản không cho gán trực tiếp `soDu = -500`, phải qua hàm `rutTien()` kiểm tra xem có đủ tiền không).\n2. Kế thừa (Inheritance): Lớp con tái sử dụng và mở rộng thuộc tính, phương thức của lớp cha qua từ khóa `extends`, tránh viết lại code trùng lặp. (Ví dụ: Class `Dog` kế thừa từ class `Animal`).\n3. Đa hình (Polymorphism): Cùng một hành vi nhưng thể hiện khác nhau ở từng đối tượng. (Ví dụ: Cùng gọi hàm `keu()`, nhưng Chó thì sủa \"Gâu gâu\", Mèo thì kêu \"Meo meo\").\n4. Trừu tượng (Abstraction): Tập trung vào việc đối tượng \"LÀM ĐƯỢC GÌ\" thay vì chi tiết nó \"LÀM NHƯ THẾ NÀO\". (Ví dụ: Bạn lái ô tô chỉ cần đạp chân ga là xe chạy, không cần biết bugi đánh lửa phun xăng bên trong động cơ ra sao).",
       "textEn": "What are the four fundamental pillars of Object-Oriented Programming (OOP) in Java?",
       "optionsEn": [
         "Compilation, Execution, Garbage Collection, Multithreading",
@@ -2432,7 +2432,7 @@ export const interviewAll = {
         "Cả hai đều xảy ra lúc chạy và không có gì khác biệt"
       ],
       "answer": 1,
-      "explanation": "• Method Overloading (Đa hình tĩnh / Compile-time): Trình biên dịch dựa vào số lượng và kiểu tham số để biết chính xác hàm nào được gọi.\n• Method Overriding (Đa hình động / Runtime): Biến tham chiếu kiểu cha trỏ đến đối tượng con (`Animal a = new Dog(); a.makeSound()`), JVM phải đợi đến lúc chạy mới biết đối tượng thực tế là `Dog` để gọi `Dog.makeSound()`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Đa hình lúc biên dịch (Compile-time / Đa hình tĩnh): Thể hiện qua **Method Overloading (Nạp chồng)**. Trong cùng 1 class có nhiều hàm cùng tên nhưng khác nhau về số lượng hoặc kiểu tham số. Trình biên dịch nhìn vào tham số lúc viết code là biết ngay hàm nào được gọi.\n• Đa hình lúc thực thi (Runtime / Đa hình động): Thể hiện qua **Method Overriding (Ghi đè)**. Lớp con viết lại method của lớp cha. Lúc viết code ta dùng biến cha trỏ vào con `Animal a = new Dog(); a.makeSound();`. Lúc biên dịch chỉ biết đó là Animal, phải đợi đến lúc chạy (Runtime), JVM mới nhìn vào vùng nhớ thực tế thấy đó là con Chó và gọi hàm sủa của Dog (cơ chế Dynamic Method Dispatch).",
       "textEn": "In Java, what is the difference between Compile-time Polymorphism and Runtime Polymorphism?",
       "optionsEn": [
         "Compile-time uses interfaces; Runtime uses abstract classes",
@@ -2452,7 +2452,7 @@ export const interviewAll = {
         "protected < private < default < public"
       ],
       "answer": 1,
-      "explanation": "1. `private`: Chỉ truy cập được bên trong chính class đó.\n2. `default` (không khai báo gì): Truy cập được bởi tất cả class trong CÙNG package.\n3. `protected`: Truy cập được trong cùng package + các lớp con (subclass) kể cả ở package khác.\n4. `public`: Truy cập tự do từ mọi nơi trong toàn bộ project.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nSắp xếp phạm vi từ hẹp nhất đến rộng nhất:\n1. `private`: Ích kỷ nhất, chỉ duy nhất bên trong chính Class đó mới nhìn thấy.\n2. `default` (không ghi gì - package-private): Chỉ các Class nằm trong CÙNG MỘT PACKAGE mới nhìn thấy nhau.\n3. `protected`: Nằm trong cùng Package + Bất kỳ LỚP CON (Subclass) nào kế thừa nó kể cả nằm ở package khác.\n4. `public`: Hào phóng nhất, ai ở bất kỳ đâu trong toàn bộ project cũng gọi được.",
       "textEn": "Order Java's 4 Access Modifiers from narrowest to widest accessibility scope?",
       "optionsEn": [
         "default < private < protected < public",
@@ -2472,7 +2472,7 @@ export const interviewAll = {
         "Biến tự động giải phóng vùng nhớ; Phương thức chạy đa luồng; Lớp không có constructor"
       ],
       "answer": 0,
-      "explanation": "• `final variable`: Giá trị chỉ được gán một lần duy nhất (hằng số).\n• `final method`: Lớp con không được phép override phương thức này (bảo toàn logic cốt lõi).\n• `final class`: Không class nào có thể kế thừa class này (ví dụ: `java.lang.String` là final class để đảm bảo tính bất biến Immutable và bảo mật).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTừ khóa `final` mang ý nghĩa là \"BẤT BIẾN / CHỐT CHẶN CUỐI CÙNG\":\n• `final variable`: Biến trở thành hằng số, chỉ được gán giá trị 1 lần duy nhất, không thể thay đổi giá trị (như số PI = 3.14).\n• `final method`: Lớp con không được phép Ghi đè (Override) phương thức này (để bảo vệ logic cốt lõi không bị lớp con sửa đổi làm sai lệch).\n• `final class`: Tuyệt đối không cho phép class nào khác Kế thừa (Inherit) nó.\n\n💡 Ví dụ đắt giá: Class `java.lang.String` là một `final class`! Java cố tình làm điều này để không ai có thể tạo ra một lớp con giả mạo String nhằm mục đích tấn công bảo mật hay phá vỡ String Pool.",
       "textEn": "What is the effect of the final keyword when applied to Variables, Methods, and Classes in Java?",
       "optionsEn": [
         "Variable becomes constant (cannot be reassigned); Method cannot be overridden by subclasses; Class cannot be extended (inherited)",
@@ -2492,7 +2492,7 @@ export const interviewAll = {
         "Không được truyền tham số vào super()"
       ],
       "answer": 1,
-      "explanation": "• Trong Java, khi khởi tạo một đối tượng lớp con, trạng thái của lớp cha phải được khởi tạo TRƯỚC TIÊN. Do đó lệnh gọi `super(...)` (hoặc `this(...)`) bắt buộc phải là dòng lệnh đầu tiên trong Constructor.\n• Nếu lập trình viên không viết `super(...)`, trình biên dịch Java sẽ tự động chèn `super()` không tham số vào dòng đầu tiên.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKhi khởi tạo một đối tượng lớp con, nền móng của lớp cha bắt buộc phải được dựng lên TRƯỚC. Do đó, lệnh gọi `super()` (gọi constructor của cha) **bắt buộc phải là dòng code đầu tiên** trong Constructor của lớp con.\nNếu bạn để bất kỳ dòng lệnh nào khác lên trước `super()`, trình biên dịch Java sẽ báo lỗi ngay lập tức.\nNếu bạn không tự tay viết `super()`, trình biên dịch sẽ tự động chèn ngầm `super();` không tham số vào dòng đầu tiên cho bạn.",
       "textEn": "What is the mandatory rule when calling super() in a subclass constructor in Java?",
       "optionsEn": [
         "super() must be placed as the last statement in the subclass constructor",
@@ -2512,7 +2512,7 @@ export const interviewAll = {
         "String Pool tự động xóa chuỗi sau 5 giây nếu không ai dùng"
       ],
       "answer": 1,
-      "explanation": "• Khi khai báo `String s1 = \"Java\"; String s2 = \"Java\";` -> Cả hai trỏ cùng 1 địa chỉ trong String Pool nên `s1 == s2` là `true`.\n• Khi khai báo `String s3 = new String(\"Java\");` -> Tạo đối tượng mới trên Heap nên `s1 == s3` là `false`!\n💡 Quy tắc bất biến: Luôn dùng `s1.equals(s3)` để so sánh nội dung chuỗi trong Java.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ hồ nước chung):\nString Pool là một vùng nhớ đặc biệt trong Heap do JVM quản lý để tiết kiệm bộ nhớ:\n• Khi bạn khai báo chuỗi dạng Literal: `String s1 = \"Java\"; String s2 = \"Java\";` -> JVM kiểm tra thấy \"Java\" đã có sẵn trong Pool, nó cho `s2` trỏ chung vào ô nhớ của `s1`. Do đó `s1 == s2` cho kết quả `true` (vì so sánh 2 địa chỉ ô nhớ giống nhau).\n• Nhưng khi bạn dùng từ khóa `new`: `String s3 = new String(\"Java\");` -> JVM bị ép buộc phải cấp phát một ô nhớ Object HOÀN TOÀN MỚI nằm ngoài Pool. Khi đó `s1 == s3` sẽ trả về `false`!\n\n💡 Quy tắc sống còn: Trong Java, 100% trường hợp so sánh chuỗi hãy dùng phương thức `s1.equals(s3)` (so sánh nội dung ký tự), không bao giờ dùng toán tử `==`.",
       "textEn": "How does the String Constant Pool work in Java, and why can comparing strings with == yield incorrect results?",
       "optionsEn": [
         "String Pool saves strings to disk to conserve RAM",
@@ -2532,7 +2532,7 @@ export const interviewAll = {
         "Phụ thuộc vào việc hàm đó có gắn từ khóa static hay không"
       ],
       "answer": 1,
-      "explanation": "💡 Câu hỏi bẫy kinh điển trong phỏng vấn Java:\nJava KHÔNG CÓ Pass-by-reference. Java luôn là Pass-by-value.\nKhi truyền 1 object `Person p` vào hàm `change(Person person)`:\n- Nếu bạn gọi `person.setName(\"Nam\")`: Thuộc tính của object bị thay đổi vì cả 2 con trỏ cùng trỏ đến 1 vùng nhớ Heap.\n- Nhưng nếu bạn gán `person = new Person(\"Lan\")`: Object `p` ở ngoài hàm hoàn toàn KHÔNG THAY ĐỔI vì `person` chỉ là bản sao của địa chỉ tham chiếu!",
+      "explanation": "🎯 Bản chất dễ hiểu:\nJAVA LÀ 100% PASS-BY-VALUE (Truyền giá trị)! Java không hề có con trỏ tham chiếu như C++.\n\nNhiều người hay nhầm vì thấy sửa object trong hàm thì ở ngoài bị đổi theo. Hãy phân biệt rõ:\n• Khi truyền biến nguyên thủy (`int x = 10`): Java sao chép nguyên giá trị 10 vào hàm. Hàm có đổi `x = 20` thì ở ngoài x vẫn là 10.\n• Khi truyền Object (`Person p = new Person(\"Nam\")`): Java sao chép BẢN SAO CỦA ĐỊA CHỈ Ô NHỚ (Pointer value).\n  - Nếu bạn dùng bản sao địa chỉ đó để sửa thuộc tính: `p.setName(\"Bình\")` -> Tên bị đổi vì cùng trỏ vào 1 ngôi nhà trên Heap.\n  - Nhưng nếu bạn gán `p = new Person(\"Khác\")` bên trong hàm -> Đối tượng `p` ở bên ngoài hoàn toàn KHÔNG HỀ BỊ THAY ĐỔI, vì bạn chỉ vừa trỏ bản sao sang một ngôi nhà mới!",
       "textEn": "In Java, is argument passing Pass-by-value or Pass-by-reference?",
       "optionsEn": [
         "Java uses Pass-by-value for primitives and Pass-by-reference for Objects",
@@ -2552,7 +2552,7 @@ export const interviewAll = {
         "List và Set không thể chứa phần tử null"
       ],
       "answer": 1,
-      "explanation": "• `List` (ArrayList, LinkedList): Có chỉ số (Index), duy trì thứ tự chèn, cho phép trùng lặp.\n• `Set` (HashSet, TreeSet): Không cho phép trùng lặp phần tử (dựa vào `hashCode` và `equals`).\n• `Map` (HashMap, TreeMap): Lưu theo cặp `Key - Value`. Key là duy nhất (nếu put trùng key sẽ ghi đè value cũ).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `List` (ArrayList, LinkedList): Giống như hàng người xếp hàng mua vé. Có thứ tự trước sau (Index 0, 1, 2...) và CHO PHÉP người trùng tên đứng lặp lại.\n• `Set` (HashSet, TreeSet): Giống như một túi đựng bóng độc nhất. KHÔNG CHO PHÉP phần tử trùng lặp (nếu thêm phần tử đã có rồi thì nó bỏ qua). Không đảm bảo thứ tự chèn (với HashSet).\n• `Map` (HashMap, TreeMap): Giống như cuốn Sổ danh bạ điện thoại lưu theo cặp **Key - Value** (Tên người - Số điện thoại). Các Key là duy nhất không được trùng nhau (nếu put trùng key sẽ ghi đè giá trị cũ).",
       "textEn": "What are the distinctions among the 3 core interfaces in Java Collections Framework: List, Set, and Map?",
       "optionsEn": [
         "List is a linked list; Set is a 1D array; Map is a 2D array",
@@ -2572,7 +2572,7 @@ export const interviewAll = {
         "Khi dung lượng RAM của máy tính bị đầy 100%"
       ],
       "answer": 1,
-      "explanation": "• JVM dùng thuật toán Reachability Analysis (Truy vết khả năng tiếp cận) bắt đầu từ các GC Roots.\n• Nếu một object trong Heap không có đường dẫn nào kết nối tới GC Root, nó được coi là rác (Garbage) và đủ điều kiện bị thu dọn.\n💡 Mẹo phỏng vấn: Lệnh `System.gc()` chỉ là lời 'gợi ý' (suggestion) cho JVM chứ không hề cam kết JVM sẽ chạy GC ngay lập tức.",
+      "explanation": "🎯 Bản chất dễ hiểu (Cây tầm gửi và rễ cây):\nGarbage Collector (GC) trong JVM không đếm thời gian sống của đối tượng, mà dùng thuật toán **Truy vết khả năng tiếp cận (Reachability Analysis)** bắt đầu từ các GC Roots.\nGC Roots là những rễ cây vững chắc đang còn hoạt động: biến cục bộ trong Stack của luồng đang chạy, biến static của class, các luồng (Thread) đang active.\n• Nếu từ GC Roots có đường dây tham chiếu nối tới đối tượng -> Đối tượng còn sống.\n• Nếu đối tượng bị đứt toàn bộ liên lạc (Unreachable), trôi nổi vô thừa nhận trong Heap -> Nó bị coi là Rác và sẽ bị GC gom tiêu hủy giải phóng RAM.\n\n💡 Mẹo phỏng vấn: Lệnh `System.gc()` chỉ là lời \"thỉnh cầu\" JVM hãy dọn rác, còn việc JVM có dọn rác ngay hay không là do JVM tự quyết định, ta không thể ép buộc!",
       "textEn": "In JVM, what principle determines that an object is eligible for Garbage Collection (GC)?",
       "optionsEn": [
         "When the object has existed for more than 10 minutes without being accessed",
@@ -2592,7 +2592,7 @@ export const interviewAll = {
         "Spring Boot chỉ chạy được trên nền tảng đám mây AWS"
       ],
       "answer": 1,
-      "explanation": "• Spring Framework thuần đòi hỏi cấu hình thủ công rất nhiều qua file XML hoặc class Config (DataSource, DispatcherServlet, ViewResolver...).\n• Spring Boot với phương châm 'Opinionated Defaults' tự động dò tìm dependencies trong classpath để cấu hình tự động (Auto-Configuration), tích hợp sẵn Web Server nhúng (Tomcat) giúp đóng gói thành 1 file JAR duy nhất (`java -jar app.jar`).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Spring Framework thuần giống như bạn đi mua linh kiện máy tính rời: Bạn phải tự mua CPU, RAM, nguồn, tự viết hàng trăm dòng cấu hình XML rườm rà, tự cài đặt web server Tomcat bên ngoài rồi deploy file `.war` lên rất cực khổ.\n• Spring Boot giống như chiếc máy tính xách tay Laptop đóng gói sẵn:\n  1. Auto-configuration: Tự động đoán và cấu hình những thứ phổ biến (thấy có MySQL driver là tự cấu hình DataSource).\n  2. Starter Dependencies: Chỉ cần khai báo 1 dòng `spring-boot-starter-web` là tự kéo đủ thư viện cần thiết.\n  3. Embedded Tomcat: Web server được nhúng thẳng vào file `.jar`, chỉ cần chạy `java -jar app.jar` là web hoạt động ngay lập tức!",
       "textEn": "What is the most significant difference between Spring Boot and the traditional Spring Framework?",
       "optionsEn": [
         "Spring Boot is a completely new language that replaces Java",
@@ -2612,7 +2612,7 @@ export const interviewAll = {
         "Compile -> Bytecode -> Run -> Garbage Collect"
       ],
       "answer": 1,
-      "explanation": "Vòng đời đầy đủ của Bean trong Spring IoC:\n1. Instantiate: Khởi tạo instance bằng constructor.\n2. Populate Properties: Tiêm các dependency (@Autowired).\n3. BeanNameAware / BeanFactoryAware.\n4. BeanPostProcessor - postProcessBeforeInitialization.\n5. @PostConstruct / InitializingBean.afterPropertiesSet().\n6. BeanPostProcessor - postProcessAfterInitialization (nơi tạo Proxy cho AOP/Transactional).\n7. Ready: Bean sẵn sàng phục vụ.\n8. Container Shutdown -> @PreDestroy / DisposableBean.destroy().",
+      "explanation": "🎯 Bản chất dễ hiểu:\nVòng đời của một Spring Bean trải qua các giai đoạn chính:\n1. Khởi tạo (Instantiation): Gọi Constructor để tạo object trong RAM.\n2. Tiêm phụ thuộc (Populate Properties): Inject các dependency qua `@Autowired`.\n3. Gọi các Aware Interfaces: Nếu bean cần biết về môi trường (như `BeanNameAware`, `ApplicationContextAware`).\n4. Tiền khởi tạo & Khởi tạo: Chạy các hàm gắn annotation `@PostConstruct` hoặc phương thức `afterPropertiesSet()`.\n5. Sẵn sàng phục vụ (Ready for use): Bean nằm trong Container phục vụ ứng dụng.\n6. Hủy bỏ (Destruction): Khi ứng dụng tắt, gọi các hàm dọn dẹp `@PreDestroy` để đóng file, đóng kết nối database.",
       "textEn": "What is the sequence of key phases in a Spring Bean's Lifecycle?",
       "optionsEn": [
         "Instantiation -> Populate Properties -> BeanNameAware / BeanFactoryAware -> BeanPostProcessor (Before Init) -> @PostConstruct / init-method -> BeanPostProcessor (After Init) -> Ready for Use -> @PreDestroy / destroy",
@@ -2632,7 +2632,7 @@ export const interviewAll = {
         "Khuyên dùng Setter Injection vì linh hoạt thay đổi được sau khi khởi tạo"
       ],
       "answer": 0,
-      "explanation": "Spring hỗ trợ 3 cách DI:\n1. Field Injection: `@Autowired private Service s;` (Dễ viết nhưng khó viết Unit Test độc lập và dễ che giấu lỗi phụ thuộc vòng Circular Dependency).\n2. Setter Injection: Dùng setter method (phù hợp với optional dependency).\n3. Constructor Injection (KHUYẾN NGHỊ): Giúp dependency là `final` (bất biến), đảm bảo object không bao giờ ở trạng thái null khi khởi tạo, và dễ dàng viết Unit Test mà không cần Spring Container.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCó 3 cách thực hiện Dependency Injection (DI):\n1. Field Injection: Gắn `@Autowired` trực tiếp lên thuộc tính (Tiện nhưng nguy hiểm, khó viết Unit Test).\n2. Setter Injection: Dùng hàm `setXyz()` (Dành cho các phụ thuộc không bắt buộc).\n3. **Constructor Injection (Được Spring Team khuyến nghị 100%)**: Truyền dependency qua hàm khởi tạo Constructor.\n\nTại sao Constructor Injection là số 1?\n• Cho phép khai báo biến là `final` -> Đảm bảo tính bất biến (Immutable), tránh bị đổi lén.\n• Rất dễ viết Unit Test với Mockito: Chỉ cần `new UserService(mockRepo)` mà không cần bật cả Spring IoC container nặng nề.\n• Phát hiện lỗi phụ thuộc vòng tròn (Circular Dependency) ngay lúc khởi động ứng dụng.",
       "textEn": "What are the ways to achieve Dependency Injection in Spring Boot, and which is recommended as best practice?",
       "optionsEn": [
         "Field Injection (@Autowired on field), Setter Injection, and Constructor Injection. Constructor Injection is the recommended best practice because it enforces immutability (final fields) and simplifies unit testing without mocking Spring container",
@@ -2652,7 +2652,7 @@ export const interviewAll = {
         "DispatcherServlet -> Service -> Controller -> Database"
       ],
       "answer": 1,
-      "explanation": "Luồng chi tiết của Request trong Spring Boot:\n1. Request qua bộ lọc Servlet Filters (ví dụ: Spring Security Filter).\n2. Đi vào `DispatcherServlet` (Front Controller).\n3. Tra cứu `HandlerMapping` để tìm Controller và hàm xử lý tương ứng.\n4. Chạy qua `HandlerInterceptor` (hàm preHandle).\n5. Gọi method của `@RestController`.\n6. Controller gọi nghiệp vụ tại `@Service`.\n7. Service gọi truy vấn DB tại `@Repository` (Spring Data JPA).\n8. Kết quả trả về được `HttpMessageConverter` (Jackson) serialize thành JSON gửi về Client.",
+      "explanation": "🎯 Bản chất dễ hiểu (Hành trình của 1 Request):\nKhi người dùng gửi request `GET /api/users`:\n1. `DispatcherServlet` (Chàng lễ tân trung tâm): Nhận toàn bộ request đến đầu tiên.\n2. `HandlerMapping`: Lễ tân tra danh bạ xem URL này thuộc về Controller nào xử lý.\n3. `Controller`: Tiếp nhận request, đọc tham số và gọi xuống tầng nghiệp vụ.\n4. `Service`: Xử lý logic tính toán, kiểm tra quyền hạn, quản lý giao dịch (@Transactional).\n5. `Repository / DAO`: Tương tác với Database bằng Hibernate/JPA.\n6. Dữ liệu quay ngược trở lại Controller và được serialize thành JSON trả về cho Client.",
       "textEn": "What is the flow of an incoming HTTP Request in a Spring Boot MVC application?",
       "optionsEn": [
         "Client -> DispatcherServlet -> HandlerMapping -> Interceptor/Controller -> Service -> Repository (DB) -> View/ResponseBody (JSON) -> Client",
@@ -2672,7 +2672,7 @@ export const interviewAll = {
         "@GlobalError và @CatchAll"
       ],
       "answer": 0,
-      "explanation": "• `@RestControllerAdvice`: Đánh dấu class xử lý lỗi toàn cục cho toàn bộ các Controller trong hệ thống.\n• `@ExceptionHandler(TênNgoạiLệ.class)`: Bắt chính xác loại exception đó và trả về định dạng JSON ApiResponse chuẩn (chứa timestamp, status code, error message) mà không làm lộ StackTrace nguy hiểm ra ngoài.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nĐể tránh việc ở mỗi Controller đều phải viết lặp đi lặp lại hàng trăm khối `try-catch`, Spring Boot cung cấp giải pháp xử lý ngoại lệ tập trung (Global Exception Handling) bằng cách kết hợp:\n• `@RestControllerAdvice` (hoặc `@ControllerAdvice`): Đánh dấu class là bộ lọc bắt lỗi toàn cục cho tất cả các Controller trong dự án.\n• `@ExceptionHandler(UserNotFoundException.class)`: Đặt trên từng method để bắt đúng loại lỗi cụ thể và trả về định dạng JSON lỗi chuẩn hóa thống nhất (gồm: timestamp, status code, error message).",
       "textEn": "How is Global Exception Handling implemented centrally in a Spring Boot REST API?",
       "optionsEn": [
         "Use @ControllerAdvice (or @RestControllerAdvice) combined with @ExceptionHandler methods to catch and format exceptions into uniform response bodies",
@@ -2692,7 +2692,7 @@ export const interviewAll = {
         "Lỗi hết hạn Token xác thực"
       ],
       "answer": 1,
-      "explanation": "• CORS là cơ chế bảo mật do TRÌNH DUYỆT thực thi để ngăn chặn trang web này gửi request ngầm sang một trang web khác.\n• Ví dụ: Frontend chạy tại `http://localhost:3000` gọi sang Backend `http://localhost:8080`.\n• Cách giải quyết chuẩn trong Spring Boot: Thêm cấu hình `CorsRegistry` trong `WebMvcConfigurer` cho phép origin `http://localhost:3000` và các method GET, POST, PUT, DELETE.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCORS (Cross-Origin Resource Sharing) là một cơ chế BẢO MẬT CỦA TRÌNH DUYỆT.\nKhi frontend chạy ở `http://localhost:3000` gọi API sang backend ở `http://localhost:8080` (khác Port hoặc khác Domain), trình duyệt sẽ chặn đứng lại vì nghi ngờ trang web lạ đang lén gọi trộm API của bạn!\n\nCách xử lý chuẩn trong Spring Boot:\n1. Cấp Controller: Dùng `@CrossOrigin(origins = \"http://localhost:3000\")`.\n2. Cấp toàn cục (Khuyên dùng): Cấu hình bean `WebMvcConfigurer` và ghi đè hàm `addCorsMappings` để cho phép domain frontend, các HTTP method (GET, POST, PUT, DELETE) và headers cần thiết.",
       "textEn": "What is a CORS (Cross-Origin Resource Sharing) error and how is it resolved in Spring Boot?",
       "optionsEn": [
         "A browser security mechanism blocking requests from a different origin (domain, port, protocol); resolved in Spring Boot using @CrossOrigin on controllers or configuring a WebMvcConfigurer with CorsRegistry",
@@ -2712,7 +2712,7 @@ export const interviewAll = {
         "singleton chỉ sống trong 1 request; prototype sống vĩnh viễn"
       ],
       "answer": 1,
-      "explanation": "• `singleton` (default scope): Spring IoC Container chỉ khởi tạo 1 instance duy nhất và chia sẻ cho tất cả các class inject nó (vô cùng tối ưu bộ nhớ, tuy nhiên phải thiết kế Stateless - không lưu trạng thái mutable để tránh Race Condition).\n• `prototype`: Mỗi lần inject (@Autowired) sẽ sinh ra 1 object hoàn toàn mới.\n• Các web scopes khác: `request`, `session`, `application`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `singleton` (Scope mặc định): Spring IoC Container chỉ tạo DUY NHẤT 1 instance của Bean và chia sẻ cho toàn bộ ứng dụng dùng chung. Cực kỳ tiết kiệm RAM, nhưng Bean bắt buộc phải thiết kế dạng **Stateless** (không lưu trạng thái riêng của người dùng để tránh xung đột đa luồng).\n• `prototype`: Mỗi khi có ai đó yêu cầu inject (@Autowired) hoặc gọi `getBean()`, Spring sẽ TẠO RA MỘT INSTANCE HOÀN TOÀN MỚI. Phù hợp cho các đối tượng cần lưu trạng thái tạm thời (Stateful).",
       "textEn": "In Spring Framework, what is Bean Scope and how do singleton and prototype scopes differ?",
       "optionsEn": [
         "singleton is only for databases; prototype is only for Web Controllers",
@@ -2732,7 +2732,7 @@ export const interviewAll = {
         "Cả hai giống hệt nhau, @RestController chỉ là tên viết tắt"
       ],
       "answer": 1,
-      "explanation": "• `@Controller`: Dành cho ứng dụng MVC truyền thống (Server-Side Rendering). Return string `\"index\"` -> tìm file `index.html`.\n• `@RestController` = `@Controller` + `@ResponseBody`: Dành cho RESTful Web Services. Return object `User` -> Jackson ObjectMapper tự động parse sang chuỗi JSON `{\"id\": 1, \"name\": \"Trung\"}` và trả thẳng về client.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `@Controller`: Dành cho ứng dụng web truyền thống (Server-Side Rendering). Giá trị trả về của hàm là một chuỗi Tên View (ví dụ return `\"home\"` -> ViewResolver sẽ đi tìm file `home.html` hoặc `home.jsp` để hiển thị).\n• `@RestController`: Dành cho RESTful API. Thực chất nó là viết tắt của:\n`@RestController = @Controller + @ResponseBody`\nMọi dữ liệu trả về từ hàm (như User object, List) sẽ được thư viện Jackson tự động chuyển đổi thành chuỗi JSON/XML nằm trong HTTP Response Body trả thẳng về cho frontend/mobile app.",
       "textEn": "What is the core difference between @Controller and @RestController in Spring Boot?",
       "optionsEn": [
         "@Controller is for microservices; @RestController is for monoliths",
@@ -2752,7 +2752,7 @@ export const interviewAll = {
         "@Repository không thể inject vào Service"
       ],
       "answer": 1,
-      "explanation": "• `@Component`: Đánh dấu class là một Spring-managed Bean để Component Scanning tự động phát hiện.\n• `@Service`: Chuyên biệt hóa của `@Component` ở tầng nghiệp vụ.\n• `@Repository`: Chuyên biệt hóa ở tầng dữ liệu, tự động kích hoạt cơ chế dịch lỗi database (PersistenceExceptionTranslationPostProcessor) sang Spring's DataAccessException.\n• `@Bean`: Áp dụng ở cấp độ Method, dùng khi bạn muốn tạo Bean từ class của thư viện bên ngoài mà bạn không thể chỉnh sửa source code để thêm `@Component`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `@Component`: Là annotation \"cha\" tổng quát, đánh dấu bất kỳ class nào là 1 Spring Bean để Spring tự động quét và quản lý (Component Scanning).\n• `@Service`: Chuyên biệt hóa của @Component ở tầng Nghiệp vụ (Business logic).\n• `@Repository`: Chuyên biệt hóa ở tầng Dữ liệu (DAO/Database). Nó có tính năng đặc biệt: Tự động bắt các lỗi SQL của database và dịch sang ngoại lệ `DataAccessException` của Spring.\n• `@Bean`: Dùng ở cấp độ METHOD bên trong class cấu hình `@Configuration`. Dùng khi bạn muốn khởi tạo bean từ thư viện của bên thứ 3 mà bạn không thể sửa code để gắn @Component lên đầu class của họ.",
       "textEn": "Distinguish between Spring's stereotype annotations: @Component, @Service, @Repository, and @Bean?",
       "optionsEn": [
         "@Component is only for networking; @Bean is only for databases",
@@ -2772,7 +2772,7 @@ export const interviewAll = {
         "Không cần thư viện validation, Spring Boot tự động đoán đúng dữ liệu"
       ],
       "answer": 1,
-      "explanation": "• Dùng `spring-boot-starter-validation`.\n• `@NotBlank`: Áp dụng cho String (không null, độ dài > 0 sau khi trim).\n• `@NotNull`: Không được null (thường dùng cho ID, Số, Date).\n• `@Valid`: Chuẩn Java/Jakarta Specification, kích hoạt validation lồng nhau.\n• `@Validated`: Do Spring cung cấp, hỗ trợ kiểm tra trên method parameter và phân nhóm (`groups = {OnCreate.class, OnUpdate.class}`).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nSpring Boot dùng thư viện `spring-boot-starter-validation` (chuẩn Hibernate Validator):\n• Khai báo ràng buộc trên DTO: `@NotNull` (không null), `@NotBlank` (chuỗi không rỗng và không toàn khoảng trắng), `@Size(min=6, max=20)`, `@Email`.\n• `@Valid`: Là chuẩn tiêu chuẩn của Java/Jakarta Bean Validation (JSR-380).\n• `@Validated`: Là annotation do Spring cung cấp, mở rộng thêm tính năng **Validation Groups** (ví dụ: Lúc Tạo mới thì ID được null, nhưng lúc Cập nhật thì ID bắt buộc phải có).",
       "textEn": "In Spring Boot, how does input validation work and what is the difference between @Valid and @Validated?",
       "optionsEn": [
         "@Valid only validates even numbers; @Validated validates odd numbers",
@@ -2792,7 +2792,7 @@ export const interviewAll = {
         "Bắt buộc phải gắn @Repository lên interface JpaRepository thì project mới chạy được"
       ],
       "answer": 1,
-      "explanation": "💡 Mẹo phỏng vấn cực hay:\n1. JPA là hợp đồng (Interface/Spec), Hibernate là người thực thi hợp đồng.\n2. Interface extends `JpaRepository` KHÔNG CẦN gắn `@Repository` vì Spring Data JPA tự động tạo Proxy bean cho mọi interface extends Repository.\n3. `JpaRepository` tiện hơn `CrudRepository` vì các hàm như `findAll()` trả về thẳng `List<T>` (thay vì `Iterable<T>`), và có sẵn các hàm `saveAndFlush()`, `deleteInBatch()`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• JPA (Java Persistence API): Là cuốn HỢP ĐỒNG / BỘ ĐẶC TẢ tiêu chuẩn (chỉ gồm các interface, không có code thực thi).\n• Hibernate: Là NGƯỜI THỰC THI hợp đồng đó (thư viện ORM cụ thể làm việc kết nối database).\n• Spring Data JPA: Là bộ khung tiện ích tầng trên giúp bạn không phải viết code Hibernate dài dòng, tự động sinh ra các câu query thông qua các Interface Repository.\n• `JpaRepository` kế thừa từ `PagingAndSortingRepository` và `CrudRepository`. Nó tiện hơn vì các hàm như `findAll()` trả về sẵn `List<T>` (thay vì `Iterable<T>`) và có thêm các hàm xịn như `flush()`, `saveAndFlush()`, `deleteInBatch()`.",
       "textEn": "What is the relationship among JPA, Hibernate, and Spring Data JPA? How do CrudRepository and JpaRepository differ?",
       "optionsEn": [
         "JPA is a NoSQL database; Hibernate is a diagramming library",
@@ -2812,7 +2812,7 @@ export const interviewAll = {
         "JPA chỉ hỗ trợ tìm kiếm theo ID, không hỗ trợ các điều kiện khác"
       ],
       "answer": 1,
-      "explanation": "• Derived Queries: Tiện lợi cho câu ngắn (`findByAgeGreaterThan(int age)`).\n• JPQL (`@Query(\"SELECT u FROM User u WHERE u.email = :email\")`): Truy vấn dựa trên Tên Entity và Thuộc tính Java, độc lập với hệ quản trị CSDL.\n• Native Query (`@Query(value = \"SELECT * FROM users WHERE ...\", nativeQuery = true)`): Khi cần tận dụng tính năng riêng biệt của DBMS (như JSON operator, window functions).\n• Spring Data Specifications: Dùng khi form tìm kiếm có nhiều điều kiện lọc động (Dynamic Search).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCó 4 cách chính để viết query trong Spring Data JPA:\n1. Query Method (Derived Query): Spring tự sinh SQL từ tên hàm: `findByEmailAndStatus(String email, int status)`. Rất nhanh và tiện cho các câu query đơn giản.\n2. `@Query` với JPQL: Viết câu truy vấn dựa trên Tên Entity và Thuộc tính Java: `@Query(\"SELECT u FROM User u WHERE u.age > :age\")` (Độc lập với hệ quản trị CSDL).\n3. `@Query(nativeQuery = true)`: Viết câu lệnh SQL thuần của MySQL/Postgres khi cần dùng các hàm đặc thù của CSDL.\n4. Specifications / Criteria API: Dùng code Java để xây dựng câu truy vấn động khi form tìm kiếm có quá nhiều bộ lọc tùy chọn.",
       "textEn": "In Spring Data JPA, what are the primary ways to define database queries in a Repository interface?",
       "optionsEn": [
         "Only by writing manual raw JDBC code",
@@ -2832,7 +2832,7 @@ export const interviewAll = {
         "Spring Boot không hỗ trợ Connection Pool, mỗi request tạo 1 kết nối mới rồi đóng lại"
       ],
       "answer": 1,
-      "explanation": "💡 Kiến trúc kết nối DB:\nKhởi tạo kết nối TCP và xác thực với Database Server tốn hàng chục đến hàng trăm mili-giây. Connection Pool (như HikariCP) duy trì sẵn một nhóm (pool) kết nối mở. Khi Service cần query, nó 'mượn' 1 connection từ pool, thực thi xong thì 'trả lại' cho pool thay vì đóng kết nối thật, giúp ứng dụng chịu tải hàng nghìn request/giây mà không làm nghẽn DB.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ hồ bơi kết nối):\nKhởi tạo một kết nối TCP và bắt tay xác thực với Database Server tốn hàng trăm mili-giây. Nếu mỗi request của user đều mở kết nối mới rồi đóng lại thì Database sẽ chết ngắc vì kiệt quệ tài nguyên!\nConnection Pool (như HikariCP) duy trì sẵn một đàn kết nối mở sẵn (ví dụ 10-20 kết nối). Khi Service cần truy vấn, nó chạy ra \"mượn\" 1 kết nối có sẵn, chạy xong thì \"trả lại\" cho hồ bơi.\nHikariCP là thư viện Connection Pool mặc định của Spring Boot vì nó được tối ưu mã bytecode siêu nhỏ, tiêu thụ ít CPU và đạt tốc độ mượn trả kết nối nhanh nhất thế giới hiện nay!",
       "textEn": "How does Spring Boot configure database connectivity and why does it use HikariCP as the default Connection Pool?",
       "optionsEn": [
         "Configured in HTML files; HikariCP is an in-memory database",
@@ -2852,7 +2852,7 @@ export const interviewAll = {
         "Virtual DOM làm ứng dụng tốn bộ nhớ hơn và không có lợi ích gì đáng kể"
       ],
       "answer": 1,
-      "explanation": "• Thao tác trực tiếp với Real DOM của trình duyệt rất tốn kém tài nguyên vì kích hoạt quá trình tính toán lại layout (Reflow) và vẽ lại pixel (Repaint).\n• React tạo Virtual DOM trên RAM (nhẹ hơn DOM thật rất nhiều), khi state thay đổi nó dùng thuật toán Diffing tìm ra phần khác biệt nhỏ nhất và cập nhật hàng loạt (Batching) lên Real DOM.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ bản vẽ nháp):\nHãy tưởng tượng bạn muốn sửa một ngôi nhà 10 tầng.\n• Real DOM giống như bạn mang búa đập tường gạch xây lại ngay lập tức: cực kỳ tốn công sức, bụi bặm và làm rung lắc cả tòa nhà (trình duyệt phải tính toán lại Layout và vẽ lại Pixel - Reflow & Repaint).\n• Virtual DOM giống như bạn lấy bút chì sửa trên một bản vẽ nháp 3D trong máy tính (RAM). Bạn có thể tẩy xóa, thay đổi 100 lần trên bản vẽ siêu nhanh. Sau khi chốt phương án cuối cùng, bạn so sánh bản vẽ mới với bản vẽ cũ (thuật toán Diffing) và chỉ cho thợ đến sửa đúng 1 viên gạch bị hỏng (Reconciliation & Batching).\n\n💻 Ví dụ thực tế:\nTrong danh sách 1.000 sản phẩm Shopee, khi người dùng bấm nút \"Thích\" ở sản phẩm số 500:\nNhờ Virtual DOM, React chỉ tìm ra đúng icon trái tim đổi từ màu xám sang đỏ và cập nhật đúng 1 thẻ <i> đó trên màn hình, 999 sản phẩm còn lại hoàn toàn không bị vẽ lại!\n\n💡 Mẹo phỏng vấn & Ghi điểm:\nNhớ 2 từ khóa kỹ thuật đắt giá: \"Diffing Algorithm\" (so sánh 2 cây ảo với độ phức tạp O(n)) và \"Batching\" (gộp nhiều thay đổi state liên tiếp để render 1 lần duy nhất). Tránh nói \"Virtual DOM luôn nhanh hơn DOM thật\" mà hãy nói \"Virtual DOM giúp tối ưu số lần chạm vào Real DOM\".",
       "textEn": "What is the Virtual DOM in React and how does the Reconciliation (Diffing) algorithm optimize UI performance?",
       "optionsEn": [
         "A database backup of the user interface stored on the backend",
@@ -2872,7 +2872,7 @@ export const interviewAll = {
         "Virtual DOM chỉ nhanh hơn khi có kết nối Internet tốc độ cao"
       ],
       "answer": 1,
-      "explanation": "💡 Câu hỏi phỏng vấn xuất sắc phân loại ứng viên:\nVirtual DOM KHÔNG PHẢI sinh ra để nhanh hơn Real DOM thuần túy (viết Vanilla JS tối ưu tay cho 1 element luôn nhanh hơn bất kỳ framework nào). Virtual DOM sinh ra để lập trình viên có thể viết code dạng Declarative (khai báo: 'giao diện trông như thế này dựa trên state'), và React đảm bảo hiệu năng ở mức 'đủ tốt' (good enough performance) trên các ứng dụng quy mô khổng lồ.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nKHÔNG! Virtual DOM không phải là phép thuật và KHÔNG LUÔN LUÔN nhanh hơn Real DOM thật trong mọi tình huống.\n\nTại sao?\nBản thân việc tạo ra các JavaScript Object để làm Virtual DOM trên RAM và chạy thuật toán so sánh Diffing giữa 2 cây cũng tốn CPU và bộ nhớ.\n• Với trang web đơn giản: Chỉ có 1 nút bấm đổi màu chữ, việc viết JavaScript thuần `document.getElementById('btn').style.color = 'red'` chạy thẳng vào Real DOM trong 0.001 mili-giây, nhanh hơn React rất nhiều (vì React phải qua 5-6 bước tạo VDOM, so sánh rồi mới đụng vào Real DOM).\n\n💻 Ví dụ thực tế:\nCác framework hiện đại như Svelte không hề dùng Virtual DOM. Svelte biên dịch code ngay lúc build time thành các lệnh thao tác trực tiếp vào Real DOM nên chạy nhanh và nhẹ hơn React trong các bài test hiệu năng đơn giản.\n\n💡 Mẹo phỏng vấn (Bẫy nhà tuyển dụng hay gài):\nNgười phỏng vấn hỏi câu này để xem bạn có \"thần thánh hóa\" React hay không.\nHãy trả lời: \"Lợi thế lớn nhất của Virtual DOM không phải là đánh bại Real DOM ở các thao tác đơn lẻ, mà là mang lại trải nghiệm lập trình Khai báo (Declarative UI - UI = f(state)) và đảm bảo hiệu năng 'ĐỦ TỐT' (predictable performance) cho các ứng dụng quy mô khổng lồ hàng nghìn component phức tạp\". Trả lời như vậy bạn sẽ đạt điểm tuyệt đối!",
       "textEn": "Is the Virtual DOM always faster than the Real DOM under all circumstances? Why?",
       "optionsEn": [
         "Yes, Virtual DOM is 100% faster in every single case regardless of application complexity",
@@ -2892,7 +2892,7 @@ export const interviewAll = {
         "Chỉ có Class Component mới có State, Functional Component không thể có State"
       ],
       "answer": 1,
-      "explanation": "• `Props`: Do component cha truyền xuống con. Component con không được phép thay đổi props của chính mình (đảm bảo luồng dữ liệu 1 chiều One-Way Data Flow).\n• `State`: Biến trạng thái nội tại. Khi gọi `setCount(newVal)`, React lên lịch re-render lại component để cập nhật UI tương ứng.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ đời sống):\n• Props (Properties) giống như \"Họ tên hoặc Gen di truyền do bố mẹ đặt cho bạn\": Do component cha truyền xuống cho component con. Component con chỉ được phép đọc (Read-only / Immutable), tuyệt đối KHÔNG ĐƯỢC tự ý sửa đổi props của chính mình.\n• State giống như \"Tâm trạng hoặc Tiền trong ví của chính bạn\": Do chính component đó tự khai báo, tự quản lý và có thể thay đổi bất cứ lúc nào qua hàm setter (như `setCount`). Khi state thay đổi, component sẽ tự động re-render để cập nhật giao diện mới.\n\n💻 Ví dụ code thực tế:\n```jsx\n// Component Cha:\n<UserProfile username=\"trung_admin\" /> // \"trung_admin\" là PROPS truyền xuống\n\n// Component Con (UserProfile):\nfunction UserProfile({ username }) {\n  // username là read-only, không được gán username = \"khac\"\n  const [isOnline, setIsOnline] = useState(true); // isOnline là STATE nội tại\n  return <div>{username} - {isOnline ? \"🟢 Đang online\" : \"⚪ Vắng mặt\"}</div>;\n}\n```\n\n💡 Mẹo phỏng vấn & Câu hỏi mở rộng:\n\"Nếu component con muốn thay đổi dữ liệu của component cha thì làm thế nào?\"\n-> Trả lời: Áp dụng kỹ thuật \"Lifting State Up\" (Nâng state lên cha). Component cha truyền 1 hàm callback xuống làm props cho con, khi con cần đổi dữ liệu sẽ gọi hàm callback đó để cha tự update state của mình.",
       "textEn": "In React, what is the fundamental difference between State and Props?",
       "optionsEn": [
         "State is passed from parent to child; Props is private local data",
@@ -2912,7 +2912,7 @@ export const interviewAll = {
         "Cả hai hook này có thể đặt bên trong vòng lặp for hoặc câu lệnh if tùy ý"
       ],
       "answer": 1,
-      "explanation": "• `useState`: Quản lý state cục bộ. Mỗi lần gọi hàm setter (`setCount`), React xếp lịch re-render component.\n• `useEffect(callback, deps)`: Xử lý Side Effects.\n  - `deps = undefined`: Chạy sau mỗi lần render.\n  - `deps = []`: Chỉ chạy 1 lần duy nhất sau mount (tương đương `componentDidMount`).\n  - `deps = [a, b]`: Chạy lại khi `a` hoặc `b` thay đổi giá trị.\n  - Return cleanup function: Chạy trước khi unmount để tránh rò rỉ bộ nhớ (Memory Leak).",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `useState`: Chuyên lo phần \"Dữ liệu hiển thị\" trên màn hình. Cứ mỗi lần state đổi giá trị -> React tự động vẽ lại (re-render) component.\n• `useEffect`: Chuyên lo các công việc \"Hậu trường / Tác vụ phụ\" (Side Effects) diễn ra SAU KHI giao diện đã được vẽ xong lên màn hình: gọi API backend lấy dữ liệu, lắng nghe sự kiện cuộn trang, hẹn giờ `setInterval`, hoặc đổi tiêu đề trang web `document.title`.\n\n💻 Ví dụ thực tế (Trang bảng tin):\n```jsx\nfunction NewsFeed() {\n  const [posts, setPosts] = useState([]); // 1. State lưu bài viết\n\n  useEffect(() => {\n    // 2. Chạy sau khi giao diện hiện lên: Gọi API lấy bài viết từ server\n    fetch('/api/posts')\n      .then(res => res.json())\n      .then(data => setPosts(data));\n  }, []); // 3. [] rỗng nghĩa là chỉ chạy 1 lần duy nhất khi vừa vào trang\n}\n```\n\n💡 Bẫy phỏng vấn kinh điển (Infinite Loop):\nNếu bạn gọi `setPosts()` bên trong `useEffect` mà KHÔNG CÓ mảng dependencies `[]`, component sẽ re-render liên tục vô tận (State đổi -> Render -> Chạy useEffect -> State lại đổi -> Lại render...) làm treo đơ trình duyệt của người dùng!",
       "textEn": "What are the distinct roles and mechanisms of the fundamental React Hooks: useState and useEffect?",
       "optionsEn": [
         "useState is used to call APIs; useEffect is used to store input values",
@@ -2932,7 +2932,7 @@ export const interviewAll = {
         "Hai hook này chỉ dùng được trong môi trường React Native"
       ],
       "answer": 1,
-      "explanation": "💡 Lưu ý phỏng vấn về việc tối ưu hiệu năng (Performance Optimization):\nKhông nên lạm dụng `useMemo`/`useCallback` bừa bãi vì bản thân việc khởi tạo hook và mảng dependencies cũng tốn RAM và chi phí so sánh.\n- Dùng `useMemo`: Khi có phép tính lặp phức tạp (sort/filter mảng hàng nghìn phần tử).\n- Dùng `useCallback`: Khi truyền callback function xuống component con (được bọc bởi `React.memo`) để tránh component con bị re-render vô ích.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ tủ lạnh):\n• `useMemo`: Ghi nhớ \"KẾT QUẢ của món ăn\" (đã nấu xong rồi cất vào tủ lạnh, lần sau đói lấy ra ăn ngay chứ không nấu lại từ đầu).\n• `useCallback`: Ghi nhớ \"CÔNG THỨC / ĐỊNH NGHĨA HÀM\" (giữ nguyên con trỏ hàm ở vùng nhớ cũ, không đẻ ra con trỏ hàm mới mỗi lần re-render).\n\n💻 Ví dụ thực tế:\n```jsx\n// useMemo: items có 50.000 sản phẩm, chỉ tính tổng lại khi mảng items thay đổi\nconst totalPrice = useMemo(() => {\n  return items.reduce((sum, item) => sum + item.price, 0);\n}, [items]);\n\n// useCallback: Giữ nguyên hàm handleDelete để truyền xuống component con <ProductItem />\n// Giúp ProductItem (được bọc React.memo) không bị re-render oan uổng\nconst handleDelete = useCallback((id) => {\n  setItems(prev => prev.filter(x => x.id !== id));\n}, []);\n```\n\n💡 Mẹo phỏng vấn:\n\"Có nên bọc useMemo và useCallback cho TẤT CẢ biến và hàm trong dự án không?\"\n-> Trả lời: TUYỆT ĐỐI KHÔNG! Bản thân việc gọi hook và duy trì mảng dependencies cũng tiêu tốn bộ nhớ RAM và CPU. Chỉ dùng khi phép tính thực sự nặng (xử lý hàng nghìn phần tử) hoặc khi truyền hàm xuống component con nặng có áp dụng `React.memo`.",
       "textEn": "When should useMemo and useCallback be used in React for performance optimization?",
       "optionsEn": [
         "All variables and functions must be wrapped in useMemo and useCallback to maximize application speed",
@@ -2952,7 +2952,7 @@ export const interviewAll = {
         "SSR chạy chậm hơn CSR 100 lần trong mọi tình huống"
       ],
       "answer": 1,
-      "explanation": "• `CSR`: Nhẹ server nhưng chậm lần đầu (FCP) và kém SEO.\n• `SSR` (`getServerSideProps` hoặc dynamic fetch): Luôn có dữ liệu mới nhất, tốt cho trang Dashboard cá nhân hóa theo từng user.\n• `SSG` (`generateStaticParams` / static export): Tốc độ cực nhanh vì phân phối qua CDN, hoàn hảo cho blog, tài liệu, landing page.\n• `ISR`: Lấy ưu điểm của cả SSG và SSR (trang tĩnh nhưng có thể tự động revalidate sau X giây khi có dữ liệu mới).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ gọi món nhà hàng):\n• CSR (Client-Side Rendering): Nhà hàng phát cho bạn nguyên liệu tươi mang về nhà tự nấu (Server chỉ gửi file HTML rỗng + file JS to, trình duyệt của bạn tự chạy JS để vẽ UI). Lần đầu mở web sẽ hơi chậm, nhưng khi đã tải xong thì chuyển trang mượt như bơ.\n• SSR (Server-Side Rendering): Khách gọi món nào, đầu bếp trong bếp nấu ngay lập tức trên chảo nóng món đó rồi bưng ra (Server render HTML tươi mới theo từng request của user). Dữ liệu luôn mới nhất, nhưng máy chủ phải hoạt động nhiều.\n• SSG (Static Site Generation): Đóng hộp sẵn 100 phần ăn từ 4h sáng (Build time). Khách đến là bốc phát ngay trong 0.01 giây qua CDN. Cực nhanh, siêu tiết kiệm server, nhưng không đổi được thực đơn trong ngày.\n• ISR (Incremental Static Regeneration): Vừa muốn nhanh như đồ hộp đóng sẵn (SSG), vừa muốn tự động cập nhật món mới mà không phải đóng cửa quán để nấu lại từ đầu (tự revalidate sau mỗi X giây ở chế độ nền).\n\n💡 Mẹo phỏng vấn: Khi nào dùng cái nào?\n• Trang tin tức, Landing Page, Blog, Tài liệu -> Chọn SSG.\n• Trang thương mại điện tử có hàng triệu sản phẩm -> Chọn ISR (revalidate: 60s).\n• Trang Dashboard cá nhân hóa tài khoản ngân hàng -> Chọn SSR hoặc CSR.",
       "textEn": "What rendering strategies does Next.js support, and what are their key distinctions?",
       "optionsEn": [
         "Next.js only supports standard Client-Side Rendering identical to Create-React-App",
@@ -2972,7 +2972,7 @@ export const interviewAll = {
         "Cho phép kết nối trực tiếp đến cơ sở dữ liệu MongoDB mà không cần bảo mật"
       ],
       "answer": 1,
-      "explanation": "• Trong Next.js App Router, mặc định tất cả component đều là React Server Components (RSC) - được render hoàn toàn trên server và không kèm JavaScript bundle xuống client, giúp web siêu nhẹ.\n• Khi bạn cần tính tương tác (Interactive): form input, click button, dùng `useState`, `useEffect`, `useRouter`,... thì BẮT BUỘC phải thêm `\"use client\";` ở dòng đầu tiên.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTrong Next.js App Router (từ phiên bản 13 trở lên), mặc định 100% component đều là React Server Components (RSC). Tức là code chỉ chạy trên máy chủ server, gửi về trình duyệt mã HTML siêu nhẹ và KHÔNG KÈM MÃ JAVASCRIPT nào.\nNhưng máy chủ thì làm sao biết người dùng bấm chuột vào đâu? Máy chủ cũng không có `localStorage` hay bàn phím!\nDo đó, chỉ thị `\"use client\";` đặt ở dòng 1 là chiếc cầu nối báo cho Next.js biết: \"Từ đây trở đi, hãy đóng gói JavaScript gửi xuống cho trình duyệt để người dùng có thể tương tác!\".\n\n💻 Khi nào BẮT BUỘC dùng `\"use client\"`:\n1. Dùng React Hooks: `useState`, `useEffect`, `useRef`, `useContext`.\n2. Dùng Event Listeners: `onClick`, `onChange`, `onSubmit`.\n3. Dùng API trình duyệt: `window`, `document`, `localStorage`, `navigator`.\n\n💡 Mẹo phỏng vấn:\nĐừng bao giờ bọc `\"use client\"` ở trang ngoài cùng (Page cha). Hãy đẩy nó xuống các component lá nhỏ nhất có thể (ví dụ chỉ bọc riêng cho nút bấm `<AddToCartButton />`) để giữ cho phần lớn trang web vẫn là Server Component giúp web đạt điểm tốc độ cao nhất.",
       "textEn": "In Next.js App Router (React Server Components), what does the \"use client\" directive signify and when is it required?",
       "optionsEn": [
         "It must be added at the top of 100% of files in a Next.js project",
@@ -2992,7 +2992,7 @@ export const interviewAll = {
         "SEO không phụ thuộc vào phương thức rendering của website"
       ],
       "answer": 1,
-      "explanation": "💡 Giải thích SEO phỏng vấn:\nVới CSR truyền thống, bot tìm kiếm nhận được thẻ `<div id=\"root\"></div>` trống rỗng và phải chờ JavaScript tải về thực thi (nhiều crawler mạng xã hội như Facebook, Zalo, Twitter bot thậm chí không chạy JS khi cào thẻ OpenGraph preview).\nVới SSR/SSG, máy chủ trả về mã HTML hoàn chỉnh có sẵn tiêu đề, đoạn văn và thẻ meta `<meta property=\"og:title\">`, giúp nội dung được lập chỉ mục (indexed) ngay lập tức và chính xác 100%.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nBot tìm kiếm của Google (Googlebot) hay crawler khi share link lên Facebook/Zalo hoạt động như một người đọc báo siêu lười.\n• Với React CSR truyền thống: Khi bot ghé thăm, nó chỉ nhìn thấy file HTML vỏn vẹn đúng 1 dòng: `<div id=\"root\"></div>`. Bot không rảnh chờ 3 giây để tải file JavaScript về chạy -> Bot kết luận trang web này trống rỗng -> Rớt hạng SEO thảm hại!\n• Với Next.js SSR / SSG: Máy chủ trả về ngay lập tức mã HTML hoàn chỉnh có sẵn tiêu đề `<h1>`, nội dung bài viết và thẻ `<meta property=\"og:title\">`. Bot đọc được nội dung trong 0.1 giây -> Lập chỉ mục (Index) ngay lập tức và hiển thị ảnh thumbnail cực đẹp khi chia sẻ link!\n\n💡 Mẹo phỏng vấn:\nNhắc thêm chỉ số Core Web Vitals của Google: FCP (First Contentful Paint) và LCP (Largest Contentful Paint) - thời gian hiển thị nội dung chính đầu tiên trên màn hình. SSR/SSG giúp điểm LCP xanh mướt (dưới 1.5 giây).",
       "textEn": "If the primary goal of a web project is SEO optimization, which Next.js rendering strategy should be favored and why?",
       "optionsEn": [
         "CSR (Client-Side Rendering) because browser payload size is minimal",
@@ -3012,7 +3012,7 @@ export const interviewAll = {
         "Cả hai giống hệt nhau về cả cấu trúc DOM lẫn hiệu năng"
       ],
       "answer": 1,
-      "explanation": "• `v-if`: Điều kiện sai -> phần tử hoàn toàn không tồn tại trong DOM. Rất tiết kiệm tài nguyên nếu điều kiện hiếm khi xảy ra.\n• `v-show`: Phần tử luôn được tạo trong DOM, chỉ thêm style `display: none`. Phù hợp tuyệt đối cho các thành phần bật/tắt liên tục (như Popup Modal, Tooltip, Tab chuyển đổi, Dropdown menu).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ ngôi nhà):\n• `v-if`: Giống như việc bạn \"Đập bỏ hoàn toàn ngôi nhà\" khi không dùng đến, và khi cần thì \"Xây lại từ móng\" (phần tử bị xóa hoàn toàn khỏi cây DOM, hủy hết state và event listener).\n• `v-show`: Giống như bạn vẫn giữ nguyên ngôi nhà đó, chỉ \"Kéo rèm che lại\" (phần tử vẫn luôn nằm trong cây DOM, chỉ gắn thêm thuộc tính CSS `display: none`).\n\n💻 Khi nào dùng cái nào?\n• Dùng `v-show`: Khi thành phần đó bị bật/tắt liên tục hàng chục lần (ví dụ: Popup Modal, Menu Dropdown, Tab chuyển đổi, Tooltip). Vì chi phí chuyển đổi (Toggle cost) gần như bằng 0.\n• Dùng `v-if`: Khi điều kiện ít khi thay đổi (ví dụ: Khu vực dành riêng cho Admin - nếu user không phải admin thì không cần tạo sẵn trong DOM làm tốn RAM).\n\n💡 Mẹo phỏng vấn: Trong React, cú pháp tương đương `v-if` là `{isOpen && <Modal />}` (render có điều kiện), còn tương đương `v-show` là `<Modal style={{ display: isOpen ? 'block' : 'none' }} />`.",
       "textEn": "In Vue.js (or conditional rendering concepts), what is the difference between v-if and v-show directives?",
       "optionsEn": [
         "v-if is strictly for images; v-show is strictly for data tables",
@@ -3032,7 +3032,7 @@ export const interviewAll = {
         "Cả Cookie và Session đều được lưu trong LocalStorage"
       ],
       "answer": 1,
-      "explanation": "• Cookie: Lưu ở Browser, dung lượng nhỏ (~4KB), gửi kèm tự động trong header HTTP mỗi khi gọi request. Thuộc tính `HttpOnly` ngăn chặn JavaScript truy cập (chống XSS), `SameSite` chống CSRF.\n• Session: Lưu trữ dữ liệu phiên đăng nhập trên RAM của Server hoặc Redis. Server cấp cho client một `SessionId` (thường lưu trong cookie `JSESSIONID`).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ vé xe & bãi giữ xe):\n• Cookie: Giống như \"Vé xem phim giấy bạn tự cầm trong ví\" (lưu ở Client trình duyệt). Lần sau vào rạp bạn giơ vé ra. Nhược điểm: Dễ bị người khác móc túi hoặc sửa vé (xâm nhập bằng JavaScript XSS) nếu không cài cờ bảo vệ.\n• Session: Giống như \"Chiếc xe máy bạn gửi trong bãi đỗ xe an toàn của siêu thị\" (toàn bộ dữ liệu mật lưu ở Server). Bạn chỉ cầm duy nhất một mảnh vé nhựa có ghi mã số `Session ID = ABC123`. Khi bạn giơ thẻ ra, bảo vệ tự vào kho lấy xe ra cho bạn.\n\n💻 Thông số kỹ thuật cần nhớ:\n• Cookie lưu tối đa khoảng 4KB, tự động đính kèm vào mọi HTTP Request gửi lên server. Cần gắn cờ `HttpOnly` (chống JS đọc trộm) và `Secure` (chỉ gửi qua HTTPS).\n• Session lưu trên RAM server, database hoặc Redis (chuẩn nhất cho hệ thống phân tán nhiều server).\n\n💡 Mẹo phỏng vấn: Khi người phỏng vấn hỏi \"Làm sao duy trì đăng nhập giữa các microservices?\", hãy trả lời dùng JWT (JSON Web Token) lưu ở HttpOnly Cookie hoặc Session tập trung trên Redis Cache!",
       "textEn": "What is the difference between Session and Cookie storage mechanisms in web applications?",
       "optionsEn": [
         "Cookie is stored on the client browser (size limit ~4KB, sent with HTTP headers); Session is stored securely on the web server (stores sensitive user state, identified via a session ID cookie)",
@@ -3052,7 +3052,7 @@ export const interviewAll = {
         "PUT chỉ dùng được với các file hình ảnh lớn"
       ],
       "answer": 1,
-      "explanation": "💡 Khái niệm Idempotent rất hay hỏi:\n• `Idempotent`: Thao tác gọi 1 lần hay n lần liên tiếp thì trạng thái hệ thống vẫn y như vậy (`GET`, `PUT`, `DELETE` là idempotent).\n• `POST`: Không idempotent (mỗi lần submit form sẽ tạo thêm 1 bản ghi mới).\n• `PUT` thay thế toàn bộ bản ghi; nếu muốn cập nhật một phần thuộc tính nên dùng `PATCH`.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• GET: Dùng để LẤY dữ liệu (chỉ đọc, tham số nằm lộ trên URL `?page=1&limit=10`, trình duyệt tự động cache lại).\n• POST: Dùng để TẠO MỚI dữ liệu (dữ liệu giấu trong Request Body, an toàn và dung lượng không giới hạn).\n• PUT: Dùng để CẬP NHẬT THAY THẾ TOÀN BỘ một bản ghi đã tồn tại.\n\n💡 Khái niệm \"Idempotent\" (Ăn điểm tuyệt đối):\nNhà tuyển dụng rất thích hỏi từ này!\n• Idempotent nghĩa là: Bạn bấm gọi 1 lần hay bấm F5 gọi 100 lần liên tiếp thì trạng thái hệ thống vẫn y như vậy.\n  - `GET`, `PUT`, `DELETE` là Idempotent (sửa đè 100 lần thì bản ghi vẫn mang giá trị đó, xóa 100 lần thì bản ghi vẫn đã biến mất).\n  - `POST` KHÔNG PHẢI Idempotent (bạn bấm submit 5 lần sẽ tạo ra 5 đơn hàng khác nhau và trừ tiền 5 lần trong tài khoản!).\n\n💡 Mẹo mở rộng: Muốn cập nhật MỘT PHẦN thuộc tính (ví dụ chỉ đổi số điện thoại của user) thì chuẩn RESTful dùng `PATCH`.",
       "textEn": "Compare HTTP methods: GET, POST, and PUT in RESTful API design?",
       "optionsEn": [
         "GET retrieves data (idempotent, parameters in URL query string, cacheable); POST creates new resources (non-idempotent, payload in body); PUT updates/replaces an entire existing resource (idempotent)",
@@ -3072,7 +3072,7 @@ export const interviewAll = {
         "Cả hai cho kết quả giống hệt nhau trong mọi trường hợp"
       ],
       "answer": 1,
-      "explanation": "• `==` (ép kiểu ngầm định): `5 == '5'` -> `true`; `false == 0` -> `true`; `null == undefined` -> `true`.\n• `===` (so sánh nghiêm ngặt): `5 === '5'` -> `false` (vì `number !== string`); `null === undefined` -> `false`.\n=> Trong dự án thực tế luôn luôn dùng `===` để tránh bẫy ép kiểu quái dị của JavaScript.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• `==` là \"So sánh ba phải\" (Type Coercion - tự ý ép kiểu ngầm định). Hai kiểu dữ liệu khác nhau nó cũng ráng ép về cùng 1 kiểu để so sánh.\n• `===` là \"So sánh nghiêm ngặt\" (Strict Equality). Yêu cầu cả KIỂU DỮ LIỆU lẫn GIÁ TRỊ phải giống hệt nhau 100%, không hề có bất kỳ sự ép kiểu nào.\n\n💻 Những bẫy \"kinh dị\" của `==` trong JavaScript:\n```javascript\n5 == '5'        // true (ép string sang number)\nfalse == 0      // true (ép boolean sang number)\nnull == undefined // true\n[] == false     // true (mảng rỗng ép về boolean)\n```\nNhưng với toán tử `===`: Tất cả 4 phép so sánh trên đều trả về `false`!\n\n💡 Mẹo phỏng vấn: Luôn khẳng định trong dự án thực tế, bạn và đội ngũ 100% sử dụng `===` (kết hợp ESLint rule `eqeqeq`) để triệt tiêu các lỗi logic ngầm cực kỳ nguy hiểm.",
       "textEn": "In JavaScript, what is the difference between the equality operator == and strict equality operator ===?",
       "optionsEn": [
         "== performs type coercion before comparison; === compares both value and type without conversion (strict equality)",
@@ -3092,7 +3092,7 @@ export const interviewAll = {
         "Làm ở đâu cũng được, phụ thuộc vào sở thích của lập trình viên"
       ],
       "answer": 2,
-      "explanation": "💡 Nguyên tắc vàng bảo mật phần mềm: 'Never trust user input'.\n• Phía Client có thể bị vượt qua dễ dàng bằng cách gọi thẳng API bằng Postman, tắt JS trên trình duyệt hoặc sửa DOM trong DevTools.\n• Do đó, Server Validation là bắt buộc sống còn để chống SQL Injection, dữ liệu hỏng. Client validation để tăng tốc độ phản hồi cho người dùng.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• DOM (Document Object Model): Cây phả hệ biểu diễn tài liệu HTML thành các đối tượng JavaScript, giúp bạn có thể dùng code để thêm, sửa, xóa thẻ HTML hoặc đổi màu CSS.\n• `document.getElementById('my-id')`: Giống như bạn tìm người qua Số Căn cước công dân duy nhất. Engine trình duyệt tìm trực tiếp trong Bảng băm (Hash Table) với độ phức tạp O(1) siêu nhanh.\n• `document.querySelector('.container > button.active')`: Giống như bạn cầm bản mô tả nhận dạng đi rà soát từng người trong phòng. Cú pháp cực kỳ linh hoạt (nhận mọi CSS selector), nhưng tốn CPU hơn một chút để duyệt cây.\n\n💡 Mẹo phỏng vấn: Nếu chỉ cần lấy 1 phần tử theo ID cố định, hãy ưu tiên `getElementById`. Nếu cần tìm phần tử theo class lồng nhau hoặc thuộc tính động `[data-status=\"active\"]`, hãy dùng `querySelector`.",
       "textEn": "When building input forms, why is client-side validation alone insufficient?",
       "optionsEn": [
         "Because client-side validation can be easily bypassed (using Postman, curl, or disabling JS); server-side validation is strictly required for data integrity and system security",
@@ -3112,7 +3112,7 @@ export const interviewAll = {
         "Cả hai hoàn toàn giống nhau và có thể thay thế cho nhau trong mọi trường hợp"
       ],
       "answer": 1,
-      "explanation": "• CSS Box Model từ trong ra ngoài: Content -> Padding -> Border -> Margin.\n• `Padding`: Làm tăng kích thước vùng nền (background) của phần tử.\n• `Margin`: Tạo khoảng trống giữa phần tử này với phần tử khác (có hiện tượng Margin Collapsing giữa 2 margin dọc kề nhau).",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ đóng gói hộp quà):\n• Content: Món quà quý giá bên trong.\n• Padding: Lớp xốp đệm bọc xung quanh món quà bên trong hộp.\n• Border: Vỏ hộp carton cứng bên ngoài.\n• Margin: Khoảng cách từ hộp quà của bạn đẩy lùi hộp quà của người khác để chúng không chạm vào nhau.\n\n💻 Bẫy CSS kinh điển:\nMặc định trong CSS (`box-sizing: content-box`), khi bạn set `width: 200px` rồi thêm `padding: 20px`, cái hộp sẽ bị phình to thành 240px làm vỡ tung layout giao diện!\n\n💡 Mẹo phỏng vấn:\nLuôn khai báo ở dòng đầu tiên của file CSS:\n```css\n* {\n  box-sizing: border-box;\n}\n```\nKhi đó dù bạn có thêm padding hay border bao nhiêu thì chiều rộng tổng thể của phần tử vẫn giữ nguyên đúng 200px như thiết kế!",
       "textEn": "In the CSS Box Model, what is the difference between margin and padding?",
       "optionsEn": [
         "margin controls background color; padding controls border color",
@@ -3132,7 +3132,7 @@ export const interviewAll = {
         "document.getElementById chỉ chạy được trên điện thoại di động"
       ],
       "answer": 1,
-      "explanation": "• DOM: Cây đối tượng cho phép JavaScript đọc, sửa, thêm hoặc xóa các thẻ HTML và style CSS động.\n• `getElementById('my-btn')`: Tìm theo ID (rất nhanh, trả về 1 element hoặc null).\n• `querySelector('.nav > .active')`: Nhận CSS selector phức tạp, trả về phần tử đầu tiên khớp.\n• `querySelectorAll(...)`: Trả về NodeList chứa tất cả các phần tử khớp.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• DOM (Document Object Model): Cây phả hệ biểu diễn tài liệu HTML thành các đối tượng JavaScript, giúp bạn có thể dùng code để thêm, sửa, xóa thẻ HTML hoặc đổi màu CSS.\n• `document.getElementById('my-id')`: Giống như bạn tìm người qua Số Căn cước công dân duy nhất. Engine trình duyệt tìm trực tiếp trong Bảng băm (Hash Table) với độ phức tạp O(1) siêu nhanh.\n• `document.querySelector('.container > button.active')`: Giống như bạn cầm bản mô tả nhận dạng đi rà soát từng người trong phòng. Cú pháp cực kỳ linh hoạt (nhận mọi CSS selector), nhưng tốn CPU hơn một chút để duyệt cây.\n\n💡 Mẹo phỏng vấn: Nếu chỉ cần lấy 1 phần tử theo ID cố định, hãy ưu tiên `getElementById`. Nếu cần tìm phần tử theo class lồng nhau hoặc thuộc tính động `[data-status=\"active\"]`, hãy dùng `querySelector`.",
       "textEn": "What is the DOM in browser environments, and how do document.getElementById and document.querySelector differ?",
       "optionsEn": [
         "DOM is a networking protocol; getElementById is strictly for XML files",
@@ -3152,7 +3152,7 @@ export const interviewAll = {
         "Để mã hóa mật khẩu người dùng thành dạng SHA-256"
       ],
       "answer": 1,
-      "explanation": "• Mặc định khi click submit button trong form, trình duyệt sẽ gửi request và reload lại toàn bộ trang (mất toàn bộ state hiện tại của ứng dụng Single Page App).\n• `event.preventDefault()` chặn hành vi reload mặc định, cho phép xử lý dữ liệu bằng JS (validate, hiển thị loading spinner, gọi `fetch('/api/login')`).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTừ những năm 1995, hành vi mặc định của thẻ `<form>` trong HTML là khi bấm Submit, trình duyệt sẽ gửi request đồng bộ và TẢI LẠI TOÀN BỘ TRANG WEB (Page Reload).\nTrong các ứng dụng web hiện đại (SPA như React, Vue, Next.js), nếu trang web bị reload thì:\n1. Toàn bộ state trên RAM bị xóa sạch.\n2. Màn hình bị chớp trắng giật cục làm trải nghiệm người dùng cực tệ.\n\nVì vậy, lập trình viên gọi `event.preventDefault()` để chặn đứng hành vi reload trang cổ lỗ sĩ đó, mở đường cho việc validate dữ liệu bằng JavaScript và gửi request ngầm qua `fetch()` hoặc `axios` mà màn hình vẫn đứng yên mượt mà!",
       "textEn": "When handling a `<form>` submit event in JavaScript, why do developers almost universally call event.preventDefault()?",
       "optionsEn": [
         "To wipe out the backend server database",
@@ -3172,7 +3172,7 @@ export const interviewAll = {
         "Callback Hell không thể giải quyết được trong ngôn ngữ JavaScript"
       ],
       "answer": 1,
-      "explanation": "• Callback: `setTimeout(() => console.log('Done'), 1000)`.\n• Callback Hell (Pyramid of Doom): Khi các tác vụ bất đồng bộ phụ thuộc nhau (đọc file 1 -> đọc file 2 -> ghi DB) lồng nhau sâu hoắm.\n• Giải pháp: ES6 ra mắt `Promise`, và ES8 (ES2017) ra mắt `async/await` giúp viết mã bất đồng bộ trông tuần tự, sáng sủa và bắt lỗi dễ dàng qua `try/catch`.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ thẻ rung trà sữa):\nBạn đến quán gọi món trà sữa. Thu ngân đưa cho bạn một chiếc \"Thẻ rung báo lấy đồ\" (đó chính là Callback). Trong lúc chờ pha chế (tác vụ bất đồng bộ mất 5 phút), bạn thoải mái ngồi lướt TikTok hoặc trò chuyện (Non-blocking I/O). Khi trà sữa làm xong, thẻ rung lên bạn mới ra quầy lấy đồ.\n\nCallback Hell là gì?\nNếu bạn phải đợi làm trà sữa -> xong lại cầm thẻ đợi nướng bánh -> xong lại cầm thẻ đợi đóng gói... Các hàm callback lồng nhau 7-8 tầng hình kim tự tháp (Pyramid of Doom), khiến code thụt lề sâu hoắm, đọc đau mắt và nếu có lỗi thì không biết văng ra ở tầng nào!\n\n💡 Mẹo phỏng vấn:\nTrình bày lịch sử tiến hóa của JavaScript:\n1. Giai đoạn sơ khai: Dùng Callback (dễ dính Callback Hell).\n2. ES6 (2015): Ra mắt `Promise` với chuỗi `.then().catch()`.\n3. ES8 (2017): Đỉnh cao `async/await` - viết mã bất đồng bộ trông tuần tự, sáng sủa y hệt mã đồng bộ và bắt lỗi nhẹ nhàng bằng khối `try-catch`.",
       "textEn": "What is a Callback in JavaScript, and how was Callback Hell resolved in modern JavaScript?",
       "optionsEn": [
         "A callback is an audio phone call; Callback Hell is signal loss",
@@ -3192,7 +3192,7 @@ export const interviewAll = {
         "Cả hai hàm đều dùng để xóa bộ nhớ cache của trình duyệt"
       ],
       "answer": 1,
-      "explanation": "• JSON: Cú pháp chuẩn dựa trên object literal của JavaScript, chuẩn giao tiếp số 1 của RESTful API.\n• `JSON.stringify(obj)`: Biến object `{ name: 'An', age: 20 }` -> chuỗi text `'{\"name\":\"An\",\"age\":20}'` để gửi qua HTTP body.\n• `JSON.parse(str)`: Biến chuỗi text JSON nhận được từ server -> JavaScript Object để truy xuất `obj.name`.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ tháo lắp xe đạp):\n• `JSON.stringify(object)`: Giống như bạn tháo rời chiếc xe đạp ra và đóng gói gọn gàng vào thùng các-tông (Biến đổi Object/Array trong RAM thành chuỗi văn bản Text thuần túy) để có thể gửi bưu điện qua đường truyền mạng internet hoặc lưu vào localStorage.\n• `JSON.parse(string)`: Giống như người nhận mở thùng các-tông và lắp ráp các bộ phận lại thành chiếc xe đạp hoàn chỉnh (Phân tích chuỗi Text thành JavaScript Object) để có thể leo lên chạy (`user.name`).\n\n💡 Bẫy phỏng vấn hay gài:\n1. `JSON.stringify()` sẽ tự động vứt bỏ các thuộc tính chứa hàm `function()`, `undefined` hoặc `Symbol`.\n2. Nếu chuỗi truyền vào `JSON.parse()` bị sai cú pháp (ví dụ thiếu dấu ngoặc kép, thừa dấu phẩy cuối cùng), nó sẽ quăng lỗi `SyntaxError` làm sập luôn ứng dụng nếu bạn không bọc trong khối `try-catch`!",
       "textEn": "What is JSON format, and how do JSON.stringify() and JSON.parse() differ in JavaScript?",
       "optionsEn": [
         "JSON is photo editing software; stringify renders images, parse exports video",
@@ -3212,7 +3212,7 @@ export const interviewAll = {
         "Node.js chỉ chạy được trên các máy chủ có 64 core CPU"
       ],
       "answer": 1,
-      "explanation": "💡 Câu hỏi phỏng vấn hay hỏi về Node.js:\n• Không giống Tomcat/Java truyền thống (mỗi request = 1 luồng riêng - Thread-per-request), Node.js chỉ có 1 Main Thread chạy code JavaScript.\n• Khi gặp I/O (Database query, API call), nó chuyển cho libuv xử lý ngầm và đăng ký callback. Main thread lập tức rảnh tay phục vụ request tiếp theo. Khi I/O xong, callback được đẩy vào Event Loop để thực thi.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ quán ăn 1 bồi bàn):\nKhông giống như Tomcat/Java truyền thống (mỗi khách hàng là 1 nhân viên phục vụ riêng - Thread-per-request, 10.000 khách là tốn 10.000 luồng làm nghẽn RAM), Node.js chỉ có DUY NHẤT 1 người bồi bàn (Single Main Thread).\n• Khi khách gọi món hầm (I/O tốn thời gian như đọc file, query DB, gọi API bên thứ ba): Bồi bàn ghi phiếu rồi chuyển ngay cho nhà bếp (libuv thread pool chạy ngầm trong OS). Bồi bàn không hề đứng chờ mà quay sang nhận order của khách tiếp theo ngay lập tức (Non-blocking).\n• Khi bếp nấu xong, chuông reo (Event Loop), bồi bàn mới bưng món ra cho khách.\n\n💡 Điểm yếu chí mạng của Node.js:\nNếu có 1 vị khách bắt bồi bàn ngồi giải phương trình tích phân bậc 4 (tác vụ CPU-intensive như mã hóa video, nén file zip lớn, AI model), người bồi bàn sẽ bị kẹt cứng và HÀNG NGHÌN KHÁCH HÀNG KHÁC PHÍA SAU BỊ TREO HOÀN TOÀN! Do đó với tác vụ CPU nặng, người ta dùng Worker Threads hoặc chuyển sang dùng Go/Java.",
       "textEn": "What is Node.js and how does its Single-Threaded Event Loop handle high concurrent traffic?",
       "optionsEn": [
         "Node.js is a new operating system designed to replace Windows and Linux",
@@ -3232,7 +3232,7 @@ export const interviewAll = {
         "Đóng IDE lại và không đẩy code lên nữa"
       ],
       "answer": 2,
-      "explanation": "• Xung đột (Conflict) xảy ra khi 2 lập trình viên cùng chỉnh sửa trên cùng 1 dòng của 1 file.\n• Quy trình chuẩn: Dùng công cụ giải quyết xung đột (VS Code / Git Merge Tool), xem xét sự khác biệt, trao đổi với đồng nghiệp nếu cần, chọn phiên bản code đúng, xoá marker conflict, `git add` và commit.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nGit Conflict xảy ra khi 2 lập trình viên cùng sửa đổi trên CÙNG MỘT DÒNG CODE ở 2 nhánh khác nhau, khiến Git không biết nên nghe theo ai.\nQuy trình xử lý chuẩn của một kỹ sư chuyên nghiệp:\n1. Mở file xung đột lên (chú ý các dấu mốc `<<<<<<< HEAD` và `>>>>>>>`).\n2. Trao đổi trực tiếp với người đồng đội đã viết đoạn code đó để thống nhất giữ code nào, bỏ code nào hoặc kết hợp cả hai.\n3. Chỉnh sửa code, xóa sạch các dấu mốc xung đột của Git.\n4. Chạy lại bài test kiểm tra xem ứng dụng còn chạy tốt không.\n5. Thực hiện `git add` và `git commit` để hoàn tất việc giải quyết conflict.",
       "textEn": "When performing a git merge and encountering a Merge Conflict, what is the standard resolution process?",
       "optionsEn": [
         "Identify conflicting files with `git status`, manually resolve conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`), stage files with `git add`, and finalize with `git commit`",
@@ -3252,7 +3252,7 @@ export const interviewAll = {
         "Là công cụ tự động viết code thay cho lập trình viên"
       ],
       "answer": 1,
-      "explanation": "• Unit Test tập trung vào logic của 1 hàm đơn lẻ, chạy cực nhanh (mili-giây), dùng mock để giả lập database/service phụ thuộc (sử dụng JUnit 5 + Mockito trong Java).\n• Lợi ích lớn nhất: Giúp lập trình viên tự tin nâng cấp, tối ưu hóa (refactor) mà không sợ làm hỏng tính năng cũ (Regression testing).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nUnit Test là việc kiểm thử ở mức độ nhỏ nhất: kiểm tra từng hàm/method đơn lẻ của một Class xem có cho kết quả đúng như kỳ vọng hay không.\nTại sao Unit Test cực kỳ quan trọng?\nTheo mô hình Kim Tự Tháp Kiểm Thử (Testing Pyramid): Unit Test có tốc độ chạy nhanh nhất (vài mili-giây) và chi phí sửa lỗi rẻ nhất. Phát hiện bug ngay lúc viết code giúp bạn tự tin Refactor (tối ưu cấu trúc) mã nguồn trong tương lai mà không sợ làm hỏng các tính năng cũ đang chạy ổn định.",
       "textEn": "What is a Unit Test and why is writing Unit Tests critical in professional software projects?",
       "optionsEn": [
         "Automated tests that verify individual units of code (such as a single method or class) in isolation (often mocking dependencies), helping catch regressions early, improve design, and enable confident refactoring",
@@ -3272,7 +3272,7 @@ export const interviewAll = {
         "Chỉ gồm việc viết tài liệu và không cần lập trình"
       ],
       "answer": 1,
-      "explanation": "Khung làm việc Scrum:\n1. Sprint Planning: Chọn các Task từ Product Backlog đưa vào Sprint Backlog.\n2. Daily Scrum (Standup): 15 phút mỗi ngày (Hôm qua làm gì? Hôm nay làm gì? Có khó khăn gì không?).\n3. Sprint Review: Trình diễn (demo) sản phẩm hoàn thiện cho Product Owner và Stakeholders.\n4. Sprint Retrospective: Cả team họp đúc rút kinh nghiệm (Cái gì làm tốt? Cái gì cần cải thiện?).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nTrong mô hình Agile/Scrum, một chu kỳ phát triển gọi là **Sprint**, thường kéo dài từ **1 đến 4 tuần** (phổ biến nhất là 2 tuần).\nMỗi Sprint bắt buộc gồm 4 sự kiện cốt lõi:\n1. Sprint Planning (Đầu Sprint): Họp lên kế hoạch chọn các công việc sẽ làm.\n2. Daily Scrum (Hàng ngày 15 phút): Báo cáo 3 câu hỏi (Hôm qua làm gì? Hôm nay làm gì? Có khó khăn gì cản trở không?).\n3. Sprint Review (Cuối Sprint): Demo sản phẩm chạy được cho khách hàng/Product Owner xem và nhận góp ý.\n4. Sprint Retrospective (Họp cải tiến nội bộ): Đội ngũ cùng nhìn lại xem Sprint qua điều gì làm tốt, điều gì làm dở và cần cải tiến hành động gì trong Sprint tới.",
       "textEn": "In the Scrum software development framework, how long does a typical Sprint cycle last?",
       "optionsEn": [
         "Typically 1 to 4 weeks (most commonly 2 weeks), ending with a potentially shippable product increment",
@@ -3292,7 +3292,7 @@ export const interviewAll = {
         "Chỉ test xem nút bấm có màu xanh không"
       ],
       "answer": 1,
-      "explanation": "💡 Thể hiện tư duy kiểm thử (Testing Mindset) toàn diện:\n• Functional: Đúng pass -> vào trang chủ; Sai pass -> thông báo lỗi phù hợp.\n• Boundary/Edge: Tên quá dài, ký tự unicode, để trống.\n• Security: Thử SQL Injection (`' OR 1=1 --`), mã hóa password bcrypt, bảo vệ brute-force khóa tài khoản sau 5 lần nhập sai.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nĐể phỏng vấn thể hiện tư duy kiểm thử sâu sắc của một kỹ sư phần mềm, đừng chỉ nói \"kiểm tra đúng pass thì vào\". Phải liệt kê đủ 4 nhóm test cases:\n1. Luồng chuẩn (Happy Path): Nhập đúng username/password -> Đăng nhập thành công, chuyển hướng trang đúng, lưu token vào cookie.\n2. Luồng lỗi nghiệp vụ (Bad Cases): Sai mật khẩu, tài khoản chưa kích hoạt email, tài khoản bị admin khóa.\n3. Kiểm tra tính hợp lệ (Validation): Để trống ô nhập, nhập ký tự đặc biệt, email sai định dạng.\n4. Bảo mật & Tấn công (Security): Thử tấn công SQL Injection (`' OR 1=1 --`), tấn công XSS, và cơ chế Rate Limiting (nhập sai 5 lần liên tiếp thì tạm khóa tài khoản 15 phút để chống Brute-force).",
       "textEn": "To design comprehensive test cases for a Login feature, what categories must be covered?",
       "optionsEn": [
         "Positive cases (valid credentials), Negative cases (wrong password, non-existent username, blank inputs, special characters/SQL injection), and Non-functional cases (rate limiting, password masking, remember me)",
@@ -3312,7 +3312,7 @@ export const interviewAll = {
         "Staging là nơi lưu trữ backup mã nguồn khi bị mất điện"
       ],
       "answer": 1,
-      "explanation": "• Dev: Chạy trên máy cá nhân, dùng DB local/docker.\n• Staging / UAT: Giống hệt môi trường thật 99%, dùng dữ liệu giả lập để kiểm thử toàn diện.\n• Production: Chạy cho khách hàng thật, yêu cầu ổn định 99.99%, backup liên tục, log giám sát chặt chẽ.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nMột dự án phần mềm chuyên nghiệp luôn có ít nhất 3 môi trường tách biệt:\n1. Dev (Development): Môi trường máy cá nhân của lập trình viên để tha hồ viết và test code nháp.\n2. Staging / UAT: Môi trường có cấu hình giống hệt máy chủ thật để đội tester và khách hàng vào nghiệm thu tính năng.\n3. Production (Prod): Môi trường máy chủ thật đang phục vụ hàng triệu người dùng thực tế.\nFile `prod.env` chứa các biến môi trường nhạy cảm của server thật (URL Database thật, API Key thanh toán thật, Secret Key JWT) và TUYỆT ĐỐI KHÔNG ĐƯỢC PUSH LÊN GITHUB CÔNG KHAI để tránh bị lộ lọt dữ liệu.",
       "textEn": "What are the standard software deployment environments in an enterprise project pipeline?",
       "optionsEn": [
         "Local (developer machine) -> DEV / SIT (development integration) -> UAT / Staging (user acceptance testing, pre-production mirror) -> PROD (live production environment)",
@@ -3332,7 +3332,7 @@ export const interviewAll = {
         "Mockito bắt buộc phải chạy trên máy chủ thật có kết nối Database"
       ],
       "answer": 1,
-      "explanation": "💡 Nguyên lý Unit Test cốt lõi: Kiểm tra 1 đơn vị code (1 method của Service) một cách độc lập.\nVí dụ khi test `UserService.createUser()`: Ta không muốn gọi Database thật. Ta dùng `@Mock UserRepository` và cấu hình hành vi giả: `when(userRepository.save(any())).thenReturn(fakeUser)`. Sau đó `@InjectMocks UserService userService` để test logic tính toán của Service.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ diễn viên đóng thế):\nKhi viết Unit Test cho tầng `UserService`, mục tiêu là chỉ kiểm tra xem logic tính toán của UserService có đúng hay không. Bạn KHÔNG MUỐN kết nối vào Database thật (vì DB thật chạy chậm và làm bẩn dữ liệu).\nMockito là thư viện tạo ra các \"Diễn viên đóng thế\" (Mock objects):\n• `@Mock UserRepository userRepository`: Tạo một repository giả.\n• `when(userRepository.findByEmail(\"a@gmail.com\")).thenReturn(Optional.of(fakeUser))`: Dạy cho diễn viên giả cách trả lời kịch bản.\n• `@InjectMocks UserService userService`: Tự động nhét các diễn viên giả này vào UserService để bạn an tâm test độc lập.",
       "textEn": "In Java/Spring Boot Unit Testing, what is Mockito used for and what do @Mock and @InjectMocks do?",
       "optionsEn": [
         "Mockito automatically generates user interfaces",
@@ -3352,7 +3352,7 @@ export const interviewAll = {
         "Manual Testing chạy nhanh hơn Automation Testing 10 lần"
       ],
       "answer": 1,
-      "explanation": "• `Manual Testing`: Tốt cho giai đoạn đầu của dự án, kiểm thử khám phá (Exploratory Testing), đánh giá cảm nhận trực quan của con người.\n• `Automation Testing`: Chi phí ban đầu cao để viết kịch bản, nhưng khi hệ thống đã ổn định thì chạy kiểm thử hồi quy (Regression Test) mỗi khi push code lên Git cực kỳ rẻ và phát hiện bug ngay lập tức.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Manual Testing (Thủ công): Con người tự click chuột và gõ phím. Cực kỳ tốt ở giai đoạn đầu của tính năng mới, kiểm tra cảm nhận người dùng (UX) và kiểm thử khám phá (Exploratory Testing). Nhược điểm: Chậm, tốn nhân lực và dễ sai sót khi phải lặp lại.\n• Automation Testing (Tự động): Dùng code kịch bản (Selenium, Playwright, JUnit) chạy tự động. Thích hợp nhất cho **Kiểm thử hồi quy (Regression Testing)**: Mỗi khi lập trình viên sửa code và tạo Pull Request lên Git, kịch bản tự động chạy lại 500 bài test trong 2 phút để đảm bảo không có tính năng cũ nào bị hỏng.",
       "textEn": "Compare Automation Testing and Manual Testing. When should each approach be utilized?",
       "optionsEn": [
         "Manual testing is obsolete and no longer used in professional companies",
@@ -3372,7 +3372,7 @@ export const interviewAll = {
         "Cả hai mô hình có tiến trình và cách quản lý giống hệt nhau"
       ],
       "answer": 1,
-      "explanation": "• Waterfall: Khách hàng chỉ thấy sản phẩm ở cuối dự án (rủi ro cao nếu yêu cầu ban đầu bị hiểu sai).\n• Agile/Scrum: Cứ sau mỗi Sprint (2 tuần), nhóm phát triển demo một phần phần mềm chạy được (working software) cho khách hàng xem và góp ý, giúp giảm thiểu rủi ro trễ hạn và đáp ứng thị trường nhanh chóng.",
+      "explanation": "🎯 Bản chất dễ hiểu:\n• Waterfall (Thác nước): Làm tuần tự như xây nhà bê-tông (Phân tích 3 tháng -> Thiết kế 2 tháng -> Lập trình 6 tháng -> Test 3 tháng). Khách hàng phải đợi 1 năm mới nhìn thấy phần mềm. Rủi ro khổng lồ: Nếu sau 1 năm khách đổi ý thì toàn bộ dự án bị đập đi xây lại!\n• Agile / Scrum (Linh hoạt): Chia nhỏ thành từng chu kỳ ngắn 2 tuần (Sprint). Cứ sau 2 tuần là bàn giao 1 tính năng chạy được cho khách hàng sờ tận tay và góp ý ngay. Nhờ vậy thích ứng cực nhanh với thay đổi của thị trường và giảm thiểu rủi ro thất bại.",
       "textEn": "What is the primary difference between the Waterfall model and Agile/Scrum in software development?",
       "optionsEn": [
         "Waterfall is only for student projects; Scrum is for banking",
@@ -3392,7 +3392,7 @@ export const interviewAll = {
         "Gửi toàn bộ database về cho trình duyệt của client tự tìm"
       ],
       "answer": 1,
-      "explanation": "💡 Trả lời chuẩn kiến trúc hệ thống (System Architecture):\n1. `Client Debounce`: Tránh spam 10 request khi gõ 10 chữ cái.\n2. `Cache Layer`: Cache kết quả của các từ khóa phổ biến (top searches) trong Redis.\n3. `Full-Text Search Engine`: Khi dữ liệu lớn, câu `LIKE '%abc%'` sẽ Full Table Scan gây treo database. Cần dùng Elasticsearch/OpenSearch hoặc MySQL Fulltext Index.\n4. `Pagination`: Luôn giới hạn số lượng bản ghi trả về (ví dụ page=1&size=20).",
+      "explanation": "🎯 Bản chất dễ hiểu (Kiến trúc tìm kiếm chịu tải cao):\nKhi thiết kế ô tìm kiếm Shopee/Lazada, nếu người dùng gõ chữ \"áo\" mà backend query thẳng vào Database `SELECT * FROM sp WHERE ten LIKE '%áo%'` thì Database sẽ sập ngay lập tức!\nLuồng xử lý kiến trúc chuẩn Backend:\n1. Phía Client: Áp dụng **Debounce** (chờ user ngừng gõ phím 300-500ms mới phát request).\n2. Tầng Caching: Kiểm tra từ khóa trong **Redis Cache** trước. Nếu có sẵn trong cache -> Trả về ngay trong 2 mili-giây.\n3. Nếu Cache Miss: Dùng Search Engine chuyên dụng (**Elasticsearch**) hoặc truy vấn CSDL có đánh chỉ mục (Fulltext Index).\n4. Luôn luôn **Phân trang (Pagination)**: Chỉ trả về 20 kết quả đầu tiên và chỉ chọn những cột cần thiết (`id, name, thumbnail, price`), không bao giờ dùng `SELECT *`.",
       "textEn": "When designing a Search feature in software architecture, how should the backend flow be structured to optimize performance and prevent database overload?",
       "optionsEn": [
         "Allow clients to invoke the search API on every keystroke without throttling and execute unindexed SELECT * LIKE '%kw%' queries",
@@ -3412,7 +3412,7 @@ export const interviewAll = {
         "Là một ngôn ngữ lập trình hướng đối tượng mới cạnh tranh với Java"
       ],
       "answer": 1,
-      "explanation": "LLM (Gemini, Claude, GPT) sử dụng kiến trúc Transformer với cơ chế Self-Attention. Trong kỹ thuật phần mềm, LLM giúp tăng năng suất vượt bậc: chuyển mô tả nghiệp vụ thành code, tạo dữ liệu mẫu (mock data), phân tích log tìm bug, sinh tài liệu API (Swagger).",
+      "explanation": "🎯 Bản chất dễ hiểu:\nLLM (Large Language Model - Mô hình ngôn ngữ lớn như GPT-4, Claude, Gemini) là mạng nơ-ron học sâu được huấn luyện trên hàng nghìn tỷ từ ngữ từ khắp Internet.\nVề bản chất xác suất: LLM hoạt động bằng cách dự đoán từ ngữ tiếp theo (Next-token prediction) có khả năng xuất hiện cao nhất dựa trên ngữ cảnh được cung cấp.\nTrong phát triển phần mềm, LLM được ứng dụng để: Tự động hoàn thành code (Autocompletion), giải thích các đoạn mã phức tạp (Code explanation), tạo Unit Test tự động, phát hiện lỗ hổng bảo mật và hỗ trợ giải quyết lỗi (Debugging).",
       "textEn": "What is an LLM (Large Language Model) and how is it typically applied in software engineering?",
       "optionsEn": [
         "A deep learning AI model trained on massive text codebases to predict tokens and understand context, applied to code generation, code review, test case generation, debugging, and smart documentation",
@@ -3432,7 +3432,7 @@ export const interviewAll = {
         "Viết bằng mã nhị phân 0 và 1"
       ],
       "answer": 1,
-      "explanation": "💡 Cấu trúc Prompt chuyên nghiệp (RC-TCO Framework):\n1. Role: 'Bạn là chuyên gia Senior Java Spring Boot...'\n2. Context: 'Hệ thống dùng Java 21, Spring Boot 3.3, MySQL 8...'\n3. Task: 'Hãy viết REST API đăng ký người dùng...'\n4. Constraints: 'Không dùng Lombok, mã hóa password bằng BCrypt, validate bằng jakarta.validation...'\n5. Output: 'Chỉ trả về code Controller và DTO kèm comment tiếng Việt'.",
+      "explanation": "🎯 Bản chất dễ hiểu (Công thức Prompt chuẩn 5 thành phần):\nĐể AI không trả lời lan man hoặc sinh ra code rác, một Prompt chuyên nghiệp cần có đủ 5 yếu tố:\n1. Role (Vai trò): \"Bạn là chuyên gia Senior Spring Boot & Database Architect.\"\n2. Context (Bối cảnh): \"Tôi đang xây dựng API giỏ hàng cho trang thương mại điện tử Next.js kết nối MongoDB.\"\n3. Task (Yêu cầu cụ thể): \"Hãy viết 1 API thêm sản phẩm vào giỏ hàng, có xử lý trừ số lượng tồn kho.\"\n4. Constraints (Ràng buộc): \"Sử dụng Java 17, xử lý Transaction bằng @Transactional, kiểm tra trường hợp tồn kho bằng 0 thì báo lỗi OutOfStockException.\"\n5. Output Format (Định dạng đầu ra): \"Chỉ trả về mã nguồn Service và DTO, có kèm chú thích tiếng Việt ngắn gọn.\"",
       "textEn": "To write an effective Prompt for an AI coding assistant, what core framework should be provided?",
       "optionsEn": [
         "Role (persona), Context (tech stack, existing architecture), Clear Task (specific goal), Constraints (libraries, forbidden patterns), and Expected Output format (code example, step-by-step diff)",
@@ -3452,7 +3452,7 @@ export const interviewAll = {
         "Yêu cầu AI tự ký cam kết bảo hành phần mềm"
       ],
       "answer": 1,
-      "explanation": "Lập trình viên là người chịu trách nhiệm cuối cùng (Responsible AI). AI có thể sinh ra code lỗi thời, thư viện bị deprecate, hoặc thậm chí sinh ra lỗ hổng bảo mật nghiêm trọng (SQL Injection, hardcoded password). Bắt buộc phải Code Review kỹ càng và chạy Test trước khi đưa vào codebase.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nCode do AI sinh ra rất hay gặp hiện tượng **Ảo giác (Hallucination)** - tức là AI tự bịa ra những hàm hoặc thư viện hoàn toàn không tồn tại, hoặc sinh code có lỗ hổng bảo mật tiềm ẩn.\nQuy trình của một kỹ sư phần mềm khi dùng code AI:\n1. Đọc hiểu từng dòng code, không bao giờ Copy-Paste mù quáng.\n2. Viết Unit Test để xác minh tính đúng đắn với các trường hợp biên (Edge Cases).\n3. Kiểm tra bảo mật: Xem có bị lỗi SQL Injection, Hardcode mật khẩu hoặc rò rỉ dữ liệu nhạy cảm hay không.\n4. Tối ưu lại cho đúng chuẩn quy ước mã nguồn (Coding Conventions) của dự án.",
       "textEn": "When using code generated by AI, what principle must developers always maintain?",
       "optionsEn": [
         "Review every line of code, verify security vulnerabilities/hallucinations, run automated tests, and ensure full understanding before committing to production",
@@ -3472,7 +3472,7 @@ export const interviewAll = {
         "Cả hai hoàn toàn giống nhau"
       ],
       "answer": 1,
-      "explanation": "• Chatbot: Chỉ nhận prompt và trả về text 1 lần (Single-turn request/response).\n• AI Agent: Có bộ nhớ (Memory), có khả năng suy nghĩ (Thought), chọn công cụ (Tool execution) như đọc file, viết code, chạy lệnh terminal, quan sát kết quả (Observation), và lặp lại vòng lặp cho đến khi hoàn thành mục tiêu tổng thể được giao.",
+      "explanation": "🎯 Bản chất dễ hiểu (Ẩn dụ Tư vấn viên vs Nhân viên thực thi):\n• Chatbot AI (như ChatGPT giao diện web): Hoạt động theo cơ chế Single-turn Request/Response. Bạn hỏi 1 câu thì nó trả lời 1 đoạn văn bản rồi đứng yên đó chờ lệnh tiếp theo. Nó không thể tự chạm vào máy tính của bạn.\n• AI Agent (như Antigravity, Devin, Claude Code): Là một thực thể có trí tuệ tự hành (Autonomous Agency). Nó có:\n  1. Mục tiêu (Goal): Nhận 1 nhiệm vụ lớn phức tạp.\n  2. Lập kế hoạch (Planning & Reasoning): Tự chia nhiệm vụ thành 10 bước nhỏ.\n  3. Sử dụng công cụ (Tool Use): Tự mở terminal chạy lệnh build, tự đọc file, tự sửa mã nguồn, tự chạy test.\n  4. Tự sửa sai (Self-Correction): Nếu test báo đỏ, Agent tự phân tích lỗi và sửa lại code cho đến khi test xanh mới thôi!",
       "textEn": "How does an AI Agent differ from a simple AI Chatbot in software development?",
       "optionsEn": [
         "An AI Agent has agency: it can perceive its environment, formulate multi-step plans, autonomously invoke tools (terminal, file edits, git, browser, APIs), observe outcomes, and self-correct until reaching a defined goal",
@@ -3492,7 +3492,7 @@ export const interviewAll = {
         "Chỉ dùng để đổi màu giao diện của IDE"
       ],
       "answer": 1,
-      "explanation": "💡 Xu hướng phỏng vấn AI Tooling mới nhất:\nFile `claude.md` / `AGENTS.md` hoạt động như một cuốn 'Sổ tay hướng dẫn dự án' dành riêng cho AI Agent. Nó chứa: Tech stack, kiến trúc thư mục, quy tắc đặt tên, cách chạy lệnh test/build, và các lỗi thường gặp, giúp AI không sinh ra code lạc đề hoặc dùng sai thư viện.",
+      "explanation": "🎯 Bản chất dễ hiểu (Cuốn sổ tay chỉ dẫn dự án):\nKhi bạn mới vào công ty, đồng đội đưa cho bạn cuốn sổ tay hướng dẫn dự án: Công ty dùng tech stack gì, code đặt ở thư mục nào, quy tắc đặt tên ra sao, cách chạy test thế nào.\nFile `claude.md` hoặc `AGENTS.md` chính là \"Cuốn sổ tay hướng dẫn dành riêng cho AI Coding Assistant\".\nNó cung cấp ngữ cảnh hệ thống bền vững (Persistent System Context) để mỗi khi AI tham gia vào dự án, nó luôn tuân thủ 100% chuẩn mực kỹ thuật của đội ngũ, không tự ý cài thư viện lung tung hoặc sinh code lạc quẻ.",
       "textEn": "In AI-assisted software engineering (tools like Antigravity, Cursor, Claude Code), what role do context configuration files like claude.md or AGENTS.md serve?",
       "optionsEn": [
         "They are malicious scripts used to attack servers",
@@ -3512,7 +3512,7 @@ export const interviewAll = {
         "Bắt buộc phải dùng WebSocket hai chiều, SSE không truyền được text"
       ],
       "answer": 1,
-      "explanation": "• LLM hoạt động theo cơ chế sinh từ tuần tự (Autoregressive generation). Nếu đợi model sinh xong toàn bộ bài viết 1000 từ mới trả về response, người dùng phải nhìn màn hình quay quay 15-30 giây.\n• Giao thức Server-Sent Events (SSE) với header `Content-Type: text/event-stream` cho phép Backend đẩy từng chữ (chunk) về trình duyệt ngay lập tức giống như chữ đang được gõ trực tiếp.",
+      "explanation": "🎯 Bản chất dễ hiểu:\nMô hình LLM sinh văn bản theo từng từ một (Autoregressive generation - từng token nối tiếp nhau).\nNếu bạn đợi AI viết xong toàn bộ bài văn 1.000 từ rồi mới gửi về qua HTTP response thông thường, người dùng sẽ phải ngồi nhìn màn hình quay quay trong 20-30 giây (trải nghiệm cực kỳ tệ và tưởng ứng dụng bị đơ).\nBằng cách sử dụng **Server-Sent Events (SSE)** với header `Content-Type: text/event-stream`:\nBackend sẽ \"bắn\" từng chữ (token) về trình duyệt ngay khi nó vừa được AI nghĩ ra trong vòng 0.5 giây đầu tiên. Người dùng nhìn thấy con trỏ gõ chữ từng ký tự mượt mà trước mắt, tạo cảm giác hệ thống phản hồi tức thì!",
       "textEn": "When integrating LLM APIs (OpenAI, Gemini) into backend services, why are responses streamed to clients using Server-Sent Events (SSE)?",
       "optionsEn": [
         "Because streaming reduces database storage capacity",
