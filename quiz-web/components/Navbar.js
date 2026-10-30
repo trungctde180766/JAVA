@@ -10,6 +10,11 @@ export default function Navbar({ user }) {
   const router = useRouter();
   const [loggingOut, setLoggingOut] = useState(false);
 
+  // Cất toàn bộ Header khi vào thi Safe Exam Browser (/exam/...) để chống bấm qua trang khác
+  if (pathname?.startsWith("/exam")) {
+    return null;
+  }
+
   const handleLogout = async () => {
     setLoggingOut(true);
     try {

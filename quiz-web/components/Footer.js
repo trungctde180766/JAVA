@@ -1,4 +1,15 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Cất Footer khi vào thi Safe Exam Browser (/exam/...)
+  if (pathname?.startsWith("/exam")) {
+    return null;
+  }
+
   return (
     <footer className="footer">
       <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>

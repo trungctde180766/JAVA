@@ -637,6 +637,7 @@ export default function ExamClient({ session, user }) {
 
   return (
     <div
+      className="exam-room-root"
       style={{
         display: "flex",
         flexDirection: "column",

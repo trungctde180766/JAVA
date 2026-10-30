@@ -988,3 +988,9 @@ a {
     padding: 1rem 1rem 3rem;
   }
 }
+
+/* Safe Exam Browser View Adjustments (removes top padding for maximum viewport) */
+.main-wrapper:has(.exam-room-root) {
+  padding: 1rem 1rem 2rem;
+  max-width: 1400px;
+}
