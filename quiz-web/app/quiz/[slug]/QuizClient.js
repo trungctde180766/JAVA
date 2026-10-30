@@ -27,7 +27,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   const [showNotesBox, setShowNotesBox] = useState(false);
   const [fontScale, setFontScale] = useState(1); // 1 = 100%, 1.15 = 115%, 1.3 = 130%
   const [showShortcuts, setShowShortcuts] = useState(false);
-  const [showViGlobal, setShowViGlobal] = useState(true); // Vietnamese translation toggle (default on)
+  const [showTranslation, setShowTranslation] = useState(false); // Default off: đề tiếng Anh mặc định tiếng Anh, đề tiếng Việt mặc định tiếng Việt
 
   // Exam timer
   const [timeLeft, setTimeLeft] = useState(0);
@@ -87,6 +87,9 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   const chosen = qKey ? answers[qKey] : undefined;
   const isBookmarked = qKey ? bookmarks.has(qKey) : false;
   const isFlagged = qKey ? flagged.has(qKey) : false;
+  const isNativeVi = Boolean(
+    q && !q.textVi && (q.textEn || /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(q.text || ""))
+  );
 
   const handleSelectOption = (idx) => {
     if (submitted || !qKey) return;
@@ -164,14 +167,14 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
       else if (k === "arrowright" || k === "k") setCurrentIndex((p) => Math.min(questions.length - 1, p + 1));
       else if (k === "f") toggleFlag();
       else if (k === "s") toggleBookmark();
-      else if (k === "t") setShowViGlobal((p) => !p);
+      else if (k === "t") setShowTranslation((p) => !p);
       else if (k === "?") setShowShortcuts((p) => !p);
       else if (k === "n") setShowNotesBox((p) => !p);
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentIndex, questions, qKey, submitted, bookmarks, flagged, showViGlobal]);
+  }, [currentIndex, questions, qKey, submitted, bookmarks, flagged, showTranslation]);
 
   if (!questions || questions.length === 0) {
     return (
@@ -465,7 +468,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
             <h3 style={{ fontSize: "1.25rem", fontWeight: 700 }}>Xem Lại Toàn Bộ Câu Hỏi &amp; Lời Giải</h3>
-            <div style={{ display: "flex", gap: "0.4rem" }}>
+            <div style={{ display: "flex", gap: "0.4rem", alignItems: "center", flexWrap: "wrap" }}>
               <button
                 onClick={() => setFilterReview("all")}
                 className={`btn btn-sm ${filterReview === "all" ? "btn-primary" : "btn-secondary"}`}
@@ -483,6 +486,14 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                 className={`btn btn-sm ${filterReview === "correct" ? "btn-success" : "btn-secondary"}`}
               >
                 Câu đúng ({result.correct})
+              </button>
+              <button
+                onClick={() => setShowTranslation((p) => !p)}
+                className={`btn btn-sm ${showTranslation ? "btn-primary" : "btn-secondary"}`}
+                style={{ marginLeft: "0.25rem" }}
+                title="Bật/Tắt hiển thị bản dịch cho toàn bộ danh sách câu hỏi"
+              >
+                {showTranslation ? "🌐 Ẩn bản dịch" : "🌐 Hiện bản dịch"}
               </button>
             </div>
           </div>
@@ -514,10 +525,17 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                     {item.text}
                   </p>
 
-                  {item.textVi && (
+                  {showTranslation && item.textVi && (
                     <div className="translation-card" style={{ marginBottom: "0.75rem", marginTop: "0.25rem" }}>
                       <span className="badge badge-accent" style={{ fontSize: "0.72rem", marginRight: "0.5rem" }}>🇻🇳 Dịch nghĩa:</span>
                       <span style={{ fontSize: "0.92rem", color: "var(--text-main)" }}>{item.textVi}</span>
+                    </div>
+                  )}
+
+                  {showTranslation && item.textEn && (
+                    <div className="translation-card" style={{ marginBottom: "0.75rem", marginTop: "0.25rem", borderColor: "rgba(99, 102, 241, 0.4)", background: "rgba(99, 102, 241, 0.08)" }}>
+                      <span className="badge badge-primary" style={{ fontSize: "0.72rem", marginRight: "0.5rem" }}>🇬🇧 English Translation:</span>
+                      <span style={{ fontSize: "0.92rem", color: "var(--text-main)" }}>{item.textEn}</span>
                     </div>
                   )}
 
@@ -541,8 +559,11 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                           <span className="option-label">{String.fromCharCode(65 + oIdx)}</span>
                           <div style={{ flex: 1, textAlign: "left" }}>
                             <div style={{ fontSize: "0.92rem" }}>{opt}</div>
-                            {item.optionsVi && item.optionsVi[oIdx] && (
+                            {showTranslation && item.optionsVi && item.optionsVi[oIdx] && (
                               <div className="option-translation-text">↳ {item.optionsVi[oIdx]}</div>
+                            )}
+                            {showTranslation && item.optionsEn && item.optionsEn[oIdx] && (
+                              <div className="option-translation-text" style={{ color: "#a5b4fc" }}>↳ {item.optionsEn[oIdx]}</div>
                             )}
                           </div>
                           {isOptionCorrect && <strong style={{ color: "var(--success)", fontSize: "0.85rem" }}>✓ Đáp án đúng</strong>}
@@ -747,15 +768,25 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                 ⭐ {isBookmarked ? "Đã lưu" : "Lưu"}
               </button>
 
-              {/* Vietnamese Translation Toggle */}
+              {/* Language Translation Toggle (Dynamic for English vs Vietnamese questions) */}
               <button
                 type="button"
-                onClick={() => setShowViGlobal((p) => !p)}
-                className={`btn btn-sm ${showViGlobal ? "btn-primary" : "btn-secondary"}`}
-                title="Bật/Tắt bản dịch tiếng Việt cho câu hỏi và đáp án (Phím tắt: T)"
+                onClick={() => setShowTranslation((p) => !p)}
+                className={`btn btn-sm ${showTranslation ? "btn-primary" : "btn-secondary"}`}
+                title={
+                  isNativeVi
+                    ? "Chuyển sang bản dịch tiếng Anh cho câu hỏi và đáp án (Phím tắt: T)"
+                    : "Bật/Tắt bản dịch tiếng Việt cho câu hỏi và đáp án (Phím tắt: T)"
+                }
                 style={{ padding: "0.25rem 0.6rem", fontSize: "0.82rem" }}
               >
-                🇻🇳 {showViGlobal ? "Dịch TV (Bật)" : "Dịch TV (Tắt)"}
+                {isNativeVi
+                  ? showTranslation
+                    ? "🇬🇧 Bản tiếng Anh (Bật)"
+                    : "🇬🇧 Chuyển tiếng Anh"
+                  : showTranslation
+                  ? "🇻🇳 Dịch TV (Bật)"
+                  : "🇻🇳 Dịch TV"}
               </button>
             </div>
           </div>
@@ -765,7 +796,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
             style={{
               fontSize: `${1.15 * fontScale}rem`,
               fontWeight: 600,
-              marginBottom: showViGlobal && q.textVi ? "0.6rem" : "1rem",
+              marginBottom: showTranslation && (q.textVi || q.textEn) ? "0.6rem" : "1rem",
               lineHeight: 1.5,
               transition: "font-size 0.15s ease",
             }}
@@ -773,14 +804,27 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
             {q.text}
           </h3>
 
-          {/* Vietnamese Question Translation */}
-          {showViGlobal && q.textVi && (
-            <div className="translation-card">
-              <div className="translation-header">
-                <span className="badge badge-accent" style={{ fontSize: "0.72rem" }}>🇻🇳 Bản dịch tiếng Việt</span>
-              </div>
-              <div className="translation-content">{q.textVi}</div>
-            </div>
+          {/* Translation Card if enabled */}
+          {showTranslation && (
+            <>
+              {q.textVi && (
+                <div className="translation-card">
+                  <div className="translation-header">
+                    <span className="badge badge-accent" style={{ fontSize: "0.72rem" }}>🇻🇳 Bản dịch tiếng Việt</span>
+                  </div>
+                  <div className="translation-content">{q.textVi}</div>
+                </div>
+              )}
+
+              {isNativeVi && q.textEn && (
+                <div className="translation-card" style={{ borderColor: "rgba(99, 102, 241, 0.4)", background: "rgba(99, 102, 241, 0.08)" }}>
+                  <div className="translation-header">
+                    <span className="badge badge-primary" style={{ fontSize: "0.72rem" }}>🇬🇧 English Translation</span>
+                  </div>
+                  <div className="translation-content">{q.textEn}</div>
+                </div>
+              )}
+            </>
           )}
 
           {/* Code snippet if any */}
@@ -821,9 +865,14 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                     <span className="option-label">{String.fromCharCode(65 + idx)}</span>
                     <div style={{ flex: 1, textAlign: "left" }}>
                       <div>{opt}</div>
-                      {showViGlobal && q.optionsVi && q.optionsVi[idx] && (
+                      {showTranslation && q.optionsVi && q.optionsVi[idx] && (
                         <div className="option-translation-text">
                           ↳ {q.optionsVi[idx]}
+                        </div>
+                      )}
+                      {showTranslation && isNativeVi && q.optionsEn && q.optionsEn[idx] && (
+                        <div className="option-translation-text" style={{ color: "#a5b4fc" }}>
+                          ↳ {q.optionsEn[idx]}
                         </div>
                       )}
                     </div>
