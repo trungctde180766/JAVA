@@ -73,14 +73,14 @@ export default async function HomePage() {
         </p>
 
         <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
-          <Link href="/quiz/interview-all?mode=practice" className="btn btn-primary btn-lg">
+          <Link href="/quiz/interview-all" className="btn btn-primary btn-lg">
             <span>🎯</span> Luyện Phỏng Vấn 1-1 (Tổng Hợp)
           </Link>
-          <Link href="/quiz/quiz-1?mode=practice" className="btn btn-secondary btn-lg">
-            <span>🚀</span> Đề Thi Môn Học (Quiz 1)
+          <Link href="/quiz/quiz-1" className="btn btn-secondary btn-lg">
+            <span>🚀</span> Luyện Đề Môn Học (Quiz 1)
           </Link>
-          <Link href="/quiz/mix?mode=exam" className="btn btn-ghost btn-lg" style={{ border: "1px solid var(--border)" }}>
-            <span>⏱️</span> Thi Thử Bấm Giờ
+          <Link href="/exam/mix" className="btn btn-ghost btn-lg" style={{ border: "1px solid var(--border)" }}>
+            <span>⏱️</span> Thi Thử Bấm Giờ (SEB)
           </Link>
         </div>
 
@@ -188,18 +188,19 @@ export default async function HomePage() {
 
                 <div style={{ display: "flex", gap: "0.6rem" }}>
                   <Link
-                    href={`/quiz/${q.slug}?mode=practice`}
+                    href={`/quiz/${q.slug}`}
                     className="btn btn-secondary btn-sm"
                     style={{ flex: 1 }}
                   >
                     📖 Luyện tập
                   </Link>
                   <Link
-                    href={`/quiz/${q.slug}?mode=exam`}
+                    href={`/exam/${q.slug}`}
                     className="btn btn-primary btn-sm"
                     style={{ flex: 1 }}
+                    title="Vào phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo câu hỏi & đáp án, toàn màn hình)"
                   >
-                    ⏱️ Thi thử
+                    ⏱️ Thi thử (SEB)
                   </Link>
                 </div>
               </div>
@@ -253,18 +254,19 @@ export default async function HomePage() {
 
               <div style={{ display: "flex", gap: "0.6rem" }}>
                 <Link
-                  href={`/quiz/${q.slug}?mode=practice`}
+                  href={`/quiz/${q.slug}`}
                   className="btn btn-secondary btn-sm"
                   style={{ flex: 1 }}
                 >
                   📖 Luyện tập
                 </Link>
                 <Link
-                  href={`/quiz/${q.slug}?mode=exam`}
+                  href={`/exam/${q.slug}`}
                   className="btn btn-primary btn-sm"
                   style={{ flex: 1 }}
+                  title="Vào phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo câu hỏi & đáp án, toàn màn hình)"
                 >
-                  ⏱️ Thi thử
+                  ⏱️ Thi thử (SEB)
                 </Link>
               </div>
             </div>
@@ -319,18 +321,19 @@ export default async function HomePage() {
 
                 <div style={{ display: "flex", gap: "0.6rem" }}>
                   <Link
-                    href={`/quiz/${q.slug}?mode=practice`}
+                    href={`/quiz/${q.slug}`}
                     className="btn btn-secondary btn-sm"
                     style={{ flex: 1 }}
                   >
                     📖 Luyện tập
                   </Link>
                   <Link
-                    href={`/quiz/${q.slug}?mode=exam`}
+                    href={`/exam/${q.slug}`}
                     className="btn btn-primary btn-sm"
                     style={{ flex: 1 }}
+                    title="Vào phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo câu hỏi & đáp án, toàn màn hình)"
                   >
-                    ⏱️ Thi thử
+                    ⏱️ Thi thử (SEB)
                   </Link>
                 </div>
               </div>

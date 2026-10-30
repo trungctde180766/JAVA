@@ -73,43 +73,14 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   const [elapsedSec, setElapsedSec] = useState(0);
   const timerRef = useRef(null);
 
-  // Initialize questions
+  // Initialize questions for practice mode
   useEffect(() => {
     let list = [...(session.questions || [])];
-    if (defaultMode === "exam") {
-      // Chế độ thi thử: xáo cả thứ tự câu hỏi và xáo thứ tự các phương án lựa chọn
-      list = shuffleArray(list).map(shuffleQuestionOptions);
-      setTimeLeft(EXAM_DURATION_SEC);
-    } else {
-      if (session.kind === "mix") {
-        list = shuffleArray(list);
-      }
-      setTimeLeft(EXAM_DURATION_SEC);
+    if (session.kind === "mix") {
+      list = shuffleArray(list);
     }
     setQuestions(list);
-  }, [session, defaultMode]);
-
-  const handleSwitchMode = (newMode) => {
-    if (newMode === mode) return;
-    if (newMode === "exam") {
-      // Bắt đầu thi thử: xáo câu hỏi và xáo đáp án, bấm giờ 1 tiếng
-      const shuffledList = shuffleArray([...(session.questions || [])]).map(shuffleQuestionOptions);
-      setQuestions(shuffledList);
-      setMode("exam");
-      setTimeLeft(EXAM_DURATION_SEC);
-      setElapsedSec(0);
-      setCurrentIndex(0);
-      setAnswers({});
-      setShowExplanation({});
-    } else {
-      // Về luyện tập: trả lại đề theo thứ tự gốc
-      setQuestions([...(session.questions || [])]);
-      setMode("practice");
-      setCurrentIndex(0);
-      setAnswers({});
-      setShowExplanation({});
-    }
-  };
+  }, [session]);
 
   // Load personal notes from localStorage
   useEffect(() => {
@@ -707,54 +678,33 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          {/* Mode Switcher */}
-          <div style={{ display: "flex", background: "var(--bg-input)", borderRadius: "var(--radius-sm)", padding: "0.2rem" }}>
-            <button
-              onClick={() => handleSwitchMode("practice")}
-              className={`btn btn-sm ${mode === "practice" ? "btn-primary" : "btn-ghost"}`}
-              style={{ padding: "0.3rem 0.75rem" }}
-            >
-              📖 Luyện tập
-            </button>
-            <button
-              onClick={() => handleSwitchMode("exam")}
-              className={`btn btn-sm ${mode === "exam" ? "btn-primary" : "btn-ghost"}`}
-              style={{ padding: "0.3rem 0.75rem" }}
-              title="Thi thử 1 tiếng: xáo ngẫu nhiên cả thứ tự câu hỏi và các phương án A, B, C, D"
-            >
-              ⏱️ Thi thử (1 tiếng)
-            </button>
-          </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", flexWrap: "wrap" }}>
+          <span className="badge badge-primary" style={{ padding: "0.35rem 0.65rem", fontSize: "0.82rem" }}>
+            📖 Phòng Luyện Tập
+          </span>
+          <Link
+            href={`/exam/${session.slug}`}
+            className="btn btn-secondary btn-sm"
+            title="Chuyển sang phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo đề & đáp án, toàn màn hình)"
+            style={{
+              background: "rgba(245, 158, 11, 0.15)",
+              borderColor: "rgba(245, 158, 11, 0.4)",
+              color: "#fcd34d",
+              fontWeight: 600,
+            }}
+          >
+            ⏱️ Phòng Thi Thử (SEB) &rarr;
+          </Link>
 
-          {/* Timer Display */}
-          {mode === "exam" ? (
-            <div
-              style={{
-                fontFamily: "monospace",
-                fontWeight: 700,
-                fontSize: "1.1rem",
-                padding: "0.35rem 0.75rem",
-                borderRadius: "var(--radius-sm)",
-                background: timeLeft < 300 ? "rgba(239, 68, 68, 0.2)" : "rgba(99, 102, 241, 0.15)",
-                color: timeLeft < 300 ? "var(--danger)" : "var(--primary)",
-                border: "1px solid",
-                borderColor: timeLeft < 300 ? "var(--danger)" : "var(--primary)",
-              }}
-            >
-              ⏳ {formatTime(timeLeft)}
-            </div>
-          ) : (
-            <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
-              ⏱️ {formatTime(elapsedSec)}
-            </div>
-          )}
+          <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+            ⏱️ {formatTime(elapsedSec)}
+          </div>
 
           <button
             onClick={() => setShowConfirmModal(true)}
             className="btn btn-primary btn-sm"
           >
-            {mode === "exam" ? "Nộp bài thi" : "Lưu kết quả"}
+            Lưu kết quả
           </button>
         </div>
       </div>

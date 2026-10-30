@@ -15,7 +15,9 @@ export async function generateMetadata({ params, searchParams }) {
 export default async function QuizPage({ params, searchParams }) {
   const { slug } = await params;
   const sParams = await searchParams;
-  const defaultMode = sParams?.mode === "exam" ? "exam" : "practice";
+  if (sParams?.mode === "exam") {
+    redirect(`/exam/${slug}`);
+  }
 
   let user = null;
   try {

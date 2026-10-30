@@ -44,7 +44,7 @@ export default function Navbar({ user }) {
             <span>🎯</span>
             <span>Phỏng vấn 1-1</span>
           </Link>
-          <Link href="/quiz/mix" className={`nav-link ${pathname === "/quiz/mix" ? "active" : ""}`}>
+          <Link href="/exam/mix" className={`nav-link ${pathname.startsWith("/exam") ? "active" : ""}`}>
             <span>🎲</span>
             <span>Thi thử Mix</span>
           </Link>
