@@ -41,7 +41,6 @@ export default async function QuizPage({ params, searchParams }) {
     <QuizClient
       session={session}
       initialUser={{ username: user.username, bookmarks: user.bookmarks || [] }}
-      defaultMode={defaultMode}
     />
   );
 }
