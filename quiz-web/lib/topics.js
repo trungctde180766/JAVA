@@ -11,7 +11,8 @@ export const TOPICS = {
   sql: "SQL & Cơ sở dữ liệu",
   javacore: "Java Core & Bộ nhớ",
   spring: "Spring Boot & REST API",
-  web: "Web & Frontend (JS/React)",
+  react: "React & Next.js",
+  web: "Web & JavaScript",
   devops: "Git, Testing & Quy trình",
   ai: "AI, LLM & Prompting",
 };
