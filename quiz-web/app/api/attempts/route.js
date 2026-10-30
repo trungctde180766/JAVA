@@ -22,8 +22,12 @@ export async function POST(req) {
     for (const a of answers) {
       const q = byKey.get(String(a?.key));
       if (!q) continue;
-      const chosen =
-        Number.isInteger(a.chosen) && a.chosen >= 0 && a.chosen < q.options.length ? a.chosen : null;
+      let chosen = null;
+      if (typeof a?.chosenText === "string" && q.options.includes(a.chosenText)) {
+        chosen = q.options.indexOf(a.chosenText);
+      } else if (Number.isInteger(a?.chosen) && a.chosen >= 0 && a.chosen < q.options.length) {
+        chosen = a.chosen;
+      }
       items.push({ key: q.key, topic: q.topic, chosen, answer: q.answer, correct: chosen === q.answer });
     }
     if (items.length === 0) return jsonError("Không tìm thấy câu hỏi hợp lệ");

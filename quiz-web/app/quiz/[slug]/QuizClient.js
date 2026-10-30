@@ -5,6 +5,45 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { highlightJava } from "@/lib/highlight";
 
+function shuffleArray(arr) {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function shuffleQuestionOptions(q) {
+  if (!q || !Array.isArray(q.options) || q.options.length <= 1) return q;
+  const indices = q.options.map((_, i) => i);
+  const shuffledIndices = shuffleArray(indices);
+
+  const newOptions = shuffledIndices.map((i) => q.options[i]);
+  const newOptionsVi =
+    Array.isArray(q.optionsVi) && q.optionsVi.length > 0
+      ? shuffledIndices.map((i) => q.optionsVi[i] || "")
+      : q.optionsVi;
+  const newOptionsEn =
+    Array.isArray(q.optionsEn) && q.optionsEn.length > 0
+      ? shuffledIndices.map((i) => q.optionsEn[i] || "")
+      : q.optionsEn;
+
+  const newAnswer = shuffledIndices.indexOf(q.answer);
+
+  return {
+    ...q,
+    options: newOptions,
+    optionsVi: newOptionsVi,
+    optionsEn: newOptionsEn,
+    answer: newAnswer >= 0 ? newAnswer : q.answer,
+    shuffledOptionIndices: shuffledIndices, // maps shuffledIndex -> originalIndex
+    originalAnswer: q.answer,
+  };
+}
+
+const EXAM_DURATION_SEC = 3600; // 1 tiếng = 60 phút
+
 export default function QuizClient({ session, initialUser, defaultMode = "practice" }) {
   const router = useRouter();
   const [mode, setMode] = useState(defaultMode); // "practice" | "exam"
@@ -37,14 +76,40 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   // Initialize questions
   useEffect(() => {
     let list = [...(session.questions || [])];
-    if (session.kind === "mix") {
-      // Shuffle for mix
-      list.sort(() => Math.random() - 0.5);
+    if (defaultMode === "exam") {
+      // Chế độ thi thử: xáo cả thứ tự câu hỏi và xáo thứ tự các phương án lựa chọn
+      list = shuffleArray(list).map(shuffleQuestionOptions);
+      setTimeLeft(EXAM_DURATION_SEC);
+    } else {
+      if (session.kind === "mix") {
+        list = shuffleArray(list);
+      }
+      setTimeLeft(EXAM_DURATION_SEC);
     }
     setQuestions(list);
-    const duration = Math.max(10, list.length * 60); // 1 minute per question
-    setTimeLeft(duration);
-  }, [session]);
+  }, [session, defaultMode]);
+
+  const handleSwitchMode = (newMode) => {
+    if (newMode === mode) return;
+    if (newMode === "exam") {
+      // Bắt đầu thi thử: xáo câu hỏi và xáo đáp án, bấm giờ 1 tiếng
+      const shuffledList = shuffleArray([...(session.questions || [])]).map(shuffleQuestionOptions);
+      setQuestions(shuffledList);
+      setMode("exam");
+      setTimeLeft(EXAM_DURATION_SEC);
+      setElapsedSec(0);
+      setCurrentIndex(0);
+      setAnswers({});
+      setShowExplanation({});
+    } else {
+      // Về luyện tập: trả lại đề theo thứ tự gốc
+      setQuestions([...(session.questions || [])]);
+      setMode("practice");
+      setCurrentIndex(0);
+      setAnswers({});
+      setShowExplanation({});
+    }
+  };
 
   // Load personal notes from localStorage
   useEffect(() => {
@@ -200,10 +265,19 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
     setSubmitting(true);
     setShowConfirmModal(false);
 
-    const payloadAnswers = questions.map((item) => ({
-      key: item.key,
-      chosen: answers[item.key] ?? null,
-    }));
+    const payloadAnswers = questions.map((item) => {
+      const chosenIdx = answers[item.key] ?? null;
+      const originalChosen =
+        chosenIdx !== null && item.shuffledOptionIndices
+          ? item.shuffledOptionIndices[chosenIdx]
+          : chosenIdx;
+      const chosenText = chosenIdx !== null ? item.options[chosenIdx] : null;
+      return {
+        key: item.key,
+        chosen: originalChosen,
+        chosenText,
+      };
+    });
 
     try {
       const res = await fetch("/api/attempts", {
@@ -213,7 +287,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           slug: session.slug,
           mode,
           durationSec: elapsedSec,
-          timeLimitSec: questions.length * 60,
+          timeLimitSec: EXAM_DURATION_SEC,
           answers: payloadAnswers,
         }),
       });
@@ -233,8 +307,13 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   };
 
   const formatTime = (sec) => {
-    const m = Math.floor(sec / 60);
-    const s = sec % 60;
+    const sVal = Math.max(0, sec);
+    const h = Math.floor(sVal / 3600);
+    const m = Math.floor((sVal % 3600) / 60);
+    const s = sVal % 60;
+    if (h > 0) {
+      return `${h}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+    }
     return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
@@ -632,18 +711,19 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           {/* Mode Switcher */}
           <div style={{ display: "flex", background: "var(--bg-input)", borderRadius: "var(--radius-sm)", padding: "0.2rem" }}>
             <button
-              onClick={() => setMode("practice")}
+              onClick={() => handleSwitchMode("practice")}
               className={`btn btn-sm ${mode === "practice" ? "btn-primary" : "btn-ghost"}`}
               style={{ padding: "0.3rem 0.75rem" }}
             >
               📖 Luyện tập
             </button>
             <button
-              onClick={() => setMode("exam")}
+              onClick={() => handleSwitchMode("exam")}
               className={`btn btn-sm ${mode === "exam" ? "btn-primary" : "btn-ghost"}`}
               style={{ padding: "0.3rem 0.75rem" }}
+              title="Thi thử 1 tiếng: xáo ngẫu nhiên cả thứ tự câu hỏi và các phương án A, B, C, D"
             >
-              ⏱️ Thi thử
+              ⏱️ Thi thử (1 tiếng)
             </button>
           </div>
 
