@@ -26,12 +26,16 @@ export default function Navbar({ user }) {
   return (
     <header className="navbar">
       <div className="nav-container">
-        <Link href="/" className="nav-brand">
-          <span>☕</span>
-          <span>JavaQuiz Pro</span>
-        </Link>
+        {/* Left: Brand logo */}
+        <div className="nav-left">
+          <Link href="/" className="nav-brand">
+            <span>☕</span>
+            <span>JavaQuiz Pro</span>
+          </Link>
+        </div>
 
-        <nav className="nav-links">
+        {/* Center: Main navigation pills centered on the page */}
+        <nav className="nav-center">
           <Link href="/" className={`nav-link ${pathname === "/" ? "active" : ""}`}>
             <span>📚</span>
             <span>Bộ đề</span>
@@ -60,14 +64,15 @@ export default function Navbar({ user }) {
               <span className="nav-badge-admin">Admin</span>
             </Link>
           )}
+        </nav>
 
-          <div style={{ marginLeft: "0.2rem", marginRight: "0.2rem", flexShrink: 0, whiteSpace: "nowrap" }}>
-            <ThemeToggle />
-          </div>
+        {/* Right: Theme toggle & Auth actions */}
+        <div className="nav-right">
+          <ThemeToggle />
 
           {user ? (
-            <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", marginLeft: "0.2rem", flexShrink: 0, whiteSpace: "nowrap" }}>
-              <Link href="/profile" className={`nav-link ${pathname === "/profile" ? "active" : ""}`} style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
+              <Link href="/profile" className={`nav-link ${pathname === "/profile" ? "active" : ""}`}>
                 <span>👤</span>
                 <span style={{ fontWeight: 600 }}>{user.username}</span>
               </Link>
@@ -76,22 +81,22 @@ export default function Navbar({ user }) {
                 disabled={loggingOut}
                 className="btn btn-ghost btn-sm"
                 title="Đăng xuất"
-                style={{ flexShrink: 0, whiteSpace: "nowrap", padding: "0.35rem 0.65rem" }}
+                style={{ padding: "0.35rem 0.65rem" }}
               >
                 {loggingOut ? "..." : "Thoát"}
               </button>
             </div>
           ) : (
-            <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", marginLeft: "0.2rem", flexShrink: 0, whiteSpace: "nowrap" }}>
-              <Link href="/login" className="btn btn-secondary btn-sm" style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
+              <Link href="/login" className="btn btn-secondary btn-sm">
                 Đăng nhập
               </Link>
-              <Link href="/register" className="btn btn-primary btn-sm" style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
+              <Link href="/register" className="btn btn-primary btn-sm">
                 Đăng ký
               </Link>
             </div>
           )}
-        </nav>
+        </div>
       </div>
     </header>
   );

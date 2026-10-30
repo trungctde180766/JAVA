@@ -109,11 +109,34 @@ a {
 .nav-container {
   max-width: 1320px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  justify-self: start;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  list-style: none;
   flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  justify-self: end;
+  gap: 0.5rem;
   white-space: nowrap;
 }
 
@@ -143,7 +166,8 @@ a {
   -ms-overflow-style: none;
 }
 
-.nav-links::-webkit-scrollbar {
+.nav-links::-webkit-scrollbar,
+.nav-center::-webkit-scrollbar {
   display: none;
 }
 
@@ -933,11 +957,22 @@ a {
 /* Mobile responsive */
 @media (max-width: 992px) {
   .nav-container {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 0.5rem;
   }
+  .nav-left {
+    order: 1;
+  }
+  .nav-right {
+    order: 2;
+  }
+  .nav-center,
   .nav-links {
+    order: 3;
     width: 100%;
+    justify-content: flex-start;
     overflow-x: auto;
     padding-bottom: 0.35rem;
     flex-wrap: nowrap;
@@ -945,7 +980,8 @@ a {
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  .nav-links::-webkit-scrollbar {
+  .nav-links::-webkit-scrollbar,
+  .nav-center::-webkit-scrollbar {
     display: none;
   }
   .main-wrapper {
