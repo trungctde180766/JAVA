@@ -731,6 +731,51 @@ a {
   font-size: 0.9rem;
   color: #cbd5e1;
   white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+/* Translation Card & Subtext */
+.translation-card {
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+[data-theme="light"] .translation-card {
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+  border-left: 3px solid #0d9488;
+}
+
+.translation-header {
+  margin-bottom: 0.25rem;
+}
+
+.translation-content {
+  font-size: 0.95rem;
+  color: #a5f3fc;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+[data-theme="light"] .translation-content {
+  color: #0f766e;
+}
+
+.option-translation-text {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+  font-style: italic;
+  display: block;
+}
+
+[data-theme="light"] .option-translation-text {
+  color: #64748b;
 }
 
 /* Grid utilities */

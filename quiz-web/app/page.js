@@ -33,16 +33,18 @@ export default async function HomePage() {
 
   const totalQuestions = quizzes.reduce((sum, q) => sum + (q.count || 0), 0);
   const interviewQuizzes = quizzes.filter((q) => q.slug.startsWith("interview-"));
-  const examQuizzes = quizzes.filter((q) => !q.slug.startsWith("interview-"));
+  const originalExamQuizzes = quizzes.filter((q) => !q.slug.startsWith("interview-") && !q.slug.startsWith("ai-"));
+  const aiGeneratedQuizzes = quizzes.filter((q) => q.slug.startsWith("ai-"));
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
       {/* Hero Section */}
       <section className="card card-glass hero-banner">
         <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
-          <span className="badge badge-primary">🎯 Phỏng Vấn 1-1 Theo Dạng</span>
-          <span className="badge badge-accent">📚 3 Bộ Đề Chuẩn Môn Học</span>
-          <span className="badge badge-success">💡 100% Giải Thích Chi Tiết Tiếng Việt</span>
+          <span className="badge badge-primary">🏛️ 3 Bộ Đề Gốc Môn Học</span>
+          <span className="badge badge-accent">🤖 3 Bộ Đề AI Mở Rộng</span>
+          <span className="badge badge-warning">🎯 Ôn Phỏng Vấn 1-1</span>
+          <span className="badge badge-success">🇻🇳 Song Ngữ &amp; Giải Thích Trực Quan</span>
         </div>
 
         <h1
@@ -116,8 +118,26 @@ export default async function HomePage() {
             </div>
           </div>
         ) : (
-          <div className="hero-tip-box">
-            💡 <em>Mẹo:</em> <Link href="/register" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "underline" }}>Đăng ký tài khoản</Link> hoặc <Link href="/login" style={{ color: "var(--accent)", fontWeight: 600, textDecoration: "underline" }}>Đăng nhập</Link> để hệ thống tự động ghi nhớ các câu bạn làm sai và theo dõi tiến độ học tập riêng của bạn!
+          <div
+            className="hero-tip-box"
+            style={{
+              background: "rgba(245, 158, 11, 0.12)",
+              border: "1px solid rgba(245, 158, 11, 0.35)",
+              color: "#fcd34d",
+              padding: "0.85rem 1.25rem",
+              borderRadius: "var(--radius-sm)",
+              marginTop: "1.5rem",
+            }}
+          >
+            🔒 <strong>Bắt buộc đăng nhập:</strong> Vui lòng{" "}
+            <Link href="/login" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>
+              Đăng nhập
+            </Link>{" "}
+            hoặc{" "}
+            <Link href="/register" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>
+              Đăng ký tài khoản
+            </Link>{" "}
+            để bắt đầu làm bài thi trắc nghiệm và học toàn bộ các bộ câu hỏi!
           </div>
         )}
       </section>
@@ -188,21 +208,25 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* SECTION 2: 3 Bộ Đề Trắc Nghiệm Môn Học Gốc */}
+      {/* SECTION 2: 3 Bộ Đề Trắc Nghiệm Môn Học (Gốc) */}
       <section>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.25rem" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.25rem", flexWrap: "wrap", gap: "0.5rem" }}>
           <div>
+            <div style={{ display: "inline-flex", gap: "0.4rem", marginBottom: "0.35rem" }}>
+              <span className="badge badge-primary">🏛️ Đề Thi Môn Học Gốc</span>
+              <span className="badge badge-accent">Chuẩn Đề Thi Thật 80 Câu</span>
+            </div>
             <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
-              3 Bộ Đề Trắc Nghiệm Môn Học (Gốc)
+              3 Bộ Đề Trắc Nghiệm Môn Học (Bộ Đề Gốc)
             </h2>
             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
-              Chuyển thể nguyên vẹn từ 76 ảnh chụp màn hình đề thi, 100% kèm code Java và giải thích.
+              Chuyển thể nguyên vẹn từ 76 ảnh chụp màn hình đề thi môn học, 100% kèm code Java, bản dịch tiếng Việt và giải thích chi tiết.
             </p>
           </div>
         </div>
 
         <div className="grid-3">
-          {examQuizzes.map((q) => (
+          {originalExamQuizzes.map((q) => (
             <div
               key={q.slug}
               className="card"
@@ -214,13 +238,16 @@ export default async function HomePage() {
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
                 <span style={{ fontSize: "2rem" }}>{q.icon || "📘"}</span>
-                <span className="badge badge-primary">{q.count || 0} câu hỏi</span>
+                <div style={{ display: "flex", gap: "0.3rem", alignItems: "center" }}>
+                  <span className="badge badge-primary" style={{ fontSize: "0.74rem" }}>🏛️ Đề Gốc</span>
+                  <span className="badge badge-accent">{q.count || 0} câu</span>
+                </div>
               </div>
 
               <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.5rem" }}>
                 {q.title}
               </h3>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", flex: 1, marginBottom: "1.25rem" }}>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", flex: 1, marginBottom: "1.25rem", lineHeight: 1.5 }}>
                 {q.description}
               </p>
 
@@ -244,6 +271,73 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* SECTION 3: 3 Bộ Đề Do AI Tạo Dựa Trên Bộ Đề Gốc */}
+      {aiGeneratedQuizzes.length > 0 && (
+        <section>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.25rem", flexWrap: "wrap", gap: "0.5rem" }}>
+            <div>
+              <div style={{ display: "inline-flex", gap: "0.4rem", marginBottom: "0.35rem" }}>
+                <span className="badge badge-accent">🤖 AI Generated</span>
+                <span className="badge badge-warning">Mở Rộng Dựa Trên Đề Gốc</span>
+              </div>
+              <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
+                3 Bộ Đề Mở Rộng Do AI Tạo (Dựa Trên Bộ Gốc)
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
+                Do AI phát triển dựa trên cấu trúc các bộ đề gốc: bổ sung các bẫy phòng thi chuyên sâu, cú pháp mới và tình huống biên dịch thực chiến giúp bạn nâng cao phản xạ!
+              </p>
+            </div>
+          </div>
+
+          <div className="grid-3">
+            {aiGeneratedQuizzes.map((q) => (
+              <div
+                key={q.slug}
+                className="card"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderTop: `4px solid ${q.color || "var(--accent)"}`,
+                  background: "linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, var(--bg-card) 40%)",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
+                  <span style={{ fontSize: "2rem" }}>{q.icon || "🤖"}</span>
+                  <div style={{ display: "flex", gap: "0.3rem", alignItems: "center" }}>
+                    <span className="badge badge-warning" style={{ fontSize: "0.74rem" }}>🤖 Do AI Tạo</span>
+                    <span className="badge badge-accent">{q.count || 0} câu</span>
+                  </div>
+                </div>
+
+                <h3 style={{ fontSize: "1.18rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+                  {q.title}
+                </h3>
+                <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", flex: 1, marginBottom: "1.25rem", lineHeight: 1.5 }}>
+                  {q.description}
+                </p>
+
+                <div style={{ display: "flex", gap: "0.6rem" }}>
+                  <Link
+                    href={`/quiz/${q.slug}?mode=practice`}
+                    className="btn btn-secondary btn-sm"
+                    style={{ flex: 1 }}
+                  >
+                    📖 Luyện tập
+                  </Link>
+                  <Link
+                    href={`/quiz/${q.slug}?mode=exam`}
+                    className="btn btn-primary btn-sm"
+                    style={{ flex: 1 }}
+                  >
+                    ⏱️ Thi thử
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Special Learning Modes */}
       <section>

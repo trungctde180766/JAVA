@@ -27,6 +27,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   const [showNotesBox, setShowNotesBox] = useState(false);
   const [fontScale, setFontScale] = useState(1); // 1 = 100%, 1.15 = 115%, 1.3 = 130%
   const [showShortcuts, setShowShortcuts] = useState(false);
+  const [showViGlobal, setShowViGlobal] = useState(true); // Vietnamese translation toggle (default on)
 
   // Exam timer
   const [timeLeft, setTimeLeft] = useState(0);
@@ -163,13 +164,14 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
       else if (k === "arrowright" || k === "k") setCurrentIndex((p) => Math.min(questions.length - 1, p + 1));
       else if (k === "f") toggleFlag();
       else if (k === "s") toggleBookmark();
+      else if (k === "t") setShowViGlobal((p) => !p);
       else if (k === "?") setShowShortcuts((p) => !p);
       else if (k === "n") setShowNotesBox((p) => !p);
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentIndex, questions, qKey, submitted, bookmarks, flagged]);
+  }, [currentIndex, questions, qKey, submitted, bookmarks, flagged, showViGlobal]);
 
   if (!questions || questions.length === 0) {
     return (
@@ -508,9 +510,16 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                     </span>
                   </div>
 
-                  <p style={{ fontWeight: 600, fontSize: "1rem", marginBottom: "0.75rem" }}>
+                  <p style={{ fontWeight: 600, fontSize: "1rem", marginBottom: "0.5rem" }}>
                     {item.text}
                   </p>
+
+                  {item.textVi && (
+                    <div className="translation-card" style={{ marginBottom: "0.75rem", marginTop: "0.25rem" }}>
+                      <span className="badge badge-accent" style={{ fontSize: "0.72rem", marginRight: "0.5rem" }}>🇻🇳 Dịch nghĩa:</span>
+                      <span style={{ fontSize: "0.92rem", color: "var(--text-main)" }}>{item.textVi}</span>
+                    </div>
+                  )}
 
                   {item.code && (
                     <div
@@ -530,7 +539,12 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                       return (
                         <div key={oIdx} className={optClass} style={{ cursor: "default", margin: 0, padding: "0.75rem 1rem" }}>
                           <span className="option-label">{String.fromCharCode(65 + oIdx)}</span>
-                          <span style={{ flex: 1, fontSize: "0.92rem" }}>{opt}</span>
+                          <div style={{ flex: 1, textAlign: "left" }}>
+                            <div style={{ fontSize: "0.92rem" }}>{opt}</div>
+                            {item.optionsVi && item.optionsVi[oIdx] && (
+                              <div className="option-translation-text">↳ {item.optionsVi[oIdx]}</div>
+                            )}
+                          </div>
                           {isOptionCorrect && <strong style={{ color: "var(--success)", fontSize: "0.85rem" }}>✓ Đáp án đúng</strong>}
                           {isOptionChosen && !isOptionCorrect && <strong style={{ color: "var(--danger)", fontSize: "0.85rem" }}>✗ Bạn chọn</strong>}
                         </div>
@@ -572,12 +586,21 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
         }}
       >
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
             <Link href="/" style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>
               &larr; Bộ đề
             </Link>
             <span style={{ color: "var(--text-dim)" }}>/</span>
             <strong style={{ fontSize: "1.05rem" }}>{session.title}</strong>
+            {session.isAiGenerated ? (
+              <span className="badge badge-accent" style={{ fontSize: "0.75rem" }}>
+                🤖 Do AI Tạo (Mở Rộng Dựa Trên Đề Gốc)
+              </span>
+            ) : session.slug.startsWith("quiz-") ? (
+              <span className="badge badge-primary" style={{ fontSize: "0.75rem" }}>
+                🏛️ Bộ Đề Gốc
+              </span>
+            ) : null}
           </div>
           <div style={{ fontSize: "0.82rem", color: "var(--text-dim)", marginTop: "0.2rem" }}>
             Tiến độ: {currentIndex + 1}/{questions.length} câu (Đã làm {answeredCount} câu)
@@ -723,6 +746,17 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
               >
                 ⭐ {isBookmarked ? "Đã lưu" : "Lưu"}
               </button>
+
+              {/* Vietnamese Translation Toggle */}
+              <button
+                type="button"
+                onClick={() => setShowViGlobal((p) => !p)}
+                className={`btn btn-sm ${showViGlobal ? "btn-primary" : "btn-secondary"}`}
+                title="Bật/Tắt bản dịch tiếng Việt cho câu hỏi và đáp án (Phím tắt: T)"
+                style={{ padding: "0.25rem 0.6rem", fontSize: "0.82rem" }}
+              >
+                🇻🇳 {showViGlobal ? "Dịch TV (Bật)" : "Dịch TV (Tắt)"}
+              </button>
             </div>
           </div>
 
@@ -731,13 +765,23 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
             style={{
               fontSize: `${1.15 * fontScale}rem`,
               fontWeight: 600,
-              marginBottom: "1rem",
+              marginBottom: showViGlobal && q.textVi ? "0.6rem" : "1rem",
               lineHeight: 1.5,
               transition: "font-size 0.15s ease",
             }}
           >
             {q.text}
           </h3>
+
+          {/* Vietnamese Question Translation */}
+          {showViGlobal && q.textVi && (
+            <div className="translation-card">
+              <div className="translation-header">
+                <span className="badge badge-accent" style={{ fontSize: "0.72rem" }}>🇻🇳 Bản dịch tiếng Việt</span>
+              </div>
+              <div className="translation-content">{q.textVi}</div>
+            </div>
+          )}
 
           {/* Code snippet if any */}
           {q.code && (
@@ -775,7 +819,14 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                     }}
                   >
                     <span className="option-label">{String.fromCharCode(65 + idx)}</span>
-                    <span style={{ flex: 1, textAlign: "left" }}>{opt}</span>
+                    <div style={{ flex: 1, textAlign: "left" }}>
+                      <div>{opt}</div>
+                      {showViGlobal && q.optionsVi && q.optionsVi[idx] && (
+                        <div className="option-translation-text">
+                          ↳ {q.optionsVi[idx]}
+                        </div>
+                      )}
+                    </div>
                     {mode === "practice" && chosen !== undefined && idx === q.answer && (
                       <span style={{ color: "var(--success)", fontWeight: 700 }}>✓ Đúng</span>
                     )}
@@ -1013,6 +1064,10 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--border)", paddingBottom: "0.4rem" }}>
                 <span>Mở / Đóng ghi chú cá nhân</span>
                 <span className="kbd-badge">N</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--border)", paddingBottom: "0.4rem" }}>
+                <span>Bật / Tắt bản dịch tiếng Việt</span>
+                <span className="kbd-badge">T</span>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span>Hiện / Tắt bảng phím tắt</span>

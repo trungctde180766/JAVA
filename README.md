@@ -16,12 +16,22 @@ Hệ thống câu hỏi phỏng vấn thực chiến được phân loại rõ r
 - **🤖 AI, LLM & Prompt Engineering (`interview-ai`)**: Kiến trúc LLM và ứng dụng trong phát triển phần mềm, Kỹ thuật viết Prompt hiệu quả (RC-TCO framework), Đánh giá và kiểm tra code do AI sinh ra, Khái niệm AI Agent & Tool calling.
 - **🎯 Đề Tổng Hợp Phỏng Vấn 1-1 (`interview-all`)**: Trộn toàn bộ 48 câu hỏi phỏng vấn giúp bạn thi thử phản xạ như khi đi phỏng vấn trực tiếp!
 
-### 2. 📚 3 Bộ Đề Thi Trắc Nghiệm Môn Học (Gốc)
-- **Bộ đề 1 (Quiz 1 - 39 câu)**: Kiến thức tổng hợp cốt lõi Java (OOP, cú pháp, collection, keyword, method).
-- **Bộ đề 2 (Quiz 2 - 20 câu)**: Chuyên sâu Kế thừa (Inheritance), Constructor, Đa hình (Polymorphism), Interface & Abstract class.
-- **Bộ đề 3 (Quiz Day 3 - 21 câu)**: Phân tích code output, Exception Handling, String/StringBuffer, static context, phạm vi truy cập (Access Modifiers).
+### 2. 🏛️ 3 Bộ Đề Thi Trắc Nghiệm Môn Học (Gốc - 80 câu)
+- **Bộ đề 1 (Quiz 1 - 39 câu)**: Kiến thức tổng hợp cốt lõi Java (OOP, Interface, Abstract, Overriding, Access Modifiers).
+- **Bộ đề 2 (Quiz 2 - 20 câu)**: Chuyên sâu Constructor Chaining, static vs instance, String immutable & StringBuffer.
+- **Bộ đề 3 (Quiz Day 3 - 21 câu)**: Phân tích output code nâng cao, Overload resolution, ép kiểu, JDBC (Statement, ResultSet, Connection).
 
-### 3. 💡 Chế Độ Ôn Luyện & Thi Thử Linh Hoạt
+### 3. 🤖 3 Bộ Đề Mở Rộng Do AI Tạo Dựa Trên Đề Gốc (60 câu)
+Được phát triển dựa trên cấu trúc các bộ đề gốc để người học luyện phản xạ với các bẫy thi chuyên sâu:
+- **AI Quiz 1 (`ai-quiz-1` - 20 câu)**: OOP & Kế Thừa Mở Rộng (Interface default/private methods, constructor chaining `this()`/`super()`, covariant return type, dynamic dispatch).
+- **AI Quiz 2 (`ai-quiz-2` - 20 câu)**: String Pool, Static & Final Chuyên Sâu (String `intern()`, Integer cache trap, static block lifecycle, StringBuilder vs StringBuffer, final reference).
+- **AI Quiz 3 (`ai-quiz-3` - 20 câu)**: Exception, JDBC & Runtime Nâng Cao (`try-catch-finally` return trap, `try-with-resources`, multi-catch, PreparedStatement batch, SQL Injection, Savepoint).
+
+### 4. 🇻🇳 Song Ngữ Anh – Việt & Giải Thích Trực Quan 100%
+- **Bản dịch Tiếng Việt tức thì**: Nút bấm `🇻🇳 Dịch TV` và phím tắt `T` giúp chuyển đổi mượt mà giữa nguyên bản tiếng Anh và bản dịch tiếng Việt chuẩn xác.
+- **Giải thích chi tiết, không hàn lâm**: Phân tích cặn kẽ **vì sao đáp án đúng là ĐÚNG** và **vì sao từng đáp án còn lại là SAI**, kèm mẹo nhớ đời thường.
+
+### 5. 💡 Chế Độ Ôn Luyện & Thi Thử Linh Hoạt
 - **Chế độ Ôn luyện (Practice Mode)**: Làm từng câu, biết kết quả tức thì kèm **giải thích tường tận bằng tiếng Việt** và phân tích tại sao các đáp án khác sai + **mẹo trả lời ghi điểm phỏng vấn**.
 - **Chế độ Thi thử (Exam Mode)**: Bấm giờ đếm ngược thực chiến, bảng câu hỏi nhanh (Question Palette), gắn cờ câu phân vân, nộp bài chấm điểm tự động.
 - **Chế độ Ôn câu sai (Mistakes Tracker)**: Tự động gom những câu làm sai để luyện lại đến khi nắm vững (Spaced Repetition).

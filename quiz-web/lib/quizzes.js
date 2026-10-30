@@ -36,6 +36,7 @@ export async function getQuizList() {
     icon: q.icon,
     order: q.order || 99,
     hidden: !!q.hidden,
+    isAiGenerated: !!q.isAiGenerated || q.slug.startsWith("ai-"),
     count: (q.questions || []).length,
   }));
 }
@@ -54,8 +55,10 @@ export async function getAllQuestions({ includeHidden = false } = {}) {
         id: q.id,
         topic: q.topic || "other",
         text: q.text,
+        textVi: q.textVi || "",
         code: q.code || "",
         options: q.options,
+        optionsVi: q.optionsVi || [],
         answer: q.answer,
         explanation: q.explanation || "",
       });
@@ -145,6 +148,7 @@ export async function buildQuizSession(slug, user) {
     icon: quiz.icon || "📘",
     color: quiz.color || "#7c5cff",
     description: quiz.description || "",
+    isAiGenerated: !!quiz.isAiGenerated || quiz.slug.startsWith("ai-"),
     questions: (quiz.questions || []).map((q) => ({
       key: `${quiz.slug}:${q.id}`,
       quizSlug: quiz.slug,
@@ -152,8 +156,10 @@ export async function buildQuizSession(slug, user) {
       id: q.id,
       topic: q.topic || "other",
       text: q.text,
+      textVi: q.textVi || "",
       code: q.code || "",
       options: q.options,
+      optionsVi: q.optionsVi || [],
       answer: q.answer,
       explanation: q.explanation || "",
     })),
