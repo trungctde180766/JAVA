@@ -57,6 +57,8 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   const [result, setResult] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [restoredProgressNotice, setRestoredProgressNotice] = useState(false);
   const [filterReview, setFilterReview] = useState("all"); // "all" | "wrong" | "correct"
 
   // Assistive features state
@@ -81,6 +83,60 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
     }
     setQuestions(list);
   }, [session]);
+
+  const practiceStorageKey = `jq_practice_${initialUser?.username || "user"}_${session.slug}`;
+
+  // Restore practice progress from localStorage
+  useEffect(() => {
+    try {
+      const savedRaw = localStorage.getItem(practiceStorageKey);
+      if (savedRaw) {
+        const saved = JSON.parse(savedRaw);
+        if (saved && typeof saved === "object") {
+          if (saved.answers && Object.keys(saved.answers).length > 0) {
+            setAnswers(saved.answers);
+            if (saved.showExplanation) setShowExplanation(saved.showExplanation);
+            if (typeof saved.currentIndex === "number") setCurrentIndex(saved.currentIndex);
+            if (typeof saved.elapsedSec === "number") setElapsedSec(saved.elapsedSec);
+            setRestoredProgressNotice(true);
+            setTimeout(() => setRestoredProgressNotice(false), 5000);
+          }
+        }
+      }
+    } catch (e) {
+      console.warn("Could not load practice progress from localStorage:", e);
+    }
+  }, [practiceStorageKey]);
+
+  // Auto-save practice progress to localStorage
+  useEffect(() => {
+    if (submitted) return;
+    try {
+      if (Object.keys(answers).length > 0 || currentIndex > 0) {
+        localStorage.setItem(
+          practiceStorageKey,
+          JSON.stringify({
+            answers,
+            showExplanation,
+            currentIndex,
+            elapsedSec,
+            updatedAt: Date.now(),
+          })
+        );
+      }
+    } catch (e) {}
+  }, [answers, showExplanation, currentIndex, elapsedSec, submitted, practiceStorageKey]);
+
+  const handleResetPractice = () => {
+    try {
+      localStorage.removeItem(practiceStorageKey);
+    } catch (e) {}
+    setAnswers({});
+    setShowExplanation({});
+    setCurrentIndex(0);
+    setElapsedSec(0);
+    setShowResetModal(false);
+  };
 
   // Load personal notes from localStorage
   useEffect(() => {
@@ -266,6 +322,9 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
       if (res.ok) {
         setResult(data);
         setSubmitted(true);
+        try {
+          localStorage.removeItem(practiceStorageKey);
+        } catch (e) {}
       } else {
         alert(data.error || "Có lỗi xảy ra khi nộp bài");
       }
@@ -397,17 +456,19 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           <div style={{ display: "flex", justifyContent: "center", gap: "0.85rem", marginTop: "2rem", flexWrap: "wrap" }}>
             <button
               onClick={() => {
+                try {
+                  localStorage.removeItem(practiceStorageKey);
+                } catch (e) {}
                 setSubmitted(false);
                 setAnswers({});
                 setFlagged(new Set());
                 setShowExplanation({});
                 setCurrentIndex(0);
                 setElapsedSec(0);
-                setTimeLeft(questions.length * 60);
               }}
               className="btn btn-primary"
             >
-              🔄 Làm lại bài thi
+              🔄 Làm lại bộ đề này
             </button>
             <Link href="/quiz/mistakes" className="btn btn-secondary">
               🩹 Ôn lại các câu sai
@@ -701,6 +762,16 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           </div>
 
           <button
+            type="button"
+            onClick={() => setShowResetModal(true)}
+            className="btn btn-ghost btn-sm"
+            style={{ border: "1px solid var(--border)", color: "var(--text-muted)", padding: "0.35rem 0.65rem" }}
+            title="Xóa toàn bộ câu đã điền để làm lại từ đầu"
+          >
+            🔄 Làm lại từ đầu
+          </button>
+
+          <button
             onClick={() => setShowConfirmModal(true)}
             className="btn btn-primary btn-sm"
           >
@@ -708,6 +779,31 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           </button>
         </div>
       </div>
+
+      {/* Progress Restored Notification Banner */}
+      {restoredProgressNotice && (
+        <div
+          style={{
+            padding: "0.75rem 1.25rem",
+            borderRadius: "var(--radius-sm)",
+            background: "rgba(16, 185, 129, 0.15)",
+            border: "1px solid rgba(16, 185, 129, 0.35)",
+            color: "#34d399",
+            fontSize: "0.88rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <span>✨ <strong>Đã tự động khôi phục tiến độ làm bài:</strong> Các câu bạn đã chọn trước đó vẫn được giữ nguyên!</span>
+          <button
+            onClick={() => setRestoredProgressNotice(false)}
+            style={{ background: "none", border: "none", color: "#34d399", cursor: "pointer", fontSize: "1.1rem" }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* Progress Bar */}
       <div className="progress-bar-bg">
@@ -1102,7 +1198,29 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
         </div>
       )}
 
-      {/* Keyboard Shortcuts Modal */}
+      {/* Reset Practice Modal */}
+      {showResetModal && (
+        <div className="modal-overlay">
+          <div className="modal-content" style={{ maxWidth: 440, textAlign: "center" }}>
+            <div style={{ fontSize: "2.8rem", marginBottom: "0.5rem" }}>🔄</div>
+            <h3 style={{ fontSize: "1.3rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+              Làm Lại Từ Đầu Bộ Đề Này?
+            </h3>
+            <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem", fontSize: "0.93rem", lineHeight: 1.6 }}>
+              Hệ thống sẽ <strong>xóa toàn bộ các câu bạn đã điền</strong> và đưa bạn trở về câu đầu tiên. Bạn có chắc chắn muốn làm lại từ đầu không?
+            </p>
+
+            <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem" }}>
+              <button onClick={() => setShowResetModal(false)} className="btn btn-secondary">
+                Hủy bỏ
+              </button>
+              <button onClick={handleResetPractice} className="btn btn-primary">
+                Đồng ý làm lại từ đầu
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {showShortcuts && (
         <div className="modal-overlay" onClick={() => setShowShortcuts(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: 520 }}>
