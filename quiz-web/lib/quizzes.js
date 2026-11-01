@@ -111,14 +111,16 @@ export async function buildQuizSession(slug, user) {
   if (slug === "mix" || slug === "mistakes" || slug === "bookmarks" || slug.startsWith("topic-")) {
     const all = await getAllQuestions();
     if (slug === "mix") {
+      const quizList = await getQuizList();
       return {
         slug,
         kind: "mix",
-        title: "Đề tổng hợp ngẫu nhiên",
+        title: "Thi thử Mix tổng hợp (SEB)",
         icon: "🎲",
         color: "#f5b700",
-        description: "Trộn câu hỏi từ tất cả bộ đề – giống thi thật.",
+        description: "Trộn câu hỏi từ các bộ đề đã chọn – giống thi thật 100%.",
         questions: dedupe(all),
+        quizList: quizList.filter((q) => !q.hidden || user?.role === "admin"),
         pickCount: true,
       };
     }

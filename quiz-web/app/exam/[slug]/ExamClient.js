@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { highlightJava, formatJavaCode } from "@/lib/highlight";
@@ -73,15 +73,108 @@ export default function ExamClient({ session, user }) {
   const [showTranslation, setShowTranslation] = useState(false);
   const [formatCode, setFormatCode] = useState(false);
 
-  // Initialize questions
+  // Custom Mix configuration
+  const isMix = session.kind === "mix";
+
+  // Categorize quizzes for Mix mode selector
+  const { originalQuizzes, aiQuizzes, interviewQuizzes } = useMemo(() => {
+    const list = session.quizList || [];
+    return {
+      originalQuizzes: list.filter((q) => !q.slug.startsWith("ai-") && !q.slug.startsWith("interview-")),
+      aiQuizzes: list.filter((q) => q.slug.startsWith("ai-")),
+      interviewQuizzes: list.filter((q) => q.slug.startsWith("interview-") && q.slug !== "interview-all"),
+    };
+  }, [session.quizList]);
+
+  // Selected quiz slugs for custom mix (default: 3 bộ đề gốc môn học nếu có, hoặc tất cả)
+  const [selectedQuizSlugs, setSelectedQuizSlugs] = useState(() => {
+    if (isMix && session.quizList?.length > 0) {
+      const original = session.quizList
+        .filter((q) => !q.slug.startsWith("interview-") && !q.slug.startsWith("ai-"))
+        .map((q) => q.slug);
+      return new Set(original.length > 0 ? original : session.quizList.map((q) => q.slug));
+    }
+    return new Set([session.slug]);
+  });
+
+  const [selectedQuestionCount, setSelectedQuestionCount] = useState("80");
+  const [selectedDurationMinutes, setSelectedDurationMinutes] = useState(60);
+
+  // Available questions based on selected packages
+  const availableQuestions = useMemo(() => {
+    if (!isMix) return session.questions || [];
+    return (session.questions || []).filter((q) => selectedQuizSlugs.has(q.quizSlug));
+  }, [isMix, session.questions, selectedQuizSlugs]);
+
+  // Total questions that will be in the exam
+  const examQuestionCount = useMemo(() => {
+    if (!isMix) return (session.questions || []).length;
+    if (selectedQuestionCount === "all") return availableQuestions.length;
+    return Math.min(Number(selectedQuestionCount) || 80, availableQuestions.length);
+  }, [isMix, selectedQuestionCount, availableQuestions.length]);
+
+  const toggleQuizSlug = (slug) => {
+    setSelectedQuizSlugs((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
+    });
+  };
+
+  const handleQuickSelect = (type) => {
+    if (type === "all") {
+      const all = (session.quizList || [])
+        .filter((q) => q.slug !== "interview-all")
+        .map((q) => q.slug);
+      setSelectedQuizSlugs(new Set(all));
+    } else if (type === "original") {
+      setSelectedQuizSlugs(new Set(originalQuizzes.map((q) => q.slug)));
+    } else if (type === "ai") {
+      setSelectedQuizSlugs(new Set(aiQuizzes.map((q) => q.slug)));
+    } else if (type === "interview") {
+      setSelectedQuizSlugs(new Set(interviewQuizzes.map((q) => q.slug)));
+    } else if (type === "clear") {
+      setSelectedQuizSlugs(new Set());
+    }
+  };
+
+  // Initialize questions for standard single exams
   useEffect(() => {
-    const raw = [...(session.questions || [])];
-    const randomized = shuffleArray(raw).map(shuffleQuestionOptions);
-    setQuestions(randomized);
-  }, [session]);
+    if (!isMix) {
+      const raw = [...(session.questions || [])];
+      const randomized = shuffleArray(raw).map(shuffleQuestionOptions);
+      setQuestions(randomized);
+    }
+  }, [session, isMix]);
 
   // Start exam handler with Fullscreen
   const handleStartExam = async () => {
+    let pool = [...availableQuestions];
+    if (pool.length === 0) {
+      alert("Vui lòng tick chọn ít nhất 1 bộ đề để bắt đầu thi!");
+      return;
+    }
+
+    // Xáo trộn ngẫu nhiên toàn bộ câu hỏi (Shuffle câu hỏi)
+    let randomized = shuffleArray(pool);
+
+    // Cắt theo số lượng câu hỏi đã chọn
+    if (isMix && selectedQuestionCount !== "all") {
+      const limit = Number(selectedQuestionCount) || 80;
+      if (limit > 0 && limit < randomized.length) {
+        randomized = randomized.slice(0, limit);
+      }
+    }
+
+    // Xáo trộn 4 đáp án A, B, C, D của từng câu
+    const finalQuestions = randomized.map(shuffleQuestionOptions);
+    setQuestions(finalQuestions);
+
+    const examSec = selectedDurationMinutes > 0 ? selectedDurationMinutes * 60 : EXAM_DURATION_SEC;
+    setTimeLeft(examSec);
+    setElapsedSec(0);
+
     try {
       if (document.documentElement.requestFullscreen) {
         await document.documentElement.requestFullscreen();
@@ -92,8 +185,6 @@ export default function ExamClient({ session, user }) {
       console.warn("Fullscreen request error (safe to proceed):", e);
     }
     setPhase("in_progress");
-    setTimeLeft(EXAM_DURATION_SEC);
-    setElapsedSec(0);
   };
 
   // Re-enter Fullscreen after warning
@@ -295,6 +386,7 @@ export default function ExamClient({ session, user }) {
       };
     });
 
+    const examSec = selectedDurationMinutes > 0 ? selectedDurationMinutes * 60 : EXAM_DURATION_SEC;
     try {
       const res = await fetch("/api/attempts", {
         method: "POST",
@@ -303,7 +395,7 @@ export default function ExamClient({ session, user }) {
           slug: session.slug,
           mode: "exam",
           durationSec: elapsedSec,
-          timeLimitSec: EXAM_DURATION_SEC,
+          timeLimitSec: examSec,
           answers: payloadAnswers,
           disqualified,
         }),
@@ -336,6 +428,430 @@ export default function ExamClient({ session, user }) {
 
   // 1. GATE SCREEN (Trước khi vào thi)
   if (phase === "gate") {
+    if (isMix) {
+      return (
+        <div style={{ maxWidth: 980, margin: "2rem auto", display: "flex", flexDirection: "column", gap: "1.75rem" }}>
+          {/* Hero Banner */}
+          <div className="card card-glass" style={{ padding: "2.5rem 2rem", textAlign: "center" }}>
+            <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
+              <span className="badge badge-warning">🛡️ Safe Exam Browser Mode</span>
+              <span className="badge badge-primary">🎲 Thi Thử Mix Tự Chọn Gói</span>
+              <span className="badge badge-accent">🔒 Đảo Thứ Tự Câu &amp; Đáp Án 100%</span>
+            </div>
+
+            <h1 style={{ fontSize: "2.2rem", fontWeight: 800, marginBottom: "0.6rem", letterSpacing: "-0.02em" }}>
+              Tự Tạo Đề Thi Mix SEB Tùy Chỉnh
+            </h1>
+            <p style={{ color: "var(--text-muted)", fontSize: "1.02rem", maxWidth: 720, margin: "0 auto 1.5rem", lineHeight: 1.6 }}>
+              Tùy chọn <strong>1, 2 hoặc nhiều gói bộ đề</strong> bất kỳ để gộp vào bài thi.
+              Hệ thống sẽ <strong>đảo ngẫu nhiên toàn bộ câu hỏi</strong> và <strong>xáo trộn thứ tự các đáp án A, B, C, D</strong>,
+              chạy trong môi trường phòng thi nghiêm ngặt Safe Exam Browser!
+            </p>
+
+            {/* Quick Action Selection Bar */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "0.5rem",
+                flexWrap: "wrap",
+                padding: "0.75rem",
+                borderRadius: "var(--radius-sm)",
+                background: "rgba(255, 255, 255, 0.04)",
+                border: "1px solid var(--border)",
+                maxWidth: 780,
+                margin: "0 auto 1.5rem",
+              }}
+            >
+              <span style={{ fontSize: "0.85rem", color: "var(--text-dim)", fontWeight: 600 }}>Chọn nhanh:</span>
+              <button
+                type="button"
+                onClick={() => handleQuickSelect("all")}
+                className="btn btn-secondary btn-sm"
+                style={{ fontSize: "0.82rem" }}
+              >
+                ✅ Tất cả ({session.quizList?.filter((q) => q.slug !== "interview-all").length} gói)
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickSelect("original")}
+                className="btn btn-secondary btn-sm"
+                style={{ fontSize: "0.82rem" }}
+              >
+                🏛️ Chỉ 3 đề gốc
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickSelect("ai")}
+                className="btn btn-secondary btn-sm"
+                style={{ fontSize: "0.82rem" }}
+              >
+                🤖 Chỉ 3 đề AI
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickSelect("interview")}
+                className="btn btn-secondary btn-sm"
+                style={{ fontSize: "0.82rem" }}
+              >
+                🎯 Chỉ đề phỏng vấn
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickSelect("clear")}
+                className="btn btn-ghost btn-sm"
+                style={{ fontSize: "0.82rem", color: "var(--danger)" }}
+              >
+                ❌ Bỏ chọn hết
+              </button>
+            </div>
+
+            {/* Selected Count Live Banner */}
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "1.25rem",
+                background: selectedQuizSlugs.size > 0 ? "rgba(99, 102, 241, 0.12)" : "rgba(239, 68, 68, 0.12)",
+                border: `1px solid ${selectedQuizSlugs.size > 0 ? "rgba(99, 102, 241, 0.35)" : "rgba(239, 68, 68, 0.35)"}`,
+                padding: "0.6rem 1.4rem",
+                borderRadius: "var(--radius-sm)",
+                fontSize: "0.92rem",
+              }}
+            >
+              <div>
+                <span style={{ color: "var(--text-dim)" }}>Gói đề đã chọn: </span>
+                <strong style={{ color: "var(--primary)" }}>{selectedQuizSlugs.size} gói</strong>
+              </div>
+              <div>
+                <span style={{ color: "var(--text-dim)" }}>Tổng câu hỏi trong kho: </span>
+                <strong style={{ color: selectedQuizSlugs.size > 0 ? "var(--success)" : "var(--danger)" }}>
+                  {availableQuestions.length} câu
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          {/* STEP 1: Package Selector Grid */}
+          <div className="card" style={{ padding: "1.75rem" }}>
+            <h2 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <span>📦</span> 1. Chọn Các Gói Bộ Đề Bạn Muốn Gộp Vào Bài Thi
+            </h2>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+              {/* Category 1: 3 Đề Gốc */}
+              {originalQuizzes.length > 0 && (
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", marginBottom: "0.6rem" }}>
+                    <span className="badge badge-primary">🏛️ Đề Thi Môn Học Gốc</span>
+                    <span style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>Chuẩn đề thi thật 80 câu</span>
+                  </div>
+                  <div className="grid-3">
+                    {originalQuizzes.map((q) => {
+                      const isSelected = selectedQuizSlugs.has(q.slug);
+                      return (
+                        <div
+                          key={q.slug}
+                          onClick={() => toggleQuizSlug(q.slug)}
+                          className="card"
+                          style={{
+                            padding: "0.85rem 1rem",
+                            cursor: "pointer",
+                            border: isSelected ? "2px solid var(--primary)" : "1px solid var(--border)",
+                            background: isSelected ? "rgba(99, 102, 241, 0.12)" : "var(--bg-card)",
+                            boxShadow: isSelected ? "0 0 15px rgba(99, 102, 241, 0.2)" : "none",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: "0.75rem",
+                            userSelect: "none",
+                            transition: "var(--transition)",
+                          }}
+                        >
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", overflow: "hidden" }}>
+                            <span style={{ fontSize: "1.6rem" }}>{q.icon}</span>
+                            <div style={{ textAlign: "left", overflow: "hidden" }}>
+                              <div style={{ fontWeight: 700, fontSize: "0.92rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                                {q.title}
+                              </div>
+                              <div style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>{q.count} câu hỏi</div>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              width: 22,
+                              height: 22,
+                              borderRadius: 6,
+                              border: isSelected ? "2px solid var(--primary)" : "2px solid var(--border)",
+                              background: isSelected ? "var(--primary)" : "transparent",
+                              color: "#fff",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              fontSize: "0.85rem",
+                              fontWeight: 700,
+                              flexShrink: 0,
+                            }}
+                          >
+                            {isSelected ? "✓" : ""}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Category 2: 3 Đề AI Mở Rộng */}
+              {aiQuizzes.length > 0 && (
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", marginBottom: "0.6rem" }}>
+                    <span className="badge badge-accent">🤖 Đề AI Mở Rộng</span>
+                    <span style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>Bẫy phòng thi &amp; biên dịch nâng cao</span>
+                  </div>
+                  <div className="grid-3">
+                    {aiQuizzes.map((q) => {
+                      const isSelected = selectedQuizSlugs.has(q.slug);
+                      return (
+                        <div
+                          key={q.slug}
+                          onClick={() => toggleQuizSlug(q.slug)}
+                          className="card"
+                          style={{
+                            padding: "0.85rem 1rem",
+                            cursor: "pointer",
+                            border: isSelected ? "2px solid var(--accent)" : "1px solid var(--border)",
+                            background: isSelected ? "rgba(6, 182, 212, 0.12)" : "var(--bg-card)",
+                            boxShadow: isSelected ? "0 0 15px rgba(6, 182, 212, 0.2)" : "none",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: "0.75rem",
+                            userSelect: "none",
+                            transition: "var(--transition)",
+                          }}
+                        >
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", overflow: "hidden" }}>
+                            <span style={{ fontSize: "1.6rem" }}>{q.icon}</span>
+                            <div style={{ textAlign: "left", overflow: "hidden" }}>
+                              <div style={{ fontWeight: 700, fontSize: "0.92rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                                {q.title}
+                              </div>
+                              <div style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>{q.count} câu hỏi</div>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              width: 22,
+                              height: 22,
+                              borderRadius: 6,
+                              border: isSelected ? "2px solid var(--accent)" : "2px solid var(--border)",
+                              background: isSelected ? "var(--accent)" : "transparent",
+                              color: "#fff",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              fontSize: "0.85rem",
+                              fontWeight: 700,
+                              flexShrink: 0,
+                            }}
+                          >
+                            {isSelected ? "✓" : ""}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Category 3: Đề Phỏng Vấn 1-1 */}
+              {interviewQuizzes.length > 0 && (
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", marginBottom: "0.6rem" }}>
+                    <span className="badge badge-warning">🎯 Bộ Câu Hỏi Phỏng Vấn 1-1 Thực Chiến</span>
+                    <span style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>SQL, Java Core, Spring Boot, Frontend...</span>
+                  </div>
+                  <div className="grid-3">
+                    {interviewQuizzes.map((q) => {
+                      const isSelected = selectedQuizSlugs.has(q.slug);
+                      return (
+                        <div
+                          key={q.slug}
+                          onClick={() => toggleQuizSlug(q.slug)}
+                          className="card"
+                          style={{
+                            padding: "0.85rem 1rem",
+                            cursor: "pointer",
+                            border: isSelected ? "2px solid var(--warning)" : "1px solid var(--border)",
+                            background: isSelected ? "rgba(245, 158, 11, 0.12)" : "var(--bg-card)",
+                            boxShadow: isSelected ? "0 0 15px rgba(245, 158, 11, 0.2)" : "none",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: "0.75rem",
+                            userSelect: "none",
+                            transition: "var(--transition)",
+                          }}
+                        >
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", overflow: "hidden" }}>
+                            <span style={{ fontSize: "1.6rem" }}>{q.icon}</span>
+                            <div style={{ textAlign: "left", overflow: "hidden" }}>
+                              <div style={{ fontWeight: 700, fontSize: "0.92rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                                {q.title}
+                              </div>
+                              <div style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>{q.count} câu hỏi</div>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              width: 22,
+                              height: 22,
+                              borderRadius: 6,
+                              border: isSelected ? "2px solid var(--warning)" : "2px solid var(--border)",
+                              background: isSelected ? "var(--warning)" : "transparent",
+                              color: "#000",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              fontSize: "0.85rem",
+                              fontWeight: 700,
+                              flexShrink: 0,
+                            }}
+                          >
+                            {isSelected ? "✓" : ""}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* STEP 2: Exam Config (Question Count & Time Limit) */}
+          <div className="card" style={{ padding: "1.75rem" }}>
+            <h2 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <span>⚙️</span> 2. Tùy Chọn Cấu Hình Bài Thi
+            </h2>
+
+            <div className="grid-2">
+              {/* Question Count */}
+              <div>
+                <label className="form-label" style={{ marginBottom: "0.6rem", display: "block" }}>
+                  Số Lượng Câu Hỏi Trong Đề Thi:
+                </label>
+                <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                  {[
+                    { val: "20", label: "20 câu" },
+                    { val: "40", label: "40 câu" },
+                    { val: "60", label: "60 câu" },
+                    { val: "80", label: "80 câu (Chuẩn thi)" },
+                    { val: "all", label: `Tất cả (${availableQuestions.length} câu)` },
+                  ].map((opt) => {
+                    const isActive = selectedQuestionCount === opt.val;
+                    return (
+                      <button
+                        key={opt.val}
+                        type="button"
+                        onClick={() => setSelectedQuestionCount(opt.val)}
+                        className={`btn btn-sm ${isActive ? "btn-primary" : "btn-secondary"}`}
+                        style={{ flex: 1, minWidth: 100, padding: "0.5rem 0.65rem" }}
+                      >
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Time Limit */}
+              <div>
+                <label className="form-label" style={{ marginBottom: "0.6rem", display: "block" }}>
+                  Thời Gian Làm Bài (Bấm Giờ Đếm Ngược):
+                </label>
+                <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                  {[
+                    { val: 30, label: "30 phút" },
+                    { val: 45, label: "45 phút" },
+                    { val: 60, label: "60 phút (Chuẩn SEB)" },
+                    { val: 90, label: "90 phút" },
+                  ].map((opt) => {
+                    const isActive = selectedDurationMinutes === opt.val;
+                    return (
+                      <button
+                        key={opt.val}
+                        type="button"
+                        onClick={() => setSelectedDurationMinutes(opt.val)}
+                        className={`btn btn-sm ${isActive ? "btn-primary" : "btn-secondary"}`}
+                        style={{ flex: 1, minWidth: 90, padding: "0.5rem 0.65rem" }}
+                      >
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* STEP 3: SEB Rules Card */}
+          <div
+            className="card"
+            style={{
+              padding: "1.5rem",
+              background: "rgba(245, 158, 11, 0.05)",
+              border: "1px solid rgba(245, 158, 11, 0.3)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.75rem",
+              textAlign: "left",
+            }}
+          >
+            <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--warning)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <span>⚠️</span> Quy Chế Phòng Thi SEB Bắt Buộc (Anti-Cheat):
+            </h3>
+            <ul style={{ margin: 0, paddingLeft: "1.4rem", lineHeight: 1.8, fontSize: "0.92rem", color: "var(--text-main)" }}>
+              <li>
+                <strong>Toàn màn hình bắt buộc:</strong> Trình duyệt sẽ tự động kích hoạt chế độ Fullscreen.
+              </li>
+              <li>
+                <strong>Khóa phím tắt:</strong> Chặn ESC, F12, F5, Ctrl+C/V, chuột phải để chống gian lận.
+              </li>
+              <li>
+                <strong>Chống chuyển Tab:</strong> Hệ thống tự động ghi nhận vi phạm khi bạn click ra ngoài hoặc đổi tab. Vi phạm quá <strong>{MAX_VIOLATIONS} lần</strong> sẽ bị <strong>tự động thu bài ngay lập tức</strong>!
+              </li>
+              <li>
+                <strong>Xáo trộn 100%:</strong> Thứ tự câu hỏi và 4 đáp án A, B, C, D của từng câu đều được đảo ngẫu nhiên hoàn toàn.
+              </li>
+            </ul>
+          </div>
+
+          {/* Action buttons */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+            <Link href="/" className="btn btn-secondary btn-lg">
+              &larr; Về danh sách bộ đề
+            </Link>
+            <button
+              onClick={handleStartExam}
+              disabled={availableQuestions.length === 0}
+              className="btn btn-primary btn-lg"
+              style={{
+                padding: "0.95rem 2.5rem",
+                fontSize: "1.1rem",
+                fontWeight: 800,
+                boxShadow: "0 6px 25px rgba(99, 102, 241, 0.5)",
+              }}
+            >
+              🚀 BẬT TOÀN MÀN HÌNH &amp; BẮT ĐẦU THI MIX ({examQuestionCount} CÂU - {selectedDurationMinutes} PHÚT)
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div style={{ maxWidth: 840, margin: "2rem auto" }}>
         <div className="card card-glass" style={{ padding: "2.5rem 2.25rem", textAlign: "center" }}>
@@ -488,8 +1004,10 @@ export default function ExamClient({ session, user }) {
           <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap" }}>
             <button
               onClick={() => {
-                const randomized = shuffleArray([...(session.questions || [])]).map(shuffleQuestionOptions);
-                setQuestions(randomized);
+                if (!isMix) {
+                  const randomized = shuffleArray([...(session.questions || [])]).map(shuffleQuestionOptions);
+                  setQuestions(randomized);
+                }
                 setAnswers({});
                 setViolations(0);
                 setViolationAlert(null);
