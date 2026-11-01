@@ -269,20 +269,37 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   }, [currentIndex, questions, qKey, submitted, bookmarks, flagged, showTranslation]);
 
   if (!questions || questions.length === 0) {
+    const isPerQuizMistakes = session.slug?.startsWith("mistakes-");
     return (
       <div className="card" style={{ textAlign: "center", padding: "3rem 1.5rem" }}>
         <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>{session.icon || "📂"}</div>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Chưa có câu hỏi nào</h2>
-        <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem" }}>
-          {session.kind === "mistakes"
+        <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
+          {session.kind === "mistakes" ? "Không có câu sai nào!" : "Chưa có câu hỏi nào"}
+        </h2>
+        <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem", maxWidth: 580, margin: "0 auto 1.5rem" }}>
+          {isPerQuizMistakes
+            ? `Tuyệt vời! Bạn không còn câu sai nào trong bộ đề này (${session.title?.replace("Câu sai: ", "") || ""}). Hãy tiếp tục làm chủ các bộ đề khác!`
+            : session.kind === "mistakes"
             ? "Tuyệt vời! Bạn không còn câu hỏi nào trong sổ tay câu sai. Hãy tiếp tục luyện các đề khác!"
             : session.kind === "bookmarks"
             ? "Bạn chưa đánh dấu câu hỏi nào. Khi làm bài, bấm vào biểu tượng ⭐ để lưu câu hỏi khó vào đây."
             : "Bộ đề này hiện chưa có câu hỏi hoặc đang cập nhật."}
         </p>
-        <Link href="/" className="btn btn-primary">
-          &larr; Quay về danh sách bộ đề
-        </Link>
+        <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap" }}>
+          {session.kind === "mistakes" && (
+            <Link href="/mistakes" className="btn btn-primary">
+              📋 Về Sổ tay câu sai
+            </Link>
+          )}
+          {isPerQuizMistakes && session.quizSlug && (
+            <Link href={`/quiz/${session.quizSlug}`} className="btn btn-secondary">
+              📖 Luyện lại bộ đề gốc
+            </Link>
+          )}
+          <Link href="/" className="btn btn-ghost">
+            &larr; Danh sách tất cả bộ đề
+          </Link>
+        </div>
       </div>
     );
   }
@@ -470,8 +487,13 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
             >
               🔄 Làm lại bộ đề này
             </button>
-            <Link href="/quiz/mistakes" className="btn btn-secondary">
-              🩹 Ôn lại các câu sai
+            {result.total - result.correct > 0 && !session.slug.startsWith("mistakes") ? (
+              <Link href={`/quiz/mistakes-${session.slug}`} className="btn btn-danger">
+                🩹 Ôn lại {result.total - result.correct} câu sai của đề này
+              </Link>
+            ) : null}
+            <Link href="/mistakes" className="btn btn-secondary">
+              📋 Sổ tay câu sai (Tất cả đề)
             </Link>
             <Link href="/" className="btn btn-ghost">
               &larr; Về trang chủ
@@ -719,9 +741,15 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
       >
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
-            <Link href="/" style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>
-              &larr; Bộ đề
-            </Link>
+            {session.kind === "mistakes" ? (
+              <Link href="/mistakes" style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>
+                &larr; Sổ câu sai
+              </Link>
+            ) : (
+              <Link href="/" style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>
+                &larr; Bộ đề
+              </Link>
+            )}
             <span style={{ color: "var(--text-dim)" }}>/</span>
             <strong style={{ fontSize: "1.05rem" }}>{session.title}</strong>
             {session.isAiGenerated ? (
@@ -743,19 +771,35 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           <span className="badge badge-primary" style={{ padding: "0.35rem 0.65rem", fontSize: "0.82rem" }}>
             📖 Phòng Luyện Tập
           </span>
-          <Link
-            href={`/exam/${session.slug}`}
-            className="btn btn-secondary btn-sm"
-            title="Chuyển sang phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo đề & đáp án, toàn màn hình)"
-            style={{
-              background: "rgba(245, 158, 11, 0.15)",
-              borderColor: "rgba(245, 158, 11, 0.4)",
-              color: "#fcd34d",
-              fontWeight: 600,
-            }}
-          >
-            ⏱️ Phòng Thi Thử (SEB) &rarr;
-          </Link>
+          {session.kind !== "mistakes" ? (
+            <Link
+              href={`/exam/${session.slug}`}
+              className="btn btn-secondary btn-sm"
+              title="Chuyển sang phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo đề & đáp án, toàn màn hình)"
+              style={{
+                background: "rgba(245, 158, 11, 0.15)",
+                borderColor: "rgba(245, 158, 11, 0.4)",
+                color: "#fcd34d",
+                fontWeight: 600,
+              }}
+            >
+              ⏱️ Phòng Thi Thử (SEB) &rarr;
+            </Link>
+          ) : (
+            <Link
+              href="/mistakes"
+              className="btn btn-secondary btn-sm"
+              style={{
+                background: "rgba(239, 68, 68, 0.12)",
+                borderColor: "rgba(239, 68, 68, 0.35)",
+                color: "#fca5a5",
+                fontWeight: 600,
+              }}
+              title="Quay lại danh sách câu sai theo từng đề"
+            >
+              📋 Danh sách câu sai theo đề
+            </Link>
+          )}
 
           <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
             ⏱️ {formatTime(elapsedSec)}

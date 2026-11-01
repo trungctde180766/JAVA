@@ -53,7 +53,10 @@ export default function Navbar({ user }) {
             <span>🎲</span>
             <span>Thi thử Mix</span>
           </Link>
-          <Link href="/quiz/mistakes" className={`nav-link ${pathname === "/quiz/mistakes" ? "active" : ""}`}>
+          <Link
+            href="/mistakes"
+            className={`nav-link ${pathname === "/mistakes" || pathname?.startsWith("/quiz/mistakes") ? "active" : ""}`}
+          >
             <span>🩹</span>
             <span>Ôn câu sai</span>
           </Link>

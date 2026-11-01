@@ -83,11 +83,31 @@ function dedupe(list) {
  * Tạo "phiên làm bài" cho 1 slug:
  *  - slug bộ đề thật (quiz-1, ...)
  *  - mix        : đề tổng hợp ngẫu nhiên từ mọi bộ đề
- *  - mistakes   : các câu bạn hay làm sai
+ *  - mistakes   : các câu bạn hay làm sai (toàn bộ đề)
+ *  - mistakes-<slug> : các câu sai của riêng 1 bộ đề
  *  - bookmarks  : các câu đã đánh dấu
  *  - topic-xxx  : luyện theo chủ đề
  */
 export async function buildQuizSession(slug, user) {
+  if (slug.startsWith("mistakes-")) {
+    const quizSlug = slug.slice("mistakes-".length);
+    const raw = await getCachedQuizzesRaw();
+    const quiz = raw.find((q) => q.slug === quizSlug);
+    if (!quiz || (quiz.hidden && user.role !== "admin")) return null;
+    const keys = new Set(Object.keys(user.mistakes || {}));
+    const all = await getAllQuestions({ includeHidden: user.role === "admin" });
+    return {
+      slug,
+      kind: "mistakes",
+      quizSlug,
+      title: `Câu sai: ${quiz.title}`,
+      icon: "🩹",
+      color: quiz.color || "#ff5c7a",
+      description: "Câu sẽ rời khỏi danh sách khi bạn trả lời đúng 2 lần liên tiếp.",
+      questions: all.filter((q) => q.quizSlug === quizSlug && keys.has(q.key)),
+    };
+  }
+
   if (slug === "mix" || slug === "mistakes" || slug === "bookmarks" || slug.startsWith("topic-")) {
     const all = await getAllQuestions();
     if (slug === "mix") {
@@ -107,7 +127,7 @@ export async function buildQuizSession(slug, user) {
       return {
         slug,
         kind: "mistakes",
-        title: "Ôn lại câu sai",
+        title: "Ôn toàn bộ câu sai (tất cả bộ đề)",
         icon: "🩹",
         color: "#ff5c7a",
         description: "Câu sẽ rời khỏi danh sách khi bạn trả lời đúng 2 lần liên tiếp.",
@@ -172,8 +192,45 @@ export async function buildQuizSession(slug, user) {
 
 export function sessionTitle(slug, quizTitleMap = {}) {
   if (slug === "mix") return "Đề tổng hợp ngẫu nhiên";
-  if (slug === "mistakes") return "Ôn lại câu sai";
+  if (slug === "mistakes") return "Ôn toàn bộ câu sai";
+  if (slug?.startsWith("mistakes-")) {
+    const qs = slug.slice("mistakes-".length);
+    return `Câu sai: ${quizTitleMap[qs] || qs}`;
+  }
   if (slug === "bookmarks") return "Câu đã đánh dấu";
   if (slug?.startsWith("topic-")) return `Chủ đề: ${topicName(slug.slice(6))}`;
   return quizTitleMap[slug] || slug;
+}
+
+/** Gom sổ câu sai của user theo từng bộ đề (phục vụ trang /mistakes). */
+export async function getMistakesByQuiz(user) {
+  const keys = new Set(Object.keys(user?.mistakes || {}));
+  const raw = await getCachedQuizzesRaw();
+  const quizzes = user?.role === "admin" ? raw : raw.filter((q) => !q.hidden);
+  const groups = [];
+  const clean = [];
+  let total = 0;
+  for (const quiz of quizzes) {
+    const count = (quiz.questions || []).filter((q) => keys.has(`${quiz.slug}:${q.id}`)).length;
+    if (count > 0) {
+      total += count;
+      groups.push({
+        slug: quiz.slug,
+        title: quiz.title,
+        icon: quiz.icon || "📘",
+        color: quiz.color || "#7c5cff",
+        totalQuestions: (quiz.questions || []).length,
+        count,
+      });
+    } else {
+      clean.push({
+        slug: quiz.slug,
+        title: quiz.title,
+        icon: quiz.icon || "📘",
+        color: quiz.color || "#7c5cff",
+        totalQuestions: (quiz.questions || []).length,
+      });
+    }
+  }
+  return { groups, clean, total };
 }

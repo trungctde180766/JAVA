@@ -104,9 +104,11 @@ export default async function HomePage() {
             </div>
             <div>
               <span style={{ color: "var(--text-dim)" }}>Sổ câu sai cần ôn: </span>
-              <strong style={{ color: totalMistakes > 0 ? "var(--danger)" : "var(--success)" }}>
-                {totalMistakes} câu
-              </strong>
+              <Link href="/mistakes" title="Xem sổ tay câu sai theo từng bộ đề">
+                <strong style={{ color: totalMistakes > 0 ? "var(--danger)" : "var(--success)" }}>
+                  {totalMistakes} câu &rarr;
+                </strong>
+              </Link>
             </div>
             <div>
               <span style={{ color: "var(--text-dim)" }}>Câu đã đánh dấu: </span>
@@ -365,7 +367,7 @@ export default async function HomePage() {
           </Link>
 
           {/* Mistakes */}
-          <Link href="/quiz/mistakes" className="card" style={{ borderTop: "4px solid #ff5c7a" }}>
+          <Link href="/mistakes" className="card" style={{ borderTop: "4px solid #ff5c7a" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
               <span style={{ fontSize: "2rem" }}>🩹</span>
               {totalMistakes > 0 && <span className="badge badge-danger">{totalMistakes} câu sai</span>}
@@ -374,9 +376,9 @@ export default async function HomePage() {
               Sổ Tay Ôn Câu Sai
             </h3>
             <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", marginBottom: "1rem" }}>
-              Tự động gom lại những câu bạn từng trả lời sai. Khi bạn trả lời đúng 2 lần liên tiếp, câu sẽ tự động được xóa.
+              Phân loại câu sai theo từng bộ đề để ôn riêng, hoặc ôn toàn bộ cùng lúc. Câu sẽ tự rời sổ khi bạn đúng 2 lần liên tiếp.
             </p>
-            <span style={{ color: "#ff5c7a", fontWeight: 600, fontSize: "0.85rem" }}>Ôn tập câu sai &rarr;</span>
+            <span style={{ color: "#ff5c7a", fontWeight: 600, fontSize: "0.85rem" }}>Xem sổ câu sai &rarr;</span>
           </Link>
 
           {/* Bookmarks */}

@@ -485,12 +485,6 @@ export default function ExamClient({ session, user }) {
           </div>
 
           <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-            <Link href="/" className="btn btn-secondary">
-              &larr; Về danh sách bộ đề
-            </Link>
-            <Link href={`/quiz/${session.slug}`} className="btn btn-ghost" style={{ border: "1px solid var(--border)" }}>
-              📖 Sang phòng Luyện Tập
-            </Link>
             <button
               onClick={() => {
                 const randomized = shuffleArray([...(session.questions || [])]).map(shuffleQuestionOptions);
@@ -505,6 +499,20 @@ export default function ExamClient({ session, user }) {
             >
               🔄 Thi Lại Đề Này
             </button>
+            {result.total - result.correct > 0 && session.slug !== "mix" && (
+              <Link href={`/quiz/mistakes-${session.slug}`} className="btn btn-danger">
+                🩹 Ôn lại {result.total - result.correct} câu sai của đề này
+              </Link>
+            )}
+            <Link href="/mistakes" className="btn btn-secondary">
+              📋 Sổ tay câu sai
+            </Link>
+            <Link href={`/quiz/${session.slug}`} className="btn btn-ghost" style={{ border: "1px solid var(--border)" }}>
+              📖 Sang phòng Luyện Tập
+            </Link>
+            <Link href="/" className="btn btn-ghost">
+              &larr; Về danh sách bộ đề
+            </Link>
           </div>
         </div>
 

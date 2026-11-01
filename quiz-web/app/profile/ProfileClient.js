@@ -116,12 +116,12 @@ export default function ProfileClient({ user, initialAttempts }) {
               {avgScore}%
             </div>
           </div>
-          <div className="card" style={{ padding: "1rem", background: "var(--bg-input)" }}>
-            <div style={{ fontSize: "0.85rem", color: "var(--text-dim)" }}>Câu sai cần ôn</div>
+          <Link href="/mistakes" className="card" style={{ padding: "1rem", background: "var(--bg-input)", display: "block" }} title="Xem sổ tay câu sai">
+            <div style={{ fontSize: "0.85rem", color: "var(--text-dim)" }}>Câu sai cần ôn &rarr;</div>
             <div style={{ fontSize: "1.75rem", fontWeight: 800, color: user.mistakesCount > 0 ? "var(--danger)" : "var(--success)" }}>
               {user.mistakesCount}
             </div>
-          </div>
+          </Link>
           <div className="card" style={{ padding: "1rem", background: "var(--bg-input)" }}>
             <div style={{ fontSize: "0.85rem", color: "var(--text-dim)" }}>Câu đã đánh dấu ⭐</div>
             <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--warning)" }}>{user.bookmarksCount}</div>
@@ -194,12 +194,17 @@ export default function ProfileClient({ user, initialAttempts }) {
                 <strong style={{ fontSize: "0.92rem" }}>Sổ tay câu sai</strong>
                 <div style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Đang có {user.mistakesCount} câu</div>
               </div>
-              <button
-                onClick={() => handleResetData("mistakes", "sổ câu sai")}
-                className="btn btn-secondary btn-sm"
-              >
-                Xóa sổ câu sai
-              </button>
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                <Link href="/mistakes" className="btn btn-primary btn-sm">
+                  Vào ôn tập
+                </Link>
+                <button
+                  onClick={() => handleResetData("mistakes", "sổ câu sai")}
+                  className="btn btn-secondary btn-sm"
+                >
+                  Xóa sổ
+                </button>
+              </div>
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid var(--border)", paddingTop: "0.75rem" }}>
