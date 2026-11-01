@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { highlightJava } from "@/lib/highlight";
+import { highlightJava, formatJavaCode } from "@/lib/highlight";
 
 function shuffleArray(arr) {
   const result = [...arr];
@@ -69,6 +69,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   const [fontScale, setFontScale] = useState(1); // 1 = 100%, 1.15 = 115%, 1.3 = 130%
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [showTranslation, setShowTranslation] = useState(false); // Default off: đề tiếng Anh mặc định tiếng Anh, đề tiếng Việt mặc định tiếng Việt
+  const [formatCode, setFormatCode] = useState(false); // Default off: giữ format gốc của đề để đọc quen khi thi, bấm nút để format dọc dễ đọc
 
   // Exam timer
   const [timeLeft, setTimeLeft] = useState(0);
@@ -673,10 +674,26 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                   )}
 
                   {item.code && (
-                    <div
-                      className="code-box"
-                      dangerouslySetInnerHTML={{ __html: `<pre><code>${highlightJava(item.code)}</code></pre>` }}
-                    />
+                    <div style={{ position: "relative", margin: "0.85rem 0" }}>
+                      <div className="code-header" style={{ padding: "0.25rem 0.6rem", fontSize: "0.78rem" }}>
+                        <span style={{ color: "var(--text-dim)", fontFamily: "monospace" }}>☕ Java Code</span>
+                        <button
+                          type="button"
+                          onClick={() => setFormatCode((p) => !p)}
+                          className={`btn btn-sm ${formatCode ? "btn-primary" : "btn-secondary"}`}
+                          style={{ padding: "0.15rem 0.5rem", fontSize: "0.75rem" }}
+                        >
+                          {formatCode ? "✨ Định dạng dọc (Bật)" : "📐 Format dọc code"}
+                        </button>
+                      </div>
+                      <div
+                        className="code-box"
+                        style={{ margin: 0, borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
+                        dangerouslySetInnerHTML={{
+                          __html: `<pre><code>${highlightJava(formatCode ? formatJavaCode(item.code) : item.code)}</code></pre>`,
+                        }}
+                      />
+                    </div>
                   )}
 
                   <div style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.4rem" }}>
@@ -958,6 +975,19 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                   ? "🇻🇳 Dịch TV (Bật)"
                   : "🇻🇳 Dịch TV"}
               </button>
+
+              {/* Format Code Toggle Button */}
+              {q.code && (
+                <button
+                  type="button"
+                  onClick={() => setFormatCode((p) => !p)}
+                  className={`btn btn-sm ${formatCode ? "btn-primary" : "btn-secondary"}`}
+                  title="Chuyển đổi giữa format dọc dễ đọc và format gốc của đề thi"
+                  style={{ padding: "0.25rem 0.6rem", fontSize: "0.82rem" }}
+                >
+                  {formatCode ? "📐 Code Dọc (Bật)" : "📐 Format Code"}
+                </button>
+              )}
             </div>
           </div>
 
@@ -999,11 +1029,38 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
 
           {/* Code snippet if any */}
           {q.code && (
-            <div
-              className="code-box"
-              style={{ fontSize: `${0.9 * fontScale}rem` }}
-              dangerouslySetInnerHTML={{ __html: `<pre><code>${highlightJava(q.code)}</code></pre>` }}
-            />
+            <div style={{ position: "relative", margin: "0.85rem 0" }}>
+              <div className="code-header">
+                <span style={{ color: "var(--text-dim)", fontFamily: "monospace", display: "flex", alignItems: "center", gap: "0.35rem" }}>
+                  <span>☕</span> <span>Java Source Code</span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setFormatCode((p) => !p)}
+                  className={`btn btn-sm ${formatCode ? "btn-primary" : "btn-secondary"}`}
+                  style={{
+                    padding: "0.2rem 0.55rem",
+                    fontSize: "0.78rem",
+                    lineHeight: 1.2,
+                  }}
+                  title="Chuyển đổi giữa format dọc dễ đọc và format gốc của đề thi"
+                >
+                  {formatCode ? "✨ Đang định dạng dọc (Click về gốc)" : "📐 Format dọc code cho dễ đọc"}
+                </button>
+              </div>
+              <div
+                className="code-box"
+                style={{
+                  margin: 0,
+                  borderTopLeftRadius: 0,
+                  borderTopRightRadius: 0,
+                  fontSize: `${0.9 * fontScale}rem`,
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: `<pre><code>${highlightJava(formatCode ? formatJavaCode(q.code) : q.code)}</code></pre>`,
+                }}
+              />
+            </div>
           )}
 
           {/* Options */}
