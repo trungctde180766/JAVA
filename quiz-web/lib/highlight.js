@@ -8,6 +8,8 @@ const TYPES = new Set("String StringBuffer StringBuilder Object Integer System".
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+const TOKEN = /(\/\/[^\n]*)|("(?:\\.|[^"\\\n])*")|('(?:\\.|[^'\\\n])')|(\b[A-Za-z_]\w*\b)|(\b\d+\b)/g;
+
 export function highlightJava(code = "") {
   let out = "";
   let last = 0;
