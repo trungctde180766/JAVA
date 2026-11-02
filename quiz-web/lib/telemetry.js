@@ -1,4 +1,4 @@
-import { toId } from "./db";
+import { toId } from "./db.js";
 
 export function parseUserAgent(ua = "") {
   const str = String(ua || "");
@@ -85,18 +85,34 @@ export async function logActivity(db, { userId, username, action, details = {}, 
     if (userId) {
       const uId = toId(userId);
       if (uId) {
+        const updateDoc = {
+          lastLoginAt: new Date(),
+          lastActiveAt: new Date(),
+          isOnline: action !== "LOGOUT",
+          lastLoginIp: client.ip,
+          lastDevice: client.device,
+          lastOs: client.os,
+          lastBrowser: client.browser,
+          lastCity: client.city,
+          lastCountry: client.country,
+        };
+
+        if (action === "LOGIN") {
+          updateDoc.currentAction = "Đăng nhập hệ thống";
+        } else if (action === "REGISTER") {
+          updateDoc.currentAction = "Đăng ký tài khoản";
+        } else if (action === "SUBMIT_QUIZ") {
+          updateDoc.currentAction = `Nộp bài: ${details.quizTitle || details.quizSlug || "Thi thử"} (${details.score || ""})`;
+        } else if (action === "BOOKMARK") {
+          updateDoc.currentAction = "Lưu câu hỏi";
+        } else if (action === "LOGOUT") {
+          updateDoc.currentAction = "Đã đăng xuất";
+        }
+
         await db.collection("users").updateOne(
           { _id: uId },
           {
-            $set: {
-              lastLoginAt: new Date(),
-              lastLoginIp: client.ip,
-              lastDevice: client.device,
-              lastOs: client.os,
-              lastBrowser: client.browser,
-              lastCity: client.city,
-              lastCountry: client.country,
-            },
+            $set: updateDoc,
             $addToSet: {
               knownIps: client.ip,
             },
@@ -106,5 +122,44 @@ export async function logActivity(db, { userId, username, action, details = {}, 
     }
   } catch (err) {
     console.error("Lỗi khi ghi nhật ký hoạt động (Telemetry):", err);
+  }
+}
+
+export async function recordHeartbeat(db, { userId, action, pathname, isOffline = false, req }) {
+  if (!userId) return null;
+  const uId = toId(userId);
+  if (!uId) return null;
+
+  try {
+    const client = getClientInfo(req);
+    const now = new Date();
+
+    const setFields = {
+      lastActiveAt: now,
+      isOnline: !isOffline,
+    };
+
+    if (client.ip && client.ip !== "127.0.0.1") {
+      setFields.lastLoginIp = client.ip;
+    }
+    if (client.device) setFields.lastDevice = client.device;
+    if (client.os) setFields.lastOs = client.os;
+    if (client.browser) setFields.lastBrowser = client.browser;
+    if (client.city) setFields.lastCity = client.city;
+    if (client.country) setFields.lastCountry = client.country;
+
+    if (action) setFields.currentAction = action;
+    if (pathname) setFields.currentPath = pathname;
+
+    const updateOps = { $set: setFields };
+    if (client.ip && client.ip !== "127.0.0.1") {
+      updateOps.$addToSet = { knownIps: client.ip };
+    }
+
+    await db.collection("users").updateOne({ _id: uId }, updateOps);
+    return setFields;
+  } catch (err) {
+    console.error("Lỗi khi cập nhật Heartbeat:", err);
+    return null;
   }
 }

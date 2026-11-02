@@ -27,9 +27,14 @@ export async function GET() {
 
     // 3. User & Activity counts
     const dayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
-    const [totalUsers, activeUsers24h, totalAttempts, totalLogs, totalQuizzes] = await Promise.all([
+    const activeThreshold = new Date(Date.now() - 70 * 1000);
+    const [totalUsers, activeUsers24h, onlineUsersNow, totalAttempts, totalLogs, totalQuizzes] = await Promise.all([
       db.collection("users").countDocuments(),
       db.collection("users").countDocuments({ lastLoginAt: { $gte: dayAgo } }),
+      db.collection("users").countDocuments({
+        isOnline: { $ne: false },
+        $or: [{ lastActiveAt: { $gte: activeThreshold } }, { lastLoginAt: { $gte: activeThreshold } }],
+      }),
       db.collection("attempts").countDocuments(),
       db.collection("activity_logs").countDocuments(),
       db.collection("quizzes").countDocuments(),
@@ -72,6 +77,7 @@ export async function GET() {
       },
       stats: {
         totalUsers,
+        onlineUsersNow,
         activeUsers24h,
         totalAttempts,
         totalLogs,

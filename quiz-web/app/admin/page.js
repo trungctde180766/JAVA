@@ -66,23 +66,51 @@ export default async function AdminPage() {
     },
   };
 
-  const serializedUsers = users.map((u) => ({
-    id: String(u._id),
-    username: u.username,
-    role: u.role || "user",
-    banned: !!u.banned,
-    mistakesCount: Object.keys(u.mistakes || {}).length,
-    bookmarksCount: (u.bookmarks || []).length,
-    lastLoginAt: u.lastLoginAt ? u.lastLoginAt.toISOString() : null,
-    lastLoginIp: u.lastLoginIp || "Chưa có",
-    lastDevice: u.lastDevice || "Desktop",
-    lastOs: u.lastOs || "Khác",
-    lastBrowser: u.lastBrowser || "Khác",
-    lastCity: u.lastCity || "Việt Nam",
-    lastCountry: u.lastCountry || "VN",
-    knownIps: u.knownIps || [],
-    createdAt: u.createdAt ? u.createdAt.toISOString() : null,
-  }));
+  const now = Date.now();
+  let onlineUsersNow = 0;
+  const serializedUsers = users.map((u) => {
+    const activeTime = u.lastActiveAt ? new Date(u.lastActiveAt).getTime() : 0;
+    const loginTime = u.lastLoginAt ? new Date(u.lastLoginAt).getTime() : 0;
+    const lastTime = Math.max(activeTime, loginTime);
+    const diffSec = lastTime ? Math.floor((now - lastTime) / 1000) : 999999;
+
+    let status = "offline";
+    let isLiveOnline = false;
+
+    if (u.isOnline !== false && diffSec <= 70) {
+      status = "online";
+      isLiveOnline = true;
+      onlineUsersNow++;
+    } else if (u.isOnline !== false && diffSec <= 300) {
+      status = "away";
+    } else {
+      status = "offline";
+    }
+
+    return {
+      id: String(u._id),
+      username: u.username,
+      role: u.role || "user",
+      banned: !!u.banned,
+      mistakesCount: Object.keys(u.mistakes || {}).length,
+      bookmarksCount: (u.bookmarks || []).length,
+      lastLoginAt: u.lastLoginAt ? u.lastLoginAt.toISOString() : null,
+      lastActiveAt: u.lastActiveAt ? u.lastActiveAt.toISOString() : null,
+      currentAction: u.currentAction || null,
+      currentPath: u.currentPath || null,
+      isOnline: isLiveOnline,
+      status,
+      diffSec,
+      lastLoginIp: u.lastLoginIp || "Chưa có",
+      lastDevice: u.lastDevice || "Desktop",
+      lastOs: u.lastOs || "Khác",
+      lastBrowser: u.lastBrowser || "Khác",
+      lastCity: u.lastCity || "Việt Nam",
+      lastCountry: u.lastCountry || "VN",
+      knownIps: u.knownIps || [],
+      createdAt: u.createdAt ? u.createdAt.toISOString() : null,
+    };
+  });
 
   const serializedQuizzes = quizzes.map((q) => ({
     slug: q.slug,
@@ -128,7 +156,7 @@ export default async function AdminPage() {
   return (
     <AdminClient
       currentUser={{ id: String(user._id), username: user.username }}
-      stats={{ totalUsers, totalQuizzes, totalQuestions, totalAttempts, totalLogs }}
+      stats={{ totalUsers, onlineUsersNow, totalQuizzes, totalQuestions, totalAttempts, totalLogs }}
       initialUsers={serializedUsers}
       initialQuizzes={serializedQuizzes}
       initialAttempts={serializedAttempts}

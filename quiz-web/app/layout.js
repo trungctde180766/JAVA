@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NavigationProgress from "@/components/NavigationProgress";
+import ActivityTracker from "@/components/ActivityTracker";
 import { getSession } from "@/lib/auth";
 
 export const metadata = {
@@ -33,6 +34,7 @@ export default async function RootLayout({ children }) {
         <Suspense fallback={null}>
           <NavigationProgress />
         </Suspense>
+        <ActivityTracker user={user} />
         <div className="bg-glow" />
         <Navbar user={user} />
         <main className="main-wrapper">{children}</main>

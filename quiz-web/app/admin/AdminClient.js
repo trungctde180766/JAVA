@@ -28,6 +28,11 @@ export default function AdminClient({
   const [purging, setPurging] = useState(false);
 
   const [searchUser, setSearchUser] = useState("");
+  const [userStatusFilter, setUserStatusFilter] = useState("all"); // "all" | "online" | "away" | "offline" | "banned"
+  const [autoRefreshUsers, setAutoRefreshUsers] = useState(true);
+  const [isRefreshingUsers, setIsRefreshingUsers] = useState(false);
+  const [lastUsersRefresh, setLastUsersRefresh] = useState(new Date());
+
   const [searchQuiz, setSearchQuiz] = useState("");
   const [logSearch, setLogSearch] = useState("");
   const [logFilterAction, setLogFilterAction] = useState("all");
@@ -48,6 +53,46 @@ export default function AdminClient({
 
   // Reseed state
   const [reseeding, setReseeding] = useState(false);
+
+  // Tải danh sách user theo thời gian thực (Real-time live users)
+  const fetchLiveUsers = async (notify = false) => {
+    setIsRefreshingUsers(true);
+    try {
+      const res = await fetch("/api/admin/users");
+      const data = await res.json();
+      if (res.ok && data.ok) {
+        setUsers(data.users);
+        if (data.stats) {
+          setStats((prev) => ({
+            ...prev,
+            totalUsers: data.stats.totalUsers,
+            onlineUsersNow: data.stats.onlineCount,
+          }));
+        }
+        setLastUsersRefresh(new Date());
+        if (inspectUser) {
+          const updated = data.users.find((u) => u.id === inspectUser.id);
+          if (updated) setInspectUser(updated);
+        }
+        if (notify) alert("Đã cập nhật trạng thái người dùng thành công!");
+      }
+    } catch (err) {
+      console.error("Lỗi cập nhật users live:", err);
+    } finally {
+      setIsRefreshingUsers(false);
+    }
+  };
+
+  // Real-time polling timer: tự động quét mỗi 5s
+  useEffect(() => {
+    if (!autoRefreshUsers) return;
+    const interval = setInterval(() => {
+      if (typeof document !== "undefined" && document.visibilityState === "visible") {
+        fetchLiveUsers(false);
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [autoRefreshUsers, inspectUser?.id]);
 
   // Test DB ping on mount
   useEffect(() => {
@@ -275,11 +320,31 @@ export default function AdminClient({
     }
   };
 
-  const filteredUsers = users.filter((u) =>
-    u.username.toLowerCase().includes(searchUser.toLowerCase()) ||
-    (u.lastLoginIp && u.lastLoginIp.includes(searchUser)) ||
-    (u.lastOs && u.lastOs.toLowerCase().includes(searchUser.toLowerCase()))
-  );
+  const onlineUsers = users.filter((u) => u.status === "online");
+  const awayUsers = users.filter((u) => u.status === "away");
+  const offlineUsers = users.filter((u) => u.status === "offline" || !u.status);
+  const bannedUsers = users.filter((u) => u.banned);
+
+  const filteredUsers = users.filter((u) => {
+    const q = searchUser.trim().toLowerCase();
+    const matchSearch =
+      !q ||
+      u.username.toLowerCase().includes(q) ||
+      (u.lastLoginIp && u.lastLoginIp.includes(q)) ||
+      (u.lastOs && u.lastOs.toLowerCase().includes(q)) ||
+      (u.lastBrowser && u.lastBrowser.toLowerCase().includes(q)) ||
+      (u.currentAction && u.currentAction.toLowerCase().includes(q)) ||
+      (u.currentPath && u.currentPath.toLowerCase().includes(q)) ||
+      (u.lastCity && u.lastCity.toLowerCase().includes(q));
+
+    if (!matchSearch) return false;
+
+    if (userStatusFilter === "online") return u.status === "online";
+    if (userStatusFilter === "away") return u.status === "away";
+    if (userStatusFilter === "offline") return u.status === "offline" || !u.status;
+    if (userStatusFilter === "banned") return !!u.banned;
+    return true;
+  });
 
   const filteredQuizzes = quizzes.filter((q) =>
     q.title.toLowerCase().includes(searchQuiz.toLowerCase())
@@ -352,7 +417,12 @@ export default function AdminClient({
         {/* Stats 5 blocks */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "1rem", marginTop: "1.5rem" }}>
           <div className="card" style={{ padding: "1rem", background: "var(--bg-input)" }}>
-            <div style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>Tổng người dùng</div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>Tổng người dùng</div>
+              <span className="badge badge-live-online" style={{ fontSize: "0.72rem", padding: "0.15rem 0.45rem" }}>
+                <span className="live-status-dot online" /> {onlineUsers.length} online
+              </span>
+            </div>
             <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--accent)" }}>{stats.totalUsers}</div>
           </div>
           <div className="card" style={{ padding: "1rem", background: "var(--bg-input)" }}>
@@ -393,8 +463,27 @@ export default function AdminClient({
         <button
           onClick={() => setTab("users")}
           className={`btn btn-sm ${tab === "users" ? "btn-primary" : "btn-ghost"}`}
+          style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}
         >
-          👥 Quản lý Người dùng ({users.length})
+          <span>👥 Quản lý Người dùng ({users.length})</span>
+          {onlineUsers.length > 0 && (
+            <span
+              style={{
+                fontSize: "0.75rem",
+                color: "#10b981",
+                fontWeight: 700,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.25rem",
+                background: "rgba(16, 185, 129, 0.15)",
+                padding: "0.1rem 0.4rem",
+                borderRadius: "999px",
+              }}
+            >
+              <span className="live-status-dot online" style={{ width: 6, height: 6 }} />
+              {onlineUsers.length}
+            </span>
+          )}
         </button>
         <button
           onClick={() => setTab("quizzes")}
@@ -662,27 +751,203 @@ export default function AdminClient({
         </div>
       )}
 
-      {/* Tab: Quản lý Người dùng */}
+      {/* Tab: Quản lý Người dùng (Real-Time Live Presence & Device Management) */}
       {tab === "users" && (
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem" }}>
-            <input
-              type="text"
-              placeholder="Tìm kiếm theo tên, IP, hệ điều hành..."
-              value={searchUser}
-              onChange={(e) => setSearchUser(e.target.value)}
-              className="form-input"
-              style={{ maxWidth: 350 }}
-            />
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          {/* Quick Real-Time Status Cards */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0.85rem" }}>
+            <div
+              className="card"
+              onClick={() => setUserStatusFilter("all")}
+              style={{
+                padding: "0.85rem 1.1rem",
+                background: userStatusFilter === "all" ? "var(--bg-card-hover)" : "var(--bg-input)",
+                border: userStatusFilter === "all" ? "1px solid var(--primary)" : "1px solid var(--border)",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Tổng người dùng</div>
+              <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--text-main)", marginTop: "0.2rem" }}>
+                {users.length}
+              </div>
+            </div>
+
+            <div
+              className="card"
+              onClick={() => setUserStatusFilter(userStatusFilter === "online" ? "all" : "online")}
+              style={{
+                padding: "0.85rem 1.1rem",
+                background: userStatusFilter === "online" ? "rgba(16, 185, 129, 0.18)" : "var(--bg-input)",
+                border: "1px solid rgba(16, 185, 129, 0.4)",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "0.8rem", color: "var(--success)", fontWeight: 700 }}>
+                  🟢 Đang online
+                </span>
+                <span className="live-status-dot online" />
+              </div>
+              <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--success)", marginTop: "0.2rem" }}>
+                {onlineUsers.length}
+              </div>
+            </div>
+
+            <div
+              className="card"
+              onClick={() => setUserStatusFilter(userStatusFilter === "away" ? "all" : "away")}
+              style={{
+                padding: "0.85rem 1.1rem",
+                background: userStatusFilter === "away" ? "rgba(245, 158, 11, 0.18)" : "var(--bg-input)",
+                border: "1px solid rgba(245, 158, 11, 0.35)",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "0.8rem", color: "var(--warning)", fontWeight: 700 }}>
+                  🟡 Vừa rời đi (&lt; 5p)
+                </span>
+                <span className="live-status-dot away" />
+              </div>
+              <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--warning)", marginTop: "0.2rem" }}>
+                {awayUsers.length}
+              </div>
+            </div>
+
+            <div
+              className="card"
+              onClick={() => setUserStatusFilter(userStatusFilter === "offline" ? "all" : "offline")}
+              style={{
+                padding: "0.85rem 1.1rem",
+                background: userStatusFilter === "offline" ? "rgba(148, 163, 184, 0.18)" : "var(--bg-input)",
+                border: userStatusFilter === "offline" ? "1px solid var(--text-dim)" : "1px solid var(--border)",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>⚪ Ngoại tuyến</span>
+                <span className="live-status-dot offline" />
+              </div>
+              <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--text-muted)", marginTop: "0.2rem" }}>
+                {offlineUsers.length}
+              </div>
+            </div>
+
+            <div
+              className="card"
+              onClick={() => setUserStatusFilter(userStatusFilter === "banned" ? "all" : "banned")}
+              style={{
+                padding: "0.85rem 1.1rem",
+                background: userStatusFilter === "banned" ? "rgba(239, 68, 68, 0.18)" : "var(--bg-input)",
+                border: userStatusFilter === "banned" ? "1px solid var(--danger)" : "1px solid var(--border)",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ fontSize: "0.8rem", color: "var(--danger)" }}>🚫 Bị khóa</div>
+              <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--danger)", marginTop: "0.2rem" }}>
+                {bannedUsers.length}
+              </div>
+            </div>
           </div>
 
+          {/* Search, Status Filters & Real-Time Controls */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem" }}>
+            <div style={{ display: "flex", gap: "0.6rem", alignItems: "center", flexWrap: "wrap", flex: 1 }}>
+              <input
+                type="text"
+                placeholder="Tìm theo tên, IP, hệ điều hành, hành động..."
+                value={searchUser}
+                onChange={(e) => setSearchUser(e.target.value)}
+                className="form-input"
+                style={{ maxWidth: 320 }}
+              />
+
+              {/* Status Filter Pills */}
+              <div style={{ display: "inline-flex", gap: "0.35rem", flexWrap: "wrap" }}>
+                <button
+                  onClick={() => setUserStatusFilter("all")}
+                  className={`btn btn-sm ${userStatusFilter === "all" ? "btn-primary" : "btn-ghost"}`}
+                >
+                  Tất cả ({users.length})
+                </button>
+                <button
+                  onClick={() => setUserStatusFilter("online")}
+                  className={`btn btn-sm ${userStatusFilter === "online" ? "btn-success" : "btn-ghost"}`}
+                  style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}
+                >
+                  <span className="live-status-dot online" />
+                  <span>Online ({onlineUsers.length})</span>
+                </button>
+                <button
+                  onClick={() => setUserStatusFilter("away")}
+                  className={`btn btn-sm ${userStatusFilter === "away" ? "btn-secondary" : "btn-ghost"}`}
+                >
+                  🟡 Vừa rời ({awayUsers.length})
+                </button>
+                <button
+                  onClick={() => setUserStatusFilter("offline")}
+                  className={`btn btn-sm ${userStatusFilter === "offline" ? "btn-secondary" : "btn-ghost"}`}
+                >
+                  ⚪ Ngoại tuyến ({offlineUsers.length})
+                </button>
+                {bannedUsers.length > 0 && (
+                  <button
+                    onClick={() => setUserStatusFilter("banned")}
+                    className={`btn btn-sm ${userStatusFilter === "banned" ? "btn-danger" : "btn-ghost"}`}
+                  >
+                    🚫 Khóa ({bannedUsers.length})
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Auto-Refresh Toggle & Manual Trigger */}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+              <button
+                onClick={() => setAutoRefreshUsers(!autoRefreshUsers)}
+                className={`btn btn-sm ${autoRefreshUsers ? "btn-secondary" : "btn-ghost"}`}
+                title={autoRefreshUsers ? "Bấm để tạm dừng tự động làm mới real-time" : "Bấm để bật tự động làm mới real-time mỗi 5 giây"}
+                style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem" }}
+              >
+                {autoRefreshUsers ? (
+                  <>
+                    <span className="live-status-dot online" style={{ width: 8, height: 8 }} />
+                    <span style={{ fontWeight: 600 }}>Real-time: Bật (5s)</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="live-status-dot offline" style={{ width: 8, height: 8 }} />
+                    <span>Real-time: Tắt</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                onClick={() => fetchLiveUsers(true)}
+                disabled={isRefreshingUsers}
+                className="btn btn-secondary btn-sm"
+                title="Làm mới danh sách ngay lập tức"
+                style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}
+              >
+                <span className={isRefreshingUsers ? "spinning-icon" : ""}>🔄</span>
+                <span>Làm mới</span>
+              </button>
+
+              <span style={{ fontSize: "0.78rem", color: "var(--text-dim)", whiteSpace: "nowrap" }}>
+                {lastUsersRefresh ? `${lastUsersRefresh.toLocaleTimeString("vi-VN")}` : ""}
+              </span>
+            </div>
+          </div>
+
+          {/* User Presence Table */}
           <div className="card" style={{ padding: 0, overflowX: "auto" }}>
             <table className="data-table">
               <thead>
                 <tr>
                   <th>Tên người dùng</th>
                   <th>Vai trò</th>
-                  <th>Trạng thái</th>
+                  <th>Tài khoản</th>
+                  <th style={{ minWidth: 230 }}>Hoạt động Real-time</th>
                   <th>Thiết bị &amp; IP gần nhất</th>
                   <th>Vị trí</th>
                   <th>Sổ câu sai</th>
@@ -691,84 +956,146 @@ export default function AdminClient({
                 </tr>
               </thead>
               <tbody>
-                {filteredUsers.map((u) => {
-                  const isMe = u.id === currentUser.id;
-                  return (
-                    <tr key={u.id}>
-                      <td style={{ fontWeight: 600 }}>
-                        {u.username} {isMe && <span style={{ color: "var(--primary)", fontSize: "0.8rem" }}>(bạn)</span>}
-                      </td>
-                      <td>
-                        <span className={`badge ${u.role === "admin" ? "badge-warning" : "badge-primary"}`}>
-                          {u.role}
-                        </span>
-                      </td>
-                      <td>
-                        <span className={`badge ${u.banned ? "badge-danger" : "badge-success"}`}>
-                          {u.banned ? "Bị khóa" : "Hoạt động"}
-                        </span>
-                      </td>
-                      <td>
-                        <div style={{ fontSize: "0.85rem" }}>
-                          {u.lastDevice === "Mobile" ? "📱" : "💻"} <strong>{u.lastOs}</strong> ({u.lastBrowser})
-                        </div>
-                        <div style={{ fontFamily: "monospace", fontSize: "0.78rem", color: "var(--text-dim)" }}>
-                          IP: {u.lastLoginIp}
-                        </div>
-                      </td>
-                      <td style={{ fontSize: "0.82rem", color: "var(--text-muted)" }}>
-                        📍 {u.lastCity}, {u.lastCountry}
-                      </td>
-                      <td>{u.mistakesCount} câu</td>
-                      <td style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>
-                        {timeAgo(u.lastLoginAt || u.createdAt)}
-                      </td>
-                      <td style={{ textAlign: "right" }}>
-                        <div style={{ display: "inline-flex", gap: "0.35rem" }}>
-                          <button
-                            onClick={() => setInspectUser(u)}
-                            className="btn btn-secondary btn-sm"
-                            title="Xem chi tiết máy, IP và lịch sử hoạt động"
-                          >
-                            🔍 Soi máy
-                          </button>
-                          <button
-                            onClick={() => handleToggleRole(u)}
-                            disabled={isMe}
-                            className="btn btn-secondary btn-sm"
-                            title="Đổi quyền Admin / User"
-                          >
-                            {u.role === "admin" ? "Hạ quyền" : "Cấp Admin"}
-                          </button>
-                          <button
-                            onClick={() => handleToggleBan(u)}
-                            disabled={isMe}
-                            className={`btn btn-sm ${u.banned ? "btn-success" : "btn-secondary"}`}
-                          >
-                            {u.banned ? "Mở khóa" : "Khóa"}
-                          </button>
-                          <button
-                            onClick={() => {
-                              setResetTargetUser(u);
-                              setNewPasswordVal("");
-                            }}
-                            className="btn btn-secondary btn-sm"
-                          >
-                            Đổi MK
-                          </button>
-                          <button
-                            onClick={() => handleDeleteUser(u)}
-                            disabled={isMe}
-                            className="btn btn-danger btn-sm"
-                            title="Xóa tài khoản"
-                          >
-                            Xóa
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {filteredUsers.length === 0 ? (
+                  <tr>
+                    <td colSpan={9} style={{ textAlign: "center", padding: "2.5rem 1rem", color: "var(--text-muted)" }}>
+                      Không tìm thấy người dùng nào phù hợp với bộ lọc hiện tại.
+                    </td>
+                  </tr>
+                ) : (
+                  filteredUsers.map((u) => {
+                    const isMe = u.id === currentUser.id;
+                    const isOnline = u.status === "online";
+                    const isAway = u.status === "away";
+                    return (
+                      <tr
+                        key={u.id}
+                        style={{
+                          background: isOnline ? "rgba(16, 185, 129, 0.04)" : undefined,
+                          transition: "background 0.3s ease",
+                        }}
+                      >
+                        <td style={{ fontWeight: 600 }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
+                            <span
+                              className={`live-status-dot ${u.status || "offline"}`}
+                              title={isOnline ? "🟢 Đang trực tuyến" : isAway ? "🟡 Vừa rời đi (< 5 phút)" : "⚪ Ngoại tuyến"}
+                            />
+                            <span>{u.username}</span>
+                            {isMe && <span style={{ color: "var(--primary)", fontSize: "0.78rem" }}>(bạn)</span>}
+                          </div>
+                        </td>
+                        <td>
+                          <span className={`badge ${u.role === "admin" ? "badge-warning" : "badge-primary"}`}>
+                            {u.role === "admin" ? "🛡️ admin" : "user"}
+                          </span>
+                        </td>
+                        <td>
+                          <span className={`badge ${u.banned ? "badge-danger" : "badge-secondary"}`}>
+                            {u.banned ? "🚫 Bị khóa" : "Bình thường"}
+                          </span>
+                        </td>
+                        <td>
+                          {isOnline ? (
+                            <div>
+                              <div className="badge badge-live-online" style={{ fontSize: "0.8rem", marginBottom: "0.25rem" }}>
+                                <span className="live-status-dot online" />
+                                <span>Đang trực tuyến</span>
+                              </div>
+                              <div style={{ fontSize: "0.83rem", fontWeight: 600, color: "var(--text-main)" }}>
+                                {u.currentAction || "Đang duyệt bài"}
+                              </div>
+                              <div style={{ fontSize: "0.75rem", color: "var(--text-dim)", marginTop: "0.15rem" }}>
+                                ⏱️ {u.diffSec < 15 ? "Vừa xong" : `${u.diffSec}s trước`} {u.currentPath ? `• ${u.currentPath}` : ""}
+                              </div>
+                            </div>
+                          ) : isAway ? (
+                            <div>
+                              <div className="badge badge-live-away" style={{ fontSize: "0.8rem", marginBottom: "0.25rem" }}>
+                                <span className="live-status-dot away" />
+                                <span>Vừa rời đi</span>
+                              </div>
+                              <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
+                                {u.currentAction || "Không có thao tác"}
+                              </div>
+                              <div style={{ fontSize: "0.75rem", color: "var(--text-dim)", marginTop: "0.15rem" }}>
+                                ⏱️ Hoạt động {timeAgo(u.lastActiveAt || u.lastLoginAt)}
+                              </div>
+                            </div>
+                          ) : (
+                            <div>
+                              <div className="badge badge-live-offline" style={{ fontSize: "0.78rem", marginBottom: "0.25rem" }}>
+                                <span className="live-status-dot offline" />
+                                <span>Ngoại tuyến</span>
+                              </div>
+                              <div style={{ fontSize: "0.75rem", color: "var(--text-dim)" }}>
+                                Lần cuối: {timeAgo(u.lastActiveAt || u.lastLoginAt || u.createdAt)}
+                              </div>
+                            </div>
+                          )}
+                        </td>
+                        <td>
+                          <div style={{ fontSize: "0.85rem" }}>
+                            {u.lastDevice === "Mobile" ? "📱" : "💻"} <strong>{u.lastOs}</strong> ({u.lastBrowser})
+                          </div>
+                          <div style={{ fontFamily: "monospace", fontSize: "0.78rem", color: "var(--text-dim)" }}>
+                            IP: {u.lastLoginIp}
+                          </div>
+                        </td>
+                        <td style={{ fontSize: "0.82rem", color: "var(--text-muted)" }}>
+                          📍 {u.lastCity}, {u.lastCountry}
+                        </td>
+                        <td>{u.mistakesCount} câu</td>
+                        <td style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>
+                          {timeAgo(u.lastLoginAt || u.createdAt)}
+                        </td>
+                        <td style={{ textAlign: "right" }}>
+                          <div style={{ display: "inline-flex", gap: "0.35rem" }}>
+                            <button
+                              onClick={() => setInspectUser(u)}
+                              className="btn btn-secondary btn-sm"
+                              title="Xem chi tiết máy, IP và lịch sử hoạt động real-time"
+                            >
+                              🔍 Soi máy
+                            </button>
+                            <button
+                              onClick={() => handleToggleRole(u)}
+                              disabled={isMe}
+                              className="btn btn-secondary btn-sm"
+                              title="Đổi quyền Admin / User"
+                            >
+                              {u.role === "admin" ? "Hạ quyền" : "Cấp Admin"}
+                            </button>
+                            <button
+                              onClick={() => handleToggleBan(u)}
+                              disabled={isMe}
+                              className={`btn btn-sm ${u.banned ? "btn-success" : "btn-secondary"}`}
+                            >
+                              {u.banned ? "Mở khóa" : "Khóa"}
+                            </button>
+                            <button
+                              onClick={() => {
+                                setResetTargetUser(u);
+                                setNewPasswordVal("");
+                              }}
+                              className="btn btn-secondary btn-sm"
+                            >
+                              Đổi MK
+                            </button>
+                            <button
+                              onClick={() => handleDeleteUser(u)}
+                              disabled={isMe}
+                              className="btn btn-danger btn-sm"
+                              title="Xóa tài khoản"
+                            >
+                              Xóa
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
               </tbody>
             </table>
           </div>
@@ -913,6 +1240,72 @@ export default function AdminClient({
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+              {/* Real-Time Live Presence Card */}
+              <div
+                style={{
+                  padding: "1rem",
+                  borderRadius: "var(--radius-sm)",
+                  background:
+                    inspectUser.status === "online"
+                      ? "rgba(16, 185, 129, 0.12)"
+                      : inspectUser.status === "away"
+                      ? "rgba(245, 158, 11, 0.12)"
+                      : "rgba(148, 163, 184, 0.1)",
+                  border: `1px solid ${
+                    inspectUser.status === "online"
+                      ? "rgba(16, 185, 129, 0.35)"
+                      : inspectUser.status === "away"
+                      ? "rgba(245, 158, 11, 0.35)"
+                      : "rgba(148, 163, 184, 0.25)"
+                  }`,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  gap: "0.75rem",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                  <span
+                    className={`live-status-dot ${inspectUser.status || "offline"}`}
+                    style={{ width: 12, height: 12 }}
+                  />
+                  <div>
+                    <div
+                      style={{
+                        fontWeight: 800,
+                        fontSize: "1rem",
+                        color:
+                          inspectUser.status === "online"
+                            ? "var(--success)"
+                            : inspectUser.status === "away"
+                            ? "var(--warning)"
+                            : "var(--text-muted)",
+                      }}
+                    >
+                      {inspectUser.status === "online"
+                        ? "🟢 ĐANG TRỰC TUYẾN (Real-time Online)"
+                        : inspectUser.status === "away"
+                        ? "🟡 VỪA RỜI ĐI / CHỜ"
+                        : "⚪ NGOẠI TUYẾN (Offline)"}
+                    </div>
+                    <div style={{ fontSize: "0.85rem", color: "var(--text-main)", marginTop: "0.2rem" }}>
+                      <strong>Hoạt động:</strong> {inspectUser.currentAction || "Không có thao tác cụ thể"}
+                      {inspectUser.currentPath && (
+                        <code style={{ marginLeft: "0.4rem", color: "var(--accent)" }}>{inspectUser.currentPath}</code>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ textAlign: "right", fontSize: "0.8rem", color: "var(--text-dim)" }}>
+                  <div>Phản hồi: <strong>{timeAgo(inspectUser.lastActiveAt || inspectUser.lastLoginAt)}</strong></div>
+                  {inspectUser.diffSec !== undefined && inspectUser.diffSec < 300 && (
+                    <div style={{ fontSize: "0.74rem", color: "var(--accent)" }}>{inspectUser.diffSec}s trước</div>
+                  )}
+                </div>
+              </div>
+
               {/* Device Box */}
               <div style={{ padding: "1rem", borderRadius: "var(--radius-sm)", background: "var(--bg-input)", border: "1px solid var(--border)" }}>
                 <h4 style={{ fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.5rem", color: "var(--accent)" }}>
