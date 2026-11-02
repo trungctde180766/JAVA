@@ -385,7 +385,7 @@ export default function AdminClient({
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+    <div className="admin-dashboard-root" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
       {/* Top Banner */}
       <div className="card card-glass" style={{ padding: "1.75rem 2rem" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
@@ -939,26 +939,22 @@ export default function AdminClient({
             </div>
           </div>
 
-          {/* User Presence Table */}
-          <div className="card" style={{ padding: 0, overflowX: "auto" }}>
-            <table className="data-table">
+          {/* User Presence Table - Đảm bảo vừa khít 100% trang, không bị cuộn ngang */}
+          <div className="card" style={{ padding: 0, overflow: "hidden" }}>
+            <table className="data-table admin-users-table" style={{ width: "100%", tableLayout: "fixed" }}>
               <thead>
                 <tr>
-                  <th>Tên người dùng</th>
-                  <th>Vai trò</th>
-                  <th>Tài khoản</th>
-                  <th style={{ minWidth: 230 }}>Hoạt động Real-time</th>
-                  <th>Thiết bị &amp; IP gần nhất</th>
-                  <th>Vị trí</th>
-                  <th>Sổ câu sai</th>
-                  <th>Lần đăng nhập</th>
-                  <th style={{ textAlign: "right" }}>Thao tác</th>
+                  <th style={{ width: "20%" }}>Người dùng</th>
+                  <th style={{ width: "25%" }}>Hoạt động Real-time</th>
+                  <th style={{ width: "25%" }}>Thiết bị &amp; IP (Vị trí)</th>
+                  <th style={{ width: "12%" }}>Học tập &amp; Lần cuối</th>
+                  <th style={{ width: "18%", textAlign: "right" }}>Thao tác</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredUsers.length === 0 ? (
                   <tr>
-                    <td colSpan={9} style={{ textAlign: "center", padding: "2.5rem 1rem", color: "var(--text-muted)" }}>
+                    <td colSpan={5} style={{ textAlign: "center", padding: "2.5rem 1rem", color: "var(--text-muted)" }}>
                       Không tìm thấy người dùng nào phù hợp với bộ lọc hiện tại.
                     </td>
                   </tr>
@@ -975,94 +971,136 @@ export default function AdminClient({
                           transition: "background 0.3s ease",
                         }}
                       >
-                        <td style={{ fontWeight: 600 }}>
-                          <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
+                        {/* 1. Người dùng & Vai trò */}
+                        <td>
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                             <span
                               className={`live-status-dot ${u.status || "offline"}`}
                               title={isOnline ? "🟢 Đang trực tuyến" : isAway ? "🟡 Vừa rời đi (< 5 phút)" : "⚪ Ngoại tuyến"}
                             />
-                            <span>{u.username}</span>
-                            {isMe && <span style={{ color: "var(--primary)", fontSize: "0.78rem" }}>(bạn)</span>}
+                            <span style={{ fontWeight: 700, fontSize: "0.92rem", wordBreak: "break-all" }}>{u.username}</span>
+                            {isMe && <span style={{ color: "var(--primary)", fontSize: "0.75rem", fontWeight: 600 }}>(bạn)</span>}
+                          </div>
+                          <div style={{ display: "flex", gap: "0.3rem", marginTop: "0.25rem", alignItems: "center", flexWrap: "wrap" }}>
+                            <span className={`badge ${u.role === "admin" ? "badge-warning" : "badge-primary"}`} style={{ fontSize: "0.72rem", padding: "0.1rem 0.45rem" }}>
+                              {u.role === "admin" ? "🛡️ admin" : "user"}
+                            </span>
+                            {u.banned && (
+                              <span className="badge badge-danger" style={{ fontSize: "0.72rem", padding: "0.1rem 0.45rem" }}>
+                                🚫 Bị khóa
+                              </span>
+                            )}
                           </div>
                         </td>
-                        <td>
-                          <span className={`badge ${u.role === "admin" ? "badge-warning" : "badge-primary"}`}>
-                            {u.role === "admin" ? "🛡️ admin" : "user"}
-                          </span>
-                        </td>
-                        <td>
-                          <span className={`badge ${u.banned ? "badge-danger" : "badge-secondary"}`}>
-                            {u.banned ? "🚫 Bị khóa" : "Bình thường"}
-                          </span>
-                        </td>
+
+                        {/* 2. Hoạt động Real-time */}
                         <td>
                           {isOnline ? (
                             <div>
-                              <div className="badge badge-live-online" style={{ fontSize: "0.8rem", marginBottom: "0.25rem" }}>
+                              <div className="badge badge-live-online" style={{ fontSize: "0.76rem", padding: "0.12rem 0.48rem", marginBottom: "0.2rem" }}>
                                 <span className="live-status-dot online" />
                                 <span>Đang trực tuyến</span>
                               </div>
-                              <div style={{ fontSize: "0.83rem", fontWeight: 600, color: "var(--text-main)" }}>
+                              <div
+                                style={{
+                                  fontSize: "0.82rem",
+                                  fontWeight: 600,
+                                  color: "var(--text-main)",
+                                  whiteSpace: "nowrap",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                }}
+                                title={u.currentAction || "Đang duyệt web"}
+                              >
                                 {u.currentAction || "Đang duyệt bài"}
                               </div>
-                              <div style={{ fontSize: "0.75rem", color: "var(--text-dim)", marginTop: "0.15rem" }}>
+                              <div style={{ fontSize: "0.74rem", color: "var(--text-dim)", marginTop: "0.1rem" }}>
                                 ⏱️ {u.diffSec < 15 ? "Vừa xong" : `${u.diffSec}s trước`} {u.currentPath ? `• ${u.currentPath}` : ""}
                               </div>
                             </div>
                           ) : isAway ? (
                             <div>
-                              <div className="badge badge-live-away" style={{ fontSize: "0.8rem", marginBottom: "0.25rem" }}>
+                              <div className="badge badge-live-away" style={{ fontSize: "0.76rem", padding: "0.12rem 0.48rem", marginBottom: "0.2rem" }}>
                                 <span className="live-status-dot away" />
                                 <span>Vừa rời đi</span>
                               </div>
-                              <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
-                                {u.currentAction || "Không có thao tác"}
+                              <div
+                                style={{
+                                  fontSize: "0.8rem",
+                                  color: "var(--text-muted)",
+                                  whiteSpace: "nowrap",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                }}
+                                title={u.currentAction || "Không thao tác"}
+                              >
+                                {u.currentAction || "Không thao tác"}
                               </div>
-                              <div style={{ fontSize: "0.75rem", color: "var(--text-dim)", marginTop: "0.15rem" }}>
-                                ⏱️ Hoạt động {timeAgo(u.lastActiveAt || u.lastLoginAt)}
+                              <div style={{ fontSize: "0.74rem", color: "var(--text-dim)", marginTop: "0.1rem" }}>
+                                ⏱️ {timeAgo(u.lastActiveAt || u.lastLoginAt)}
                               </div>
                             </div>
                           ) : (
                             <div>
-                              <div className="badge badge-live-offline" style={{ fontSize: "0.78rem", marginBottom: "0.25rem" }}>
+                              <div className="badge badge-live-offline" style={{ fontSize: "0.76rem", padding: "0.12rem 0.48rem", marginBottom: "0.2rem" }}>
                                 <span className="live-status-dot offline" />
                                 <span>Ngoại tuyến</span>
                               </div>
-                              <div style={{ fontSize: "0.75rem", color: "var(--text-dim)" }}>
+                              <div style={{ fontSize: "0.74rem", color: "var(--text-dim)" }}>
                                 Lần cuối: {timeAgo(u.lastActiveAt || u.lastLoginAt || u.createdAt)}
                               </div>
                             </div>
                           )}
                         </td>
+
+                        {/* 3. Thiết bị, IP & Vị trí */}
                         <td>
-                          <div style={{ fontSize: "0.85rem" }}>
-                            {u.lastDevice === "Mobile" ? "📱" : "💻"} <strong>{u.lastOs}</strong> ({u.lastBrowser})
+                          <div style={{ fontSize: "0.84rem", fontWeight: 600 }}>
+                            {u.lastDevice === "Mobile" ? "📱" : "💻"} {u.lastOs}{" "}
+                            <span style={{ fontWeight: 400, color: "var(--text-dim)", fontSize: "0.78rem" }}>
+                              ({u.lastBrowser})
+                            </span>
                           </div>
-                          <div style={{ fontFamily: "monospace", fontSize: "0.78rem", color: "var(--text-dim)" }}>
-                            IP: {u.lastLoginIp}
+                          <div style={{ fontSize: "0.78rem", color: "var(--text-dim)", marginTop: "0.2rem", display: "flex", gap: "0.35rem", alignItems: "center", flexWrap: "wrap" }}>
+                            <code style={{ fontSize: "0.76rem" }}>{u.lastLoginIp}</code>
+                            <span>•</span>
+                            <span title={`${u.lastCity}, ${u.lastCountry}`}>
+                              📍 {u.lastCity ? `${u.lastCity}, ${u.lastCountry}` : "Việt Nam"}
+                            </span>
                           </div>
                         </td>
-                        <td style={{ fontSize: "0.82rem", color: "var(--text-muted)" }}>
-                          📍 {u.lastCity}, {u.lastCountry}
+
+                        {/* 4. Tiến độ học tập & Lần đăng nhập */}
+                        <td>
+                          <div style={{ fontSize: "0.82rem", fontWeight: 600 }}>
+                            {u.mistakesCount > 0 ? (
+                              <span style={{ color: "var(--warning)" }}>{u.mistakesCount} câu sai</span>
+                            ) : (
+                              <span style={{ color: "var(--text-dim)", fontWeight: 400 }}>0 câu sai</span>
+                            )}
+                          </div>
+                          <div style={{ fontSize: "0.74rem", color: "var(--text-dim)", marginTop: "0.2rem" }}>
+                            {timeAgo(u.lastLoginAt || u.createdAt)}
+                          </div>
                         </td>
-                        <td>{u.mistakesCount} câu</td>
-                        <td style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>
-                          {timeAgo(u.lastLoginAt || u.createdAt)}
-                        </td>
+
+                        {/* 5. Thao tác gọn gàng, không bị tràn màn hình */}
                         <td style={{ textAlign: "right" }}>
-                          <div style={{ display: "inline-flex", gap: "0.35rem" }}>
+                          <div style={{ display: "inline-flex", gap: "0.25rem", flexWrap: "wrap", justifyContent: "flex-end" }}>
                             <button
                               onClick={() => setInspectUser(u)}
                               className="btn btn-secondary btn-sm"
-                              title="Xem chi tiết máy, IP và lịch sử hoạt động real-time"
+                              title="Soi máy & Chi tiết hoạt động"
+                              style={{ padding: "0.25rem 0.5rem", fontSize: "0.78rem" }}
                             >
-                              🔍 Soi máy
+                              🔍 Soi
                             </button>
                             <button
                               onClick={() => handleToggleRole(u)}
                               disabled={isMe}
                               className="btn btn-secondary btn-sm"
-                              title="Đổi quyền Admin / User"
+                              title={u.role === "admin" ? "Hạ quyền xuống User" : "Cấp quyền Admin"}
+                              style={{ padding: "0.25rem 0.45rem", fontSize: "0.78rem" }}
                             >
                               {u.role === "admin" ? "Hạ quyền" : "Cấp Admin"}
                             </button>
@@ -1070,8 +1108,10 @@ export default function AdminClient({
                               onClick={() => handleToggleBan(u)}
                               disabled={isMe}
                               className={`btn btn-sm ${u.banned ? "btn-success" : "btn-secondary"}`}
+                              title={u.banned ? "Mở khóa tài khoản" : "Khóa tài khoản"}
+                              style={{ padding: "0.25rem 0.45rem", fontSize: "0.78rem" }}
                             >
-                              {u.banned ? "Mở khóa" : "Khóa"}
+                              {u.banned ? "Mở" : "Khóa"}
                             </button>
                             <button
                               onClick={() => {
@@ -1079,6 +1119,8 @@ export default function AdminClient({
                                 setNewPasswordVal("");
                               }}
                               className="btn btn-secondary btn-sm"
+                              title="Đặt lại mật khẩu mới"
+                              style={{ padding: "0.25rem 0.45rem", fontSize: "0.78rem" }}
                             >
                               Đổi MK
                             </button>
@@ -1087,6 +1129,7 @@ export default function AdminClient({
                               disabled={isMe}
                               className="btn btn-danger btn-sm"
                               title="Xóa tài khoản"
+                              style={{ padding: "0.25rem 0.45rem", fontSize: "0.78rem" }}
                             >
                               Xóa
                             </button>

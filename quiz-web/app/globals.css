@@ -1126,3 +1126,17 @@ a {
   border-color: var(--primary);
   transform: translateY(-1px);
 }
+
+
+/* Full-width responsive Admin Dashboard */
+.main-wrapper:has(.admin-dashboard-root) {
+  max-width: 1540px;
+  width: 100%;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+.admin-users-table th,
+.admin-users-table td {
+  padding: 0.75rem 0.85rem;
+  vertical-align: middle;
+}
