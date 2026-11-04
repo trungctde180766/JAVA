@@ -1,0 +1,13118 @@
+// SCJP Chapter Self Test Questions (Sierra & Bates - 9 Chapters)
+// Extracted from original chapter PDFs in quiz-web/SCJP Chapter
+
+export const scjpChapterQuestions = [
+  {
+    "id": "scjp-ch01-001",
+    "originalId": 1,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, what is the result? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        signed int x = 10;\n4.           for (int y=0; y<5; y++, x--)\n5.              System.out.print(\" \" + x);\n6.     }\n7.  }",
+    "options": [
+      "1 09876",
+      "98765",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "1 09876",
+      "98765",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. The word “signed” is not a valid modifier keyword in the Java language. All number primitives in Java are signed. Always."
+  },
+  {
+    "id": "scjp-ch01-002",
+    "originalId": 2,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which is a reserved word in the Java programming language? (Choose one.)",
+    "textVi": "Từ nào là từ khóa bảo lưu trong ngôn ngữ Java? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "method",
+      "native",
+      "subclasses",
+      "reference",
+      "array 46 Chapter 1: Language Fundamentals"
+    ],
+    "optionsVi": [
+      "method",
+      "native",
+      "subclasses",
+      "reference",
+      "array 46 Chapter 1: Language Fundamentals"
+    ],
+    "answer": 1,
+    "explanation": "B. The wordnative is a valid keyword, used to modify a method declaration. ✗ A, D,a n dE are not keywords. C is wrong because the keyword for subclassing in Java isextends, not ‘subclasses’."
+  },
+  {
+    "id": "scjp-ch01-003",
+    "originalId": 3,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+    "textVi": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+    "code": "",
+    "options": [
+      "class,if,void,long,Int,continue",
+      "goto,instanceof,native,finally,default,throws",
+      "try,virtual,throw,final,volatile,transient",
+      "strictfp,constant,super,implements,do",
+      "byte,break,assert,switch,include"
+    ],
+    "optionsVi": [
+      "class,if,void,long,Int,continue",
+      "goto,instanceof,native,finally,default,throws",
+      "try,virtual,throw,final,volatile,transient",
+      "strictfp,constant,super,implements,do",
+      "byte,break,assert,switch,include"
+    ],
+    "answer": 1,
+    "explanation": "B. All the words in answer B are among the 49 Java keywords. ✗ A is wrong because the keyword for the primitive int starts with a lowercase i . C is wrong because “virtual” is a keyword in C++, but not Java. D is wrong because “constant” is not a keyword. Constants in Java are marked static andfinal. E is wrong because “include” is a keyword in C, but not Java."
+  },
+  {
+    "id": "scjp-ch01-004",
+    "originalId": 4,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which two are keywords? (Choose two.)",
+    "textVi": "Hai từ nào dưới đây là từ khóa của Java? (Chọn 2 đáp án)",
+    "code": "",
+    "options": [
+      "A và D (A: interface & D: this)",
+      "A và B (A: interface & B: unsigned)",
+      "B và C (B: unsigned & C: Float)",
+      "D và E (D: this & E: string Literals and Ranges of All Primitive Data Types (Objective 4.6))"
+    ],
+    "optionsVi": [
+      "A và D (A: interface & D: this)",
+      "A và B (A: interface & B: unsigned)",
+      "B và C (B: unsigned & C: Float)",
+      "D và E (D: this & E: string Literals and Ranges of All Primitive Data Types (Objective 4.6))"
+    ],
+    "answer": 0,
+    "explanation": "A and D. Bothinterface andthis are both valid keywords. ✗ B is wrong because “unsigned” is a keyword in C/C++ but not in Java. C is wrong because “Float” is a class type. The keyword for the Java primitive isfloat. E is wrong because although “String” is a class type in Java, “string” is not a keyword. Literals and Ranges of All Primitive Data Types (Objective 4.6)"
+  },
+  {
+    "id": "scjp-ch01-005",
+    "originalId": 5,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which three are valid declarations of a char? (Choose three.)",
+    "textVi": "Ba khai báo nào hợp lệ cho kiểu char? (Chọn 3 đáp án)",
+    "code": "",
+    "options": [
+      "A và C (A: charc1=064770 ; & C: charc3=0xbeef ;)",
+      "A và B (A: charc1=064770 ; & B: charc2=‘face’ ;)",
+      "B và D (B: charc2=‘face’ ; & D: charc4=\\u0022 ;)",
+      "C và F (C: charc3=0xbeef ; & F: charc6=‘\\uface’ ;)"
+    ],
+    "optionsVi": [
+      "A và C (A: charc1=064770 ; & C: charc3=0xbeef ;)",
+      "A và B (A: charc1=064770 ; & B: charc2=‘face’ ;)",
+      "B và D (B: charc2=‘face’ ; & D: charc4=\\u0022 ;)",
+      "C và F (C: charc3=0xbeef ; & F: charc6=‘\\uface’ ;)"
+    ],
+    "answer": 0,
+    "explanation": "A, C, and F. A is an octal representation of the integer value 27128, which is legal because it fits into an unsigned 16-bit integer. C is a hexadecimal representation of the integer value 48879, which fits into an unsigned 16-bit integer. F is a Unicode representation of a character. ✗ B is wrong because you can’t put more than one character in achar literal. You know that B is a literal character because it comes between single quotes. The only other acceptablechar literal that can go between single quotes is a Unicode value, and Unicode literals must always start w i t ha‘\\u’.D is wrong because the single quotes are missing.E is wrong because it appears to be a Unicode representation (notice the backslash), but starts with ‘\\i’ rather than ‘\\u’."
+  },
+  {
+    "id": "scjp-ch01-006",
+    "originalId": 6,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which two are valid declarations of a String? (Choose two.)",
+    "textVi": "Hai khai báo nào hợp lệ cho kiểu String? (Chọn 2 đáp án)",
+    "code": "",
+    "options": [
+      "A và E (A: Strings1=null ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)",
+      "A và B (A: Strings1=null ; & B: Strings2=‘null’ ;)",
+      "B và C (B: Strings2=‘null’ ; & C: Strings3=(String)‘abc’ ;)",
+      "D và E (D: Strings4=(String)‘\\ufeed’ ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)"
+    ],
+    "optionsVi": [
+      "A và E (A: Strings1=null ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)",
+      "A và B (A: Strings1=null ; & B: Strings2=‘null’ ;)",
+      "B và C (B: Strings2=‘null’ ; & C: Strings3=(String)‘abc’ ;)",
+      "D và E (D: Strings4=(String)‘\\ufeed’ ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)"
+    ],
+    "answer": 0,
+    "explanation": "A and E. A sets the String reference to null; E initializes the String reference with a literal. ✗ B is wrong because null cannot be in single quotes. C is wrong because there are multiple characters between the single quotes (‘abc’).D is wrong because you can’t cast achar (primitive) to a String (object). 54 Chapter 1: Language Fundamentals"
+  },
+  {
+    "id": "scjp-ch01-007",
+    "originalId": 7,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which one is a valid declaration of a boolean? (Choose one.)",
+    "textVi": "Which one is a valid declaration of a boolean? (Choose one.)",
+    "code": "",
+    "options": [
+      "booleanb1=0 ;",
+      "booleanb2=‘false’ ;",
+      "booleanb3=false ;",
+      "booleanb4=Boolean.false() ;",
+      "booleanb5=no ;"
+    ],
+    "optionsVi": [
+      "booleanb1=0 ;",
+      "booleanb2=‘false’ ;",
+      "booleanb3=false ;",
+      "booleanb4=Boolean.false() ;",
+      "booleanb5=no ;"
+    ],
+    "answer": 2,
+    "explanation": "C. A boolean can only be assigned the literal true orfalse. ✗ A, B, D, and E are all invalid assignments for a boolean."
+  },
+  {
+    "id": "scjp-ch01-008",
+    "originalId": 8,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "What is the numerical range of a char? (Choose one.)",
+    "textVi": "Phạm vi giá trị số (range) của kiểu char là gì? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "–128 to 127",
+      "–(2 ^ 15) to (2 ^ 15) - 1",
+      "0 to 32767",
+      "Platform dependent",
+      "0 to 65535"
+    ],
+    "optionsVi": [
+      "–128 to 127",
+      "–(2 ^ 15) to (2 ^ 15) - 1",
+      "0 to 32767",
+      "Platform dependent",
+      "0 to 65535"
+    ],
+    "answer": 4,
+    "explanation": "E. Achar is really a 16-bit integer behind the scenes, so it supports 2 16 (from 0 to 65535) values."
+  },
+  {
+    "id": "scjp-ch01-009",
+    "originalId": 9,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which three are valid declarations of a float? (Choose three.)",
+    "textVi": "Which three are valid declarations of a float? (Choose three.)",
+    "code": "",
+    "options": [
+      "A và C (A: floatf1=-343 ; & C: floatf3=0x12345 ;)",
+      "A và B (A: floatf1=-343 ; & B: floatf2=3.14 ;)",
+      "B và D (B: floatf2=3.14 ; & D: floatf4=42e7 ;)",
+      "C và F (C: floatf3=0x12345 ; & F: floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1))"
+    ],
+    "optionsVi": [
+      "A và C (A: floatf1=-343 ; & C: floatf3=0x12345 ;)",
+      "A và B (A: floatf1=-343 ; & B: floatf2=3.14 ;)",
+      "B và D (B: floatf2=3.14 ; & D: floatf4=42e7 ;)",
+      "C và F (C: floatf3=0x12345 ; & F: floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1))"
+    ],
+    "answer": 0,
+    "explanation": "A, C, and F. A and C are integer literals (32 bits), and integers can be legally assigned to floats (also 32 bits). F is correct because F is appended to the literal, declaring it as a float rather than adouble (the default for floating point literals). ✗ B, D,a n dE are all doubles. Array Declaration, Construction, and Initialization (Objective 1.1)"
+  },
+  {
+    "id": "scjp-ch01-010",
+    "originalId": 10,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which three are legal array declarations? (Choose three.)",
+    "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ? (Chọn 3 đáp án)",
+    "code": "",
+    "options": [
+      "A và B (A: int[]myScores[] ; & B: char[]myChars ;)",
+      "A và C (A: int[]myScores[] ; & C: int[6]myScores ;)",
+      "C và D (C: int[6]myScores ; & D: DogmyDogs[] ;)",
+      "B và E (B: char[]myChars ; & E: DogmyDogs[7] ;)"
+    ],
+    "optionsVi": [
+      "A và B (A: int[]myScores[] ; & B: char[]myChars ;)",
+      "A và C (A: int[]myScores[] ; & C: int[6]myScores ;)",
+      "C và D (C: int[6]myScores ; & D: DogmyDogs[] ;)",
+      "B và E (B: char[]myChars ; & E: DogmyDogs[7] ;)"
+    ],
+    "answer": 0,
+    "explanation": "A, B, and D. With an array declaration, you can place the brackets to the right or left of the identifier. A looks strange, but it’s perfectly legal to split the brackets in a multidimensional array, and place them on both sides of the identifier. Although coding this way would only annoy your fellow programmers, for the exam, you need to know it’s legal. ✗ C and E are wrong because you can’t declare an array with a size. The size is only needed when the array is actually instantiated (and the JVM needs to know how much space to allocate for the array, based on the type of array and the size)."
+  },
+  {
+    "id": "scjp-ch01-011",
+    "originalId": 11,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, how many lines of output will be produced? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, how many lines of output will be produced? (Choose one.)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.     int [] [] [] x = new int [3] [] [];\n4.     int i,j;\n5.     x[0] = new int[4][];\n6.     x[1] = new int[2][];\n7.     x[2] = new int[5][];\n8.     for (i=0; i<x.length; i++)\n9.        for (j=0; j<x[i].length; j++) {\n10.           x[i][j] = new int [i + j + 1];\n11.           System.out.println(\"size = \" + x[i][j].length);\n12.        }\n13.     }\n14.  }",
+    "options": [
+      "7",
+      "9",
+      "11",
+      "13",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "7",
+      "9",
+      "11",
+      "13",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. The loops use the array sizes (length). If you think this question is unfairly complicated, get used to it. Question 11 is a good example of the kinds of questions you’ll see on the exam. You should approach complex loop questions by using a pencil and paper and stepping through the loop (or loops, in this case), keeping track of the variable values at each iteration. Tedious, we know, but you can expect a lot of questions like this on the exam. Take your time and recheck your work."
+  },
+  {
+    "id": "scjp-ch01-012",
+    "originalId": 12,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
+    "textVi": "Cho đoạn mã sau, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
+    "options": [
+      "A và B và E (A: b2[0][1]=b; & B: b[0][0]=b3; & E: b2[0][1][0][0]=b[0][0];)",
+      "A và C (A: b2[0][1]=b; & C: b2[1][1][0]=b[0][0];)",
+      "C và D và F (C: b2[1][1][0]=b[0][0]; & D: b2[1][2][0]=b; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)",
+      "B và F (B: b[0][0]=b3; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)"
+    ],
+    "optionsVi": [
+      "A và B và E (A: b2[0][1]=b; & B: b[0][0]=b3; & E: b2[0][1][0][0]=b[0][0];)",
+      "A và C (A: b2[0][1]=b; & C: b2[1][1][0]=b[0][0];)",
+      "C và D và F (C: b2[1][1][0]=b[0][0]; & D: b2[1][2][0]=b; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)",
+      "B và F (B: b[0][0]=b3; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)"
+    ],
+    "answer": 0,
+    "explanation": "A, B, E, and F. This question covers the issue of, “What can I assign to an array reference variable?” The key is to get the dimensions right. For example, if an array is declared as a two-dimensional array, you can’t assign a one-dimensional array to a one-dimensional array reference. ✗ C is wrong because it tries to assign a primitive byte where a byte array (one dimension) is expected. D is wrong because it tries to assign a two-dimensional array where a one-dimensional array is expected."
+  },
+  {
+    "id": "scjp-ch01-013",
+    "originalId": 13,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which two will declare an array and initialize it with five numbers? (Choose two.)",
+    "textVi": "Which two will declare an array and initialize it with five numbers? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và D (B: int[]a={23,22,21,20,19} ; & D: intarray[]=newint[5] ;)",
+      "A và B (A: Arraya=newArray(5) ; & B: int[]a={23,22,21,20,19} ;)",
+      "A và C (A: Arraya=newArray(5) ; & C: int[]array ;)",
+      "D và F (D: intarray[]=newint[5] ; & F: int[5]array ;)"
+    ],
+    "optionsVi": [
+      "B và D (B: int[]a={23,22,21,20,19} ; & D: intarray[]=newint[5] ;)",
+      "A và B (A: Arraya=newArray(5) ; & B: int[]a={23,22,21,20,19} ;)",
+      "A và C (A: Arraya=newArray(5) ; & C: int[]array ;)",
+      "D và F (D: intarray[]=newint[5] ; & F: int[5]array ;)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. Both are legal ways to declare and initialize an array with five elements. ✗ A is wrong because it shows an example of instantiating a class named Array, passing the integer value 5 to the object’s constructor. If you don’t see the brackets, you can be 56 Chapter 1: Language Fundamentals certain there is no actual array object! In other words, an Array object (instance of class Array) is not the same as an array object. C is wrong because it shows a legal array declaration, but with no initialization. E is wrong (and will not compile) because the initialization uses parens () rather than brackets. F is wrong (and will not compile) because it declares an array with a size. Arrays must never be given a size when declared."
+  },
+  {
+    "id": "scjp-ch01-014",
+    "originalId": 14,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which will legally declare, construct, and initialize an array? (Choose one.)",
+    "textVi": "Which will legally declare, construct, and initialize an array? (Choose one.)",
+    "code": "",
+    "options": [
+      "int[]myList={“1”,“2”,“3”} ;",
+      "int[]myList=(5,8,2) ;",
+      "intmyList[][]={4,9,7,0} ;",
+      "intmyList[]={4,3,7} ;",
+      "int[]myList=[3,5,6] ;",
+      "intmyList[]={4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+    ],
+    "optionsVi": [
+      "int[]myList={“1”,“2”,“3”} ;",
+      "int[]myList=(5,8,2) ;",
+      "intmyList[][]={4,9,7,0} ;",
+      "intmyList[]={4,3,7} ;",
+      "int[]myList=[3,5,6] ;",
+      "intmyList[]={4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+    ],
+    "answer": 3,
+    "explanation": "D. The only legal array declaration and assignment statement is D. ✗ A is wrong because it initializes an int array with String literals. B and E are wrong because they use something other than curly braces for the initialization. C is wrong because it provides initial values for only one dimension, although the declared array is a two-dimensional array. F is wrong because it uses semicolons where it should use commas, to separate the items in the initialization. Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+  },
+  {
+    "id": "scjp-ch01-015",
+    "originalId": 15,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
+    "textVi": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
+    "code": "",
+    "options": [
+      "A và C và D (A: int -> 0 & C: Dog -> null & D: char -> ‘\\u0000’)",
+      "A và B (A: int -> 0 & B: String -> “null”)",
+      "B và E và F (B: String -> “null” & E: float -> 0.0f & F: boolean -> true)",
+      "C và F (C: Dog -> null & F: boolean -> true)"
+    ],
+    "optionsVi": [
+      "A và C và D (A: int -> 0 & C: Dog -> null & D: char -> ‘\\u0000’)",
+      "A và B (A: int -> 0 & B: String -> “null”)",
+      "B và E và F (B: String -> “null” & E: float -> 0.0f & F: boolean -> true)",
+      "C và F (C: Dog -> null & F: boolean -> true)"
+    ],
+    "answer": 0,
+    "explanation": "A, C, D, and E. ✗ B is wrong because the default value for a String (and any other object reference) is null, with no quotes. F is wrong because the default value for boolean elements isfalse."
+  },
+  {
+    "id": "scjp-ch01-016",
+    "originalId": 16,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, what is the result? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class TestDogs {\n2.     public static void main(String [] args) {\n3.        Dog [][] theDogs = new Dog[3][];\n4.        System.out.println(theDogs[2][0].toString());\n5.     }\n6.  }\n7.\n8.  class Dog {}",
+    "options": [
+      "null",
+      "theDogs",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "null",
+      "theDogs",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "D. The second dimension of the array referenced by theDogs has not been initialized. Attempting to access an uninitialized object element (line 4) raises a NullPointerException."
+  },
+  {
+    "id": "scjp-ch01-017",
+    "originalId": 17,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, and the command line invocation is java X a b what is the result? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, and the command line invocation is java X a b Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class X {\n2.     public static void main(String [] args) {\n3.        String names [] = new String[5];\n4.           for (int x=0; x < args.length; x++)\n5.              names[x] = args[x];\n6.           System.out.println(names[2]);\n7.     }\n8.  }",
+    "options": [
+      "names",
+      "null",
+      "Compilation fails",
+      "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+    ],
+    "optionsVi": [
+      "names",
+      "null",
+      "Lỗi biên dịch (Compilation fails)",
+      "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+    ],
+    "answer": 1,
+    "explanation": "B. The names array is initialized with five null elements. Then elements 0 and 1 are assigned the String values “a” and “b” respectively (the command-line arguments passed to main). Elements 2, 3, and 4 remain unassigned, so they have a value of null. Command-line Arguments to Main (Objective 4.3)"
+  },
+  {
+    "id": "scjp-ch01-018",
+    "originalId": 18,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgs 1 2 3 4 what is the result?",
+    "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgs 1 2 3 4 Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }\n52 Chapter 1: Language Fundamentals",
+    "options": [
+      "args[2]=2",
+      "args[2]=3",
+      "args[2]=null",
+      "args[2]=1",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "args[2]=2",
+      "args[2]=3",
+      "args[2]=null",
+      "args[2]=1",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 5,
+    "explanation": "F. An exception is thrown because at line 6, the array index (the fifth element) is out of bounds. The exception thrown is the cleverly named ArrayIndexOutOfBoundsException."
+  },
+  {
+    "id": "scjp-ch01-019",
+    "originalId": 19,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgsTwo 1 2 3 what is the result?",
+    "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgsTwo 1 2 3 Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class CommandArgsTwo {\n2.     public static void main(String [] argh) {\n3.        String [] args;\n4.        int x;\n5.        x = argh.length;\n6.        for (int y = 1; y <= x; y++) {\n7.           System.out.print(\" \" + argh[y]);\n8.        }\n9.     }\n10.  }",
+    "options": [
+      "012",
+      "123",
+      "000",
+      "nullnullnull",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "012",
+      "123",
+      "000",
+      "nullnullnull",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 5,
+    "explanation": "F. An exception is thrown because at some point in line 7, the value of x will be equal to y, resulting in an attempt to access an index out of bounds for the array. Remember that you can access only as far as length-1, so loop logical tests should use x<someArray.length as opposed tox<=someArray.length ."
+  },
+  {
+    "id": "scjp-ch01-020",
+    "originalId": 20,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgsThree 1 2 3 what is the result?",
+    "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgsThree 1 2 3 Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class CommandArgsThree {\n2.     public static void main(String [] args) {\n3.        String [][] argCopy = new String[2][2];\n4.        int x;\n5.        argCopy[0] = args;\n6.        x = argCopy[0].length;\n7.        for (int y = 0; y < x; y++) {\n8.           System.out.print(\" \" + argCopy[0][y]);\n9.        }\n10.     }\n11.  }",
+    "options": [
+      "00",
+      "12",
+      "000",
+      "123",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "00",
+      "12",
+      "000",
+      "123",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "D. In line 5, the reference variable argCopy[0], which was referring to an array with two elements, is reassigned to an array (args) with three elements. EXERCISE ANSWERS Exercise 1.1: Command-Line Arguments to Main Your completed code should look something like the following: public class MainTest { public static void main (String [] args) { for (int i = 0;i < args.length;i++) { System.out.println(args[i]); } System.out.println(\"Total words: \" + args.length); } } Exercise Answers 57"
+  },
+  {
+    "id": "scjp-ch02-001",
+    "originalId": 1,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+    "textVi": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+    "code": "",
+    "options": [
+      "public",
+      "abstract",
+      "protected",
+      "synchronized",
+      "default access"
+    ],
+    "optionsVi": [
+      "public",
+      "abstract",
+      "protected",
+      "synchronized",
+      "default access"
+    ],
+    "answer": 4,
+    "explanation": "E.defaultaccess is the “package oriented” access modifier. ✗ A and C are wrong becausepublic andprotected are less restrictive. B and D are wrong becauseabstract andsynchronized are not access modifiers."
+  },
+  {
+    "id": "scjp-ch02-002",
+    "originalId": 2,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+    "textVi": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+    "code": "",
+    "options": [
+      "final",
+      "static",
+      "private",
+      "protected",
+      "volatile",
+      "default access"
+    ],
+    "optionsVi": [
+      "final",
+      "static",
+      "private",
+      "protected",
+      "volatile",
+      "default access"
+    ],
+    "answer": 2,
+    "explanation": "C. Theprivate access modifier limits access to members of the same class. ✗ A, B, D, E, and F are wrong becauseprotected anddefault are the wrong access modifiers, andfinal,static ,a n dvolatile are modifiers but not access modifiers."
+  },
+  {
+    "id": "scjp-ch02-003",
+    "originalId": 3,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+    "textVi": "Cho đoạn mã sau, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+    "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
+    "options": [
+      "A và C (A: The code will compile with no changes. & C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.)",
+      "A và B (A: The code will compile with no changes. & B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.)",
+      "B và D (B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile. & D: As long as line 8 exists, class A must declare methodm1() in some way.)",
+      "C và F (C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile. & F: If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.)"
+    ],
+    "optionsVi": [
+      "A và C (A: The code will compile with no changes. & C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.)",
+      "A và B (A: The code will compile with no changes. & B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.)",
+      "B và D (B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile. & D: As long as line 8 exists, class A must declare methodm1() in some way.)",
+      "C và F (C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile. & F: If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.)"
+    ],
+    "answer": 0,
+    "explanation": "A, C, and E. A and C are correct, because an abstract class does not need to implement any of its superclass’ methods.E is correct because as it stands, it is a valid concrete extension of class A. ✗ B is wrong because anabstract class does not need to implement any of its superclass’ methods. D is wrong because a class that extends another class is free to add new methods. F is wrong because it is legal to extend an abstract class from a concrete class."
+  },
+  {
+    "id": "scjp-ch02-004",
+    "originalId": 4,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+    "textVi": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+    "code": "",
+    "options": [
+      "C và F (C: finalpublicclassTest{} & F: abstractpublicclassTest{})",
+      "A và C (A: finalabstractclassTest{} & C: finalpublicclassTest{})",
+      "A và B (A: finalabstractclassTest{} & B: publicstaticinterfaceTest{})",
+      "E và F (E: protectedinterfaceTest{} & F: abstractpublicclassTest{})"
+    ],
+    "optionsVi": [
+      "C và F (C: finalpublicclassTest{} & F: abstractpublicclassTest{})",
+      "A và C (A: finalabstractclassTest{} & C: finalpublicclassTest{})",
+      "A và B (A: finalabstractclassTest{} & B: publicstaticinterfaceTest{})",
+      "E và F (E: protectedinterfaceTest{} & F: abstractpublicclassTest{})"
+    ],
+    "answer": 0,
+    "explanation": "C, F. Both are legal class declarations. ✗ A is wrong because a class cannot be abstract andfinal—there would be no way to use such a class. B is wrong because interfaces and classes cannot be marked as static. D and E are wrong because classes and interfaces cannot be marked as protected."
+  },
+  {
+    "id": "scjp-ch02-005",
+    "originalId": 5,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+    "textVi": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+    "code": "",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "All of them"
+    ],
+    "optionsVi": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "All of them"
+    ],
+    "answer": 4,
+    "explanation": "E. Statements 1, 2, 4, 5, and 6 are legal declarations. ✗ A, B, C, D, and F are incorrect because the only illegal declaration is 3; transient applies only to variable declarations, not to method declarations. As you can see from these other examples, method declarations can be very extensive."
+  },
+  {
+    "id": "scjp-ch02-006",
+    "originalId": 6,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which statement is true?",
+    "textVi": "Cho đoạn mã sau, Phát biểu nào sau đây là ĐÚNG?",
+    "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
+    "options": [
+      "The code compiles and runs, with outputthis420parent420 .",
+      "If line 8 is removed, the code will compile and run.",
+      "If line 10 is removed, the code will compile and run.",
+      "Both lines 8 and 10 must be removed for the code to compile.",
+      "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+    ],
+    "optionsVi": [
+      "The code compiles and runs, with outputthis420parent420 .",
+      "If line 8 is removed, the code will compile and run.",
+      "If line 10 is removed, the code will compile and run.",
+      "Both lines 8 and 10 must be removed for the code to compile.",
+      "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+    ],
+    "answer": 2,
+    "explanation": "C. The ParentUtil instance p cannot be used to access the doStuff() method. Because doStuff() hasprotected access, and the ChildUtil class is not in the same package as the ParentUtil class, doStuff() can be accessed only by instances of the ChildUtil class (a subclass ofParentUtil). ✗ A, B, D, and E are incorrect because of the access rules described previously. Declaration Rules"
+  },
+  {
+    "id": "scjp-ch02-007",
+    "originalId": 7,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   interface Count {\n2.     short counter = 0;\n3.     void countUp();\n4.   }\n5.   public class TestCount implements Count {\n6.\n7.     public static void main(String [] args) {\n8.       TestCount t = new TestCount();\n9.       t.countUp();\n10.    }\n78 Chapter 2: Declarations and Access Control\n11.    public void countUp() {\n12.      for (int x = 6; x>counter; x--, ++counter) {\n13.         System.out.print(\" \" + counter);\n14.      }\n15.    }\n16.  }",
+    "options": [
+      "012",
+      "123",
+      "0123",
+      "1234",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "012",
+      "123",
+      "0123",
+      "1234",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. The code will not compile because the variable counter is an interface variable that is by defaultfinalstatic . The compiler will complain at line 12 when the code attempts to 84 Chapter 2: Declarations and Access Control incrementcounter. ✗ A, B, C, and D are incorrect because of the explanation given above."
+  },
+  {
+    "id": "scjp-ch02-008",
+    "originalId": 8,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   import java.util.*;\n2.   public class NewTreeSet2 extends NewTreeSet {\n3.     public static void main(String [] args) {\n4.       NewTreeSet2 t = new NewTreeSet2();\n5.       t.count();\n6.     }\n7.   }\n8.   protected class NewTreeSet {\n9.     void count() {\n10.      for (int x = 0; x < 7; x++,x++ ) {\n11.        System.out.print(\" \" + x);\n12.      }\n13.    }\n14.  }",
+    "options": [
+      "024",
+      "0246",
+      "Compilation fails at line 4",
+      "Compilation fails at line 5",
+      "Compilation fails at line 8",
+      "Compilation fails at line 10"
+    ],
+    "optionsVi": [
+      "024",
+      "0246",
+      "Compilation fails at line 4",
+      "Compilation fails at line 5",
+      "Compilation fails at line 8",
+      "Compilation fails at line 10"
+    ],
+    "answer": 4,
+    "explanation": "E. Nonnested classes cannot be marked protected (orfinal for that matter), so the compiler will fail at line 8. ✗ A, B, C, and D are incorrect because of the explanation given above."
+  },
+  {
+    "id": "scjp-ch02-009",
+    "originalId": 9,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+    "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
+    "options": [
+      "B và E (B: importjava.util.*; & E: importjava.util.TreeMap;)",
+      "A và B (A: No statement is required & B: importjava.util.*;)",
+      "A và C (A: No statement is required & C: import.java.util.Tree*;)",
+      "D và E (D: importjava.util.TreeSet; & E: importjava.util.TreeMap;)"
+    ],
+    "optionsVi": [
+      "B và E (B: importjava.util.*; & E: importjava.util.TreeMap;)",
+      "A và B (A: No statement is required & B: importjava.util.*;)",
+      "A và C (A: No statement is required & C: import.java.util.Tree*;)",
+      "D và E (D: importjava.util.TreeSet; & E: importjava.util.TreeMap;)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. TreeMap is the only class that must be imported. TreeSet does not need an import statement because it is described with a fully qualified name. ✗ A is incorrect because TreeMap must be imported. C is incorrect syntax for an import statement. D is incorrect because it will not import TreeMap, which is required."
+  },
+  {
+    "id": "scjp-ch02-010",
+    "originalId": 10,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two are valid declarations within an interface? (Choose two.)",
+    "textVi": "Which two are valid declarations within an interface? (Choose two.)",
+    "code": "",
+    "options": [
+      "A và E (A: publicstaticshortstop=23; & E: publicBooleanmadness(longbow);)",
+      "A và B (A: publicstaticshortstop=23; & B: protectedshortstop=23;)",
+      "B và C (B: protectedshortstop=23; & C: transientshortstop=23;)",
+      "E và F (E: publicBooleanmadness(longbow); & F: staticcharmadness(doubleduty);)"
+    ],
+    "optionsVi": [
+      "A và E (A: publicstaticshortstop=23; & E: publicBooleanmadness(longbow);)",
+      "A và B (A: publicstaticshortstop=23; & B: protectedshortstop=23;)",
+      "B và C (B: protectedshortstop=23; & C: transientshortstop=23;)",
+      "E và F (E: publicBooleanmadness(longbow); & F: staticcharmadness(doubleduty);)"
+    ],
+    "answer": 0,
+    "explanation": "A and E are valid interface declarations. ✗ B and C are incorrect because interface variables cannot be either protected or transient. D and F are incorrect because interface methods cannot be final or static."
+  },
+  {
+    "id": "scjp-ch02-011",
+    "originalId": 11,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which of the following class level (nonlocal) variable declarations will not compile?",
+    "textVi": "Which of the following class level (nonlocal) variable declarations will not compile?",
+    "code": "",
+    "options": [
+      "protectedinta;",
+      "transientintb=3;",
+      "publicstaticfinalintc;",
+      "volatileintd;",
+      "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+    ],
+    "optionsVi": [
+      "protectedinta;",
+      "transientintb=3;",
+      "publicstaticfinalintc;",
+      "volatileintd;",
+      "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+    ],
+    "answer": 4,
+    "explanation": "E will not compile; the synchronized modifier applies only to methods. ✗ A and B will compile because protected andtransient are legal variable modifiers. C will compile because when a variable is declared final it does not have to be initialized with a value at the same time. D will compile because volatile is a proper variable modifier. Interface Implementation"
+  },
+  {
+    "id": "scjp-ch02-012",
+    "originalId": 12,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+    "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
+    "options": [
+      "C và E (C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);} & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})",
+      "A và C (A: classAllMathextendsDoMath{ doublegetArea(intr);} & C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);})",
+      "A và B (A: classAllMathextendsDoMath{ doublegetArea(intr);} & B: interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);})",
+      "D và E (D: classAllMathimplementsMathPlus{ doublegetArea(intrad); } & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})"
+    ],
+    "optionsVi": [
+      "C và E (C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);} & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})",
+      "A và C (A: classAllMathextendsDoMath{ doublegetArea(intr);} & C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);})",
+      "A và B (A: classAllMathextendsDoMath{ doublegetArea(intr);} & B: interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);})",
+      "D và E (D: classAllMathimplementsMathPlus{ doublegetArea(intrad); } & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})"
+    ],
+    "answer": 0,
+    "explanation": "C and E. C are E are correct because interfaces and abstract classes do not need to fully implement the interfaces they extend or implement (respectively). ✗ A is incorrect because a class cannot extend an interface. B is incorrect because an interface cannot implement anything. D is incorrect because the method being implemented is from the wrong interface."
+  },
+  {
+    "id": "scjp-ch02-013",
+    "originalId": 13,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which three are valid method signatures in an interface? (Choose three.)",
+    "textVi": "Which three are valid method signatures in an interface? (Choose three.)",
+    "code": "",
+    "options": [
+      "B và C (B: publicfloatgetVol(floatx); & C: publicvoidmain(String[]args);)",
+      "A và B (A: privateintgetArea(); & B: publicfloatgetVol(floatx);)",
+      "A và D (A: privateintgetArea(); & D: publicstaticvoidmain(String[]args);)",
+      "C và E (C: publicvoidmain(String[]args); & E: booleansetFlag(Boolean[]test[]);)"
+    ],
+    "optionsVi": [
+      "B và C (B: publicfloatgetVol(floatx); & C: publicvoidmain(String[]args);)",
+      "A và B (A: privateintgetArea(); & B: publicfloatgetVol(floatx);)",
+      "A và D (A: privateintgetArea(); & D: publicstaticvoidmain(String[]args);)",
+      "C và E (C: publicvoidmain(String[]args); & E: booleansetFlag(Boolean[]test[]);)"
+    ],
+    "answer": 0,
+    "explanation": "B, C, and E. These are all valid interface method signatures. ✗ A, is incorrect because an interface method must be public; if it is not explicitly declaredpublic it will be madepublic implicitly. D is incorrect because interface methods cannot bestatic."
+  },
+  {
+    "id": "scjp-ch02-014",
+    "originalId": 14,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+    "textVi": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và F (B: The class must contain a method calledrun() from which all code for that thread will be initiated. & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)",
+      "A và B (A: You can extend theRunnable interface as long as you override thepublicrun() method. & B: The class must contain a method calledrun() from which all code for that thread will be initiated.)",
+      "A và C (A: You can extend theRunnable interface as long as you override thepublicrun() method. & C: The class must contain an emptypublicvoid method namedrun().)",
+      "E và F (E: The class definition must include the wordsimplementsThreads and contain a method calledrun(). & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)"
+    ],
+    "optionsVi": [
+      "B và F (B: The class must contain a method calledrun() from which all code for that thread will be initiated. & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)",
+      "A và B (A: You can extend theRunnable interface as long as you override thepublicrun() method. & B: The class must contain a method calledrun() from which all code for that thread will be initiated.)",
+      "A và C (A: You can extend theRunnable interface as long as you override thepublicrun() method. & C: The class must contain an emptypublicvoid method namedrun().)",
+      "E và F (E: The class definition must include the wordsimplementsThreads and contain a method calledrun(). & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)"
+    ],
+    "answer": 0,
+    "explanation": "B and F. When a thread’srun() method completes, the thread will die. The run() method must be declared publicvoid and not take any arguments. ✗ A is incorrect because classes can never extend interfaces. C is incorrect because the run() method is typically not empty; if it were, the thread would do nothing. D is incorrect because the mandatory method is run(). E is incorrect because the class implements Runnable."
+  },
+  {
+    "id": "scjp-ch02-015",
+    "originalId": 15,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which two code fragments will compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two code fragments will compile? (Choose two.)",
+    "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
+    "options": [
+      "C và D (C: abstractclassClass2implementsBase{} & D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}})",
+      "A và C (A: interfaceBase2implementsBase{} & C: abstractclassClass2implementsBase{})",
+      "A và B (A: interfaceBase2implementsBase{} & B: abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}})",
+      "D và E (D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}} & E: classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control)"
+    ],
+    "optionsVi": [
+      "C và D (C: abstractclassClass2implementsBase{} & D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}})",
+      "A và C (A: interfaceBase2implementsBase{} & C: abstractclassClass2implementsBase{})",
+      "A và B (A: interfaceBase2implementsBase{} & B: abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}})",
+      "D và E (D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}} & E: classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control)"
+    ],
+    "answer": 0,
+    "explanation": "C and D. C is correct because an abstract class doesn’t have to implement any or all of its interface’s methods.D is correct because the method is correctly implemented ((7 > 4) is aboolean). ✗ A is incorrect because interfaces don’t implement anything.B is incorrect because classes don’t extend interfaces.E is incorrect because interface methods are implicitly public,s ot h e methods being implemented must be public."
+  },
+  {
+    "id": "scjp-ch03-001",
+    "originalId": 1,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Which two are equal? (Choose two.)",
+    "textVi": "Which two are equal? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+      "A và B (A: 32/4; & B: (8>>2)<<4;)",
+      "A và C (A: 32/4; & C: 2^5;)",
+      "D và F (D: 128>>>2; & F: 2>>5;)"
+    ],
+    "optionsVi": [
+      "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+      "A và B (A: 32/4; & B: (8>>2)<<4;)",
+      "A và C (A: 32/4; & C: 2^5;)",
+      "D và F (D: 128>>>2; & F: 2>>5;)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. B and D both evaluate to 32. B is shifting bits right then left using the signed bit shifters >> and <<. D is shifting bits u sing the unsigned operator >>>, but since the beginning number is positive the sign is maintained. A evaluates to 8, C looks like 2 to the 5 th power, but ^ is the Exclusive OR operator so C evaluates to 7. E evaluates to 16, and F e v a l u a t e st o0( 2> >5i sn o t2t ot h e5 th )."
+  },
+  {
+    "id": "scjp-ch03-002",
+    "originalId": 2,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+    "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
+    "options": [
+      "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+      "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+      "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+      "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+    ],
+    "optionsVi": [
+      "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+      "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+      "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+      "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. B is correct because class type Ticker is part of the class hierarchy of t; therefore it is a legal use of the instanceof operator. D is also correct because Component is part of the hierarchy of t, because Ticker extends Component in line 2. ✗ A is incorrect because the syntax is wrong. A variable (or null) always appears before the instanceof operator, and a type appears after it. C and E are incorrect because the statement is used as a method, which is illegal. F is incorrect because the String class is not in the hierarchy of the t object."
+  },
+  {
+    "id": "scjp-ch03-003",
+    "originalId": 3,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
+    "options": [
+      "true",
+      "false",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "true",
+      "false",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. The code will not compile because in line 5, the line will work only if we use (x==y ) in the line. The == operator compares values to produce a boolean, whereas the = operator assigns a value to variables. ✗ A, B, and D are incorrect because the code does not get as far as compiling. If we corrected this code, the output would be false."
+  },
+  {
+    "id": "scjp-ch03-004",
+    "originalId": 4,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, which three statements are true? (Choose three.)",
+    "textVi": "Cho đoạn mã sau, which three statements are true? (Choose three.)",
+    "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
+    "options": [
+      "B và D (B: f1==f3 & D: x==f1[0])",
+      "A và B (A: f1==f2 & B: f1==f3)",
+      "A và C (A: f1==f2 & C: f2==f1[1])",
+      "D và E (D: x==f1[0] & E: f==f1[0])"
+    ],
+    "optionsVi": [
+      "B và D (B: f1==f3 & D: x==f1[0])",
+      "A và B (A: f1==f2 & B: f1==f3)",
+      "A và C (A: f1==f2 & C: f2==f1[1])",
+      "D và E (D: x==f1[0] & E: f==f1[0])"
+    ],
+    "answer": 0,
+    "explanation": "B, D, and E. B is correct because the reference variables f1 and f3 refer to the same array object. D is correct because it is legal to compare integer and floating-point types. E is correct because it is legal to compare a variable with an array element. ✗ C is incorrect because f2 is an array object and f1[1] is an array element."
+  },
+  {
+    "id": "scjp-ch03-005",
+    "originalId": 5,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the output from this program?",
+    "textVi": "Cho đoạn mã sau, what is the output from this program?",
+    "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
+    "options": [
+      "-2147483648and1",
+      "0x80000000and0x00000001",
+      "-2147483648and-1",
+      "1and-2147483648",
+      "None of the above"
+    ],
+    "optionsVi": [
+      "-2147483648and1",
+      "0x80000000and0x00000001",
+      "-2147483648and-1",
+      "1and-2147483648",
+      "None of the above"
+    ],
+    "answer": 0,
+    "explanation": "A. The >>> operator moves all bits to the right, zero filling the left bits. The bit transformation looks like this: Before:10000000000000000000000000000000 After:00000000000000000000000000000001 ✗ C is incorrect because the >>> operator zero fills the left bits, which in this case changes the sign of x, as shown. B is incorrect because the output method print() always displays integers in base 10. D is incorrect because this is the reverse order of the two output numbers. E is incorrect because there was a correct answer. 62 Chapter 3: Operators and Assignments"
+  },
+  {
+    "id": "scjp-ch03-006",
+    "originalId": 6,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
+    "options": [
+      "0",
+      "7",
+      "8",
+      "14",
+      "15"
+    ],
+    "optionsVi": [
+      "0",
+      "7",
+      "8",
+      "14",
+      "15"
+    ],
+    "answer": 3,
+    "explanation": "D. The & operator produces a 1 bit when both bits are 1. The result of the & operation is 9. The ^ operator produces a 1 bit when exactly one bit is 1; the result of this operation is 10. The | operator produces a 1 bit when at least one bit is 1; the result of this operation is 14. ✗ A, B, C, and E, are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-007",
+    "originalId": 7,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Which of the following are legal lines of code? (Choose all that apply.)",
+    "textVi": "Which of the following are legal lines of code? (Choose all that apply.)",
+    "code": "",
+    "options": [
+      "A và B và C (A: intw=(int)888.8; & B: bytex=(byte)1000L; & C: longy=(byte)100;)",
+      "A và D (A: intw=(int)888.8; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))",
+      "D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)",
+      "B và D (B: bytex=(byte)1000L; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))"
+    ],
+    "optionsVi": [
+      "A và B và C (A: intw=(int)888.8; & B: bytex=(byte)1000L; & C: longy=(byte)100;)",
+      "A và D (A: intw=(int)888.8; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))",
+      "D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)",
+      "B và D (B: bytex=(byte)1000L; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))"
+    ],
+    "answer": 0,
+    "explanation": "A, B, C, and D. A is correct because when a floating-point number (a double in this case) is cast to an int, it simply loses the digits after the decimal. B and D are correct because a long can be cast into a byte.I ft h elong is over 127, it loses its most significant (leftmost) bits. C actually works, even though a cast is not necessary, because a long can store a byte. ✗ There are no incorrect answer choices. Logical Operators (Sun Objective 5.3)"
+  },
+  {
+    "id": "scjp-ch03-008",
+    "originalId": 8,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+    "options": [
+      "53",
+      "82",
+      "83",
+      "85",
+      "103",
+      "105"
+    ],
+    "optionsVi": [
+      "53",
+      "82",
+      "83",
+      "85",
+      "103",
+      "105"
+    ],
+    "answer": 1,
+    "explanation": "B. The first two iterations of the for loop both x and y are incremented. On the third iteration x is incremented, and for the first time becomes greater than 2. The short circuit or operator || keeps y from ever being incremented again and x is incremented twice on each of the last three iterations. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-009",
+    "originalId": 9,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, What is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+    "options": [
+      "52",
+      "53",
+      "63",
+      "64",
+      "75",
+      "85"
+    ],
+    "optionsVi": [
+      "52",
+      "53",
+      "63",
+      "64",
+      "75",
+      "85"
+    ],
+    "answer": 2,
+    "explanation": "C. In the first two iterations x is incremented once and y is not because of the short circuit && operator. In the third and forth iterations x and y are each incremented, and in the fifth iteration x is doubly incremented and y is incremented. ✗ A, B, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-010",
+    "originalId": 10,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
+    "options": [
+      "ok",
+      "dokey",
+      "okdokey",
+      "No output is produced",
+      "Compilation error",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "ok",
+      "dokey",
+      "okdokey",
+      "No output is produced",
+      "Compilation error",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. The & operator has a higher precedence than the | operator so that on line 6 b1 and b2 are evaluated together as are b2& b3. The final b1 in line 8 is what causes that if test to be true. ✗ A, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-011",
+    "originalId": 11,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result of compiling and running this code?",
+    "textVi": "Cho đoạn mã sau, what is the result of compiling and running this code?",
+    "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
+    "options": [
+      "small",
+      "tiny",
+      "huge",
+      "Compilation fails"
+    ],
+    "optionsVi": [
+      "small",
+      "tiny",
+      "huge",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "answer": 1,
+    "explanation": "B. This is an example of a nested ternary operator. The second evaluation (x<22) is true, so the “tiny” value is assigned tosup. ✗ A, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-012",
+    "originalId": 12,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
+    "options": [
+      "count=0",
+      "count=2",
+      "count=3",
+      "count=4",
+      "count=10",
+      "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+    ],
+    "optionsVi": [
+      "count=0",
+      "count=2",
+      "count=3",
+      "count=4",
+      "count=10",
+      "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+    ],
+    "answer": 2,
+    "explanation": "C. The reference variables b and x both refer to the same boolean array.Count is incremented for each call to the set() method, and once again when the first if test is true. Because of the && short circuit operator, count is not incremented during the second if test. ✗ A, B, D, E, and F are incorrect based on the program logic described above. 64 Chapter 3: Operators and Assignments Passing Variables into Methods (Sun Objective 5.4)"
+  },
+  {
+    "id": "scjp-ch03-013",
+    "originalId": 13,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.      static int s;\n3.\n56 Chapter 3: Operators and Assignments\n4.      public static void main(String [] args) {\n5.        Test p = new Test();\n6.        p.start();\n7.        System.out.println(s);\n8.      }\n9.\n10.     void start() {\n11.       int x = 7;\n12.       twice(x);\n13.       System.out.print(x + \" \");\n14.     }\n15.\n16.     void twice(int x) {\n17.       x = x*2;\n18.       s = x;\n19.     }\n20.   }",
+    "options": [
+      "77",
+      "714",
+      "140",
+      "1414",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "77",
+      "714",
+      "140",
+      "1414",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. Theint x in thetwice() method is not the same int x as in thestart() method.Start()’s x is not affected by the twice() method. The instance variable s is updated bytwice()’sx, which is 14. ✗ A, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-014",
+    "originalId": 14,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
+    "options": [
+      "truetrue",
+      "falsetrue",
+      "truefalse",
+      "falsefalse",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "truetrue",
+      "falsetrue",
+      "truefalse",
+      "falsefalse",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. Theboolean b1 in thefix() method is a different boolean than the b1 in the start() method. The b1 in thestart() method is not updated by the fix() method. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-015",
+    "originalId": 15,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
+    "options": [
+      "slipstream",
+      "slipstreamstream",
+      "streamslipstream",
+      "slipstreamslipstream",
+      "Compilation fails",
+      "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+    ],
+    "optionsVi": [
+      "slipstream",
+      "slipstreamstream",
+      "streamslipstream",
+      "slipstreamslipstream",
+      "Lỗi biên dịch (Compilation fails)",
+      "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+    ],
+    "answer": 3,
+    "explanation": "D. When thefix() method is first entered, start()’ss1 andfix()’ss1 reference variables both refer to the same String object (with a value of “slip”).Fix()’ss1 is reassigned to a new object that is created when the concatenation occurs (this second String object has a value of “slipstream”). When the program returns tostart(), another String object is created, referred to by s2 and with a value of “stream”. ✗ A, B, C, and E are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-016",
+    "originalId": 16,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
+    "options": [
+      "977foo77foo",
+      "723434foo3434foo",
+      "977foo3434foo",
+      "72734foo347foo",
+      "93434foo3434foo"
+    ],
+    "optionsVi": [
+      "977foo77foo",
+      "723434foo3434foo",
+      "977foo3434foo",
+      "72734foo347foo",
+      "93434foo3434foo"
+    ],
+    "answer": 3,
+    "explanation": "D. Because all of these expressions use the + operator, there is no precedence to worry about and all of the expressions will be evaluated from left to right. If either operand being evaluated is a String, the + operator will concatenate the two operands; if both operands are numeric, the + operator will add the two operands. ✗ A, B, C, and E are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-017",
+    "originalId": 17,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n60 Chapter 3: Operators and Assignments\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
+    "options": [
+      "1215",
+      "1515",
+      "345375",
+      "375375",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "1215",
+      "1515",
+      "345375",
+      "375375",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. The reference variables a1 and a3 refer to the samelong array object. When the [1] element is updated in the fix() method, it is updating the array referred to by a1. The reference variable a2 refers to the same array object. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch03-018",
+    "originalId": 18,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
+    "options": [
+      "nullnull42",
+      "0042",
+      "04242",
+      "000",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "nullnull42",
+      "0042",
+      "04242",
+      "000",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. In thefix() method, the reference variable tt refers to the same object (class Two) as the t reference variable. Updating tt.x in thefix() method updates t.x (they are one in the same object). Remember also that the instance variable x in the Two class is initialized to 0. ✗ A, B, D, E, and F are incorrect based on the program logic described above. EXERCISE ANSWERS Exercise 3-1: Using Shift Operators The program should look something like the following: class BitShift { public static void main(String [] args) { int x = 0x00000001; // or simply 1 x <<= 31; x >>= 31; System.out.println(\"After shift x equals \" + x); } } The number should now equal -1. In bits, this number is 1111 1111 1111 1111 1111 1111 1111 1111 Exercise 3-2: Casting Primitives The program should look something like the following: class Cast { public static void main(String [] args) { float f = 234.56F; short s = (short)f; } } Exercise Answers 65"
+  },
+  {
+    "id": "scjp-ch04-001",
+    "originalId": 1,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+    "options": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "Compilation fails at line 7.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "Compilation fails at line 7.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. Case expressions must be constant expressions. Since x is markedfinal, lines 8 and 9 are legal; however y is not afinal so the compiler will fail at line 7. ✗ A, B, D, E, and F, are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-002",
+    "originalId": 2,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+    "options": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "2 1 0 1 0 0",
+      "2 1 2 0 1 2",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9."
+    ],
+    "optionsVi": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "2 1 0 1 0 0",
+      "2 1 2 0 1 2",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9."
+    ],
+    "answer": 3,
+    "explanation": "D. The case expressions are all legal because x is markedfinal, which means the expressions can be evaluated at compile time. In the first iteration of the for loopcase x-2 matches, so 2 is printed. In the second iteration, x-1 is matched so 1 and 2 are printed (remember, once a match is found all remaining statements are executed until a break statement is encountered). In the third iteration,x is matched so01a n d2a r ep r inted. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-003",
+    "originalId": 3,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
+    "options": [
+      "41",
+      "42",
+      "50",
+      "51",
+      "Compiler fails at line 5.",
+      "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+    ],
+    "optionsVi": [
+      "41",
+      "42",
+      "50",
+      "51",
+      "Compiler fails at line 5.",
+      "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+    ],
+    "answer": 3,
+    "explanation": "D. In Java,boolean instance variables are initialized to false,s ot h eif test on line 5 is true andhand is incremented. Line 6 is legal syntax, a do nothing statement. The else-if is true sohand has 7 added to it and is then incremented. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-004",
+    "originalId": 4,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
+    "options": [
+      "0 def 1",
+      "2 1 0 def 1",
+      "2 1 0 def def",
+      "2 1 def 0 def 1",
+      "2 1 2 0 def 1 2",
+      "2 1 0 def 1 def 1"
+    ],
+    "optionsVi": [
+      "0 def 1",
+      "2 1 0 def 1",
+      "2 1 0 def def",
+      "2 1 def 0 def 1",
+      "2 1 2 0 def 1 2",
+      "2 1 0 def 1 def 1"
+    ],
+    "answer": 5,
+    "explanation": "F. Whenz == 0 , case x-2 is matched. Whenz == 1, case x-1 is matched and then the break occurs. Whenz == 2, case x, thendefault, then x-1 are all matched. When z == 3, default, thenx-1 are matched. The rules for default are that it will fall through from above like any other case (for instance whenz == 2), and that it will match when no other cases match (for instance when z= =3 ). ✗ A, B, C, D, and E are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-005",
+    "originalId": 5,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
+    "options": [
+      "0",
+      "1",
+      "101",
+      "111",
+      "1001",
+      "1101 Flow Control (loops) (Sun Objective 2.2)"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "101",
+      "111",
+      "1001",
+      "1101 Flow Control (loops) (Sun Objective 2.2)"
+    ],
+    "answer": 2,
+    "explanation": "C. As instance variables, b1 andb2 are initialized tofalse. The if tests on lines 5 and 6 are successful sob1 is set totrue andx is incremented. The nextif test to succeed is on line 13 (note that the code is not testing to see ifb2 istrue, it is settingb2 to betrue). Since line 13 was successful, subsequent else-if’s(line 14) will be skipped. ✗ A, B, D, E, and F are incorrect based on the program logic described above. Flow Control (loops) (Sun Objective 2.2)"
+  },
+  {
+    "id": "scjp-ch04-006",
+    "originalId": 6,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, Which statement is true?",
+    "textVi": "Cho đoạn mã sau, Phát biểu nào sau đây là ĐÚNG?",
+    "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
+    "options": [
+      "There is a syntax error on line 1.",
+      "There are syntax errors on lines 1 and 4.",
+      "There are syntax errors on lines 1, 4, and 5.",
+      "There is a syntax error on line 4.",
+      "There are syntax errors on lines 4 and 5.",
+      "There is a syntax error on line 5."
+    ],
+    "optionsVi": [
+      "There is a syntax error on line 1.",
+      "There are syntax errors on lines 1 and 4.",
+      "There are syntax errors on lines 1, 4, and 5.",
+      "There is a syntax error on line 4.",
+      "There are syntax errors on lines 4 and 5.",
+      "There is a syntax error on line 5."
+    ],
+    "answer": 3,
+    "explanation": "D. Using the integer 1 in the while statement, or any other looping or conditional construct for that matter, will result in a compiler error. This is old C syntax, not valid Java. ✗ A, B, C, E, and F are incorrect because line 1 is valid (Java is case sensitive so While is a valid class name). Line 5 is also valid because an equation may be placed in a String operation as shown."
+  },
+  {
+    "id": "scjp-ch04-007",
+    "originalId": 7,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+    "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n66 Chapter 4: Flow Control, Exceptions, and Assertions\n5.       }\n6.     }\n7.  }",
+    "options": [
+      "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+      "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+      "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+      "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+    ],
+    "optionsVi": [
+      "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+      "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+      "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+      "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+    ],
+    "answer": 0,
+    "explanation": "D and E. It doesn’t matter whether you preincrement or postincrement the variable in a for loop; it is always incremented after the loop executes and before the iteration expression is evaluated. ✗ A and B are incorrect because the first iteration of the loop must be zero. C is incorrect because the test will fail immediately and the for loop will not be entered."
+  },
+  {
+    "id": "scjp-ch04-008",
+    "originalId": 8,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
+    "options": [
+      "I is 1",
+      "I is 1 I is 1",
+      "No output is produced.",
+      "Compilation error",
+      "I is 1 I is 1 I is 1 in an infinite loop."
+    ],
+    "optionsVi": [
+      "I is 1",
+      "I is 1 I is 1",
+      "No output is produced.",
+      "Compilation error",
+      "I is 1 I is 1 I is 1 in an infinite loop."
+    ],
+    "answer": 2,
+    "explanation": "C. There are two different looping constructs in this problem. The first is a do-while loop and the second is a while loop, nested inside the do-while. The body of the do-while is only a single statement—brackets are not needed. You are assured that the while expression will be evaluated at least once, followed by an evaluation of the do-while expression. Both expressions are false and no output is produced. ✗ A, B, D, and E are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-009",
+    "originalId": 9,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);\n25.\n26.",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "optionsVi": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 0,
+    "explanation": "A. The program flows as follows: I will be incremented after the while loop is entered, thenI will be incremented (by zero) when the for loop is entered. The if statement evaluates to false, and thecontinue statement is never reached. The break statement tells the JVM to break out of the outer loop, at which point I is printed and the fragment is done. ✗ B, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-010",
+    "originalId": 10,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
+    "options": [
+      "I is 0",
+      "I is 0 I is 1",
+      "Compilation fails.",
+      "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+    ],
+    "optionsVi": [
+      "I is 0",
+      "I is 0 I is 1",
+      "Lỗi biên dịch (Compilation fails)",
+      "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+    ],
+    "answer": 2,
+    "explanation": "C. The code will not compile because a continue statement can only occur in a looping construct. If this syntax were legal, the combination of the continue and the if statements would create a kludgey kind of loop, but the compiler will force you to write cleaner code than this. ✗ A, B, and D are incorrect based on the program logic described above. Exceptions (Sun Objectives 2.3 and 2.4)"
+  },
+  {
+    "id": "scjp-ch04-011",
+    "originalId": 11,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+    "textVi": "Cho đoạn mã sau, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+    "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n68 Chapter 4: Flow Control, Exceptions, and Assertions\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
+    "options": [
+      "The code will not compile.",
+      "Code output:Start Hello world File Not Found.",
+      "Code output:Start Hello world End of file exception.",
+      "Code output:Start Hello world Catch Here File not found."
+    ],
+    "optionsVi": [
+      "The code will not compile.",
+      "Code output:Start Hello world File Not Found.",
+      "Code output:Start Hello world End of file exception.",
+      "Code output:Start Hello world Catch Here File not found."
+    ],
+    "answer": 0,
+    "explanation": "A. Line 6 will cause a compiler error. The only legal statements after try blocks are either catch orfinally statements. ✗ B, C, and D are incorrect based on the program logic described above. If line 6 was removed, the code would compile and the correct answer would be B."
+  },
+  {
+    "id": "scjp-ch04-012",
+    "originalId": 12,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
+    "options": [
+      "Nothing. The program will not compile because no exceptions are specified.",
+      "Nothing. The program will not compile because nocatch clauses are specified.",
+      "Hello world.",
+      "Hello world Finally executing"
+    ],
+    "optionsVi": [
+      "Nothing. The program will not compile because no exceptions are specified.",
+      "Nothing. The program will not compile because nocatch clauses are specified.",
+      "Hello world.",
+      "Hello world Finally executing"
+    ],
+    "answer": 3,
+    "explanation": "D.Finally clauses are always executed. The program will first execute the try block, printingHello world, and will then execute the finally block, printingFinally executing. ✗ A, B, and C are incorrect based on the program logic described above. Remember that either acatch or afinally statement must follow a try. Since the finally is present, the catch is not required. 76 Chapter 4: Flow Control, Exceptions, and Assertions"
+  },
+  {
+    "id": "scjp-ch04-013",
+    "originalId": 13,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+    "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
+    "options": [
+      "This program will compile successfully.",
+      "This program fails to compile due to an error at line 4.",
+      "This program fails to compile due to an error at line 6.",
+      "This program fails to compile due to an error at line 9.",
+      "This program fails to compile due to an error at line 13."
+    ],
+    "optionsVi": [
+      "This program will compile successfully.",
+      "This program fails to compile due to an error at line 4.",
+      "This program fails to compile due to an error at line 6.",
+      "This program fails to compile due to an error at line 9.",
+      "This program fails to compile due to an error at line 13."
+    ],
+    "answer": 4,
+    "explanation": "E. Any method (in this case, the main() method) that throws a checked exception (in this case, out.close() ) must be called within a try clause, or the metho d must declare that it throws the exception. Either main() must declare that it throws an exception, or the call toout.close() in thefinally block must fall inside a (in this case nested) try-catch block. ✗ A, B, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-014",
+    "originalId": 14,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, which answer most closely indicates the behavior of the program?",
+    "textVi": "Cho đoạn mã sau, which answer most closely indicates the behavior of the program?",
+    "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
+    "options": [
+      "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+      "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+      "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+      "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+    ],
+    "optionsVi": [
+      "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+      "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+      "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+      "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+    ],
+    "answer": 3,
+    "explanation": "D. Once the program throws a RuntimeException (in the throwit() method) that is not caught, thefinally block will be executed and the program will be terminated. If a method does not handle an exception, the finally block is executed before the exception is propagated. ✗ A, B, and C are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-015",
+    "originalId": 15,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
+    "options": [
+      "hello throwit caught",
+      "Compilation fails",
+      "hello throwit RuntimeException caught after",
+      "hello throwit RuntimeException",
+      "hello throwit caught finally after",
+      "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+    ],
+    "optionsVi": [
+      "hello throwit caught",
+      "Lỗi biên dịch (Compilation fails)",
+      "hello throwit RuntimeException caught after",
+      "hello throwit RuntimeException",
+      "hello throwit caught finally after",
+      "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+    ],
+    "answer": 4,
+    "explanation": "E. Themain() method properly catches and handles the RuntimeException in the catch block, finally runs (as it always does), and then the code returns to normal. ✗ A, B, C, D, and F are incorrect based on the program logic described above. Remember that properly handled exceptions do not cause the program to stop executing. Assertions (Sun Objectives 2.5 and 2.6)"
+  },
+  {
+    "id": "scjp-ch04-016",
+    "originalId": 16,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which of the following statements is true?",
+    "textVi": "Which of the following statements is true?",
+    "code": "",
+    "options": [
+      "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+      "If a switch block has no default, adding an assert default is considered appropriate.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "It is appropriate to handle assertion failures using acatch clause."
+    ],
+    "optionsVi": [
+      "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+      "If a switch block has no default, adding an assert default is considered appropriate.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "It is appropriate to handle assertion failures using acatch clause."
+    ],
+    "answer": 1,
+    "explanation": "B. Adding an assertion statement to a switch statement that previously had no default case is considered an excellent use of the assert mechanism. ✗ A is incorrect because only Java expressions that return a value can be used. For instance, a method that returnsvoid is illegal. C is incorrect because the expression after the colon must have a value. D is incorrect because assertions throw errors and not exceptions, and assertion errors do cause program termination and should not be handled."
+  },
+  {
+    "id": "scjp-ch04-017",
+    "originalId": 17,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which two of the following statements are true? (Choose two.)",
+    "textVi": "Which two of the following statements are true? (Choose two.)",
+    "code": "",
+    "options": [
+      "A và B (A: It is sometimes good practice to throw an AssertionError explicitly. & B: It is good practice to place assertions where you think execution should never reach.)",
+      "A và C (A: It is sometimes good practice to throw an AssertionError explicitly. & C: Privategetter() andsetter() methods should not use assertions to verify arguments.)",
+      "C và D (C: Privategetter() andsetter() methods should not use assertions to verify arguments. & D: If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.)",
+      "B và E (B: It is good practice to place assertions where you think execution should never reach. & E: It is proper to handle assertion statement failures using a catch (AssertionException ae) block.)"
+    ],
+    "optionsVi": [
+      "A và B (A: It is sometimes good practice to throw an AssertionError explicitly. & B: It is good practice to place assertions where you think execution should never reach.)",
+      "A và C (A: It is sometimes good practice to throw an AssertionError explicitly. & C: Privategetter() andsetter() methods should not use assertions to verify arguments.)",
+      "C và D (C: Privategetter() andsetter() methods should not use assertions to verify arguments. & D: If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.)",
+      "B và E (B: It is good practice to place assertions where you think execution should never reach. & E: It is proper to handle assertion statement failures using a catch (AssertionException ae) block.)"
+    ],
+    "answer": 0,
+    "explanation": "A and B. A is correct because it is sometimes advisable to thrown an assertion error even if assertions have been disabled. B is correct. One of the most common uses of assert statements in debugging is to verify that locations in code that have been designed to be unreachable are in fact never reached. ✗ C is incorrect because it is considered appropriate to check argument values in private methods using assertions. D is incorrect; finally is never bypassed. E is incorrect because AssertionErrors should never be handled."
+  },
+  {
+    "id": "scjp-ch04-018",
+    "originalId": 18,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
+    "options": [
+      "bar",
+      "bar done",
+      "foo done",
+      "bar foo done",
+      "Compilation fails",
+      "An error is thrown at runtime."
+    ],
+    "optionsVi": [
+      "bar",
+      "bar done",
+      "foo done",
+      "bar foo done",
+      "Lỗi biên dịch (Compilation fails)",
+      "An error is thrown at runtime."
+    ],
+    "answer": 4,
+    "explanation": "E. Thefoo() method returnsvoid. It is a perfectly acceptable method, but because it returnsvoid it cannot be used in an assert statement, so line 14 will not compile. ✗ A, B, C, D, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch04-019",
+    "originalId": 19,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which two of the following statements are true? (Choose two.)",
+    "textVi": "Which two of the following statements are true? (Choose two.)",
+    "code": "",
+    "options": [
+      "C và D (C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time. & D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions)",
+      "A và C (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.)",
+      "A và B (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & B: As of Java version 1.4, assertion statements are compiled by default.)",
+      "D và E (D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions & E: When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags.)"
+    ],
+    "optionsVi": [
+      "C và D (C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time. & D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions)",
+      "A và C (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.)",
+      "A và B (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & B: As of Java version 1.4, assertion statements are compiled by default.)",
+      "D và E (D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions & E: When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags.)"
+    ],
+    "answer": 0,
+    "explanation": "C and D. C is true because multiple VM flags can be used on a single invocation of a Java program. D is true, these are all valid flags for the VM. ✗ A is incorrect because at runtime assertions are ignored by default. B is incorrect because as of Java 1.4 you must add the argument –source 1.4 to the command line if you want the compiler to compile assertion statements. E is incorrect because the VM evaluates all assertion flags left to right."
+  },
+  {
+    "id": "scjp-ch04-020",
+    "originalId": 20,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, which line is an example of an inappropriate use of assertions?",
+    "textVi": "Cho đoạn mã sau, which line is an example of an inappropriate use of assertions?",
+    "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
+    "options": [
+      "Line 8",
+      "Line 9",
+      "Line 11",
+      "Line 15",
+      "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+    ],
+    "optionsVi": [
+      "Line 8",
+      "Line 9",
+      "Line 11",
+      "Line 15",
+      "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+    ],
+    "answer": 4,
+    "explanation": "E. Assert statements should not cause side effects. Line 18 changes the value of z if the assert statement is false. ✗ A is fine; a second expression in an assert statement is not required. B is fine because it is perfectly acceptable to call a method with the second expression of an assert statement. C is fine because it is proper to call an assert statement conditionally. D is fine because it is considered good form to add a default assert statement to switch blocks that have no default case. EXERCISE ANSWERS Exercise 4.1: Creating a switch-case Statement The code should look something like this: char temp = 'c'; switch(temp) { case 'a': { System.out.println(\"A\"); break; } case 'b': { System.out.println(\"B\"); break; } case 'c': System.out.println(\"C\"); break; default: System.out.println(\"default\"); } 78 Chapter 4: Flow Control, Exceptions, and Assertions Exercise Answers 79 Exercise 4-2: Creating a Labeled while Loop The code should look something like this: class LoopTest { public static void main(String [] args) { int age = 12; outer: while(age < 21) { age += 1; if(age == 16) { System.out.println(\"Obtain driver's license\"); continue outer; } System.out.println(\"Another year.\"); } } } Exercise 4-3: Propagating and Catching an Exception The code should look something like this: class Propagate { public static void main(String [] args) { try { System.out.println(reverse(\"Hello\")); } catch (Exception e) { System.out.println(\"The string was blank\"); } finally { System.out.println(\"All done!\"); } } public static String reverse(String s) throws Exception { if (s.length() == 0 ) { throw new Exception(); } String reverseStr = \"\"; for(int i=s.length()-1;i>=0;--i) { reverseStr += s.charAt(i); } return reverseStr; } } Exercise 4-4: Creating an Exception The code should look something like this: class BadFoodException extends Exception {} class MyException { public static void main(String [] args) { try { checkFood(args[0]); } catch(BadFoodException e) { e. printStackTrace(); } } public static void checkWord(String s) { String [] badFoods = {\"broccoli\",\"brussel sprouts\",\"sardines\"}; for(int i=0;i<badFoods.length;++i) { if (s.equals(badFoods[i])) throw new BadWFoodException(); } System.out.println(s + \" is ok with me.\"); } } 80 Chapter 4: Flow Control, Exceptions, and Assertions"
+  },
+  {
+    "id": "scjp-ch05-001",
+    "originalId": 1,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which is true about the class described above?",
+    "textVi": "Cho đoạn mã sau, which is true about the class described above?",
+    "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
+    "options": [
+      "Class Barbell is tightly encapsulated.",
+      "Line 2 is in conflict with encapsulation.",
+      "Line 5 is in conflict with encapsulation.",
+      "Line 8 is in conflict with encapsulation.",
+      "Lines 5 and 8 are in conflict with encapsulation.",
+      "Lines 2, 5, and 8 are in conflict with encapsulation."
+    ],
+    "optionsVi": [
+      "Class Barbell is tightly encapsulated.",
+      "Line 2 is in conflict with encapsulation.",
+      "Line 5 is in conflict with encapsulation.",
+      "Line 8 is in conflict with encapsulation.",
+      "Lines 5 and 8 are in conflict with encapsulation.",
+      "Lines 2, 5, and 8 are in conflict with encapsulation."
+    ],
+    "answer": 3,
+    "explanation": "D. If a class has an instance variable that is marked public, the class cannot be said to be encapsulated. ✗ A, B, C, E, and F are incorrect based on the program logic described above. Public getter and setter methods are compatible with the concept of encapsulation."
+  },
+  {
+    "id": "scjp-ch05-002",
+    "originalId": 2,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which is true about the classes described above?",
+    "textVi": "Cho đoạn mã sau, which is true about the classes described above?",
+    "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
+    "options": [
+      "Class A is tightly encapsulated.",
+      "Class B is tightly encapsulated.",
+      "Classes A and B are both tightly encapsulated.",
+      "Neither class A nor class B is tightly encapsulated."
+    ],
+    "optionsVi": [
+      "Class A is tightly encapsulated.",
+      "Class B is tightly encapsulated.",
+      "Classes A and B are both tightly encapsulated.",
+      "Neither class A nor class B is tightly encapsulated."
+    ],
+    "answer": 3,
+    "explanation": "D. Class A is clearly not encapsulated because it has a public instance variable. At first glance class B appears to be encapsulated, however because it extends from class A it inherits thepublic instance variable foo, which is not encapsulated. ✗ A, B, and C are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch05-003",
+    "originalId": 3,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which is true?",
+    "textVi": "Which is true?",
+    "code": "",
+    "options": [
+      "Tightly encapsulated classes are typically easier to reuse.",
+      "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+      "Methods in tightly encapsulated classes cannot be overridden.",
+      "Methods in tightly encapsulated classes cannot be overloaded.",
+      "Tightly encapsulated classes typically do not use HAS-A relationships."
+    ],
+    "optionsVi": [
+      "Tightly encapsulated classes are typically easier to reuse.",
+      "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+      "Methods in tightly encapsulated classes cannot be overridden.",
+      "Methods in tightly encapsulated classes cannot be overloaded.",
+      "Tightly encapsulated classes typically do not use HAS-A relationships."
+    ],
+    "answer": 0,
+    "explanation": "A. One of the main benefits of encapsulation is that encapsulated code is much easier to reuse than unencapsulated code. ✗ B, C, D, and E are incorrect. B is incorrect because inheritance is a concept that is independent of encapsulation. C and D are incorrect because encapsulation does not restrict the use of overloading or overriding.E is incorrect because HAS-A relationships are independent of encapsulation."
+  },
+  {
+    "id": "scjp-ch05-004",
+    "originalId": 4,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which two are not benefits of encapsulation? (Choose two.)",
+    "textVi": "Which two are not benefits of encapsulation? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và E (B: Code efficiency & E: Access modifiers become optional)",
+      "A và B (A: Clarity of code & B: Code efficiency)",
+      "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+      "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+    ],
+    "optionsVi": [
+      "B và E (B: Code efficiency & E: Access modifiers become optional)",
+      "A và B (A: Clarity of code & B: Code efficiency)",
+      "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+      "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. Encapsulation tends to make code more maintainable, extensible, and debuggable, but not necessarily any more efficient at runtime. Encapsulation is a design approach and in no way affects any Java language rules such as the use of access modifiers. ✗ A, C, and D are well-known benefits of encapsulation."
+  },
+  {
+    "id": "scjp-ch05-005",
+    "originalId": 5,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two are true about instances of the classes listed above? (Choose two.)",
+    "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
+    "options": [
+      "C và E (C: A has-a C & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))",
+      "A và C (A: A is-a B & C: A has-a C)",
+      "A và B (A: A is-a B & B: C is-a A)",
+      "D và E (D: B has-a A & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))"
+    ],
+    "optionsVi": [
+      "C và E (C: A has-a C & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))",
+      "A và C (A: A is-a B & C: A has-a C)",
+      "A và B (A: A is-a B & B: C is-a A)",
+      "D và E (D: B has-a A & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))"
+    ],
+    "answer": 0,
+    "explanation": "C and E. C is correct because class A has an instance variable, c, that is a reference to an object of class C. E is correct because class B extends from class A, which HAS-A class C reference, so class B, through inheritance, HAS-A class C. ✗ A, B, and D are incorrect based on the program logic described. A is incorrect because class B extends from class A, not the other way around. B is incorrect because class C is not in class A’s inheritance tree.D is incorrect because class B IS-A class A; HAS-A is not used to describe inheritance relationships. Overriding and Overloading (Sun Objective 6.2)"
+  },
+  {
+    "id": "scjp-ch05-006",
+    "originalId": 6,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "A",
+      "B",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "A",
+      "B",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. Reference variable ‘a’i so ft y p eA, but it refers to an object of type B.L i n e9i sa polymorphic call, and the VM will use the version of the baz() method that is in the class that the reference variable refers to at that point. ✗ A, C, and D are incorrect because of the logic described above. 58 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types"
+  },
+  {
+    "id": "scjp-ch05-007",
+    "originalId": 7,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+    "textVi": "Cho đoạn mã sau, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+    "code": "",
+    "options": [
+      "String doStuff(int x) { return \"hello\"; }",
+      "int doStuff(int x) { return 42; }",
+      "public String doStuff(int x) { return \"Hello\"; }",
+      "protected String doStuff(int x) { return \"Hello\"; }",
+      "String doStuff(String s) { return \"Hello\"; }",
+      "int doStuff(String s) { return 42; }"
+    ],
+    "optionsVi": [
+      "String doStuff(int x) { return \"hello\"; }",
+      "int doStuff(int x) { return 42; }",
+      "public String doStuff(int x) { return \"Hello\"; }",
+      "protected String doStuff(int x) { return \"Hello\"; }",
+      "String doStuff(String s) { return \"Hello\"; }",
+      "int doStuff(String s) { return 42; }"
+    ],
+    "answer": 1,
+    "explanation": "B. B is neither a legal override (the return type has been changed) nor a legal overload (the arguments have not changed). ✗ A, C, and D are legal overrides of thedoStuff() method, and E and F are legal overloads of thedoStuff() method."
+  },
+  {
+    "id": "scjp-ch05-008",
+    "originalId": 8,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, What is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
+    "options": [
+      "x = 14",
+      "x = 21",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 11.",
+      "Compilation fails at line 14.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "x = 14",
+      "x = 21",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 11.",
+      "Compilation fails at line 14.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. Line 14 is an illegal override of the doStuff() method in ParentClass. When you override a method, you must leave both the arguments and the return types the same. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 14 had returned an int, then B would be correct."
+  },
+  {
+    "id": "scjp-ch05-009",
+    "originalId": 9,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+    "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
+    "options": [
+      "C và E (C: private int doStuff(int x, float y) {return 4; } & E: long doStuff(int x, float y) { return 4; })",
+      "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) {return 4; })",
+      "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) {return 4; })",
+      "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3))"
+    ],
+    "optionsVi": [
+      "C và E (C: private int doStuff(int x, float y) {return 4; } & E: long doStuff(int x, float y) { return 4; })",
+      "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) {return 4; })",
+      "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) {return 4; })",
+      "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3))"
+    ],
+    "answer": 0,
+    "explanation": "C and E. C is an illegal override because the private modifier is more restrictive than doStuff()’s default modifier in class Over.E is an illegal override because you can’t change an overridden method’s return type, orE is an illegal overload because you must change an overloaded method’s arguments. ✗ A and B are simple overrides (protected is less restrictive than default). D and F are simple overloads (swapping arguments of different types creates an overload). Instantiation and Constructors (Sun Objectives 6.3 and 1.3)"
+  },
+  {
+    "id": "scjp-ch05-010",
+    "originalId": 10,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
+    "options": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "D. The class Child constructor calls the class Parent constructor implicitly before any code in the Child constructor runs. When the class Parent constructor’s code runs, it prints the first line of output, finishes, and returns control to the Child constructor, which prints out its line of output and finishes. The call to super() is redundant. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch05-011",
+    "originalId": 11,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
+    "options": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. Line 17 will cause the compiler to fail. The call tosuper() must be the first statement in a constructor. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 17 were removed, D would be correct."
+  },
+  {
+    "id": "scjp-ch05-012",
+    "originalId": 12,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
+    "options": [
+      "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+      "super 2 sub",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "Compilation fails at line 14."
+    ],
+    "optionsVi": [
+      "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+      "super 2 sub",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "Compilation fails at line 14."
+    ],
+    "answer": 1,
+    "explanation": "B. Class MySuper does not need a no-args constructor because MySub explicitly calls the MySuper constructor with an argument. ✗ A is incorrect because other than the implicit calls to super(), constructors run in order from base class to extended class, so MySuper’s output will print first.C, D, E,and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch05-013",
+    "originalId": 13,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
+    "options": [
+      "4",
+      "4 8",
+      "8 4",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Compilation fails."
+    ],
+    "optionsVi": [
+      "4",
+      "4 8",
+      "8 4",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "answer": 4,
+    "explanation": "E. Themain() method calls the long constructor which calls the int constructor, which calls the no-arg constructor, which runs, then returns to the int constructor, which runs, then returns to the long constructor, which runs last. ✗ A, B, C, D, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch05-014",
+    "originalId": 14,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
+    "options": [
+      "no-arg",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Compilation fails.",
+      "No output is produced.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "no-arg",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Lỗi biên dịch (Compilation fails)",
+      "No output is produced.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. The class elements declared in lines 5, 8, and 12 are badly named methods, not constructors. The default constructor runs with no output, and these methods are never called. ✗ A, B, C, D, and F are incorrect because of the logic described above."
+  },
+  {
+    "id": "scjp-ch05-015",
+    "originalId": 15,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
+    "options": [
+      "Beagle() { }",
+      "Beagle() { super(); }",
+      "Beagle() { super(\"fido\"); }",
+      "No constructor, allow the default constructor"
+    ],
+    "optionsVi": [
+      "Beagle() { }",
+      "Beagle() { super(); }",
+      "Beagle() { super(\"fido\"); }",
+      "No constructor, allow the default constructor"
+    ],
+    "answer": 2,
+    "explanation": "C. Only C is correct because the Dog class does not have a no-arg constructor; therefore, you must explicitly make the call to super(), passing in a string. ✗ A, B, and D are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch05-016",
+    "originalId": 16,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which two of these statements are true about constructors? (Choose two.)",
+    "textVi": "Which two of these statements are true about constructors? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))",
+      "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+      "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+      "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))"
+    ],
+    "optionsVi": [
+      "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))",
+      "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+      "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+      "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))"
+    ],
+    "answer": 0,
+    "explanation": "B and D are simply stating two rules about constructors. ✗ A is wrong because subclass constructors do not have to match the arguments of the superclass constructor. Only the call to super() must match. C is incorrect because constructors can be and are frequently overloaded. Return Types (Sun Objective 1.4)"
+  },
+  {
+    "id": "scjp-ch05-017",
+    "originalId": 17,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which line of code, inserted at line 19, will not compile?",
+    "textVi": "Cho đoạn mã sau, which line of code, inserted at line 19, will not compile?",
+    "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
+    "options": [
+      "short y = 7;",
+      "int y = (int) 7.2d;",
+      "Byte y = 7;",
+      "char y = 's';",
+      "int y = 0xface;"
+    ],
+    "optionsVi": [
+      "short y = 7;",
+      "int y = (int) 7.2d;",
+      "Byte y = 7;",
+      "char y = 's';",
+      "int y = 0xface;"
+    ],
+    "answer": 2,
+    "explanation": "C. Byte is a wrapper object, not a primitive. ✗ A and D are primitives that are shorter than int so they are cast implicitly. B is a double explicitly cast to an int. E is a valid integer initialized with a hexadecimal value."
+  },
+  {
+    "id": "scjp-ch05-018",
+    "originalId": 18,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+    "code": "14.    long test( int x, float y) {\n15.\n16.    }",
+    "options": [
+      "B và E (B: return (long) x / y; & E: return ( y / x );)",
+      "A và B (A: return x; & B: return (long) x / y;)",
+      "A và C (A: return x; & C: return (long) y;)",
+      "E và F (E: return ( y / x ); & F: return  x / 7;)"
+    ],
+    "optionsVi": [
+      "B và E (B: return (long) x / y; & E: return ( y / x );)",
+      "A và B (A: return x; & B: return (long) x / y;)",
+      "A và C (A: return x; & C: return (long) y;)",
+      "E và F (E: return ( y / x ); & F: return  x / 7;)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. B won’t compile because thelong cast only applies to x, not to the expression x / y. (We know it’s tricky, but so is the test.)E won’t compile because the result of (y / x) is a float. ✗ A, C, D, and F all return either longs or ints (which are automatically cast to longs)."
+  },
+  {
+    "id": "scjp-ch05-019",
+    "originalId": 19,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n54 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+    "options": [
+      "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+      "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+      "A và B (A: return null; & B: Object t = new Object(); return t;)",
+      "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+    ],
+    "optionsVi": [
+      "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+      "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+      "A và B (A: return null; & B: Object t = new Object(); return t;)",
+      "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+    ],
+    "answer": 0,
+    "explanation": "D and F. D is a reference to a char primitive that happens to be in an array. F returns a primitive, not an object. ✗ A, B, C, and E all return objects. For A,null is always a valid object return. For C,a n array is an object that holds other things (either objects or primitives). For E, we are returning an array held in an array, and it’s still an object!"
+  },
+  {
+    "id": "scjp-ch05-020",
+    "originalId": 20,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+    "options": [
+      "B và F (B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types & F: return (Float) 4.3;)",
+      "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types)",
+      "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+      "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+    ],
+    "optionsVi": [
+      "B và F (B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types & F: return (Float) 4.3;)",
+      "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types)",
+      "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+      "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+    ],
+    "answer": 0,
+    "explanation": "B and F are both attempting to cast a primitive to an object—can’t do it. ✗ A, C, D, and E all return objects. A is an array object that holds other arrays. C is an array object. D is an ArrayList object. E is a string cast to an object."
+  },
+  {
+    "id": "scjp-ch05-021",
+    "originalId": 21,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
+    "options": [
+      "Bar Bar Bar Bar Bar Bar",
+      "Foo Bar Foo Bar Foo Bar",
+      "Foo Foo Foo Foo Foo Foo",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "Bar Bar Bar Bar Bar Bar",
+      "Foo Bar Foo Bar Foo Bar",
+      "Foo Foo Foo Foo Foo Foo",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. Line 8 is an example of a polymorphic return type. The VM will determine on a case- by-case basis what class of object f2 refers to, Bar or Foo. This is only possible because the classes Foo and Bar are in the same inheritance tree. ✗ A, C, D, and E, are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-001",
+    "originalId": 1,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
+    "options": [
+      "abcdefghi",
+      "abcdefdef",
+      "abcghidef",
+      "abcghighi",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "abcdefghi",
+      "abcdefdef",
+      "abcghidef",
+      "abcghighi",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. After line 5 executes, both s2 and s3 refer to a String object that contains the value “def”. When line 6 executes, a new String object is created with the value “ghi”, to whichs2 refers. The reference variable s3 still refers to the (immutable) String object with the value “def”. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-002",
+    "originalId": 2,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
+    "options": [
+      "abcXyZ",
+      "abcxyz",
+      "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "XyZabc",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "abcXyZ",
+      "abcxyz",
+      "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "XyZabc",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. Line 12 creates a new String object with the value “XYZ”, but this new object is immediately lost because there is no reference to it. Line 13 creates a new String object referenced by y. This new String object has the value “xyz” because there was no “Y” in the String object referred to by x. Line 14 creates a new String object, appends “abc” to the value “xyz”, and refersy to the result. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-003",
+    "originalId": 3,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, how many String objects have been created?",
+    "textVi": "Cho đoạn mã sau, how many String objects have been created?",
+    "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "optionsVi": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 2,
+    "explanation": "C. Line 13 creates two, one referred to by x and the lost String “xyz”. Line 14 creates one (for a total of three). Line 15 creates one more (for a total of four), the concatenated String referred to by x with a value of “xyzabc”. ✗ A, B, and D are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-004",
+    "originalId": 4,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
+    "options": [
+      "apa",
+      "app",
+      "apea",
+      "apep",
+      "papp",
+      "papa"
+    ],
+    "optionsVi": [
+      "apa",
+      "app",
+      "apea",
+      "apep",
+      "papp",
+      "papa"
+    ],
+    "answer": 1,
+    "explanation": "B. Bothsubstring() andcharAt() methods are indexed with a zero-base, and substring() returns a String of length arg2 – arg1. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-005",
+    "originalId": 5,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
+    "options": [
+      "wookkeewoo",
+      "wbookkeeper",
+      "wbookkeewoo",
+      "wbookkeeperwoo",
+      "Compilation fails.",
+      "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+    ],
+    "optionsVi": [
+      "wookkeewoo",
+      "wbookkeeper",
+      "wbookkeewoo",
+      "wbookkeeperwoo",
+      "Lỗi biên dịch (Compilation fails)",
+      "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+    ],
+    "answer": 4,
+    "explanation": "E. In line 7 the code calls a StringBuffer method, append() on a String object. ✗ A, B, C, D, and F are incorrect based on the logic described above. Math (Exam Objective 8.1)"
+  },
+  {
+    "id": "scjp-ch06-006",
+    "originalId": 6,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
+    "options": [
+      "same results 0 time(s)",
+      "same results 2 time(s)",
+      "same results 4 time(s)",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "same results 0 time(s)",
+      "same results 2 time(s)",
+      "same results 4 time(s)",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B.Math.round() adds .5 to the argument then performs a floor(). Since the code adds an additional .5 before round() is called, it’s as if we are adding 1 then doing a floor(). The values that start out as integer values will in effect be incremented by 1 on the round() side but not on theceil() side, and the noninteger values will end up equal. ✗ A, C, D, and E are incorrect based on the logic described above. 50 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers"
+  },
+  {
+    "id": "scjp-ch06-007",
+    "originalId": 7,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+    "textVi": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+    "code": "",
+    "options": [
+      "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+      "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+      "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+      "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+    ],
+    "optionsVi": [
+      "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+      "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+      "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+      "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+    ],
+    "answer": 0,
+    "explanation": "A, B, and D. Themax() method is overloaded to take two arguments of type int, long, float,o r double. ✗ C is incorrect because the max() method only takes two arguments."
+  },
+  {
+    "id": "scjp-ch06-008",
+    "originalId": 8,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+    "textVi": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và C (B: The result is greater than or equal to 0.0.. & C: The result is less than 1.0.)",
+      "A và B (A: The result is less than 0.0. & B: The result is greater than or equal to 0.0..)",
+      "A và D (A: The result is less than 0.0. & D: The result is greater than 1.0.)",
+      "C và F (C: The result is less than 1.0. & F: The result is less than or equal to 1.0.)"
+    ],
+    "optionsVi": [
+      "B và C (B: The result is greater than or equal to 0.0.. & C: The result is less than 1.0.)",
+      "A và B (A: The result is less than 0.0. & B: The result is greater than or equal to 0.0..)",
+      "A và D (A: The result is less than 0.0. & D: The result is greater than 1.0.)",
+      "C và F (C: The result is less than 1.0. & F: The result is less than or equal to 1.0.)"
+    ],
+    "answer": 0,
+    "explanation": "B and C. The result range for random() is 0.0 to < 1.0; 1.0 is not in range. ✗ A, D, E, and F are incorrect based on the logic above."
+  },
+  {
+    "id": "scjp-ch06-009",
+    "originalId": 9,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
+    "options": [
+      "3.0",
+      "–3.0",
+      "NaN",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "3.0",
+      "–3.0",
+      "NaN",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. Thesqrt() method returnsNaN (not a number) when it’s argument is less than zero. ✗ A, B, D, and E are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-010",
+    "originalId": 10,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "textVi": "Cho đoạn mã sau, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
+    "options": [
+      "Line 3",
+      "Line 4",
+      "Line 5",
+      "Line 6",
+      "Line 3 and either line 4, 5, or 6",
+      "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+    ],
+    "optionsVi": [
+      "Line 3",
+      "Line 4",
+      "Line 5",
+      "Line 6",
+      "Line 3 and either line 4, 5, or 6",
+      "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+    ],
+    "answer": 2,
+    "explanation": "C. The Math class’ trigonometry methods expect their arguments to be in radians, not degrees. Line 5 can be decoded: “Convert 75 (degrees) into radians, then find the sine of that result.” ✗ A, B, D, E, and F are incorrect based on the logic described above. Wrappers (Exam Objective 8.3)"
+  },
+  {
+    "id": "scjp-ch06-011",
+    "originalId": 11,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two lines will cause compiler errors? (Choose two.)",
+    "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
+    "options": [
+      "B và D (B: Line 4 & D: Line 6)",
+      "A và B (A: Line 3 & B: Line 4)",
+      "A và C (A: Line 3 & C: Line 5)",
+      "D và F (D: Line 6 & F: Line 8)"
+    ],
+    "optionsVi": [
+      "B và D (B: Line 4 & D: Line 6)",
+      "A và B (A: Line 3 & B: Line 4)",
+      "A và C (A: Line 3 & C: Line 5)",
+      "D và F (D: Line 6 & F: Line 8)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. B is incorrect because the valueOf() method returns an Integer object. D is incorrect because the parseInt() method takes a String. ✗ A, C, E, and F all represent valid syntax. Line 5 takes the String “345” to be octal number, and converts it to an integer value 229."
+  },
+  {
+    "id": "scjp-ch06-012",
+    "originalId": 12,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
+    "options": [
+      "42",
+      "42.5",
+      "43",
+      "badnumber",
+      "Compilation fails.",
+      "An uncaught exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "42",
+      "42.5",
+      "43",
+      "badnumber",
+      "Lỗi biên dịch (Compilation fails)",
+      "An uncaught exception is thrown at runtime."
+    ],
+    "answer": 2,
+    "explanation": "C. All of this code is legal, and line 5 creates a new String with a value of “42.5”. Lines 6 and 7 convert the String to a double and then back again. Line 8 is fun— Math.ceil()’s argument expression is evaluated first. We invoke the valueOf() method that returns an anonymous Double object (with a value of 42.5). Then the doubleValue() method is called (invoked on the newly created Double object), and returns a double primitive (there and back again), with a value of (you guessed it) 42.5. The ceil() method converts this to 43.0, which is cast to an int and assigned to x. We know, we know, but stuff like this is on the exam. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-013",
+    "originalId": 13,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
+    "options": [
+      "z",
+      "xz",
+      "yz",
+      "xyz",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "z",
+      "xz",
+      "yz",
+      "xyz",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. The compiler fails at line 10 because b1 is a reference variable to a Boolean wrapper object, not a boolean primitive. Logical boolean tests can’t be made on Boolean objects. ✗ A, B, C, D, and F are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-014",
+    "originalId": 14,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+    "textVi": "Cho đoạn mã sau, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+    "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
+    "options": [
+      "A và B (A: floatf1=Float.floatValue(s); & B: floatf2=Float.valueOf(s);)",
+      "A và C (A: floatf1=Float.floatValue(s); & C: floatf3=newFloat(3.14f).floatValue();)",
+      "C và D (C: floatf3=newFloat(3.14f).floatValue(); & D: floatf4=Float.parseFloat(1.23f);)",
+      "B và F (B: floatf2=Float.valueOf(s); & F: floatf6=(float)Double.parseDouble(\"3.14\");)"
+    ],
+    "optionsVi": [
+      "A và B (A: floatf1=Float.floatValue(s); & B: floatf2=Float.valueOf(s);)",
+      "A và C (A: floatf1=Float.floatValue(s); & C: floatf3=newFloat(3.14f).floatValue();)",
+      "C và D (C: floatf3=newFloat(3.14f).floatValue(); & D: floatf4=Float.parseFloat(1.23f);)",
+      "B và F (B: floatf2=Float.valueOf(s); & F: floatf6=(float)Double.parseDouble(\"3.14\");)"
+    ],
+    "answer": 0,
+    "explanation": "A, B, and D. A won’t compile because thefloatValue() method is an instance method that takes no arguments. B won’t compile because thevalueOf() method returns a wrapper object. D won’t compile because theparseFloat() method takes a String. ✗ C, E,a n dF are all legal (if not terribly useful) ways to return a primitive float. 52 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers"
+  },
+  {
+    "id": "scjp-ch06-015",
+    "originalId": 15,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
+    "options": [
+      "9.0",
+      "badnumber",
+      "Compilation fails on line 13.",
+      "Compilation fails on line 14.",
+      "Compilation fails on lines 13 and 14.",
+      "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+    ],
+    "optionsVi": [
+      "9.0",
+      "badnumber",
+      "Compilation fails on line 13.",
+      "Compilation fails on line 14.",
+      "Compilation fails on lines 13 and 14.",
+      "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+    ],
+    "answer": 0,
+    "explanation": "A is correct. ThexxxValue() methods convert any numeric wrapper object’s value to any primitive type. When narrowing is necessary, significant bits are dropped and the results are difficult to calculate. ✗ B, C, D, E, and F are incorrect based on the logic described above. Equals() (Exam Objective 5.2)"
+  },
+  {
+    "id": "scjp-ch06-016",
+    "originalId": 16,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
+    "options": [
+      "result=1",
+      "result=10",
+      "result=11",
+      "result=11010",
+      "result=11011",
+      "result=11111"
+    ],
+    "optionsVi": [
+      "result=1",
+      "result=10",
+      "result=11",
+      "result=11010",
+      "result=11011",
+      "result=11111"
+    ],
+    "answer": 1,
+    "explanation": "B. Line 12 fails because == compares reference values, not object values. Line 13 succeeds because both String and primitive wrapper constructors resolve to the same value (except for the Character wrapper). Lines 14, 15, and 16 fail because the equals() method fails if the object classes being compared are different and not in the same tree hierarchy. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-017",
+    "originalId": 17,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
+    "options": [
+      "0",
+      "1",
+      "10",
+      "1100",
+      "10001",
+      "10010"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "10",
+      "1100",
+      "10001",
+      "10010"
+    ],
+    "answer": 5,
+    "explanation": "F. Line 10 fails because b1 and b2 are two different objects. Lines 11 and 14 succeed because the Boolean String constructors are case insensitive. Lines 12 and 13 fail because true is not equal tofalse. ✗ A, B, C, D, and E are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-018",
+    "originalId": 18,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
+    "options": [
+      "1",
+      "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "101",
+      "1001",
+      "1101"
+    ],
+    "optionsVi": [
+      "1",
+      "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "101",
+      "1001",
+      "1101"
+    ],
+    "answer": 4,
+    "explanation": "E. Even though o and oc are reference variables of different types, they are both referring to the same object. This means that == will resolve totrue and that the default equals() method will also resolve to true. ✗ A, B, C, and D are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch06-019",
+    "originalId": 19,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
+    "textVi": "Which two statements are true about wrapper or String classes? (Choose two.)",
+    "code": "",
+    "options": [
+      "D và E (D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)",
+      "A và D (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.)",
+      "A và B (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.)",
+      "C và E (C: If x and y are String references and ifx.equals(y) istrue, then x== y istrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)"
+    ],
+    "optionsVi": [
+      "D và E (D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)",
+      "A và D (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.)",
+      "A và B (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.)",
+      "C và E (C: If x and y are String references and ifx.equals(y) istrue, then x== y istrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)"
+    ],
+    "answer": 0,
+    "explanation": "D and E. D describes an example of the equals() method behaving transitively. By the way, x, y,a n dz will all be the same type of wrapper. E is true because x and y are referring to the same String object. ✗ A is incorrect—the fragment will compile. B is incorrect because x== y means that the two reference variables are referring to the same object. C will only be true if x and y refer to the same String. It is possible for x and y to refer to two different String objects with the same value. EXERCISE ANSWERS Exercise 6-1: Using the Math Class The following code listing is an example of how you might have written code to complete the exercise: class NumberInterrogation { public static void main(String [] argh) { double [] num = {10.5, -10.5, Math.PI, 0}; for(int i=0;i<num.length;++i) { System.out.println(\"abs(\"+num[i]+\")=\"+Math.abs(num[i])); System.out.println(\"ceil(\"+num[i]+\")=\"+Math.ceil(num[i])); System.out.println(\"floor(\"+num[i]+\")=\"+Math.floor(num[i])); System.out.println(); } } } Exercise 6-2: Rounding Random Numbers The following code listing is an example of how you might have written code to complete the exercise: class RandomRound { public static void main(String [] argh) { for(int i=0;i<10;++i) { double num = Math.random() * 100; System.out.print(\"The number \" + num); System.out.println(\" rounds to \" + Math.round(num)); } } } Exercise Answers 53"
+  },
+  {
+    "id": "scjp-ch07-001",
+    "originalId": 1,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+    "textVi": "Cho đoạn mã sau, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+    "code": "12.  if (x1.hashCode() != x2.hashCode() )  x = x + 1;\n13.  if (x3.equals(x4) )  x = x + 10;\n14.  if (!x5.equals(x6) ) x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode() )  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
+    "options": [
+      "x2.equals(x1)",
+      "x3.hashCode() == x4.hashCode()",
+      "x5.hashCode() != x6.hashCode()",
+      "x8.equals(x7)"
+    ],
+    "optionsVi": [
+      "x2.equals(x1)",
+      "x3.hashCode() == x4.hashCode()",
+      "x5.hashCode() != x6.hashCode()",
+      "x8.equals(x7)"
+    ],
+    "answer": 1,
+    "explanation": "B. By contract, if two objects are equivalent according to the equals() method, then thehashCode() method must evaluate them to be ==. ✗ A is incorrect because if the hashCode() values are not equal, the two objects must not be equal. C is incorrect because if equals() is not true there is no guarantee of any result fromhashCode(). D is incorrect because hashCode() will often return == even if the two objects do not evaluate to equals() being true."
+  },
+  {
+    "id": "scjp-ch07-002",
+    "originalId": 2,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } which statement is true?",
+    "textVi": "Cho đoạn mã sau, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } Phát biểu nào sau đây là ĐÚNG?",
+    "code": "",
+    "options": [
+      "class Test1 will not compile.",
+      "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+      "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+      "class Test2 will not compile.",
+      "The twohashcode() methods will have the same efficiency."
+    ],
+    "optionsVi": [
+      "class Test1 will not compile.",
+      "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+      "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+      "class Test2 will not compile.",
+      "The twohashcode() methods will have the same efficiency."
+    ],
+    "answer": 2,
+    "explanation": "C. The so-called “hashing algorithm” implemented by class Test1 will always return the same value, 42, which is legal but which will place all of the hash table entries into a single bucket, the most inefficient setup possible. ✗ A and D are incorrect because these classes are legal. B and E are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch07-003",
+    "originalId": 3,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+    "textVi": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+    "code": "",
+    "options": [
+      "A và D (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & D: If thehashCode() comparison == returnstrue, theequals() method might returntrue.)",
+      "A và B (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & B: If theequals() method returnsfalse, thehashCode() comparison != must return true.)",
+      "B và C (B: If theequals() method returnsfalse, thehashCode() comparison != must return true. & C: If thehashCode() comparison == returnstrue, theequals() method must return true.)",
+      "D và E (D: If thehashCode() comparison == returnstrue, theequals() method might returntrue. & E: If thehashCode() comparison != returnstrue, theequals() method might returntrue.)"
+    ],
+    "optionsVi": [
+      "A và D (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & D: If thehashCode() comparison == returnstrue, theequals() method might returntrue.)",
+      "A và B (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & B: If theequals() method returnsfalse, thehashCode() comparison != must return true.)",
+      "B và C (B: If theequals() method returnsfalse, thehashCode() comparison != must return true. & C: If thehashCode() comparison == returnstrue, theequals() method must return true.)",
+      "D và E (D: If thehashCode() comparison == returnstrue, theequals() method might returntrue. & E: If thehashCode() comparison != returnstrue, theequals() method might returntrue.)"
+    ],
+    "answer": 0,
+    "explanation": "A and D. A is a restatement of the equals() andhashCode() contract. D is true because if thehashCode() comparison returns ==, the two objects might or might not be equal. ✗ B, C, and E are incorrect. B and C are incorrect because the hashCode() method is very flexible in its return values, and often two dissimilar objects can return the same hash code value. E is a negation of the hashCode() andequals() contract."
+  },
+  {
+    "id": "scjp-ch07-004",
+    "originalId": 4,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+    "textVi": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+    "code": "",
+    "options": [
+      "java.lang.String",
+      "java.lang.Double",
+      "java.lang.StringBuffer",
+      "java.lang.Character",
+      "java.util.ArrayList"
+    ],
+    "optionsVi": [
+      "java.lang.String",
+      "java.lang.Double",
+      "java.lang.StringBuffer",
+      "java.lang.Character",
+      "java.util.ArrayList"
+    ],
+    "answer": 2,
+    "explanation": "C. java.lang.StringBuffer is the only class in the list that uses the default methods provided by class Object. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch07-005",
+    "originalId": 5,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "What two statements are true about properly overridden hashCode() andequals() methods?",
+    "textVi": "What two statements are true about properly overridden hashCode() andequals() methods?",
+    "code": "",
+    "options": [
+      "C và E (C: hashCode() can always return the same value, regardless of the object that invoked it. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))",
+      "A và C (A: hashCode() doesn’t have to be overridden ifequals() is. & C: hashCode() can always return the same value, regardless of the object that invoked it.)",
+      "A và B (A: hashCode() doesn’t have to be overridden ifequals() is. & B: equals() doesn’t have to be overridden ifhashCode() is.)",
+      "D và E (D: If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))"
+    ],
+    "optionsVi": [
+      "C và E (C: hashCode() can always return the same value, regardless of the object that invoked it. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))",
+      "A và C (A: hashCode() doesn’t have to be overridden ifequals() is. & C: hashCode() can always return the same value, regardless of the object that invoked it.)",
+      "A và B (A: hashCode() doesn’t have to be overridden ifequals() is. & B: equals() doesn’t have to be overridden ifhashCode() is.)",
+      "D và E (D: If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))"
+    ],
+    "answer": 0,
+    "explanation": "C and E are correct. ✗ A, B, and D are incorrect. A and B are incorrect because by contract hashCode() and equals() can’t be overridden unless both are overridden.D is incorrect;hashCode() will often return the same value when hashing dissimilar objects. Using Collections (Exam Objective 9.1)"
+  },
+  {
+    "id": "scjp-ch07-006",
+    "originalId": 6,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+    "textVi": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+    "code": "",
+    "options": [
+      "java.util.HashSet",
+      "java.util.LinkedHashSet",
+      "java.util.List",
+      "java.util.ArrayList",
+      "java.util.Vector"
+    ],
+    "optionsVi": [
+      "java.util.HashSet",
+      "java.util.LinkedHashSet",
+      "java.util.List",
+      "java.util.ArrayList",
+      "java.util.Vector"
+    ],
+    "answer": 3,
+    "explanation": "D. All of the collection classes allow you to grow or shrink the size of your collection. ArrayList provides an index to its elements. The newer collection classes tend not to have synchronized methods. Vector is an older implementation of ArrayList functionality and has synchronized methods; it is slower than ArrayList. ✗ A, B, C, and E are incorrect based on the logic described above; C, List is an interface."
+  },
+  {
+    "id": "scjp-ch07-007",
+    "originalId": 7,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+    "textVi": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+    "code": "",
+    "options": [
+      "java.util.SortedMap",
+      "java.util.TreeMap",
+      "java.util.TreeSet",
+      "java.util.HashMap",
+      "java.util.Hashtable"
+    ],
+    "optionsVi": [
+      "java.util.SortedMap",
+      "java.util.TreeMap",
+      "java.util.TreeSet",
+      "java.util.HashMap",
+      "java.util.Hashtable"
+    ],
+    "answer": 4,
+    "explanation": "E. Hashtable is the only class listed that provides synchronized methods. If you need synchronization great; otherwise, use HashMap, it’s faster. ✗ A, B, C, and D are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch07-008",
+    "originalId": 8,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "12.    TreeSet map = new TreeSet();\n13.    map.add(\"one\");\n14.    map.add(\"two\");\n15.    map.add(\"three\");\n16.    map.add(\"four\");\n17.    map.add(\"one\");\n18.    Iterator it = map.iterator();\n19.    while (it.hasNext() ) {\n20.        System.out.print( it.next() + \" \" );\n21.     }",
+    "options": [
+      "one two three four",
+      "four three two one",
+      "four one three two",
+      "one two three four one",
+      "one four three two one",
+      "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+    ],
+    "optionsVi": [
+      "one two three four",
+      "four three two one",
+      "four one three two",
+      "one two three four one",
+      "one four three two one",
+      "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+    ],
+    "answer": 2,
+    "explanation": "C. TreeSet assures no duplicate entries; also, when it is accessed it will return elements in natural order, which typically means alphabetical. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch07-009",
+    "originalId": 9,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+    "textVi": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+    "code": "",
+    "options": [
+      "java.util.ArrayList",
+      "java.util.LinkedHashMap",
+      "java.util.HashMap",
+      "java.util.TreeMap",
+      "java.util.LinkedHashSet",
+      "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+    ],
+    "optionsVi": [
+      "java.util.ArrayList",
+      "java.util.LinkedHashMap",
+      "java.util.HashMap",
+      "java.util.TreeMap",
+      "java.util.LinkedHashSet",
+      "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+    ],
+    "answer": 1,
+    "explanation": "B. LinkedHashMap is the collection class used for caching purposes. FIFO is another way to indicate caching behavior. To retrieve LinkedHashMap elements in cached order, use the values() method and iterate over the resultant collection. ✗ A, C, D, E, and E are incorrect based on the logic described above. Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+  },
+  {
+    "id": "scjp-ch07-010",
+    "originalId": 10,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nAfter line 6 runs. how many objects are eligible for garbage collection?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 1,
+    "explanation": "B. By the time line 6 has run, the only object without a reference is the one generated as a result of line 4. Remember that “Java is pass by value,” so the reference variablex is not affected by them1() method. ✗ A, C, D, and E are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch07-011",
+    "originalId": 11,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which statement is true?",
+    "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+    "code": "",
+    "options": [
+      "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+      "Objects with at least one reference will never be garbage collected.",
+      "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+      "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+      "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+    ],
+    "optionsVi": [
+      "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+      "Objects with at least one reference will never be garbage collected.",
+      "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+      "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+      "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+    ],
+    "answer": 3,
+    "explanation": "D. All objects are placed in the garbage collectible heap. ✗ A is incorrect because the garbage collector makes no guarantees. B is incorrect because islands of isolated objects can exist. C is incorrect because finalize() has no such mystical powers. E is incorrect because within a finalize() method, an object’s reference can be passed back to a live thread."
+  },
+  {
+    "id": "scjp-ch07-012",
+    "originalId": 12,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nafter line 9 runs, how many objects are eligible for garbage collection?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 2,
+    "explanation": "C. This is an example of the islands of isolated objects . By the time line 9 has run, the objects instantiated in lines 4 and 5 are referring to each other, but no live thread can reach either of them. ✗ A, B, D, and E are incorrect based on the logic described above."
+  },
+  {
+    "id": "scjp-ch07-013",
+    "originalId": 13,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which statement is true?",
+    "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+    "code": "",
+    "options": [
+      "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+      "The garbage collector uses a mark and sweep algorithm.",
+      "If an object can be accessed from a live thread, it can’t be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+    ],
+    "optionsVi": [
+      "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+      "The garbage collector uses a mark and sweep algorithm.",
+      "If an object can be accessed from a live thread, it can’t be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+    ],
+    "answer": 2,
+    "explanation": "C. This is a great way to think about when objects can be garbage collected. ✗ A and B assume guarantees that the garbage collector never makes. D is wrong because of the now famous islands of isolation scenario."
+  },
+  {
+    "id": "scjp-ch07-014",
+    "originalId": 14,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "12.  X3 x2 = new X3();\n13.  X3 x3 = new X3();\n14.  X3 x5 = x3;\n15.  x3 = x2;\n16.  X3 x4 = x3;",
+    "options": [
+      "C và E (C:  & E: )",
+      "A và C (A:  & C: )",
+      "A và B (A:  & B: )",
+      "E và F (E:  & F: )"
+    ],
+    "optionsVi": [
+      "C và E (C:  & E: )",
+      "A và C (A:  & C: )",
+      "A và B (A:  & B: )",
+      "E và F (E:  & F: )"
+    ],
+    "answer": 0,
+    "explanation": "C and E. By the time line 18 is reached, x2 is null,x3 andx4 refer to the object created in line 12, andx5 refers to the object created in line 13. Any kind of redirection of x5 will leave the second object without a reference. ✗ A, B, and D are incorrect because the first object has two references; changing one of the references will not cause the first object to become unreachable."
+  },
+  {
+    "id": "scjp-ch07-015",
+    "originalId": 15,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "",
+    "textVi": "",
+    "code": "",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "optionsVi": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": 0,
+    "explanation": "E is correct. A copy of a reference to the line 13 object is passed to the doStuff2() method. We don’t know what goes on in that method; it’s possible that the reference is passed to other live objects. ✗ A, B, C, and D are incorrect based on the logic described above. 50 Chapter 7: Objects and Collections"
+  },
+  {
+    "id": "scjp-ch08-001",
+    "originalId": 1,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+    "textVi": "Cho đoạn mã sau, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+    "code": "",
+    "options": [
+      "MyOuter.MyInnerm=newMyOuter.MyInner();",
+      "MyOuter.MyInnermi=newMyInner();",
+      "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+      "MyInnermi=newMyOuter.MyInner();"
+    ],
+    "optionsVi": [
+      "MyOuter.MyInnerm=newMyOuter.MyInner();",
+      "MyOuter.MyInnermi=newMyInner();",
+      "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+      "MyInnermi=newMyOuter.MyInner();"
+    ],
+    "answer": 0,
+    "explanation": "A. MyInner is a static nested class, so it must be instantiated using the fully-scoped name of MyOuter.MyInner. ✗ B is incorrect because it doesn’t use the enclosing name in thenew. C is incorrect because it uses incorrect syntax. When you instantiate a nested class by invoking new on an instance of the enclosing class, you do not use the enclosing name. The difference between A and C is that C is calling new on an instance of the enclosing class rather than just new by itself. D is incorrect because it doesn’t use the enclosing class name in the variable declaration."
+  },
+  {
+    "id": "scjp-ch08-002",
+    "originalId": 2,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Which two are true about a static nested class?",
+    "textVi": "Which two are true about a static nested class?",
+    "code": "",
+    "options": [
+      "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+      "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+      "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+      "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+    ],
+    "optionsVi": [
+      "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+      "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+      "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+      "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. B is correct because a static nested class is not tied to an instance of the enclosing class, and thus can’t access the nonstatic members of the class (just as a static method can’t access nonstatic members of a class).D uses the correct syntax for instantiating a static nested class. ✗ A is incorrect because static nested classes do not need (and can’t use) a reference to an instance of the enclosing class. C is incorrect because static nested classes can declare and define nonstatic members. E is wrong because…it just is. There’s no rule that says an inner or nested class has to extend anything."
+  },
+  {
+    "id": "scjp-ch08-003",
+    "originalId": 3,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Which constructs an anonymous inner class instance?",
+    "textVi": "Which constructs an anonymous inner class instance?",
+    "code": "",
+    "options": [
+      "Runnabler=newRunnable(){};",
+      "Runnabler=newRunnable(publicvoidrun(){});",
+      "Runnabler=newRunnable{publicvoidrun(){}};",
+      "Runnabler=newRunnable(){publicvoidrun{}};",
+      "System.out.println(newRunnable() {publicvoidrun(){}});",
+      "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+    ],
+    "optionsVi": [
+      "Runnabler=newRunnable(){};",
+      "Runnabler=newRunnable(publicvoidrun(){});",
+      "Runnabler=newRunnable{publicvoidrun(){}};",
+      "Runnabler=newRunnable(){publicvoidrun{}};",
+      "System.out.println(newRunnable() {publicvoidrun(){}});",
+      "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+    ],
+    "answer": 4,
+    "explanation": "E is correct. It defines an anonymous inner class instance, which also means it creates an instance of that new anonymous class at the same time. The anonymous class is an implementer of the Runnable interface, so it must override the run() method of Runnable. ý A is incorrect because it doesn’t override therun() method, so it violates the rules of interface implementation. B, C, and D use incorrect syntax."
+  },
+  {
+    "id": "scjp-ch08-004",
+    "originalId": 4,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và C (B: Boof=newBar(){}; & C: Boof=newBoo(){Strings;};)",
+      "A và B (A: Boof=newBoo(24){}; & B: Boof=newBar(){};)",
+      "A và D (A: Boof=newBoo(24){}; & D: Barf=newBoo(Strings){};)",
+      "C và E (C: Boof=newBoo(){Strings;}; & E: Boof=newBoo.Bar(Strings){};)"
+    ],
+    "optionsVi": [
+      "B và C (B: Boof=newBar(){}; & C: Boof=newBoo(){Strings;};)",
+      "A và B (A: Boof=newBoo(24){}; & B: Boof=newBar(){};)",
+      "A và D (A: Boof=newBoo(24){}; & D: Barf=newBoo(Strings){};)",
+      "C và E (C: Boof=newBoo(){Strings;}; & E: Boof=newBoo.Bar(Strings){};)"
+    ],
+    "answer": 0,
+    "explanation": "B and C. B is correct because anonymous inner classes are no different from any other class when it comes to polymorphism. That means you are always allowed to declare a reference variable of the superclass type and have that reference variable refer to an instance of a subclass type, which in this case is an anonymous subclass of Bar. Since Bar is a subclass of Boo, it all works. C uses correct syntax for creating an instance of Boo. ý A is incorrect because it passes an int to the Boo constructor, and there is no matching constructor in the Boo class. D is incorrect because it violates the rules of polymorphism—you cannot refer to a superclass type using a reference variable declared as the subclass type. The superclass is not guaranteed to have everything the subclass has. E uses incorrect syntax. 34 Chapter 8: Inner Classes"
+  },
+  {
+    "id": "scjp-ch08-005",
+    "originalId": 5,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+    "textVi": "Cho đoạn mã sau, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+    "code": "2.   class Bar{ }\n3.}\n4.class Test {\n5.    public static void main (String [] args) {\n6.       Foo f = new Foo();\n7.       // Insert code here\n8.    }\n9.}",
+    "options": [
+      "Foo.Barb=newFoo.Bar();",
+      "Foo.Barb=f.newBar();",
+      "Barb=newf.Bar();",
+      "Barb=f.newBar();",
+      "Foo.Barb=newf.Bar();"
+    ],
+    "optionsVi": [
+      "Foo.Barb=newFoo.Bar();",
+      "Foo.Barb=f.newBar();",
+      "Barb=newf.Bar();",
+      "Barb=f.newBar();",
+      "Foo.Barb=newf.Bar();"
+    ],
+    "answer": 1,
+    "explanation": "B is correct because the syntax is correct—using both names (the enclosing class and the inner class) in the reference declaration, then using a reference to the enclosing class to invoke new on the inner class. ✗ A, C, D, and E all use incorrect syntax. A is incorrect because it doesn’t use a reference to the enclosing class, and also because it includes both names in the new. C is incorrect because it doesn’t use the enclosing class name in the reference variable declaration, and because the new syntax is wrong. D is incorrect because it doesn’t use the enclosing class name in the reference variable declaration. E is incorrect because the new syntax is wrong."
+  },
+  {
+    "id": "scjp-ch08-006",
+    "originalId": 6,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Which two are true about a method-local inner class?",
+    "textVi": "Which two are true about a method-local inner class?",
+    "code": "",
+    "options": [
+      "B và E (B: It can be markedabstract. & E: It can access private members of the enclosing class.)",
+      "A và B (A: It must be markedfinal. & B: It can be markedabstract.)",
+      "A và C (A: It must be markedfinal. & C: It can be markedpublic.)",
+      "D và E (D: It can be markedstatic. & E: It can access private members of the enclosing class.)"
+    ],
+    "optionsVi": [
+      "B và E (B: It can be markedabstract. & E: It can access private members of the enclosing class.)",
+      "A và B (A: It must be markedfinal. & B: It can be markedabstract.)",
+      "A và C (A: It must be markedfinal. & C: It can be markedpublic.)",
+      "D và E (D: It can be markedstatic. & E: It can access private members of the enclosing class.)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. B is correct because a method-local inner class can be abstract, although it means a subclass of the inner class must be created if the abstract class is to be used (so an abstract method-local inner class is probably not useful). E is correct because a method-local inner class works like any other inner class—it has a special relationship to an instance of the enclosing class, thus it can access all members of the enclosing class. ✗ A is incorrect because a method-local inner class does not have to be declared final (although it is legal to do so). C and D are incorrect because a method-local inner class cannot be madepublic (remember—you cannot mark any local variables as public), orstatic."
+  },
+  {
+    "id": "scjp-ch08-007",
+    "originalId": 7,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Which is true about an anonymous inner class?",
+    "textVi": "Which is true about an anonymous inner class?",
+    "code": "",
+    "options": [
+      "It can extend exactly one class and implement exactly one interface.",
+      "It can extend exactly one class and can implement multiple interfaces.",
+      "It can extend exactly one class or implement exactly one interface.",
+      "It can implement multiple interfaces regardless of whether it also extends a class.",
+      "It can implement multiple interfaces if it does not extend a class."
+    ],
+    "optionsVi": [
+      "It can extend exactly one class and implement exactly one interface.",
+      "It can extend exactly one class and can implement multiple interfaces.",
+      "It can extend exactly one class or implement exactly one interface.",
+      "It can implement multiple interfaces regardless of whether it also extends a class.",
+      "It can implement multiple interfaces if it does not extend a class."
+    ],
+    "answer": 2,
+    "explanation": "C is correct because the syntax of an anonymous inner class allows for only one named type after thenew, and that type must be either a single interface (in which case the anonymous class implements that one interface) or a single class (in which case the anonymous class extends that one class). ✗ A, B, D, and E are all incorrect because they don’t follow the syntax rules described in the response for answer C."
+  },
+  {
+    "id": "scjp-ch08-008",
+    "originalId": 8,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "Compilation fails.",
+      "An error occurs at runtime.",
+      "foobarhi",
+      "barhi",
+      "hi 30 Chapter 8: Inner Classes"
+    ],
+    "optionsVi": [
+      "Lỗi biên dịch (Compilation fails)",
+      "An error occurs at runtime.",
+      "foobarhi",
+      "barhi",
+      "hi 30 Chapter 8: Inner Classes"
+    ],
+    "answer": 2,
+    "explanation": "C is correct because first the Foo instance is created, which means the Foo constructor runs and prints “foo”. Next, themakeBar() method is invoked which creates a Bar, which means the Bar constructor runs and prints “bar”, and finally thego() method is invoked on the new Bar instance, which means the go() method prints “hi”. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch08-009",
+    "originalId": 9,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, 1.public class TestObj { what is the result?",
+    "textVi": "Cho đoạn mã sau, 1.public class TestObj { Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "2.  public static void main (String [] args) {\n3.    Object o = new Object() {\n4.       public boolean equals(Object obj) {\n5.        return true;\n6.       }\n7.    }\n8.     System.out.println(o.equals(\"Fred\"));\n9.   }\n10.}",
+    "options": [
+      "An exception occurs at runtime.",
+      "true",
+      "fred",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 4.",
+      "Compilation fails because of an error on line 8.",
+      "Compilation fails because of an error on a line other than 3, 4, or 8."
+    ],
+    "optionsVi": [
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+      "true",
+      "fred",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 4.",
+      "Compilation fails because of an error on line 8.",
+      "Compilation fails because of an error on a line other than 3, 4, or 8."
+    ],
+    "answer": 6,
+    "explanation": "G. This code would be legal if line 7 ended with a semicolon. Remember that line 3 is a statement that doesn’t end until line 7, and a statement needs a closing semicolon! ✗ A, B, C, D, E, and F are incorrect based on the program logic described above. If the semicolon were added at line 7, then answer B would be correct—the program would print “true”, the return from theequals() method overridden by the anonymous subclass of Object."
+  },
+  {
+    "id": "scjp-ch08-010",
+    "originalId": 10,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }",
+    "options": [
+      "An exception occurs at runtime at line 10.",
+      "Zippo",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10.",
+      "Compilation fails because of an error on line 11."
+    ],
+    "optionsVi": [
+      "An exception occurs at runtime at line 10.",
+      "Zippo",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10.",
+      "Compilation fails because of an error on line 11."
+    ],
+    "answer": 1,
+    "explanation": "B. The code in the HorseTest class is perfectly legal. Line 9 creates an instance of the method-local inner class Horse, using a reference variable declared as type Object. Line 10 casts the Horse object to a Horse reference variable, which allows line 11 to compile. If line 10 were removed, the HorseTest code would not compile, because class Object does not have a name variable. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch08-011",
+    "originalId": 11,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }",
+    "options": [
+      "An exception occurs at runtime at line 10.",
+      "Zippo",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10."
+    ],
+    "optionsVi": [
+      "An exception occurs at runtime at line 10.",
+      "Zippo",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10."
+    ],
+    "answer": 4,
+    "explanation": "E. This code is identical to the code in question 10, except the casting statement has been removed. If you use a reference variable of type Object, you can access only those members defined in class Object. ✗ A, B, C, and D are incorrect based on the program logic described above and in the previous question."
+  },
+  {
+    "id": "scjp-ch08-012",
+    "originalId": 12,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "5722",
+      "4538",
+      "4557",
+      "An exception occurs at runtime.",
+      "Compilation fails. 32 Chapter 8: Inner Classes"
+    ],
+    "optionsVi": [
+      "5722",
+      "4538",
+      "4557",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+      "Compilation fails. 32 Chapter 8: Inner Classes"
+    ],
+    "answer": 0,
+    "explanation": "A. You can define an inner class as abstract, which means you can instantiate only concrete subclasses of the abstract inner class. The object referenced by the variable t is an instance of an anonymous subclass of AbstractTest, and the anonymous class overrides the getNum() method to return22. The variable referenced by f is an instance of an anonymous subclass of Bar, and the anonymous Bar subclass also overrides the getNum() method (to return57). Remember that to instantiate a Bar instance, we need an instance of the enclosing AbstractTest class to tie to the new Bar inner class instance. AbstractTest can’t be instantiated because it’s abstract, so we created an anonymous subclass (non-abstract) and then used the instance of that anonymous subclass to tie to the new Bar subclass instance. ✗ B, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "id": "scjp-ch09-001",
+    "originalId": 1,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1;i<3;++i) {\n10.           System.out.print(i + \"..\");\n11.        }\n12.     }\n13.  }",
+    "options": [
+      "This code will not compile due to line 4.",
+      "This code will not compile due to line 5.",
+      "1..2..",
+      "1..2..3..",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "This code will not compile due to line 4.",
+      "This code will not compile due to line 5.",
+      "1..2..",
+      "1..2..3..",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. Line 5 calls therun() method, so therun() method executes as a normal method should. ✗ A is incorrect because line 4 is the proper way to create an object. B is incorrect because it is legal to call the run() method, even though this will not start a true thread of execution. The code after line 5 will not execute until the run() method is complete. D is incorrect because the for loop only does two iterations. E is incorrect because the program runs without exception."
+  },
+  {
+    "id": "scjp-ch09-002",
+    "originalId": 2,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two of the following methods are defined in class Thread?",
+    "textVi": "Which two of the following methods are defined in class Thread?",
+    "code": "",
+    "options": [
+      "A và D (A: start() & D: run())",
+      "A và B (A: start() & B: wait())",
+      "B và C (B: wait() & C: notify())",
+      "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+    ],
+    "optionsVi": [
+      "A và D (A: start() & D: run())",
+      "A và B (A: start() & B: wait())",
+      "B và C (B: wait() & C: notify())",
+      "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+    ],
+    "answer": 0,
+    "explanation": "A and D. Onlystart() andrun() are defined by the Thread class. ✗ B and C are incorrect because they are methods of the Object class. E is incorrect because there’s no such method in any thread-related class."
+  },
+  {
+    "id": "scjp-ch09-003",
+    "originalId": 3,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+    "textVi": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+    "code": "",
+    "options": [
+      "public class MyRunnable extends Runnable{public void run(){}}",
+      "public class MyRunnable extends Object{public void run(){}}",
+      "public class MyRunnable implements Runnable{public void run(){}}",
+      "public class MyRunnable implements Runnable{void run(){}}",
+      "public class MyRunnable implements Runnable{public void start(){}}"
+    ],
+    "optionsVi": [
+      "public class MyRunnable extends Runnable{public void run(){}}",
+      "public class MyRunnable extends Object{public void run(){}}",
+      "public class MyRunnable implements Runnable{public void run(){}}",
+      "public class MyRunnable implements Runnable{void run(){}}",
+      "public class MyRunnable implements Runnable{public void start(){}}"
+    ],
+    "answer": 2,
+    "explanation": "C. The class correctly implements the Runnable interface with a legal public void run() method. ✗ A is incorrect because interfaces are not extended; they are implemented. B is incorrect because even though the class would compile and it has a valid public void run() method, it does not implement the Runnable interface, so the compiler would complain when creating a Thread with an instance of it. D is incorrect because the run() method must be public. E is incorrect because the method to implement is run(),n o tstart()."
+  },
+  {
+    "id": "scjp-ch09-004",
+    "originalId": 4,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result of this code?",
+    "textVi": "Cho đoạn mã sau, what is the result of this code?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.start();\n6.        System.out.print(\"one. \");\n7.        t.start();\n8.        System.out.print(\"two. \");\n9.     }\n10.\n11.     public void run() {\n12.        System.out.print(\"Thread \");\n13.     }\n14.  }",
+    "options": [
+      "Compilation fails",
+      "An exception occurs at runtime.",
+      "Thread one. Thread two.",
+      "The output cannot be determined."
+    ],
+    "optionsVi": [
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+      "Thread one. Thread two.",
+      "The output cannot be determined."
+    ],
+    "answer": 1,
+    "explanation": "B. When thestart() method is attempted a second time on a single Thread object, the method will throw an IllegalThreadStateException (you will not need to know this exception name for the exam). Even if the thread has finished running, it is still illegal to callstart() again. ✗ A is incorrect because compilation will succeed. For the most part, the Java compiler only checks for illegal syntax, rather than class-specific logic. C and D are incorrect because of the logic explained above."
+  },
+  {
+    "id": "scjp-ch09-005",
+    "originalId": 5,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, which of these will create and start this thread?",
+    "textVi": "Cho đoạn mã sau, which of these will create and start this thread?",
+    "code": "1.  public class MyRunnable implements Runnable {\n2.     public void run() {\n3.        // some code here\n4.     }\n5.  }",
+    "options": [
+      "new Runnable(MyRunnable).start();",
+      "new Thread(MyRunnable).run();",
+      "new Thread(new MyRunnable()).start();",
+      "new MyRunnable().start();"
+    ],
+    "optionsVi": [
+      "new Runnable(MyRunnable).start();",
+      "new Thread(MyRunnable).run();",
+      "new Thread(new MyRunnable()).start();",
+      "new MyRunnable().start();"
+    ],
+    "answer": 2,
+    "explanation": "C. Because the class implements Runnable, an instance of it has to be passed to the Thread constructor, and then the instance of the Thread has to be started. ✗ A is incorrect. There is no constructor like this for Runnable because Runnable is an interface, and it is illegal to pass a class or interface name to any constructor. B is incorrect for the same reason; you can’t pass a class or interface name to any constructor.D is incorrect because MyRunnable doesn’t have astart() method, and the only start() method that can start a thread of execution is the start() in the Thread class. 60 Chapter 9: Threads"
+  },
+  {
+    "id": "scjp-ch09-006",
+    "originalId": 6,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result of this code?",
+    "textVi": "Cho đoạn mã sau, what is the result of this code?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        Thread x = new Thread(t);\n6.        x.start();\n7.     }\n8.\n9.     public void run() {\n10.        for(int i=0;i<3;++i) {\n11.           System.out.print(i + \"..\");\n12.        }\n13.     }\n14.  }",
+    "options": [
+      "Compilation fails.",
+      "1..2..3..",
+      "0..1..2..3..",
+      "0..1..2..",
+      "An exception occurs at runtime."
+    ],
+    "optionsVi": [
+      "Lỗi biên dịch (Compilation fails)",
+      "1..2..3..",
+      "0..1..2..3..",
+      "0..1..2..",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "D. The thread MyThread will start and loop three times (from 0 to 2). ✗ A is incorrect because the Thread class implements the Runnable interface; therefore, in line 5, Thread can take an object of type Thread as an argument in the constructor. B and C are incorrect because the variable i in the for loop starts with a value of 0 and ends with a value of 2. E is incorrect because of the program logic described above."
+  },
+  {
+    "id": "scjp-ch09-007",
+    "originalId": 7,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0;i<lines.length;i++){\n9.           System.out.println(lines[i]);\n10.           Thread.currentThread().sleep(1000);\n52 Chapter 9: Threads\n11.        }\n12.     }\n13.  }\nthe static methodThread.currentThread()returns a reference to the currently executing\nThread object. What is the result of this code?",
+    "options": [
+      "Each String in the array lines will output, with a 1-second pause.",
+      "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+      "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+      "This code will not compile."
+    ],
+    "optionsVi": [
+      "Each String in the array lines will output, with a 1-second pause.",
+      "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+      "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+      "This code will not compile."
+    ],
+    "answer": 3,
+    "explanation": "D. Thesleep() method must be enclosed in a try/catch block, or the method printAll() must declare itthrows the InterruptedException. ✗ A is incorrect, but it would be correct if the InterruptedException was dealt with. B is incorrect, but it would still be incorrect if the InterruptedException was dealt with because all Java code, including the main() method, runs in threads. C is incorrect. Thesleep() method is static, so even if it is called on an instance, it still always affects the currently executing thread."
+  },
+  {
+    "id": "scjp-ch09-008",
+    "originalId": 8,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+    "textVi": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+    "code": "",
+    "options": [
+      "B và F (B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})",
+      "A và B (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;})",
+      "A và C (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & C: public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}})",
+      "E và F (E: public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})"
+    ],
+    "optionsVi": [
+      "B và F (B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})",
+      "A và B (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;})",
+      "A và C (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & C: public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}})",
+      "E và F (E: public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})"
+    ],
+    "answer": 0,
+    "explanation": "B and F. By marking the methods as synchronized, the threads will get the lock of the this object before proceeding. Only one thread will be either setting or reading at any given moment, thereby assuring that read() always returns the addition of a valid pair. ✗ A is incorrect because it is not synchronized; therefore, there is no guarantee that the values added by theread() method belong to the same pair. C and D are incorrect; only objects can be used to synchronize on. E is incorrect because it is not possible to select other objects to synchronize on when declaring a method assynchronized. Even usingthis is incorrect syntax."
+  },
+  {
+    "id": "scjp-ch09-009",
+    "originalId": 9,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+    "textVi": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+    "code": "",
+    "options": [
+      "Object",
+      "Thread",
+      "Runnable",
+      "Class"
+    ],
+    "optionsVi": [
+      "Object",
+      "Thread",
+      "Runnable",
+      "Class"
+    ],
+    "answer": 0,
+    "explanation": "A. The Object class defines these thread-specific methods. ✗ B, C, and D are incorrect because they do not define these methods. And yes, the Java API does define a class called Class, though you do not need to know it for the exam."
+  },
+  {
+    "id": "scjp-ch09-010",
+    "originalId": 10,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two are true?",
+    "textVi": "Which two are true?",
+    "code": "",
+    "options": [
+      "B và E (B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads & E: When a thread invokeswait(), it releases its locks.)",
+      "A và B (A: A static method cannot be synchronized. & B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads)",
+      "A và C (A: A static method cannot be synchronized. & C: Variables can be protected from concurrent access problems by marking them with the synchronized keyword.)",
+      "D và E (D: When a thread sleeps, it releases its locks. & E: When a thread invokeswait(), it releases its locks.)"
+    ],
+    "optionsVi": [
+      "B và E (B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads & E: When a thread invokeswait(), it releases its locks.)",
+      "A và B (A: A static method cannot be synchronized. & B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads)",
+      "A và C (A: A static method cannot be synchronized. & C: Variables can be protected from concurrent access problems by marking them with the synchronized keyword.)",
+      "D và E (D: When a thread sleeps, it releases its locks. & E: When a thread invokeswait(), it releases its locks.)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. B is correct because multiple threads are allowed to enter nonsynchronized code, even within a class that has some synchronized methods. E is correct because a wait() call causes the thread to give up its locks. ✗ A is incorrect because static methods can be synchronized; they synchronize on the lock on the instance of class java.lang.Class that represents the class type. C is incorrect because only methods—not variables—can be marked synchronized. D is incorrect because a sleeping thread still maintains its locks."
+  },
+  {
+    "id": "scjp-ch09-011",
+    "originalId": 11,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which three are methods of the Object class? (Choose three.)",
+    "textVi": "Which three are methods of the Object class? (Choose three.)",
+    "code": "",
+    "options": [
+      "A và B (A: notify(); & B: notifyAll();)",
+      "A và C (A: notify(); & C: isInterrupted();)",
+      "C và D (C: isInterrupted(); & D: synchronized();)",
+      "B và H (B: notifyAll(); & H: yield();)"
+    ],
+    "optionsVi": [
+      "A và B (A: notify(); & B: notifyAll();)",
+      "A và C (A: notify(); & C: isInterrupted();)",
+      "C và D (C: isInterrupted(); & D: synchronized();)",
+      "B và H (B: notifyAll(); & H: yield();)"
+    ],
+    "answer": 0,
+    "explanation": "A, B, and F. They are all related to the list of threads waiting on the specified object. ✗ C, E, G, and H are incorrect answers. The methods isInterrupted() and interrupt() are instance methods of Thread. The methods sleep() andyield() are static methods of Thread. D is incorrect because synchronized is a keyword and the synchronized() construct is part of the Java language."
+  },
+  {
+    "id": "scjp-ch09-012",
+    "originalId": 12,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result of trying to compile and run this program?",
+    "textVi": "Cho đoạn mã sau, what is the result of trying to compile and run this program?",
+    "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.        }\n11.        System.out.print(\"3 \");\n12.     }\n13.  }",
+    "options": [
+      "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+      "1 2 3",
+      "1 3",
+      "1 2",
+      "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+      "It will fail to compile because it has to be synchronized on the this object."
+    ],
+    "optionsVi": [
+      "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+      "1 2 3",
+      "1 3",
+      "1 2",
+      "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+      "It will fail to compile because it has to be synchronized on the this object."
+    ],
+    "answer": 3,
+    "explanation": "D. 1 and 2 will be printed, but there will be no return from the wait call because no other thread will notify the main thread, so 3 will never be printed. The program is essentially frozen at line 7. ✗ A is incorrect; IllegalMonitorStateException is an unchecked exception so it doesn’t have to be dealt with explicitly. B and C are incorrect; 3 will never be printed, since this program will never terminate because it will wait forever. E is incorrect because IllegalMonitorStateException will never be thrown because the wait() is done on args within a block of code synchronized on args.F is incorrect because any object can be used to synchronize on and, furthermore, there is no this when running a static method."
+  },
+  {
+    "id": "scjp-ch09-013",
+    "originalId": 13,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+    "textVi": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+    "code": "",
+    "options": [
+      "After thread A is notified, or after two seconds.",
+      "After the lock on B is released, or after two seconds.",
+      "Two seconds after thread A is notified.",
+      "Two seconds after lock B is released."
+    ],
+    "optionsVi": [
+      "After thread A is notified, or after two seconds.",
+      "After the lock on B is released, or after two seconds.",
+      "Two seconds after thread A is notified.",
+      "Two seconds after lock B is released."
+    ],
+    "answer": 0,
+    "explanation": "A. Either of the two events (notification or wait time expiration) will make the thread become a candidate for running again. ✗ B is incorrect because a waiting thread will not return to runnable when the lock is released, unless a notification occurs.C is incorrect because the thread will become a candidate immediately after notification, not two seconds afterwards.D is also incorrect because a thread will not come out of a waiting pool just because a lock has been released."
+  },
+  {
+    "id": "scjp-ch09-014",
+    "originalId": 14,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two are true?",
+    "textVi": "Which two are true?",
+    "code": "",
+    "options": [
+      "A và D (A: ThenotifyAll() method must be called from a synchronized context. & D: When a thread is waiting as a result ofwait(), it release its locks.)",
+      "A và B (A: ThenotifyAll() method must be called from a synchronized context. & B: To callwait(), an object must own the lock on the thread.)",
+      "B và C (B: To callwait(), an object must own the lock on the thread. & C: Thenotify() method is defined in class java.lang.Thread.)",
+      "D và F (D: When a thread is waiting as a result ofwait(), it release its locks. & F: The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on.)"
+    ],
+    "optionsVi": [
+      "A và D (A: ThenotifyAll() method must be called from a synchronized context. & D: When a thread is waiting as a result ofwait(), it release its locks.)",
+      "A và B (A: ThenotifyAll() method must be called from a synchronized context. & B: To callwait(), an object must own the lock on the thread.)",
+      "B và C (B: To callwait(), an object must own the lock on the thread. & C: Thenotify() method is defined in class java.lang.Thread.)",
+      "D và F (D: When a thread is waiting as a result ofwait(), it release its locks. & F: The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on.)"
+    ],
+    "answer": 0,
+    "explanation": "A and D. A is correct because the notifyAll() method (along withwait() and notify()) must always be called from within a synchronized context. D is correct because a thread blocked on await() call releases its locks, so another thread can get into the synchronized code and eventually call notify() ornotifyAll(). ✗ B is incorrect because to call wait(), the thread must own the lock on the object that wait() is being invoked on, not the other way around. C is wrong becausenotify() is defined in java.lang.Object. E is wrong becausenotify() will not cause a thread to release its locks. The thread can only release its locks by exiting the synchronized code. F is wrong becausenotifyAll() notifies all the threads waiting on a particular locked object, not all threads waiting on any object."
+  },
+  {
+    "id": "scjp-ch09-015",
+    "originalId": 15,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+    "textVi": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+    "code": "",
+    "options": [
+      "C và E (C: backgroundThread.setPriority(1); & E: backgroundThread.setPriority(Thread.MIN_PRIORITY);)",
+      "A và C (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & C: backgroundThread.setPriority(1);)",
+      "A và B (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & B: backgroundThread.setPriority(Thread.MAX_PRIORITY);)",
+      "E và G (E: backgroundThread.setPriority(Thread.MIN_PRIORITY); & G: backgroundThread.setPriority(10);)"
+    ],
+    "optionsVi": [
+      "C và E (C: backgroundThread.setPriority(1); & E: backgroundThread.setPriority(Thread.MIN_PRIORITY);)",
+      "A và C (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & C: backgroundThread.setPriority(1);)",
+      "A và B (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & B: backgroundThread.setPriority(Thread.MAX_PRIORITY);)",
+      "E và G (E: backgroundThread.setPriority(Thread.MIN_PRIORITY); & G: backgroundThread.setPriority(10);)"
+    ],
+    "answer": 0,
+    "explanation": "C and E. In E, the constant Thread.MIN_PRIORITY is the lowest priority that a thread can have, and the background thread should have a very low priority or the lowest. Answer C is correct because 1 is a low (and usually the minimum) value, although for code clarity it is recommended to use the Thread.MIN_PRIORITY. ✗ A and D are incorrect because there are no such variables in the Thread class.B is incorrect; using MAX_PRIORITY would make other threads have fewer chances of getting a turn of the CPU, even to the point of freezing until the numerical processing is finished. F is incorrect because the thread would still compete for the CPU time and even delay other threads. G is incorrect because 10 is the value of MAX_PRIORITY, so i would be equivalent to answer B. 62 Chapter 9: Threads"
+  },
+  {
+    "id": "scjp-ch09-016",
+    "originalId": 16,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which three guarantee that a thread will leave the running state?",
+    "textVi": "Which three guarantee that a thread will leave the running state?",
+    "code": "",
+    "options": [
+      "B và E (B: wait() & E: sleep(1000))",
+      "A và B (A: yield() & B: wait())",
+      "A và C (A: yield() & C: notify())",
+      "E và G (E: sleep(1000) & G: Thread.killThread())"
+    ],
+    "optionsVi": [
+      "B và E (B: wait() & E: sleep(1000))",
+      "A và B (A: yield() & B: wait())",
+      "A và C (A: yield() & C: notify())",
+      "E và G (E: sleep(1000) & G: Thread.killThread())"
+    ],
+    "answer": 0,
+    "explanation": "B, E, and F. B is correct becausewait() always causes the current thread to go into the object’s wait pool. E is correct because sleep() will always pause the currently running thread for at least the duration specified in the sleep argument (unless an interrupted exception is thrown). F is correct because, assuming that the thread you’re callingjoin() on is alive, the thread callingjoin() will immediately block until the thread you’re callingjoin() on is no longer alive. ✗ A is wrong, but tempting. The yield() method is not guaranteed to cause a thread to leave the running state, although if there are runnable threads of the same priority as the currently running thread, then the current thread will probably leave the running state. C and D are incorrect because they don’t cause the thread invoking them to leave the running state. G is wrong because there’s no such method."
+  },
+  {
+    "id": "scjp-ch09-017",
+    "originalId": 17,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two are true?",
+    "textVi": "Which two are true?",
+    "code": "",
+    "options": [
+      "D và F (D: Thewait() method is overloaded to accept a duration. & F: Bothwait() andnotify() must be called from a synchronized context.)",
+      "A và D (A: Deadlock will not occur ifwait()/notify() is used. & D: Thewait() method is overloaded to accept a duration.)",
+      "A và B (A: Deadlock will not occur ifwait()/notify() is used. & B: A thread will resume execution as soon as its sleep duration expires.)",
+      "F và H (F: Bothwait() andnotify() must be called from a synchronized context. & H: sleep() can throw a runtime exception.)"
+    ],
+    "optionsVi": [
+      "D và F (D: Thewait() method is overloaded to accept a duration. & F: Bothwait() andnotify() must be called from a synchronized context.)",
+      "A và D (A: Deadlock will not occur ifwait()/notify() is used. & D: Thewait() method is overloaded to accept a duration.)",
+      "A và B (A: Deadlock will not occur ifwait()/notify() is used. & B: A thread will resume execution as soon as its sleep duration expires.)",
+      "F và H (F: Bothwait() andnotify() must be called from a synchronized context. & H: sleep() can throw a runtime exception.)"
+    ],
+    "answer": 0,
+    "explanation": "D and F. D is correct because thewait() method is overloaded to accept a wait duration in milliseconds. If the thread has not been notified by the time the wait duration has elapsed, then the thread will move back to runnable even without having been notified. F is correct because wait()/notify()/notifyAll() must all be called from within a synchronized, context. A thread must own the lock on the object its invoking wait()/notify()/notifyAll() on. ✗ A is incorrect because wait()/notify() will not prevent deadlock. B is incorrect because a sleeping thread will return to runnable when it wakes up, but it might not necessarily resume execution right away. To resume executing, the newly awakened thread must still be moved from runnable to running by the scheduler.C is incorrect because synchronization prevents two or more threads from accessing the same object. E is incorrect because notify() is not overloaded to accept a duration. G and H are incorrect because wait() andsleep() both declare a checked exception (InterruptedException)."
+  },
+  {
+    "id": "scjp-ch09-018",
+    "originalId": 18,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two are valid constructors for Thread?",
+    "textVi": "Which two are valid constructors for Thread?",
+    "code": "",
+    "options": [
+      "A và B (A: Thread(Runnable r, String name) & B: Thread())",
+      "A và C (A: Thread(Runnable r, String name) & C: Thread(int priority))",
+      "C và D (C: Thread(int priority) & D: Thread(Runnable r, ThreadGroup g))",
+      "B và E (B: Thread() & E: Thread(Runnable r, int priority))"
+    ],
+    "optionsVi": [
+      "A và B (A: Thread(Runnable r, String name) & B: Thread())",
+      "A và C (A: Thread(Runnable r, String name) & C: Thread(int priority))",
+      "C và D (C: Thread(int priority) & D: Thread(Runnable r, ThreadGroup g))",
+      "B và E (B: Thread() & E: Thread(Runnable r, int priority))"
+    ],
+    "answer": 0,
+    "explanation": "A and B are both valid constructors for Thread. ✗ C, D, and E are not legal Thread constructors, although D is close. If you reverse the arguments in D, you’d have a valid constructor."
+  },
+  {
+    "id": "scjp-ch09-019",
+    "originalId": 19,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "foo",
+      "MyThread foo",
+      "MyThread bar",
+      "foo bar",
+      "foo bar baz",
+      "bar foo",
+      "Compilation fails."
+    ],
+    "optionsVi": [
+      "foo",
+      "MyThread foo",
+      "MyThread bar",
+      "foo bar",
+      "foo bar baz",
+      "bar foo",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "answer": 1,
+    "explanation": "B is correct because in the first line of main we’re constructing an instance of an anonymous inner class extending from MyThread. So the MyThread constructor runs and prints “ MyThread”. The next statement in main invokesstart() on the new thread instance, which causes the overridden run() method (therun() method defined in the anonymous inner class) to be invoked, which prints “ foo”. ✗ A, C, D, E, F, and G are all incorrect because of the program logic described above. 64 Chapter 9: Threads"
+  },
+  {
+    "id": "scjp-ch09-020",
+    "originalId": 20,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+    "textVi": "Cho đoạn mã sau, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+    "code": "",
+    "options": [
+      "Synchronize the run method.",
+      "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+      "The existing code will not compile.",
+      "The existing code will cause a runtime exception.",
+      "Put in await() call prior to invoking theincrease() method.",
+      "Synchronize theincrease() method"
+    ],
+    "optionsVi": [
+      "Synchronize the run method.",
+      "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+      "The existing code will not compile.",
+      "The existing code will cause a runtime exception.",
+      "Put in await() call prior to invoking theincrease() method.",
+      "Synchronize theincrease() method"
+    ],
+    "answer": 5,
+    "explanation": "F is correct because synchronizing the code that actually does the increase will protect the code from being accessed by more than one thread at a time. ✗ A is incorrect because synchronizing the run() method would stop other threads from running therun() method (a bad idea) but still would not prevent other threads with other runnables from accessing theincrease() method. B is incorrect for virtually the same reason as A—synchronizing the code that calls theincrease() method does not prevent other code from calling the increase() method. C and D are incorrect because the program compiles and runs fine. E is incorrect because it will simply prevent the call to increase() from ever happening from this thread."
+  },
+  {
+    "id": "scjp-ch09-021",
+    "originalId": 21,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1. public class Test {\n2.  public static void main (String [] args) {\n3.    final Foo f = new Foo();\n4.   Thread t = new Thread(new Runnable() {\n5.         public void run() {\n6.        f.doStuff();\n7.       }\n8.   });\n9.   Thread g = new Thread() {\n10.    public void run() {\n11.         f.doStuff();\n12.      }\n13.     };\n14.     t.start();\n15.     g.start();\n16.  }\n17. }\n1. class Foo {\n2.   int x = 5;\n3.  public void doStuff() {\n4.     if (x < 10) {\n5.       // nothing to do\n6.      try {\n7.         wait();\n8.      } catch(InterruptedException ex) { }\n9.     } else {\n10.      System.out.println(\"x is \" + x++);\n11.      if (x >= 10) {\n12.          notify();\n13.        }\n14.    }\n15.  }\n16. }",
+    "options": [
+      "The code will not compile because of an error on line 12 of class Foo.",
+      "The code will not compile because of an error on line 7 of class Foo.",
+      "The code will not compile because of an error on line 4 of class Test.",
+      "The code will not compile because of some other error in class Test.",
+      "An exception occurs at runtime.",
+      "x is 5 x is 6"
+    ],
+    "optionsVi": [
+      "The code will not compile because of an error on line 12 of class Foo.",
+      "The code will not compile because of an error on line 7 of class Foo.",
+      "The code will not compile because of an error on line 4 of class Test.",
+      "The code will not compile because of some other error in class Test.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+      "x is 5 x is 6"
+    ],
+    "answer": 4,
+    "explanation": "E is correct because the thread does not own the lock of the object it invokes wait() on. If the method were synchronized, the code would run without exception. ✗ A, B, C, and D are incorrect because the code compiles without errors.F is incorrect because the exception is thrown before there is any output. EXERCISE ANSWERS Exercise 9-1: Creating a Thread and Putting It to Sleep The final code should look something like this: class TheCount extends Thread { public void run() { for(int i = 1;i<=100;++i) { System.out.print(i + \" \"); if(i % 10 == 0) System.out.println(\"Hahaha\"); try { Thread.sleep(1000); } catch(InterruptedException e) {} } } public static void main(String [] args) { new TheCount().start(); } } Exercise 9-2: Synchronizing a Block of Code Your code might look something like this when completed: 1. class InSync extends Thread { 2. StringBuffer letter; 3. 4. public InSync(StringBuffer letter) { 5. this.letter = letter; 6. } 7. 8. public void run() { 9. synchronized(letter) { 10. for(int i = 1;i<=100;++i) { 11. System.out.print(letter); 12. } 13. System.out.println(); 14. // Increment the letter in StringBuffer: 15. char temp = letter.charAt(0); 16. ++temp; 17. letter.setCharAt(0, temp); 18. } 19. } 20. 21. public static void main(String [] args) { 22. StringBuffer sb = new StringBuffer(\"A\"); 23. new InSync(sb).start(); 24. new InSync(sb).start(); 25. new InSync(sb).start(); 26. } 27. } Just for fun, try removing lines 9 and 18 then run the program again. It will be unsynchronized, and watch what happens. Exercise Answers 65"
+  }
+];
+
+export const scjpRandom20Quiz = {
+  "slug": "scjp-random-20",
+  "title": "SCJP Exam – Random 20 Câu (Tổng Hợp Các Chapter)",
+  "description": "Đề thi ngẫu nhiên 20 câu trích từ 161 câu hỏi trắc nghiệm của 9 Chapters SCJP (Kathy Sierra & Bert Bates). Mỗi lần vào thi hoặc bấm làm lại sẽ bốc ngẫu nhiên một đề mới hoàn toàn!",
+  "color": "#0284c7",
+  "icon": "🎲",
+  "order": 10,
+  "hidden": false,
+  "isRandom20": true,
+  "isScjpChapter": true,
+  "questions": [
+    {
+      "id": "scjp-ch01-001",
+      "originalId": 1,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, what is the result? (Choose one.)",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+      "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        signed int x = 10;\n4.           for (int y=0; y<5; y++, x--)\n5.              System.out.print(\" \" + x);\n6.     }\n7.  }",
+      "options": [
+        "1 09876",
+        "98765",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "1 09876",
+        "98765",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. The word “signed” is not a valid modifier keyword in the Java language. All number primitives in Java are signed. Always."
+    },
+    {
+      "id": "scjp-ch01-002",
+      "originalId": 2,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which is a reserved word in the Java programming language? (Choose one.)",
+      "textVi": "Từ nào là từ khóa bảo lưu trong ngôn ngữ Java? (Chọn 1 đáp án)",
+      "code": "",
+      "options": [
+        "method",
+        "native",
+        "subclasses",
+        "reference",
+        "array 46 Chapter 1: Language Fundamentals"
+      ],
+      "optionsVi": [
+        "method",
+        "native",
+        "subclasses",
+        "reference",
+        "array 46 Chapter 1: Language Fundamentals"
+      ],
+      "answer": 1,
+      "explanation": "B. The wordnative is a valid keyword, used to modify a method declaration. ✗ A, D,a n dE are not keywords. C is wrong because the keyword for subclassing in Java isextends, not ‘subclasses’."
+    },
+    {
+      "id": "scjp-ch01-003",
+      "originalId": 3,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+      "textVi": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+      "code": "",
+      "options": [
+        "class,if,void,long,Int,continue",
+        "goto,instanceof,native,finally,default,throws",
+        "try,virtual,throw,final,volatile,transient",
+        "strictfp,constant,super,implements,do",
+        "byte,break,assert,switch,include"
+      ],
+      "optionsVi": [
+        "class,if,void,long,Int,continue",
+        "goto,instanceof,native,finally,default,throws",
+        "try,virtual,throw,final,volatile,transient",
+        "strictfp,constant,super,implements,do",
+        "byte,break,assert,switch,include"
+      ],
+      "answer": 1,
+      "explanation": "B. All the words in answer B are among the 49 Java keywords. ✗ A is wrong because the keyword for the primitive int starts with a lowercase i . C is wrong because “virtual” is a keyword in C++, but not Java. D is wrong because “constant” is not a keyword. Constants in Java are marked static andfinal. E is wrong because “include” is a keyword in C, but not Java."
+    },
+    {
+      "id": "scjp-ch02-001",
+      "originalId": 1,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+      "textVi": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+      "code": "",
+      "options": [
+        "public",
+        "abstract",
+        "protected",
+        "synchronized",
+        "default access"
+      ],
+      "optionsVi": [
+        "public",
+        "abstract",
+        "protected",
+        "synchronized",
+        "default access"
+      ],
+      "answer": 4,
+      "explanation": "E.defaultaccess is the “package oriented” access modifier. ✗ A and C are wrong becausepublic andprotected are less restrictive. B and D are wrong becauseabstract andsynchronized are not access modifiers."
+    },
+    {
+      "id": "scjp-ch02-002",
+      "originalId": 2,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+      "textVi": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+      "code": "",
+      "options": [
+        "final",
+        "static",
+        "private",
+        "protected",
+        "volatile",
+        "default access"
+      ],
+      "optionsVi": [
+        "final",
+        "static",
+        "private",
+        "protected",
+        "volatile",
+        "default access"
+      ],
+      "answer": 2,
+      "explanation": "C. Theprivate access modifier limits access to members of the same class. ✗ A, B, D, E, and F are wrong becauseprotected anddefault are the wrong access modifiers, andfinal,static ,a n dvolatile are modifiers but not access modifiers."
+    },
+    {
+      "id": "scjp-ch03-001",
+      "originalId": 1,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Which two are equal? (Choose two.)",
+      "textVi": "Which two are equal? (Choose two.)",
+      "code": "",
+      "options": [
+        "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+        "A và B (A: 32/4; & B: (8>>2)<<4;)",
+        "A và C (A: 32/4; & C: 2^5;)",
+        "D và F (D: 128>>>2; & F: 2>>5;)"
+      ],
+      "optionsVi": [
+        "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+        "A và B (A: 32/4; & B: (8>>2)<<4;)",
+        "A và C (A: 32/4; & C: 2^5;)",
+        "D và F (D: 128>>>2; & F: 2>>5;)"
+      ],
+      "answer": 0,
+      "explanation": "B and D. B and D both evaluate to 32. B is shifting bits right then left using the signed bit shifters >> and <<. D is shifting bits u sing the unsigned operator >>>, but since the beginning number is positive the sign is maintained. A evaluates to 8, C looks like 2 to the 5 th power, but ^ is the Exclusive OR operator so C evaluates to 7. E evaluates to 16, and F e v a l u a t e st o0( 2> >5i sn o t2t ot h e5 th )."
+    },
+    {
+      "id": "scjp-ch03-002",
+      "originalId": 2,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+      "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
+      "options": [
+        "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+        "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+        "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+        "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+      ],
+      "optionsVi": [
+        "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+        "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+        "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+        "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+      ],
+      "answer": 0,
+      "explanation": "B and D. B is correct because class type Ticker is part of the class hierarchy of t; therefore it is a legal use of the instanceof operator. D is also correct because Component is part of the hierarchy of t, because Ticker extends Component in line 2. ✗ A is incorrect because the syntax is wrong. A variable (or null) always appears before the instanceof operator, and a type appears after it. C and E are incorrect because the statement is used as a method, which is illegal. F is incorrect because the String class is not in the hierarchy of the t object."
+    },
+    {
+      "id": "scjp-ch04-001",
+      "originalId": 1,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+      "options": [
+        "0 1 2",
+        "0 1 2 1 2 2",
+        "Compilation fails at line 7.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "0 1 2",
+        "0 1 2 1 2 2",
+        "Compilation fails at line 7.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. Case expressions must be constant expressions. Since x is markedfinal, lines 8 and 9 are legal; however y is not afinal so the compiler will fail at line 7. ✗ A, B, D, E, and F, are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-002",
+      "originalId": 2,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+      "options": [
+        "0 1 2",
+        "0 1 2 1 2 2",
+        "2 1 0 1 0 0",
+        "2 1 2 0 1 2",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9."
+      ],
+      "optionsVi": [
+        "0 1 2",
+        "0 1 2 1 2 2",
+        "2 1 0 1 0 0",
+        "2 1 2 0 1 2",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9."
+      ],
+      "answer": 3,
+      "explanation": "D. The case expressions are all legal because x is markedfinal, which means the expressions can be evaluated at compile time. In the first iteration of the for loopcase x-2 matches, so 2 is printed. In the second iteration, x-1 is matched so 1 and 2 are printed (remember, once a match is found all remaining statements are executed until a break statement is encountered). In the third iteration,x is matched so01a n d2a r ep r inted. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch05-001",
+      "originalId": 1,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which is true about the class described above?",
+      "textVi": "Cho đoạn mã sau, which is true about the class described above?",
+      "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
+      "options": [
+        "Class Barbell is tightly encapsulated.",
+        "Line 2 is in conflict with encapsulation.",
+        "Line 5 is in conflict with encapsulation.",
+        "Line 8 is in conflict with encapsulation.",
+        "Lines 5 and 8 are in conflict with encapsulation.",
+        "Lines 2, 5, and 8 are in conflict with encapsulation."
+      ],
+      "optionsVi": [
+        "Class Barbell is tightly encapsulated.",
+        "Line 2 is in conflict with encapsulation.",
+        "Line 5 is in conflict with encapsulation.",
+        "Line 8 is in conflict with encapsulation.",
+        "Lines 5 and 8 are in conflict with encapsulation.",
+        "Lines 2, 5, and 8 are in conflict with encapsulation."
+      ],
+      "answer": 3,
+      "explanation": "D. If a class has an instance variable that is marked public, the class cannot be said to be encapsulated. ✗ A, B, C, E, and F are incorrect based on the program logic described above. Public getter and setter methods are compatible with the concept of encapsulation."
+    },
+    {
+      "id": "scjp-ch05-002",
+      "originalId": 2,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which is true about the classes described above?",
+      "textVi": "Cho đoạn mã sau, which is true about the classes described above?",
+      "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
+      "options": [
+        "Class A is tightly encapsulated.",
+        "Class B is tightly encapsulated.",
+        "Classes A and B are both tightly encapsulated.",
+        "Neither class A nor class B is tightly encapsulated."
+      ],
+      "optionsVi": [
+        "Class A is tightly encapsulated.",
+        "Class B is tightly encapsulated.",
+        "Classes A and B are both tightly encapsulated.",
+        "Neither class A nor class B is tightly encapsulated."
+      ],
+      "answer": 3,
+      "explanation": "D. Class A is clearly not encapsulated because it has a public instance variable. At first glance class B appears to be encapsulated, however because it extends from class A it inherits thepublic instance variable foo, which is not encapsulated. ✗ A, B, and C are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch05-003",
+      "originalId": 3,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Which is true?",
+      "textVi": "Which is true?",
+      "code": "",
+      "options": [
+        "Tightly encapsulated classes are typically easier to reuse.",
+        "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+        "Methods in tightly encapsulated classes cannot be overridden.",
+        "Methods in tightly encapsulated classes cannot be overloaded.",
+        "Tightly encapsulated classes typically do not use HAS-A relationships."
+      ],
+      "optionsVi": [
+        "Tightly encapsulated classes are typically easier to reuse.",
+        "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+        "Methods in tightly encapsulated classes cannot be overridden.",
+        "Methods in tightly encapsulated classes cannot be overloaded.",
+        "Tightly encapsulated classes typically do not use HAS-A relationships."
+      ],
+      "answer": 0,
+      "explanation": "A. One of the main benefits of encapsulation is that encapsulated code is much easier to reuse than unencapsulated code. ✗ B, C, D, and E are incorrect. B is incorrect because inheritance is a concept that is independent of encapsulation. C and D are incorrect because encapsulation does not restrict the use of overloading or overriding.E is incorrect because HAS-A relationships are independent of encapsulation."
+    },
+    {
+      "id": "scjp-ch06-001",
+      "originalId": 1,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
+      "options": [
+        "abcdefghi",
+        "abcdefdef",
+        "abcghidef",
+        "abcghighi",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "abcdefghi",
+        "abcdefdef",
+        "abcghidef",
+        "abcghighi",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. After line 5 executes, both s2 and s3 refer to a String object that contains the value “def”. When line 6 executes, a new String object is created with the value “ghi”, to whichs2 refers. The reference variable s3 still refers to the (immutable) String object with the value “def”. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-002",
+      "originalId": 2,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
+      "options": [
+        "abcXyZ",
+        "abcxyz",
+        "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "XyZabc",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "abcXyZ",
+        "abcxyz",
+        "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "XyZabc",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. Line 12 creates a new String object with the value “XYZ”, but this new object is immediately lost because there is no reference to it. Line 13 creates a new String object referenced by y. This new String object has the value “xyz” because there was no “Y” in the String object referred to by x. Line 14 creates a new String object, appends “abc” to the value “xyz”, and refersy to the result. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch07-001",
+      "originalId": 1,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Given the following, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+      "textVi": "Cho đoạn mã sau, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+      "code": "12.  if (x1.hashCode() != x2.hashCode() )  x = x + 1;\n13.  if (x3.equals(x4) )  x = x + 10;\n14.  if (!x5.equals(x6) ) x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode() )  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
+      "options": [
+        "x2.equals(x1)",
+        "x3.hashCode() == x4.hashCode()",
+        "x5.hashCode() != x6.hashCode()",
+        "x8.equals(x7)"
+      ],
+      "optionsVi": [
+        "x2.equals(x1)",
+        "x3.hashCode() == x4.hashCode()",
+        "x5.hashCode() != x6.hashCode()",
+        "x8.equals(x7)"
+      ],
+      "answer": 1,
+      "explanation": "B. By contract, if two objects are equivalent according to the equals() method, then thehashCode() method must evaluate them to be ==. ✗ A is incorrect because if the hashCode() values are not equal, the two objects must not be equal. C is incorrect because if equals() is not true there is no guarantee of any result fromhashCode(). D is incorrect because hashCode() will often return == even if the two objects do not evaluate to equals() being true."
+    },
+    {
+      "id": "scjp-ch07-002",
+      "originalId": 2,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Given the following, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } which statement is true?",
+      "textVi": "Cho đoạn mã sau, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } Phát biểu nào sau đây là ĐÚNG?",
+      "code": "",
+      "options": [
+        "class Test1 will not compile.",
+        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+        "class Test2 will not compile.",
+        "The twohashcode() methods will have the same efficiency."
+      ],
+      "optionsVi": [
+        "class Test1 will not compile.",
+        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+        "class Test2 will not compile.",
+        "The twohashcode() methods will have the same efficiency."
+      ],
+      "answer": 2,
+      "explanation": "C. The so-called “hashing algorithm” implemented by class Test1 will always return the same value, 42, which is legal but which will place all of the hash table entries into a single bucket, the most inefficient setup possible. ✗ A and D are incorrect because these classes are legal. B and E are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch08-001",
+      "originalId": 1,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+      "textVi": "Cho đoạn mã sau, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+      "code": "",
+      "options": [
+        "MyOuter.MyInnerm=newMyOuter.MyInner();",
+        "MyOuter.MyInnermi=newMyInner();",
+        "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+        "MyInnermi=newMyOuter.MyInner();"
+      ],
+      "optionsVi": [
+        "MyOuter.MyInnerm=newMyOuter.MyInner();",
+        "MyOuter.MyInnermi=newMyInner();",
+        "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+        "MyInnermi=newMyOuter.MyInner();"
+      ],
+      "answer": 0,
+      "explanation": "A. MyInner is a static nested class, so it must be instantiated using the fully-scoped name of MyOuter.MyInner. ✗ B is incorrect because it doesn’t use the enclosing name in thenew. C is incorrect because it uses incorrect syntax. When you instantiate a nested class by invoking new on an instance of the enclosing class, you do not use the enclosing name. The difference between A and C is that C is calling new on an instance of the enclosing class rather than just new by itself. D is incorrect because it doesn’t use the enclosing class name in the variable declaration."
+    },
+    {
+      "id": "scjp-ch08-002",
+      "originalId": 2,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Which two are true about a static nested class?",
+      "textVi": "Which two are true about a static nested class?",
+      "code": "",
+      "options": [
+        "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+        "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+        "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+        "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+      ],
+      "optionsVi": [
+        "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+        "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+        "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+        "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+      ],
+      "answer": 0,
+      "explanation": "B and D. B is correct because a static nested class is not tied to an instance of the enclosing class, and thus can’t access the nonstatic members of the class (just as a static method can’t access nonstatic members of a class).D uses the correct syntax for instantiating a static nested class. ✗ A is incorrect because static nested classes do not need (and can’t use) a reference to an instance of the enclosing class. C is incorrect because static nested classes can declare and define nonstatic members. E is wrong because…it just is. There’s no rule that says an inner or nested class has to extend anything."
+    },
+    {
+      "id": "scjp-ch09-001",
+      "originalId": 1,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1;i<3;++i) {\n10.           System.out.print(i + \"..\");\n11.        }\n12.     }\n13.  }",
+      "options": [
+        "This code will not compile due to line 4.",
+        "This code will not compile due to line 5.",
+        "1..2..",
+        "1..2..3..",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "This code will not compile due to line 4.",
+        "This code will not compile due to line 5.",
+        "1..2..",
+        "1..2..3..",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. Line 5 calls therun() method, so therun() method executes as a normal method should. ✗ A is incorrect because line 4 is the proper way to create an object. B is incorrect because it is legal to call the run() method, even though this will not start a true thread of execution. The code after line 5 will not execute until the run() method is complete. D is incorrect because the for loop only does two iterations. E is incorrect because the program runs without exception."
+    },
+    {
+      "id": "scjp-ch09-002",
+      "originalId": 2,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which two of the following methods are defined in class Thread?",
+      "textVi": "Which two of the following methods are defined in class Thread?",
+      "code": "",
+      "options": [
+        "A và D (A: start() & D: run())",
+        "A và B (A: start() & B: wait())",
+        "B và C (B: wait() & C: notify())",
+        "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+      ],
+      "optionsVi": [
+        "A và D (A: start() & D: run())",
+        "A và B (A: start() & B: wait())",
+        "B và C (B: wait() & C: notify())",
+        "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+      ],
+      "answer": 0,
+      "explanation": "A and D. Onlystart() andrun() are defined by the Thread class. ✗ B and C are incorrect because they are methods of the Object class. E is incorrect because there’s no such method in any thread-related class."
+    }
+  ]
+};
+
+export const scjpChapterAllQuiz = {
+  "slug": "scjp-chapter-all",
+  "title": "SCJP Chapters – Trọn Bộ 161 Câu Hỏi (Ch01 - Ch09)",
+  "description": "Toàn bộ 161 câu hỏi trắc nghiệm Self Test từ 9 Chương của giáo trình Sun Certified Java Programmer (Kathy Sierra & Bert Bates) kèm giải thích chi tiết.",
+  "color": "#4f46e5",
+  "icon": "📚",
+  "order": 11,
+  "hidden": false,
+  "isScjpChapter": true,
+  "questions": [
+    {
+      "id": "scjp-ch01-001",
+      "originalId": 1,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, what is the result? (Choose one.)",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+      "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        signed int x = 10;\n4.           for (int y=0; y<5; y++, x--)\n5.              System.out.print(\" \" + x);\n6.     }\n7.  }",
+      "options": [
+        "1 09876",
+        "98765",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "1 09876",
+        "98765",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. The word “signed” is not a valid modifier keyword in the Java language. All number primitives in Java are signed. Always."
+    },
+    {
+      "id": "scjp-ch01-002",
+      "originalId": 2,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which is a reserved word in the Java programming language? (Choose one.)",
+      "textVi": "Từ nào là từ khóa bảo lưu trong ngôn ngữ Java? (Chọn 1 đáp án)",
+      "code": "",
+      "options": [
+        "method",
+        "native",
+        "subclasses",
+        "reference",
+        "array 46 Chapter 1: Language Fundamentals"
+      ],
+      "optionsVi": [
+        "method",
+        "native",
+        "subclasses",
+        "reference",
+        "array 46 Chapter 1: Language Fundamentals"
+      ],
+      "answer": 1,
+      "explanation": "B. The wordnative is a valid keyword, used to modify a method declaration. ✗ A, D,a n dE are not keywords. C is wrong because the keyword for subclassing in Java isextends, not ‘subclasses’."
+    },
+    {
+      "id": "scjp-ch01-003",
+      "originalId": 3,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+      "textVi": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+      "code": "",
+      "options": [
+        "class,if,void,long,Int,continue",
+        "goto,instanceof,native,finally,default,throws",
+        "try,virtual,throw,final,volatile,transient",
+        "strictfp,constant,super,implements,do",
+        "byte,break,assert,switch,include"
+      ],
+      "optionsVi": [
+        "class,if,void,long,Int,continue",
+        "goto,instanceof,native,finally,default,throws",
+        "try,virtual,throw,final,volatile,transient",
+        "strictfp,constant,super,implements,do",
+        "byte,break,assert,switch,include"
+      ],
+      "answer": 1,
+      "explanation": "B. All the words in answer B are among the 49 Java keywords. ✗ A is wrong because the keyword for the primitive int starts with a lowercase i . C is wrong because “virtual” is a keyword in C++, but not Java. D is wrong because “constant” is not a keyword. Constants in Java are marked static andfinal. E is wrong because “include” is a keyword in C, but not Java."
+    },
+    {
+      "id": "scjp-ch01-004",
+      "originalId": 4,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which two are keywords? (Choose two.)",
+      "textVi": "Hai từ nào dưới đây là từ khóa của Java? (Chọn 2 đáp án)",
+      "code": "",
+      "options": [
+        "A và D (A: interface & D: this)",
+        "A và B (A: interface & B: unsigned)",
+        "B và C (B: unsigned & C: Float)",
+        "D và E (D: this & E: string Literals and Ranges of All Primitive Data Types (Objective 4.6))"
+      ],
+      "optionsVi": [
+        "A và D (A: interface & D: this)",
+        "A và B (A: interface & B: unsigned)",
+        "B và C (B: unsigned & C: Float)",
+        "D và E (D: this & E: string Literals and Ranges of All Primitive Data Types (Objective 4.6))"
+      ],
+      "answer": 0,
+      "explanation": "A and D. Bothinterface andthis are both valid keywords. ✗ B is wrong because “unsigned” is a keyword in C/C++ but not in Java. C is wrong because “Float” is a class type. The keyword for the Java primitive isfloat. E is wrong because although “String” is a class type in Java, “string” is not a keyword. Literals and Ranges of All Primitive Data Types (Objective 4.6)"
+    },
+    {
+      "id": "scjp-ch01-005",
+      "originalId": 5,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which three are valid declarations of a char? (Choose three.)",
+      "textVi": "Ba khai báo nào hợp lệ cho kiểu char? (Chọn 3 đáp án)",
+      "code": "",
+      "options": [
+        "A và C (A: charc1=064770 ; & C: charc3=0xbeef ;)",
+        "A và B (A: charc1=064770 ; & B: charc2=‘face’ ;)",
+        "B và D (B: charc2=‘face’ ; & D: charc4=\\u0022 ;)",
+        "C và F (C: charc3=0xbeef ; & F: charc6=‘\\uface’ ;)"
+      ],
+      "optionsVi": [
+        "A và C (A: charc1=064770 ; & C: charc3=0xbeef ;)",
+        "A và B (A: charc1=064770 ; & B: charc2=‘face’ ;)",
+        "B và D (B: charc2=‘face’ ; & D: charc4=\\u0022 ;)",
+        "C và F (C: charc3=0xbeef ; & F: charc6=‘\\uface’ ;)"
+      ],
+      "answer": 0,
+      "explanation": "A, C, and F. A is an octal representation of the integer value 27128, which is legal because it fits into an unsigned 16-bit integer. C is a hexadecimal representation of the integer value 48879, which fits into an unsigned 16-bit integer. F is a Unicode representation of a character. ✗ B is wrong because you can’t put more than one character in achar literal. You know that B is a literal character because it comes between single quotes. The only other acceptablechar literal that can go between single quotes is a Unicode value, and Unicode literals must always start w i t ha‘\\u’.D is wrong because the single quotes are missing.E is wrong because it appears to be a Unicode representation (notice the backslash), but starts with ‘\\i’ rather than ‘\\u’."
+    },
+    {
+      "id": "scjp-ch01-006",
+      "originalId": 6,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which two are valid declarations of a String? (Choose two.)",
+      "textVi": "Hai khai báo nào hợp lệ cho kiểu String? (Chọn 2 đáp án)",
+      "code": "",
+      "options": [
+        "A và E (A: Strings1=null ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)",
+        "A và B (A: Strings1=null ; & B: Strings2=‘null’ ;)",
+        "B và C (B: Strings2=‘null’ ; & C: Strings3=(String)‘abc’ ;)",
+        "D và E (D: Strings4=(String)‘\\ufeed’ ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)"
+      ],
+      "optionsVi": [
+        "A và E (A: Strings1=null ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)",
+        "A và B (A: Strings1=null ; & B: Strings2=‘null’ ;)",
+        "B và C (B: Strings2=‘null’ ; & C: Strings3=(String)‘abc’ ;)",
+        "D và E (D: Strings4=(String)‘\\ufeed’ ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)"
+      ],
+      "answer": 0,
+      "explanation": "A and E. A sets the String reference to null; E initializes the String reference with a literal. ✗ B is wrong because null cannot be in single quotes. C is wrong because there are multiple characters between the single quotes (‘abc’).D is wrong because you can’t cast achar (primitive) to a String (object). 54 Chapter 1: Language Fundamentals"
+    },
+    {
+      "id": "scjp-ch01-007",
+      "originalId": 7,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which one is a valid declaration of a boolean? (Choose one.)",
+      "textVi": "Which one is a valid declaration of a boolean? (Choose one.)",
+      "code": "",
+      "options": [
+        "booleanb1=0 ;",
+        "booleanb2=‘false’ ;",
+        "booleanb3=false ;",
+        "booleanb4=Boolean.false() ;",
+        "booleanb5=no ;"
+      ],
+      "optionsVi": [
+        "booleanb1=0 ;",
+        "booleanb2=‘false’ ;",
+        "booleanb3=false ;",
+        "booleanb4=Boolean.false() ;",
+        "booleanb5=no ;"
+      ],
+      "answer": 2,
+      "explanation": "C. A boolean can only be assigned the literal true orfalse. ✗ A, B, D, and E are all invalid assignments for a boolean."
+    },
+    {
+      "id": "scjp-ch01-008",
+      "originalId": 8,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "What is the numerical range of a char? (Choose one.)",
+      "textVi": "Phạm vi giá trị số (range) của kiểu char là gì? (Chọn 1 đáp án)",
+      "code": "",
+      "options": [
+        "–128 to 127",
+        "–(2 ^ 15) to (2 ^ 15) - 1",
+        "0 to 32767",
+        "Platform dependent",
+        "0 to 65535"
+      ],
+      "optionsVi": [
+        "–128 to 127",
+        "–(2 ^ 15) to (2 ^ 15) - 1",
+        "0 to 32767",
+        "Platform dependent",
+        "0 to 65535"
+      ],
+      "answer": 4,
+      "explanation": "E. Achar is really a 16-bit integer behind the scenes, so it supports 2 16 (from 0 to 65535) values."
+    },
+    {
+      "id": "scjp-ch01-009",
+      "originalId": 9,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which three are valid declarations of a float? (Choose three.)",
+      "textVi": "Which three are valid declarations of a float? (Choose three.)",
+      "code": "",
+      "options": [
+        "A và C (A: floatf1=-343 ; & C: floatf3=0x12345 ;)",
+        "A và B (A: floatf1=-343 ; & B: floatf2=3.14 ;)",
+        "B và D (B: floatf2=3.14 ; & D: floatf4=42e7 ;)",
+        "C và F (C: floatf3=0x12345 ; & F: floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1))"
+      ],
+      "optionsVi": [
+        "A và C (A: floatf1=-343 ; & C: floatf3=0x12345 ;)",
+        "A và B (A: floatf1=-343 ; & B: floatf2=3.14 ;)",
+        "B và D (B: floatf2=3.14 ; & D: floatf4=42e7 ;)",
+        "C và F (C: floatf3=0x12345 ; & F: floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1))"
+      ],
+      "answer": 0,
+      "explanation": "A, C, and F. A and C are integer literals (32 bits), and integers can be legally assigned to floats (also 32 bits). F is correct because F is appended to the literal, declaring it as a float rather than adouble (the default for floating point literals). ✗ B, D,a n dE are all doubles. Array Declaration, Construction, and Initialization (Objective 1.1)"
+    },
+    {
+      "id": "scjp-ch01-010",
+      "originalId": 10,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which three are legal array declarations? (Choose three.)",
+      "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ? (Chọn 3 đáp án)",
+      "code": "",
+      "options": [
+        "A và B (A: int[]myScores[] ; & B: char[]myChars ;)",
+        "A và C (A: int[]myScores[] ; & C: int[6]myScores ;)",
+        "C và D (C: int[6]myScores ; & D: DogmyDogs[] ;)",
+        "B và E (B: char[]myChars ; & E: DogmyDogs[7] ;)"
+      ],
+      "optionsVi": [
+        "A và B (A: int[]myScores[] ; & B: char[]myChars ;)",
+        "A và C (A: int[]myScores[] ; & C: int[6]myScores ;)",
+        "C và D (C: int[6]myScores ; & D: DogmyDogs[] ;)",
+        "B và E (B: char[]myChars ; & E: DogmyDogs[7] ;)"
+      ],
+      "answer": 0,
+      "explanation": "A, B, and D. With an array declaration, you can place the brackets to the right or left of the identifier. A looks strange, but it’s perfectly legal to split the brackets in a multidimensional array, and place them on both sides of the identifier. Although coding this way would only annoy your fellow programmers, for the exam, you need to know it’s legal. ✗ C and E are wrong because you can’t declare an array with a size. The size is only needed when the array is actually instantiated (and the JVM needs to know how much space to allocate for the array, based on the type of array and the size)."
+    },
+    {
+      "id": "scjp-ch01-011",
+      "originalId": 11,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, how many lines of output will be produced? (Choose one.)",
+      "textVi": "Cho đoạn mã sau, how many lines of output will be produced? (Choose one.)",
+      "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.     int [] [] [] x = new int [3] [] [];\n4.     int i,j;\n5.     x[0] = new int[4][];\n6.     x[1] = new int[2][];\n7.     x[2] = new int[5][];\n8.     for (i=0; i<x.length; i++)\n9.        for (j=0; j<x[i].length; j++) {\n10.           x[i][j] = new int [i + j + 1];\n11.           System.out.println(\"size = \" + x[i][j].length);\n12.        }\n13.     }\n14.  }",
+      "options": [
+        "7",
+        "9",
+        "11",
+        "13",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "7",
+        "9",
+        "11",
+        "13",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. The loops use the array sizes (length). If you think this question is unfairly complicated, get used to it. Question 11 is a good example of the kinds of questions you’ll see on the exam. You should approach complex loop questions by using a pencil and paper and stepping through the loop (or loops, in this case), keeping track of the variable values at each iteration. Tedious, we know, but you can expect a lot of questions like this on the exam. Take your time and recheck your work."
+    },
+    {
+      "id": "scjp-ch01-012",
+      "originalId": 12,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
+      "textVi": "Cho đoạn mã sau, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
+      "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
+      "options": [
+        "A và B và E (A: b2[0][1]=b; & B: b[0][0]=b3; & E: b2[0][1][0][0]=b[0][0];)",
+        "A và C (A: b2[0][1]=b; & C: b2[1][1][0]=b[0][0];)",
+        "C và D và F (C: b2[1][1][0]=b[0][0]; & D: b2[1][2][0]=b; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)",
+        "B và F (B: b[0][0]=b3; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)"
+      ],
+      "optionsVi": [
+        "A và B và E (A: b2[0][1]=b; & B: b[0][0]=b3; & E: b2[0][1][0][0]=b[0][0];)",
+        "A và C (A: b2[0][1]=b; & C: b2[1][1][0]=b[0][0];)",
+        "C và D và F (C: b2[1][1][0]=b[0][0]; & D: b2[1][2][0]=b; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)",
+        "B và F (B: b[0][0]=b3; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)"
+      ],
+      "answer": 0,
+      "explanation": "A, B, E, and F. This question covers the issue of, “What can I assign to an array reference variable?” The key is to get the dimensions right. For example, if an array is declared as a two-dimensional array, you can’t assign a one-dimensional array to a one-dimensional array reference. ✗ C is wrong because it tries to assign a primitive byte where a byte array (one dimension) is expected. D is wrong because it tries to assign a two-dimensional array where a one-dimensional array is expected."
+    },
+    {
+      "id": "scjp-ch01-013",
+      "originalId": 13,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which two will declare an array and initialize it with five numbers? (Choose two.)",
+      "textVi": "Which two will declare an array and initialize it with five numbers? (Choose two.)",
+      "code": "",
+      "options": [
+        "B và D (B: int[]a={23,22,21,20,19} ; & D: intarray[]=newint[5] ;)",
+        "A và B (A: Arraya=newArray(5) ; & B: int[]a={23,22,21,20,19} ;)",
+        "A và C (A: Arraya=newArray(5) ; & C: int[]array ;)",
+        "D và F (D: intarray[]=newint[5] ; & F: int[5]array ;)"
+      ],
+      "optionsVi": [
+        "B và D (B: int[]a={23,22,21,20,19} ; & D: intarray[]=newint[5] ;)",
+        "A và B (A: Arraya=newArray(5) ; & B: int[]a={23,22,21,20,19} ;)",
+        "A và C (A: Arraya=newArray(5) ; & C: int[]array ;)",
+        "D và F (D: intarray[]=newint[5] ; & F: int[5]array ;)"
+      ],
+      "answer": 0,
+      "explanation": "B and D. Both are legal ways to declare and initialize an array with five elements. ✗ A is wrong because it shows an example of instantiating a class named Array, passing the integer value 5 to the object’s constructor. If you don’t see the brackets, you can be 56 Chapter 1: Language Fundamentals certain there is no actual array object! In other words, an Array object (instance of class Array) is not the same as an array object. C is wrong because it shows a legal array declaration, but with no initialization. E is wrong (and will not compile) because the initialization uses parens () rather than brackets. F is wrong (and will not compile) because it declares an array with a size. Arrays must never be given a size when declared."
+    },
+    {
+      "id": "scjp-ch01-014",
+      "originalId": 14,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which will legally declare, construct, and initialize an array? (Choose one.)",
+      "textVi": "Which will legally declare, construct, and initialize an array? (Choose one.)",
+      "code": "",
+      "options": [
+        "int[]myList={“1”,“2”,“3”} ;",
+        "int[]myList=(5,8,2) ;",
+        "intmyList[][]={4,9,7,0} ;",
+        "intmyList[]={4,3,7} ;",
+        "int[]myList=[3,5,6] ;",
+        "intmyList[]={4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+      ],
+      "optionsVi": [
+        "int[]myList={“1”,“2”,“3”} ;",
+        "int[]myList=(5,8,2) ;",
+        "intmyList[][]={4,9,7,0} ;",
+        "intmyList[]={4,3,7} ;",
+        "int[]myList=[3,5,6] ;",
+        "intmyList[]={4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+      ],
+      "answer": 3,
+      "explanation": "D. The only legal array declaration and assignment statement is D. ✗ A is wrong because it initializes an int array with String literals. B and E are wrong because they use something other than curly braces for the initialization. C is wrong because it provides initial values for only one dimension, although the declared array is a two-dimensional array. F is wrong because it uses semicolons where it should use commas, to separate the items in the initialization. Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+    },
+    {
+      "id": "scjp-ch01-015",
+      "originalId": 15,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
+      "textVi": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
+      "code": "",
+      "options": [
+        "A và C và D (A: int -> 0 & C: Dog -> null & D: char -> ‘\\u0000’)",
+        "A và B (A: int -> 0 & B: String -> “null”)",
+        "B và E và F (B: String -> “null” & E: float -> 0.0f & F: boolean -> true)",
+        "C và F (C: Dog -> null & F: boolean -> true)"
+      ],
+      "optionsVi": [
+        "A và C và D (A: int -> 0 & C: Dog -> null & D: char -> ‘\\u0000’)",
+        "A và B (A: int -> 0 & B: String -> “null”)",
+        "B và E và F (B: String -> “null” & E: float -> 0.0f & F: boolean -> true)",
+        "C và F (C: Dog -> null & F: boolean -> true)"
+      ],
+      "answer": 0,
+      "explanation": "A, C, D, and E. ✗ B is wrong because the default value for a String (and any other object reference) is null, with no quotes. F is wrong because the default value for boolean elements isfalse."
+    },
+    {
+      "id": "scjp-ch01-016",
+      "originalId": 16,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, what is the result? (Choose one.)",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+      "code": "1.  public class TestDogs {\n2.     public static void main(String [] args) {\n3.        Dog [][] theDogs = new Dog[3][];\n4.        System.out.println(theDogs[2][0].toString());\n5.     }\n6.  }\n7.\n8.  class Dog {}",
+      "options": [
+        "null",
+        "theDogs",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "null",
+        "theDogs",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 3,
+      "explanation": "D. The second dimension of the array referenced by theDogs has not been initialized. Attempting to access an uninitialized object element (line 4) raises a NullPointerException."
+    },
+    {
+      "id": "scjp-ch01-017",
+      "originalId": 17,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, and the command line invocation is java X a b what is the result? (Choose one.)",
+      "textVi": "Cho đoạn mã sau, and the command line invocation is java X a b Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+      "code": "1.  public class X {\n2.     public static void main(String [] args) {\n3.        String names [] = new String[5];\n4.           for (int x=0; x < args.length; x++)\n5.              names[x] = args[x];\n6.           System.out.println(names[2]);\n7.     }\n8.  }",
+      "options": [
+        "names",
+        "null",
+        "Compilation fails",
+        "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+      ],
+      "optionsVi": [
+        "names",
+        "null",
+        "Lỗi biên dịch (Compilation fails)",
+        "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+      ],
+      "answer": 1,
+      "explanation": "B. The names array is initialized with five null elements. Then elements 0 and 1 are assigned the String values “a” and “b” respectively (the command-line arguments passed to main). Elements 2, 3, and 4 remain unassigned, so they have a value of null. Command-line Arguments to Main (Objective 4.3)"
+    },
+    {
+      "id": "scjp-ch01-018",
+      "originalId": 18,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, and the command-line invocation, java CommandArgs 1 2 3 4 what is the result?",
+      "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgs 1 2 3 4 Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }\n52 Chapter 1: Language Fundamentals",
+      "options": [
+        "args[2]=2",
+        "args[2]=3",
+        "args[2]=null",
+        "args[2]=1",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "args[2]=2",
+        "args[2]=3",
+        "args[2]=null",
+        "args[2]=1",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 5,
+      "explanation": "F. An exception is thrown because at line 6, the array index (the fifth element) is out of bounds. The exception thrown is the cleverly named ArrayIndexOutOfBoundsException."
+    },
+    {
+      "id": "scjp-ch01-019",
+      "originalId": 19,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, and the command-line invocation, java CommandArgsTwo 1 2 3 what is the result?",
+      "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgsTwo 1 2 3 Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  public class CommandArgsTwo {\n2.     public static void main(String [] argh) {\n3.        String [] args;\n4.        int x;\n5.        x = argh.length;\n6.        for (int y = 1; y <= x; y++) {\n7.           System.out.print(\" \" + argh[y]);\n8.        }\n9.     }\n10.  }",
+      "options": [
+        "012",
+        "123",
+        "000",
+        "nullnullnull",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "012",
+        "123",
+        "000",
+        "nullnullnull",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 5,
+      "explanation": "F. An exception is thrown because at some point in line 7, the value of x will be equal to y, resulting in an attempt to access an index out of bounds for the array. Remember that you can access only as far as length-1, so loop logical tests should use x<someArray.length as opposed tox<=someArray.length ."
+    },
+    {
+      "id": "scjp-ch01-020",
+      "originalId": 20,
+      "chapterNum": 1,
+      "chapterTitle": "Language Fundamentals",
+      "topic": "javacore",
+      "text": "Given the following, and the command-line invocation, java CommandArgsThree 1 2 3 what is the result?",
+      "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgsThree 1 2 3 Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  public class CommandArgsThree {\n2.     public static void main(String [] args) {\n3.        String [][] argCopy = new String[2][2];\n4.        int x;\n5.        argCopy[0] = args;\n6.        x = argCopy[0].length;\n7.        for (int y = 0; y < x; y++) {\n8.           System.out.print(\" \" + argCopy[0][y]);\n9.        }\n10.     }\n11.  }",
+      "options": [
+        "00",
+        "12",
+        "000",
+        "123",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "00",
+        "12",
+        "000",
+        "123",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 3,
+      "explanation": "D. In line 5, the reference variable argCopy[0], which was referring to an array with two elements, is reassigned to an array (args) with three elements. EXERCISE ANSWERS Exercise 1.1: Command-Line Arguments to Main Your completed code should look something like the following: public class MainTest { public static void main (String [] args) { for (int i = 0;i < args.length;i++) { System.out.println(args[i]); } System.out.println(\"Total words: \" + args.length); } } Exercise Answers 57"
+    },
+    {
+      "id": "scjp-ch02-001",
+      "originalId": 1,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+      "textVi": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+      "code": "",
+      "options": [
+        "public",
+        "abstract",
+        "protected",
+        "synchronized",
+        "default access"
+      ],
+      "optionsVi": [
+        "public",
+        "abstract",
+        "protected",
+        "synchronized",
+        "default access"
+      ],
+      "answer": 4,
+      "explanation": "E.defaultaccess is the “package oriented” access modifier. ✗ A and C are wrong becausepublic andprotected are less restrictive. B and D are wrong becauseabstract andsynchronized are not access modifiers."
+    },
+    {
+      "id": "scjp-ch02-002",
+      "originalId": 2,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+      "textVi": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+      "code": "",
+      "options": [
+        "final",
+        "static",
+        "private",
+        "protected",
+        "volatile",
+        "default access"
+      ],
+      "optionsVi": [
+        "final",
+        "static",
+        "private",
+        "protected",
+        "volatile",
+        "default access"
+      ],
+      "answer": 2,
+      "explanation": "C. Theprivate access modifier limits access to members of the same class. ✗ A, B, D, E, and F are wrong becauseprotected anddefault are the wrong access modifiers, andfinal,static ,a n dvolatile are modifiers but not access modifiers."
+    },
+    {
+      "id": "scjp-ch02-003",
+      "originalId": 3,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given the following, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+      "textVi": "Cho đoạn mã sau, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+      "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
+      "options": [
+        "A và C (A: The code will compile with no changes. & C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.)",
+        "A và B (A: The code will compile with no changes. & B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.)",
+        "B và D (B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile. & D: As long as line 8 exists, class A must declare methodm1() in some way.)",
+        "C và F (C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile. & F: If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.)"
+      ],
+      "optionsVi": [
+        "A và C (A: The code will compile with no changes. & C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.)",
+        "A và B (A: The code will compile with no changes. & B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.)",
+        "B và D (B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile. & D: As long as line 8 exists, class A must declare methodm1() in some way.)",
+        "C và F (C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile. & F: If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.)"
+      ],
+      "answer": 0,
+      "explanation": "A, C, and E. A and C are correct, because an abstract class does not need to implement any of its superclass’ methods.E is correct because as it stands, it is a valid concrete extension of class A. ✗ B is wrong because anabstract class does not need to implement any of its superclass’ methods. D is wrong because a class that extends another class is free to add new methods. F is wrong because it is legal to extend an abstract class from a concrete class."
+    },
+    {
+      "id": "scjp-ch02-004",
+      "originalId": 4,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+      "textVi": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+      "code": "",
+      "options": [
+        "C và F (C: finalpublicclassTest{} & F: abstractpublicclassTest{})",
+        "A và C (A: finalabstractclassTest{} & C: finalpublicclassTest{})",
+        "A và B (A: finalabstractclassTest{} & B: publicstaticinterfaceTest{})",
+        "E và F (E: protectedinterfaceTest{} & F: abstractpublicclassTest{})"
+      ],
+      "optionsVi": [
+        "C và F (C: finalpublicclassTest{} & F: abstractpublicclassTest{})",
+        "A và C (A: finalabstractclassTest{} & C: finalpublicclassTest{})",
+        "A và B (A: finalabstractclassTest{} & B: publicstaticinterfaceTest{})",
+        "E và F (E: protectedinterfaceTest{} & F: abstractpublicclassTest{})"
+      ],
+      "answer": 0,
+      "explanation": "C, F. Both are legal class declarations. ✗ A is wrong because a class cannot be abstract andfinal—there would be no way to use such a class. B is wrong because interfaces and classes cannot be marked as static. D and E are wrong because classes and interfaces cannot be marked as protected."
+    },
+    {
+      "id": "scjp-ch02-005",
+      "originalId": 5,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+      "textVi": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+      "code": "",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "All of them"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "All of them"
+      ],
+      "answer": 4,
+      "explanation": "E. Statements 1, 2, 4, 5, and 6 are legal declarations. ✗ A, B, C, D, and F are incorrect because the only illegal declaration is 3; transient applies only to variable declarations, not to method declarations. As you can see from these other examples, method declarations can be very extensive."
+    },
+    {
+      "id": "scjp-ch02-006",
+      "originalId": 6,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given the following, which statement is true?",
+      "textVi": "Cho đoạn mã sau, Phát biểu nào sau đây là ĐÚNG?",
+      "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
+      "options": [
+        "The code compiles and runs, with outputthis420parent420 .",
+        "If line 8 is removed, the code will compile and run.",
+        "If line 10 is removed, the code will compile and run.",
+        "Both lines 8 and 10 must be removed for the code to compile.",
+        "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+      ],
+      "optionsVi": [
+        "The code compiles and runs, with outputthis420parent420 .",
+        "If line 8 is removed, the code will compile and run.",
+        "If line 10 is removed, the code will compile and run.",
+        "Both lines 8 and 10 must be removed for the code to compile.",
+        "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+      ],
+      "answer": 2,
+      "explanation": "C. The ParentUtil instance p cannot be used to access the doStuff() method. Because doStuff() hasprotected access, and the ChildUtil class is not in the same package as the ParentUtil class, doStuff() can be accessed only by instances of the ChildUtil class (a subclass ofParentUtil). ✗ A, B, D, and E are incorrect because of the access rules described previously. Declaration Rules"
+    },
+    {
+      "id": "scjp-ch02-007",
+      "originalId": 7,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   interface Count {\n2.     short counter = 0;\n3.     void countUp();\n4.   }\n5.   public class TestCount implements Count {\n6.\n7.     public static void main(String [] args) {\n8.       TestCount t = new TestCount();\n9.       t.countUp();\n10.    }\n78 Chapter 2: Declarations and Access Control\n11.    public void countUp() {\n12.      for (int x = 6; x>counter; x--, ++counter) {\n13.         System.out.print(\" \" + counter);\n14.      }\n15.    }\n16.  }",
+      "options": [
+        "012",
+        "123",
+        "0123",
+        "1234",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "012",
+        "123",
+        "0123",
+        "1234",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 4,
+      "explanation": "E. The code will not compile because the variable counter is an interface variable that is by defaultfinalstatic . The compiler will complain at line 12 when the code attempts to 84 Chapter 2: Declarations and Access Control incrementcounter. ✗ A, B, C, and D are incorrect because of the explanation given above."
+    },
+    {
+      "id": "scjp-ch02-008",
+      "originalId": 8,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   import java.util.*;\n2.   public class NewTreeSet2 extends NewTreeSet {\n3.     public static void main(String [] args) {\n4.       NewTreeSet2 t = new NewTreeSet2();\n5.       t.count();\n6.     }\n7.   }\n8.   protected class NewTreeSet {\n9.     void count() {\n10.      for (int x = 0; x < 7; x++,x++ ) {\n11.        System.out.print(\" \" + x);\n12.      }\n13.    }\n14.  }",
+      "options": [
+        "024",
+        "0246",
+        "Compilation fails at line 4",
+        "Compilation fails at line 5",
+        "Compilation fails at line 8",
+        "Compilation fails at line 10"
+      ],
+      "optionsVi": [
+        "024",
+        "0246",
+        "Compilation fails at line 4",
+        "Compilation fails at line 5",
+        "Compilation fails at line 8",
+        "Compilation fails at line 10"
+      ],
+      "answer": 4,
+      "explanation": "E. Nonnested classes cannot be marked protected (orfinal for that matter), so the compiler will fail at line 8. ✗ A, B, C, and D are incorrect because of the explanation given above."
+    },
+    {
+      "id": "scjp-ch02-009",
+      "originalId": 9,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given the following, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+      "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
+      "options": [
+        "B và E (B: importjava.util.*; & E: importjava.util.TreeMap;)",
+        "A và B (A: No statement is required & B: importjava.util.*;)",
+        "A và C (A: No statement is required & C: import.java.util.Tree*;)",
+        "D và E (D: importjava.util.TreeSet; & E: importjava.util.TreeMap;)"
+      ],
+      "optionsVi": [
+        "B và E (B: importjava.util.*; & E: importjava.util.TreeMap;)",
+        "A và B (A: No statement is required & B: importjava.util.*;)",
+        "A và C (A: No statement is required & C: import.java.util.Tree*;)",
+        "D và E (D: importjava.util.TreeSet; & E: importjava.util.TreeMap;)"
+      ],
+      "answer": 0,
+      "explanation": "B and E. TreeMap is the only class that must be imported. TreeSet does not need an import statement because it is described with a fully qualified name. ✗ A is incorrect because TreeMap must be imported. C is incorrect syntax for an import statement. D is incorrect because it will not import TreeMap, which is required."
+    },
+    {
+      "id": "scjp-ch02-010",
+      "originalId": 10,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Which two are valid declarations within an interface? (Choose two.)",
+      "textVi": "Which two are valid declarations within an interface? (Choose two.)",
+      "code": "",
+      "options": [
+        "A và E (A: publicstaticshortstop=23; & E: publicBooleanmadness(longbow);)",
+        "A và B (A: publicstaticshortstop=23; & B: protectedshortstop=23;)",
+        "B và C (B: protectedshortstop=23; & C: transientshortstop=23;)",
+        "E và F (E: publicBooleanmadness(longbow); & F: staticcharmadness(doubleduty);)"
+      ],
+      "optionsVi": [
+        "A và E (A: publicstaticshortstop=23; & E: publicBooleanmadness(longbow);)",
+        "A và B (A: publicstaticshortstop=23; & B: protectedshortstop=23;)",
+        "B và C (B: protectedshortstop=23; & C: transientshortstop=23;)",
+        "E và F (E: publicBooleanmadness(longbow); & F: staticcharmadness(doubleduty);)"
+      ],
+      "answer": 0,
+      "explanation": "A and E are valid interface declarations. ✗ B and C are incorrect because interface variables cannot be either protected or transient. D and F are incorrect because interface methods cannot be final or static."
+    },
+    {
+      "id": "scjp-ch02-011",
+      "originalId": 11,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Which of the following class level (nonlocal) variable declarations will not compile?",
+      "textVi": "Which of the following class level (nonlocal) variable declarations will not compile?",
+      "code": "",
+      "options": [
+        "protectedinta;",
+        "transientintb=3;",
+        "publicstaticfinalintc;",
+        "volatileintd;",
+        "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+      ],
+      "optionsVi": [
+        "protectedinta;",
+        "transientintb=3;",
+        "publicstaticfinalintc;",
+        "volatileintd;",
+        "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+      ],
+      "answer": 4,
+      "explanation": "E will not compile; the synchronized modifier applies only to methods. ✗ A and B will compile because protected andtransient are legal variable modifiers. C will compile because when a variable is declared final it does not have to be initialized with a value at the same time. D will compile because volatile is a proper variable modifier. Interface Implementation"
+    },
+    {
+      "id": "scjp-ch02-012",
+      "originalId": 12,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given the following, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+      "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
+      "options": [
+        "C và E (C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);} & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})",
+        "A và C (A: classAllMathextendsDoMath{ doublegetArea(intr);} & C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);})",
+        "A và B (A: classAllMathextendsDoMath{ doublegetArea(intr);} & B: interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);})",
+        "D và E (D: classAllMathimplementsMathPlus{ doublegetArea(intrad); } & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})"
+      ],
+      "optionsVi": [
+        "C và E (C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);} & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})",
+        "A và C (A: classAllMathextendsDoMath{ doublegetArea(intr);} & C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);})",
+        "A và B (A: classAllMathextendsDoMath{ doublegetArea(intr);} & B: interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);})",
+        "D và E (D: classAllMathimplementsMathPlus{ doublegetArea(intrad); } & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})"
+      ],
+      "answer": 0,
+      "explanation": "C and E. C are E are correct because interfaces and abstract classes do not need to fully implement the interfaces they extend or implement (respectively). ✗ A is incorrect because a class cannot extend an interface. B is incorrect because an interface cannot implement anything. D is incorrect because the method being implemented is from the wrong interface."
+    },
+    {
+      "id": "scjp-ch02-013",
+      "originalId": 13,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Which three are valid method signatures in an interface? (Choose three.)",
+      "textVi": "Which three are valid method signatures in an interface? (Choose three.)",
+      "code": "",
+      "options": [
+        "B và C (B: publicfloatgetVol(floatx); & C: publicvoidmain(String[]args);)",
+        "A và B (A: privateintgetArea(); & B: publicfloatgetVol(floatx);)",
+        "A và D (A: privateintgetArea(); & D: publicstaticvoidmain(String[]args);)",
+        "C và E (C: publicvoidmain(String[]args); & E: booleansetFlag(Boolean[]test[]);)"
+      ],
+      "optionsVi": [
+        "B và C (B: publicfloatgetVol(floatx); & C: publicvoidmain(String[]args);)",
+        "A và B (A: privateintgetArea(); & B: publicfloatgetVol(floatx);)",
+        "A và D (A: privateintgetArea(); & D: publicstaticvoidmain(String[]args);)",
+        "C và E (C: publicvoidmain(String[]args); & E: booleansetFlag(Boolean[]test[]);)"
+      ],
+      "answer": 0,
+      "explanation": "B, C, and E. These are all valid interface method signatures. ✗ A, is incorrect because an interface method must be public; if it is not explicitly declaredpublic it will be madepublic implicitly. D is incorrect because interface methods cannot bestatic."
+    },
+    {
+      "id": "scjp-ch02-014",
+      "originalId": 14,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+      "textVi": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+      "code": "",
+      "options": [
+        "B và F (B: The class must contain a method calledrun() from which all code for that thread will be initiated. & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)",
+        "A và B (A: You can extend theRunnable interface as long as you override thepublicrun() method. & B: The class must contain a method calledrun() from which all code for that thread will be initiated.)",
+        "A và C (A: You can extend theRunnable interface as long as you override thepublicrun() method. & C: The class must contain an emptypublicvoid method namedrun().)",
+        "E và F (E: The class definition must include the wordsimplementsThreads and contain a method calledrun(). & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)"
+      ],
+      "optionsVi": [
+        "B và F (B: The class must contain a method calledrun() from which all code for that thread will be initiated. & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)",
+        "A và B (A: You can extend theRunnable interface as long as you override thepublicrun() method. & B: The class must contain a method calledrun() from which all code for that thread will be initiated.)",
+        "A và C (A: You can extend theRunnable interface as long as you override thepublicrun() method. & C: The class must contain an emptypublicvoid method namedrun().)",
+        "E và F (E: The class definition must include the wordsimplementsThreads and contain a method calledrun(). & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)"
+      ],
+      "answer": 0,
+      "explanation": "B and F. When a thread’srun() method completes, the thread will die. The run() method must be declared publicvoid and not take any arguments. ✗ A is incorrect because classes can never extend interfaces. C is incorrect because the run() method is typically not empty; if it were, the thread would do nothing. D is incorrect because the mandatory method is run(). E is incorrect because the class implements Runnable."
+    },
+    {
+      "id": "scjp-ch02-015",
+      "originalId": 15,
+      "chapterNum": 2,
+      "chapterTitle": "Declarations and Access Control",
+      "topic": "modifier",
+      "text": "Given the following, which two code fragments will compile? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two code fragments will compile? (Choose two.)",
+      "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
+      "options": [
+        "C và D (C: abstractclassClass2implementsBase{} & D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}})",
+        "A và C (A: interfaceBase2implementsBase{} & C: abstractclassClass2implementsBase{})",
+        "A và B (A: interfaceBase2implementsBase{} & B: abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}})",
+        "D và E (D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}} & E: classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control)"
+      ],
+      "optionsVi": [
+        "C và D (C: abstractclassClass2implementsBase{} & D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}})",
+        "A và C (A: interfaceBase2implementsBase{} & C: abstractclassClass2implementsBase{})",
+        "A và B (A: interfaceBase2implementsBase{} & B: abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}})",
+        "D và E (D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}} & E: classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control)"
+      ],
+      "answer": 0,
+      "explanation": "C and D. C is correct because an abstract class doesn’t have to implement any or all of its interface’s methods.D is correct because the method is correctly implemented ((7 > 4) is aboolean). ✗ A is incorrect because interfaces don’t implement anything.B is incorrect because classes don’t extend interfaces.E is incorrect because interface methods are implicitly public,s ot h e methods being implemented must be public."
+    },
+    {
+      "id": "scjp-ch03-001",
+      "originalId": 1,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Which two are equal? (Choose two.)",
+      "textVi": "Which two are equal? (Choose two.)",
+      "code": "",
+      "options": [
+        "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+        "A và B (A: 32/4; & B: (8>>2)<<4;)",
+        "A và C (A: 32/4; & C: 2^5;)",
+        "D và F (D: 128>>>2; & F: 2>>5;)"
+      ],
+      "optionsVi": [
+        "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+        "A và B (A: 32/4; & B: (8>>2)<<4;)",
+        "A và C (A: 32/4; & C: 2^5;)",
+        "D và F (D: 128>>>2; & F: 2>>5;)"
+      ],
+      "answer": 0,
+      "explanation": "B and D. B and D both evaluate to 32. B is shifting bits right then left using the signed bit shifters >> and <<. D is shifting bits u sing the unsigned operator >>>, but since the beginning number is positive the sign is maintained. A evaluates to 8, C looks like 2 to the 5 th power, but ^ is the Exclusive OR operator so C evaluates to 7. E evaluates to 16, and F e v a l u a t e st o0( 2> >5i sn o t2t ot h e5 th )."
+    },
+    {
+      "id": "scjp-ch03-002",
+      "originalId": 2,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+      "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
+      "options": [
+        "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+        "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+        "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+        "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+      ],
+      "optionsVi": [
+        "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+        "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+        "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+        "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+      ],
+      "answer": 0,
+      "explanation": "B and D. B is correct because class type Ticker is part of the class hierarchy of t; therefore it is a legal use of the instanceof operator. D is also correct because Component is part of the hierarchy of t, because Ticker extends Component in line 2. ✗ A is incorrect because the syntax is wrong. A variable (or null) always appears before the instanceof operator, and a type appears after it. C and E are incorrect because the statement is used as a method, which is illegal. F is incorrect because the String class is not in the hierarchy of the t object."
+    },
+    {
+      "id": "scjp-ch03-003",
+      "originalId": 3,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
+      "options": [
+        "true",
+        "false",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "true",
+        "false",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. The code will not compile because in line 5, the line will work only if we use (x==y ) in the line. The == operator compares values to produce a boolean, whereas the = operator assigns a value to variables. ✗ A, B, and D are incorrect because the code does not get as far as compiling. If we corrected this code, the output would be false."
+    },
+    {
+      "id": "scjp-ch03-004",
+      "originalId": 4,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, which three statements are true? (Choose three.)",
+      "textVi": "Cho đoạn mã sau, which three statements are true? (Choose three.)",
+      "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
+      "options": [
+        "B và D (B: f1==f3 & D: x==f1[0])",
+        "A và B (A: f1==f2 & B: f1==f3)",
+        "A và C (A: f1==f2 & C: f2==f1[1])",
+        "D và E (D: x==f1[0] & E: f==f1[0])"
+      ],
+      "optionsVi": [
+        "B và D (B: f1==f3 & D: x==f1[0])",
+        "A và B (A: f1==f2 & B: f1==f3)",
+        "A và C (A: f1==f2 & C: f2==f1[1])",
+        "D và E (D: x==f1[0] & E: f==f1[0])"
+      ],
+      "answer": 0,
+      "explanation": "B, D, and E. B is correct because the reference variables f1 and f3 refer to the same array object. D is correct because it is legal to compare integer and floating-point types. E is correct because it is legal to compare a variable with an array element. ✗ C is incorrect because f2 is an array object and f1[1] is an array element."
+    },
+    {
+      "id": "scjp-ch03-005",
+      "originalId": 5,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the output from this program?",
+      "textVi": "Cho đoạn mã sau, what is the output from this program?",
+      "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
+      "options": [
+        "-2147483648and1",
+        "0x80000000and0x00000001",
+        "-2147483648and-1",
+        "1and-2147483648",
+        "None of the above"
+      ],
+      "optionsVi": [
+        "-2147483648and1",
+        "0x80000000and0x00000001",
+        "-2147483648and-1",
+        "1and-2147483648",
+        "None of the above"
+      ],
+      "answer": 0,
+      "explanation": "A. The >>> operator moves all bits to the right, zero filling the left bits. The bit transformation looks like this: Before:10000000000000000000000000000000 After:00000000000000000000000000000001 ✗ C is incorrect because the >>> operator zero fills the left bits, which in this case changes the sign of x, as shown. B is incorrect because the output method print() always displays integers in base 10. D is incorrect because this is the reverse order of the two output numbers. E is incorrect because there was a correct answer. 62 Chapter 3: Operators and Assignments"
+    },
+    {
+      "id": "scjp-ch03-006",
+      "originalId": 6,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
+      "options": [
+        "0",
+        "7",
+        "8",
+        "14",
+        "15"
+      ],
+      "optionsVi": [
+        "0",
+        "7",
+        "8",
+        "14",
+        "15"
+      ],
+      "answer": 3,
+      "explanation": "D. The & operator produces a 1 bit when both bits are 1. The result of the & operation is 9. The ^ operator produces a 1 bit when exactly one bit is 1; the result of this operation is 10. The | operator produces a 1 bit when at least one bit is 1; the result of this operation is 14. ✗ A, B, C, and E, are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-007",
+      "originalId": 7,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Which of the following are legal lines of code? (Choose all that apply.)",
+      "textVi": "Which of the following are legal lines of code? (Choose all that apply.)",
+      "code": "",
+      "options": [
+        "A và B và C (A: intw=(int)888.8; & B: bytex=(byte)1000L; & C: longy=(byte)100;)",
+        "A và D (A: intw=(int)888.8; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))",
+        "D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)",
+        "B và D (B: bytex=(byte)1000L; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))"
+      ],
+      "optionsVi": [
+        "A và B và C (A: intw=(int)888.8; & B: bytex=(byte)1000L; & C: longy=(byte)100;)",
+        "A và D (A: intw=(int)888.8; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))",
+        "D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)",
+        "B và D (B: bytex=(byte)1000L; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))"
+      ],
+      "answer": 0,
+      "explanation": "A, B, C, and D. A is correct because when a floating-point number (a double in this case) is cast to an int, it simply loses the digits after the decimal. B and D are correct because a long can be cast into a byte.I ft h elong is over 127, it loses its most significant (leftmost) bits. C actually works, even though a cast is not necessary, because a long can store a byte. ✗ There are no incorrect answer choices. Logical Operators (Sun Objective 5.3)"
+    },
+    {
+      "id": "scjp-ch03-008",
+      "originalId": 8,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+      "options": [
+        "53",
+        "82",
+        "83",
+        "85",
+        "103",
+        "105"
+      ],
+      "optionsVi": [
+        "53",
+        "82",
+        "83",
+        "85",
+        "103",
+        "105"
+      ],
+      "answer": 1,
+      "explanation": "B. The first two iterations of the for loop both x and y are incremented. On the third iteration x is incremented, and for the first time becomes greater than 2. The short circuit or operator || keeps y from ever being incremented again and x is incremented twice on each of the last three iterations. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-009",
+      "originalId": 9,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, What is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+      "options": [
+        "52",
+        "53",
+        "63",
+        "64",
+        "75",
+        "85"
+      ],
+      "optionsVi": [
+        "52",
+        "53",
+        "63",
+        "64",
+        "75",
+        "85"
+      ],
+      "answer": 2,
+      "explanation": "C. In the first two iterations x is incremented once and y is not because of the short circuit && operator. In the third and forth iterations x and y are each incremented, and in the fifth iteration x is doubly incremented and y is incremented. ✗ A, B, D, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-010",
+      "originalId": 10,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
+      "options": [
+        "ok",
+        "dokey",
+        "okdokey",
+        "No output is produced",
+        "Compilation error",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "ok",
+        "dokey",
+        "okdokey",
+        "No output is produced",
+        "Compilation error",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 1,
+      "explanation": "B. The & operator has a higher precedence than the | operator so that on line 6 b1 and b2 are evaluated together as are b2& b3. The final b1 in line 8 is what causes that if test to be true. ✗ A, C, and D are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-011",
+      "originalId": 11,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result of compiling and running this code?",
+      "textVi": "Cho đoạn mã sau, what is the result of compiling and running this code?",
+      "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
+      "options": [
+        "small",
+        "tiny",
+        "huge",
+        "Compilation fails"
+      ],
+      "optionsVi": [
+        "small",
+        "tiny",
+        "huge",
+        "Lỗi biên dịch (Compilation fails)"
+      ],
+      "answer": 1,
+      "explanation": "B. This is an example of a nested ternary operator. The second evaluation (x<22) is true, so the “tiny” value is assigned tosup. ✗ A, C, and D are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-012",
+      "originalId": 12,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
+      "options": [
+        "count=0",
+        "count=2",
+        "count=3",
+        "count=4",
+        "count=10",
+        "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+      ],
+      "optionsVi": [
+        "count=0",
+        "count=2",
+        "count=3",
+        "count=4",
+        "count=10",
+        "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+      ],
+      "answer": 2,
+      "explanation": "C. The reference variables b and x both refer to the same boolean array.Count is incremented for each call to the set() method, and once again when the first if test is true. Because of the && short circuit operator, count is not incremented during the second if test. ✗ A, B, D, E, and F are incorrect based on the program logic described above. 64 Chapter 3: Operators and Assignments Passing Variables into Methods (Sun Objective 5.4)"
+    },
+    {
+      "id": "scjp-ch03-013",
+      "originalId": 13,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class Test {\n2.      static int s;\n3.\n56 Chapter 3: Operators and Assignments\n4.      public static void main(String [] args) {\n5.        Test p = new Test();\n6.        p.start();\n7.        System.out.println(s);\n8.      }\n9.\n10.     void start() {\n11.       int x = 7;\n12.       twice(x);\n13.       System.out.print(x + \" \");\n14.     }\n15.\n16.     void twice(int x) {\n17.       x = x*2;\n18.       s = x;\n19.     }\n20.   }",
+      "options": [
+        "77",
+        "714",
+        "140",
+        "1414",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "77",
+        "714",
+        "140",
+        "1414",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 1,
+      "explanation": "B. Theint x in thetwice() method is not the same int x as in thestart() method.Start()’s x is not affected by the twice() method. The instance variable s is updated bytwice()’sx, which is 14. ✗ A, C, and D are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-014",
+      "originalId": 14,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
+      "options": [
+        "truetrue",
+        "falsetrue",
+        "truefalse",
+        "falsefalse",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "truetrue",
+        "falsetrue",
+        "truefalse",
+        "falsefalse",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 1,
+      "explanation": "B. Theboolean b1 in thefix() method is a different boolean than the b1 in the start() method. The b1 in thestart() method is not updated by the fix() method. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-015",
+      "originalId": 15,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
+      "options": [
+        "slipstream",
+        "slipstreamstream",
+        "streamslipstream",
+        "slipstreamslipstream",
+        "Compilation fails",
+        "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+      ],
+      "optionsVi": [
+        "slipstream",
+        "slipstreamstream",
+        "streamslipstream",
+        "slipstreamslipstream",
+        "Lỗi biên dịch (Compilation fails)",
+        "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+      ],
+      "answer": 3,
+      "explanation": "D. When thefix() method is first entered, start()’ss1 andfix()’ss1 reference variables both refer to the same String object (with a value of “slip”).Fix()’ss1 is reassigned to a new object that is created when the concatenation occurs (this second String object has a value of “slipstream”). When the program returns tostart(), another String object is created, referred to by s2 and with a value of “stream”. ✗ A, B, C, and E are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-016",
+      "originalId": 16,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
+      "options": [
+        "977foo77foo",
+        "723434foo3434foo",
+        "977foo3434foo",
+        "72734foo347foo",
+        "93434foo3434foo"
+      ],
+      "optionsVi": [
+        "977foo77foo",
+        "723434foo3434foo",
+        "977foo3434foo",
+        "72734foo347foo",
+        "93434foo3434foo"
+      ],
+      "answer": 3,
+      "explanation": "D. Because all of these expressions use the + operator, there is no precedence to worry about and all of the expressions will be evaluated from left to right. If either operand being evaluated is a String, the + operator will concatenate the two operands; if both operands are numeric, the + operator will add the two operands. ✗ A, B, C, and E are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-017",
+      "originalId": 17,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n60 Chapter 3: Operators and Assignments\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
+      "options": [
+        "1215",
+        "1515",
+        "345375",
+        "375375",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "1215",
+        "1515",
+        "345375",
+        "375375",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 1,
+      "explanation": "B. The reference variables a1 and a3 refer to the samelong array object. When the [1] element is updated in the fix() method, it is updating the array referred to by a1. The reference variable a2 refers to the same array object. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch03-018",
+      "originalId": 18,
+      "chapterNum": 3,
+      "chapterTitle": "Operators and Assignments",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
+      "options": [
+        "nullnull42",
+        "0042",
+        "04242",
+        "000",
+        "Compilation fails",
+        "An exception is thrown at runtime"
+      ],
+      "optionsVi": [
+        "nullnull42",
+        "0042",
+        "04242",
+        "000",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. In thefix() method, the reference variable tt refers to the same object (class Two) as the t reference variable. Updating tt.x in thefix() method updates t.x (they are one in the same object). Remember also that the instance variable x in the Two class is initialized to 0. ✗ A, B, D, E, and F are incorrect based on the program logic described above. EXERCISE ANSWERS Exercise 3-1: Using Shift Operators The program should look something like the following: class BitShift { public static void main(String [] args) { int x = 0x00000001; // or simply 1 x <<= 31; x >>= 31; System.out.println(\"After shift x equals \" + x); } } The number should now equal -1. In bits, this number is 1111 1111 1111 1111 1111 1111 1111 1111 Exercise 3-2: Casting Primitives The program should look something like the following: class Cast { public static void main(String [] args) { float f = 234.56F; short s = (short)f; } } Exercise Answers 65"
+    },
+    {
+      "id": "scjp-ch04-001",
+      "originalId": 1,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+      "options": [
+        "0 1 2",
+        "0 1 2 1 2 2",
+        "Compilation fails at line 7.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "0 1 2",
+        "0 1 2 1 2 2",
+        "Compilation fails at line 7.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. Case expressions must be constant expressions. Since x is markedfinal, lines 8 and 9 are legal; however y is not afinal so the compiler will fail at line 7. ✗ A, B, D, E, and F, are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-002",
+      "originalId": 2,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+      "options": [
+        "0 1 2",
+        "0 1 2 1 2 2",
+        "2 1 0 1 0 0",
+        "2 1 2 0 1 2",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9."
+      ],
+      "optionsVi": [
+        "0 1 2",
+        "0 1 2 1 2 2",
+        "2 1 0 1 0 0",
+        "2 1 2 0 1 2",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9."
+      ],
+      "answer": 3,
+      "explanation": "D. The case expressions are all legal because x is markedfinal, which means the expressions can be evaluated at compile time. In the first iteration of the for loopcase x-2 matches, so 2 is printed. In the second iteration, x-1 is matched so 1 and 2 are printed (remember, once a match is found all remaining statements are executed until a break statement is encountered). In the third iteration,x is matched so01a n d2a r ep r inted. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-003",
+      "originalId": 3,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
+      "options": [
+        "41",
+        "42",
+        "50",
+        "51",
+        "Compiler fails at line 5.",
+        "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+      ],
+      "optionsVi": [
+        "41",
+        "42",
+        "50",
+        "51",
+        "Compiler fails at line 5.",
+        "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+      ],
+      "answer": 3,
+      "explanation": "D. In Java,boolean instance variables are initialized to false,s ot h eif test on line 5 is true andhand is incremented. Line 6 is legal syntax, a do nothing statement. The else-if is true sohand has 7 added to it and is then incremented. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-004",
+      "originalId": 4,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
+      "options": [
+        "0 def 1",
+        "2 1 0 def 1",
+        "2 1 0 def def",
+        "2 1 def 0 def 1",
+        "2 1 2 0 def 1 2",
+        "2 1 0 def 1 def 1"
+      ],
+      "optionsVi": [
+        "0 def 1",
+        "2 1 0 def 1",
+        "2 1 0 def def",
+        "2 1 def 0 def 1",
+        "2 1 2 0 def 1 2",
+        "2 1 0 def 1 def 1"
+      ],
+      "answer": 5,
+      "explanation": "F. Whenz == 0 , case x-2 is matched. Whenz == 1, case x-1 is matched and then the break occurs. Whenz == 2, case x, thendefault, then x-1 are all matched. When z == 3, default, thenx-1 are matched. The rules for default are that it will fall through from above like any other case (for instance whenz == 2), and that it will match when no other cases match (for instance when z= =3 ). ✗ A, B, C, D, and E are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-005",
+      "originalId": 5,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
+      "options": [
+        "0",
+        "1",
+        "101",
+        "111",
+        "1001",
+        "1101 Flow Control (loops) (Sun Objective 2.2)"
+      ],
+      "optionsVi": [
+        "0",
+        "1",
+        "101",
+        "111",
+        "1001",
+        "1101 Flow Control (loops) (Sun Objective 2.2)"
+      ],
+      "answer": 2,
+      "explanation": "C. As instance variables, b1 andb2 are initialized tofalse. The if tests on lines 5 and 6 are successful sob1 is set totrue andx is incremented. The nextif test to succeed is on line 13 (note that the code is not testing to see ifb2 istrue, it is settingb2 to betrue). Since line 13 was successful, subsequent else-if’s(line 14) will be skipped. ✗ A, B, D, E, and F are incorrect based on the program logic described above. Flow Control (loops) (Sun Objective 2.2)"
+    },
+    {
+      "id": "scjp-ch04-006",
+      "originalId": 6,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, Which statement is true?",
+      "textVi": "Cho đoạn mã sau, Phát biểu nào sau đây là ĐÚNG?",
+      "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
+      "options": [
+        "There is a syntax error on line 1.",
+        "There are syntax errors on lines 1 and 4.",
+        "There are syntax errors on lines 1, 4, and 5.",
+        "There is a syntax error on line 4.",
+        "There are syntax errors on lines 4 and 5.",
+        "There is a syntax error on line 5."
+      ],
+      "optionsVi": [
+        "There is a syntax error on line 1.",
+        "There are syntax errors on lines 1 and 4.",
+        "There are syntax errors on lines 1, 4, and 5.",
+        "There is a syntax error on line 4.",
+        "There are syntax errors on lines 4 and 5.",
+        "There is a syntax error on line 5."
+      ],
+      "answer": 3,
+      "explanation": "D. Using the integer 1 in the while statement, or any other looping or conditional construct for that matter, will result in a compiler error. This is old C syntax, not valid Java. ✗ A, B, C, E, and F are incorrect because line 1 is valid (Java is case sensitive so While is a valid class name). Line 5 is also valid because an equation may be placed in a String operation as shown."
+    },
+    {
+      "id": "scjp-ch04-007",
+      "originalId": 7,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+      "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n66 Chapter 4: Flow Control, Exceptions, and Assertions\n5.       }\n6.     }\n7.  }",
+      "options": [
+        "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+        "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+        "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+        "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+      ],
+      "optionsVi": [
+        "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+        "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+        "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+        "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+      ],
+      "answer": 0,
+      "explanation": "D and E. It doesn’t matter whether you preincrement or postincrement the variable in a for loop; it is always incremented after the loop executes and before the iteration expression is evaluated. ✗ A and B are incorrect because the first iteration of the loop must be zero. C is incorrect because the test will fail immediately and the for loop will not be entered."
+    },
+    {
+      "id": "scjp-ch04-008",
+      "originalId": 8,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
+      "options": [
+        "I is 1",
+        "I is 1 I is 1",
+        "No output is produced.",
+        "Compilation error",
+        "I is 1 I is 1 I is 1 in an infinite loop."
+      ],
+      "optionsVi": [
+        "I is 1",
+        "I is 1 I is 1",
+        "No output is produced.",
+        "Compilation error",
+        "I is 1 I is 1 I is 1 in an infinite loop."
+      ],
+      "answer": 2,
+      "explanation": "C. There are two different looping constructs in this problem. The first is a do-while loop and the second is a while loop, nested inside the do-while. The body of the do-while is only a single statement—brackets are not needed. You are assured that the while expression will be evaluated at least once, followed by an evaluation of the do-while expression. Both expressions are false and no output is produced. ✗ A, B, D, and E are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-009",
+      "originalId": 9,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);\n25.\n26.",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 0,
+      "explanation": "A. The program flows as follows: I will be incremented after the while loop is entered, thenI will be incremented (by zero) when the for loop is entered. The if statement evaluates to false, and thecontinue statement is never reached. The break statement tells the JVM to break out of the outer loop, at which point I is printed and the fragment is done. ✗ B, C, and D are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-010",
+      "originalId": 10,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
+      "options": [
+        "I is 0",
+        "I is 0 I is 1",
+        "Compilation fails.",
+        "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+      ],
+      "optionsVi": [
+        "I is 0",
+        "I is 0 I is 1",
+        "Lỗi biên dịch (Compilation fails)",
+        "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+      ],
+      "answer": 2,
+      "explanation": "C. The code will not compile because a continue statement can only occur in a looping construct. If this syntax were legal, the combination of the continue and the if statements would create a kludgey kind of loop, but the compiler will force you to write cleaner code than this. ✗ A, B, and D are incorrect based on the program logic described above. Exceptions (Sun Objectives 2.3 and 2.4)"
+    },
+    {
+      "id": "scjp-ch04-011",
+      "originalId": 11,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+      "textVi": "Cho đoạn mã sau, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+      "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n68 Chapter 4: Flow Control, Exceptions, and Assertions\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
+      "options": [
+        "The code will not compile.",
+        "Code output:Start Hello world File Not Found.",
+        "Code output:Start Hello world End of file exception.",
+        "Code output:Start Hello world Catch Here File not found."
+      ],
+      "optionsVi": [
+        "The code will not compile.",
+        "Code output:Start Hello world File Not Found.",
+        "Code output:Start Hello world End of file exception.",
+        "Code output:Start Hello world Catch Here File not found."
+      ],
+      "answer": 0,
+      "explanation": "A. Line 6 will cause a compiler error. The only legal statements after try blocks are either catch orfinally statements. ✗ B, C, and D are incorrect based on the program logic described above. If line 6 was removed, the code would compile and the correct answer would be B."
+    },
+    {
+      "id": "scjp-ch04-012",
+      "originalId": 12,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
+      "options": [
+        "Nothing. The program will not compile because no exceptions are specified.",
+        "Nothing. The program will not compile because nocatch clauses are specified.",
+        "Hello world.",
+        "Hello world Finally executing"
+      ],
+      "optionsVi": [
+        "Nothing. The program will not compile because no exceptions are specified.",
+        "Nothing. The program will not compile because nocatch clauses are specified.",
+        "Hello world.",
+        "Hello world Finally executing"
+      ],
+      "answer": 3,
+      "explanation": "D.Finally clauses are always executed. The program will first execute the try block, printingHello world, and will then execute the finally block, printingFinally executing. ✗ A, B, and C are incorrect based on the program logic described above. Remember that either acatch or afinally statement must follow a try. Since the finally is present, the catch is not required. 76 Chapter 4: Flow Control, Exceptions, and Assertions"
+    },
+    {
+      "id": "scjp-ch04-013",
+      "originalId": 13,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+      "textVi": "Cho đoạn mã sau, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+      "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
+      "options": [
+        "This program will compile successfully.",
+        "This program fails to compile due to an error at line 4.",
+        "This program fails to compile due to an error at line 6.",
+        "This program fails to compile due to an error at line 9.",
+        "This program fails to compile due to an error at line 13."
+      ],
+      "optionsVi": [
+        "This program will compile successfully.",
+        "This program fails to compile due to an error at line 4.",
+        "This program fails to compile due to an error at line 6.",
+        "This program fails to compile due to an error at line 9.",
+        "This program fails to compile due to an error at line 13."
+      ],
+      "answer": 4,
+      "explanation": "E. Any method (in this case, the main() method) that throws a checked exception (in this case, out.close() ) must be called within a try clause, or the metho d must declare that it throws the exception. Either main() must declare that it throws an exception, or the call toout.close() in thefinally block must fall inside a (in this case nested) try-catch block. ✗ A, B, C, and D are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-014",
+      "originalId": 14,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, which answer most closely indicates the behavior of the program?",
+      "textVi": "Cho đoạn mã sau, which answer most closely indicates the behavior of the program?",
+      "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
+      "options": [
+        "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+        "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+        "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+        "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+      ],
+      "optionsVi": [
+        "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+        "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+        "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+        "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+      ],
+      "answer": 3,
+      "explanation": "D. Once the program throws a RuntimeException (in the throwit() method) that is not caught, thefinally block will be executed and the program will be terminated. If a method does not handle an exception, the finally block is executed before the exception is propagated. ✗ A, B, and C are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-015",
+      "originalId": 15,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
+      "options": [
+        "hello throwit caught",
+        "Compilation fails",
+        "hello throwit RuntimeException caught after",
+        "hello throwit RuntimeException",
+        "hello throwit caught finally after",
+        "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+      ],
+      "optionsVi": [
+        "hello throwit caught",
+        "Lỗi biên dịch (Compilation fails)",
+        "hello throwit RuntimeException caught after",
+        "hello throwit RuntimeException",
+        "hello throwit caught finally after",
+        "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+      ],
+      "answer": 4,
+      "explanation": "E. Themain() method properly catches and handles the RuntimeException in the catch block, finally runs (as it always does), and then the code returns to normal. ✗ A, B, C, D, and F are incorrect based on the program logic described above. Remember that properly handled exceptions do not cause the program to stop executing. Assertions (Sun Objectives 2.5 and 2.6)"
+    },
+    {
+      "id": "scjp-ch04-016",
+      "originalId": 16,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Which of the following statements is true?",
+      "textVi": "Which of the following statements is true?",
+      "code": "",
+      "options": [
+        "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+        "If a switch block has no default, adding an assert default is considered appropriate.",
+        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+        "It is appropriate to handle assertion failures using acatch clause."
+      ],
+      "optionsVi": [
+        "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+        "If a switch block has no default, adding an assert default is considered appropriate.",
+        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+        "It is appropriate to handle assertion failures using acatch clause."
+      ],
+      "answer": 1,
+      "explanation": "B. Adding an assertion statement to a switch statement that previously had no default case is considered an excellent use of the assert mechanism. ✗ A is incorrect because only Java expressions that return a value can be used. For instance, a method that returnsvoid is illegal. C is incorrect because the expression after the colon must have a value. D is incorrect because assertions throw errors and not exceptions, and assertion errors do cause program termination and should not be handled."
+    },
+    {
+      "id": "scjp-ch04-017",
+      "originalId": 17,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Which two of the following statements are true? (Choose two.)",
+      "textVi": "Which two of the following statements are true? (Choose two.)",
+      "code": "",
+      "options": [
+        "A và B (A: It is sometimes good practice to throw an AssertionError explicitly. & B: It is good practice to place assertions where you think execution should never reach.)",
+        "A và C (A: It is sometimes good practice to throw an AssertionError explicitly. & C: Privategetter() andsetter() methods should not use assertions to verify arguments.)",
+        "C và D (C: Privategetter() andsetter() methods should not use assertions to verify arguments. & D: If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.)",
+        "B và E (B: It is good practice to place assertions where you think execution should never reach. & E: It is proper to handle assertion statement failures using a catch (AssertionException ae) block.)"
+      ],
+      "optionsVi": [
+        "A và B (A: It is sometimes good practice to throw an AssertionError explicitly. & B: It is good practice to place assertions where you think execution should never reach.)",
+        "A và C (A: It is sometimes good practice to throw an AssertionError explicitly. & C: Privategetter() andsetter() methods should not use assertions to verify arguments.)",
+        "C và D (C: Privategetter() andsetter() methods should not use assertions to verify arguments. & D: If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.)",
+        "B và E (B: It is good practice to place assertions where you think execution should never reach. & E: It is proper to handle assertion statement failures using a catch (AssertionException ae) block.)"
+      ],
+      "answer": 0,
+      "explanation": "A and B. A is correct because it is sometimes advisable to thrown an assertion error even if assertions have been disabled. B is correct. One of the most common uses of assert statements in debugging is to verify that locations in code that have been designed to be unreachable are in fact never reached. ✗ C is incorrect because it is considered appropriate to check argument values in private methods using assertions. D is incorrect; finally is never bypassed. E is incorrect because AssertionErrors should never be handled."
+    },
+    {
+      "id": "scjp-ch04-018",
+      "originalId": 18,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
+      "options": [
+        "bar",
+        "bar done",
+        "foo done",
+        "bar foo done",
+        "Compilation fails",
+        "An error is thrown at runtime."
+      ],
+      "optionsVi": [
+        "bar",
+        "bar done",
+        "foo done",
+        "bar foo done",
+        "Lỗi biên dịch (Compilation fails)",
+        "An error is thrown at runtime."
+      ],
+      "answer": 4,
+      "explanation": "E. Thefoo() method returnsvoid. It is a perfectly acceptable method, but because it returnsvoid it cannot be used in an assert statement, so line 14 will not compile. ✗ A, B, C, D, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch04-019",
+      "originalId": 19,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Which two of the following statements are true? (Choose two.)",
+      "textVi": "Which two of the following statements are true? (Choose two.)",
+      "code": "",
+      "options": [
+        "C và D (C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time. & D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions)",
+        "A và C (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.)",
+        "A và B (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & B: As of Java version 1.4, assertion statements are compiled by default.)",
+        "D và E (D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions & E: When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags.)"
+      ],
+      "optionsVi": [
+        "C và D (C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time. & D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions)",
+        "A và C (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.)",
+        "A và B (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & B: As of Java version 1.4, assertion statements are compiled by default.)",
+        "D và E (D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions & E: When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags.)"
+      ],
+      "answer": 0,
+      "explanation": "C and D. C is true because multiple VM flags can be used on a single invocation of a Java program. D is true, these are all valid flags for the VM. ✗ A is incorrect because at runtime assertions are ignored by default. B is incorrect because as of Java 1.4 you must add the argument –source 1.4 to the command line if you want the compiler to compile assertion statements. E is incorrect because the VM evaluates all assertion flags left to right."
+    },
+    {
+      "id": "scjp-ch04-020",
+      "originalId": 20,
+      "chapterNum": 4,
+      "chapterTitle": "Flow Control, Exceptions, and Assertions",
+      "topic": "exception",
+      "text": "Given the following, which line is an example of an inappropriate use of assertions?",
+      "textVi": "Cho đoạn mã sau, which line is an example of an inappropriate use of assertions?",
+      "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
+      "options": [
+        "Line 8",
+        "Line 9",
+        "Line 11",
+        "Line 15",
+        "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+      ],
+      "optionsVi": [
+        "Line 8",
+        "Line 9",
+        "Line 11",
+        "Line 15",
+        "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+      ],
+      "answer": 4,
+      "explanation": "E. Assert statements should not cause side effects. Line 18 changes the value of z if the assert statement is false. ✗ A is fine; a second expression in an assert statement is not required. B is fine because it is perfectly acceptable to call a method with the second expression of an assert statement. C is fine because it is proper to call an assert statement conditionally. D is fine because it is considered good form to add a default assert statement to switch blocks that have no default case. EXERCISE ANSWERS Exercise 4.1: Creating a switch-case Statement The code should look something like this: char temp = 'c'; switch(temp) { case 'a': { System.out.println(\"A\"); break; } case 'b': { System.out.println(\"B\"); break; } case 'c': System.out.println(\"C\"); break; default: System.out.println(\"default\"); } 78 Chapter 4: Flow Control, Exceptions, and Assertions Exercise Answers 79 Exercise 4-2: Creating a Labeled while Loop The code should look something like this: class LoopTest { public static void main(String [] args) { int age = 12; outer: while(age < 21) { age += 1; if(age == 16) { System.out.println(\"Obtain driver's license\"); continue outer; } System.out.println(\"Another year.\"); } } } Exercise 4-3: Propagating and Catching an Exception The code should look something like this: class Propagate { public static void main(String [] args) { try { System.out.println(reverse(\"Hello\")); } catch (Exception e) { System.out.println(\"The string was blank\"); } finally { System.out.println(\"All done!\"); } } public static String reverse(String s) throws Exception { if (s.length() == 0 ) { throw new Exception(); } String reverseStr = \"\"; for(int i=s.length()-1;i>=0;--i) { reverseStr += s.charAt(i); } return reverseStr; } } Exercise 4-4: Creating an Exception The code should look something like this: class BadFoodException extends Exception {} class MyException { public static void main(String [] args) { try { checkFood(args[0]); } catch(BadFoodException e) { e. printStackTrace(); } } public static void checkWord(String s) { String [] badFoods = {\"broccoli\",\"brussel sprouts\",\"sardines\"}; for(int i=0;i<badFoods.length;++i) { if (s.equals(badFoods[i])) throw new BadWFoodException(); } System.out.println(s + \" is ok with me.\"); } } 80 Chapter 4: Flow Control, Exceptions, and Assertions"
+    },
+    {
+      "id": "scjp-ch05-001",
+      "originalId": 1,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which is true about the class described above?",
+      "textVi": "Cho đoạn mã sau, which is true about the class described above?",
+      "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
+      "options": [
+        "Class Barbell is tightly encapsulated.",
+        "Line 2 is in conflict with encapsulation.",
+        "Line 5 is in conflict with encapsulation.",
+        "Line 8 is in conflict with encapsulation.",
+        "Lines 5 and 8 are in conflict with encapsulation.",
+        "Lines 2, 5, and 8 are in conflict with encapsulation."
+      ],
+      "optionsVi": [
+        "Class Barbell is tightly encapsulated.",
+        "Line 2 is in conflict with encapsulation.",
+        "Line 5 is in conflict with encapsulation.",
+        "Line 8 is in conflict with encapsulation.",
+        "Lines 5 and 8 are in conflict with encapsulation.",
+        "Lines 2, 5, and 8 are in conflict with encapsulation."
+      ],
+      "answer": 3,
+      "explanation": "D. If a class has an instance variable that is marked public, the class cannot be said to be encapsulated. ✗ A, B, C, E, and F are incorrect based on the program logic described above. Public getter and setter methods are compatible with the concept of encapsulation."
+    },
+    {
+      "id": "scjp-ch05-002",
+      "originalId": 2,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which is true about the classes described above?",
+      "textVi": "Cho đoạn mã sau, which is true about the classes described above?",
+      "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
+      "options": [
+        "Class A is tightly encapsulated.",
+        "Class B is tightly encapsulated.",
+        "Classes A and B are both tightly encapsulated.",
+        "Neither class A nor class B is tightly encapsulated."
+      ],
+      "optionsVi": [
+        "Class A is tightly encapsulated.",
+        "Class B is tightly encapsulated.",
+        "Classes A and B are both tightly encapsulated.",
+        "Neither class A nor class B is tightly encapsulated."
+      ],
+      "answer": 3,
+      "explanation": "D. Class A is clearly not encapsulated because it has a public instance variable. At first glance class B appears to be encapsulated, however because it extends from class A it inherits thepublic instance variable foo, which is not encapsulated. ✗ A, B, and C are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch05-003",
+      "originalId": 3,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Which is true?",
+      "textVi": "Which is true?",
+      "code": "",
+      "options": [
+        "Tightly encapsulated classes are typically easier to reuse.",
+        "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+        "Methods in tightly encapsulated classes cannot be overridden.",
+        "Methods in tightly encapsulated classes cannot be overloaded.",
+        "Tightly encapsulated classes typically do not use HAS-A relationships."
+      ],
+      "optionsVi": [
+        "Tightly encapsulated classes are typically easier to reuse.",
+        "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+        "Methods in tightly encapsulated classes cannot be overridden.",
+        "Methods in tightly encapsulated classes cannot be overloaded.",
+        "Tightly encapsulated classes typically do not use HAS-A relationships."
+      ],
+      "answer": 0,
+      "explanation": "A. One of the main benefits of encapsulation is that encapsulated code is much easier to reuse than unencapsulated code. ✗ B, C, D, and E are incorrect. B is incorrect because inheritance is a concept that is independent of encapsulation. C and D are incorrect because encapsulation does not restrict the use of overloading or overriding.E is incorrect because HAS-A relationships are independent of encapsulation."
+    },
+    {
+      "id": "scjp-ch05-004",
+      "originalId": 4,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Which two are not benefits of encapsulation? (Choose two.)",
+      "textVi": "Which two are not benefits of encapsulation? (Choose two.)",
+      "code": "",
+      "options": [
+        "B và E (B: Code efficiency & E: Access modifiers become optional)",
+        "A và B (A: Clarity of code & B: Code efficiency)",
+        "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+        "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+      ],
+      "optionsVi": [
+        "B và E (B: Code efficiency & E: Access modifiers become optional)",
+        "A và B (A: Clarity of code & B: Code efficiency)",
+        "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+        "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+      ],
+      "answer": 0,
+      "explanation": "B and E. Encapsulation tends to make code more maintainable, extensible, and debuggable, but not necessarily any more efficient at runtime. Encapsulation is a design approach and in no way affects any Java language rules such as the use of access modifiers. ✗ A, C, and D are well-known benefits of encapsulation."
+    },
+    {
+      "id": "scjp-ch05-005",
+      "originalId": 5,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two are true about instances of the classes listed above? (Choose two.)",
+      "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
+      "options": [
+        "C và E (C: A has-a C & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))",
+        "A và C (A: A is-a B & C: A has-a C)",
+        "A và B (A: A is-a B & B: C is-a A)",
+        "D và E (D: B has-a A & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))"
+      ],
+      "optionsVi": [
+        "C và E (C: A has-a C & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))",
+        "A và C (A: A is-a B & C: A has-a C)",
+        "A và B (A: A is-a B & B: C is-a A)",
+        "D và E (D: B has-a A & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))"
+      ],
+      "answer": 0,
+      "explanation": "C and E. C is correct because class A has an instance variable, c, that is a reference to an object of class C. E is correct because class B extends from class A, which HAS-A class C reference, so class B, through inheritance, HAS-A class C. ✗ A, B, and D are incorrect based on the program logic described. A is incorrect because class B extends from class A, not the other way around. B is incorrect because class C is not in class A’s inheritance tree.D is incorrect because class B IS-A class A; HAS-A is not used to describe inheritance relationships. Overriding and Overloading (Sun Objective 6.2)"
+    },
+    {
+      "id": "scjp-ch05-006",
+      "originalId": 6,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
+      "textVi": "Cho đoạn mã sau, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "",
+      "options": [
+        "A",
+        "B",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "A",
+        "B",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 1,
+      "explanation": "B. Reference variable ‘a’i so ft y p eA, but it refers to an object of type B.L i n e9i sa polymorphic call, and the VM will use the version of the baz() method that is in the class that the reference variable refers to at that point. ✗ A, C, and D are incorrect because of the logic described above. 58 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types"
+    },
+    {
+      "id": "scjp-ch05-007",
+      "originalId": 7,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+      "textVi": "Cho đoạn mã sau, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+      "code": "",
+      "options": [
+        "String doStuff(int x) { return \"hello\"; }",
+        "int doStuff(int x) { return 42; }",
+        "public String doStuff(int x) { return \"Hello\"; }",
+        "protected String doStuff(int x) { return \"Hello\"; }",
+        "String doStuff(String s) { return \"Hello\"; }",
+        "int doStuff(String s) { return 42; }"
+      ],
+      "optionsVi": [
+        "String doStuff(int x) { return \"hello\"; }",
+        "int doStuff(int x) { return 42; }",
+        "public String doStuff(int x) { return \"Hello\"; }",
+        "protected String doStuff(int x) { return \"Hello\"; }",
+        "String doStuff(String s) { return \"Hello\"; }",
+        "int doStuff(String s) { return 42; }"
+      ],
+      "answer": 1,
+      "explanation": "B. B is neither a legal override (the return type has been changed) nor a legal overload (the arguments have not changed). ✗ A, C, and D are legal overrides of thedoStuff() method, and E and F are legal overloads of thedoStuff() method."
+    },
+    {
+      "id": "scjp-ch05-008",
+      "originalId": 8,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, What is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
+      "options": [
+        "x = 14",
+        "x = 21",
+        "Compilation fails at line 2.",
+        "Compilation fails at line 11.",
+        "Compilation fails at line 14.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "x = 14",
+        "x = 21",
+        "Compilation fails at line 2.",
+        "Compilation fails at line 11.",
+        "Compilation fails at line 14.",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 4,
+      "explanation": "E. Line 14 is an illegal override of the doStuff() method in ParentClass. When you override a method, you must leave both the arguments and the return types the same. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 14 had returned an int, then B would be correct."
+    },
+    {
+      "id": "scjp-ch05-009",
+      "originalId": 9,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+      "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
+      "options": [
+        "C và E (C: private int doStuff(int x, float y) {return 4; } & E: long doStuff(int x, float y) { return 4; })",
+        "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) {return 4; })",
+        "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) {return 4; })",
+        "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3))"
+      ],
+      "optionsVi": [
+        "C và E (C: private int doStuff(int x, float y) {return 4; } & E: long doStuff(int x, float y) { return 4; })",
+        "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) {return 4; })",
+        "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) {return 4; })",
+        "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3))"
+      ],
+      "answer": 0,
+      "explanation": "C and E. C is an illegal override because the private modifier is more restrictive than doStuff()’s default modifier in class Over.E is an illegal override because you can’t change an overridden method’s return type, orE is an illegal overload because you must change an overloaded method’s arguments. ✗ A and B are simple overrides (protected is less restrictive than default). D and F are simple overloads (swapping arguments of different types creates an overload). Instantiation and Constructors (Sun Objectives 6.3 and 1.3)"
+    },
+    {
+      "id": "scjp-ch05-010",
+      "originalId": 10,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
+      "options": [
+        "instantiate a child",
+        "instantiate a parent",
+        "instantiate a child instantiate a parent",
+        "instantiate a parent instantiate a child",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "instantiate a child",
+        "instantiate a parent",
+        "instantiate a child instantiate a parent",
+        "instantiate a parent instantiate a child",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 3,
+      "explanation": "D. The class Child constructor calls the class Parent constructor implicitly before any code in the Child constructor runs. When the class Parent constructor’s code runs, it prints the first line of output, finishes, and returns control to the Child constructor, which prints out its line of output and finishes. The call to super() is redundant. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch05-011",
+      "originalId": 11,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
+      "options": [
+        "instantiate a child",
+        "instantiate a parent",
+        "instantiate a child instantiate a parent",
+        "instantiate a parent instantiate a child",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "instantiate a child",
+        "instantiate a parent",
+        "instantiate a child instantiate a parent",
+        "instantiate a parent instantiate a child",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 4,
+      "explanation": "E. Line 17 will cause the compiler to fail. The call tosuper() must be the first statement in a constructor. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 17 were removed, D would be correct."
+    },
+    {
+      "id": "scjp-ch05-012",
+      "originalId": 12,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
+      "options": [
+        "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+        "super 2 sub",
+        "Compilation fails at line 2.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "Compilation fails at line 14."
+      ],
+      "optionsVi": [
+        "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+        "super 2 sub",
+        "Compilation fails at line 2.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "Compilation fails at line 14."
+      ],
+      "answer": 1,
+      "explanation": "B. Class MySuper does not need a no-args constructor because MySub explicitly calls the MySuper constructor with an argument. ✗ A is incorrect because other than the implicit calls to super(), constructors run in order from base class to extended class, so MySuper’s output will print first.C, D, E,and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch05-013",
+      "originalId": 13,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
+      "options": [
+        "4",
+        "4 8",
+        "8 4",
+        "8 4 no-arg",
+        "no-arg 8 4",
+        "Compilation fails."
+      ],
+      "optionsVi": [
+        "4",
+        "4 8",
+        "8 4",
+        "8 4 no-arg",
+        "no-arg 8 4",
+        "Lỗi biên dịch (Compilation fails)"
+      ],
+      "answer": 4,
+      "explanation": "E. Themain() method calls the long constructor which calls the int constructor, which calls the no-arg constructor, which runs, then returns to the int constructor, which runs, then returns to the long constructor, which runs last. ✗ A, B, C, D, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch05-014",
+      "originalId": 14,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
+      "options": [
+        "no-arg",
+        "8 4 no-arg",
+        "no-arg 8 4",
+        "Compilation fails.",
+        "No output is produced.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "no-arg",
+        "8 4 no-arg",
+        "no-arg 8 4",
+        "Lỗi biên dịch (Compilation fails)",
+        "No output is produced.",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 4,
+      "explanation": "E. The class elements declared in lines 5, 8, and 12 are badly named methods, not constructors. The default constructor runs with no output, and these methods are never called. ✗ A, B, C, D, and F are incorrect because of the logic described above."
+    },
+    {
+      "id": "scjp-ch05-015",
+      "originalId": 15,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following,",
+      "textVi": "Cho đoạn mã sau, ",
+      "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
+      "options": [
+        "Beagle() { }",
+        "Beagle() { super(); }",
+        "Beagle() { super(\"fido\"); }",
+        "No constructor, allow the default constructor"
+      ],
+      "optionsVi": [
+        "Beagle() { }",
+        "Beagle() { super(); }",
+        "Beagle() { super(\"fido\"); }",
+        "No constructor, allow the default constructor"
+      ],
+      "answer": 2,
+      "explanation": "C. Only C is correct because the Dog class does not have a no-arg constructor; therefore, you must explicitly make the call to super(), passing in a string. ✗ A, B, and D are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch05-016",
+      "originalId": 16,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Which two of these statements are true about constructors? (Choose two.)",
+      "textVi": "Which two of these statements are true about constructors? (Choose two.)",
+      "code": "",
+      "options": [
+        "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))",
+        "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+        "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+        "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))"
+      ],
+      "optionsVi": [
+        "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))",
+        "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+        "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+        "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))"
+      ],
+      "answer": 0,
+      "explanation": "B and D are simply stating two rules about constructors. ✗ A is wrong because subclass constructors do not have to match the arguments of the superclass constructor. Only the call to super() must match. C is incorrect because constructors can be and are frequently overloaded. Return Types (Sun Objective 1.4)"
+    },
+    {
+      "id": "scjp-ch05-017",
+      "originalId": 17,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which line of code, inserted at line 19, will not compile?",
+      "textVi": "Cho đoạn mã sau, which line of code, inserted at line 19, will not compile?",
+      "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
+      "options": [
+        "short y = 7;",
+        "int y = (int) 7.2d;",
+        "Byte y = 7;",
+        "char y = 's';",
+        "int y = 0xface;"
+      ],
+      "optionsVi": [
+        "short y = 7;",
+        "int y = (int) 7.2d;",
+        "Byte y = 7;",
+        "char y = 's';",
+        "int y = 0xface;"
+      ],
+      "answer": 2,
+      "explanation": "C. Byte is a wrapper object, not a primitive. ✗ A and D are primitives that are shorter than int so they are cast implicitly. B is a double explicitly cast to an int. E is a valid integer initialized with a hexadecimal value."
+    },
+    {
+      "id": "scjp-ch05-018",
+      "originalId": 18,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+      "code": "14.    long test( int x, float y) {\n15.\n16.    }",
+      "options": [
+        "B và E (B: return (long) x / y; & E: return ( y / x );)",
+        "A và B (A: return x; & B: return (long) x / y;)",
+        "A và C (A: return x; & C: return (long) y;)",
+        "E và F (E: return ( y / x ); & F: return  x / 7;)"
+      ],
+      "optionsVi": [
+        "B và E (B: return (long) x / y; & E: return ( y / x );)",
+        "A và B (A: return x; & B: return (long) x / y;)",
+        "A và C (A: return x; & C: return (long) y;)",
+        "E và F (E: return ( y / x ); & F: return  x / 7;)"
+      ],
+      "answer": 0,
+      "explanation": "B and E. B won’t compile because thelong cast only applies to x, not to the expression x / y. (We know it’s tricky, but so is the test.)E won’t compile because the result of (y / x) is a float. ✗ A, C, D, and F all return either longs or ints (which are automatically cast to longs)."
+    },
+    {
+      "id": "scjp-ch05-019",
+      "originalId": 19,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+      "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n54 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+      "options": [
+        "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+        "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+        "A và B (A: return null; & B: Object t = new Object(); return t;)",
+        "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+      ],
+      "optionsVi": [
+        "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+        "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+        "A và B (A: return null; & B: Object t = new Object(); return t;)",
+        "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+      ],
+      "answer": 0,
+      "explanation": "D and F. D is a reference to a char primitive that happens to be in an array. F returns a primitive, not an object. ✗ A, B, C, and E all return objects. For A,null is always a valid object return. For C,a n array is an object that holds other things (either objects or primitives). For E, we are returning an array held in an array, and it’s still an object!"
+    },
+    {
+      "id": "scjp-ch05-020",
+      "originalId": 20,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+      "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+      "options": [
+        "B và F (B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types & F: return (Float) 4.3;)",
+        "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types)",
+        "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+        "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+      ],
+      "optionsVi": [
+        "B và F (B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types & F: return (Float) 4.3;)",
+        "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types)",
+        "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+        "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+      ],
+      "answer": 0,
+      "explanation": "B and F are both attempting to cast a primitive to an object—can’t do it. ✗ A, C, D, and E all return objects. A is an array object that holds other arrays. C is an array object. D is an ArrayList object. E is a string cast to an object."
+    },
+    {
+      "id": "scjp-ch05-021",
+      "originalId": 21,
+      "chapterNum": 5,
+      "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+      "topic": "oop",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
+      "options": [
+        "Bar Bar Bar Bar Bar Bar",
+        "Foo Bar Foo Bar Foo Bar",
+        "Foo Foo Foo Foo Foo Foo",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "Bar Bar Bar Bar Bar Bar",
+        "Foo Bar Foo Bar Foo Bar",
+        "Foo Foo Foo Foo Foo Foo",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 1,
+      "explanation": "B. Line 8 is an example of a polymorphic return type. The VM will determine on a case- by-case basis what class of object f2 refers to, Bar or Foo. This is only possible because the classes Foo and Bar are in the same inheritance tree. ✗ A, C, D, and E, are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-001",
+      "originalId": 1,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
+      "options": [
+        "abcdefghi",
+        "abcdefdef",
+        "abcghidef",
+        "abcghighi",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "abcdefghi",
+        "abcdefdef",
+        "abcghidef",
+        "abcghighi",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. After line 5 executes, both s2 and s3 refer to a String object that contains the value “def”. When line 6 executes, a new String object is created with the value “ghi”, to whichs2 refers. The reference variable s3 still refers to the (immutable) String object with the value “def”. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-002",
+      "originalId": 2,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
+      "options": [
+        "abcXyZ",
+        "abcxyz",
+        "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "XyZabc",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "abcXyZ",
+        "abcxyz",
+        "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "XyZabc",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. Line 12 creates a new String object with the value “XYZ”, but this new object is immediately lost because there is no reference to it. Line 13 creates a new String object referenced by y. This new String object has the value “xyz” because there was no “Y” in the String object referred to by x. Line 14 creates a new String object, appends “abc” to the value “xyz”, and refersy to the result. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-003",
+      "originalId": 3,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, how many String objects have been created?",
+      "textVi": "Cho đoạn mã sau, how many String objects have been created?",
+      "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "optionsVi": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 2,
+      "explanation": "C. Line 13 creates two, one referred to by x and the lost String “xyz”. Line 14 creates one (for a total of three). Line 15 creates one more (for a total of four), the concatenated String referred to by x with a value of “xyzabc”. ✗ A, B, and D are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-004",
+      "originalId": 4,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
+      "options": [
+        "apa",
+        "app",
+        "apea",
+        "apep",
+        "papp",
+        "papa"
+      ],
+      "optionsVi": [
+        "apa",
+        "app",
+        "apea",
+        "apep",
+        "papp",
+        "papa"
+      ],
+      "answer": 1,
+      "explanation": "B. Bothsubstring() andcharAt() methods are indexed with a zero-base, and substring() returns a String of length arg2 – arg1. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-005",
+      "originalId": 5,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
+      "options": [
+        "wookkeewoo",
+        "wbookkeeper",
+        "wbookkeewoo",
+        "wbookkeeperwoo",
+        "Compilation fails.",
+        "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+      ],
+      "optionsVi": [
+        "wookkeewoo",
+        "wbookkeeper",
+        "wbookkeewoo",
+        "wbookkeeperwoo",
+        "Lỗi biên dịch (Compilation fails)",
+        "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+      ],
+      "answer": 4,
+      "explanation": "E. In line 7 the code calls a StringBuffer method, append() on a String object. ✗ A, B, C, D, and F are incorrect based on the logic described above. Math (Exam Objective 8.1)"
+    },
+    {
+      "id": "scjp-ch06-006",
+      "originalId": 6,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
+      "options": [
+        "same results 0 time(s)",
+        "same results 2 time(s)",
+        "same results 4 time(s)",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "same results 0 time(s)",
+        "same results 2 time(s)",
+        "same results 4 time(s)",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 1,
+      "explanation": "B.Math.round() adds .5 to the argument then performs a floor(). Since the code adds an additional .5 before round() is called, it’s as if we are adding 1 then doing a floor(). The values that start out as integer values will in effect be incremented by 1 on the round() side but not on theceil() side, and the noninteger values will end up equal. ✗ A, C, D, and E are incorrect based on the logic described above. 50 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers"
+    },
+    {
+      "id": "scjp-ch06-007",
+      "originalId": 7,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+      "textVi": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+      "code": "",
+      "options": [
+        "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+        "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+        "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+        "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+      ],
+      "optionsVi": [
+        "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+        "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+        "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+        "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+      ],
+      "answer": 0,
+      "explanation": "A, B, and D. Themax() method is overloaded to take two arguments of type int, long, float,o r double. ✗ C is incorrect because the max() method only takes two arguments."
+    },
+    {
+      "id": "scjp-ch06-008",
+      "originalId": 8,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+      "textVi": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+      "code": "",
+      "options": [
+        "B và C (B: The result is greater than or equal to 0.0.. & C: The result is less than 1.0.)",
+        "A và B (A: The result is less than 0.0. & B: The result is greater than or equal to 0.0..)",
+        "A và D (A: The result is less than 0.0. & D: The result is greater than 1.0.)",
+        "C và F (C: The result is less than 1.0. & F: The result is less than or equal to 1.0.)"
+      ],
+      "optionsVi": [
+        "B và C (B: The result is greater than or equal to 0.0.. & C: The result is less than 1.0.)",
+        "A và B (A: The result is less than 0.0. & B: The result is greater than or equal to 0.0..)",
+        "A và D (A: The result is less than 0.0. & D: The result is greater than 1.0.)",
+        "C và F (C: The result is less than 1.0. & F: The result is less than or equal to 1.0.)"
+      ],
+      "answer": 0,
+      "explanation": "B and C. The result range for random() is 0.0 to < 1.0; 1.0 is not in range. ✗ A, D, E, and F are incorrect based on the logic above."
+    },
+    {
+      "id": "scjp-ch06-009",
+      "originalId": 9,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
+      "options": [
+        "3.0",
+        "–3.0",
+        "NaN",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "3.0",
+        "–3.0",
+        "NaN",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. Thesqrt() method returnsNaN (not a number) when it’s argument is less than zero. ✗ A, B, D, and E are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-010",
+      "originalId": 10,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "textVi": "Cho đoạn mã sau, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
+      "options": [
+        "Line 3",
+        "Line 4",
+        "Line 5",
+        "Line 6",
+        "Line 3 and either line 4, 5, or 6",
+        "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+      ],
+      "optionsVi": [
+        "Line 3",
+        "Line 4",
+        "Line 5",
+        "Line 6",
+        "Line 3 and either line 4, 5, or 6",
+        "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+      ],
+      "answer": 2,
+      "explanation": "C. The Math class’ trigonometry methods expect their arguments to be in radians, not degrees. Line 5 can be decoded: “Convert 75 (degrees) into radians, then find the sine of that result.” ✗ A, B, D, E, and F are incorrect based on the logic described above. Wrappers (Exam Objective 8.3)"
+    },
+    {
+      "id": "scjp-ch06-011",
+      "originalId": 11,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, which two lines will cause compiler errors? (Choose two.)",
+      "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
+      "options": [
+        "B và D (B: Line 4 & D: Line 6)",
+        "A và B (A: Line 3 & B: Line 4)",
+        "A và C (A: Line 3 & C: Line 5)",
+        "D và F (D: Line 6 & F: Line 8)"
+      ],
+      "optionsVi": [
+        "B và D (B: Line 4 & D: Line 6)",
+        "A và B (A: Line 3 & B: Line 4)",
+        "A và C (A: Line 3 & C: Line 5)",
+        "D và F (D: Line 6 & F: Line 8)"
+      ],
+      "answer": 0,
+      "explanation": "B and D. B is incorrect because the valueOf() method returns an Integer object. D is incorrect because the parseInt() method takes a String. ✗ A, C, E, and F all represent valid syntax. Line 5 takes the String “345” to be octal number, and converts it to an integer value 229."
+    },
+    {
+      "id": "scjp-ch06-012",
+      "originalId": 12,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
+      "options": [
+        "42",
+        "42.5",
+        "43",
+        "badnumber",
+        "Compilation fails.",
+        "An uncaught exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "42",
+        "42.5",
+        "43",
+        "badnumber",
+        "Lỗi biên dịch (Compilation fails)",
+        "An uncaught exception is thrown at runtime."
+      ],
+      "answer": 2,
+      "explanation": "C. All of this code is legal, and line 5 creates a new String with a value of “42.5”. Lines 6 and 7 convert the String to a double and then back again. Line 8 is fun— Math.ceil()’s argument expression is evaluated first. We invoke the valueOf() method that returns an anonymous Double object (with a value of 42.5). Then the doubleValue() method is called (invoked on the newly created Double object), and returns a double primitive (there and back again), with a value of (you guessed it) 42.5. The ceil() method converts this to 43.0, which is cast to an int and assigned to x. We know, we know, but stuff like this is on the exam. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-013",
+      "originalId": 13,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
+      "options": [
+        "z",
+        "xz",
+        "yz",
+        "xyz",
+        "Compilation fails.",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "z",
+        "xz",
+        "yz",
+        "xyz",
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 4,
+      "explanation": "E. The compiler fails at line 10 because b1 is a reference variable to a Boolean wrapper object, not a boolean primitive. Logical boolean tests can’t be made on Boolean objects. ✗ A, B, C, D, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-014",
+      "originalId": 14,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+      "textVi": "Cho đoạn mã sau, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+      "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
+      "options": [
+        "A và B (A: floatf1=Float.floatValue(s); & B: floatf2=Float.valueOf(s);)",
+        "A và C (A: floatf1=Float.floatValue(s); & C: floatf3=newFloat(3.14f).floatValue();)",
+        "C và D (C: floatf3=newFloat(3.14f).floatValue(); & D: floatf4=Float.parseFloat(1.23f);)",
+        "B và F (B: floatf2=Float.valueOf(s); & F: floatf6=(float)Double.parseDouble(\"3.14\");)"
+      ],
+      "optionsVi": [
+        "A và B (A: floatf1=Float.floatValue(s); & B: floatf2=Float.valueOf(s);)",
+        "A và C (A: floatf1=Float.floatValue(s); & C: floatf3=newFloat(3.14f).floatValue();)",
+        "C và D (C: floatf3=newFloat(3.14f).floatValue(); & D: floatf4=Float.parseFloat(1.23f);)",
+        "B và F (B: floatf2=Float.valueOf(s); & F: floatf6=(float)Double.parseDouble(\"3.14\");)"
+      ],
+      "answer": 0,
+      "explanation": "A, B, and D. A won’t compile because thefloatValue() method is an instance method that takes no arguments. B won’t compile because thevalueOf() method returns a wrapper object. D won’t compile because theparseFloat() method takes a String. ✗ C, E,a n dF are all legal (if not terribly useful) ways to return a primitive float. 52 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers"
+    },
+    {
+      "id": "scjp-ch06-015",
+      "originalId": 15,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
+      "options": [
+        "9.0",
+        "badnumber",
+        "Compilation fails on line 13.",
+        "Compilation fails on line 14.",
+        "Compilation fails on lines 13 and 14.",
+        "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+      ],
+      "optionsVi": [
+        "9.0",
+        "badnumber",
+        "Compilation fails on line 13.",
+        "Compilation fails on line 14.",
+        "Compilation fails on lines 13 and 14.",
+        "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+      ],
+      "answer": 0,
+      "explanation": "A is correct. ThexxxValue() methods convert any numeric wrapper object’s value to any primitive type. When narrowing is necessary, significant bits are dropped and the results are difficult to calculate. ✗ B, C, D, E, and F are incorrect based on the logic described above. Equals() (Exam Objective 5.2)"
+    },
+    {
+      "id": "scjp-ch06-016",
+      "originalId": 16,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
+      "options": [
+        "result=1",
+        "result=10",
+        "result=11",
+        "result=11010",
+        "result=11011",
+        "result=11111"
+      ],
+      "optionsVi": [
+        "result=1",
+        "result=10",
+        "result=11",
+        "result=11010",
+        "result=11011",
+        "result=11111"
+      ],
+      "answer": 1,
+      "explanation": "B. Line 12 fails because == compares reference values, not object values. Line 13 succeeds because both String and primitive wrapper constructors resolve to the same value (except for the Character wrapper). Lines 14, 15, and 16 fail because the equals() method fails if the object classes being compared are different and not in the same tree hierarchy. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-017",
+      "originalId": 17,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
+      "options": [
+        "0",
+        "1",
+        "10",
+        "1100",
+        "10001",
+        "10010"
+      ],
+      "optionsVi": [
+        "0",
+        "1",
+        "10",
+        "1100",
+        "10001",
+        "10010"
+      ],
+      "answer": 5,
+      "explanation": "F. Line 10 fails because b1 and b2 are two different objects. Lines 11 and 14 succeed because the Boolean String constructors are case insensitive. Lines 12 and 13 fail because true is not equal tofalse. ✗ A, B, C, D, and E are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-018",
+      "originalId": 18,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
+      "options": [
+        "1",
+        "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "101",
+        "1001",
+        "1101"
+      ],
+      "optionsVi": [
+        "1",
+        "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "101",
+        "1001",
+        "1101"
+      ],
+      "answer": 4,
+      "explanation": "E. Even though o and oc are reference variables of different types, they are both referring to the same object. This means that == will resolve totrue and that the default equals() method will also resolve to true. ✗ A, B, C, and D are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch06-019",
+      "originalId": 19,
+      "chapterNum": 6,
+      "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+      "topic": "string",
+      "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
+      "textVi": "Which two statements are true about wrapper or String classes? (Choose two.)",
+      "code": "",
+      "options": [
+        "D và E (D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)",
+        "A và D (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.)",
+        "A và B (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.)",
+        "C và E (C: If x and y are String references and ifx.equals(y) istrue, then x== y istrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)"
+      ],
+      "optionsVi": [
+        "D và E (D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)",
+        "A và D (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.)",
+        "A và B (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.)",
+        "C và E (C: If x and y are String references and ifx.equals(y) istrue, then x== y istrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)"
+      ],
+      "answer": 0,
+      "explanation": "D and E. D describes an example of the equals() method behaving transitively. By the way, x, y,a n dz will all be the same type of wrapper. E is true because x and y are referring to the same String object. ✗ A is incorrect—the fragment will compile. B is incorrect because x== y means that the two reference variables are referring to the same object. C will only be true if x and y refer to the same String. It is possible for x and y to refer to two different String objects with the same value. EXERCISE ANSWERS Exercise 6-1: Using the Math Class The following code listing is an example of how you might have written code to complete the exercise: class NumberInterrogation { public static void main(String [] argh) { double [] num = {10.5, -10.5, Math.PI, 0}; for(int i=0;i<num.length;++i) { System.out.println(\"abs(\"+num[i]+\")=\"+Math.abs(num[i])); System.out.println(\"ceil(\"+num[i]+\")=\"+Math.ceil(num[i])); System.out.println(\"floor(\"+num[i]+\")=\"+Math.floor(num[i])); System.out.println(); } } } Exercise 6-2: Rounding Random Numbers The following code listing is an example of how you might have written code to complete the exercise: class RandomRound { public static void main(String [] argh) { for(int i=0;i<10;++i) { double num = Math.random() * 100; System.out.print(\"The number \" + num); System.out.println(\" rounds to \" + Math.round(num)); } } } Exercise Answers 53"
+    },
+    {
+      "id": "scjp-ch07-001",
+      "originalId": 1,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Given the following, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+      "textVi": "Cho đoạn mã sau, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+      "code": "12.  if (x1.hashCode() != x2.hashCode() )  x = x + 1;\n13.  if (x3.equals(x4) )  x = x + 10;\n14.  if (!x5.equals(x6) ) x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode() )  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
+      "options": [
+        "x2.equals(x1)",
+        "x3.hashCode() == x4.hashCode()",
+        "x5.hashCode() != x6.hashCode()",
+        "x8.equals(x7)"
+      ],
+      "optionsVi": [
+        "x2.equals(x1)",
+        "x3.hashCode() == x4.hashCode()",
+        "x5.hashCode() != x6.hashCode()",
+        "x8.equals(x7)"
+      ],
+      "answer": 1,
+      "explanation": "B. By contract, if two objects are equivalent according to the equals() method, then thehashCode() method must evaluate them to be ==. ✗ A is incorrect because if the hashCode() values are not equal, the two objects must not be equal. C is incorrect because if equals() is not true there is no guarantee of any result fromhashCode(). D is incorrect because hashCode() will often return == even if the two objects do not evaluate to equals() being true."
+    },
+    {
+      "id": "scjp-ch07-002",
+      "originalId": 2,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Given the following, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } which statement is true?",
+      "textVi": "Cho đoạn mã sau, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } Phát biểu nào sau đây là ĐÚNG?",
+      "code": "",
+      "options": [
+        "class Test1 will not compile.",
+        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+        "class Test2 will not compile.",
+        "The twohashcode() methods will have the same efficiency."
+      ],
+      "optionsVi": [
+        "class Test1 will not compile.",
+        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+        "class Test2 will not compile.",
+        "The twohashcode() methods will have the same efficiency."
+      ],
+      "answer": 2,
+      "explanation": "C. The so-called “hashing algorithm” implemented by class Test1 will always return the same value, 42, which is legal but which will place all of the hash table entries into a single bucket, the most inefficient setup possible. ✗ A and D are incorrect because these classes are legal. B and E are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch07-003",
+      "originalId": 3,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+      "textVi": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+      "code": "",
+      "options": [
+        "A và D (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & D: If thehashCode() comparison == returnstrue, theequals() method might returntrue.)",
+        "A và B (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & B: If theequals() method returnsfalse, thehashCode() comparison != must return true.)",
+        "B và C (B: If theequals() method returnsfalse, thehashCode() comparison != must return true. & C: If thehashCode() comparison == returnstrue, theequals() method must return true.)",
+        "D và E (D: If thehashCode() comparison == returnstrue, theequals() method might returntrue. & E: If thehashCode() comparison != returnstrue, theequals() method might returntrue.)"
+      ],
+      "optionsVi": [
+        "A và D (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & D: If thehashCode() comparison == returnstrue, theequals() method might returntrue.)",
+        "A và B (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & B: If theequals() method returnsfalse, thehashCode() comparison != must return true.)",
+        "B và C (B: If theequals() method returnsfalse, thehashCode() comparison != must return true. & C: If thehashCode() comparison == returnstrue, theequals() method must return true.)",
+        "D và E (D: If thehashCode() comparison == returnstrue, theequals() method might returntrue. & E: If thehashCode() comparison != returnstrue, theequals() method might returntrue.)"
+      ],
+      "answer": 0,
+      "explanation": "A and D. A is a restatement of the equals() andhashCode() contract. D is true because if thehashCode() comparison returns ==, the two objects might or might not be equal. ✗ B, C, and E are incorrect. B and C are incorrect because the hashCode() method is very flexible in its return values, and often two dissimilar objects can return the same hash code value. E is a negation of the hashCode() andequals() contract."
+    },
+    {
+      "id": "scjp-ch07-004",
+      "originalId": 4,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+      "textVi": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+      "code": "",
+      "options": [
+        "java.lang.String",
+        "java.lang.Double",
+        "java.lang.StringBuffer",
+        "java.lang.Character",
+        "java.util.ArrayList"
+      ],
+      "optionsVi": [
+        "java.lang.String",
+        "java.lang.Double",
+        "java.lang.StringBuffer",
+        "java.lang.Character",
+        "java.util.ArrayList"
+      ],
+      "answer": 2,
+      "explanation": "C. java.lang.StringBuffer is the only class in the list that uses the default methods provided by class Object. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch07-005",
+      "originalId": 5,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "What two statements are true about properly overridden hashCode() andequals() methods?",
+      "textVi": "What two statements are true about properly overridden hashCode() andequals() methods?",
+      "code": "",
+      "options": [
+        "C và E (C: hashCode() can always return the same value, regardless of the object that invoked it. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))",
+        "A và C (A: hashCode() doesn’t have to be overridden ifequals() is. & C: hashCode() can always return the same value, regardless of the object that invoked it.)",
+        "A và B (A: hashCode() doesn’t have to be overridden ifequals() is. & B: equals() doesn’t have to be overridden ifhashCode() is.)",
+        "D và E (D: If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))"
+      ],
+      "optionsVi": [
+        "C và E (C: hashCode() can always return the same value, regardless of the object that invoked it. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))",
+        "A và C (A: hashCode() doesn’t have to be overridden ifequals() is. & C: hashCode() can always return the same value, regardless of the object that invoked it.)",
+        "A và B (A: hashCode() doesn’t have to be overridden ifequals() is. & B: equals() doesn’t have to be overridden ifhashCode() is.)",
+        "D và E (D: If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))"
+      ],
+      "answer": 0,
+      "explanation": "C and E are correct. ✗ A, B, and D are incorrect. A and B are incorrect because by contract hashCode() and equals() can’t be overridden unless both are overridden.D is incorrect;hashCode() will often return the same value when hashing dissimilar objects. Using Collections (Exam Objective 9.1)"
+    },
+    {
+      "id": "scjp-ch07-006",
+      "originalId": 6,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+      "textVi": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+      "code": "",
+      "options": [
+        "java.util.HashSet",
+        "java.util.LinkedHashSet",
+        "java.util.List",
+        "java.util.ArrayList",
+        "java.util.Vector"
+      ],
+      "optionsVi": [
+        "java.util.HashSet",
+        "java.util.LinkedHashSet",
+        "java.util.List",
+        "java.util.ArrayList",
+        "java.util.Vector"
+      ],
+      "answer": 3,
+      "explanation": "D. All of the collection classes allow you to grow or shrink the size of your collection. ArrayList provides an index to its elements. The newer collection classes tend not to have synchronized methods. Vector is an older implementation of ArrayList functionality and has synchronized methods; it is slower than ArrayList. ✗ A, B, C, and E are incorrect based on the logic described above; C, List is an interface."
+    },
+    {
+      "id": "scjp-ch07-007",
+      "originalId": 7,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+      "textVi": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+      "code": "",
+      "options": [
+        "java.util.SortedMap",
+        "java.util.TreeMap",
+        "java.util.TreeSet",
+        "java.util.HashMap",
+        "java.util.Hashtable"
+      ],
+      "optionsVi": [
+        "java.util.SortedMap",
+        "java.util.TreeMap",
+        "java.util.TreeSet",
+        "java.util.HashMap",
+        "java.util.Hashtable"
+      ],
+      "answer": 4,
+      "explanation": "E. Hashtable is the only class listed that provides synchronized methods. If you need synchronization great; otherwise, use HashMap, it’s faster. ✗ A, B, C, and D are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch07-008",
+      "originalId": 8,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "12.    TreeSet map = new TreeSet();\n13.    map.add(\"one\");\n14.    map.add(\"two\");\n15.    map.add(\"three\");\n16.    map.add(\"four\");\n17.    map.add(\"one\");\n18.    Iterator it = map.iterator();\n19.    while (it.hasNext() ) {\n20.        System.out.print( it.next() + \" \" );\n21.     }",
+      "options": [
+        "one two three four",
+        "four three two one",
+        "four one three two",
+        "one two three four one",
+        "one four three two one",
+        "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+      ],
+      "optionsVi": [
+        "one two three four",
+        "four three two one",
+        "four one three two",
+        "one two three four one",
+        "one four three two one",
+        "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+      ],
+      "answer": 2,
+      "explanation": "C. TreeSet assures no duplicate entries; also, when it is accessed it will return elements in natural order, which typically means alphabetical. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch07-009",
+      "originalId": 9,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+      "textVi": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+      "code": "",
+      "options": [
+        "java.util.ArrayList",
+        "java.util.LinkedHashMap",
+        "java.util.HashMap",
+        "java.util.TreeMap",
+        "java.util.LinkedHashSet",
+        "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+      ],
+      "optionsVi": [
+        "java.util.ArrayList",
+        "java.util.LinkedHashMap",
+        "java.util.HashMap",
+        "java.util.TreeMap",
+        "java.util.LinkedHashSet",
+        "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+      ],
+      "answer": 1,
+      "explanation": "B. LinkedHashMap is the collection class used for caching purposes. FIFO is another way to indicate caching behavior. To retrieve LinkedHashMap elements in cached order, use the values() method and iterate over the resultant collection. ✗ A, C, D, E, and E are incorrect based on the logic described above. Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+    },
+    {
+      "id": "scjp-ch07-010",
+      "originalId": 10,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Given the following,",
+      "textVi": "Cho đoạn mã sau, ",
+      "code": "1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nAfter line 6 runs. how many objects are eligible for garbage collection?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "optionsVi": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 1,
+      "explanation": "B. By the time line 6 has run, the only object without a reference is the one generated as a result of line 4. Remember that “Java is pass by value,” so the reference variablex is not affected by them1() method. ✗ A, C, D, and E are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch07-011",
+      "originalId": 11,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Which statement is true?",
+      "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+      "code": "",
+      "options": [
+        "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+        "Objects with at least one reference will never be garbage collected.",
+        "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+        "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+        "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+      ],
+      "optionsVi": [
+        "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+        "Objects with at least one reference will never be garbage collected.",
+        "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+        "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+        "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+      ],
+      "answer": 3,
+      "explanation": "D. All objects are placed in the garbage collectible heap. ✗ A is incorrect because the garbage collector makes no guarantees. B is incorrect because islands of isolated objects can exist. C is incorrect because finalize() has no such mystical powers. E is incorrect because within a finalize() method, an object’s reference can be passed back to a live thread."
+    },
+    {
+      "id": "scjp-ch07-012",
+      "originalId": 12,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Given the following,",
+      "textVi": "Cho đoạn mã sau, ",
+      "code": "1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nafter line 9 runs, how many objects are eligible for garbage collection?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "optionsVi": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 2,
+      "explanation": "C. This is an example of the islands of isolated objects . By the time line 9 has run, the objects instantiated in lines 4 and 5 are referring to each other, but no live thread can reach either of them. ✗ A, B, D, and E are incorrect based on the logic described above."
+    },
+    {
+      "id": "scjp-ch07-013",
+      "originalId": 13,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Which statement is true?",
+      "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+      "code": "",
+      "options": [
+        "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+        "The garbage collector uses a mark and sweep algorithm.",
+        "If an object can be accessed from a live thread, it can’t be garbage collected.",
+        "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+      ],
+      "optionsVi": [
+        "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+        "The garbage collector uses a mark and sweep algorithm.",
+        "If an object can be accessed from a live thread, it can’t be garbage collected.",
+        "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+      ],
+      "answer": 2,
+      "explanation": "C. This is a great way to think about when objects can be garbage collected. ✗ A and B assume guarantees that the garbage collector never makes. D is wrong because of the now famous islands of isolation scenario."
+    },
+    {
+      "id": "scjp-ch07-014",
+      "originalId": 14,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "Given the following,",
+      "textVi": "Cho đoạn mã sau, ",
+      "code": "12.  X3 x2 = new X3();\n13.  X3 x3 = new X3();\n14.  X3 x5 = x3;\n15.  x3 = x2;\n16.  X3 x4 = x3;",
+      "options": [
+        "C và E (C:  & E: )",
+        "A và C (A:  & C: )",
+        "A và B (A:  & B: )",
+        "E và F (E:  & F: )"
+      ],
+      "optionsVi": [
+        "C và E (C:  & E: )",
+        "A và C (A:  & C: )",
+        "A và B (A:  & B: )",
+        "E và F (E:  & F: )"
+      ],
+      "answer": 0,
+      "explanation": "C and E. By the time line 18 is reached, x2 is null,x3 andx4 refer to the object created in line 12, andx5 refers to the object created in line 13. Any kind of redirection of x5 will leave the second object without a reference. ✗ A, B, and D are incorrect because the first object has two references; changing one of the references will not cause the first object to become unreachable."
+    },
+    {
+      "id": "scjp-ch07-015",
+      "originalId": 15,
+      "chapterNum": 7,
+      "chapterTitle": "Objects and Collections",
+      "topic": "collection",
+      "text": "",
+      "textVi": "",
+      "code": "",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "optionsVi": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": 0,
+      "explanation": "E is correct. A copy of a reference to the line 13 object is passed to the doStuff2() method. We don’t know what goes on in that method; it’s possible that the reference is passed to other live objects. ✗ A, B, C, and D are incorrect based on the logic described above. 50 Chapter 7: Objects and Collections"
+    },
+    {
+      "id": "scjp-ch08-001",
+      "originalId": 1,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+      "textVi": "Cho đoạn mã sau, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+      "code": "",
+      "options": [
+        "MyOuter.MyInnerm=newMyOuter.MyInner();",
+        "MyOuter.MyInnermi=newMyInner();",
+        "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+        "MyInnermi=newMyOuter.MyInner();"
+      ],
+      "optionsVi": [
+        "MyOuter.MyInnerm=newMyOuter.MyInner();",
+        "MyOuter.MyInnermi=newMyInner();",
+        "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+        "MyInnermi=newMyOuter.MyInner();"
+      ],
+      "answer": 0,
+      "explanation": "A. MyInner is a static nested class, so it must be instantiated using the fully-scoped name of MyOuter.MyInner. ✗ B is incorrect because it doesn’t use the enclosing name in thenew. C is incorrect because it uses incorrect syntax. When you instantiate a nested class by invoking new on an instance of the enclosing class, you do not use the enclosing name. The difference between A and C is that C is calling new on an instance of the enclosing class rather than just new by itself. D is incorrect because it doesn’t use the enclosing class name in the variable declaration."
+    },
+    {
+      "id": "scjp-ch08-002",
+      "originalId": 2,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Which two are true about a static nested class?",
+      "textVi": "Which two are true about a static nested class?",
+      "code": "",
+      "options": [
+        "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+        "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+        "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+        "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+      ],
+      "optionsVi": [
+        "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+        "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+        "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+        "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+      ],
+      "answer": 0,
+      "explanation": "B and D. B is correct because a static nested class is not tied to an instance of the enclosing class, and thus can’t access the nonstatic members of the class (just as a static method can’t access nonstatic members of a class).D uses the correct syntax for instantiating a static nested class. ✗ A is incorrect because static nested classes do not need (and can’t use) a reference to an instance of the enclosing class. C is incorrect because static nested classes can declare and define nonstatic members. E is wrong because…it just is. There’s no rule that says an inner or nested class has to extend anything."
+    },
+    {
+      "id": "scjp-ch08-003",
+      "originalId": 3,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Which constructs an anonymous inner class instance?",
+      "textVi": "Which constructs an anonymous inner class instance?",
+      "code": "",
+      "options": [
+        "Runnabler=newRunnable(){};",
+        "Runnabler=newRunnable(publicvoidrun(){});",
+        "Runnabler=newRunnable{publicvoidrun(){}};",
+        "Runnabler=newRunnable(){publicvoidrun{}};",
+        "System.out.println(newRunnable() {publicvoidrun(){}});",
+        "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+      ],
+      "optionsVi": [
+        "Runnabler=newRunnable(){};",
+        "Runnabler=newRunnable(publicvoidrun(){});",
+        "Runnabler=newRunnable{publicvoidrun(){}};",
+        "Runnabler=newRunnable(){publicvoidrun{}};",
+        "System.out.println(newRunnable() {publicvoidrun(){}});",
+        "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+      ],
+      "answer": 4,
+      "explanation": "E is correct. It defines an anonymous inner class instance, which also means it creates an instance of that new anonymous class at the same time. The anonymous class is an implementer of the Runnable interface, so it must override the run() method of Runnable. ý A is incorrect because it doesn’t override therun() method, so it violates the rules of interface implementation. B, C, and D use incorrect syntax."
+    },
+    {
+      "id": "scjp-ch08-004",
+      "originalId": 4,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+      "textVi": "Cho đoạn mã sau, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+      "code": "",
+      "options": [
+        "B và C (B: Boof=newBar(){}; & C: Boof=newBoo(){Strings;};)",
+        "A và B (A: Boof=newBoo(24){}; & B: Boof=newBar(){};)",
+        "A và D (A: Boof=newBoo(24){}; & D: Barf=newBoo(Strings){};)",
+        "C và E (C: Boof=newBoo(){Strings;}; & E: Boof=newBoo.Bar(Strings){};)"
+      ],
+      "optionsVi": [
+        "B và C (B: Boof=newBar(){}; & C: Boof=newBoo(){Strings;};)",
+        "A và B (A: Boof=newBoo(24){}; & B: Boof=newBar(){};)",
+        "A và D (A: Boof=newBoo(24){}; & D: Barf=newBoo(Strings){};)",
+        "C và E (C: Boof=newBoo(){Strings;}; & E: Boof=newBoo.Bar(Strings){};)"
+      ],
+      "answer": 0,
+      "explanation": "B and C. B is correct because anonymous inner classes are no different from any other class when it comes to polymorphism. That means you are always allowed to declare a reference variable of the superclass type and have that reference variable refer to an instance of a subclass type, which in this case is an anonymous subclass of Bar. Since Bar is a subclass of Boo, it all works. C uses correct syntax for creating an instance of Boo. ý A is incorrect because it passes an int to the Boo constructor, and there is no matching constructor in the Boo class. D is incorrect because it violates the rules of polymorphism—you cannot refer to a superclass type using a reference variable declared as the subclass type. The superclass is not guaranteed to have everything the subclass has. E uses incorrect syntax. 34 Chapter 8: Inner Classes"
+    },
+    {
+      "id": "scjp-ch08-005",
+      "originalId": 5,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+      "textVi": "Cho đoạn mã sau, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+      "code": "2.   class Bar{ }\n3.}\n4.class Test {\n5.    public static void main (String [] args) {\n6.       Foo f = new Foo();\n7.       // Insert code here\n8.    }\n9.}",
+      "options": [
+        "Foo.Barb=newFoo.Bar();",
+        "Foo.Barb=f.newBar();",
+        "Barb=newf.Bar();",
+        "Barb=f.newBar();",
+        "Foo.Barb=newf.Bar();"
+      ],
+      "optionsVi": [
+        "Foo.Barb=newFoo.Bar();",
+        "Foo.Barb=f.newBar();",
+        "Barb=newf.Bar();",
+        "Barb=f.newBar();",
+        "Foo.Barb=newf.Bar();"
+      ],
+      "answer": 1,
+      "explanation": "B is correct because the syntax is correct—using both names (the enclosing class and the inner class) in the reference declaration, then using a reference to the enclosing class to invoke new on the inner class. ✗ A, C, D, and E all use incorrect syntax. A is incorrect because it doesn’t use a reference to the enclosing class, and also because it includes both names in the new. C is incorrect because it doesn’t use the enclosing class name in the reference variable declaration, and because the new syntax is wrong. D is incorrect because it doesn’t use the enclosing class name in the reference variable declaration. E is incorrect because the new syntax is wrong."
+    },
+    {
+      "id": "scjp-ch08-006",
+      "originalId": 6,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Which two are true about a method-local inner class?",
+      "textVi": "Which two are true about a method-local inner class?",
+      "code": "",
+      "options": [
+        "B và E (B: It can be markedabstract. & E: It can access private members of the enclosing class.)",
+        "A và B (A: It must be markedfinal. & B: It can be markedabstract.)",
+        "A và C (A: It must be markedfinal. & C: It can be markedpublic.)",
+        "D và E (D: It can be markedstatic. & E: It can access private members of the enclosing class.)"
+      ],
+      "optionsVi": [
+        "B và E (B: It can be markedabstract. & E: It can access private members of the enclosing class.)",
+        "A và B (A: It must be markedfinal. & B: It can be markedabstract.)",
+        "A và C (A: It must be markedfinal. & C: It can be markedpublic.)",
+        "D và E (D: It can be markedstatic. & E: It can access private members of the enclosing class.)"
+      ],
+      "answer": 0,
+      "explanation": "B and E. B is correct because a method-local inner class can be abstract, although it means a subclass of the inner class must be created if the abstract class is to be used (so an abstract method-local inner class is probably not useful). E is correct because a method-local inner class works like any other inner class—it has a special relationship to an instance of the enclosing class, thus it can access all members of the enclosing class. ✗ A is incorrect because a method-local inner class does not have to be declared final (although it is legal to do so). C and D are incorrect because a method-local inner class cannot be madepublic (remember—you cannot mark any local variables as public), orstatic."
+    },
+    {
+      "id": "scjp-ch08-007",
+      "originalId": 7,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Which is true about an anonymous inner class?",
+      "textVi": "Which is true about an anonymous inner class?",
+      "code": "",
+      "options": [
+        "It can extend exactly one class and implement exactly one interface.",
+        "It can extend exactly one class and can implement multiple interfaces.",
+        "It can extend exactly one class or implement exactly one interface.",
+        "It can implement multiple interfaces regardless of whether it also extends a class.",
+        "It can implement multiple interfaces if it does not extend a class."
+      ],
+      "optionsVi": [
+        "It can extend exactly one class and implement exactly one interface.",
+        "It can extend exactly one class and can implement multiple interfaces.",
+        "It can extend exactly one class or implement exactly one interface.",
+        "It can implement multiple interfaces regardless of whether it also extends a class.",
+        "It can implement multiple interfaces if it does not extend a class."
+      ],
+      "answer": 2,
+      "explanation": "C is correct because the syntax of an anonymous inner class allows for only one named type after thenew, and that type must be either a single interface (in which case the anonymous class implements that one interface) or a single class (in which case the anonymous class extends that one class). ✗ A, B, D, and E are all incorrect because they don’t follow the syntax rules described in the response for answer C."
+    },
+    {
+      "id": "scjp-ch08-008",
+      "originalId": 8,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } what is the result?",
+      "textVi": "Cho đoạn mã sau, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "",
+      "options": [
+        "Compilation fails.",
+        "An error occurs at runtime.",
+        "foobarhi",
+        "barhi",
+        "hi 30 Chapter 8: Inner Classes"
+      ],
+      "optionsVi": [
+        "Lỗi biên dịch (Compilation fails)",
+        "An error occurs at runtime.",
+        "foobarhi",
+        "barhi",
+        "hi 30 Chapter 8: Inner Classes"
+      ],
+      "answer": 2,
+      "explanation": "C is correct because first the Foo instance is created, which means the Foo constructor runs and prints “foo”. Next, themakeBar() method is invoked which creates a Bar, which means the Bar constructor runs and prints “bar”, and finally thego() method is invoked on the new Bar instance, which means the go() method prints “hi”. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch08-009",
+      "originalId": 9,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, 1.public class TestObj { what is the result?",
+      "textVi": "Cho đoạn mã sau, 1.public class TestObj { Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "2.  public static void main (String [] args) {\n3.    Object o = new Object() {\n4.       public boolean equals(Object obj) {\n5.        return true;\n6.       }\n7.    }\n8.     System.out.println(o.equals(\"Fred\"));\n9.   }\n10.}",
+      "options": [
+        "An exception occurs at runtime.",
+        "true",
+        "fred",
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 4.",
+        "Compilation fails because of an error on line 8.",
+        "Compilation fails because of an error on a line other than 3, 4, or 8."
+      ],
+      "optionsVi": [
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+        "true",
+        "fred",
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 4.",
+        "Compilation fails because of an error on line 8.",
+        "Compilation fails because of an error on a line other than 3, 4, or 8."
+      ],
+      "answer": 6,
+      "explanation": "G. This code would be legal if line 7 ended with a semicolon. Remember that line 3 is a statement that doesn’t end until line 7, and a statement needs a closing semicolon! ✗ A, B, C, D, E, and F are incorrect based on the program logic described above. If the semicolon were added at line 7, then answer B would be correct—the program would print “true”, the return from theequals() method overridden by the anonymous subclass of Object."
+    },
+    {
+      "id": "scjp-ch08-010",
+      "originalId": 10,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }",
+      "options": [
+        "An exception occurs at runtime at line 10.",
+        "Zippo",
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 9.",
+        "Compilation fails because of an error on line 10.",
+        "Compilation fails because of an error on line 11."
+      ],
+      "optionsVi": [
+        "An exception occurs at runtime at line 10.",
+        "Zippo",
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 9.",
+        "Compilation fails because of an error on line 10.",
+        "Compilation fails because of an error on line 11."
+      ],
+      "answer": 1,
+      "explanation": "B. The code in the HorseTest class is perfectly legal. Line 9 creates an instance of the method-local inner class Horse, using a reference variable declared as type Object. Line 10 casts the Horse object to a Horse reference variable, which allows line 11 to compile. If line 10 were removed, the HorseTest code would not compile, because class Object does not have a name variable. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch08-011",
+      "originalId": 11,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }",
+      "options": [
+        "An exception occurs at runtime at line 10.",
+        "Zippo",
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 9.",
+        "Compilation fails because of an error on line 10."
+      ],
+      "optionsVi": [
+        "An exception occurs at runtime at line 10.",
+        "Zippo",
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 9.",
+        "Compilation fails because of an error on line 10."
+      ],
+      "answer": 4,
+      "explanation": "E. This code is identical to the code in question 10, except the casting statement has been removed. If you use a reference variable of type Object, you can access only those members defined in class Object. ✗ A, B, C, and D are incorrect based on the program logic described above and in the previous question."
+    },
+    {
+      "id": "scjp-ch08-012",
+      "originalId": 12,
+      "chapterNum": 8,
+      "chapterTitle": "Inner Classes",
+      "topic": "javacore",
+      "text": "Given the following, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } what is the result?",
+      "textVi": "Cho đoạn mã sau, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "",
+      "options": [
+        "5722",
+        "4538",
+        "4557",
+        "An exception occurs at runtime.",
+        "Compilation fails. 32 Chapter 8: Inner Classes"
+      ],
+      "optionsVi": [
+        "5722",
+        "4538",
+        "4557",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+        "Compilation fails. 32 Chapter 8: Inner Classes"
+      ],
+      "answer": 0,
+      "explanation": "A. You can define an inner class as abstract, which means you can instantiate only concrete subclasses of the abstract inner class. The object referenced by the variable t is an instance of an anonymous subclass of AbstractTest, and the anonymous class overrides the getNum() method to return22. The variable referenced by f is an instance of an anonymous subclass of Bar, and the anonymous Bar subclass also overrides the getNum() method (to return57). Remember that to instantiate a Bar instance, we need an instance of the enclosing AbstractTest class to tie to the new Bar inner class instance. AbstractTest can’t be instantiated because it’s abstract, so we created an anonymous subclass (non-abstract) and then used the instance of that anonymous subclass to tie to the new Bar subclass instance. ✗ B, C, D, E, and F are incorrect based on the program logic described above."
+    },
+    {
+      "id": "scjp-ch09-001",
+      "originalId": 1,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1;i<3;++i) {\n10.           System.out.print(i + \"..\");\n11.        }\n12.     }\n13.  }",
+      "options": [
+        "This code will not compile due to line 4.",
+        "This code will not compile due to line 5.",
+        "1..2..",
+        "1..2..3..",
+        "An exception is thrown at runtime."
+      ],
+      "optionsVi": [
+        "This code will not compile due to line 4.",
+        "This code will not compile due to line 5.",
+        "1..2..",
+        "1..2..3..",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 2,
+      "explanation": "C. Line 5 calls therun() method, so therun() method executes as a normal method should. ✗ A is incorrect because line 4 is the proper way to create an object. B is incorrect because it is legal to call the run() method, even though this will not start a true thread of execution. The code after line 5 will not execute until the run() method is complete. D is incorrect because the for loop only does two iterations. E is incorrect because the program runs without exception."
+    },
+    {
+      "id": "scjp-ch09-002",
+      "originalId": 2,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which two of the following methods are defined in class Thread?",
+      "textVi": "Which two of the following methods are defined in class Thread?",
+      "code": "",
+      "options": [
+        "A và D (A: start() & D: run())",
+        "A và B (A: start() & B: wait())",
+        "B và C (B: wait() & C: notify())",
+        "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+      ],
+      "optionsVi": [
+        "A và D (A: start() & D: run())",
+        "A và B (A: start() & B: wait())",
+        "B và C (B: wait() & C: notify())",
+        "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+      ],
+      "answer": 0,
+      "explanation": "A and D. Onlystart() andrun() are defined by the Thread class. ✗ B and C are incorrect because they are methods of the Object class. E is incorrect because there’s no such method in any thread-related class."
+    },
+    {
+      "id": "scjp-ch09-003",
+      "originalId": 3,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+      "textVi": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+      "code": "",
+      "options": [
+        "public class MyRunnable extends Runnable{public void run(){}}",
+        "public class MyRunnable extends Object{public void run(){}}",
+        "public class MyRunnable implements Runnable{public void run(){}}",
+        "public class MyRunnable implements Runnable{void run(){}}",
+        "public class MyRunnable implements Runnable{public void start(){}}"
+      ],
+      "optionsVi": [
+        "public class MyRunnable extends Runnable{public void run(){}}",
+        "public class MyRunnable extends Object{public void run(){}}",
+        "public class MyRunnable implements Runnable{public void run(){}}",
+        "public class MyRunnable implements Runnable{void run(){}}",
+        "public class MyRunnable implements Runnable{public void start(){}}"
+      ],
+      "answer": 2,
+      "explanation": "C. The class correctly implements the Runnable interface with a legal public void run() method. ✗ A is incorrect because interfaces are not extended; they are implemented. B is incorrect because even though the class would compile and it has a valid public void run() method, it does not implement the Runnable interface, so the compiler would complain when creating a Thread with an instance of it. D is incorrect because the run() method must be public. E is incorrect because the method to implement is run(),n o tstart()."
+    },
+    {
+      "id": "scjp-ch09-004",
+      "originalId": 4,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, what is the result of this code?",
+      "textVi": "Cho đoạn mã sau, what is the result of this code?",
+      "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.start();\n6.        System.out.print(\"one. \");\n7.        t.start();\n8.        System.out.print(\"two. \");\n9.     }\n10.\n11.     public void run() {\n12.        System.out.print(\"Thread \");\n13.     }\n14.  }",
+      "options": [
+        "Compilation fails",
+        "An exception occurs at runtime.",
+        "Thread one. Thread two.",
+        "The output cannot be determined."
+      ],
+      "optionsVi": [
+        "Lỗi biên dịch (Compilation fails)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+        "Thread one. Thread two.",
+        "The output cannot be determined."
+      ],
+      "answer": 1,
+      "explanation": "B. When thestart() method is attempted a second time on a single Thread object, the method will throw an IllegalThreadStateException (you will not need to know this exception name for the exam). Even if the thread has finished running, it is still illegal to callstart() again. ✗ A is incorrect because compilation will succeed. For the most part, the Java compiler only checks for illegal syntax, rather than class-specific logic. C and D are incorrect because of the logic explained above."
+    },
+    {
+      "id": "scjp-ch09-005",
+      "originalId": 5,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, which of these will create and start this thread?",
+      "textVi": "Cho đoạn mã sau, which of these will create and start this thread?",
+      "code": "1.  public class MyRunnable implements Runnable {\n2.     public void run() {\n3.        // some code here\n4.     }\n5.  }",
+      "options": [
+        "new Runnable(MyRunnable).start();",
+        "new Thread(MyRunnable).run();",
+        "new Thread(new MyRunnable()).start();",
+        "new MyRunnable().start();"
+      ],
+      "optionsVi": [
+        "new Runnable(MyRunnable).start();",
+        "new Thread(MyRunnable).run();",
+        "new Thread(new MyRunnable()).start();",
+        "new MyRunnable().start();"
+      ],
+      "answer": 2,
+      "explanation": "C. Because the class implements Runnable, an instance of it has to be passed to the Thread constructor, and then the instance of the Thread has to be started. ✗ A is incorrect. There is no constructor like this for Runnable because Runnable is an interface, and it is illegal to pass a class or interface name to any constructor. B is incorrect for the same reason; you can’t pass a class or interface name to any constructor.D is incorrect because MyRunnable doesn’t have astart() method, and the only start() method that can start a thread of execution is the start() in the Thread class. 60 Chapter 9: Threads"
+    },
+    {
+      "id": "scjp-ch09-006",
+      "originalId": 6,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, what is the result of this code?",
+      "textVi": "Cho đoạn mã sau, what is the result of this code?",
+      "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        Thread x = new Thread(t);\n6.        x.start();\n7.     }\n8.\n9.     public void run() {\n10.        for(int i=0;i<3;++i) {\n11.           System.out.print(i + \"..\");\n12.        }\n13.     }\n14.  }",
+      "options": [
+        "Compilation fails.",
+        "1..2..3..",
+        "0..1..2..3..",
+        "0..1..2..",
+        "An exception occurs at runtime."
+      ],
+      "optionsVi": [
+        "Lỗi biên dịch (Compilation fails)",
+        "1..2..3..",
+        "0..1..2..3..",
+        "0..1..2..",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      ],
+      "answer": 3,
+      "explanation": "D. The thread MyThread will start and loop three times (from 0 to 2). ✗ A is incorrect because the Thread class implements the Runnable interface; therefore, in line 5, Thread can take an object of type Thread as an argument in the constructor. B and C are incorrect because the variable i in the for loop starts with a value of 0 and ends with a value of 2. E is incorrect because of the program logic described above."
+    },
+    {
+      "id": "scjp-ch09-007",
+      "originalId": 7,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following,",
+      "textVi": "Cho đoạn mã sau, ",
+      "code": "1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0;i<lines.length;i++){\n9.           System.out.println(lines[i]);\n10.           Thread.currentThread().sleep(1000);\n52 Chapter 9: Threads\n11.        }\n12.     }\n13.  }\nthe static methodThread.currentThread()returns a reference to the currently executing\nThread object. What is the result of this code?",
+      "options": [
+        "Each String in the array lines will output, with a 1-second pause.",
+        "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+        "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+        "This code will not compile."
+      ],
+      "optionsVi": [
+        "Each String in the array lines will output, with a 1-second pause.",
+        "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+        "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+        "This code will not compile."
+      ],
+      "answer": 3,
+      "explanation": "D. Thesleep() method must be enclosed in a try/catch block, or the method printAll() must declare itthrows the InterruptedException. ✗ A is incorrect, but it would be correct if the InterruptedException was dealt with. B is incorrect, but it would still be incorrect if the InterruptedException was dealt with because all Java code, including the main() method, runs in threads. C is incorrect. Thesleep() method is static, so even if it is called on an instance, it still always affects the currently executing thread."
+    },
+    {
+      "id": "scjp-ch09-008",
+      "originalId": 8,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+      "textVi": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+      "code": "",
+      "options": [
+        "B và F (B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})",
+        "A và B (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;})",
+        "A và C (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & C: public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}})",
+        "E và F (E: public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})"
+      ],
+      "optionsVi": [
+        "B và F (B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})",
+        "A và B (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;})",
+        "A và C (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & C: public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}})",
+        "E và F (E: public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})"
+      ],
+      "answer": 0,
+      "explanation": "B and F. By marking the methods as synchronized, the threads will get the lock of the this object before proceeding. Only one thread will be either setting or reading at any given moment, thereby assuring that read() always returns the addition of a valid pair. ✗ A is incorrect because it is not synchronized; therefore, there is no guarantee that the values added by theread() method belong to the same pair. C and D are incorrect; only objects can be used to synchronize on. E is incorrect because it is not possible to select other objects to synchronize on when declaring a method assynchronized. Even usingthis is incorrect syntax."
+    },
+    {
+      "id": "scjp-ch09-009",
+      "originalId": 9,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+      "textVi": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+      "code": "",
+      "options": [
+        "Object",
+        "Thread",
+        "Runnable",
+        "Class"
+      ],
+      "optionsVi": [
+        "Object",
+        "Thread",
+        "Runnable",
+        "Class"
+      ],
+      "answer": 0,
+      "explanation": "A. The Object class defines these thread-specific methods. ✗ B, C, and D are incorrect because they do not define these methods. And yes, the Java API does define a class called Class, though you do not need to know it for the exam."
+    },
+    {
+      "id": "scjp-ch09-010",
+      "originalId": 10,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which two are true?",
+      "textVi": "Which two are true?",
+      "code": "",
+      "options": [
+        "B và E (B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads & E: When a thread invokeswait(), it releases its locks.)",
+        "A và B (A: A static method cannot be synchronized. & B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads)",
+        "A và C (A: A static method cannot be synchronized. & C: Variables can be protected from concurrent access problems by marking them with the synchronized keyword.)",
+        "D và E (D: When a thread sleeps, it releases its locks. & E: When a thread invokeswait(), it releases its locks.)"
+      ],
+      "optionsVi": [
+        "B và E (B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads & E: When a thread invokeswait(), it releases its locks.)",
+        "A và B (A: A static method cannot be synchronized. & B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads)",
+        "A và C (A: A static method cannot be synchronized. & C: Variables can be protected from concurrent access problems by marking them with the synchronized keyword.)",
+        "D và E (D: When a thread sleeps, it releases its locks. & E: When a thread invokeswait(), it releases its locks.)"
+      ],
+      "answer": 0,
+      "explanation": "B and E. B is correct because multiple threads are allowed to enter nonsynchronized code, even within a class that has some synchronized methods. E is correct because a wait() call causes the thread to give up its locks. ✗ A is incorrect because static methods can be synchronized; they synchronize on the lock on the instance of class java.lang.Class that represents the class type. C is incorrect because only methods—not variables—can be marked synchronized. D is incorrect because a sleeping thread still maintains its locks."
+    },
+    {
+      "id": "scjp-ch09-011",
+      "originalId": 11,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which three are methods of the Object class? (Choose three.)",
+      "textVi": "Which three are methods of the Object class? (Choose three.)",
+      "code": "",
+      "options": [
+        "A và B (A: notify(); & B: notifyAll();)",
+        "A và C (A: notify(); & C: isInterrupted();)",
+        "C và D (C: isInterrupted(); & D: synchronized();)",
+        "B và H (B: notifyAll(); & H: yield();)"
+      ],
+      "optionsVi": [
+        "A và B (A: notify(); & B: notifyAll();)",
+        "A và C (A: notify(); & C: isInterrupted();)",
+        "C và D (C: isInterrupted(); & D: synchronized();)",
+        "B và H (B: notifyAll(); & H: yield();)"
+      ],
+      "answer": 0,
+      "explanation": "A, B, and F. They are all related to the list of threads waiting on the specified object. ✗ C, E, G, and H are incorrect answers. The methods isInterrupted() and interrupt() are instance methods of Thread. The methods sleep() andyield() are static methods of Thread. D is incorrect because synchronized is a keyword and the synchronized() construct is part of the Java language."
+    },
+    {
+      "id": "scjp-ch09-012",
+      "originalId": 12,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, what is the result of trying to compile and run this program?",
+      "textVi": "Cho đoạn mã sau, what is the result of trying to compile and run this program?",
+      "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.        }\n11.        System.out.print(\"3 \");\n12.     }\n13.  }",
+      "options": [
+        "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+        "1 2 3",
+        "1 3",
+        "1 2",
+        "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+        "It will fail to compile because it has to be synchronized on the this object."
+      ],
+      "optionsVi": [
+        "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+        "1 2 3",
+        "1 3",
+        "1 2",
+        "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+        "It will fail to compile because it has to be synchronized on the this object."
+      ],
+      "answer": 3,
+      "explanation": "D. 1 and 2 will be printed, but there will be no return from the wait call because no other thread will notify the main thread, so 3 will never be printed. The program is essentially frozen at line 7. ✗ A is incorrect; IllegalMonitorStateException is an unchecked exception so it doesn’t have to be dealt with explicitly. B and C are incorrect; 3 will never be printed, since this program will never terminate because it will wait forever. E is incorrect because IllegalMonitorStateException will never be thrown because the wait() is done on args within a block of code synchronized on args.F is incorrect because any object can be used to synchronize on and, furthermore, there is no this when running a static method."
+    },
+    {
+      "id": "scjp-ch09-013",
+      "originalId": 13,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+      "textVi": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+      "code": "",
+      "options": [
+        "After thread A is notified, or after two seconds.",
+        "After the lock on B is released, or after two seconds.",
+        "Two seconds after thread A is notified.",
+        "Two seconds after lock B is released."
+      ],
+      "optionsVi": [
+        "After thread A is notified, or after two seconds.",
+        "After the lock on B is released, or after two seconds.",
+        "Two seconds after thread A is notified.",
+        "Two seconds after lock B is released."
+      ],
+      "answer": 0,
+      "explanation": "A. Either of the two events (notification or wait time expiration) will make the thread become a candidate for running again. ✗ B is incorrect because a waiting thread will not return to runnable when the lock is released, unless a notification occurs.C is incorrect because the thread will become a candidate immediately after notification, not two seconds afterwards.D is also incorrect because a thread will not come out of a waiting pool just because a lock has been released."
+    },
+    {
+      "id": "scjp-ch09-014",
+      "originalId": 14,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which two are true?",
+      "textVi": "Which two are true?",
+      "code": "",
+      "options": [
+        "A và D (A: ThenotifyAll() method must be called from a synchronized context. & D: When a thread is waiting as a result ofwait(), it release its locks.)",
+        "A và B (A: ThenotifyAll() method must be called from a synchronized context. & B: To callwait(), an object must own the lock on the thread.)",
+        "B và C (B: To callwait(), an object must own the lock on the thread. & C: Thenotify() method is defined in class java.lang.Thread.)",
+        "D và F (D: When a thread is waiting as a result ofwait(), it release its locks. & F: The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on.)"
+      ],
+      "optionsVi": [
+        "A và D (A: ThenotifyAll() method must be called from a synchronized context. & D: When a thread is waiting as a result ofwait(), it release its locks.)",
+        "A và B (A: ThenotifyAll() method must be called from a synchronized context. & B: To callwait(), an object must own the lock on the thread.)",
+        "B và C (B: To callwait(), an object must own the lock on the thread. & C: Thenotify() method is defined in class java.lang.Thread.)",
+        "D và F (D: When a thread is waiting as a result ofwait(), it release its locks. & F: The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on.)"
+      ],
+      "answer": 0,
+      "explanation": "A and D. A is correct because the notifyAll() method (along withwait() and notify()) must always be called from within a synchronized context. D is correct because a thread blocked on await() call releases its locks, so another thread can get into the synchronized code and eventually call notify() ornotifyAll(). ✗ B is incorrect because to call wait(), the thread must own the lock on the object that wait() is being invoked on, not the other way around. C is wrong becausenotify() is defined in java.lang.Object. E is wrong becausenotify() will not cause a thread to release its locks. The thread can only release its locks by exiting the synchronized code. F is wrong becausenotifyAll() notifies all the threads waiting on a particular locked object, not all threads waiting on any object."
+    },
+    {
+      "id": "scjp-ch09-015",
+      "originalId": 15,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+      "textVi": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+      "code": "",
+      "options": [
+        "C và E (C: backgroundThread.setPriority(1); & E: backgroundThread.setPriority(Thread.MIN_PRIORITY);)",
+        "A và C (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & C: backgroundThread.setPriority(1);)",
+        "A và B (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & B: backgroundThread.setPriority(Thread.MAX_PRIORITY);)",
+        "E và G (E: backgroundThread.setPriority(Thread.MIN_PRIORITY); & G: backgroundThread.setPriority(10);)"
+      ],
+      "optionsVi": [
+        "C và E (C: backgroundThread.setPriority(1); & E: backgroundThread.setPriority(Thread.MIN_PRIORITY);)",
+        "A và C (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & C: backgroundThread.setPriority(1);)",
+        "A và B (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & B: backgroundThread.setPriority(Thread.MAX_PRIORITY);)",
+        "E và G (E: backgroundThread.setPriority(Thread.MIN_PRIORITY); & G: backgroundThread.setPriority(10);)"
+      ],
+      "answer": 0,
+      "explanation": "C and E. In E, the constant Thread.MIN_PRIORITY is the lowest priority that a thread can have, and the background thread should have a very low priority or the lowest. Answer C is correct because 1 is a low (and usually the minimum) value, although for code clarity it is recommended to use the Thread.MIN_PRIORITY. ✗ A and D are incorrect because there are no such variables in the Thread class.B is incorrect; using MAX_PRIORITY would make other threads have fewer chances of getting a turn of the CPU, even to the point of freezing until the numerical processing is finished. F is incorrect because the thread would still compete for the CPU time and even delay other threads. G is incorrect because 10 is the value of MAX_PRIORITY, so i would be equivalent to answer B. 62 Chapter 9: Threads"
+    },
+    {
+      "id": "scjp-ch09-016",
+      "originalId": 16,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which three guarantee that a thread will leave the running state?",
+      "textVi": "Which three guarantee that a thread will leave the running state?",
+      "code": "",
+      "options": [
+        "B và E (B: wait() & E: sleep(1000))",
+        "A và B (A: yield() & B: wait())",
+        "A và C (A: yield() & C: notify())",
+        "E và G (E: sleep(1000) & G: Thread.killThread())"
+      ],
+      "optionsVi": [
+        "B và E (B: wait() & E: sleep(1000))",
+        "A và B (A: yield() & B: wait())",
+        "A và C (A: yield() & C: notify())",
+        "E và G (E: sleep(1000) & G: Thread.killThread())"
+      ],
+      "answer": 0,
+      "explanation": "B, E, and F. B is correct becausewait() always causes the current thread to go into the object’s wait pool. E is correct because sleep() will always pause the currently running thread for at least the duration specified in the sleep argument (unless an interrupted exception is thrown). F is correct because, assuming that the thread you’re callingjoin() on is alive, the thread callingjoin() will immediately block until the thread you’re callingjoin() on is no longer alive. ✗ A is wrong, but tempting. The yield() method is not guaranteed to cause a thread to leave the running state, although if there are runnable threads of the same priority as the currently running thread, then the current thread will probably leave the running state. C and D are incorrect because they don’t cause the thread invoking them to leave the running state. G is wrong because there’s no such method."
+    },
+    {
+      "id": "scjp-ch09-017",
+      "originalId": 17,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which two are true?",
+      "textVi": "Which two are true?",
+      "code": "",
+      "options": [
+        "D và F (D: Thewait() method is overloaded to accept a duration. & F: Bothwait() andnotify() must be called from a synchronized context.)",
+        "A và D (A: Deadlock will not occur ifwait()/notify() is used. & D: Thewait() method is overloaded to accept a duration.)",
+        "A và B (A: Deadlock will not occur ifwait()/notify() is used. & B: A thread will resume execution as soon as its sleep duration expires.)",
+        "F và H (F: Bothwait() andnotify() must be called from a synchronized context. & H: sleep() can throw a runtime exception.)"
+      ],
+      "optionsVi": [
+        "D và F (D: Thewait() method is overloaded to accept a duration. & F: Bothwait() andnotify() must be called from a synchronized context.)",
+        "A và D (A: Deadlock will not occur ifwait()/notify() is used. & D: Thewait() method is overloaded to accept a duration.)",
+        "A và B (A: Deadlock will not occur ifwait()/notify() is used. & B: A thread will resume execution as soon as its sleep duration expires.)",
+        "F và H (F: Bothwait() andnotify() must be called from a synchronized context. & H: sleep() can throw a runtime exception.)"
+      ],
+      "answer": 0,
+      "explanation": "D and F. D is correct because thewait() method is overloaded to accept a wait duration in milliseconds. If the thread has not been notified by the time the wait duration has elapsed, then the thread will move back to runnable even without having been notified. F is correct because wait()/notify()/notifyAll() must all be called from within a synchronized, context. A thread must own the lock on the object its invoking wait()/notify()/notifyAll() on. ✗ A is incorrect because wait()/notify() will not prevent deadlock. B is incorrect because a sleeping thread will return to runnable when it wakes up, but it might not necessarily resume execution right away. To resume executing, the newly awakened thread must still be moved from runnable to running by the scheduler.C is incorrect because synchronization prevents two or more threads from accessing the same object. E is incorrect because notify() is not overloaded to accept a duration. G and H are incorrect because wait() andsleep() both declare a checked exception (InterruptedException)."
+    },
+    {
+      "id": "scjp-ch09-018",
+      "originalId": 18,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Which two are valid constructors for Thread?",
+      "textVi": "Which two are valid constructors for Thread?",
+      "code": "",
+      "options": [
+        "A và B (A: Thread(Runnable r, String name) & B: Thread())",
+        "A và C (A: Thread(Runnable r, String name) & C: Thread(int priority))",
+        "C và D (C: Thread(int priority) & D: Thread(Runnable r, ThreadGroup g))",
+        "B và E (B: Thread() & E: Thread(Runnable r, int priority))"
+      ],
+      "optionsVi": [
+        "A và B (A: Thread(Runnable r, String name) & B: Thread())",
+        "A và C (A: Thread(Runnable r, String name) & C: Thread(int priority))",
+        "C và D (C: Thread(int priority) & D: Thread(Runnable r, ThreadGroup g))",
+        "B và E (B: Thread() & E: Thread(Runnable r, int priority))"
+      ],
+      "answer": 0,
+      "explanation": "A and B are both valid constructors for Thread. ✗ C, D, and E are not legal Thread constructors, although D is close. If you reverse the arguments in D, you’d have a valid constructor."
+    },
+    {
+      "id": "scjp-ch09-019",
+      "originalId": 19,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } what is the result?",
+      "textVi": "Cho đoạn mã sau, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "",
+      "options": [
+        "foo",
+        "MyThread foo",
+        "MyThread bar",
+        "foo bar",
+        "foo bar baz",
+        "bar foo",
+        "Compilation fails."
+      ],
+      "optionsVi": [
+        "foo",
+        "MyThread foo",
+        "MyThread bar",
+        "foo bar",
+        "foo bar baz",
+        "bar foo",
+        "Lỗi biên dịch (Compilation fails)"
+      ],
+      "answer": 1,
+      "explanation": "B is correct because in the first line of main we’re constructing an instance of an anonymous inner class extending from MyThread. So the MyThread constructor runs and prints “ MyThread”. The next statement in main invokesstart() on the new thread instance, which causes the overridden run() method (therun() method defined in the anonymous inner class) to be invoked, which prints “ foo”. ✗ A, C, D, E, F, and G are all incorrect because of the program logic described above. 64 Chapter 9: Threads"
+    },
+    {
+      "id": "scjp-ch09-020",
+      "originalId": 20,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+      "textVi": "Cho đoạn mã sau, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+      "code": "",
+      "options": [
+        "Synchronize the run method.",
+        "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+        "The existing code will not compile.",
+        "The existing code will cause a runtime exception.",
+        "Put in await() call prior to invoking theincrease() method.",
+        "Synchronize theincrease() method"
+      ],
+      "optionsVi": [
+        "Synchronize the run method.",
+        "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+        "The existing code will not compile.",
+        "The existing code will cause a runtime exception.",
+        "Put in await() call prior to invoking theincrease() method.",
+        "Synchronize theincrease() method"
+      ],
+      "answer": 5,
+      "explanation": "F is correct because synchronizing the code that actually does the increase will protect the code from being accessed by more than one thread at a time. ✗ A is incorrect because synchronizing the run() method would stop other threads from running therun() method (a bad idea) but still would not prevent other threads with other runnables from accessing theincrease() method. B is incorrect for virtually the same reason as A—synchronizing the code that calls theincrease() method does not prevent other code from calling the increase() method. C and D are incorrect because the program compiles and runs fine. E is incorrect because it will simply prevent the call to increase() from ever happening from this thread."
+    },
+    {
+      "id": "scjp-ch09-021",
+      "originalId": 21,
+      "chapterNum": 9,
+      "chapterTitle": "Threads",
+      "topic": "threads",
+      "text": "Given the following, what is the result?",
+      "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+      "code": "1. public class Test {\n2.  public static void main (String [] args) {\n3.    final Foo f = new Foo();\n4.   Thread t = new Thread(new Runnable() {\n5.         public void run() {\n6.        f.doStuff();\n7.       }\n8.   });\n9.   Thread g = new Thread() {\n10.    public void run() {\n11.         f.doStuff();\n12.      }\n13.     };\n14.     t.start();\n15.     g.start();\n16.  }\n17. }\n1. class Foo {\n2.   int x = 5;\n3.  public void doStuff() {\n4.     if (x < 10) {\n5.       // nothing to do\n6.      try {\n7.         wait();\n8.      } catch(InterruptedException ex) { }\n9.     } else {\n10.      System.out.println(\"x is \" + x++);\n11.      if (x >= 10) {\n12.          notify();\n13.        }\n14.    }\n15.  }\n16. }",
+      "options": [
+        "The code will not compile because of an error on line 12 of class Foo.",
+        "The code will not compile because of an error on line 7 of class Foo.",
+        "The code will not compile because of an error on line 4 of class Test.",
+        "The code will not compile because of some other error in class Test.",
+        "An exception occurs at runtime.",
+        "x is 5 x is 6"
+      ],
+      "optionsVi": [
+        "The code will not compile because of an error on line 12 of class Foo.",
+        "The code will not compile because of an error on line 7 of class Foo.",
+        "The code will not compile because of an error on line 4 of class Test.",
+        "The code will not compile because of some other error in class Test.",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+        "x is 5 x is 6"
+      ],
+      "answer": 4,
+      "explanation": "E is correct because the thread does not own the lock of the object it invokes wait() on. If the method were synchronized, the code would run without exception. ✗ A, B, C, and D are incorrect because the code compiles without errors.F is incorrect because the exception is thrown before there is any output. EXERCISE ANSWERS Exercise 9-1: Creating a Thread and Putting It to Sleep The final code should look something like this: class TheCount extends Thread { public void run() { for(int i = 1;i<=100;++i) { System.out.print(i + \" \"); if(i % 10 == 0) System.out.println(\"Hahaha\"); try { Thread.sleep(1000); } catch(InterruptedException e) {} } } public static void main(String [] args) { new TheCount().start(); } } Exercise 9-2: Synchronizing a Block of Code Your code might look something like this when completed: 1. class InSync extends Thread { 2. StringBuffer letter; 3. 4. public InSync(StringBuffer letter) { 5. this.letter = letter; 6. } 7. 8. public void run() { 9. synchronized(letter) { 10. for(int i = 1;i<=100;++i) { 11. System.out.print(letter); 12. } 13. System.out.println(); 14. // Increment the letter in StringBuffer: 15. char temp = letter.charAt(0); 16. ++temp; 17. letter.setCharAt(0, temp); 18. } 19. } 20. 21. public static void main(String [] args) { 22. StringBuffer sb = new StringBuffer(\"A\"); 23. new InSync(sb).start(); 24. new InSync(sb).start(); 25. new InSync(sb).start(); 26. } 27. } Just for fun, try removing lines 9 and 18 then run the program again. It will be unsynchronized, and watch what happens. Exercise Answers 65"
+    }
+  ]
+};
+
+export const scjpChapterQuizzes = [
+  {
+    "slug": "scjp-ch01",
+    "title": "SCJP Ch1: Language Fundamentals",
+    "description": "20 câu hỏi Self Test Chương 1: Ch1: Language Fundamentals (Kathy Sierra & Bert Bates).",
+    "color": "#0284c7",
+    "icon": "🔤",
+    "order": 21,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 1,
+    "questions": [
+      {
+        "id": "scjp-ch01-001",
+        "originalId": 1,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Given the following, what is the result? (Choose one.)",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+        "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        signed int x = 10;\n4.           for (int y=0; y<5; y++, x--)\n5.              System.out.print(\" \" + x);\n6.     }\n7.  }",
+        "options": [
+          "1 09876",
+          "98765",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "1 09876",
+          "98765",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. The word “signed” is not a valid modifier keyword in the Java language. All number primitives in Java are signed. Always."
+      },
+      {
+        "id": "scjp-ch01-002",
+        "originalId": 2,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which is a reserved word in the Java programming language? (Choose one.)",
+        "textVi": "Từ nào là từ khóa bảo lưu trong ngôn ngữ Java? (Chọn 1 đáp án)",
+        "code": "",
+        "options": [
+          "method",
+          "native",
+          "subclasses",
+          "reference",
+          "array 46 Chapter 1: Language Fundamentals"
+        ],
+        "optionsVi": [
+          "method",
+          "native",
+          "subclasses",
+          "reference",
+          "array 46 Chapter 1: Language Fundamentals"
+        ],
+        "answer": 1,
+        "explanation": "B. The wordnative is a valid keyword, used to modify a method declaration. ✗ A, D,a n dE are not keywords. C is wrong because the keyword for subclassing in Java isextends, not ‘subclasses’."
+      },
+      {
+        "id": "scjp-ch01-003",
+        "originalId": 3,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+        "textVi": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+        "code": "",
+        "options": [
+          "class,if,void,long,Int,continue",
+          "goto,instanceof,native,finally,default,throws",
+          "try,virtual,throw,final,volatile,transient",
+          "strictfp,constant,super,implements,do",
+          "byte,break,assert,switch,include"
+        ],
+        "optionsVi": [
+          "class,if,void,long,Int,continue",
+          "goto,instanceof,native,finally,default,throws",
+          "try,virtual,throw,final,volatile,transient",
+          "strictfp,constant,super,implements,do",
+          "byte,break,assert,switch,include"
+        ],
+        "answer": 1,
+        "explanation": "B. All the words in answer B are among the 49 Java keywords. ✗ A is wrong because the keyword for the primitive int starts with a lowercase i . C is wrong because “virtual” is a keyword in C++, but not Java. D is wrong because “constant” is not a keyword. Constants in Java are marked static andfinal. E is wrong because “include” is a keyword in C, but not Java."
+      },
+      {
+        "id": "scjp-ch01-004",
+        "originalId": 4,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which two are keywords? (Choose two.)",
+        "textVi": "Hai từ nào dưới đây là từ khóa của Java? (Chọn 2 đáp án)",
+        "code": "",
+        "options": [
+          "A và D (A: interface & D: this)",
+          "A và B (A: interface & B: unsigned)",
+          "B và C (B: unsigned & C: Float)",
+          "D và E (D: this & E: string Literals and Ranges of All Primitive Data Types (Objective 4.6))"
+        ],
+        "optionsVi": [
+          "A và D (A: interface & D: this)",
+          "A và B (A: interface & B: unsigned)",
+          "B và C (B: unsigned & C: Float)",
+          "D và E (D: this & E: string Literals and Ranges of All Primitive Data Types (Objective 4.6))"
+        ],
+        "answer": 0,
+        "explanation": "A and D. Bothinterface andthis are both valid keywords. ✗ B is wrong because “unsigned” is a keyword in C/C++ but not in Java. C is wrong because “Float” is a class type. The keyword for the Java primitive isfloat. E is wrong because although “String” is a class type in Java, “string” is not a keyword. Literals and Ranges of All Primitive Data Types (Objective 4.6)"
+      },
+      {
+        "id": "scjp-ch01-005",
+        "originalId": 5,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which three are valid declarations of a char? (Choose three.)",
+        "textVi": "Ba khai báo nào hợp lệ cho kiểu char? (Chọn 3 đáp án)",
+        "code": "",
+        "options": [
+          "A và C (A: charc1=064770 ; & C: charc3=0xbeef ;)",
+          "A và B (A: charc1=064770 ; & B: charc2=‘face’ ;)",
+          "B và D (B: charc2=‘face’ ; & D: charc4=\\u0022 ;)",
+          "C và F (C: charc3=0xbeef ; & F: charc6=‘\\uface’ ;)"
+        ],
+        "optionsVi": [
+          "A và C (A: charc1=064770 ; & C: charc3=0xbeef ;)",
+          "A và B (A: charc1=064770 ; & B: charc2=‘face’ ;)",
+          "B và D (B: charc2=‘face’ ; & D: charc4=\\u0022 ;)",
+          "C và F (C: charc3=0xbeef ; & F: charc6=‘\\uface’ ;)"
+        ],
+        "answer": 0,
+        "explanation": "A, C, and F. A is an octal representation of the integer value 27128, which is legal because it fits into an unsigned 16-bit integer. C is a hexadecimal representation of the integer value 48879, which fits into an unsigned 16-bit integer. F is a Unicode representation of a character. ✗ B is wrong because you can’t put more than one character in achar literal. You know that B is a literal character because it comes between single quotes. The only other acceptablechar literal that can go between single quotes is a Unicode value, and Unicode literals must always start w i t ha‘\\u’.D is wrong because the single quotes are missing.E is wrong because it appears to be a Unicode representation (notice the backslash), but starts with ‘\\i’ rather than ‘\\u’."
+      },
+      {
+        "id": "scjp-ch01-006",
+        "originalId": 6,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which two are valid declarations of a String? (Choose two.)",
+        "textVi": "Hai khai báo nào hợp lệ cho kiểu String? (Chọn 2 đáp án)",
+        "code": "",
+        "options": [
+          "A và E (A: Strings1=null ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)",
+          "A và B (A: Strings1=null ; & B: Strings2=‘null’ ;)",
+          "B và C (B: Strings2=‘null’ ; & C: Strings3=(String)‘abc’ ;)",
+          "D và E (D: Strings4=(String)‘\\ufeed’ ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)"
+        ],
+        "optionsVi": [
+          "A và E (A: Strings1=null ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)",
+          "A và B (A: Strings1=null ; & B: Strings2=‘null’ ;)",
+          "B và C (B: Strings2=‘null’ ; & C: Strings3=(String)‘abc’ ;)",
+          "D và E (D: Strings4=(String)‘\\ufeed’ ; & E: Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals)"
+        ],
+        "answer": 0,
+        "explanation": "A and E. A sets the String reference to null; E initializes the String reference with a literal. ✗ B is wrong because null cannot be in single quotes. C is wrong because there are multiple characters between the single quotes (‘abc’).D is wrong because you can’t cast achar (primitive) to a String (object). 54 Chapter 1: Language Fundamentals"
+      },
+      {
+        "id": "scjp-ch01-007",
+        "originalId": 7,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which one is a valid declaration of a boolean? (Choose one.)",
+        "textVi": "Which one is a valid declaration of a boolean? (Choose one.)",
+        "code": "",
+        "options": [
+          "booleanb1=0 ;",
+          "booleanb2=‘false’ ;",
+          "booleanb3=false ;",
+          "booleanb4=Boolean.false() ;",
+          "booleanb5=no ;"
+        ],
+        "optionsVi": [
+          "booleanb1=0 ;",
+          "booleanb2=‘false’ ;",
+          "booleanb3=false ;",
+          "booleanb4=Boolean.false() ;",
+          "booleanb5=no ;"
+        ],
+        "answer": 2,
+        "explanation": "C. A boolean can only be assigned the literal true orfalse. ✗ A, B, D, and E are all invalid assignments for a boolean."
+      },
+      {
+        "id": "scjp-ch01-008",
+        "originalId": 8,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "What is the numerical range of a char? (Choose one.)",
+        "textVi": "Phạm vi giá trị số (range) của kiểu char là gì? (Chọn 1 đáp án)",
+        "code": "",
+        "options": [
+          "–128 to 127",
+          "–(2 ^ 15) to (2 ^ 15) - 1",
+          "0 to 32767",
+          "Platform dependent",
+          "0 to 65535"
+        ],
+        "optionsVi": [
+          "–128 to 127",
+          "–(2 ^ 15) to (2 ^ 15) - 1",
+          "0 to 32767",
+          "Platform dependent",
+          "0 to 65535"
+        ],
+        "answer": 4,
+        "explanation": "E. Achar is really a 16-bit integer behind the scenes, so it supports 2 16 (from 0 to 65535) values."
+      },
+      {
+        "id": "scjp-ch01-009",
+        "originalId": 9,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which three are valid declarations of a float? (Choose three.)",
+        "textVi": "Which three are valid declarations of a float? (Choose three.)",
+        "code": "",
+        "options": [
+          "A và C (A: floatf1=-343 ; & C: floatf3=0x12345 ;)",
+          "A và B (A: floatf1=-343 ; & B: floatf2=3.14 ;)",
+          "B và D (B: floatf2=3.14 ; & D: floatf4=42e7 ;)",
+          "C và F (C: floatf3=0x12345 ; & F: floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1))"
+        ],
+        "optionsVi": [
+          "A và C (A: floatf1=-343 ; & C: floatf3=0x12345 ;)",
+          "A và B (A: floatf1=-343 ; & B: floatf2=3.14 ;)",
+          "B và D (B: floatf2=3.14 ; & D: floatf4=42e7 ;)",
+          "C và F (C: floatf3=0x12345 ; & F: floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1))"
+        ],
+        "answer": 0,
+        "explanation": "A, C, and F. A and C are integer literals (32 bits), and integers can be legally assigned to floats (also 32 bits). F is correct because F is appended to the literal, declaring it as a float rather than adouble (the default for floating point literals). ✗ B, D,a n dE are all doubles. Array Declaration, Construction, and Initialization (Objective 1.1)"
+      },
+      {
+        "id": "scjp-ch01-010",
+        "originalId": 10,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which three are legal array declarations? (Choose three.)",
+        "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ? (Chọn 3 đáp án)",
+        "code": "",
+        "options": [
+          "A và B (A: int[]myScores[] ; & B: char[]myChars ;)",
+          "A và C (A: int[]myScores[] ; & C: int[6]myScores ;)",
+          "C và D (C: int[6]myScores ; & D: DogmyDogs[] ;)",
+          "B và E (B: char[]myChars ; & E: DogmyDogs[7] ;)"
+        ],
+        "optionsVi": [
+          "A và B (A: int[]myScores[] ; & B: char[]myChars ;)",
+          "A và C (A: int[]myScores[] ; & C: int[6]myScores ;)",
+          "C và D (C: int[6]myScores ; & D: DogmyDogs[] ;)",
+          "B và E (B: char[]myChars ; & E: DogmyDogs[7] ;)"
+        ],
+        "answer": 0,
+        "explanation": "A, B, and D. With an array declaration, you can place the brackets to the right or left of the identifier. A looks strange, but it’s perfectly legal to split the brackets in a multidimensional array, and place them on both sides of the identifier. Although coding this way would only annoy your fellow programmers, for the exam, you need to know it’s legal. ✗ C and E are wrong because you can’t declare an array with a size. The size is only needed when the array is actually instantiated (and the JVM needs to know how much space to allocate for the array, based on the type of array and the size)."
+      },
+      {
+        "id": "scjp-ch01-011",
+        "originalId": 11,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Given the following, how many lines of output will be produced? (Choose one.)",
+        "textVi": "Cho đoạn mã sau, how many lines of output will be produced? (Choose one.)",
+        "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.     int [] [] [] x = new int [3] [] [];\n4.     int i,j;\n5.     x[0] = new int[4][];\n6.     x[1] = new int[2][];\n7.     x[2] = new int[5][];\n8.     for (i=0; i<x.length; i++)\n9.        for (j=0; j<x[i].length; j++) {\n10.           x[i][j] = new int [i + j + 1];\n11.           System.out.println(\"size = \" + x[i][j].length);\n12.        }\n13.     }\n14.  }",
+        "options": [
+          "7",
+          "9",
+          "11",
+          "13",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "7",
+          "9",
+          "11",
+          "13",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. The loops use the array sizes (length). If you think this question is unfairly complicated, get used to it. Question 11 is a good example of the kinds of questions you’ll see on the exam. You should approach complex loop questions by using a pencil and paper and stepping through the loop (or loops, in this case), keeping track of the variable values at each iteration. Tedious, we know, but you can expect a lot of questions like this on the exam. Take your time and recheck your work."
+      },
+      {
+        "id": "scjp-ch01-012",
+        "originalId": 12,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Given the following, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
+        "textVi": "Cho đoạn mã sau, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
+        "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
+        "options": [
+          "A và B và E (A: b2[0][1]=b; & B: b[0][0]=b3; & E: b2[0][1][0][0]=b[0][0];)",
+          "A và C (A: b2[0][1]=b; & C: b2[1][1][0]=b[0][0];)",
+          "C và D và F (C: b2[1][1][0]=b[0][0]; & D: b2[1][2][0]=b; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)",
+          "B và F (B: b[0][0]=b3; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)"
+        ],
+        "optionsVi": [
+          "A và B và E (A: b2[0][1]=b; & B: b[0][0]=b3; & E: b2[0][1][0][0]=b[0][0];)",
+          "A và C (A: b2[0][1]=b; & C: b2[1][1][0]=b[0][0];)",
+          "C và D và F (C: b2[1][1][0]=b[0][0]; & D: b2[1][2][0]=b; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)",
+          "B và F (B: b[0][0]=b3; & F: b2[0][1]=big; 50 Chapter 1: Language Fundamentals)"
+        ],
+        "answer": 0,
+        "explanation": "A, B, E, and F. This question covers the issue of, “What can I assign to an array reference variable?” The key is to get the dimensions right. For example, if an array is declared as a two-dimensional array, you can’t assign a one-dimensional array to a one-dimensional array reference. ✗ C is wrong because it tries to assign a primitive byte where a byte array (one dimension) is expected. D is wrong because it tries to assign a two-dimensional array where a one-dimensional array is expected."
+      },
+      {
+        "id": "scjp-ch01-013",
+        "originalId": 13,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which two will declare an array and initialize it with five numbers? (Choose two.)",
+        "textVi": "Which two will declare an array and initialize it with five numbers? (Choose two.)",
+        "code": "",
+        "options": [
+          "B và D (B: int[]a={23,22,21,20,19} ; & D: intarray[]=newint[5] ;)",
+          "A và B (A: Arraya=newArray(5) ; & B: int[]a={23,22,21,20,19} ;)",
+          "A và C (A: Arraya=newArray(5) ; & C: int[]array ;)",
+          "D và F (D: intarray[]=newint[5] ; & F: int[5]array ;)"
+        ],
+        "optionsVi": [
+          "B và D (B: int[]a={23,22,21,20,19} ; & D: intarray[]=newint[5] ;)",
+          "A và B (A: Arraya=newArray(5) ; & B: int[]a={23,22,21,20,19} ;)",
+          "A và C (A: Arraya=newArray(5) ; & C: int[]array ;)",
+          "D và F (D: intarray[]=newint[5] ; & F: int[5]array ;)"
+        ],
+        "answer": 0,
+        "explanation": "B and D. Both are legal ways to declare and initialize an array with five elements. ✗ A is wrong because it shows an example of instantiating a class named Array, passing the integer value 5 to the object’s constructor. If you don’t see the brackets, you can be 56 Chapter 1: Language Fundamentals certain there is no actual array object! In other words, an Array object (instance of class Array) is not the same as an array object. C is wrong because it shows a legal array declaration, but with no initialization. E is wrong (and will not compile) because the initialization uses parens () rather than brackets. F is wrong (and will not compile) because it declares an array with a size. Arrays must never be given a size when declared."
+      },
+      {
+        "id": "scjp-ch01-014",
+        "originalId": 14,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which will legally declare, construct, and initialize an array? (Choose one.)",
+        "textVi": "Which will legally declare, construct, and initialize an array? (Choose one.)",
+        "code": "",
+        "options": [
+          "int[]myList={“1”,“2”,“3”} ;",
+          "int[]myList=(5,8,2) ;",
+          "intmyList[][]={4,9,7,0} ;",
+          "intmyList[]={4,3,7} ;",
+          "int[]myList=[3,5,6] ;",
+          "intmyList[]={4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+        ],
+        "optionsVi": [
+          "int[]myList={“1”,“2”,“3”} ;",
+          "int[]myList=(5,8,2) ;",
+          "intmyList[][]={4,9,7,0} ;",
+          "intmyList[]={4,3,7} ;",
+          "int[]myList=[3,5,6] ;",
+          "intmyList[]={4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+        ],
+        "answer": 3,
+        "explanation": "D. The only legal array declaration and assignment statement is D. ✗ A is wrong because it initializes an int array with String literals. B and E are wrong because they use something other than curly braces for the initialization. C is wrong because it provides initial values for only one dimension, although the declared array is a two-dimensional array. F is wrong because it uses semicolons where it should use commas, to separate the items in the initialization. Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+      },
+      {
+        "id": "scjp-ch01-015",
+        "originalId": 15,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
+        "textVi": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
+        "code": "",
+        "options": [
+          "A và C và D (A: int -> 0 & C: Dog -> null & D: char -> ‘\\u0000’)",
+          "A và B (A: int -> 0 & B: String -> “null”)",
+          "B và E và F (B: String -> “null” & E: float -> 0.0f & F: boolean -> true)",
+          "C và F (C: Dog -> null & F: boolean -> true)"
+        ],
+        "optionsVi": [
+          "A và C và D (A: int -> 0 & C: Dog -> null & D: char -> ‘\\u0000’)",
+          "A và B (A: int -> 0 & B: String -> “null”)",
+          "B và E và F (B: String -> “null” & E: float -> 0.0f & F: boolean -> true)",
+          "C và F (C: Dog -> null & F: boolean -> true)"
+        ],
+        "answer": 0,
+        "explanation": "A, C, D, and E. ✗ B is wrong because the default value for a String (and any other object reference) is null, with no quotes. F is wrong because the default value for boolean elements isfalse."
+      },
+      {
+        "id": "scjp-ch01-016",
+        "originalId": 16,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Given the following, what is the result? (Choose one.)",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+        "code": "1.  public class TestDogs {\n2.     public static void main(String [] args) {\n3.        Dog [][] theDogs = new Dog[3][];\n4.        System.out.println(theDogs[2][0].toString());\n5.     }\n6.  }\n7.\n8.  class Dog {}",
+        "options": [
+          "null",
+          "theDogs",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "null",
+          "theDogs",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 3,
+        "explanation": "D. The second dimension of the array referenced by theDogs has not been initialized. Attempting to access an uninitialized object element (line 4) raises a NullPointerException."
+      },
+      {
+        "id": "scjp-ch01-017",
+        "originalId": 17,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Given the following, and the command line invocation is java X a b what is the result? (Choose one.)",
+        "textVi": "Cho đoạn mã sau, and the command line invocation is java X a b Kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
+        "code": "1.  public class X {\n2.     public static void main(String [] args) {\n3.        String names [] = new String[5];\n4.           for (int x=0; x < args.length; x++)\n5.              names[x] = args[x];\n6.           System.out.println(names[2]);\n7.     }\n8.  }",
+        "options": [
+          "names",
+          "null",
+          "Compilation fails",
+          "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+        ],
+        "optionsVi": [
+          "names",
+          "null",
+          "Lỗi biên dịch (Compilation fails)",
+          "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+        ],
+        "answer": 1,
+        "explanation": "B. The names array is initialized with five null elements. Then elements 0 and 1 are assigned the String values “a” and “b” respectively (the command-line arguments passed to main). Elements 2, 3, and 4 remain unassigned, so they have a value of null. Command-line Arguments to Main (Objective 4.3)"
+      },
+      {
+        "id": "scjp-ch01-018",
+        "originalId": 18,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Given the following, and the command-line invocation, java CommandArgs 1 2 3 4 what is the result?",
+        "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgs 1 2 3 4 Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }\n52 Chapter 1: Language Fundamentals",
+        "options": [
+          "args[2]=2",
+          "args[2]=3",
+          "args[2]=null",
+          "args[2]=1",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "args[2]=2",
+          "args[2]=3",
+          "args[2]=null",
+          "args[2]=1",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 5,
+        "explanation": "F. An exception is thrown because at line 6, the array index (the fifth element) is out of bounds. The exception thrown is the cleverly named ArrayIndexOutOfBoundsException."
+      },
+      {
+        "id": "scjp-ch01-019",
+        "originalId": 19,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Given the following, and the command-line invocation, java CommandArgsTwo 1 2 3 what is the result?",
+        "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgsTwo 1 2 3 Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  public class CommandArgsTwo {\n2.     public static void main(String [] argh) {\n3.        String [] args;\n4.        int x;\n5.        x = argh.length;\n6.        for (int y = 1; y <= x; y++) {\n7.           System.out.print(\" \" + argh[y]);\n8.        }\n9.     }\n10.  }",
+        "options": [
+          "012",
+          "123",
+          "000",
+          "nullnullnull",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "012",
+          "123",
+          "000",
+          "nullnullnull",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 5,
+        "explanation": "F. An exception is thrown because at some point in line 7, the value of x will be equal to y, resulting in an attempt to access an index out of bounds for the array. Remember that you can access only as far as length-1, so loop logical tests should use x<someArray.length as opposed tox<=someArray.length ."
+      },
+      {
+        "id": "scjp-ch01-020",
+        "originalId": 20,
+        "chapterNum": 1,
+        "chapterTitle": "Language Fundamentals",
+        "topic": "javacore",
+        "text": "Given the following, and the command-line invocation, java CommandArgsThree 1 2 3 what is the result?",
+        "textVi": "Cho đoạn mã sau, and the command-line invocation, java CommandArgsThree 1 2 3 Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  public class CommandArgsThree {\n2.     public static void main(String [] args) {\n3.        String [][] argCopy = new String[2][2];\n4.        int x;\n5.        argCopy[0] = args;\n6.        x = argCopy[0].length;\n7.        for (int y = 0; y < x; y++) {\n8.           System.out.print(\" \" + argCopy[0][y]);\n9.        }\n10.     }\n11.  }",
+        "options": [
+          "00",
+          "12",
+          "000",
+          "123",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "00",
+          "12",
+          "000",
+          "123",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 3,
+        "explanation": "D. In line 5, the reference variable argCopy[0], which was referring to an array with two elements, is reassigned to an array (args) with three elements. EXERCISE ANSWERS Exercise 1.1: Command-Line Arguments to Main Your completed code should look something like the following: public class MainTest { public static void main (String [] args) { for (int i = 0;i < args.length;i++) { System.out.println(args[i]); } System.out.println(\"Total words: \" + args.length); } } Exercise Answers 57"
+      }
+    ]
+  },
+  {
+    "slug": "scjp-ch02",
+    "title": "SCJP Ch2: Declarations & Access Control",
+    "description": "15 câu hỏi Self Test Chương 2: Ch2: Declarations & Access Control (Kathy Sierra & Bert Bates).",
+    "color": "#7c3aed",
+    "icon": "🛡️",
+    "order": 22,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 2,
+    "questions": [
+      {
+        "id": "scjp-ch02-001",
+        "originalId": 1,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+        "textVi": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+        "code": "",
+        "options": [
+          "public",
+          "abstract",
+          "protected",
+          "synchronized",
+          "default access"
+        ],
+        "optionsVi": [
+          "public",
+          "abstract",
+          "protected",
+          "synchronized",
+          "default access"
+        ],
+        "answer": 4,
+        "explanation": "E.defaultaccess is the “package oriented” access modifier. ✗ A and C are wrong becausepublic andprotected are less restrictive. B and D are wrong becauseabstract andsynchronized are not access modifiers."
+      },
+      {
+        "id": "scjp-ch02-002",
+        "originalId": 2,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+        "textVi": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+        "code": "",
+        "options": [
+          "final",
+          "static",
+          "private",
+          "protected",
+          "volatile",
+          "default access"
+        ],
+        "optionsVi": [
+          "final",
+          "static",
+          "private",
+          "protected",
+          "volatile",
+          "default access"
+        ],
+        "answer": 2,
+        "explanation": "C. Theprivate access modifier limits access to members of the same class. ✗ A, B, D, E, and F are wrong becauseprotected anddefault are the wrong access modifiers, andfinal,static ,a n dvolatile are modifiers but not access modifiers."
+      },
+      {
+        "id": "scjp-ch02-003",
+        "originalId": 3,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Given the following, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+        "textVi": "Cho đoạn mã sau, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+        "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
+        "options": [
+          "A và C (A: The code will compile with no changes. & C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.)",
+          "A và B (A: The code will compile with no changes. & B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.)",
+          "B và D (B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile. & D: As long as line 8 exists, class A must declare methodm1() in some way.)",
+          "C và F (C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile. & F: If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.)"
+        ],
+        "optionsVi": [
+          "A và C (A: The code will compile with no changes. & C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.)",
+          "A và B (A: The code will compile with no changes. & B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.)",
+          "B và D (B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile. & D: As long as line 8 exists, class A must declare methodm1() in some way.)",
+          "C và F (C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile. & F: If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.)"
+        ],
+        "answer": 0,
+        "explanation": "A, C, and E. A and C are correct, because an abstract class does not need to implement any of its superclass’ methods.E is correct because as it stands, it is a valid concrete extension of class A. ✗ B is wrong because anabstract class does not need to implement any of its superclass’ methods. D is wrong because a class that extends another class is free to add new methods. F is wrong because it is legal to extend an abstract class from a concrete class."
+      },
+      {
+        "id": "scjp-ch02-004",
+        "originalId": 4,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+        "textVi": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+        "code": "",
+        "options": [
+          "C và F (C: finalpublicclassTest{} & F: abstractpublicclassTest{})",
+          "A và C (A: finalabstractclassTest{} & C: finalpublicclassTest{})",
+          "A và B (A: finalabstractclassTest{} & B: publicstaticinterfaceTest{})",
+          "E và F (E: protectedinterfaceTest{} & F: abstractpublicclassTest{})"
+        ],
+        "optionsVi": [
+          "C và F (C: finalpublicclassTest{} & F: abstractpublicclassTest{})",
+          "A và C (A: finalabstractclassTest{} & C: finalpublicclassTest{})",
+          "A và B (A: finalabstractclassTest{} & B: publicstaticinterfaceTest{})",
+          "E và F (E: protectedinterfaceTest{} & F: abstractpublicclassTest{})"
+        ],
+        "answer": 0,
+        "explanation": "C, F. Both are legal class declarations. ✗ A is wrong because a class cannot be abstract andfinal—there would be no way to use such a class. B is wrong because interfaces and classes cannot be marked as static. D and E are wrong because classes and interfaces cannot be marked as protected."
+      },
+      {
+        "id": "scjp-ch02-005",
+        "originalId": 5,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+        "textVi": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+        "code": "",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "All of them"
+        ],
+        "optionsVi": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "All of them"
+        ],
+        "answer": 4,
+        "explanation": "E. Statements 1, 2, 4, 5, and 6 are legal declarations. ✗ A, B, C, D, and F are incorrect because the only illegal declaration is 3; transient applies only to variable declarations, not to method declarations. As you can see from these other examples, method declarations can be very extensive."
+      },
+      {
+        "id": "scjp-ch02-006",
+        "originalId": 6,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Given the following, which statement is true?",
+        "textVi": "Cho đoạn mã sau, Phát biểu nào sau đây là ĐÚNG?",
+        "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
+        "options": [
+          "The code compiles and runs, with outputthis420parent420 .",
+          "If line 8 is removed, the code will compile and run.",
+          "If line 10 is removed, the code will compile and run.",
+          "Both lines 8 and 10 must be removed for the code to compile.",
+          "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+        ],
+        "optionsVi": [
+          "The code compiles and runs, with outputthis420parent420 .",
+          "If line 8 is removed, the code will compile and run.",
+          "If line 10 is removed, the code will compile and run.",
+          "Both lines 8 and 10 must be removed for the code to compile.",
+          "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+        ],
+        "answer": 2,
+        "explanation": "C. The ParentUtil instance p cannot be used to access the doStuff() method. Because doStuff() hasprotected access, and the ChildUtil class is not in the same package as the ParentUtil class, doStuff() can be accessed only by instances of the ChildUtil class (a subclass ofParentUtil). ✗ A, B, D, and E are incorrect because of the access rules described previously. Declaration Rules"
+      },
+      {
+        "id": "scjp-ch02-007",
+        "originalId": 7,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   interface Count {\n2.     short counter = 0;\n3.     void countUp();\n4.   }\n5.   public class TestCount implements Count {\n6.\n7.     public static void main(String [] args) {\n8.       TestCount t = new TestCount();\n9.       t.countUp();\n10.    }\n78 Chapter 2: Declarations and Access Control\n11.    public void countUp() {\n12.      for (int x = 6; x>counter; x--, ++counter) {\n13.         System.out.print(\" \" + counter);\n14.      }\n15.    }\n16.  }",
+        "options": [
+          "012",
+          "123",
+          "0123",
+          "1234",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "012",
+          "123",
+          "0123",
+          "1234",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 4,
+        "explanation": "E. The code will not compile because the variable counter is an interface variable that is by defaultfinalstatic . The compiler will complain at line 12 when the code attempts to 84 Chapter 2: Declarations and Access Control incrementcounter. ✗ A, B, C, and D are incorrect because of the explanation given above."
+      },
+      {
+        "id": "scjp-ch02-008",
+        "originalId": 8,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   import java.util.*;\n2.   public class NewTreeSet2 extends NewTreeSet {\n3.     public static void main(String [] args) {\n4.       NewTreeSet2 t = new NewTreeSet2();\n5.       t.count();\n6.     }\n7.   }\n8.   protected class NewTreeSet {\n9.     void count() {\n10.      for (int x = 0; x < 7; x++,x++ ) {\n11.        System.out.print(\" \" + x);\n12.      }\n13.    }\n14.  }",
+        "options": [
+          "024",
+          "0246",
+          "Compilation fails at line 4",
+          "Compilation fails at line 5",
+          "Compilation fails at line 8",
+          "Compilation fails at line 10"
+        ],
+        "optionsVi": [
+          "024",
+          "0246",
+          "Compilation fails at line 4",
+          "Compilation fails at line 5",
+          "Compilation fails at line 8",
+          "Compilation fails at line 10"
+        ],
+        "answer": 4,
+        "explanation": "E. Nonnested classes cannot be marked protected (orfinal for that matter), so the compiler will fail at line 8. ✗ A, B, C, and D are incorrect because of the explanation given above."
+      },
+      {
+        "id": "scjp-ch02-009",
+        "originalId": 9,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Given the following, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+        "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
+        "options": [
+          "B và E (B: importjava.util.*; & E: importjava.util.TreeMap;)",
+          "A và B (A: No statement is required & B: importjava.util.*;)",
+          "A và C (A: No statement is required & C: import.java.util.Tree*;)",
+          "D và E (D: importjava.util.TreeSet; & E: importjava.util.TreeMap;)"
+        ],
+        "optionsVi": [
+          "B và E (B: importjava.util.*; & E: importjava.util.TreeMap;)",
+          "A và B (A: No statement is required & B: importjava.util.*;)",
+          "A và C (A: No statement is required & C: import.java.util.Tree*;)",
+          "D và E (D: importjava.util.TreeSet; & E: importjava.util.TreeMap;)"
+        ],
+        "answer": 0,
+        "explanation": "B and E. TreeMap is the only class that must be imported. TreeSet does not need an import statement because it is described with a fully qualified name. ✗ A is incorrect because TreeMap must be imported. C is incorrect syntax for an import statement. D is incorrect because it will not import TreeMap, which is required."
+      },
+      {
+        "id": "scjp-ch02-010",
+        "originalId": 10,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Which two are valid declarations within an interface? (Choose two.)",
+        "textVi": "Which two are valid declarations within an interface? (Choose two.)",
+        "code": "",
+        "options": [
+          "A và E (A: publicstaticshortstop=23; & E: publicBooleanmadness(longbow);)",
+          "A và B (A: publicstaticshortstop=23; & B: protectedshortstop=23;)",
+          "B và C (B: protectedshortstop=23; & C: transientshortstop=23;)",
+          "E và F (E: publicBooleanmadness(longbow); & F: staticcharmadness(doubleduty);)"
+        ],
+        "optionsVi": [
+          "A và E (A: publicstaticshortstop=23; & E: publicBooleanmadness(longbow);)",
+          "A và B (A: publicstaticshortstop=23; & B: protectedshortstop=23;)",
+          "B và C (B: protectedshortstop=23; & C: transientshortstop=23;)",
+          "E và F (E: publicBooleanmadness(longbow); & F: staticcharmadness(doubleduty);)"
+        ],
+        "answer": 0,
+        "explanation": "A and E are valid interface declarations. ✗ B and C are incorrect because interface variables cannot be either protected or transient. D and F are incorrect because interface methods cannot be final or static."
+      },
+      {
+        "id": "scjp-ch02-011",
+        "originalId": 11,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Which of the following class level (nonlocal) variable declarations will not compile?",
+        "textVi": "Which of the following class level (nonlocal) variable declarations will not compile?",
+        "code": "",
+        "options": [
+          "protectedinta;",
+          "transientintb=3;",
+          "publicstaticfinalintc;",
+          "volatileintd;",
+          "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+        ],
+        "optionsVi": [
+          "protectedinta;",
+          "transientintb=3;",
+          "publicstaticfinalintc;",
+          "volatileintd;",
+          "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+        ],
+        "answer": 4,
+        "explanation": "E will not compile; the synchronized modifier applies only to methods. ✗ A and B will compile because protected andtransient are legal variable modifiers. C will compile because when a variable is declared final it does not have to be initialized with a value at the same time. D will compile because volatile is a proper variable modifier. Interface Implementation"
+      },
+      {
+        "id": "scjp-ch02-012",
+        "originalId": 12,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Given the following, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+        "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
+        "options": [
+          "C và E (C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);} & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})",
+          "A và C (A: classAllMathextendsDoMath{ doublegetArea(intr);} & C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);})",
+          "A và B (A: classAllMathextendsDoMath{ doublegetArea(intr);} & B: interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);})",
+          "D và E (D: classAllMathimplementsMathPlus{ doublegetArea(intrad); } & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})"
+        ],
+        "optionsVi": [
+          "C và E (C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);} & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})",
+          "A và C (A: classAllMathextendsDoMath{ doublegetArea(intr);} & C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);})",
+          "A và B (A: classAllMathextendsDoMath{ doublegetArea(intr);} & B: interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);})",
+          "D và E (D: classAllMathimplementsMathPlus{ doublegetArea(intrad); } & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})"
+        ],
+        "answer": 0,
+        "explanation": "C and E. C are E are correct because interfaces and abstract classes do not need to fully implement the interfaces they extend or implement (respectively). ✗ A is incorrect because a class cannot extend an interface. B is incorrect because an interface cannot implement anything. D is incorrect because the method being implemented is from the wrong interface."
+      },
+      {
+        "id": "scjp-ch02-013",
+        "originalId": 13,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Which three are valid method signatures in an interface? (Choose three.)",
+        "textVi": "Which three are valid method signatures in an interface? (Choose three.)",
+        "code": "",
+        "options": [
+          "B và C (B: publicfloatgetVol(floatx); & C: publicvoidmain(String[]args);)",
+          "A và B (A: privateintgetArea(); & B: publicfloatgetVol(floatx);)",
+          "A và D (A: privateintgetArea(); & D: publicstaticvoidmain(String[]args);)",
+          "C và E (C: publicvoidmain(String[]args); & E: booleansetFlag(Boolean[]test[]);)"
+        ],
+        "optionsVi": [
+          "B và C (B: publicfloatgetVol(floatx); & C: publicvoidmain(String[]args);)",
+          "A và B (A: privateintgetArea(); & B: publicfloatgetVol(floatx);)",
+          "A và D (A: privateintgetArea(); & D: publicstaticvoidmain(String[]args);)",
+          "C và E (C: publicvoidmain(String[]args); & E: booleansetFlag(Boolean[]test[]);)"
+        ],
+        "answer": 0,
+        "explanation": "B, C, and E. These are all valid interface method signatures. ✗ A, is incorrect because an interface method must be public; if it is not explicitly declaredpublic it will be madepublic implicitly. D is incorrect because interface methods cannot bestatic."
+      },
+      {
+        "id": "scjp-ch02-014",
+        "originalId": 14,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+        "textVi": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+        "code": "",
+        "options": [
+          "B và F (B: The class must contain a method calledrun() from which all code for that thread will be initiated. & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)",
+          "A và B (A: You can extend theRunnable interface as long as you override thepublicrun() method. & B: The class must contain a method calledrun() from which all code for that thread will be initiated.)",
+          "A và C (A: You can extend theRunnable interface as long as you override thepublicrun() method. & C: The class must contain an emptypublicvoid method namedrun().)",
+          "E và F (E: The class definition must include the wordsimplementsThreads and contain a method calledrun(). & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)"
+        ],
+        "optionsVi": [
+          "B và F (B: The class must contain a method calledrun() from which all code for that thread will be initiated. & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)",
+          "A và B (A: You can extend theRunnable interface as long as you override thepublicrun() method. & B: The class must contain a method calledrun() from which all code for that thread will be initiated.)",
+          "A và C (A: You can extend theRunnable interface as long as you override thepublicrun() method. & C: The class must contain an emptypublicvoid method namedrun().)",
+          "E và F (E: The class definition must include the wordsimplementsThreads and contain a method calledrun(). & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)"
+        ],
+        "answer": 0,
+        "explanation": "B and F. When a thread’srun() method completes, the thread will die. The run() method must be declared publicvoid and not take any arguments. ✗ A is incorrect because classes can never extend interfaces. C is incorrect because the run() method is typically not empty; if it were, the thread would do nothing. D is incorrect because the mandatory method is run(). E is incorrect because the class implements Runnable."
+      },
+      {
+        "id": "scjp-ch02-015",
+        "originalId": 15,
+        "chapterNum": 2,
+        "chapterTitle": "Declarations and Access Control",
+        "topic": "modifier",
+        "text": "Given the following, which two code fragments will compile? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two code fragments will compile? (Choose two.)",
+        "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
+        "options": [
+          "C và D (C: abstractclassClass2implementsBase{} & D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}})",
+          "A và C (A: interfaceBase2implementsBase{} & C: abstractclassClass2implementsBase{})",
+          "A và B (A: interfaceBase2implementsBase{} & B: abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}})",
+          "D và E (D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}} & E: classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control)"
+        ],
+        "optionsVi": [
+          "C và D (C: abstractclassClass2implementsBase{} & D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}})",
+          "A và C (A: interfaceBase2implementsBase{} & C: abstractclassClass2implementsBase{})",
+          "A và B (A: interfaceBase2implementsBase{} & B: abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}})",
+          "D và E (D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}} & E: classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control)"
+        ],
+        "answer": 0,
+        "explanation": "C and D. C is correct because an abstract class doesn’t have to implement any or all of its interface’s methods.D is correct because the method is correctly implemented ((7 > 4) is aboolean). ✗ A is incorrect because interfaces don’t implement anything.B is incorrect because classes don’t extend interfaces.E is incorrect because interface methods are implicitly public,s ot h e methods being implemented must be public."
+      }
+    ]
+  },
+  {
+    "slug": "scjp-ch03",
+    "title": "SCJP Ch3: Operators & Assignments",
+    "description": "18 câu hỏi Self Test Chương 3: Ch3: Operators & Assignments (Kathy Sierra & Bert Bates).",
+    "color": "#059669",
+    "icon": "➕",
+    "order": 23,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 3,
+    "questions": [
+      {
+        "id": "scjp-ch03-001",
+        "originalId": 1,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Which two are equal? (Choose two.)",
+        "textVi": "Which two are equal? (Choose two.)",
+        "code": "",
+        "options": [
+          "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+          "A và B (A: 32/4; & B: (8>>2)<<4;)",
+          "A và C (A: 32/4; & C: 2^5;)",
+          "D và F (D: 128>>>2; & F: 2>>5;)"
+        ],
+        "optionsVi": [
+          "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+          "A và B (A: 32/4; & B: (8>>2)<<4;)",
+          "A và C (A: 32/4; & C: 2^5;)",
+          "D và F (D: 128>>>2; & F: 2>>5;)"
+        ],
+        "answer": 0,
+        "explanation": "B and D. B and D both evaluate to 32. B is shifting bits right then left using the signed bit shifters >> and <<. D is shifting bits u sing the unsigned operator >>>, but since the beginning number is positive the sign is maintained. A evaluates to 8, C looks like 2 to the 5 th power, but ^ is the Exclusive OR operator so C evaluates to 7. E evaluates to 16, and F e v a l u a t e st o0( 2> >5i sn o t2t ot h e5 th )."
+      },
+      {
+        "id": "scjp-ch03-002",
+        "originalId": 2,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+        "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
+        "options": [
+          "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+          "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+          "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+          "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+        ],
+        "optionsVi": [
+          "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+          "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+          "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+          "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+        ],
+        "answer": 0,
+        "explanation": "B and D. B is correct because class type Ticker is part of the class hierarchy of t; therefore it is a legal use of the instanceof operator. D is also correct because Component is part of the hierarchy of t, because Ticker extends Component in line 2. ✗ A is incorrect because the syntax is wrong. A variable (or null) always appears before the instanceof operator, and a type appears after it. C and E are incorrect because the statement is used as a method, which is illegal. F is incorrect because the String class is not in the hierarchy of the t object."
+      },
+      {
+        "id": "scjp-ch03-003",
+        "originalId": 3,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
+        "options": [
+          "true",
+          "false",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "true",
+          "false",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. The code will not compile because in line 5, the line will work only if we use (x==y ) in the line. The == operator compares values to produce a boolean, whereas the = operator assigns a value to variables. ✗ A, B, and D are incorrect because the code does not get as far as compiling. If we corrected this code, the output would be false."
+      },
+      {
+        "id": "scjp-ch03-004",
+        "originalId": 4,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, which three statements are true? (Choose three.)",
+        "textVi": "Cho đoạn mã sau, which three statements are true? (Choose three.)",
+        "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
+        "options": [
+          "B và D (B: f1==f3 & D: x==f1[0])",
+          "A và B (A: f1==f2 & B: f1==f3)",
+          "A và C (A: f1==f2 & C: f2==f1[1])",
+          "D và E (D: x==f1[0] & E: f==f1[0])"
+        ],
+        "optionsVi": [
+          "B và D (B: f1==f3 & D: x==f1[0])",
+          "A và B (A: f1==f2 & B: f1==f3)",
+          "A và C (A: f1==f2 & C: f2==f1[1])",
+          "D và E (D: x==f1[0] & E: f==f1[0])"
+        ],
+        "answer": 0,
+        "explanation": "B, D, and E. B is correct because the reference variables f1 and f3 refer to the same array object. D is correct because it is legal to compare integer and floating-point types. E is correct because it is legal to compare a variable with an array element. ✗ C is incorrect because f2 is an array object and f1[1] is an array element."
+      },
+      {
+        "id": "scjp-ch03-005",
+        "originalId": 5,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the output from this program?",
+        "textVi": "Cho đoạn mã sau, what is the output from this program?",
+        "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
+        "options": [
+          "-2147483648and1",
+          "0x80000000and0x00000001",
+          "-2147483648and-1",
+          "1and-2147483648",
+          "None of the above"
+        ],
+        "optionsVi": [
+          "-2147483648and1",
+          "0x80000000and0x00000001",
+          "-2147483648and-1",
+          "1and-2147483648",
+          "None of the above"
+        ],
+        "answer": 0,
+        "explanation": "A. The >>> operator moves all bits to the right, zero filling the left bits. The bit transformation looks like this: Before:10000000000000000000000000000000 After:00000000000000000000000000000001 ✗ C is incorrect because the >>> operator zero fills the left bits, which in this case changes the sign of x, as shown. B is incorrect because the output method print() always displays integers in base 10. D is incorrect because this is the reverse order of the two output numbers. E is incorrect because there was a correct answer. 62 Chapter 3: Operators and Assignments"
+      },
+      {
+        "id": "scjp-ch03-006",
+        "originalId": 6,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
+        "options": [
+          "0",
+          "7",
+          "8",
+          "14",
+          "15"
+        ],
+        "optionsVi": [
+          "0",
+          "7",
+          "8",
+          "14",
+          "15"
+        ],
+        "answer": 3,
+        "explanation": "D. The & operator produces a 1 bit when both bits are 1. The result of the & operation is 9. The ^ operator produces a 1 bit when exactly one bit is 1; the result of this operation is 10. The | operator produces a 1 bit when at least one bit is 1; the result of this operation is 14. ✗ A, B, C, and E, are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-007",
+        "originalId": 7,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Which of the following are legal lines of code? (Choose all that apply.)",
+        "textVi": "Which of the following are legal lines of code? (Choose all that apply.)",
+        "code": "",
+        "options": [
+          "A và B và C (A: intw=(int)888.8; & B: bytex=(byte)1000L; & C: longy=(byte)100;)",
+          "A và D (A: intw=(int)888.8; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))",
+          "D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)",
+          "B và D (B: bytex=(byte)1000L; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))"
+        ],
+        "optionsVi": [
+          "A và B và C (A: intw=(int)888.8; & B: bytex=(byte)1000L; & C: longy=(byte)100;)",
+          "A và D (A: intw=(int)888.8; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))",
+          "D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)",
+          "B và D (B: bytex=(byte)1000L; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))"
+        ],
+        "answer": 0,
+        "explanation": "A, B, C, and D. A is correct because when a floating-point number (a double in this case) is cast to an int, it simply loses the digits after the decimal. B and D are correct because a long can be cast into a byte.I ft h elong is over 127, it loses its most significant (leftmost) bits. C actually works, even though a cast is not necessary, because a long can store a byte. ✗ There are no incorrect answer choices. Logical Operators (Sun Objective 5.3)"
+      },
+      {
+        "id": "scjp-ch03-008",
+        "originalId": 8,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+        "options": [
+          "53",
+          "82",
+          "83",
+          "85",
+          "103",
+          "105"
+        ],
+        "optionsVi": [
+          "53",
+          "82",
+          "83",
+          "85",
+          "103",
+          "105"
+        ],
+        "answer": 1,
+        "explanation": "B. The first two iterations of the for loop both x and y are incremented. On the third iteration x is incremented, and for the first time becomes greater than 2. The short circuit or operator || keeps y from ever being incremented again and x is incremented twice on each of the last three iterations. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-009",
+        "originalId": 9,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, What is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+        "options": [
+          "52",
+          "53",
+          "63",
+          "64",
+          "75",
+          "85"
+        ],
+        "optionsVi": [
+          "52",
+          "53",
+          "63",
+          "64",
+          "75",
+          "85"
+        ],
+        "answer": 2,
+        "explanation": "C. In the first two iterations x is incremented once and y is not because of the short circuit && operator. In the third and forth iterations x and y are each incremented, and in the fifth iteration x is doubly incremented and y is incremented. ✗ A, B, D, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-010",
+        "originalId": 10,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
+        "options": [
+          "ok",
+          "dokey",
+          "okdokey",
+          "No output is produced",
+          "Compilation error",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "ok",
+          "dokey",
+          "okdokey",
+          "No output is produced",
+          "Compilation error",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 1,
+        "explanation": "B. The & operator has a higher precedence than the | operator so that on line 6 b1 and b2 are evaluated together as are b2& b3. The final b1 in line 8 is what causes that if test to be true. ✗ A, C, and D are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-011",
+        "originalId": 11,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result of compiling and running this code?",
+        "textVi": "Cho đoạn mã sau, what is the result of compiling and running this code?",
+        "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
+        "options": [
+          "small",
+          "tiny",
+          "huge",
+          "Compilation fails"
+        ],
+        "optionsVi": [
+          "small",
+          "tiny",
+          "huge",
+          "Lỗi biên dịch (Compilation fails)"
+        ],
+        "answer": 1,
+        "explanation": "B. This is an example of a nested ternary operator. The second evaluation (x<22) is true, so the “tiny” value is assigned tosup. ✗ A, C, and D are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-012",
+        "originalId": 12,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
+        "options": [
+          "count=0",
+          "count=2",
+          "count=3",
+          "count=4",
+          "count=10",
+          "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+        ],
+        "optionsVi": [
+          "count=0",
+          "count=2",
+          "count=3",
+          "count=4",
+          "count=10",
+          "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+        ],
+        "answer": 2,
+        "explanation": "C. The reference variables b and x both refer to the same boolean array.Count is incremented for each call to the set() method, and once again when the first if test is true. Because of the && short circuit operator, count is not incremented during the second if test. ✗ A, B, D, E, and F are incorrect based on the program logic described above. 64 Chapter 3: Operators and Assignments Passing Variables into Methods (Sun Objective 5.4)"
+      },
+      {
+        "id": "scjp-ch03-013",
+        "originalId": 13,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class Test {\n2.      static int s;\n3.\n56 Chapter 3: Operators and Assignments\n4.      public static void main(String [] args) {\n5.        Test p = new Test();\n6.        p.start();\n7.        System.out.println(s);\n8.      }\n9.\n10.     void start() {\n11.       int x = 7;\n12.       twice(x);\n13.       System.out.print(x + \" \");\n14.     }\n15.\n16.     void twice(int x) {\n17.       x = x*2;\n18.       s = x;\n19.     }\n20.   }",
+        "options": [
+          "77",
+          "714",
+          "140",
+          "1414",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "77",
+          "714",
+          "140",
+          "1414",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 1,
+        "explanation": "B. Theint x in thetwice() method is not the same int x as in thestart() method.Start()’s x is not affected by the twice() method. The instance variable s is updated bytwice()’sx, which is 14. ✗ A, C, and D are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-014",
+        "originalId": 14,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
+        "options": [
+          "truetrue",
+          "falsetrue",
+          "truefalse",
+          "falsefalse",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "truetrue",
+          "falsetrue",
+          "truefalse",
+          "falsefalse",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 1,
+        "explanation": "B. Theboolean b1 in thefix() method is a different boolean than the b1 in the start() method. The b1 in thestart() method is not updated by the fix() method. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-015",
+        "originalId": 15,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
+        "options": [
+          "slipstream",
+          "slipstreamstream",
+          "streamslipstream",
+          "slipstreamslipstream",
+          "Compilation fails",
+          "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+        ],
+        "optionsVi": [
+          "slipstream",
+          "slipstreamstream",
+          "streamslipstream",
+          "slipstreamslipstream",
+          "Lỗi biên dịch (Compilation fails)",
+          "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+        ],
+        "answer": 3,
+        "explanation": "D. When thefix() method is first entered, start()’ss1 andfix()’ss1 reference variables both refer to the same String object (with a value of “slip”).Fix()’ss1 is reassigned to a new object that is created when the concatenation occurs (this second String object has a value of “slipstream”). When the program returns tostart(), another String object is created, referred to by s2 and with a value of “stream”. ✗ A, B, C, and E are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-016",
+        "originalId": 16,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
+        "options": [
+          "977foo77foo",
+          "723434foo3434foo",
+          "977foo3434foo",
+          "72734foo347foo",
+          "93434foo3434foo"
+        ],
+        "optionsVi": [
+          "977foo77foo",
+          "723434foo3434foo",
+          "977foo3434foo",
+          "72734foo347foo",
+          "93434foo3434foo"
+        ],
+        "answer": 3,
+        "explanation": "D. Because all of these expressions use the + operator, there is no precedence to worry about and all of the expressions will be evaluated from left to right. If either operand being evaluated is a String, the + operator will concatenate the two operands; if both operands are numeric, the + operator will add the two operands. ✗ A, B, C, and E are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-017",
+        "originalId": 17,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n60 Chapter 3: Operators and Assignments\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
+        "options": [
+          "1215",
+          "1515",
+          "345375",
+          "375375",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "1215",
+          "1515",
+          "345375",
+          "375375",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 1,
+        "explanation": "B. The reference variables a1 and a3 refer to the samelong array object. When the [1] element is updated in the fix() method, it is updating the array referred to by a1. The reference variable a2 refers to the same array object. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch03-018",
+        "originalId": 18,
+        "chapterNum": 3,
+        "chapterTitle": "Operators and Assignments",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
+        "options": [
+          "nullnull42",
+          "0042",
+          "04242",
+          "000",
+          "Compilation fails",
+          "An exception is thrown at runtime"
+        ],
+        "optionsVi": [
+          "nullnull42",
+          "0042",
+          "04242",
+          "000",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. In thefix() method, the reference variable tt refers to the same object (class Two) as the t reference variable. Updating tt.x in thefix() method updates t.x (they are one in the same object). Remember also that the instance variable x in the Two class is initialized to 0. ✗ A, B, D, E, and F are incorrect based on the program logic described above. EXERCISE ANSWERS Exercise 3-1: Using Shift Operators The program should look something like the following: class BitShift { public static void main(String [] args) { int x = 0x00000001; // or simply 1 x <<= 31; x >>= 31; System.out.println(\"After shift x equals \" + x); } } The number should now equal -1. In bits, this number is 1111 1111 1111 1111 1111 1111 1111 1111 Exercise 3-2: Casting Primitives The program should look something like the following: class Cast { public static void main(String [] args) { float f = 234.56F; short s = (short)f; } } Exercise Answers 65"
+      }
+    ]
+  },
+  {
+    "slug": "scjp-ch04",
+    "title": "SCJP Ch4: Flow Control & Exceptions",
+    "description": "20 câu hỏi Self Test Chương 4: Ch4: Flow Control & Exceptions (Kathy Sierra & Bert Bates).",
+    "color": "#d97706",
+    "icon": "🔀",
+    "order": 24,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 4,
+    "questions": [
+      {
+        "id": "scjp-ch04-001",
+        "originalId": 1,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+        "options": [
+          "0 1 2",
+          "0 1 2 1 2 2",
+          "Compilation fails at line 7.",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "0 1 2",
+          "0 1 2 1 2 2",
+          "Compilation fails at line 7.",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9.",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. Case expressions must be constant expressions. Since x is markedfinal, lines 8 and 9 are legal; however y is not afinal so the compiler will fail at line 7. ✗ A, B, D, E, and F, are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-002",
+        "originalId": 2,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+        "options": [
+          "0 1 2",
+          "0 1 2 1 2 2",
+          "2 1 0 1 0 0",
+          "2 1 2 0 1 2",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9."
+        ],
+        "optionsVi": [
+          "0 1 2",
+          "0 1 2 1 2 2",
+          "2 1 0 1 0 0",
+          "2 1 2 0 1 2",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9."
+        ],
+        "answer": 3,
+        "explanation": "D. The case expressions are all legal because x is markedfinal, which means the expressions can be evaluated at compile time. In the first iteration of the for loopcase x-2 matches, so 2 is printed. In the second iteration, x-1 is matched so 1 and 2 are printed (remember, once a match is found all remaining statements are executed until a break statement is encountered). In the third iteration,x is matched so01a n d2a r ep r inted. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-003",
+        "originalId": 3,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
+        "options": [
+          "41",
+          "42",
+          "50",
+          "51",
+          "Compiler fails at line 5.",
+          "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+        ],
+        "optionsVi": [
+          "41",
+          "42",
+          "50",
+          "51",
+          "Compiler fails at line 5.",
+          "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+        ],
+        "answer": 3,
+        "explanation": "D. In Java,boolean instance variables are initialized to false,s ot h eif test on line 5 is true andhand is incremented. Line 6 is legal syntax, a do nothing statement. The else-if is true sohand has 7 added to it and is then incremented. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-004",
+        "originalId": 4,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
+        "options": [
+          "0 def 1",
+          "2 1 0 def 1",
+          "2 1 0 def def",
+          "2 1 def 0 def 1",
+          "2 1 2 0 def 1 2",
+          "2 1 0 def 1 def 1"
+        ],
+        "optionsVi": [
+          "0 def 1",
+          "2 1 0 def 1",
+          "2 1 0 def def",
+          "2 1 def 0 def 1",
+          "2 1 2 0 def 1 2",
+          "2 1 0 def 1 def 1"
+        ],
+        "answer": 5,
+        "explanation": "F. Whenz == 0 , case x-2 is matched. Whenz == 1, case x-1 is matched and then the break occurs. Whenz == 2, case x, thendefault, then x-1 are all matched. When z == 3, default, thenx-1 are matched. The rules for default are that it will fall through from above like any other case (for instance whenz == 2), and that it will match when no other cases match (for instance when z= =3 ). ✗ A, B, C, D, and E are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-005",
+        "originalId": 5,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
+        "options": [
+          "0",
+          "1",
+          "101",
+          "111",
+          "1001",
+          "1101 Flow Control (loops) (Sun Objective 2.2)"
+        ],
+        "optionsVi": [
+          "0",
+          "1",
+          "101",
+          "111",
+          "1001",
+          "1101 Flow Control (loops) (Sun Objective 2.2)"
+        ],
+        "answer": 2,
+        "explanation": "C. As instance variables, b1 andb2 are initialized tofalse. The if tests on lines 5 and 6 are successful sob1 is set totrue andx is incremented. The nextif test to succeed is on line 13 (note that the code is not testing to see ifb2 istrue, it is settingb2 to betrue). Since line 13 was successful, subsequent else-if’s(line 14) will be skipped. ✗ A, B, D, E, and F are incorrect based on the program logic described above. Flow Control (loops) (Sun Objective 2.2)"
+      },
+      {
+        "id": "scjp-ch04-006",
+        "originalId": 6,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, Which statement is true?",
+        "textVi": "Cho đoạn mã sau, Phát biểu nào sau đây là ĐÚNG?",
+        "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
+        "options": [
+          "There is a syntax error on line 1.",
+          "There are syntax errors on lines 1 and 4.",
+          "There are syntax errors on lines 1, 4, and 5.",
+          "There is a syntax error on line 4.",
+          "There are syntax errors on lines 4 and 5.",
+          "There is a syntax error on line 5."
+        ],
+        "optionsVi": [
+          "There is a syntax error on line 1.",
+          "There are syntax errors on lines 1 and 4.",
+          "There are syntax errors on lines 1, 4, and 5.",
+          "There is a syntax error on line 4.",
+          "There are syntax errors on lines 4 and 5.",
+          "There is a syntax error on line 5."
+        ],
+        "answer": 3,
+        "explanation": "D. Using the integer 1 in the while statement, or any other looping or conditional construct for that matter, will result in a compiler error. This is old C syntax, not valid Java. ✗ A, B, C, E, and F are incorrect because line 1 is valid (Java is case sensitive so While is a valid class name). Line 5 is also valid because an equation may be placed in a String operation as shown."
+      },
+      {
+        "id": "scjp-ch04-007",
+        "originalId": 7,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+        "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n66 Chapter 4: Flow Control, Exceptions, and Assertions\n5.       }\n6.     }\n7.  }",
+        "options": [
+          "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+          "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+          "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+          "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+        ],
+        "optionsVi": [
+          "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+          "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+          "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+          "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+        ],
+        "answer": 0,
+        "explanation": "D and E. It doesn’t matter whether you preincrement or postincrement the variable in a for loop; it is always incremented after the loop executes and before the iteration expression is evaluated. ✗ A and B are incorrect because the first iteration of the loop must be zero. C is incorrect because the test will fail immediately and the for loop will not be entered."
+      },
+      {
+        "id": "scjp-ch04-008",
+        "originalId": 8,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
+        "options": [
+          "I is 1",
+          "I is 1 I is 1",
+          "No output is produced.",
+          "Compilation error",
+          "I is 1 I is 1 I is 1 in an infinite loop."
+        ],
+        "optionsVi": [
+          "I is 1",
+          "I is 1 I is 1",
+          "No output is produced.",
+          "Compilation error",
+          "I is 1 I is 1 I is 1 in an infinite loop."
+        ],
+        "answer": 2,
+        "explanation": "C. There are two different looping constructs in this problem. The first is a do-while loop and the second is a while loop, nested inside the do-while. The body of the do-while is only a single statement—brackets are not needed. You are assured that the while expression will be evaluated at least once, followed by an evaluation of the do-while expression. Both expressions are false and no output is produced. ✗ A, B, D, and E are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-009",
+        "originalId": 9,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);\n25.\n26.",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "optionsVi": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": 0,
+        "explanation": "A. The program flows as follows: I will be incremented after the while loop is entered, thenI will be incremented (by zero) when the for loop is entered. The if statement evaluates to false, and thecontinue statement is never reached. The break statement tells the JVM to break out of the outer loop, at which point I is printed and the fragment is done. ✗ B, C, and D are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-010",
+        "originalId": 10,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
+        "options": [
+          "I is 0",
+          "I is 0 I is 1",
+          "Compilation fails.",
+          "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+        ],
+        "optionsVi": [
+          "I is 0",
+          "I is 0 I is 1",
+          "Lỗi biên dịch (Compilation fails)",
+          "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+        ],
+        "answer": 2,
+        "explanation": "C. The code will not compile because a continue statement can only occur in a looping construct. If this syntax were legal, the combination of the continue and the if statements would create a kludgey kind of loop, but the compiler will force you to write cleaner code than this. ✗ A, B, and D are incorrect based on the program logic described above. Exceptions (Sun Objectives 2.3 and 2.4)"
+      },
+      {
+        "id": "scjp-ch04-011",
+        "originalId": 11,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+        "textVi": "Cho đoạn mã sau, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+        "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n68 Chapter 4: Flow Control, Exceptions, and Assertions\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
+        "options": [
+          "The code will not compile.",
+          "Code output:Start Hello world File Not Found.",
+          "Code output:Start Hello world End of file exception.",
+          "Code output:Start Hello world Catch Here File not found."
+        ],
+        "optionsVi": [
+          "The code will not compile.",
+          "Code output:Start Hello world File Not Found.",
+          "Code output:Start Hello world End of file exception.",
+          "Code output:Start Hello world Catch Here File not found."
+        ],
+        "answer": 0,
+        "explanation": "A. Line 6 will cause a compiler error. The only legal statements after try blocks are either catch orfinally statements. ✗ B, C, and D are incorrect based on the program logic described above. If line 6 was removed, the code would compile and the correct answer would be B."
+      },
+      {
+        "id": "scjp-ch04-012",
+        "originalId": 12,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
+        "options": [
+          "Nothing. The program will not compile because no exceptions are specified.",
+          "Nothing. The program will not compile because nocatch clauses are specified.",
+          "Hello world.",
+          "Hello world Finally executing"
+        ],
+        "optionsVi": [
+          "Nothing. The program will not compile because no exceptions are specified.",
+          "Nothing. The program will not compile because nocatch clauses are specified.",
+          "Hello world.",
+          "Hello world Finally executing"
+        ],
+        "answer": 3,
+        "explanation": "D.Finally clauses are always executed. The program will first execute the try block, printingHello world, and will then execute the finally block, printingFinally executing. ✗ A, B, and C are incorrect based on the program logic described above. Remember that either acatch or afinally statement must follow a try. Since the finally is present, the catch is not required. 76 Chapter 4: Flow Control, Exceptions, and Assertions"
+      },
+      {
+        "id": "scjp-ch04-013",
+        "originalId": 13,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+        "textVi": "Cho đoạn mã sau, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+        "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
+        "options": [
+          "This program will compile successfully.",
+          "This program fails to compile due to an error at line 4.",
+          "This program fails to compile due to an error at line 6.",
+          "This program fails to compile due to an error at line 9.",
+          "This program fails to compile due to an error at line 13."
+        ],
+        "optionsVi": [
+          "This program will compile successfully.",
+          "This program fails to compile due to an error at line 4.",
+          "This program fails to compile due to an error at line 6.",
+          "This program fails to compile due to an error at line 9.",
+          "This program fails to compile due to an error at line 13."
+        ],
+        "answer": 4,
+        "explanation": "E. Any method (in this case, the main() method) that throws a checked exception (in this case, out.close() ) must be called within a try clause, or the metho d must declare that it throws the exception. Either main() must declare that it throws an exception, or the call toout.close() in thefinally block must fall inside a (in this case nested) try-catch block. ✗ A, B, C, and D are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-014",
+        "originalId": 14,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, which answer most closely indicates the behavior of the program?",
+        "textVi": "Cho đoạn mã sau, which answer most closely indicates the behavior of the program?",
+        "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
+        "options": [
+          "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+          "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+          "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+          "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+        ],
+        "optionsVi": [
+          "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+          "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+          "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+          "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+        ],
+        "answer": 3,
+        "explanation": "D. Once the program throws a RuntimeException (in the throwit() method) that is not caught, thefinally block will be executed and the program will be terminated. If a method does not handle an exception, the finally block is executed before the exception is propagated. ✗ A, B, and C are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-015",
+        "originalId": 15,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
+        "options": [
+          "hello throwit caught",
+          "Compilation fails",
+          "hello throwit RuntimeException caught after",
+          "hello throwit RuntimeException",
+          "hello throwit caught finally after",
+          "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+        ],
+        "optionsVi": [
+          "hello throwit caught",
+          "Lỗi biên dịch (Compilation fails)",
+          "hello throwit RuntimeException caught after",
+          "hello throwit RuntimeException",
+          "hello throwit caught finally after",
+          "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+        ],
+        "answer": 4,
+        "explanation": "E. Themain() method properly catches and handles the RuntimeException in the catch block, finally runs (as it always does), and then the code returns to normal. ✗ A, B, C, D, and F are incorrect based on the program logic described above. Remember that properly handled exceptions do not cause the program to stop executing. Assertions (Sun Objectives 2.5 and 2.6)"
+      },
+      {
+        "id": "scjp-ch04-016",
+        "originalId": 16,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Which of the following statements is true?",
+        "textVi": "Which of the following statements is true?",
+        "code": "",
+        "options": [
+          "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+          "If a switch block has no default, adding an assert default is considered appropriate.",
+          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+          "It is appropriate to handle assertion failures using acatch clause."
+        ],
+        "optionsVi": [
+          "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+          "If a switch block has no default, adding an assert default is considered appropriate.",
+          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+          "It is appropriate to handle assertion failures using acatch clause."
+        ],
+        "answer": 1,
+        "explanation": "B. Adding an assertion statement to a switch statement that previously had no default case is considered an excellent use of the assert mechanism. ✗ A is incorrect because only Java expressions that return a value can be used. For instance, a method that returnsvoid is illegal. C is incorrect because the expression after the colon must have a value. D is incorrect because assertions throw errors and not exceptions, and assertion errors do cause program termination and should not be handled."
+      },
+      {
+        "id": "scjp-ch04-017",
+        "originalId": 17,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Which two of the following statements are true? (Choose two.)",
+        "textVi": "Which two of the following statements are true? (Choose two.)",
+        "code": "",
+        "options": [
+          "A và B (A: It is sometimes good practice to throw an AssertionError explicitly. & B: It is good practice to place assertions where you think execution should never reach.)",
+          "A và C (A: It is sometimes good practice to throw an AssertionError explicitly. & C: Privategetter() andsetter() methods should not use assertions to verify arguments.)",
+          "C và D (C: Privategetter() andsetter() methods should not use assertions to verify arguments. & D: If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.)",
+          "B và E (B: It is good practice to place assertions where you think execution should never reach. & E: It is proper to handle assertion statement failures using a catch (AssertionException ae) block.)"
+        ],
+        "optionsVi": [
+          "A và B (A: It is sometimes good practice to throw an AssertionError explicitly. & B: It is good practice to place assertions where you think execution should never reach.)",
+          "A và C (A: It is sometimes good practice to throw an AssertionError explicitly. & C: Privategetter() andsetter() methods should not use assertions to verify arguments.)",
+          "C và D (C: Privategetter() andsetter() methods should not use assertions to verify arguments. & D: If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.)",
+          "B và E (B: It is good practice to place assertions where you think execution should never reach. & E: It is proper to handle assertion statement failures using a catch (AssertionException ae) block.)"
+        ],
+        "answer": 0,
+        "explanation": "A and B. A is correct because it is sometimes advisable to thrown an assertion error even if assertions have been disabled. B is correct. One of the most common uses of assert statements in debugging is to verify that locations in code that have been designed to be unreachable are in fact never reached. ✗ C is incorrect because it is considered appropriate to check argument values in private methods using assertions. D is incorrect; finally is never bypassed. E is incorrect because AssertionErrors should never be handled."
+      },
+      {
+        "id": "scjp-ch04-018",
+        "originalId": 18,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
+        "options": [
+          "bar",
+          "bar done",
+          "foo done",
+          "bar foo done",
+          "Compilation fails",
+          "An error is thrown at runtime."
+        ],
+        "optionsVi": [
+          "bar",
+          "bar done",
+          "foo done",
+          "bar foo done",
+          "Lỗi biên dịch (Compilation fails)",
+          "An error is thrown at runtime."
+        ],
+        "answer": 4,
+        "explanation": "E. Thefoo() method returnsvoid. It is a perfectly acceptable method, but because it returnsvoid it cannot be used in an assert statement, so line 14 will not compile. ✗ A, B, C, D, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch04-019",
+        "originalId": 19,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Which two of the following statements are true? (Choose two.)",
+        "textVi": "Which two of the following statements are true? (Choose two.)",
+        "code": "",
+        "options": [
+          "C và D (C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time. & D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions)",
+          "A và C (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.)",
+          "A và B (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & B: As of Java version 1.4, assertion statements are compiled by default.)",
+          "D và E (D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions & E: When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags.)"
+        ],
+        "optionsVi": [
+          "C và D (C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time. & D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions)",
+          "A và C (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.)",
+          "A và B (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & B: As of Java version 1.4, assertion statements are compiled by default.)",
+          "D và E (D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions & E: When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags.)"
+        ],
+        "answer": 0,
+        "explanation": "C and D. C is true because multiple VM flags can be used on a single invocation of a Java program. D is true, these are all valid flags for the VM. ✗ A is incorrect because at runtime assertions are ignored by default. B is incorrect because as of Java 1.4 you must add the argument –source 1.4 to the command line if you want the compiler to compile assertion statements. E is incorrect because the VM evaluates all assertion flags left to right."
+      },
+      {
+        "id": "scjp-ch04-020",
+        "originalId": 20,
+        "chapterNum": 4,
+        "chapterTitle": "Flow Control, Exceptions, and Assertions",
+        "topic": "exception",
+        "text": "Given the following, which line is an example of an inappropriate use of assertions?",
+        "textVi": "Cho đoạn mã sau, which line is an example of an inappropriate use of assertions?",
+        "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
+        "options": [
+          "Line 8",
+          "Line 9",
+          "Line 11",
+          "Line 15",
+          "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+        ],
+        "optionsVi": [
+          "Line 8",
+          "Line 9",
+          "Line 11",
+          "Line 15",
+          "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+        ],
+        "answer": 4,
+        "explanation": "E. Assert statements should not cause side effects. Line 18 changes the value of z if the assert statement is false. ✗ A is fine; a second expression in an assert statement is not required. B is fine because it is perfectly acceptable to call a method with the second expression of an assert statement. C is fine because it is proper to call an assert statement conditionally. D is fine because it is considered good form to add a default assert statement to switch blocks that have no default case. EXERCISE ANSWERS Exercise 4.1: Creating a switch-case Statement The code should look something like this: char temp = 'c'; switch(temp) { case 'a': { System.out.println(\"A\"); break; } case 'b': { System.out.println(\"B\"); break; } case 'c': System.out.println(\"C\"); break; default: System.out.println(\"default\"); } 78 Chapter 4: Flow Control, Exceptions, and Assertions Exercise Answers 79 Exercise 4-2: Creating a Labeled while Loop The code should look something like this: class LoopTest { public static void main(String [] args) { int age = 12; outer: while(age < 21) { age += 1; if(age == 16) { System.out.println(\"Obtain driver's license\"); continue outer; } System.out.println(\"Another year.\"); } } } Exercise 4-3: Propagating and Catching an Exception The code should look something like this: class Propagate { public static void main(String [] args) { try { System.out.println(reverse(\"Hello\")); } catch (Exception e) { System.out.println(\"The string was blank\"); } finally { System.out.println(\"All done!\"); } } public static String reverse(String s) throws Exception { if (s.length() == 0 ) { throw new Exception(); } String reverseStr = \"\"; for(int i=s.length()-1;i>=0;--i) { reverseStr += s.charAt(i); } return reverseStr; } } Exercise 4-4: Creating an Exception The code should look something like this: class BadFoodException extends Exception {} class MyException { public static void main(String [] args) { try { checkFood(args[0]); } catch(BadFoodException e) { e. printStackTrace(); } } public static void checkWord(String s) { String [] badFoods = {\"broccoli\",\"brussel sprouts\",\"sardines\"}; for(int i=0;i<badFoods.length;++i) { if (s.equals(badFoods[i])) throw new BadWFoodException(); } System.out.println(s + \" is ok with me.\"); } } 80 Chapter 4: Flow Control, Exceptions, and Assertions"
+      }
+    ]
+  },
+  {
+    "slug": "scjp-ch05",
+    "title": "SCJP Ch5: OOP, Overloading & Constructors",
+    "description": "21 câu hỏi Self Test Chương 5: Ch5: OOP, Overloading & Constructors (Kathy Sierra & Bert Bates).",
+    "color": "#dc2626",
+    "icon": "🧱",
+    "order": 25,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 5,
+    "questions": [
+      {
+        "id": "scjp-ch05-001",
+        "originalId": 1,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, which is true about the class described above?",
+        "textVi": "Cho đoạn mã sau, which is true about the class described above?",
+        "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
+        "options": [
+          "Class Barbell is tightly encapsulated.",
+          "Line 2 is in conflict with encapsulation.",
+          "Line 5 is in conflict with encapsulation.",
+          "Line 8 is in conflict with encapsulation.",
+          "Lines 5 and 8 are in conflict with encapsulation.",
+          "Lines 2, 5, and 8 are in conflict with encapsulation."
+        ],
+        "optionsVi": [
+          "Class Barbell is tightly encapsulated.",
+          "Line 2 is in conflict with encapsulation.",
+          "Line 5 is in conflict with encapsulation.",
+          "Line 8 is in conflict with encapsulation.",
+          "Lines 5 and 8 are in conflict with encapsulation.",
+          "Lines 2, 5, and 8 are in conflict with encapsulation."
+        ],
+        "answer": 3,
+        "explanation": "D. If a class has an instance variable that is marked public, the class cannot be said to be encapsulated. ✗ A, B, C, E, and F are incorrect based on the program logic described above. Public getter and setter methods are compatible with the concept of encapsulation."
+      },
+      {
+        "id": "scjp-ch05-002",
+        "originalId": 2,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, which is true about the classes described above?",
+        "textVi": "Cho đoạn mã sau, which is true about the classes described above?",
+        "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
+        "options": [
+          "Class A is tightly encapsulated.",
+          "Class B is tightly encapsulated.",
+          "Classes A and B are both tightly encapsulated.",
+          "Neither class A nor class B is tightly encapsulated."
+        ],
+        "optionsVi": [
+          "Class A is tightly encapsulated.",
+          "Class B is tightly encapsulated.",
+          "Classes A and B are both tightly encapsulated.",
+          "Neither class A nor class B is tightly encapsulated."
+        ],
+        "answer": 3,
+        "explanation": "D. Class A is clearly not encapsulated because it has a public instance variable. At first glance class B appears to be encapsulated, however because it extends from class A it inherits thepublic instance variable foo, which is not encapsulated. ✗ A, B, and C are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch05-003",
+        "originalId": 3,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Which is true?",
+        "textVi": "Which is true?",
+        "code": "",
+        "options": [
+          "Tightly encapsulated classes are typically easier to reuse.",
+          "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+          "Methods in tightly encapsulated classes cannot be overridden.",
+          "Methods in tightly encapsulated classes cannot be overloaded.",
+          "Tightly encapsulated classes typically do not use HAS-A relationships."
+        ],
+        "optionsVi": [
+          "Tightly encapsulated classes are typically easier to reuse.",
+          "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+          "Methods in tightly encapsulated classes cannot be overridden.",
+          "Methods in tightly encapsulated classes cannot be overloaded.",
+          "Tightly encapsulated classes typically do not use HAS-A relationships."
+        ],
+        "answer": 0,
+        "explanation": "A. One of the main benefits of encapsulation is that encapsulated code is much easier to reuse than unencapsulated code. ✗ B, C, D, and E are incorrect. B is incorrect because inheritance is a concept that is independent of encapsulation. C and D are incorrect because encapsulation does not restrict the use of overloading or overriding.E is incorrect because HAS-A relationships are independent of encapsulation."
+      },
+      {
+        "id": "scjp-ch05-004",
+        "originalId": 4,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Which two are not benefits of encapsulation? (Choose two.)",
+        "textVi": "Which two are not benefits of encapsulation? (Choose two.)",
+        "code": "",
+        "options": [
+          "B và E (B: Code efficiency & E: Access modifiers become optional)",
+          "A và B (A: Clarity of code & B: Code efficiency)",
+          "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+          "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+        ],
+        "optionsVi": [
+          "B và E (B: Code efficiency & E: Access modifiers become optional)",
+          "A và B (A: Clarity of code & B: Code efficiency)",
+          "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+          "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+        ],
+        "answer": 0,
+        "explanation": "B and E. Encapsulation tends to make code more maintainable, extensible, and debuggable, but not necessarily any more efficient at runtime. Encapsulation is a design approach and in no way affects any Java language rules such as the use of access modifiers. ✗ A, C, and D are well-known benefits of encapsulation."
+      },
+      {
+        "id": "scjp-ch05-005",
+        "originalId": 5,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two are true about instances of the classes listed above? (Choose two.)",
+        "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
+        "options": [
+          "C và E (C: A has-a C & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))",
+          "A và C (A: A is-a B & C: A has-a C)",
+          "A và B (A: A is-a B & B: C is-a A)",
+          "D và E (D: B has-a A & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))"
+        ],
+        "optionsVi": [
+          "C và E (C: A has-a C & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))",
+          "A và C (A: A is-a B & C: A has-a C)",
+          "A và B (A: A is-a B & B: C is-a A)",
+          "D và E (D: B has-a A & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))"
+        ],
+        "answer": 0,
+        "explanation": "C and E. C is correct because class A has an instance variable, c, that is a reference to an object of class C. E is correct because class B extends from class A, which HAS-A class C reference, so class B, through inheritance, HAS-A class C. ✗ A, B, and D are incorrect based on the program logic described. A is incorrect because class B extends from class A, not the other way around. B is incorrect because class C is not in class A’s inheritance tree.D is incorrect because class B IS-A class A; HAS-A is not used to describe inheritance relationships. Overriding and Overloading (Sun Objective 6.2)"
+      },
+      {
+        "id": "scjp-ch05-006",
+        "originalId": 6,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
+        "textVi": "Cho đoạn mã sau, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "",
+        "options": [
+          "A",
+          "B",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "A",
+          "B",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 1,
+        "explanation": "B. Reference variable ‘a’i so ft y p eA, but it refers to an object of type B.L i n e9i sa polymorphic call, and the VM will use the version of the baz() method that is in the class that the reference variable refers to at that point. ✗ A, C, and D are incorrect because of the logic described above. 58 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types"
+      },
+      {
+        "id": "scjp-ch05-007",
+        "originalId": 7,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+        "textVi": "Cho đoạn mã sau, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+        "code": "",
+        "options": [
+          "String doStuff(int x) { return \"hello\"; }",
+          "int doStuff(int x) { return 42; }",
+          "public String doStuff(int x) { return \"Hello\"; }",
+          "protected String doStuff(int x) { return \"Hello\"; }",
+          "String doStuff(String s) { return \"Hello\"; }",
+          "int doStuff(String s) { return 42; }"
+        ],
+        "optionsVi": [
+          "String doStuff(int x) { return \"hello\"; }",
+          "int doStuff(int x) { return 42; }",
+          "public String doStuff(int x) { return \"Hello\"; }",
+          "protected String doStuff(int x) { return \"Hello\"; }",
+          "String doStuff(String s) { return \"Hello\"; }",
+          "int doStuff(String s) { return 42; }"
+        ],
+        "answer": 1,
+        "explanation": "B. B is neither a legal override (the return type has been changed) nor a legal overload (the arguments have not changed). ✗ A, C, and D are legal overrides of thedoStuff() method, and E and F are legal overloads of thedoStuff() method."
+      },
+      {
+        "id": "scjp-ch05-008",
+        "originalId": 8,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, What is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
+        "options": [
+          "x = 14",
+          "x = 21",
+          "Compilation fails at line 2.",
+          "Compilation fails at line 11.",
+          "Compilation fails at line 14.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "x = 14",
+          "x = 21",
+          "Compilation fails at line 2.",
+          "Compilation fails at line 11.",
+          "Compilation fails at line 14.",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 4,
+        "explanation": "E. Line 14 is an illegal override of the doStuff() method in ParentClass. When you override a method, you must leave both the arguments and the return types the same. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 14 had returned an int, then B would be correct."
+      },
+      {
+        "id": "scjp-ch05-009",
+        "originalId": 9,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+        "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
+        "options": [
+          "C và E (C: private int doStuff(int x, float y) {return 4; } & E: long doStuff(int x, float y) { return 4; })",
+          "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) {return 4; })",
+          "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) {return 4; })",
+          "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3))"
+        ],
+        "optionsVi": [
+          "C và E (C: private int doStuff(int x, float y) {return 4; } & E: long doStuff(int x, float y) { return 4; })",
+          "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) {return 4; })",
+          "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) {return 4; })",
+          "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3))"
+        ],
+        "answer": 0,
+        "explanation": "C and E. C is an illegal override because the private modifier is more restrictive than doStuff()’s default modifier in class Over.E is an illegal override because you can’t change an overridden method’s return type, orE is an illegal overload because you must change an overloaded method’s arguments. ✗ A and B are simple overrides (protected is less restrictive than default). D and F are simple overloads (swapping arguments of different types creates an overload). Instantiation and Constructors (Sun Objectives 6.3 and 1.3)"
+      },
+      {
+        "id": "scjp-ch05-010",
+        "originalId": 10,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
+        "options": [
+          "instantiate a child",
+          "instantiate a parent",
+          "instantiate a child instantiate a parent",
+          "instantiate a parent instantiate a child",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "instantiate a child",
+          "instantiate a parent",
+          "instantiate a child instantiate a parent",
+          "instantiate a parent instantiate a child",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 3,
+        "explanation": "D. The class Child constructor calls the class Parent constructor implicitly before any code in the Child constructor runs. When the class Parent constructor’s code runs, it prints the first line of output, finishes, and returns control to the Child constructor, which prints out its line of output and finishes. The call to super() is redundant. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch05-011",
+        "originalId": 11,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
+        "options": [
+          "instantiate a child",
+          "instantiate a parent",
+          "instantiate a child instantiate a parent",
+          "instantiate a parent instantiate a child",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "instantiate a child",
+          "instantiate a parent",
+          "instantiate a child instantiate a parent",
+          "instantiate a parent instantiate a child",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 4,
+        "explanation": "E. Line 17 will cause the compiler to fail. The call tosuper() must be the first statement in a constructor. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 17 were removed, D would be correct."
+      },
+      {
+        "id": "scjp-ch05-012",
+        "originalId": 12,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
+        "options": [
+          "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+          "super 2 sub",
+          "Compilation fails at line 2.",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9.",
+          "Compilation fails at line 14."
+        ],
+        "optionsVi": [
+          "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+          "super 2 sub",
+          "Compilation fails at line 2.",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9.",
+          "Compilation fails at line 14."
+        ],
+        "answer": 1,
+        "explanation": "B. Class MySuper does not need a no-args constructor because MySub explicitly calls the MySuper constructor with an argument. ✗ A is incorrect because other than the implicit calls to super(), constructors run in order from base class to extended class, so MySuper’s output will print first.C, D, E,and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch05-013",
+        "originalId": 13,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
+        "options": [
+          "4",
+          "4 8",
+          "8 4",
+          "8 4 no-arg",
+          "no-arg 8 4",
+          "Compilation fails."
+        ],
+        "optionsVi": [
+          "4",
+          "4 8",
+          "8 4",
+          "8 4 no-arg",
+          "no-arg 8 4",
+          "Lỗi biên dịch (Compilation fails)"
+        ],
+        "answer": 4,
+        "explanation": "E. Themain() method calls the long constructor which calls the int constructor, which calls the no-arg constructor, which runs, then returns to the int constructor, which runs, then returns to the long constructor, which runs last. ✗ A, B, C, D, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch05-014",
+        "originalId": 14,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
+        "options": [
+          "no-arg",
+          "8 4 no-arg",
+          "no-arg 8 4",
+          "Compilation fails.",
+          "No output is produced.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "no-arg",
+          "8 4 no-arg",
+          "no-arg 8 4",
+          "Lỗi biên dịch (Compilation fails)",
+          "No output is produced.",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 4,
+        "explanation": "E. The class elements declared in lines 5, 8, and 12 are badly named methods, not constructors. The default constructor runs with no output, and these methods are never called. ✗ A, B, C, D, and F are incorrect because of the logic described above."
+      },
+      {
+        "id": "scjp-ch05-015",
+        "originalId": 15,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following,",
+        "textVi": "Cho đoạn mã sau, ",
+        "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
+        "options": [
+          "Beagle() { }",
+          "Beagle() { super(); }",
+          "Beagle() { super(\"fido\"); }",
+          "No constructor, allow the default constructor"
+        ],
+        "optionsVi": [
+          "Beagle() { }",
+          "Beagle() { super(); }",
+          "Beagle() { super(\"fido\"); }",
+          "No constructor, allow the default constructor"
+        ],
+        "answer": 2,
+        "explanation": "C. Only C is correct because the Dog class does not have a no-arg constructor; therefore, you must explicitly make the call to super(), passing in a string. ✗ A, B, and D are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch05-016",
+        "originalId": 16,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Which two of these statements are true about constructors? (Choose two.)",
+        "textVi": "Which two of these statements are true about constructors? (Choose two.)",
+        "code": "",
+        "options": [
+          "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))",
+          "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+          "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+          "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))"
+        ],
+        "optionsVi": [
+          "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))",
+          "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+          "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+          "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))"
+        ],
+        "answer": 0,
+        "explanation": "B and D are simply stating two rules about constructors. ✗ A is wrong because subclass constructors do not have to match the arguments of the superclass constructor. Only the call to super() must match. C is incorrect because constructors can be and are frequently overloaded. Return Types (Sun Objective 1.4)"
+      },
+      {
+        "id": "scjp-ch05-017",
+        "originalId": 17,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, which line of code, inserted at line 19, will not compile?",
+        "textVi": "Cho đoạn mã sau, which line of code, inserted at line 19, will not compile?",
+        "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
+        "options": [
+          "short y = 7;",
+          "int y = (int) 7.2d;",
+          "Byte y = 7;",
+          "char y = 's';",
+          "int y = 0xface;"
+        ],
+        "optionsVi": [
+          "short y = 7;",
+          "int y = (int) 7.2d;",
+          "Byte y = 7;",
+          "char y = 's';",
+          "int y = 0xface;"
+        ],
+        "answer": 2,
+        "explanation": "C. Byte is a wrapper object, not a primitive. ✗ A and D are primitives that are shorter than int so they are cast implicitly. B is a double explicitly cast to an int. E is a valid integer initialized with a hexadecimal value."
+      },
+      {
+        "id": "scjp-ch05-018",
+        "originalId": 18,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+        "code": "14.    long test( int x, float y) {\n15.\n16.    }",
+        "options": [
+          "B và E (B: return (long) x / y; & E: return ( y / x );)",
+          "A và B (A: return x; & B: return (long) x / y;)",
+          "A và C (A: return x; & C: return (long) y;)",
+          "E và F (E: return ( y / x ); & F: return  x / 7;)"
+        ],
+        "optionsVi": [
+          "B và E (B: return (long) x / y; & E: return ( y / x );)",
+          "A và B (A: return x; & B: return (long) x / y;)",
+          "A và C (A: return x; & C: return (long) y;)",
+          "E và F (E: return ( y / x ); & F: return  x / 7;)"
+        ],
+        "answer": 0,
+        "explanation": "B and E. B won’t compile because thelong cast only applies to x, not to the expression x / y. (We know it’s tricky, but so is the test.)E won’t compile because the result of (y / x) is a float. ✗ A, C, D, and F all return either longs or ints (which are automatically cast to longs)."
+      },
+      {
+        "id": "scjp-ch05-019",
+        "originalId": 19,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+        "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n54 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+        "options": [
+          "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+          "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+          "A và B (A: return null; & B: Object t = new Object(); return t;)",
+          "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+        ],
+        "optionsVi": [
+          "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+          "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+          "A và B (A: return null; & B: Object t = new Object(); return t;)",
+          "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+        ],
+        "answer": 0,
+        "explanation": "D and F. D is a reference to a char primitive that happens to be in an array. F returns a primitive, not an object. ✗ A, B, C, and E all return objects. For A,null is always a valid object return. For C,a n array is an object that holds other things (either objects or primitives). For E, we are returning an array held in an array, and it’s still an object!"
+      },
+      {
+        "id": "scjp-ch05-020",
+        "originalId": 20,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+        "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+        "options": [
+          "B và F (B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types & F: return (Float) 4.3;)",
+          "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types)",
+          "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+          "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+        ],
+        "optionsVi": [
+          "B và F (B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types & F: return (Float) 4.3;)",
+          "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types)",
+          "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+          "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+        ],
+        "answer": 0,
+        "explanation": "B and F are both attempting to cast a primitive to an object—can’t do it. ✗ A, C, D, and E all return objects. A is an array object that holds other arrays. C is an array object. D is an ArrayList object. E is a string cast to an object."
+      },
+      {
+        "id": "scjp-ch05-021",
+        "originalId": 21,
+        "chapterNum": 5,
+        "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+        "topic": "oop",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
+        "options": [
+          "Bar Bar Bar Bar Bar Bar",
+          "Foo Bar Foo Bar Foo Bar",
+          "Foo Foo Foo Foo Foo Foo",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "Bar Bar Bar Bar Bar Bar",
+          "Foo Bar Foo Bar Foo Bar",
+          "Foo Foo Foo Foo Foo Foo",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 1,
+        "explanation": "B. Line 8 is an example of a polymorphic return type. The VM will determine on a case- by-case basis what class of object f2 refers to, Bar or Foo. This is only possible because the classes Foo and Bar are in the same inheritance tree. ✗ A, C, D, and E, are incorrect based on the logic described above."
+      }
+    ]
+  },
+  {
+    "slug": "scjp-ch06",
+    "title": "SCJP Ch6: Java.lang, Strings & Wrappers",
+    "description": "19 câu hỏi Self Test Chương 6: Ch6: Java.lang, Strings & Wrappers (Kathy Sierra & Bert Bates).",
+    "color": "#2563eb",
+    "icon": "🔤",
+    "order": 26,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 6,
+    "questions": [
+      {
+        "id": "scjp-ch06-001",
+        "originalId": 1,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
+        "options": [
+          "abcdefghi",
+          "abcdefdef",
+          "abcghidef",
+          "abcghighi",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "abcdefghi",
+          "abcdefdef",
+          "abcghidef",
+          "abcghighi",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. After line 5 executes, both s2 and s3 refer to a String object that contains the value “def”. When line 6 executes, a new String object is created with the value “ghi”, to whichs2 refers. The reference variable s3 still refers to the (immutable) String object with the value “def”. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-002",
+        "originalId": 2,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
+        "options": [
+          "abcXyZ",
+          "abcxyz",
+          "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+          "XyZabc",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "abcXyZ",
+          "abcxyz",
+          "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+          "XyZabc",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. Line 12 creates a new String object with the value “XYZ”, but this new object is immediately lost because there is no reference to it. Line 13 creates a new String object referenced by y. This new String object has the value “xyz” because there was no “Y” in the String object referred to by x. Line 14 creates a new String object, appends “abc” to the value “xyz”, and refersy to the result. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-003",
+        "originalId": 3,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, how many String objects have been created?",
+        "textVi": "Cho đoạn mã sau, how many String objects have been created?",
+        "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "optionsVi": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": 2,
+        "explanation": "C. Line 13 creates two, one referred to by x and the lost String “xyz”. Line 14 creates one (for a total of three). Line 15 creates one more (for a total of four), the concatenated String referred to by x with a value of “xyzabc”. ✗ A, B, and D are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-004",
+        "originalId": 4,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
+        "options": [
+          "apa",
+          "app",
+          "apea",
+          "apep",
+          "papp",
+          "papa"
+        ],
+        "optionsVi": [
+          "apa",
+          "app",
+          "apea",
+          "apep",
+          "papp",
+          "papa"
+        ],
+        "answer": 1,
+        "explanation": "B. Bothsubstring() andcharAt() methods are indexed with a zero-base, and substring() returns a String of length arg2 – arg1. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-005",
+        "originalId": 5,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
+        "options": [
+          "wookkeewoo",
+          "wbookkeeper",
+          "wbookkeewoo",
+          "wbookkeeperwoo",
+          "Compilation fails.",
+          "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+        ],
+        "optionsVi": [
+          "wookkeewoo",
+          "wbookkeeper",
+          "wbookkeewoo",
+          "wbookkeeperwoo",
+          "Lỗi biên dịch (Compilation fails)",
+          "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+        ],
+        "answer": 4,
+        "explanation": "E. In line 7 the code calls a StringBuffer method, append() on a String object. ✗ A, B, C, D, and F are incorrect based on the logic described above. Math (Exam Objective 8.1)"
+      },
+      {
+        "id": "scjp-ch06-006",
+        "originalId": 6,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
+        "options": [
+          "same results 0 time(s)",
+          "same results 2 time(s)",
+          "same results 4 time(s)",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "same results 0 time(s)",
+          "same results 2 time(s)",
+          "same results 4 time(s)",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 1,
+        "explanation": "B.Math.round() adds .5 to the argument then performs a floor(). Since the code adds an additional .5 before round() is called, it’s as if we are adding 1 then doing a floor(). The values that start out as integer values will in effect be incremented by 1 on the round() side but not on theceil() side, and the noninteger values will end up equal. ✗ A, C, D, and E are incorrect based on the logic described above. 50 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers"
+      },
+      {
+        "id": "scjp-ch06-007",
+        "originalId": 7,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+        "textVi": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+        "code": "",
+        "options": [
+          "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+          "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+          "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+          "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+        ],
+        "optionsVi": [
+          "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+          "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+          "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+          "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+        ],
+        "answer": 0,
+        "explanation": "A, B, and D. Themax() method is overloaded to take two arguments of type int, long, float,o r double. ✗ C is incorrect because the max() method only takes two arguments."
+      },
+      {
+        "id": "scjp-ch06-008",
+        "originalId": 8,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+        "textVi": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+        "code": "",
+        "options": [
+          "B và C (B: The result is greater than or equal to 0.0.. & C: The result is less than 1.0.)",
+          "A và B (A: The result is less than 0.0. & B: The result is greater than or equal to 0.0..)",
+          "A và D (A: The result is less than 0.0. & D: The result is greater than 1.0.)",
+          "C và F (C: The result is less than 1.0. & F: The result is less than or equal to 1.0.)"
+        ],
+        "optionsVi": [
+          "B và C (B: The result is greater than or equal to 0.0.. & C: The result is less than 1.0.)",
+          "A và B (A: The result is less than 0.0. & B: The result is greater than or equal to 0.0..)",
+          "A và D (A: The result is less than 0.0. & D: The result is greater than 1.0.)",
+          "C và F (C: The result is less than 1.0. & F: The result is less than or equal to 1.0.)"
+        ],
+        "answer": 0,
+        "explanation": "B and C. The result range for random() is 0.0 to < 1.0; 1.0 is not in range. ✗ A, D, E, and F are incorrect based on the logic above."
+      },
+      {
+        "id": "scjp-ch06-009",
+        "originalId": 9,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
+        "options": [
+          "3.0",
+          "–3.0",
+          "NaN",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "3.0",
+          "–3.0",
+          "NaN",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. Thesqrt() method returnsNaN (not a number) when it’s argument is less than zero. ✗ A, B, D, and E are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-010",
+        "originalId": 10,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "textVi": "Cho đoạn mã sau, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+        "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
+        "options": [
+          "Line 3",
+          "Line 4",
+          "Line 5",
+          "Line 6",
+          "Line 3 and either line 4, 5, or 6",
+          "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+        ],
+        "optionsVi": [
+          "Line 3",
+          "Line 4",
+          "Line 5",
+          "Line 6",
+          "Line 3 and either line 4, 5, or 6",
+          "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+        ],
+        "answer": 2,
+        "explanation": "C. The Math class’ trigonometry methods expect their arguments to be in radians, not degrees. Line 5 can be decoded: “Convert 75 (degrees) into radians, then find the sine of that result.” ✗ A, B, D, E, and F are incorrect based on the logic described above. Wrappers (Exam Objective 8.3)"
+      },
+      {
+        "id": "scjp-ch06-011",
+        "originalId": 11,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, which two lines will cause compiler errors? (Choose two.)",
+        "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
+        "options": [
+          "B và D (B: Line 4 & D: Line 6)",
+          "A và B (A: Line 3 & B: Line 4)",
+          "A và C (A: Line 3 & C: Line 5)",
+          "D và F (D: Line 6 & F: Line 8)"
+        ],
+        "optionsVi": [
+          "B và D (B: Line 4 & D: Line 6)",
+          "A và B (A: Line 3 & B: Line 4)",
+          "A và C (A: Line 3 & C: Line 5)",
+          "D và F (D: Line 6 & F: Line 8)"
+        ],
+        "answer": 0,
+        "explanation": "B and D. B is incorrect because the valueOf() method returns an Integer object. D is incorrect because the parseInt() method takes a String. ✗ A, C, E, and F all represent valid syntax. Line 5 takes the String “345” to be octal number, and converts it to an integer value 229."
+      },
+      {
+        "id": "scjp-ch06-012",
+        "originalId": 12,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
+        "options": [
+          "42",
+          "42.5",
+          "43",
+          "badnumber",
+          "Compilation fails.",
+          "An uncaught exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "42",
+          "42.5",
+          "43",
+          "badnumber",
+          "Lỗi biên dịch (Compilation fails)",
+          "An uncaught exception is thrown at runtime."
+        ],
+        "answer": 2,
+        "explanation": "C. All of this code is legal, and line 5 creates a new String with a value of “42.5”. Lines 6 and 7 convert the String to a double and then back again. Line 8 is fun— Math.ceil()’s argument expression is evaluated first. We invoke the valueOf() method that returns an anonymous Double object (with a value of 42.5). Then the doubleValue() method is called (invoked on the newly created Double object), and returns a double primitive (there and back again), with a value of (you guessed it) 42.5. The ceil() method converts this to 43.0, which is cast to an int and assigned to x. We know, we know, but stuff like this is on the exam. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-013",
+        "originalId": 13,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
+        "options": [
+          "z",
+          "xz",
+          "yz",
+          "xyz",
+          "Compilation fails.",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "z",
+          "xz",
+          "yz",
+          "xyz",
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 4,
+        "explanation": "E. The compiler fails at line 10 because b1 is a reference variable to a Boolean wrapper object, not a boolean primitive. Logical boolean tests can’t be made on Boolean objects. ✗ A, B, C, D, and F are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-014",
+        "originalId": 14,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+        "textVi": "Cho đoạn mã sau, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+        "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
+        "options": [
+          "A và B (A: floatf1=Float.floatValue(s); & B: floatf2=Float.valueOf(s);)",
+          "A và C (A: floatf1=Float.floatValue(s); & C: floatf3=newFloat(3.14f).floatValue();)",
+          "C và D (C: floatf3=newFloat(3.14f).floatValue(); & D: floatf4=Float.parseFloat(1.23f);)",
+          "B và F (B: floatf2=Float.valueOf(s); & F: floatf6=(float)Double.parseDouble(\"3.14\");)"
+        ],
+        "optionsVi": [
+          "A và B (A: floatf1=Float.floatValue(s); & B: floatf2=Float.valueOf(s);)",
+          "A và C (A: floatf1=Float.floatValue(s); & C: floatf3=newFloat(3.14f).floatValue();)",
+          "C và D (C: floatf3=newFloat(3.14f).floatValue(); & D: floatf4=Float.parseFloat(1.23f);)",
+          "B và F (B: floatf2=Float.valueOf(s); & F: floatf6=(float)Double.parseDouble(\"3.14\");)"
+        ],
+        "answer": 0,
+        "explanation": "A, B, and D. A won’t compile because thefloatValue() method is an instance method that takes no arguments. B won’t compile because thevalueOf() method returns a wrapper object. D won’t compile because theparseFloat() method takes a String. ✗ C, E,a n dF are all legal (if not terribly useful) ways to return a primitive float. 52 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers"
+      },
+      {
+        "id": "scjp-ch06-015",
+        "originalId": 15,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
+        "options": [
+          "9.0",
+          "badnumber",
+          "Compilation fails on line 13.",
+          "Compilation fails on line 14.",
+          "Compilation fails on lines 13 and 14.",
+          "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+        ],
+        "optionsVi": [
+          "9.0",
+          "badnumber",
+          "Compilation fails on line 13.",
+          "Compilation fails on line 14.",
+          "Compilation fails on lines 13 and 14.",
+          "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+        ],
+        "answer": 0,
+        "explanation": "A is correct. ThexxxValue() methods convert any numeric wrapper object’s value to any primitive type. When narrowing is necessary, significant bits are dropped and the results are difficult to calculate. ✗ B, C, D, E, and F are incorrect based on the logic described above. Equals() (Exam Objective 5.2)"
+      },
+      {
+        "id": "scjp-ch06-016",
+        "originalId": 16,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
+        "options": [
+          "result=1",
+          "result=10",
+          "result=11",
+          "result=11010",
+          "result=11011",
+          "result=11111"
+        ],
+        "optionsVi": [
+          "result=1",
+          "result=10",
+          "result=11",
+          "result=11010",
+          "result=11011",
+          "result=11111"
+        ],
+        "answer": 1,
+        "explanation": "B. Line 12 fails because == compares reference values, not object values. Line 13 succeeds because both String and primitive wrapper constructors resolve to the same value (except for the Character wrapper). Lines 14, 15, and 16 fail because the equals() method fails if the object classes being compared are different and not in the same tree hierarchy. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-017",
+        "originalId": 17,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
+        "options": [
+          "0",
+          "1",
+          "10",
+          "1100",
+          "10001",
+          "10010"
+        ],
+        "optionsVi": [
+          "0",
+          "1",
+          "10",
+          "1100",
+          "10001",
+          "10010"
+        ],
+        "answer": 5,
+        "explanation": "F. Line 10 fails because b1 and b2 are two different objects. Lines 11 and 14 succeed because the Boolean String constructors are case insensitive. Lines 12 and 13 fail because true is not equal tofalse. ✗ A, B, C, D, and E are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-018",
+        "originalId": 18,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
+        "options": [
+          "1",
+          "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+          "101",
+          "1001",
+          "1101"
+        ],
+        "optionsVi": [
+          "1",
+          "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+          "101",
+          "1001",
+          "1101"
+        ],
+        "answer": 4,
+        "explanation": "E. Even though o and oc are reference variables of different types, they are both referring to the same object. This means that == will resolve totrue and that the default equals() method will also resolve to true. ✗ A, B, C, and D are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch06-019",
+        "originalId": 19,
+        "chapterNum": 6,
+        "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+        "topic": "string",
+        "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
+        "textVi": "Which two statements are true about wrapper or String classes? (Choose two.)",
+        "code": "",
+        "options": [
+          "D và E (D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)",
+          "A và D (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.)",
+          "A và B (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.)",
+          "C và E (C: If x and y are String references and ifx.equals(y) istrue, then x== y istrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)"
+        ],
+        "optionsVi": [
+          "D và E (D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)",
+          "A và D (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.)",
+          "A và B (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.)",
+          "C và E (C: If x and y are String references and ifx.equals(y) istrue, then x== y istrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)"
+        ],
+        "answer": 0,
+        "explanation": "D and E. D describes an example of the equals() method behaving transitively. By the way, x, y,a n dz will all be the same type of wrapper. E is true because x and y are referring to the same String object. ✗ A is incorrect—the fragment will compile. B is incorrect because x== y means that the two reference variables are referring to the same object. C will only be true if x and y refer to the same String. It is possible for x and y to refer to two different String objects with the same value. EXERCISE ANSWERS Exercise 6-1: Using the Math Class The following code listing is an example of how you might have written code to complete the exercise: class NumberInterrogation { public static void main(String [] argh) { double [] num = {10.5, -10.5, Math.PI, 0}; for(int i=0;i<num.length;++i) { System.out.println(\"abs(\"+num[i]+\")=\"+Math.abs(num[i])); System.out.println(\"ceil(\"+num[i]+\")=\"+Math.ceil(num[i])); System.out.println(\"floor(\"+num[i]+\")=\"+Math.floor(num[i])); System.out.println(); } } } Exercise 6-2: Rounding Random Numbers The following code listing is an example of how you might have written code to complete the exercise: class RandomRound { public static void main(String [] argh) { for(int i=0;i<10;++i) { double num = Math.random() * 100; System.out.print(\"The number \" + num); System.out.println(\" rounds to \" + Math.round(num)); } } } Exercise Answers 53"
+      }
+    ]
+  },
+  {
+    "slug": "scjp-ch07",
+    "title": "SCJP Ch7: Objects & Collections",
+    "description": "15 câu hỏi Self Test Chương 7: Ch7: Objects & Collections (Kathy Sierra & Bert Bates).",
+    "color": "#0891b2",
+    "icon": "📦",
+    "order": 27,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 7,
+    "questions": [
+      {
+        "id": "scjp-ch07-001",
+        "originalId": 1,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Given the following, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+        "textVi": "Cho đoạn mã sau, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+        "code": "12.  if (x1.hashCode() != x2.hashCode() )  x = x + 1;\n13.  if (x3.equals(x4) )  x = x + 10;\n14.  if (!x5.equals(x6) ) x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode() )  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
+        "options": [
+          "x2.equals(x1)",
+          "x3.hashCode() == x4.hashCode()",
+          "x5.hashCode() != x6.hashCode()",
+          "x8.equals(x7)"
+        ],
+        "optionsVi": [
+          "x2.equals(x1)",
+          "x3.hashCode() == x4.hashCode()",
+          "x5.hashCode() != x6.hashCode()",
+          "x8.equals(x7)"
+        ],
+        "answer": 1,
+        "explanation": "B. By contract, if two objects are equivalent according to the equals() method, then thehashCode() method must evaluate them to be ==. ✗ A is incorrect because if the hashCode() values are not equal, the two objects must not be equal. C is incorrect because if equals() is not true there is no guarantee of any result fromhashCode(). D is incorrect because hashCode() will often return == even if the two objects do not evaluate to equals() being true."
+      },
+      {
+        "id": "scjp-ch07-002",
+        "originalId": 2,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Given the following, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } which statement is true?",
+        "textVi": "Cho đoạn mã sau, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } Phát biểu nào sau đây là ĐÚNG?",
+        "code": "",
+        "options": [
+          "class Test1 will not compile.",
+          "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+          "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+          "class Test2 will not compile.",
+          "The twohashcode() methods will have the same efficiency."
+        ],
+        "optionsVi": [
+          "class Test1 will not compile.",
+          "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+          "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+          "class Test2 will not compile.",
+          "The twohashcode() methods will have the same efficiency."
+        ],
+        "answer": 2,
+        "explanation": "C. The so-called “hashing algorithm” implemented by class Test1 will always return the same value, 42, which is legal but which will place all of the hash table entries into a single bucket, the most inefficient setup possible. ✗ A and D are incorrect because these classes are legal. B and E are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch07-003",
+        "originalId": 3,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+        "textVi": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+        "code": "",
+        "options": [
+          "A và D (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & D: If thehashCode() comparison == returnstrue, theequals() method might returntrue.)",
+          "A và B (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & B: If theequals() method returnsfalse, thehashCode() comparison != must return true.)",
+          "B và C (B: If theequals() method returnsfalse, thehashCode() comparison != must return true. & C: If thehashCode() comparison == returnstrue, theequals() method must return true.)",
+          "D và E (D: If thehashCode() comparison == returnstrue, theequals() method might returntrue. & E: If thehashCode() comparison != returnstrue, theequals() method might returntrue.)"
+        ],
+        "optionsVi": [
+          "A và D (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & D: If thehashCode() comparison == returnstrue, theequals() method might returntrue.)",
+          "A và B (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & B: If theequals() method returnsfalse, thehashCode() comparison != must return true.)",
+          "B và C (B: If theequals() method returnsfalse, thehashCode() comparison != must return true. & C: If thehashCode() comparison == returnstrue, theequals() method must return true.)",
+          "D và E (D: If thehashCode() comparison == returnstrue, theequals() method might returntrue. & E: If thehashCode() comparison != returnstrue, theequals() method might returntrue.)"
+        ],
+        "answer": 0,
+        "explanation": "A and D. A is a restatement of the equals() andhashCode() contract. D is true because if thehashCode() comparison returns ==, the two objects might or might not be equal. ✗ B, C, and E are incorrect. B and C are incorrect because the hashCode() method is very flexible in its return values, and often two dissimilar objects can return the same hash code value. E is a negation of the hashCode() andequals() contract."
+      },
+      {
+        "id": "scjp-ch07-004",
+        "originalId": 4,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+        "textVi": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+        "code": "",
+        "options": [
+          "java.lang.String",
+          "java.lang.Double",
+          "java.lang.StringBuffer",
+          "java.lang.Character",
+          "java.util.ArrayList"
+        ],
+        "optionsVi": [
+          "java.lang.String",
+          "java.lang.Double",
+          "java.lang.StringBuffer",
+          "java.lang.Character",
+          "java.util.ArrayList"
+        ],
+        "answer": 2,
+        "explanation": "C. java.lang.StringBuffer is the only class in the list that uses the default methods provided by class Object. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch07-005",
+        "originalId": 5,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "What two statements are true about properly overridden hashCode() andequals() methods?",
+        "textVi": "What two statements are true about properly overridden hashCode() andequals() methods?",
+        "code": "",
+        "options": [
+          "C và E (C: hashCode() can always return the same value, regardless of the object that invoked it. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))",
+          "A và C (A: hashCode() doesn’t have to be overridden ifequals() is. & C: hashCode() can always return the same value, regardless of the object that invoked it.)",
+          "A và B (A: hashCode() doesn’t have to be overridden ifequals() is. & B: equals() doesn’t have to be overridden ifhashCode() is.)",
+          "D và E (D: If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))"
+        ],
+        "optionsVi": [
+          "C và E (C: hashCode() can always return the same value, regardless of the object that invoked it. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))",
+          "A và C (A: hashCode() doesn’t have to be overridden ifequals() is. & C: hashCode() can always return the same value, regardless of the object that invoked it.)",
+          "A và B (A: hashCode() doesn’t have to be overridden ifequals() is. & B: equals() doesn’t have to be overridden ifhashCode() is.)",
+          "D và E (D: If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))"
+        ],
+        "answer": 0,
+        "explanation": "C and E are correct. ✗ A, B, and D are incorrect. A and B are incorrect because by contract hashCode() and equals() can’t be overridden unless both are overridden.D is incorrect;hashCode() will often return the same value when hashing dissimilar objects. Using Collections (Exam Objective 9.1)"
+      },
+      {
+        "id": "scjp-ch07-006",
+        "originalId": 6,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+        "textVi": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+        "code": "",
+        "options": [
+          "java.util.HashSet",
+          "java.util.LinkedHashSet",
+          "java.util.List",
+          "java.util.ArrayList",
+          "java.util.Vector"
+        ],
+        "optionsVi": [
+          "java.util.HashSet",
+          "java.util.LinkedHashSet",
+          "java.util.List",
+          "java.util.ArrayList",
+          "java.util.Vector"
+        ],
+        "answer": 3,
+        "explanation": "D. All of the collection classes allow you to grow or shrink the size of your collection. ArrayList provides an index to its elements. The newer collection classes tend not to have synchronized methods. Vector is an older implementation of ArrayList functionality and has synchronized methods; it is slower than ArrayList. ✗ A, B, C, and E are incorrect based on the logic described above; C, List is an interface."
+      },
+      {
+        "id": "scjp-ch07-007",
+        "originalId": 7,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+        "textVi": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+        "code": "",
+        "options": [
+          "java.util.SortedMap",
+          "java.util.TreeMap",
+          "java.util.TreeSet",
+          "java.util.HashMap",
+          "java.util.Hashtable"
+        ],
+        "optionsVi": [
+          "java.util.SortedMap",
+          "java.util.TreeMap",
+          "java.util.TreeSet",
+          "java.util.HashMap",
+          "java.util.Hashtable"
+        ],
+        "answer": 4,
+        "explanation": "E. Hashtable is the only class listed that provides synchronized methods. If you need synchronization great; otherwise, use HashMap, it’s faster. ✗ A, B, C, and D are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch07-008",
+        "originalId": 8,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "12.    TreeSet map = new TreeSet();\n13.    map.add(\"one\");\n14.    map.add(\"two\");\n15.    map.add(\"three\");\n16.    map.add(\"four\");\n17.    map.add(\"one\");\n18.    Iterator it = map.iterator();\n19.    while (it.hasNext() ) {\n20.        System.out.print( it.next() + \" \" );\n21.     }",
+        "options": [
+          "one two three four",
+          "four three two one",
+          "four one three two",
+          "one two three four one",
+          "one four three two one",
+          "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+        ],
+        "optionsVi": [
+          "one two three four",
+          "four three two one",
+          "four one three two",
+          "one two three four one",
+          "one four three two one",
+          "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+        ],
+        "answer": 2,
+        "explanation": "C. TreeSet assures no duplicate entries; also, when it is accessed it will return elements in natural order, which typically means alphabetical. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch07-009",
+        "originalId": 9,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+        "textVi": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+        "code": "",
+        "options": [
+          "java.util.ArrayList",
+          "java.util.LinkedHashMap",
+          "java.util.HashMap",
+          "java.util.TreeMap",
+          "java.util.LinkedHashSet",
+          "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+        ],
+        "optionsVi": [
+          "java.util.ArrayList",
+          "java.util.LinkedHashMap",
+          "java.util.HashMap",
+          "java.util.TreeMap",
+          "java.util.LinkedHashSet",
+          "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+        ],
+        "answer": 1,
+        "explanation": "B. LinkedHashMap is the collection class used for caching purposes. FIFO is another way to indicate caching behavior. To retrieve LinkedHashMap elements in cached order, use the values() method and iterate over the resultant collection. ✗ A, C, D, E, and E are incorrect based on the logic described above. Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+      },
+      {
+        "id": "scjp-ch07-010",
+        "originalId": 10,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Given the following,",
+        "textVi": "Cho đoạn mã sau, ",
+        "code": "1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nAfter line 6 runs. how many objects are eligible for garbage collection?",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "optionsVi": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": 1,
+        "explanation": "B. By the time line 6 has run, the only object without a reference is the one generated as a result of line 4. Remember that “Java is pass by value,” so the reference variablex is not affected by them1() method. ✗ A, C, D, and E are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch07-011",
+        "originalId": 11,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Which statement is true?",
+        "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+        "code": "",
+        "options": [
+          "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+          "Objects with at least one reference will never be garbage collected.",
+          "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+          "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+          "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+        ],
+        "optionsVi": [
+          "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+          "Objects with at least one reference will never be garbage collected.",
+          "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+          "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+          "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+        ],
+        "answer": 3,
+        "explanation": "D. All objects are placed in the garbage collectible heap. ✗ A is incorrect because the garbage collector makes no guarantees. B is incorrect because islands of isolated objects can exist. C is incorrect because finalize() has no such mystical powers. E is incorrect because within a finalize() method, an object’s reference can be passed back to a live thread."
+      },
+      {
+        "id": "scjp-ch07-012",
+        "originalId": 12,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Given the following,",
+        "textVi": "Cho đoạn mã sau, ",
+        "code": "1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nafter line 9 runs, how many objects are eligible for garbage collection?",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "optionsVi": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": 2,
+        "explanation": "C. This is an example of the islands of isolated objects . By the time line 9 has run, the objects instantiated in lines 4 and 5 are referring to each other, but no live thread can reach either of them. ✗ A, B, D, and E are incorrect based on the logic described above."
+      },
+      {
+        "id": "scjp-ch07-013",
+        "originalId": 13,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Which statement is true?",
+        "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+        "code": "",
+        "options": [
+          "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+          "The garbage collector uses a mark and sweep algorithm.",
+          "If an object can be accessed from a live thread, it can’t be garbage collected.",
+          "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+        ],
+        "optionsVi": [
+          "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+          "The garbage collector uses a mark and sweep algorithm.",
+          "If an object can be accessed from a live thread, it can’t be garbage collected.",
+          "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+        ],
+        "answer": 2,
+        "explanation": "C. This is a great way to think about when objects can be garbage collected. ✗ A and B assume guarantees that the garbage collector never makes. D is wrong because of the now famous islands of isolation scenario."
+      },
+      {
+        "id": "scjp-ch07-014",
+        "originalId": 14,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "Given the following,",
+        "textVi": "Cho đoạn mã sau, ",
+        "code": "12.  X3 x2 = new X3();\n13.  X3 x3 = new X3();\n14.  X3 x5 = x3;\n15.  x3 = x2;\n16.  X3 x4 = x3;",
+        "options": [
+          "C và E (C:  & E: )",
+          "A và C (A:  & C: )",
+          "A và B (A:  & B: )",
+          "E và F (E:  & F: )"
+        ],
+        "optionsVi": [
+          "C và E (C:  & E: )",
+          "A và C (A:  & C: )",
+          "A và B (A:  & B: )",
+          "E và F (E:  & F: )"
+        ],
+        "answer": 0,
+        "explanation": "C and E. By the time line 18 is reached, x2 is null,x3 andx4 refer to the object created in line 12, andx5 refers to the object created in line 13. Any kind of redirection of x5 will leave the second object without a reference. ✗ A, B, and D are incorrect because the first object has two references; changing one of the references will not cause the first object to become unreachable."
+      },
+      {
+        "id": "scjp-ch07-015",
+        "originalId": 15,
+        "chapterNum": 7,
+        "chapterTitle": "Objects and Collections",
+        "topic": "collection",
+        "text": "",
+        "textVi": "",
+        "code": "",
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "optionsVi": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "answer": 0,
+        "explanation": "E is correct. A copy of a reference to the line 13 object is passed to the doStuff2() method. We don’t know what goes on in that method; it’s possible that the reference is passed to other live objects. ✗ A, B, C, and D are incorrect based on the logic described above. 50 Chapter 7: Objects and Collections"
+      }
+    ]
+  },
+  {
+    "slug": "scjp-ch08",
+    "title": "SCJP Ch8: Inner Classes",
+    "description": "12 câu hỏi Self Test Chương 8: Ch8: Inner Classes (Kathy Sierra & Bert Bates).",
+    "color": "#9333ea",
+    "icon": "🪆",
+    "order": 28,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 8,
+    "questions": [
+      {
+        "id": "scjp-ch08-001",
+        "originalId": 1,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Given the following, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+        "textVi": "Cho đoạn mã sau, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+        "code": "",
+        "options": [
+          "MyOuter.MyInnerm=newMyOuter.MyInner();",
+          "MyOuter.MyInnermi=newMyInner();",
+          "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+          "MyInnermi=newMyOuter.MyInner();"
+        ],
+        "optionsVi": [
+          "MyOuter.MyInnerm=newMyOuter.MyInner();",
+          "MyOuter.MyInnermi=newMyInner();",
+          "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+          "MyInnermi=newMyOuter.MyInner();"
+        ],
+        "answer": 0,
+        "explanation": "A. MyInner is a static nested class, so it must be instantiated using the fully-scoped name of MyOuter.MyInner. ✗ B is incorrect because it doesn’t use the enclosing name in thenew. C is incorrect because it uses incorrect syntax. When you instantiate a nested class by invoking new on an instance of the enclosing class, you do not use the enclosing name. The difference between A and C is that C is calling new on an instance of the enclosing class rather than just new by itself. D is incorrect because it doesn’t use the enclosing class name in the variable declaration."
+      },
+      {
+        "id": "scjp-ch08-002",
+        "originalId": 2,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Which two are true about a static nested class?",
+        "textVi": "Which two are true about a static nested class?",
+        "code": "",
+        "options": [
+          "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+          "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+          "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+          "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+        ],
+        "optionsVi": [
+          "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+          "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+          "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+          "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+        ],
+        "answer": 0,
+        "explanation": "B and D. B is correct because a static nested class is not tied to an instance of the enclosing class, and thus can’t access the nonstatic members of the class (just as a static method can’t access nonstatic members of a class).D uses the correct syntax for instantiating a static nested class. ✗ A is incorrect because static nested classes do not need (and can’t use) a reference to an instance of the enclosing class. C is incorrect because static nested classes can declare and define nonstatic members. E is wrong because…it just is. There’s no rule that says an inner or nested class has to extend anything."
+      },
+      {
+        "id": "scjp-ch08-003",
+        "originalId": 3,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Which constructs an anonymous inner class instance?",
+        "textVi": "Which constructs an anonymous inner class instance?",
+        "code": "",
+        "options": [
+          "Runnabler=newRunnable(){};",
+          "Runnabler=newRunnable(publicvoidrun(){});",
+          "Runnabler=newRunnable{publicvoidrun(){}};",
+          "Runnabler=newRunnable(){publicvoidrun{}};",
+          "System.out.println(newRunnable() {publicvoidrun(){}});",
+          "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+        ],
+        "optionsVi": [
+          "Runnabler=newRunnable(){};",
+          "Runnabler=newRunnable(publicvoidrun(){});",
+          "Runnabler=newRunnable{publicvoidrun(){}};",
+          "Runnabler=newRunnable(){publicvoidrun{}};",
+          "System.out.println(newRunnable() {publicvoidrun(){}});",
+          "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+        ],
+        "answer": 4,
+        "explanation": "E is correct. It defines an anonymous inner class instance, which also means it creates an instance of that new anonymous class at the same time. The anonymous class is an implementer of the Runnable interface, so it must override the run() method of Runnable. ý A is incorrect because it doesn’t override therun() method, so it violates the rules of interface implementation. B, C, and D use incorrect syntax."
+      },
+      {
+        "id": "scjp-ch08-004",
+        "originalId": 4,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Given the following, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+        "textVi": "Cho đoạn mã sau, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+        "code": "",
+        "options": [
+          "B và C (B: Boof=newBar(){}; & C: Boof=newBoo(){Strings;};)",
+          "A và B (A: Boof=newBoo(24){}; & B: Boof=newBar(){};)",
+          "A và D (A: Boof=newBoo(24){}; & D: Barf=newBoo(Strings){};)",
+          "C và E (C: Boof=newBoo(){Strings;}; & E: Boof=newBoo.Bar(Strings){};)"
+        ],
+        "optionsVi": [
+          "B và C (B: Boof=newBar(){}; & C: Boof=newBoo(){Strings;};)",
+          "A và B (A: Boof=newBoo(24){}; & B: Boof=newBar(){};)",
+          "A và D (A: Boof=newBoo(24){}; & D: Barf=newBoo(Strings){};)",
+          "C và E (C: Boof=newBoo(){Strings;}; & E: Boof=newBoo.Bar(Strings){};)"
+        ],
+        "answer": 0,
+        "explanation": "B and C. B is correct because anonymous inner classes are no different from any other class when it comes to polymorphism. That means you are always allowed to declare a reference variable of the superclass type and have that reference variable refer to an instance of a subclass type, which in this case is an anonymous subclass of Bar. Since Bar is a subclass of Boo, it all works. C uses correct syntax for creating an instance of Boo. ý A is incorrect because it passes an int to the Boo constructor, and there is no matching constructor in the Boo class. D is incorrect because it violates the rules of polymorphism—you cannot refer to a superclass type using a reference variable declared as the subclass type. The superclass is not guaranteed to have everything the subclass has. E uses incorrect syntax. 34 Chapter 8: Inner Classes"
+      },
+      {
+        "id": "scjp-ch08-005",
+        "originalId": 5,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Given the following, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+        "textVi": "Cho đoạn mã sau, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+        "code": "2.   class Bar{ }\n3.}\n4.class Test {\n5.    public static void main (String [] args) {\n6.       Foo f = new Foo();\n7.       // Insert code here\n8.    }\n9.}",
+        "options": [
+          "Foo.Barb=newFoo.Bar();",
+          "Foo.Barb=f.newBar();",
+          "Barb=newf.Bar();",
+          "Barb=f.newBar();",
+          "Foo.Barb=newf.Bar();"
+        ],
+        "optionsVi": [
+          "Foo.Barb=newFoo.Bar();",
+          "Foo.Barb=f.newBar();",
+          "Barb=newf.Bar();",
+          "Barb=f.newBar();",
+          "Foo.Barb=newf.Bar();"
+        ],
+        "answer": 1,
+        "explanation": "B is correct because the syntax is correct—using both names (the enclosing class and the inner class) in the reference declaration, then using a reference to the enclosing class to invoke new on the inner class. ✗ A, C, D, and E all use incorrect syntax. A is incorrect because it doesn’t use a reference to the enclosing class, and also because it includes both names in the new. C is incorrect because it doesn’t use the enclosing class name in the reference variable declaration, and because the new syntax is wrong. D is incorrect because it doesn’t use the enclosing class name in the reference variable declaration. E is incorrect because the new syntax is wrong."
+      },
+      {
+        "id": "scjp-ch08-006",
+        "originalId": 6,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Which two are true about a method-local inner class?",
+        "textVi": "Which two are true about a method-local inner class?",
+        "code": "",
+        "options": [
+          "B và E (B: It can be markedabstract. & E: It can access private members of the enclosing class.)",
+          "A và B (A: It must be markedfinal. & B: It can be markedabstract.)",
+          "A và C (A: It must be markedfinal. & C: It can be markedpublic.)",
+          "D và E (D: It can be markedstatic. & E: It can access private members of the enclosing class.)"
+        ],
+        "optionsVi": [
+          "B và E (B: It can be markedabstract. & E: It can access private members of the enclosing class.)",
+          "A và B (A: It must be markedfinal. & B: It can be markedabstract.)",
+          "A và C (A: It must be markedfinal. & C: It can be markedpublic.)",
+          "D và E (D: It can be markedstatic. & E: It can access private members of the enclosing class.)"
+        ],
+        "answer": 0,
+        "explanation": "B and E. B is correct because a method-local inner class can be abstract, although it means a subclass of the inner class must be created if the abstract class is to be used (so an abstract method-local inner class is probably not useful). E is correct because a method-local inner class works like any other inner class—it has a special relationship to an instance of the enclosing class, thus it can access all members of the enclosing class. ✗ A is incorrect because a method-local inner class does not have to be declared final (although it is legal to do so). C and D are incorrect because a method-local inner class cannot be madepublic (remember—you cannot mark any local variables as public), orstatic."
+      },
+      {
+        "id": "scjp-ch08-007",
+        "originalId": 7,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Which is true about an anonymous inner class?",
+        "textVi": "Which is true about an anonymous inner class?",
+        "code": "",
+        "options": [
+          "It can extend exactly one class and implement exactly one interface.",
+          "It can extend exactly one class and can implement multiple interfaces.",
+          "It can extend exactly one class or implement exactly one interface.",
+          "It can implement multiple interfaces regardless of whether it also extends a class.",
+          "It can implement multiple interfaces if it does not extend a class."
+        ],
+        "optionsVi": [
+          "It can extend exactly one class and implement exactly one interface.",
+          "It can extend exactly one class and can implement multiple interfaces.",
+          "It can extend exactly one class or implement exactly one interface.",
+          "It can implement multiple interfaces regardless of whether it also extends a class.",
+          "It can implement multiple interfaces if it does not extend a class."
+        ],
+        "answer": 2,
+        "explanation": "C is correct because the syntax of an anonymous inner class allows for only one named type after thenew, and that type must be either a single interface (in which case the anonymous class implements that one interface) or a single class (in which case the anonymous class extends that one class). ✗ A, B, D, and E are all incorrect because they don’t follow the syntax rules described in the response for answer C."
+      },
+      {
+        "id": "scjp-ch08-008",
+        "originalId": 8,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Given the following, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } what is the result?",
+        "textVi": "Cho đoạn mã sau, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "",
+        "options": [
+          "Compilation fails.",
+          "An error occurs at runtime.",
+          "foobarhi",
+          "barhi",
+          "hi 30 Chapter 8: Inner Classes"
+        ],
+        "optionsVi": [
+          "Lỗi biên dịch (Compilation fails)",
+          "An error occurs at runtime.",
+          "foobarhi",
+          "barhi",
+          "hi 30 Chapter 8: Inner Classes"
+        ],
+        "answer": 2,
+        "explanation": "C is correct because first the Foo instance is created, which means the Foo constructor runs and prints “foo”. Next, themakeBar() method is invoked which creates a Bar, which means the Bar constructor runs and prints “bar”, and finally thego() method is invoked on the new Bar instance, which means the go() method prints “hi”. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch08-009",
+        "originalId": 9,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Given the following, 1.public class TestObj { what is the result?",
+        "textVi": "Cho đoạn mã sau, 1.public class TestObj { Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "2.  public static void main (String [] args) {\n3.    Object o = new Object() {\n4.       public boolean equals(Object obj) {\n5.        return true;\n6.       }\n7.    }\n8.     System.out.println(o.equals(\"Fred\"));\n9.   }\n10.}",
+        "options": [
+          "An exception occurs at runtime.",
+          "true",
+          "fred",
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 4.",
+          "Compilation fails because of an error on line 8.",
+          "Compilation fails because of an error on a line other than 3, 4, or 8."
+        ],
+        "optionsVi": [
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+          "true",
+          "fred",
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 4.",
+          "Compilation fails because of an error on line 8.",
+          "Compilation fails because of an error on a line other than 3, 4, or 8."
+        ],
+        "answer": 6,
+        "explanation": "G. This code would be legal if line 7 ended with a semicolon. Remember that line 3 is a statement that doesn’t end until line 7, and a statement needs a closing semicolon! ✗ A, B, C, D, E, and F are incorrect based on the program logic described above. If the semicolon were added at line 7, then answer B would be correct—the program would print “true”, the return from theequals() method overridden by the anonymous subclass of Object."
+      },
+      {
+        "id": "scjp-ch08-010",
+        "originalId": 10,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }",
+        "options": [
+          "An exception occurs at runtime at line 10.",
+          "Zippo",
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 9.",
+          "Compilation fails because of an error on line 10.",
+          "Compilation fails because of an error on line 11."
+        ],
+        "optionsVi": [
+          "An exception occurs at runtime at line 10.",
+          "Zippo",
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 9.",
+          "Compilation fails because of an error on line 10.",
+          "Compilation fails because of an error on line 11."
+        ],
+        "answer": 1,
+        "explanation": "B. The code in the HorseTest class is perfectly legal. Line 9 creates an instance of the method-local inner class Horse, using a reference variable declared as type Object. Line 10 casts the Horse object to a Horse reference variable, which allows line 11 to compile. If line 10 were removed, the HorseTest code would not compile, because class Object does not have a name variable. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+      },
+      {
+        "id": "scjp-ch08-011",
+        "originalId": 11,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }",
+        "options": [
+          "An exception occurs at runtime at line 10.",
+          "Zippo",
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 9.",
+          "Compilation fails because of an error on line 10."
+        ],
+        "optionsVi": [
+          "An exception occurs at runtime at line 10.",
+          "Zippo",
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 9.",
+          "Compilation fails because of an error on line 10."
+        ],
+        "answer": 4,
+        "explanation": "E. This code is identical to the code in question 10, except the casting statement has been removed. If you use a reference variable of type Object, you can access only those members defined in class Object. ✗ A, B, C, and D are incorrect based on the program logic described above and in the previous question."
+      },
+      {
+        "id": "scjp-ch08-012",
+        "originalId": 12,
+        "chapterNum": 8,
+        "chapterTitle": "Inner Classes",
+        "topic": "javacore",
+        "text": "Given the following, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } what is the result?",
+        "textVi": "Cho đoạn mã sau, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "",
+        "options": [
+          "5722",
+          "4538",
+          "4557",
+          "An exception occurs at runtime.",
+          "Compilation fails. 32 Chapter 8: Inner Classes"
+        ],
+        "optionsVi": [
+          "5722",
+          "4538",
+          "4557",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+          "Compilation fails. 32 Chapter 8: Inner Classes"
+        ],
+        "answer": 0,
+        "explanation": "A. You can define an inner class as abstract, which means you can instantiate only concrete subclasses of the abstract inner class. The object referenced by the variable t is an instance of an anonymous subclass of AbstractTest, and the anonymous class overrides the getNum() method to return22. The variable referenced by f is an instance of an anonymous subclass of Bar, and the anonymous Bar subclass also overrides the getNum() method (to return57). Remember that to instantiate a Bar instance, we need an instance of the enclosing AbstractTest class to tie to the new Bar inner class instance. AbstractTest can’t be instantiated because it’s abstract, so we created an anonymous subclass (non-abstract) and then used the instance of that anonymous subclass to tie to the new Bar subclass instance. ✗ B, C, D, E, and F are incorrect based on the program logic described above."
+      }
+    ]
+  },
+  {
+    "slug": "scjp-ch09",
+    "title": "SCJP Ch9: Threads & Synchronization",
+    "description": "21 câu hỏi Self Test Chương 9: Ch9: Threads & Synchronization (Kathy Sierra & Bert Bates).",
+    "color": "#ea580c",
+    "icon": "🧵",
+    "order": 29,
+    "hidden": false,
+    "isScjpChapter": true,
+    "chapterNum": 9,
+    "questions": [
+      {
+        "id": "scjp-ch09-001",
+        "originalId": 1,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1;i<3;++i) {\n10.           System.out.print(i + \"..\");\n11.        }\n12.     }\n13.  }",
+        "options": [
+          "This code will not compile due to line 4.",
+          "This code will not compile due to line 5.",
+          "1..2..",
+          "1..2..3..",
+          "An exception is thrown at runtime."
+        ],
+        "optionsVi": [
+          "This code will not compile due to line 4.",
+          "This code will not compile due to line 5.",
+          "1..2..",
+          "1..2..3..",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 2,
+        "explanation": "C. Line 5 calls therun() method, so therun() method executes as a normal method should. ✗ A is incorrect because line 4 is the proper way to create an object. B is incorrect because it is legal to call the run() method, even though this will not start a true thread of execution. The code after line 5 will not execute until the run() method is complete. D is incorrect because the for loop only does two iterations. E is incorrect because the program runs without exception."
+      },
+      {
+        "id": "scjp-ch09-002",
+        "originalId": 2,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Which two of the following methods are defined in class Thread?",
+        "textVi": "Which two of the following methods are defined in class Thread?",
+        "code": "",
+        "options": [
+          "A và D (A: start() & D: run())",
+          "A và B (A: start() & B: wait())",
+          "B và C (B: wait() & C: notify())",
+          "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+        ],
+        "optionsVi": [
+          "A và D (A: start() & D: run())",
+          "A và B (A: start() & B: wait())",
+          "B và C (B: wait() & C: notify())",
+          "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+        ],
+        "answer": 0,
+        "explanation": "A and D. Onlystart() andrun() are defined by the Thread class. ✗ B and C are incorrect because they are methods of the Object class. E is incorrect because there’s no such method in any thread-related class."
+      },
+      {
+        "id": "scjp-ch09-003",
+        "originalId": 3,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+        "textVi": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+        "code": "",
+        "options": [
+          "public class MyRunnable extends Runnable{public void run(){}}",
+          "public class MyRunnable extends Object{public void run(){}}",
+          "public class MyRunnable implements Runnable{public void run(){}}",
+          "public class MyRunnable implements Runnable{void run(){}}",
+          "public class MyRunnable implements Runnable{public void start(){}}"
+        ],
+        "optionsVi": [
+          "public class MyRunnable extends Runnable{public void run(){}}",
+          "public class MyRunnable extends Object{public void run(){}}",
+          "public class MyRunnable implements Runnable{public void run(){}}",
+          "public class MyRunnable implements Runnable{void run(){}}",
+          "public class MyRunnable implements Runnable{public void start(){}}"
+        ],
+        "answer": 2,
+        "explanation": "C. The class correctly implements the Runnable interface with a legal public void run() method. ✗ A is incorrect because interfaces are not extended; they are implemented. B is incorrect because even though the class would compile and it has a valid public void run() method, it does not implement the Runnable interface, so the compiler would complain when creating a Thread with an instance of it. D is incorrect because the run() method must be public. E is incorrect because the method to implement is run(),n o tstart()."
+      },
+      {
+        "id": "scjp-ch09-004",
+        "originalId": 4,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following, what is the result of this code?",
+        "textVi": "Cho đoạn mã sau, what is the result of this code?",
+        "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.start();\n6.        System.out.print(\"one. \");\n7.        t.start();\n8.        System.out.print(\"two. \");\n9.     }\n10.\n11.     public void run() {\n12.        System.out.print(\"Thread \");\n13.     }\n14.  }",
+        "options": [
+          "Compilation fails",
+          "An exception occurs at runtime.",
+          "Thread one. Thread two.",
+          "The output cannot be determined."
+        ],
+        "optionsVi": [
+          "Lỗi biên dịch (Compilation fails)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+          "Thread one. Thread two.",
+          "The output cannot be determined."
+        ],
+        "answer": 1,
+        "explanation": "B. When thestart() method is attempted a second time on a single Thread object, the method will throw an IllegalThreadStateException (you will not need to know this exception name for the exam). Even if the thread has finished running, it is still illegal to callstart() again. ✗ A is incorrect because compilation will succeed. For the most part, the Java compiler only checks for illegal syntax, rather than class-specific logic. C and D are incorrect because of the logic explained above."
+      },
+      {
+        "id": "scjp-ch09-005",
+        "originalId": 5,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following, which of these will create and start this thread?",
+        "textVi": "Cho đoạn mã sau, which of these will create and start this thread?",
+        "code": "1.  public class MyRunnable implements Runnable {\n2.     public void run() {\n3.        // some code here\n4.     }\n5.  }",
+        "options": [
+          "new Runnable(MyRunnable).start();",
+          "new Thread(MyRunnable).run();",
+          "new Thread(new MyRunnable()).start();",
+          "new MyRunnable().start();"
+        ],
+        "optionsVi": [
+          "new Runnable(MyRunnable).start();",
+          "new Thread(MyRunnable).run();",
+          "new Thread(new MyRunnable()).start();",
+          "new MyRunnable().start();"
+        ],
+        "answer": 2,
+        "explanation": "C. Because the class implements Runnable, an instance of it has to be passed to the Thread constructor, and then the instance of the Thread has to be started. ✗ A is incorrect. There is no constructor like this for Runnable because Runnable is an interface, and it is illegal to pass a class or interface name to any constructor. B is incorrect for the same reason; you can’t pass a class or interface name to any constructor.D is incorrect because MyRunnable doesn’t have astart() method, and the only start() method that can start a thread of execution is the start() in the Thread class. 60 Chapter 9: Threads"
+      },
+      {
+        "id": "scjp-ch09-006",
+        "originalId": 6,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following, what is the result of this code?",
+        "textVi": "Cho đoạn mã sau, what is the result of this code?",
+        "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        Thread x = new Thread(t);\n6.        x.start();\n7.     }\n8.\n9.     public void run() {\n10.        for(int i=0;i<3;++i) {\n11.           System.out.print(i + \"..\");\n12.        }\n13.     }\n14.  }",
+        "options": [
+          "Compilation fails.",
+          "1..2..3..",
+          "0..1..2..3..",
+          "0..1..2..",
+          "An exception occurs at runtime."
+        ],
+        "optionsVi": [
+          "Lỗi biên dịch (Compilation fails)",
+          "1..2..3..",
+          "0..1..2..3..",
+          "0..1..2..",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        ],
+        "answer": 3,
+        "explanation": "D. The thread MyThread will start and loop three times (from 0 to 2). ✗ A is incorrect because the Thread class implements the Runnable interface; therefore, in line 5, Thread can take an object of type Thread as an argument in the constructor. B and C are incorrect because the variable i in the for loop starts with a value of 0 and ends with a value of 2. E is incorrect because of the program logic described above."
+      },
+      {
+        "id": "scjp-ch09-007",
+        "originalId": 7,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following,",
+        "textVi": "Cho đoạn mã sau, ",
+        "code": "1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0;i<lines.length;i++){\n9.           System.out.println(lines[i]);\n10.           Thread.currentThread().sleep(1000);\n52 Chapter 9: Threads\n11.        }\n12.     }\n13.  }\nthe static methodThread.currentThread()returns a reference to the currently executing\nThread object. What is the result of this code?",
+        "options": [
+          "Each String in the array lines will output, with a 1-second pause.",
+          "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+          "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+          "This code will not compile."
+        ],
+        "optionsVi": [
+          "Each String in the array lines will output, with a 1-second pause.",
+          "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+          "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+          "This code will not compile."
+        ],
+        "answer": 3,
+        "explanation": "D. Thesleep() method must be enclosed in a try/catch block, or the method printAll() must declare itthrows the InterruptedException. ✗ A is incorrect, but it would be correct if the InterruptedException was dealt with. B is incorrect, but it would still be incorrect if the InterruptedException was dealt with because all Java code, including the main() method, runs in threads. C is incorrect. Thesleep() method is static, so even if it is called on an instance, it still always affects the currently executing thread."
+      },
+      {
+        "id": "scjp-ch09-008",
+        "originalId": 8,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+        "textVi": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+        "code": "",
+        "options": [
+          "B và F (B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})",
+          "A và B (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;})",
+          "A và C (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & C: public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}})",
+          "E và F (E: public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})"
+        ],
+        "optionsVi": [
+          "B và F (B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})",
+          "A và B (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;})",
+          "A và C (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & C: public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}})",
+          "E và F (E: public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})"
+        ],
+        "answer": 0,
+        "explanation": "B and F. By marking the methods as synchronized, the threads will get the lock of the this object before proceeding. Only one thread will be either setting or reading at any given moment, thereby assuring that read() always returns the addition of a valid pair. ✗ A is incorrect because it is not synchronized; therefore, there is no guarantee that the values added by theread() method belong to the same pair. C and D are incorrect; only objects can be used to synchronize on. E is incorrect because it is not possible to select other objects to synchronize on when declaring a method assynchronized. Even usingthis is incorrect syntax."
+      },
+      {
+        "id": "scjp-ch09-009",
+        "originalId": 9,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+        "textVi": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+        "code": "",
+        "options": [
+          "Object",
+          "Thread",
+          "Runnable",
+          "Class"
+        ],
+        "optionsVi": [
+          "Object",
+          "Thread",
+          "Runnable",
+          "Class"
+        ],
+        "answer": 0,
+        "explanation": "A. The Object class defines these thread-specific methods. ✗ B, C, and D are incorrect because they do not define these methods. And yes, the Java API does define a class called Class, though you do not need to know it for the exam."
+      },
+      {
+        "id": "scjp-ch09-010",
+        "originalId": 10,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Which two are true?",
+        "textVi": "Which two are true?",
+        "code": "",
+        "options": [
+          "B và E (B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads & E: When a thread invokeswait(), it releases its locks.)",
+          "A và B (A: A static method cannot be synchronized. & B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads)",
+          "A và C (A: A static method cannot be synchronized. & C: Variables can be protected from concurrent access problems by marking them with the synchronized keyword.)",
+          "D và E (D: When a thread sleeps, it releases its locks. & E: When a thread invokeswait(), it releases its locks.)"
+        ],
+        "optionsVi": [
+          "B và E (B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads & E: When a thread invokeswait(), it releases its locks.)",
+          "A và B (A: A static method cannot be synchronized. & B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads)",
+          "A và C (A: A static method cannot be synchronized. & C: Variables can be protected from concurrent access problems by marking them with the synchronized keyword.)",
+          "D và E (D: When a thread sleeps, it releases its locks. & E: When a thread invokeswait(), it releases its locks.)"
+        ],
+        "answer": 0,
+        "explanation": "B and E. B is correct because multiple threads are allowed to enter nonsynchronized code, even within a class that has some synchronized methods. E is correct because a wait() call causes the thread to give up its locks. ✗ A is incorrect because static methods can be synchronized; they synchronize on the lock on the instance of class java.lang.Class that represents the class type. C is incorrect because only methods—not variables—can be marked synchronized. D is incorrect because a sleeping thread still maintains its locks."
+      },
+      {
+        "id": "scjp-ch09-011",
+        "originalId": 11,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Which three are methods of the Object class? (Choose three.)",
+        "textVi": "Which three are methods of the Object class? (Choose three.)",
+        "code": "",
+        "options": [
+          "A và B (A: notify(); & B: notifyAll();)",
+          "A và C (A: notify(); & C: isInterrupted();)",
+          "C và D (C: isInterrupted(); & D: synchronized();)",
+          "B và H (B: notifyAll(); & H: yield();)"
+        ],
+        "optionsVi": [
+          "A và B (A: notify(); & B: notifyAll();)",
+          "A và C (A: notify(); & C: isInterrupted();)",
+          "C và D (C: isInterrupted(); & D: synchronized();)",
+          "B và H (B: notifyAll(); & H: yield();)"
+        ],
+        "answer": 0,
+        "explanation": "A, B, and F. They are all related to the list of threads waiting on the specified object. ✗ C, E, G, and H are incorrect answers. The methods isInterrupted() and interrupt() are instance methods of Thread. The methods sleep() andyield() are static methods of Thread. D is incorrect because synchronized is a keyword and the synchronized() construct is part of the Java language."
+      },
+      {
+        "id": "scjp-ch09-012",
+        "originalId": 12,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following, what is the result of trying to compile and run this program?",
+        "textVi": "Cho đoạn mã sau, what is the result of trying to compile and run this program?",
+        "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.        }\n11.        System.out.print(\"3 \");\n12.     }\n13.  }",
+        "options": [
+          "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+          "1 2 3",
+          "1 3",
+          "1 2",
+          "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+          "It will fail to compile because it has to be synchronized on the this object."
+        ],
+        "optionsVi": [
+          "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+          "1 2 3",
+          "1 3",
+          "1 2",
+          "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+          "It will fail to compile because it has to be synchronized on the this object."
+        ],
+        "answer": 3,
+        "explanation": "D. 1 and 2 will be printed, but there will be no return from the wait call because no other thread will notify the main thread, so 3 will never be printed. The program is essentially frozen at line 7. ✗ A is incorrect; IllegalMonitorStateException is an unchecked exception so it doesn’t have to be dealt with explicitly. B and C are incorrect; 3 will never be printed, since this program will never terminate because it will wait forever. E is incorrect because IllegalMonitorStateException will never be thrown because the wait() is done on args within a block of code synchronized on args.F is incorrect because any object can be used to synchronize on and, furthermore, there is no this when running a static method."
+      },
+      {
+        "id": "scjp-ch09-013",
+        "originalId": 13,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+        "textVi": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+        "code": "",
+        "options": [
+          "After thread A is notified, or after two seconds.",
+          "After the lock on B is released, or after two seconds.",
+          "Two seconds after thread A is notified.",
+          "Two seconds after lock B is released."
+        ],
+        "optionsVi": [
+          "After thread A is notified, or after two seconds.",
+          "After the lock on B is released, or after two seconds.",
+          "Two seconds after thread A is notified.",
+          "Two seconds after lock B is released."
+        ],
+        "answer": 0,
+        "explanation": "A. Either of the two events (notification or wait time expiration) will make the thread become a candidate for running again. ✗ B is incorrect because a waiting thread will not return to runnable when the lock is released, unless a notification occurs.C is incorrect because the thread will become a candidate immediately after notification, not two seconds afterwards.D is also incorrect because a thread will not come out of a waiting pool just because a lock has been released."
+      },
+      {
+        "id": "scjp-ch09-014",
+        "originalId": 14,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Which two are true?",
+        "textVi": "Which two are true?",
+        "code": "",
+        "options": [
+          "A và D (A: ThenotifyAll() method must be called from a synchronized context. & D: When a thread is waiting as a result ofwait(), it release its locks.)",
+          "A và B (A: ThenotifyAll() method must be called from a synchronized context. & B: To callwait(), an object must own the lock on the thread.)",
+          "B và C (B: To callwait(), an object must own the lock on the thread. & C: Thenotify() method is defined in class java.lang.Thread.)",
+          "D và F (D: When a thread is waiting as a result ofwait(), it release its locks. & F: The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on.)"
+        ],
+        "optionsVi": [
+          "A và D (A: ThenotifyAll() method must be called from a synchronized context. & D: When a thread is waiting as a result ofwait(), it release its locks.)",
+          "A và B (A: ThenotifyAll() method must be called from a synchronized context. & B: To callwait(), an object must own the lock on the thread.)",
+          "B và C (B: To callwait(), an object must own the lock on the thread. & C: Thenotify() method is defined in class java.lang.Thread.)",
+          "D và F (D: When a thread is waiting as a result ofwait(), it release its locks. & F: The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on.)"
+        ],
+        "answer": 0,
+        "explanation": "A and D. A is correct because the notifyAll() method (along withwait() and notify()) must always be called from within a synchronized context. D is correct because a thread blocked on await() call releases its locks, so another thread can get into the synchronized code and eventually call notify() ornotifyAll(). ✗ B is incorrect because to call wait(), the thread must own the lock on the object that wait() is being invoked on, not the other way around. C is wrong becausenotify() is defined in java.lang.Object. E is wrong becausenotify() will not cause a thread to release its locks. The thread can only release its locks by exiting the synchronized code. F is wrong becausenotifyAll() notifies all the threads waiting on a particular locked object, not all threads waiting on any object."
+      },
+      {
+        "id": "scjp-ch09-015",
+        "originalId": 15,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+        "textVi": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+        "code": "",
+        "options": [
+          "C và E (C: backgroundThread.setPriority(1); & E: backgroundThread.setPriority(Thread.MIN_PRIORITY);)",
+          "A và C (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & C: backgroundThread.setPriority(1);)",
+          "A và B (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & B: backgroundThread.setPriority(Thread.MAX_PRIORITY);)",
+          "E và G (E: backgroundThread.setPriority(Thread.MIN_PRIORITY); & G: backgroundThread.setPriority(10);)"
+        ],
+        "optionsVi": [
+          "C và E (C: backgroundThread.setPriority(1); & E: backgroundThread.setPriority(Thread.MIN_PRIORITY);)",
+          "A và C (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & C: backgroundThread.setPriority(1);)",
+          "A và B (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & B: backgroundThread.setPriority(Thread.MAX_PRIORITY);)",
+          "E và G (E: backgroundThread.setPriority(Thread.MIN_PRIORITY); & G: backgroundThread.setPriority(10);)"
+        ],
+        "answer": 0,
+        "explanation": "C and E. In E, the constant Thread.MIN_PRIORITY is the lowest priority that a thread can have, and the background thread should have a very low priority or the lowest. Answer C is correct because 1 is a low (and usually the minimum) value, although for code clarity it is recommended to use the Thread.MIN_PRIORITY. ✗ A and D are incorrect because there are no such variables in the Thread class.B is incorrect; using MAX_PRIORITY would make other threads have fewer chances of getting a turn of the CPU, even to the point of freezing until the numerical processing is finished. F is incorrect because the thread would still compete for the CPU time and even delay other threads. G is incorrect because 10 is the value of MAX_PRIORITY, so i would be equivalent to answer B. 62 Chapter 9: Threads"
+      },
+      {
+        "id": "scjp-ch09-016",
+        "originalId": 16,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Which three guarantee that a thread will leave the running state?",
+        "textVi": "Which three guarantee that a thread will leave the running state?",
+        "code": "",
+        "options": [
+          "B và E (B: wait() & E: sleep(1000))",
+          "A và B (A: yield() & B: wait())",
+          "A và C (A: yield() & C: notify())",
+          "E và G (E: sleep(1000) & G: Thread.killThread())"
+        ],
+        "optionsVi": [
+          "B và E (B: wait() & E: sleep(1000))",
+          "A và B (A: yield() & B: wait())",
+          "A và C (A: yield() & C: notify())",
+          "E và G (E: sleep(1000) & G: Thread.killThread())"
+        ],
+        "answer": 0,
+        "explanation": "B, E, and F. B is correct becausewait() always causes the current thread to go into the object’s wait pool. E is correct because sleep() will always pause the currently running thread for at least the duration specified in the sleep argument (unless an interrupted exception is thrown). F is correct because, assuming that the thread you’re callingjoin() on is alive, the thread callingjoin() will immediately block until the thread you’re callingjoin() on is no longer alive. ✗ A is wrong, but tempting. The yield() method is not guaranteed to cause a thread to leave the running state, although if there are runnable threads of the same priority as the currently running thread, then the current thread will probably leave the running state. C and D are incorrect because they don’t cause the thread invoking them to leave the running state. G is wrong because there’s no such method."
+      },
+      {
+        "id": "scjp-ch09-017",
+        "originalId": 17,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Which two are true?",
+        "textVi": "Which two are true?",
+        "code": "",
+        "options": [
+          "D và F (D: Thewait() method is overloaded to accept a duration. & F: Bothwait() andnotify() must be called from a synchronized context.)",
+          "A và D (A: Deadlock will not occur ifwait()/notify() is used. & D: Thewait() method is overloaded to accept a duration.)",
+          "A và B (A: Deadlock will not occur ifwait()/notify() is used. & B: A thread will resume execution as soon as its sleep duration expires.)",
+          "F và H (F: Bothwait() andnotify() must be called from a synchronized context. & H: sleep() can throw a runtime exception.)"
+        ],
+        "optionsVi": [
+          "D và F (D: Thewait() method is overloaded to accept a duration. & F: Bothwait() andnotify() must be called from a synchronized context.)",
+          "A và D (A: Deadlock will not occur ifwait()/notify() is used. & D: Thewait() method is overloaded to accept a duration.)",
+          "A và B (A: Deadlock will not occur ifwait()/notify() is used. & B: A thread will resume execution as soon as its sleep duration expires.)",
+          "F và H (F: Bothwait() andnotify() must be called from a synchronized context. & H: sleep() can throw a runtime exception.)"
+        ],
+        "answer": 0,
+        "explanation": "D and F. D is correct because thewait() method is overloaded to accept a wait duration in milliseconds. If the thread has not been notified by the time the wait duration has elapsed, then the thread will move back to runnable even without having been notified. F is correct because wait()/notify()/notifyAll() must all be called from within a synchronized, context. A thread must own the lock on the object its invoking wait()/notify()/notifyAll() on. ✗ A is incorrect because wait()/notify() will not prevent deadlock. B is incorrect because a sleeping thread will return to runnable when it wakes up, but it might not necessarily resume execution right away. To resume executing, the newly awakened thread must still be moved from runnable to running by the scheduler.C is incorrect because synchronization prevents two or more threads from accessing the same object. E is incorrect because notify() is not overloaded to accept a duration. G and H are incorrect because wait() andsleep() both declare a checked exception (InterruptedException)."
+      },
+      {
+        "id": "scjp-ch09-018",
+        "originalId": 18,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Which two are valid constructors for Thread?",
+        "textVi": "Which two are valid constructors for Thread?",
+        "code": "",
+        "options": [
+          "A và B (A: Thread(Runnable r, String name) & B: Thread())",
+          "A và C (A: Thread(Runnable r, String name) & C: Thread(int priority))",
+          "C và D (C: Thread(int priority) & D: Thread(Runnable r, ThreadGroup g))",
+          "B và E (B: Thread() & E: Thread(Runnable r, int priority))"
+        ],
+        "optionsVi": [
+          "A và B (A: Thread(Runnable r, String name) & B: Thread())",
+          "A và C (A: Thread(Runnable r, String name) & C: Thread(int priority))",
+          "C và D (C: Thread(int priority) & D: Thread(Runnable r, ThreadGroup g))",
+          "B và E (B: Thread() & E: Thread(Runnable r, int priority))"
+        ],
+        "answer": 0,
+        "explanation": "A and B are both valid constructors for Thread. ✗ C, D, and E are not legal Thread constructors, although D is close. If you reverse the arguments in D, you’d have a valid constructor."
+      },
+      {
+        "id": "scjp-ch09-019",
+        "originalId": 19,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } what is the result?",
+        "textVi": "Cho đoạn mã sau, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "",
+        "options": [
+          "foo",
+          "MyThread foo",
+          "MyThread bar",
+          "foo bar",
+          "foo bar baz",
+          "bar foo",
+          "Compilation fails."
+        ],
+        "optionsVi": [
+          "foo",
+          "MyThread foo",
+          "MyThread bar",
+          "foo bar",
+          "foo bar baz",
+          "bar foo",
+          "Lỗi biên dịch (Compilation fails)"
+        ],
+        "answer": 1,
+        "explanation": "B is correct because in the first line of main we’re constructing an instance of an anonymous inner class extending from MyThread. So the MyThread constructor runs and prints “ MyThread”. The next statement in main invokesstart() on the new thread instance, which causes the overridden run() method (therun() method defined in the anonymous inner class) to be invoked, which prints “ foo”. ✗ A, C, D, E, F, and G are all incorrect because of the program logic described above. 64 Chapter 9: Threads"
+      },
+      {
+        "id": "scjp-ch09-020",
+        "originalId": 20,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+        "textVi": "Cho đoạn mã sau, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+        "code": "",
+        "options": [
+          "Synchronize the run method.",
+          "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+          "The existing code will not compile.",
+          "The existing code will cause a runtime exception.",
+          "Put in await() call prior to invoking theincrease() method.",
+          "Synchronize theincrease() method"
+        ],
+        "optionsVi": [
+          "Synchronize the run method.",
+          "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+          "The existing code will not compile.",
+          "The existing code will cause a runtime exception.",
+          "Put in await() call prior to invoking theincrease() method.",
+          "Synchronize theincrease() method"
+        ],
+        "answer": 5,
+        "explanation": "F is correct because synchronizing the code that actually does the increase will protect the code from being accessed by more than one thread at a time. ✗ A is incorrect because synchronizing the run() method would stop other threads from running therun() method (a bad idea) but still would not prevent other threads with other runnables from accessing theincrease() method. B is incorrect for virtually the same reason as A—synchronizing the code that calls theincrease() method does not prevent other code from calling the increase() method. C and D are incorrect because the program compiles and runs fine. E is incorrect because it will simply prevent the call to increase() from ever happening from this thread."
+      },
+      {
+        "id": "scjp-ch09-021",
+        "originalId": 21,
+        "chapterNum": 9,
+        "chapterTitle": "Threads",
+        "topic": "threads",
+        "text": "Given the following, what is the result?",
+        "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+        "code": "1. public class Test {\n2.  public static void main (String [] args) {\n3.    final Foo f = new Foo();\n4.   Thread t = new Thread(new Runnable() {\n5.         public void run() {\n6.        f.doStuff();\n7.       }\n8.   });\n9.   Thread g = new Thread() {\n10.    public void run() {\n11.         f.doStuff();\n12.      }\n13.     };\n14.     t.start();\n15.     g.start();\n16.  }\n17. }\n1. class Foo {\n2.   int x = 5;\n3.  public void doStuff() {\n4.     if (x < 10) {\n5.       // nothing to do\n6.      try {\n7.         wait();\n8.      } catch(InterruptedException ex) { }\n9.     } else {\n10.      System.out.println(\"x is \" + x++);\n11.      if (x >= 10) {\n12.          notify();\n13.        }\n14.    }\n15.  }\n16. }",
+        "options": [
+          "The code will not compile because of an error on line 12 of class Foo.",
+          "The code will not compile because of an error on line 7 of class Foo.",
+          "The code will not compile because of an error on line 4 of class Test.",
+          "The code will not compile because of some other error in class Test.",
+          "An exception occurs at runtime.",
+          "x is 5 x is 6"
+        ],
+        "optionsVi": [
+          "The code will not compile because of an error on line 12 of class Foo.",
+          "The code will not compile because of an error on line 7 of class Foo.",
+          "The code will not compile because of an error on line 4 of class Test.",
+          "The code will not compile because of some other error in class Test.",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+          "x is 5 x is 6"
+        ],
+        "answer": 4,
+        "explanation": "E is correct because the thread does not own the lock of the object it invokes wait() on. If the method were synchronized, the code would run without exception. ✗ A, B, C, and D are incorrect because the code compiles without errors.F is incorrect because the exception is thrown before there is any output. EXERCISE ANSWERS Exercise 9-1: Creating a Thread and Putting It to Sleep The final code should look something like this: class TheCount extends Thread { public void run() { for(int i = 1;i<=100;++i) { System.out.print(i + \" \"); if(i % 10 == 0) System.out.println(\"Hahaha\"); try { Thread.sleep(1000); } catch(InterruptedException e) {} } } public static void main(String [] args) { new TheCount().start(); } } Exercise 9-2: Synchronizing a Block of Code Your code might look something like this when completed: 1. class InSync extends Thread { 2. StringBuffer letter; 3. 4. public InSync(StringBuffer letter) { 5. this.letter = letter; 6. } 7. 8. public void run() { 9. synchronized(letter) { 10. for(int i = 1;i<=100;++i) { 11. System.out.print(letter); 12. } 13. System.out.println(); 14. // Increment the letter in StringBuffer: 15. char temp = letter.charAt(0); 16. ++temp; 17. letter.setCharAt(0, temp); 18. } 19. } 20. 21. public static void main(String [] args) { 22. StringBuffer sb = new StringBuffer(\"A\"); 23. new InSync(sb).start(); 24. new InSync(sb).start(); 25. new InSync(sb).start(); 26. } 27. } Just for fun, try removing lines 9 and 18 then run the program again. It will be unsynchronized, and watch what happens. Exercise Answers 65"
+      }
+    ]
+  }
+];
+
+export const ALL_SCJP_CHAPTER_QUIZZES = [
+  scjpRandom20Quiz,
+  scjpChapterAllQuiz,
+  ...scjpChapterQuizzes
+];

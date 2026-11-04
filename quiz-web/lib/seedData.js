@@ -1671,5 +1671,14 @@ const quiz3 = {
 import { ALL_INTERVIEW_QUIZZES } from "./interviewData.js";
 import { ALL_AI_QUIZZES } from "./aiQuizData.js";
 import { scjpQuiz } from "./scjpData.js";
+import { ALL_SCJP_CHAPTER_QUIZZES } from "./scjpChapterData.js";
 
-export const SEED_QUIZZES = [quiz1, quiz2, quiz3, ...ALL_AI_QUIZZES, scjpQuiz, ...ALL_INTERVIEW_QUIZZES];
+export const SEED_QUIZZES = [
+  quiz1,
+  quiz2,
+  quiz3,
+  ...ALL_AI_QUIZZES,
+  scjpQuiz,
+  ...ALL_SCJP_CHAPTER_QUIZZES,
+  ...ALL_INTERVIEW_QUIZZES
+];

@@ -1,0 +1,3161 @@
+[
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 1,
+    "topic": "javacore",
+    "text": "Given the following, what is the result? (Choose one.)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        signed int x = 10;\n4.           for (int y=0; y<5; y++, x--)\n5.              System.out.print(\" \" + x);\n6.     }\n7.  }",
+    "options": {
+      "A": "1 09876",
+      "B": "98765",
+      "C": "Compilation fails",
+      "D": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The word “signed” is not a valid modifier keyword in the Java language. All number primitives in Java are signed. Always."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 2,
+    "topic": "javacore",
+    "text": "Which is a reserved word in the Java programming language? (Choose one.)",
+    "code": "",
+    "options": {
+      "A": "method",
+      "B": "native",
+      "C": "subclasses",
+      "D": "reference",
+      "E": "array 46 Chapter 1: Language Fundamentals"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. The wordnative is a valid keyword, used to modify a method declaration. ✗ A, D,a n dE are not keywords. C is wrong because the keyword for subclassing in Java isextends, not ‘subclasses’."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 3,
+    "topic": "javacore",
+    "text": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+    "code": "",
+    "options": {
+      "A": "class,if,void,long,Int,continue",
+      "B": "goto,instanceof,native,finally,default,throws",
+      "C": "try,virtual,throw,final,volatile,transient",
+      "D": "strictfp,constant,super,implements,do",
+      "E": "byte,break,assert,switch,include"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. All the words in answer B are among the 49 Java keywords. ✗ A is wrong because the keyword for the primitive int starts with a lowercase i . C is wrong because “virtual” is a keyword in C++, but not Java. D is wrong because “constant” is not a keyword. Constants in Java are marked static andfinal. E is wrong because “include” is a keyword in C, but not Java."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 4,
+    "topic": "javacore",
+    "text": "Which two are keywords? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "interface",
+      "B": "unsigned",
+      "C": "Float",
+      "D": "this",
+      "E": "string Literals and Ranges of All Primitive Data Types (Objective 4.6)"
+    },
+    "correctLetters": [
+      "A",
+      "D"
+    ],
+    "explanation": "A and D. Bothinterface andthis are both valid keywords. ✗ B is wrong because “unsigned” is a keyword in C/C++ but not in Java. C is wrong because “Float” is a class type. The keyword for the Java primitive isfloat. E is wrong because although “String” is a class type in Java, “string” is not a keyword. Literals and Ranges of All Primitive Data Types (Objective 4.6)"
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 5,
+    "topic": "javacore",
+    "text": "Which three are valid declarations of a char? (Choose three.)",
+    "code": "",
+    "options": {
+      "A": "charc1=064770 ;",
+      "B": "charc2=‘face’ ;",
+      "C": "charc3=0xbeef ;",
+      "D": "charc4=\\u0022 ;",
+      "E": "charc5=‘\\iface’ ;",
+      "F": "charc6=‘\\uface’ ;"
+    },
+    "correctLetters": [
+      "A",
+      "C"
+    ],
+    "explanation": "A, C, and F. A is an octal representation of the integer value 27128, which is legal because it fits into an unsigned 16-bit integer. C is a hexadecimal representation of the integer value 48879, which fits into an unsigned 16-bit integer. F is a Unicode representation of a character. ✗ B is wrong because you can’t put more than one character in achar literal. You know that B is a literal character because it comes between single quotes. The only other acceptablechar literal that can go between single quotes is a Unicode value, and Unicode literals must always start w i t ha‘\\u’.D is wrong because the single quotes are missing.E is wrong because it appears to be a Unicode representation (notice the backslash), but starts with ‘\\i’ rather than ‘\\u’."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 6,
+    "topic": "javacore",
+    "text": "Which two are valid declarations of a String? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "Strings1=null ;",
+      "B": "Strings2=‘null’ ;",
+      "C": "Strings3=(String)‘abc’ ;",
+      "D": "Strings4=(String)‘\\ufeed’ ;",
+      "E": "Strings5=“stringsrule” ; 48 Chapter 1: Language Fundamentals"
+    },
+    "correctLetters": [
+      "A",
+      "E"
+    ],
+    "explanation": "A and E. A sets the String reference to null; E initializes the String reference with a literal. ✗ B is wrong because null cannot be in single quotes. C is wrong because there are multiple characters between the single quotes (‘abc’).D is wrong because you can’t cast achar (primitive) to a String (object). 54 Chapter 1: Language Fundamentals"
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 7,
+    "topic": "javacore",
+    "text": "Which one is a valid declaration of a boolean? (Choose one.)",
+    "code": "",
+    "options": {
+      "A": "booleanb1=0 ;",
+      "B": "booleanb2=‘false’ ;",
+      "C": "booleanb3=false ;",
+      "D": "booleanb4=Boolean.false() ;",
+      "E": "booleanb5=no ;"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. A boolean can only be assigned the literal true orfalse. ✗ A, B, D, and E are all invalid assignments for a boolean."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 8,
+    "topic": "javacore",
+    "text": "What is the numerical range of a char? (Choose one.)",
+    "code": "",
+    "options": {
+      "A": "–128 to 127",
+      "B": "–(2 ^ 15) to (2 ^ 15) - 1",
+      "C": "0 to 32767",
+      "D": "Platform dependent",
+      "E": "0 to 65535"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Achar is really a 16-bit integer behind the scenes, so it supports 2 16 (from 0 to 65535) values."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 9,
+    "topic": "javacore",
+    "text": "Which three are valid declarations of a float? (Choose three.)",
+    "code": "",
+    "options": {
+      "A": "floatf1=-343 ;",
+      "B": "floatf2=3.14 ;",
+      "C": "floatf3=0x12345 ;",
+      "D": "floatf4=42e7 ;",
+      "E": "floatf5=2001.0D ;",
+      "F": "floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1)"
+    },
+    "correctLetters": [
+      "A",
+      "C"
+    ],
+    "explanation": "A, C, and F. A and C are integer literals (32 bits), and integers can be legally assigned to floats (also 32 bits). F is correct because F is appended to the literal, declaring it as a float rather than adouble (the default for floating point literals). ✗ B, D,a n dE are all doubles. Array Declaration, Construction, and Initialization (Objective 1.1)"
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 10,
+    "topic": "javacore",
+    "text": "Which three are legal array declarations? (Choose three.)",
+    "code": "",
+    "options": {
+      "A": "int[]myScores[] ;",
+      "B": "char[]myChars ;",
+      "C": "int[6]myScores ;",
+      "D": "DogmyDogs[] ;",
+      "E": "DogmyDogs[7] ;"
+    },
+    "correctLetters": [
+      "A",
+      "B"
+    ],
+    "explanation": "A, B, and D. With an array declaration, you can place the brackets to the right or left of the identifier. A looks strange, but it’s perfectly legal to split the brackets in a multidimensional array, and place them on both sides of the identifier. Although coding this way would only annoy your fellow programmers, for the exam, you need to know it’s legal. ✗ C and E are wrong because you can’t declare an array with a size. The size is only needed when the array is actually instantiated (and the JVM needs to know how much space to allocate for the array, based on the type of array and the size)."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 11,
+    "topic": "javacore",
+    "text": "Given the following, how many lines of output will be produced? (Choose one.)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.     int [] [] [] x = new int [3] [] [];\n4.     int i,j;\n5.     x[0] = new int[4][];\n6.     x[1] = new int[2][];\n7.     x[2] = new int[5][];\n8.     for (i=0; i<x.length; i++)\n9.        for (j=0; j<x[i].length; j++) {\n10.           x[i][j] = new int [i + j + 1];\n11.           System.out.println(\"size = \" + x[i][j].length);\n12.        }\n13.     }\n14.  }",
+    "options": {
+      "A": "7",
+      "B": "9",
+      "C": "11",
+      "D": "13",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The loops use the array sizes (length). If you think this question is unfairly complicated, get used to it. Question 11 is a good example of the kinds of questions you’ll see on the exam. You should approach complex loop questions by using a pencil and paper and stepping through the loop (or loops, in this case), keeping track of the variable values at each iteration. Tedious, we know, but you can expect a lot of questions like this on the exam. Take your time and recheck your work."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 12,
+    "topic": "javacore",
+    "text": "Given the following, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
+    "options": {
+      "A": "b2[0][1]=b;",
+      "B": "b[0][0]=b3;",
+      "C": "b2[1][1][0]=b[0][0];",
+      "D": "b2[1][2][0]=b;",
+      "E": "b2[0][1][0][0]=b[0][0];",
+      "F": "b2[0][1]=big; 50 Chapter 1: Language Fundamentals"
+    },
+    "correctLetters": [
+      "A",
+      "B",
+      "E"
+    ],
+    "explanation": "A, B, E, and F. This question covers the issue of, “What can I assign to an array reference variable?” The key is to get the dimensions right. For example, if an array is declared as a two-dimensional array, you can’t assign a one-dimensional array to a one-dimensional array reference. ✗ C is wrong because it tries to assign a primitive byte where a byte array (one dimension) is expected. D is wrong because it tries to assign a two-dimensional array where a one-dimensional array is expected."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 13,
+    "topic": "javacore",
+    "text": "Which two will declare an array and initialize it with five numbers? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "Arraya=newArray(5) ;",
+      "B": "int[]a={23,22,21,20,19} ;",
+      "C": "int[]array ;",
+      "D": "intarray[]=newint[5] ;",
+      "E": "inta[]=newint(5) ;",
+      "F": "int[5]array ;"
+    },
+    "correctLetters": [
+      "B",
+      "D"
+    ],
+    "explanation": "B and D. Both are legal ways to declare and initialize an array with five elements. ✗ A is wrong because it shows an example of instantiating a class named Array, passing the integer value 5 to the object’s constructor. If you don’t see the brackets, you can be 56 Chapter 1: Language Fundamentals certain there is no actual array object! In other words, an Array object (instance of class Array) is not the same as an array object. C is wrong because it shows a legal array declaration, but with no initialization. E is wrong (and will not compile) because the initialization uses parens () rather than brackets. F is wrong (and will not compile) because it declares an array with a size. Arrays must never be given a size when declared."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 14,
+    "topic": "javacore",
+    "text": "Which will legally declare, construct, and initialize an array? (Choose one.)",
+    "code": "",
+    "options": {
+      "A": "int[]myList={“1”,“2”,“3”} ;",
+      "B": "int[]myList=(5,8,2) ;",
+      "C": "intmyList[][]={4,9,7,0} ;",
+      "D": "intmyList[]={4,3,7} ;",
+      "E": "int[]myList=[3,5,6] ;",
+      "F": "intmyList[]={4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. The only legal array declaration and assignment statement is D. ✗ A is wrong because it initializes an int array with String literals. B and E are wrong because they use something other than curly braces for the initialization. C is wrong because it provides initial values for only one dimension, although the declared array is a two-dimensional array. F is wrong because it uses semicolons where it should use commas, to separate the items in the initialization. Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 15,
+    "topic": "javacore",
+    "text": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
+    "code": "",
+    "options": {
+      "A": "int -> 0",
+      "B": "String -> “null”",
+      "C": "Dog -> null",
+      "D": "char -> ‘\\u0000’",
+      "E": "float -> 0.0f",
+      "F": "boolean -> true"
+    },
+    "correctLetters": [
+      "A",
+      "C",
+      "D"
+    ],
+    "explanation": "A, C, D, and E. ✗ B is wrong because the default value for a String (and any other object reference) is null, with no quotes. F is wrong because the default value for boolean elements isfalse."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 16,
+    "topic": "javacore",
+    "text": "Given the following, what is the result? (Choose one.)",
+    "code": "1.  public class TestDogs {\n2.     public static void main(String [] args) {\n3.        Dog [][] theDogs = new Dog[3][];\n4.        System.out.println(theDogs[2][0].toString());\n5.     }\n6.  }\n7.\n8.  class Dog {}",
+    "options": {
+      "A": "null",
+      "B": "theDogs",
+      "C": "Compilation fails",
+      "D": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. The second dimension of the array referenced by theDogs has not been initialized. Attempting to access an uninitialized object element (line 4) raises a NullPointerException."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 17,
+    "topic": "javacore",
+    "text": "Given the following, and the command line invocation is java X a b what is the result? (Choose one.)",
+    "code": "1.  public class X {\n2.     public static void main(String [] args) {\n3.        String names [] = new String[5];\n4.           for (int x=0; x < args.length; x++)\n5.              names[x] = args[x];\n6.           System.out.println(names[2]);\n7.     }\n8.  }",
+    "options": {
+      "A": "names",
+      "B": "null",
+      "C": "Compilation fails",
+      "D": "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. The names array is initialized with five null elements. Then elements 0 and 1 are assigned the String values “a” and “b” respectively (the command-line arguments passed to main). Elements 2, 3, and 4 remain unassigned, so they have a value of null. Command-line Arguments to Main (Objective 4.3)"
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 18,
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgs 1 2 3 4 what is the result?",
+    "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }\n52 Chapter 1: Language Fundamentals",
+    "options": {
+      "A": "args[2]=2",
+      "B": "args[2]=3",
+      "C": "args[2]=null",
+      "D": "args[2]=1",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "F"
+    ],
+    "explanation": "F. An exception is thrown because at line 6, the array index (the fifth element) is out of bounds. The exception thrown is the cleverly named ArrayIndexOutOfBoundsException."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 19,
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgsTwo 1 2 3 what is the result?",
+    "code": "1.  public class CommandArgsTwo {\n2.     public static void main(String [] argh) {\n3.        String [] args;\n4.        int x;\n5.        x = argh.length;\n6.        for (int y = 1; y <= x; y++) {\n7.           System.out.print(\" \" + argh[y]);\n8.        }\n9.     }\n10.  }",
+    "options": {
+      "A": "012",
+      "B": "123",
+      "C": "000",
+      "D": "nullnullnull",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "F"
+    ],
+    "explanation": "F. An exception is thrown because at some point in line 7, the value of x will be equal to y, resulting in an attempt to access an index out of bounds for the array. Remember that you can access only as far as length-1, so loop logical tests should use x<someArray.length as opposed tox<=someArray.length ."
+  },
+  {
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "questionNum": 20,
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgsThree 1 2 3 what is the result?",
+    "code": "1.  public class CommandArgsThree {\n2.     public static void main(String [] args) {\n3.        String [][] argCopy = new String[2][2];\n4.        int x;\n5.        argCopy[0] = args;\n6.        x = argCopy[0].length;\n7.        for (int y = 0; y < x; y++) {\n8.           System.out.print(\" \" + argCopy[0][y]);\n9.        }\n10.     }\n11.  }",
+    "options": {
+      "A": "00",
+      "B": "12",
+      "C": "000",
+      "D": "123",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. In line 5, the reference variable argCopy[0], which was referring to an array with two elements, is reassigned to an array (args) with three elements. EXERCISE ANSWERS Exercise 1.1: Command-Line Arguments to Main Your completed code should look something like the following: public class MainTest { public static void main (String [] args) { for (int i = 0;i < args.length;i++) { System.out.println(args[i]); } System.out.println(\"Total words: \" + args.length); } } Exercise Answers 57"
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 1,
+    "topic": "modifier",
+    "text": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+    "code": "",
+    "options": {
+      "A": "public",
+      "B": "abstract",
+      "C": "protected",
+      "D": "synchronized",
+      "E": "default access"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E.defaultaccess is the “package oriented” access modifier. ✗ A and C are wrong becausepublic andprotected are less restrictive. B and D are wrong becauseabstract andsynchronized are not access modifiers."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 2,
+    "topic": "modifier",
+    "text": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+    "code": "",
+    "options": {
+      "A": "final",
+      "B": "static",
+      "C": "private",
+      "D": "protected",
+      "E": "volatile",
+      "F": "default access"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Theprivate access modifier limits access to members of the same class. ✗ A, B, D, E, and F are wrong becauseprotected anddefault are the wrong access modifiers, andfinal,static ,a n dvolatile are modifiers but not access modifiers."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 3,
+    "topic": "modifier",
+    "text": "Given the following, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+    "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
+    "options": {
+      "A": "The code will compile with no changes.",
+      "B": "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
+      "C": "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
+      "D": "As long as line 8 exists, class A must declare methodm1() in some way.",
+      "E": "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+      "F": "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
+    },
+    "correctLetters": [
+      "A",
+      "C"
+    ],
+    "explanation": "A, C, and E. A and C are correct, because an abstract class does not need to implement any of its superclass’ methods.E is correct because as it stands, it is a valid concrete extension of class A. ✗ B is wrong because anabstract class does not need to implement any of its superclass’ methods. D is wrong because a class that extends another class is free to add new methods. F is wrong because it is legal to extend an abstract class from a concrete class."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 4,
+    "topic": "modifier",
+    "text": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "finalabstractclassTest{}",
+      "B": "publicstaticinterfaceTest{}",
+      "C": "finalpublicclassTest{}",
+      "D": "protectedabstractclassTest{}",
+      "E": "protectedinterfaceTest{}",
+      "F": "abstractpublicclassTest{}"
+    },
+    "correctLetters": [
+      "C",
+      "F"
+    ],
+    "explanation": "C, F. Both are legal class declarations. ✗ A is wrong because a class cannot be abstract andfinal—there would be no way to use such a class. B is wrong because interfaces and classes cannot be marked as static. D and E are wrong because classes and interfaces cannot be marked as protected."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 5,
+    "topic": "modifier",
+    "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+    "code": "",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4",
+      "E": "5",
+      "F": "All of them"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Statements 1, 2, 4, 5, and 6 are legal declarations. ✗ A, B, C, D, and F are incorrect because the only illegal declaration is 3; transient applies only to variable declarations, not to method declarations. As you can see from these other examples, method declarations can be very extensive."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 6,
+    "topic": "modifier",
+    "text": "Given the following, which statement is true?",
+    "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
+    "options": {
+      "A": "The code compiles and runs, with outputthis420parent420 .",
+      "B": "If line 8 is removed, the code will compile and run.",
+      "C": "If line 10 is removed, the code will compile and run.",
+      "D": "Both lines 8 and 10 must be removed for the code to compile.",
+      "E": "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The ParentUtil instance p cannot be used to access the doStuff() method. Because doStuff() hasprotected access, and the ChildUtil class is not in the same package as the ParentUtil class, doStuff() can be accessed only by instances of the ChildUtil class (a subclass ofParentUtil). ✗ A, B, D, and E are incorrect because of the access rules described previously. Declaration Rules"
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 7,
+    "topic": "modifier",
+    "text": "Given the following, what is the result?",
+    "code": "1.   interface Count {\n2.     short counter = 0;\n3.     void countUp();\n4.   }\n5.   public class TestCount implements Count {\n6.\n7.     public static void main(String [] args) {\n8.       TestCount t = new TestCount();\n9.       t.countUp();\n10.    }\n78 Chapter 2: Declarations and Access Control\n11.    public void countUp() {\n12.      for (int x = 6; x>counter; x--, ++counter) {\n13.         System.out.print(\" \" + counter);\n14.      }\n15.    }\n16.  }",
+    "options": {
+      "A": "012",
+      "B": "123",
+      "C": "0123",
+      "D": "1234",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. The code will not compile because the variable counter is an interface variable that is by defaultfinalstatic . The compiler will complain at line 12 when the code attempts to 84 Chapter 2: Declarations and Access Control incrementcounter. ✗ A, B, C, and D are incorrect because of the explanation given above."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 8,
+    "topic": "modifier",
+    "text": "Given the following, what is the result?",
+    "code": "1.   import java.util.*;\n2.   public class NewTreeSet2 extends NewTreeSet {\n3.     public static void main(String [] args) {\n4.       NewTreeSet2 t = new NewTreeSet2();\n5.       t.count();\n6.     }\n7.   }\n8.   protected class NewTreeSet {\n9.     void count() {\n10.      for (int x = 0; x < 7; x++,x++ ) {\n11.        System.out.print(\" \" + x);\n12.      }\n13.    }\n14.  }",
+    "options": {
+      "A": "024",
+      "B": "0246",
+      "C": "Compilation fails at line 4",
+      "D": "Compilation fails at line 5",
+      "E": "Compilation fails at line 8",
+      "F": "Compilation fails at line 10"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Nonnested classes cannot be marked protected (orfinal for that matter), so the compiler will fail at line 8. ✗ A, B, C, and D are incorrect because of the explanation given above."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 9,
+    "topic": "modifier",
+    "text": "Given the following, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+    "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
+    "options": {
+      "A": "No statement is required",
+      "B": "importjava.util.*;",
+      "C": "import.java.util.Tree*;",
+      "D": "importjava.util.TreeSet;",
+      "E": "importjava.util.TreeMap;"
+    },
+    "correctLetters": [
+      "B",
+      "E"
+    ],
+    "explanation": "B and E. TreeMap is the only class that must be imported. TreeSet does not need an import statement because it is described with a fully qualified name. ✗ A is incorrect because TreeMap must be imported. C is incorrect syntax for an import statement. D is incorrect because it will not import TreeMap, which is required."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 10,
+    "topic": "modifier",
+    "text": "Which two are valid declarations within an interface? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "publicstaticshortstop=23;",
+      "B": "protectedshortstop=23;",
+      "C": "transientshortstop=23;",
+      "D": "finalvoidmadness(shortstop);",
+      "E": "publicBooleanmadness(longbow);",
+      "F": "staticcharmadness(doubleduty);"
+    },
+    "correctLetters": [
+      "A",
+      "E"
+    ],
+    "explanation": "A and E are valid interface declarations. ✗ B and C are incorrect because interface variables cannot be either protected or transient. D and F are incorrect because interface methods cannot be final or static."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 11,
+    "topic": "modifier",
+    "text": "Which of the following class level (nonlocal) variable declarations will not compile?",
+    "code": "",
+    "options": {
+      "A": "protectedinta;",
+      "B": "transientintb=3;",
+      "C": "publicstaticfinalintc;",
+      "D": "volatileintd;",
+      "E": "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E will not compile; the synchronized modifier applies only to methods. ✗ A and B will compile because protected andtransient are legal variable modifiers. C will compile because when a variable is declared final it does not have to be initialized with a value at the same time. D will compile because volatile is a proper variable modifier. Interface Implementation"
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 12,
+    "topic": "modifier",
+    "text": "Given the following, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+    "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
+    "options": {
+      "A": "classAllMathextendsDoMath{ doublegetArea(intr);}",
+      "B": "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
+      "C": "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
+      "D": "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
+      "E": "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+    },
+    "correctLetters": [
+      "C",
+      "E"
+    ],
+    "explanation": "C and E. C are E are correct because interfaces and abstract classes do not need to fully implement the interfaces they extend or implement (respectively). ✗ A is incorrect because a class cannot extend an interface. B is incorrect because an interface cannot implement anything. D is incorrect because the method being implemented is from the wrong interface."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 13,
+    "topic": "modifier",
+    "text": "Which three are valid method signatures in an interface? (Choose three.)",
+    "code": "",
+    "options": {
+      "A": "privateintgetArea();",
+      "B": "publicfloatgetVol(floatx);",
+      "C": "publicvoidmain(String[]args);",
+      "D": "publicstaticvoidmain(String[]args);",
+      "E": "booleansetFlag(Boolean[]test[]);"
+    },
+    "correctLetters": [
+      "B",
+      "C"
+    ],
+    "explanation": "B, C, and E. These are all valid interface method signatures. ✗ A, is incorrect because an interface method must be public; if it is not explicitly declaredpublic it will be madepublic implicitly. D is incorrect because interface methods cannot bestatic."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 14,
+    "topic": "modifier",
+    "text": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "You can extend theRunnable interface as long as you override thepublicrun() method.",
+      "B": "The class must contain a method calledrun() from which all code for that thread will be initiated.",
+      "C": "The class must contain an emptypublicvoid method namedrun().",
+      "D": "The class must contain apublicvoid method namedrunnable().",
+      "E": "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+      "F": "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
+    },
+    "correctLetters": [
+      "B",
+      "F"
+    ],
+    "explanation": "B and F. When a thread’srun() method completes, the thread will die. The run() method must be declared publicvoid and not take any arguments. ✗ A is incorrect because classes can never extend interfaces. C is incorrect because the run() method is typically not empty; if it were, the thread would do nothing. D is incorrect because the mandatory method is run(). E is incorrect because the class implements Runnable."
+  },
+  {
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "questionNum": 15,
+    "topic": "modifier",
+    "text": "Given the following, which two code fragments will compile? (Choose two.)",
+    "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
+    "options": {
+      "A": "interfaceBase2implementsBase{}",
+      "B": "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
+      "C": "abstractclassClass2implementsBase{}",
+      "D": "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
+      "E": "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control"
+    },
+    "correctLetters": [
+      "C",
+      "D"
+    ],
+    "explanation": "C and D. C is correct because an abstract class doesn’t have to implement any or all of its interface’s methods.D is correct because the method is correctly implemented ((7 > 4) is aboolean). ✗ A is incorrect because interfaces don’t implement anything.B is incorrect because classes don’t extend interfaces.E is incorrect because interface methods are implicitly public,s ot h e methods being implemented must be public."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 1,
+    "topic": "javacore",
+    "text": "Which two are equal? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "32/4;",
+      "B": "(8>>2)<<4;",
+      "C": "2^5;",
+      "D": "128>>>2;",
+      "E": "(2<<1)*(32>>3);",
+      "F": "2>>5;"
+    },
+    "correctLetters": [
+      "B",
+      "D"
+    ],
+    "explanation": "B and D. B and D both evaluate to 32. B is shifting bits right then left using the signed bit shifters >> and <<. D is shifting bits u sing the unsigned operator >>>, but since the beginning number is positive the sign is maintained. A evaluates to 8, C looks like 2 to the 5 th power, but ^ is the Exclusive OR operator so C evaluates to 7. E evaluates to 16, and F e v a l u a t e st o0( 2> >5i sn o t2t ot h e5 th )."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 2,
+    "topic": "javacore",
+    "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+    "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
+    "options": {
+      "A": "booleantest=(Componentinstanceoft);",
+      "B": "booleantest=(tinstanceofTicker);",
+      "C": "booleantest=t.instanceof(Ticker);",
+      "D": "booleantest=(tinstanceofComponent);",
+      "E": "booleantest=t.instanceof(Object);",
+      "F": "booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments"
+    },
+    "correctLetters": [
+      "B",
+      "D"
+    ],
+    "explanation": "B and D. B is correct because class type Ticker is part of the class hierarchy of t; therefore it is a legal use of the instanceof operator. D is also correct because Component is part of the hierarchy of t, because Ticker extends Component in line 2. ✗ A is incorrect because the syntax is wrong. A variable (or null) always appears before the instanceof operator, and a type appears after it. C and E are incorrect because the statement is used as a method, which is illegal. F is incorrect because the String class is not in the hierarchy of the t object."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 3,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
+    "options": {
+      "A": "true",
+      "B": "false",
+      "C": "Compilation fails",
+      "D": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The code will not compile because in line 5, the line will work only if we use (x==y ) in the line. The == operator compares values to produce a boolean, whereas the = operator assigns a value to variables. ✗ A, B, and D are incorrect because the code does not get as far as compiling. If we corrected this code, the output would be false."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 4,
+    "topic": "javacore",
+    "text": "Given the following, which three statements are true? (Choose three.)",
+    "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
+    "options": {
+      "A": "f1==f2",
+      "B": "f1==f3",
+      "C": "f2==f1[1]",
+      "D": "x==f1[0]",
+      "E": "f==f1[0]"
+    },
+    "correctLetters": [
+      "B",
+      "D"
+    ],
+    "explanation": "B, D, and E. B is correct because the reference variables f1 and f3 refer to the same array object. D is correct because it is legal to compare integer and floating-point types. E is correct because it is legal to compare a variable with an array element. ✗ C is incorrect because f2 is an array object and f1[1] is an array element."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 5,
+    "topic": "javacore",
+    "text": "Given the following, what is the output from this program?",
+    "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
+    "options": {
+      "A": "-2147483648and1",
+      "B": "0x80000000and0x00000001",
+      "C": "-2147483648and-1",
+      "D": "1and-2147483648",
+      "E": "None of the above"
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A. The >>> operator moves all bits to the right, zero filling the left bits. The bit transformation looks like this: Before:10000000000000000000000000000000 After:00000000000000000000000000000001 ✗ C is incorrect because the >>> operator zero fills the left bits, which in this case changes the sign of x, as shown. B is incorrect because the output method print() always displays integers in base 10. D is incorrect because this is the reverse order of the two output numbers. E is incorrect because there was a correct answer. 62 Chapter 3: Operators and Assignments"
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 6,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
+    "options": {
+      "A": "0",
+      "B": "7",
+      "C": "8",
+      "D": "14",
+      "E": "15"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. The & operator produces a 1 bit when both bits are 1. The result of the & operation is 9. The ^ operator produces a 1 bit when exactly one bit is 1; the result of this operation is 10. The | operator produces a 1 bit when at least one bit is 1; the result of this operation is 14. ✗ A, B, C, and E, are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 7,
+    "topic": "javacore",
+    "text": "Which of the following are legal lines of code? (Choose all that apply.)",
+    "code": "",
+    "options": {
+      "A": "intw=(int)888.8;",
+      "B": "bytex=(byte)1000L;",
+      "C": "longy=(byte)100;",
+      "D": "bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)"
+    },
+    "correctLetters": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explanation": "A, B, C, and D. A is correct because when a floating-point number (a double in this case) is cast to an int, it simply loses the digits after the decimal. B and D are correct because a long can be cast into a byte.I ft h elong is over 127, it loses its most significant (leftmost) bits. C actually works, even though a cast is not necessary, because a long can store a byte. ✗ There are no incorrect answer choices. Logical Operators (Sun Objective 5.3)"
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 8,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+    "options": {
+      "A": "53",
+      "B": "82",
+      "C": "83",
+      "D": "85",
+      "E": "103",
+      "F": "105"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. The first two iterations of the for loop both x and y are incremented. On the third iteration x is incremented, and for the first time becomes greater than 2. The short circuit or operator || keeps y from ever being incremented again and x is incremented twice on each of the last three iterations. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 9,
+    "topic": "javacore",
+    "text": "Given the following, What is the result?",
+    "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+    "options": {
+      "A": "52",
+      "B": "53",
+      "C": "63",
+      "D": "64",
+      "E": "75",
+      "F": "85"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. In the first two iterations x is incremented once and y is not because of the short circuit && operator. In the third and forth iterations x and y are each incremented, and in the fifth iteration x is doubly incremented and y is incremented. ✗ A, B, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 10,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
+    "options": {
+      "A": "ok",
+      "B": "dokey",
+      "C": "okdokey",
+      "D": "No output is produced",
+      "E": "Compilation error",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. The & operator has a higher precedence than the | operator so that on line 6 b1 and b2 are evaluated together as are b2& b3. The final b1 in line 8 is what causes that if test to be true. ✗ A, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 11,
+    "topic": "javacore",
+    "text": "Given the following, what is the result of compiling and running this code?",
+    "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
+    "options": {
+      "A": "small",
+      "B": "tiny",
+      "C": "huge",
+      "D": "Compilation fails"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. This is an example of a nested ternary operator. The second evaluation (x<22) is true, so the “tiny” value is assigned tosup. ✗ A, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 12,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
+    "options": {
+      "A": "count=0",
+      "B": "count=2",
+      "C": "count=3",
+      "D": "count=4",
+      "E": "count=10",
+      "F": "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The reference variables b and x both refer to the same boolean array.Count is incremented for each call to the set() method, and once again when the first if test is true. Because of the && short circuit operator, count is not incremented during the second if test. ✗ A, B, D, E, and F are incorrect based on the program logic described above. 64 Chapter 3: Operators and Assignments Passing Variables into Methods (Sun Objective 5.4)"
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 13,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class Test {\n2.      static int s;\n3.\n56 Chapter 3: Operators and Assignments\n4.      public static void main(String [] args) {\n5.        Test p = new Test();\n6.        p.start();\n7.        System.out.println(s);\n8.      }\n9.\n10.     void start() {\n11.       int x = 7;\n12.       twice(x);\n13.       System.out.print(x + \" \");\n14.     }\n15.\n16.     void twice(int x) {\n17.       x = x*2;\n18.       s = x;\n19.     }\n20.   }",
+    "options": {
+      "A": "77",
+      "B": "714",
+      "C": "140",
+      "D": "1414",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. Theint x in thetwice() method is not the same int x as in thestart() method.Start()’s x is not affected by the twice() method. The instance variable s is updated bytwice()’sx, which is 14. ✗ A, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 14,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
+    "options": {
+      "A": "truetrue",
+      "B": "falsetrue",
+      "C": "truefalse",
+      "D": "falsefalse",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. Theboolean b1 in thefix() method is a different boolean than the b1 in the start() method. The b1 in thestart() method is not updated by the fix() method. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 15,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
+    "options": {
+      "A": "slipstream",
+      "B": "slipstreamstream",
+      "C": "streamslipstream",
+      "D": "slipstreamslipstream",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. When thefix() method is first entered, start()’ss1 andfix()’ss1 reference variables both refer to the same String object (with a value of “slip”).Fix()’ss1 is reassigned to a new object that is created when the concatenation occurs (this second String object has a value of “slipstream”). When the program returns tostart(), another String object is created, referred to by s2 and with a value of “stream”. ✗ A, B, C, and E are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 16,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
+    "options": {
+      "A": "977foo77foo",
+      "B": "723434foo3434foo",
+      "C": "977foo3434foo",
+      "D": "72734foo347foo",
+      "E": "93434foo3434foo"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. Because all of these expressions use the + operator, there is no precedence to worry about and all of the expressions will be evaluated from left to right. If either operand being evaluated is a String, the + operator will concatenate the two operands; if both operands are numeric, the + operator will add the two operands. ✗ A, B, C, and E are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 17,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n60 Chapter 3: Operators and Assignments\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
+    "options": {
+      "A": "1215",
+      "B": "1515",
+      "C": "345375",
+      "D": "375375",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. The reference variables a1 and a3 refer to the samelong array object. When the [1] element is updated in the fix() method, it is updating the array referred to by a1. The reference variable a2 refers to the same array object. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "questionNum": 18,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
+    "options": {
+      "A": "nullnull42",
+      "B": "0042",
+      "C": "04242",
+      "D": "000",
+      "E": "Compilation fails",
+      "F": "An exception is thrown at runtime"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. In thefix() method, the reference variable tt refers to the same object (class Two) as the t reference variable. Updating tt.x in thefix() method updates t.x (they are one in the same object). Remember also that the instance variable x in the Two class is initialized to 0. ✗ A, B, D, E, and F are incorrect based on the program logic described above. EXERCISE ANSWERS Exercise 3-1: Using Shift Operators The program should look something like the following: class BitShift { public static void main(String [] args) { int x = 0x00000001; // or simply 1 x <<= 31; x >>= 31; System.out.println(\"After shift x equals \" + x); } } The number should now equal -1. In bits, this number is 1111 1111 1111 1111 1111 1111 1111 1111 Exercise 3-2: Casting Primitives The program should look something like the following: class Cast { public static void main(String [] args) { float f = 234.56F; short s = (short)f; } } Exercise Answers 65"
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 1,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+    "options": {
+      "A": "0 1 2",
+      "B": "0 1 2 1 2 2",
+      "C": "Compilation fails at line 7.",
+      "D": "Compilation fails at line 8.",
+      "E": "Compilation fails at line 9.",
+      "F": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Case expressions must be constant expressions. Since x is markedfinal, lines 8 and 9 are legal; however y is not afinal so the compiler will fail at line 7. ✗ A, B, D, E, and F, are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 2,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+    "options": {
+      "A": "0 1 2",
+      "B": "0 1 2 1 2 2",
+      "C": "2 1 0 1 0 0",
+      "D": "2 1 2 0 1 2",
+      "E": "Compilation fails at line 8.",
+      "F": "Compilation fails at line 9."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. The case expressions are all legal because x is markedfinal, which means the expressions can be evaluated at compile time. In the first iteration of the for loopcase x-2 matches, so 2 is printed. In the second iteration, x-1 is matched so 1 and 2 are printed (remember, once a match is found all remaining statements are executed until a break statement is encountered). In the third iteration,x is matched so01a n d2a r ep r inted. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 3,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
+    "options": {
+      "A": "41",
+      "B": "42",
+      "C": "50",
+      "D": "51",
+      "E": "Compiler fails at line 5.",
+      "F": "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. In Java,boolean instance variables are initialized to false,s ot h eif test on line 5 is true andhand is incremented. Line 6 is legal syntax, a do nothing statement. The else-if is true sohand has 7 added to it and is then incremented. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 4,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
+    "options": {
+      "A": "0 def 1",
+      "B": "2 1 0 def 1",
+      "C": "2 1 0 def def",
+      "D": "2 1 def 0 def 1",
+      "E": "2 1 2 0 def 1 2",
+      "F": "2 1 0 def 1 def 1"
+    },
+    "correctLetters": [
+      "F"
+    ],
+    "explanation": "F. Whenz == 0 , case x-2 is matched. Whenz == 1, case x-1 is matched and then the break occurs. Whenz == 2, case x, thendefault, then x-1 are all matched. When z == 3, default, thenx-1 are matched. The rules for default are that it will fall through from above like any other case (for instance whenz == 2), and that it will match when no other cases match (for instance when z= =3 ). ✗ A, B, C, D, and E are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 5,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "101",
+      "D": "111",
+      "E": "1001",
+      "F": "1101 Flow Control (loops) (Sun Objective 2.2)"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. As instance variables, b1 andb2 are initialized tofalse. The if tests on lines 5 and 6 are successful sob1 is set totrue andx is incremented. The nextif test to succeed is on line 13 (note that the code is not testing to see ifb2 istrue, it is settingb2 to betrue). Since line 13 was successful, subsequent else-if’s(line 14) will be skipped. ✗ A, B, D, E, and F are incorrect based on the program logic described above. Flow Control (loops) (Sun Objective 2.2)"
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 6,
+    "topic": "exception",
+    "text": "Given the following, Which statement is true?",
+    "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
+    "options": {
+      "A": "There is a syntax error on line 1.",
+      "B": "There are syntax errors on lines 1 and 4.",
+      "C": "There are syntax errors on lines 1, 4, and 5.",
+      "D": "There is a syntax error on line 4.",
+      "E": "There are syntax errors on lines 4 and 5.",
+      "F": "There is a syntax error on line 5."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. Using the integer 1 in the while statement, or any other looping or conditional construct for that matter, will result in a compiler error. This is old C syntax, not valid Java. ✗ A, B, C, E, and F are incorrect because line 1 is valid (Java is case sensitive so While is a valid class name). Line 5 is also valid because an equation may be placed in a String operation as shown."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 7,
+    "topic": "exception",
+    "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+    "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n66 Chapter 4: Flow Control, Exceptions, and Assertions\n5.       }\n6.     }\n7.  }",
+    "options": {
+      "A": "for (int x = -1; x < 2; ++x) {",
+      "B": "for (int x = 1; x < 3; ++x ) {",
+      "C": "for (int x = 0; x > 2; ++x ) {",
+      "D": "for (int x = 0; x < 2; x++ ) {",
+      "E": "for (int x = 0; x < 2; ++x ) {"
+    },
+    "correctLetters": [
+      "D",
+      "E"
+    ],
+    "explanation": "D and E. It doesn’t matter whether you preincrement or postincrement the variable in a for loop; it is always incremented after the loop executes and before the iteration expression is evaluated. ✗ A and B are incorrect because the first iteration of the loop must be zero. C is incorrect because the test will fail immediately and the for loop will not be entered."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 8,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
+    "options": {
+      "A": "I is 1",
+      "B": "I is 1 I is 1",
+      "C": "No output is produced.",
+      "D": "Compilation error",
+      "E": "I is 1 I is 1 I is 1 in an infinite loop."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. There are two different looping constructs in this problem. The first is a do-while loop and the second is a while loop, nested inside the do-while. The body of the do-while is only a single statement—brackets are not needed. You are assured that the while expression will be evaluated at least once, followed by an evaluation of the do-while expression. Both expressions are false and no output is produced. ✗ A, B, D, and E are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 9,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);\n25.\n26.",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A. The program flows as follows: I will be incremented after the while loop is entered, thenI will be incremented (by zero) when the for loop is entered. The if statement evaluates to false, and thecontinue statement is never reached. The break statement tells the JVM to break out of the outer loop, at which point I is printed and the fragment is done. ✗ B, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 10,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
+    "options": {
+      "A": "I is 0",
+      "B": "I is 0 I is 1",
+      "C": "Compilation fails.",
+      "D": "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The code will not compile because a continue statement can only occur in a looping construct. If this syntax were legal, the combination of the continue and the if statements would create a kludgey kind of loop, but the compiler will force you to write cleaner code than this. ✗ A, B, and D are incorrect based on the program logic described above. Exceptions (Sun Objectives 2.3 and 2.4)"
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 11,
+    "topic": "exception",
+    "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+    "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n68 Chapter 4: Flow Control, Exceptions, and Assertions\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
+    "options": {
+      "A": "The code will not compile.",
+      "B": "Code output:Start Hello world File Not Found.",
+      "C": "Code output:Start Hello world End of file exception.",
+      "D": "Code output:Start Hello world Catch Here File not found."
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A. Line 6 will cause a compiler error. The only legal statements after try blocks are either catch orfinally statements. ✗ B, C, and D are incorrect based on the program logic described above. If line 6 was removed, the code would compile and the correct answer would be B."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 12,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
+    "options": {
+      "A": "Nothing. The program will not compile because no exceptions are specified.",
+      "B": "Nothing. The program will not compile because nocatch clauses are specified.",
+      "C": "Hello world.",
+      "D": "Hello world Finally executing"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D.Finally clauses are always executed. The program will first execute the try block, printingHello world, and will then execute the finally block, printingFinally executing. ✗ A, B, and C are incorrect based on the program logic described above. Remember that either acatch or afinally statement must follow a try. Since the finally is present, the catch is not required. 76 Chapter 4: Flow Control, Exceptions, and Assertions"
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 13,
+    "topic": "exception",
+    "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+    "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
+    "options": {
+      "A": "This program will compile successfully.",
+      "B": "This program fails to compile due to an error at line 4.",
+      "C": "This program fails to compile due to an error at line 6.",
+      "D": "This program fails to compile due to an error at line 9.",
+      "E": "This program fails to compile due to an error at line 13."
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Any method (in this case, the main() method) that throws a checked exception (in this case, out.close() ) must be called within a try clause, or the metho d must declare that it throws the exception. Either main() must declare that it throws an exception, or the call toout.close() in thefinally block must fall inside a (in this case nested) try-catch block. ✗ A, B, C, and D are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 14,
+    "topic": "exception",
+    "text": "Given the following, which answer most closely indicates the behavior of the program?",
+    "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
+    "options": {
+      "A": "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+      "B": "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+      "C": "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+      "D": "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. Once the program throws a RuntimeException (in the throwit() method) that is not caught, thefinally block will be executed and the program will be terminated. If a method does not handle an exception, the finally block is executed before the exception is propagated. ✗ A, B, and C are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 15,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
+    "options": {
+      "A": "hello throwit caught",
+      "B": "Compilation fails",
+      "C": "hello throwit RuntimeException caught after",
+      "D": "hello throwit RuntimeException",
+      "E": "hello throwit caught finally after",
+      "F": "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Themain() method properly catches and handles the RuntimeException in the catch block, finally runs (as it always does), and then the code returns to normal. ✗ A, B, C, D, and F are incorrect based on the program logic described above. Remember that properly handled exceptions do not cause the program to stop executing. Assertions (Sun Objectives 2.5 and 2.6)"
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 16,
+    "topic": "exception",
+    "text": "Which of the following statements is true?",
+    "code": "",
+    "options": {
+      "A": "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+      "B": "If a switch block has no default, adding an assert default is considered appropriate.",
+      "C": "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "D": "It is appropriate to handle assertion failures using acatch clause."
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. Adding an assertion statement to a switch statement that previously had no default case is considered an excellent use of the assert mechanism. ✗ A is incorrect because only Java expressions that return a value can be used. For instance, a method that returnsvoid is illegal. C is incorrect because the expression after the colon must have a value. D is incorrect because assertions throw errors and not exceptions, and assertion errors do cause program termination and should not be handled."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 17,
+    "topic": "exception",
+    "text": "Which two of the following statements are true? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "It is sometimes good practice to throw an AssertionError explicitly.",
+      "B": "It is good practice to place assertions where you think execution should never reach.",
+      "C": "Privategetter() andsetter() methods should not use assertions to verify arguments.",
+      "D": "If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.",
+      "E": "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
+    },
+    "correctLetters": [
+      "A",
+      "B"
+    ],
+    "explanation": "A and B. A is correct because it is sometimes advisable to thrown an assertion error even if assertions have been disabled. B is correct. One of the most common uses of assert statements in debugging is to verify that locations in code that have been designed to be unreachable are in fact never reached. ✗ C is incorrect because it is considered appropriate to check argument values in private methods using assertions. D is incorrect; finally is never bypassed. E is incorrect because AssertionErrors should never be handled."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 18,
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
+    "options": {
+      "A": "bar",
+      "B": "bar done",
+      "C": "foo done",
+      "D": "bar foo done",
+      "E": "Compilation fails",
+      "F": "An error is thrown at runtime."
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Thefoo() method returnsvoid. It is a perfectly acceptable method, but because it returnsvoid it cannot be used in an assert statement, so line 14 will not compile. ✗ A, B, C, D, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 19,
+    "topic": "exception",
+    "text": "Which two of the following statements are true? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+      "B": "As of Java version 1.4, assertion statements are compiled by default.",
+      "C": "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
+      "D": "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
+      "E": "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
+    },
+    "correctLetters": [
+      "C",
+      "D"
+    ],
+    "explanation": "C and D. C is true because multiple VM flags can be used on a single invocation of a Java program. D is true, these are all valid flags for the VM. ✗ A is incorrect because at runtime assertions are ignored by default. B is incorrect because as of Java 1.4 you must add the argument –source 1.4 to the command line if you want the compiler to compile assertion statements. E is incorrect because the VM evaluates all assertion flags left to right."
+  },
+  {
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "questionNum": 20,
+    "topic": "exception",
+    "text": "Given the following, which line is an example of an inappropriate use of assertions?",
+    "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
+    "options": {
+      "A": "Line 8",
+      "B": "Line 9",
+      "C": "Line 11",
+      "D": "Line 15",
+      "E": "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Assert statements should not cause side effects. Line 18 changes the value of z if the assert statement is false. ✗ A is fine; a second expression in an assert statement is not required. B is fine because it is perfectly acceptable to call a method with the second expression of an assert statement. C is fine because it is proper to call an assert statement conditionally. D is fine because it is considered good form to add a default assert statement to switch blocks that have no default case. EXERCISE ANSWERS Exercise 4.1: Creating a switch-case Statement The code should look something like this: char temp = 'c'; switch(temp) { case 'a': { System.out.println(\"A\"); break; } case 'b': { System.out.println(\"B\"); break; } case 'c': System.out.println(\"C\"); break; default: System.out.println(\"default\"); } 78 Chapter 4: Flow Control, Exceptions, and Assertions Exercise Answers 79 Exercise 4-2: Creating a Labeled while Loop The code should look something like this: class LoopTest { public static void main(String [] args) { int age = 12; outer: while(age < 21) { age += 1; if(age == 16) { System.out.println(\"Obtain driver's license\"); continue outer; } System.out.println(\"Another year.\"); } } } Exercise 4-3: Propagating and Catching an Exception The code should look something like this: class Propagate { public static void main(String [] args) { try { System.out.println(reverse(\"Hello\")); } catch (Exception e) { System.out.println(\"The string was blank\"); } finally { System.out.println(\"All done!\"); } } public static String reverse(String s) throws Exception { if (s.length() == 0 ) { throw new Exception(); } String reverseStr = \"\"; for(int i=s.length()-1;i>=0;--i) { reverseStr += s.charAt(i); } return reverseStr; } } Exercise 4-4: Creating an Exception The code should look something like this: class BadFoodException extends Exception {} class MyException { public static void main(String [] args) { try { checkFood(args[0]); } catch(BadFoodException e) { e. printStackTrace(); } } public static void checkWord(String s) { String [] badFoods = {\"broccoli\",\"brussel sprouts\",\"sardines\"}; for(int i=0;i<badFoods.length;++i) { if (s.equals(badFoods[i])) throw new BadWFoodException(); } System.out.println(s + \" is ok with me.\"); } } 80 Chapter 4: Flow Control, Exceptions, and Assertions"
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 1,
+    "topic": "oop",
+    "text": "Given the following, which is true about the class described above?",
+    "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
+    "options": {
+      "A": "Class Barbell is tightly encapsulated.",
+      "B": "Line 2 is in conflict with encapsulation.",
+      "C": "Line 5 is in conflict with encapsulation.",
+      "D": "Line 8 is in conflict with encapsulation.",
+      "E": "Lines 5 and 8 are in conflict with encapsulation.",
+      "F": "Lines 2, 5, and 8 are in conflict with encapsulation."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. If a class has an instance variable that is marked public, the class cannot be said to be encapsulated. ✗ A, B, C, E, and F are incorrect based on the program logic described above. Public getter and setter methods are compatible with the concept of encapsulation."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 2,
+    "topic": "oop",
+    "text": "Given the following, which is true about the classes described above?",
+    "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
+    "options": {
+      "A": "Class A is tightly encapsulated.",
+      "B": "Class B is tightly encapsulated.",
+      "C": "Classes A and B are both tightly encapsulated.",
+      "D": "Neither class A nor class B is tightly encapsulated."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. Class A is clearly not encapsulated because it has a public instance variable. At first glance class B appears to be encapsulated, however because it extends from class A it inherits thepublic instance variable foo, which is not encapsulated. ✗ A, B, and C are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 3,
+    "topic": "oop",
+    "text": "Which is true?",
+    "code": "",
+    "options": {
+      "A": "Tightly encapsulated classes are typically easier to reuse.",
+      "B": "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+      "C": "Methods in tightly encapsulated classes cannot be overridden.",
+      "D": "Methods in tightly encapsulated classes cannot be overloaded.",
+      "E": "Tightly encapsulated classes typically do not use HAS-A relationships."
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A. One of the main benefits of encapsulation is that encapsulated code is much easier to reuse than unencapsulated code. ✗ B, C, D, and E are incorrect. B is incorrect because inheritance is a concept that is independent of encapsulation. C and D are incorrect because encapsulation does not restrict the use of overloading or overriding.E is incorrect because HAS-A relationships are independent of encapsulation."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 4,
+    "topic": "oop",
+    "text": "Which two are not benefits of encapsulation? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "Clarity of code",
+      "B": "Code efficiency",
+      "C": "The ability to add functionality later on",
+      "D": "Modifications require fewer coding changes",
+      "E": "Access modifiers become optional"
+    },
+    "correctLetters": [
+      "B",
+      "E"
+    ],
+    "explanation": "B and E. Encapsulation tends to make code more maintainable, extensible, and debuggable, but not necessarily any more efficient at runtime. Encapsulation is a design approach and in no way affects any Java language rules such as the use of access modifiers. ✗ A, C, and D are well-known benefits of encapsulation."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 5,
+    "topic": "oop",
+    "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
+    "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
+    "options": {
+      "A": "A is-a B",
+      "B": "C is-a A",
+      "C": "A has-a C",
+      "D": "B has-a A",
+      "E": "B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2)"
+    },
+    "correctLetters": [
+      "C",
+      "E"
+    ],
+    "explanation": "C and E. C is correct because class A has an instance variable, c, that is a reference to an object of class C. E is correct because class B extends from class A, which HAS-A class C reference, so class B, through inheritance, HAS-A class C. ✗ A, B, and D are incorrect based on the program logic described. A is incorrect because class B extends from class A, not the other way around. B is incorrect because class C is not in class A’s inheritance tree.D is incorrect because class B IS-A class A; HAS-A is not used to describe inheritance relationships. Overriding and Overloading (Sun Objective 6.2)"
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 6,
+    "topic": "oop",
+    "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
+    "code": "",
+    "options": {
+      "A": "A",
+      "B": "B",
+      "C": "Compilation fails.",
+      "D": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. Reference variable ‘a’i so ft y p eA, but it refers to an object of type B.L i n e9i sa polymorphic call, and the VM will use the version of the baz() method that is in the class that the reference variable refers to at that point. ✗ A, C, and D are incorrect because of the logic described above. 58 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types"
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 7,
+    "topic": "oop",
+    "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+    "code": "",
+    "options": {
+      "A": "String doStuff(int x) { return \"hello\"; }",
+      "B": "int doStuff(int x) { return 42; }",
+      "C": "public String doStuff(int x) { return \"Hello\"; }",
+      "D": "protected String doStuff(int x) { return \"Hello\"; }",
+      "E": "String doStuff(String s) { return \"Hello\"; }",
+      "F": "int doStuff(String s) { return 42; }"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. B is neither a legal override (the return type has been changed) nor a legal overload (the arguments have not changed). ✗ A, C, and D are legal overrides of thedoStuff() method, and E and F are legal overloads of thedoStuff() method."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 8,
+    "topic": "oop",
+    "text": "Given the following, What is the result?",
+    "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
+    "options": {
+      "A": "x = 14",
+      "B": "x = 21",
+      "C": "Compilation fails at line 2.",
+      "D": "Compilation fails at line 11.",
+      "E": "Compilation fails at line 14.",
+      "F": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Line 14 is an illegal override of the doStuff() method in ParentClass. When you override a method, you must leave both the arguments and the return types the same. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 14 had returned an int, then B would be correct."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 9,
+    "topic": "oop",
+    "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+    "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
+    "options": {
+      "A": "public int doStuff(int x, float y) { return 4; }",
+      "B": "protected int doStuff(int x, float y) {return 4; }",
+      "C": "private int doStuff(int x, float y) {return 4; }",
+      "D": "private int doStuff(int x, double y) { return 4; }",
+      "E": "long doStuff(int x, float y) { return 4; }",
+      "F": "int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3)"
+    },
+    "correctLetters": [
+      "C",
+      "E"
+    ],
+    "explanation": "C and E. C is an illegal override because the private modifier is more restrictive than doStuff()’s default modifier in class Over.E is an illegal override because you can’t change an overridden method’s return type, orE is an illegal overload because you must change an overloaded method’s arguments. ✗ A and B are simple overrides (protected is less restrictive than default). D and F are simple overloads (swapping arguments of different types creates an overload). Instantiation and Constructors (Sun Objectives 6.3 and 1.3)"
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 10,
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
+    "options": {
+      "A": "instantiate a child",
+      "B": "instantiate a parent",
+      "C": "instantiate a child instantiate a parent",
+      "D": "instantiate a parent instantiate a child",
+      "E": "Compilation fails.",
+      "F": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. The class Child constructor calls the class Parent constructor implicitly before any code in the Child constructor runs. When the class Parent constructor’s code runs, it prints the first line of output, finishes, and returns control to the Child constructor, which prints out its line of output and finishes. The call to super() is redundant. ✗ A, B, C, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 11,
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
+    "options": {
+      "A": "instantiate a child",
+      "B": "instantiate a parent",
+      "C": "instantiate a child instantiate a parent",
+      "D": "instantiate a parent instantiate a child",
+      "E": "Compilation fails.",
+      "F": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Line 17 will cause the compiler to fail. The call tosuper() must be the first statement in a constructor. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 17 were removed, D would be correct."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 12,
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
+    "options": {
+      "A": "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+      "B": "super 2 sub",
+      "C": "Compilation fails at line 2.",
+      "D": "Compilation fails at line 8.",
+      "E": "Compilation fails at line 9.",
+      "F": "Compilation fails at line 14."
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. Class MySuper does not need a no-args constructor because MySub explicitly calls the MySuper constructor with an argument. ✗ A is incorrect because other than the implicit calls to super(), constructors run in order from base class to extended class, so MySuper’s output will print first.C, D, E,and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 13,
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
+    "options": {
+      "A": "4",
+      "B": "4 8",
+      "C": "8 4",
+      "D": "8 4 no-arg",
+      "E": "no-arg 8 4",
+      "F": "Compilation fails."
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Themain() method calls the long constructor which calls the int constructor, which calls the no-arg constructor, which runs, then returns to the int constructor, which runs, then returns to the long constructor, which runs last. ✗ A, B, C, D, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 14,
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
+    "options": {
+      "A": "no-arg",
+      "B": "8 4 no-arg",
+      "C": "no-arg 8 4",
+      "D": "Compilation fails.",
+      "E": "No output is produced.",
+      "F": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. The class elements declared in lines 5, 8, and 12 are badly named methods, not constructors. The default constructor runs with no output, and these methods are never called. ✗ A, B, C, D, and F are incorrect because of the logic described above."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 15,
+    "topic": "oop",
+    "text": "Given the following,",
+    "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
+    "options": {
+      "A": "Beagle() { }",
+      "B": "Beagle() { super(); }",
+      "C": "Beagle() { super(\"fido\"); }",
+      "D": "No constructor, allow the default constructor"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Only C is correct because the Dog class does not have a no-arg constructor; therefore, you must explicitly make the call to super(), passing in a string. ✗ A, B, and D are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 16,
+    "topic": "oop",
+    "text": "Which two of these statements are true about constructors? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "Constructors must not have arguments if the superclass constructor does not have arguments.",
+      "B": "Constructors are not inherited.",
+      "C": "Constructors cannot be overloaded.",
+      "D": "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4)"
+    },
+    "correctLetters": [
+      "B",
+      "D"
+    ],
+    "explanation": "B and D are simply stating two rules about constructors. ✗ A is wrong because subclass constructors do not have to match the arguments of the superclass constructor. Only the call to super() must match. C is incorrect because constructors can be and are frequently overloaded. Return Types (Sun Objective 1.4)"
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 17,
+    "topic": "oop",
+    "text": "Given the following, which line of code, inserted at line 19, will not compile?",
+    "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
+    "options": {
+      "A": "short y = 7;",
+      "B": "int y = (int) 7.2d;",
+      "C": "Byte y = 7;",
+      "D": "char y = 's';",
+      "E": "int y = 0xface;"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Byte is a wrapper object, not a primitive. ✗ A and D are primitives that are shorter than int so they are cast implicitly. B is a double explicitly cast to an int. E is a valid integer initialized with a hexadecimal value."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 18,
+    "topic": "oop",
+    "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+    "code": "14.    long test( int x, float y) {\n15.\n16.    }",
+    "options": {
+      "A": "return x;",
+      "B": "return (long) x / y;",
+      "C": "return (long) y;",
+      "D": "return (int) 3.14d;",
+      "E": "return ( y / x );",
+      "F": "return  x / 7;"
+    },
+    "correctLetters": [
+      "B",
+      "E"
+    ],
+    "explanation": "B and E. B won’t compile because thelong cast only applies to x, not to the expression x / y. (We know it’s tricky, but so is the test.)E won’t compile because the result of (y / x) is a float. ✗ A, C, D, and F all return either longs or ints (which are automatically cast to longs)."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 19,
+    "topic": "oop",
+    "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n54 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+    "options": {
+      "A": "return null;",
+      "B": "Object t = new Object(); return t;",
+      "C": "int [] a = new int [2]; return a;",
+      "D": "char [] [] c = new char [2][2]; return c[0] [1];",
+      "E": "char [] [] c = new char [2][2]; return c[1];",
+      "F": "return 7;"
+    },
+    "correctLetters": [
+      "D",
+      "F"
+    ],
+    "explanation": "D and F. D is a reference to a char primitive that happens to be in an array. F returns a primitive, not an object. ✗ A, B, C, and E all return objects. For A,null is always a valid object return. For C,a n array is an object that holds other things (either objects or primitives). For E, we are returning an array held in an array, and it’s still an object!"
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 20,
+    "topic": "oop",
+    "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+    "options": {
+      "A": "char [] [] c = new char [2][2]; return c;",
+      "B": "return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+      "C": "return (Object) (new int [] {1,2,3} );",
+      "D": "ArrayList a = new ArrayList(); return a;",
+      "E": "return (Object) \"test\";",
+      "F": "return (Float) 4.3;"
+    },
+    "correctLetters": [
+      "B",
+      "F"
+    ],
+    "explanation": "B and F are both attempting to cast a primitive to an object—can’t do it. ✗ A, C, D, and E all return objects. A is an array object that holds other arrays. C is an array object. D is an ArrayList object. E is a string cast to an object."
+  },
+  {
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "questionNum": 21,
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
+    "options": {
+      "A": "Bar Bar Bar Bar Bar Bar",
+      "B": "Foo Bar Foo Bar Foo Bar",
+      "C": "Foo Foo Foo Foo Foo Foo",
+      "D": "Compilation fails.",
+      "E": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. Line 8 is an example of a polymorphic return type. The VM will determine on a case- by-case basis what class of object f2 refers to, Bar or Foo. This is only possible because the classes Foo and Bar are in the same inheritance tree. ✗ A, C, D, and E, are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 1,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
+    "options": {
+      "A": "abcdefghi",
+      "B": "abcdefdef",
+      "C": "abcghidef",
+      "D": "abcghighi",
+      "E": "Compilation fails.",
+      "F": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. After line 5 executes, both s2 and s3 refer to a String object that contains the value “def”. When line 6 executes, a new String object is created with the value “ghi”, to whichs2 refers. The reference variable s3 still refers to the (immutable) String object with the value “def”. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 2,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
+    "options": {
+      "A": "abcXyZ",
+      "B": "abcxyz",
+      "C": "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "D": "XyZabc",
+      "E": "Compilation fails.",
+      "F": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Line 12 creates a new String object with the value “XYZ”, but this new object is immediately lost because there is no reference to it. Line 13 creates a new String object referenced by y. This new String object has the value “xyz” because there was no “Y” in the String object referred to by x. Line 14 creates a new String object, appends “abc” to the value “xyz”, and refersy to the result. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 3,
+    "topic": "string",
+    "text": "Given the following, how many String objects have been created?",
+    "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Line 13 creates two, one referred to by x and the lost String “xyz”. Line 14 creates one (for a total of three). Line 15 creates one more (for a total of four), the concatenated String referred to by x with a value of “xyzabc”. ✗ A, B, and D are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 4,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
+    "options": {
+      "A": "apa",
+      "B": "app",
+      "C": "apea",
+      "D": "apep",
+      "E": "papp",
+      "F": "papa"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. Bothsubstring() andcharAt() methods are indexed with a zero-base, and substring() returns a String of length arg2 – arg1. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 5,
+    "topic": "string",
+    "text": "Given the following, what is the result? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
+    "options": {
+      "A": "wookkeewoo",
+      "B": "wbookkeeper",
+      "C": "wbookkeewoo",
+      "D": "wbookkeeperwoo",
+      "E": "Compilation fails.",
+      "F": "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. In line 7 the code calls a StringBuffer method, append() on a String object. ✗ A, B, C, D, and F are incorrect based on the logic described above. Math (Exam Objective 8.1)"
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 6,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
+    "options": {
+      "A": "same results 0 time(s)",
+      "B": "same results 2 time(s)",
+      "C": "same results 4 time(s)",
+      "D": "Compilation fails.",
+      "E": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B.Math.round() adds .5 to the argument then performs a floor(). Since the code adds an additional .5 before round() is called, it’s as if we are adding 1 then doing a floor(). The values that start out as integer values will in effect be incremented by 1 on the round() side but not on theceil() side, and the noninteger values will end up equal. ✗ A, C, D, and E are incorrect based on the logic described above. 50 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers"
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 7,
+    "topic": "string",
+    "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+    "code": "",
+    "options": {
+      "A": "Math.max(1,4)",
+      "B": "Math.max(2.3,5)",
+      "C": "Math.max(1,3,5,7)",
+      "D": "Math.max(-1.5,-2.8f)"
+    },
+    "correctLetters": [
+      "A",
+      "B"
+    ],
+    "explanation": "A, B, and D. Themax() method is overloaded to take two arguments of type int, long, float,o r double. ✗ C is incorrect because the max() method only takes two arguments."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 8,
+    "topic": "string",
+    "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "The result is less than 0.0.",
+      "B": "The result is greater than or equal to 0.0..",
+      "C": "The result is less than 1.0.",
+      "D": "The result is greater than 1.0.",
+      "E": "The result is greater than or equal to 1.0.",
+      "F": "The result is less than or equal to 1.0."
+    },
+    "correctLetters": [
+      "B",
+      "C"
+    ],
+    "explanation": "B and C. The result range for random() is 0.0 to < 1.0; 1.0 is not in range. ✗ A, D, E, and F are incorrect based on the logic above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 9,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
+    "options": {
+      "A": "3.0",
+      "B": "–3.0",
+      "C": "NaN",
+      "D": "Compilation fails.",
+      "E": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Thesqrt() method returnsNaN (not a number) when it’s argument is less than zero. ✗ A, B, D, and E are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 10,
+    "topic": "string",
+    "text": "Given the following, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
+    "options": {
+      "A": "Line 3",
+      "B": "Line 4",
+      "C": "Line 5",
+      "D": "Line 6",
+      "E": "Line 3 and either line 4, 5, or 6",
+      "F": "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The Math class’ trigonometry methods expect their arguments to be in radians, not degrees. Line 5 can be decoded: “Convert 75 (degrees) into radians, then find the sine of that result.” ✗ A, B, D, E, and F are incorrect based on the logic described above. Wrappers (Exam Objective 8.3)"
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 11,
+    "topic": "string",
+    "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
+    "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
+    "options": {
+      "A": "Line 3",
+      "B": "Line 4",
+      "C": "Line 5",
+      "D": "Line 6",
+      "E": "Line 7",
+      "F": "Line 8"
+    },
+    "correctLetters": [
+      "B",
+      "D"
+    ],
+    "explanation": "B and D. B is incorrect because the valueOf() method returns an Integer object. D is incorrect because the parseInt() method takes a String. ✗ A, C, E, and F all represent valid syntax. Line 5 takes the String “345” to be octal number, and converts it to an integer value 229."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 12,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
+    "options": {
+      "A": "42",
+      "B": "42.5",
+      "C": "43",
+      "D": "badnumber",
+      "E": "Compilation fails.",
+      "F": "An uncaught exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. All of this code is legal, and line 5 creates a new String with a value of “42.5”. Lines 6 and 7 convert the String to a double and then back again. Line 8 is fun— Math.ceil()’s argument expression is evaluated first. We invoke the valueOf() method that returns an anonymous Double object (with a value of 42.5). Then the doubleValue() method is called (invoked on the newly created Double object), and returns a double primitive (there and back again), with a value of (you guessed it) 42.5. The ceil() method converts this to 43.0, which is cast to an int and assigned to x. We know, we know, but stuff like this is on the exam. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 13,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
+    "options": {
+      "A": "z",
+      "B": "xz",
+      "C": "yz",
+      "D": "xyz",
+      "E": "Compilation fails.",
+      "F": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. The compiler fails at line 10 because b1 is a reference variable to a Boolean wrapper object, not a boolean primitive. Logical boolean tests can’t be made on Boolean objects. ✗ A, B, C, D, and F are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 14,
+    "topic": "string",
+    "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+    "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
+    "options": {
+      "A": "floatf1=Float.floatValue(s);",
+      "B": "floatf2=Float.valueOf(s);",
+      "C": "floatf3=newFloat(3.14f).floatValue();",
+      "D": "floatf4=Float.parseFloat(1.23f);",
+      "E": "floatf5=Float.valueOf(s).floatValue();",
+      "F": "floatf6=(float)Double.parseDouble(\"3.14\");"
+    },
+    "correctLetters": [
+      "A",
+      "B"
+    ],
+    "explanation": "A, B, and D. A won’t compile because thefloatValue() method is an instance method that takes no arguments. B won’t compile because thevalueOf() method returns a wrapper object. D won’t compile because theparseFloat() method takes a String. ✗ C, E,a n dF are all legal (if not terribly useful) ways to return a primitive float. 52 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers"
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 15,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
+    "options": {
+      "A": "9.0",
+      "B": "badnumber",
+      "C": "Compilation fails on line 13.",
+      "D": "Compilation fails on line 14.",
+      "E": "Compilation fails on lines 13 and 14.",
+      "F": "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A is correct. ThexxxValue() methods convert any numeric wrapper object’s value to any primitive type. When narrowing is necessary, significant bits are dropped and the results are difficult to calculate. ✗ B, C, D, E, and F are incorrect based on the logic described above. Equals() (Exam Objective 5.2)"
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 16,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
+    "options": {
+      "A": "result=1",
+      "B": "result=10",
+      "C": "result=11",
+      "D": "result=11010",
+      "E": "result=11011",
+      "F": "result=11111"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. Line 12 fails because == compares reference values, not object values. Line 13 succeeds because both String and primitive wrapper constructors resolve to the same value (except for the Character wrapper). Lines 14, 15, and 16 fail because the equals() method fails if the object classes being compared are different and not in the same tree hierarchy. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 17,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "10",
+      "D": "1100",
+      "E": "10001",
+      "F": "10010"
+    },
+    "correctLetters": [
+      "F"
+    ],
+    "explanation": "F. Line 10 fails because b1 and b2 are two different objects. Lines 11 and 14 succeed because the Boolean String constructors are case insensitive. Lines 12 and 13 fail because true is not equal tofalse. ✗ A, B, C, D, and E are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 18,
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
+    "options": {
+      "A": "1",
+      "B": "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "C": "101",
+      "D": "1001",
+      "E": "1101"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Even though o and oc are reference variables of different types, they are both referring to the same object. This means that == will resolve totrue and that the default equals() method will also resolve to true. ✗ A, B, C, and D are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "questionNum": 19,
+    "topic": "string",
+    "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
+      "B": "If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.",
+      "C": "If x and y are String references and ifx.equals(y) istrue, then x== y istrue.",
+      "D": "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
+      "E": "If x and y are String references and x== y istrue, theny.equals(x) will betrue."
+    },
+    "correctLetters": [
+      "D",
+      "E"
+    ],
+    "explanation": "D and E. D describes an example of the equals() method behaving transitively. By the way, x, y,a n dz will all be the same type of wrapper. E is true because x and y are referring to the same String object. ✗ A is incorrect—the fragment will compile. B is incorrect because x== y means that the two reference variables are referring to the same object. C will only be true if x and y refer to the same String. It is possible for x and y to refer to two different String objects with the same value. EXERCISE ANSWERS Exercise 6-1: Using the Math Class The following code listing is an example of how you might have written code to complete the exercise: class NumberInterrogation { public static void main(String [] argh) { double [] num = {10.5, -10.5, Math.PI, 0}; for(int i=0;i<num.length;++i) { System.out.println(\"abs(\"+num[i]+\")=\"+Math.abs(num[i])); System.out.println(\"ceil(\"+num[i]+\")=\"+Math.ceil(num[i])); System.out.println(\"floor(\"+num[i]+\")=\"+Math.floor(num[i])); System.out.println(); } } } Exercise 6-2: Rounding Random Numbers The following code listing is an example of how you might have written code to complete the exercise: class RandomRound { public static void main(String [] argh) { for(int i=0;i<10;++i) { double num = Math.random() * 100; System.out.print(\"The number \" + num); System.out.println(\" rounds to \" + Math.round(num)); } } } Exercise Answers 53"
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 1,
+    "topic": "collection",
+    "text": "Given the following, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+    "code": "12.  if (x1.hashCode() != x2.hashCode() )  x = x + 1;\n13.  if (x3.equals(x4) )  x = x + 10;\n14.  if (!x5.equals(x6) ) x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode() )  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
+    "options": {
+      "A": "x2.equals(x1)",
+      "B": "x3.hashCode() == x4.hashCode()",
+      "C": "x5.hashCode() != x6.hashCode()",
+      "D": "x8.equals(x7)"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. By contract, if two objects are equivalent according to the equals() method, then thehashCode() method must evaluate them to be ==. ✗ A is incorrect because if the hashCode() values are not equal, the two objects must not be equal. C is incorrect because if equals() is not true there is no guarantee of any result fromhashCode(). D is incorrect because hashCode() will often return == even if the two objects do not evaluate to equals() being true."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 2,
+    "topic": "collection",
+    "text": "Given the following, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } which statement is true?",
+    "code": "",
+    "options": {
+      "A": "class Test1 will not compile.",
+      "B": "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+      "C": "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+      "D": "class Test2 will not compile.",
+      "E": "The twohashcode() methods will have the same efficiency."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The so-called “hashing algorithm” implemented by class Test1 will always return the same value, 42, which is legal but which will place all of the hash table entries into a single bucket, the most inefficient setup possible. ✗ A and D are incorrect because these classes are legal. B and E are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 3,
+    "topic": "collection",
+    "text": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "If theequals() method returnstrue, thehashCode() comparison == must returntrue.",
+      "B": "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
+      "C": "If thehashCode() comparison == returnstrue, theequals() method must return true.",
+      "D": "If thehashCode() comparison == returnstrue, theequals() method might returntrue.",
+      "E": "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+    },
+    "correctLetters": [
+      "A",
+      "D"
+    ],
+    "explanation": "A and D. A is a restatement of the equals() andhashCode() contract. D is true because if thehashCode() comparison returns ==, the two objects might or might not be equal. ✗ B, C, and E are incorrect. B and C are incorrect because the hashCode() method is very flexible in its return values, and often two dissimilar objects can return the same hash code value. E is a negation of the hashCode() andequals() contract."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 4,
+    "topic": "collection",
+    "text": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+    "code": "",
+    "options": {
+      "A": "java.lang.String",
+      "B": "java.lang.Double",
+      "C": "java.lang.StringBuffer",
+      "D": "java.lang.Character",
+      "E": "java.util.ArrayList"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. java.lang.StringBuffer is the only class in the list that uses the default methods provided by class Object. ✗ A, C, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 5,
+    "topic": "collection",
+    "text": "What two statements are true about properly overridden hashCode() andequals() methods?",
+    "code": "",
+    "options": {
+      "A": "hashCode() doesn’t have to be overridden ifequals() is.",
+      "B": "equals() doesn’t have to be overridden ifhashCode() is.",
+      "C": "hashCode() can always return the same value, regardless of the object that invoked it.",
+      "D": "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
+      "E": "equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1)"
+    },
+    "correctLetters": [
+      "C",
+      "E"
+    ],
+    "explanation": "C and E are correct. ✗ A, B, and D are incorrect. A and B are incorrect because by contract hashCode() and equals() can’t be overridden unless both are overridden.D is incorrect;hashCode() will often return the same value when hashing dissimilar objects. Using Collections (Exam Objective 9.1)"
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 6,
+    "topic": "collection",
+    "text": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+    "code": "",
+    "options": {
+      "A": "java.util.HashSet",
+      "B": "java.util.LinkedHashSet",
+      "C": "java.util.List",
+      "D": "java.util.ArrayList",
+      "E": "java.util.Vector"
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. All of the collection classes allow you to grow or shrink the size of your collection. ArrayList provides an index to its elements. The newer collection classes tend not to have synchronized methods. Vector is an older implementation of ArrayList functionality and has synchronized methods; it is slower than ArrayList. ✗ A, B, C, and E are incorrect based on the logic described above; C, List is an interface."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 7,
+    "topic": "collection",
+    "text": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+    "code": "",
+    "options": {
+      "A": "java.util.SortedMap",
+      "B": "java.util.TreeMap",
+      "C": "java.util.TreeSet",
+      "D": "java.util.HashMap",
+      "E": "java.util.Hashtable"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. Hashtable is the only class listed that provides synchronized methods. If you need synchronization great; otherwise, use HashMap, it’s faster. ✗ A, B, C, and D are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 8,
+    "topic": "collection",
+    "text": "Given the following, what is the result?",
+    "code": "12.    TreeSet map = new TreeSet();\n13.    map.add(\"one\");\n14.    map.add(\"two\");\n15.    map.add(\"three\");\n16.    map.add(\"four\");\n17.    map.add(\"one\");\n18.    Iterator it = map.iterator();\n19.    while (it.hasNext() ) {\n20.        System.out.print( it.next() + \" \" );\n21.     }",
+    "options": {
+      "A": "one two three four",
+      "B": "four three two one",
+      "C": "four one three two",
+      "D": "one two three four one",
+      "E": "one four three two one",
+      "F": "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. TreeSet assures no duplicate entries; also, when it is accessed it will return elements in natural order, which typically means alphabetical. ✗ A, B, D, E, and F are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 9,
+    "topic": "collection",
+    "text": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+    "code": "",
+    "options": {
+      "A": "java.util.ArrayList",
+      "B": "java.util.LinkedHashMap",
+      "C": "java.util.HashMap",
+      "D": "java.util.TreeMap",
+      "E": "java.util.LinkedHashSet",
+      "F": "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. LinkedHashMap is the collection class used for caching purposes. FIFO is another way to indicate caching behavior. To retrieve LinkedHashMap elements in cached order, use the values() method and iterate over the resultant collection. ✗ A, C, D, E, and E are incorrect based on the logic described above. Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 10,
+    "topic": "collection",
+    "text": "Given the following,",
+    "code": "1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nAfter line 6 runs. how many objects are eligible for garbage collection?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "2",
+      "D": "3",
+      "E": "4"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. By the time line 6 has run, the only object without a reference is the one generated as a result of line 4. Remember that “Java is pass by value,” so the reference variablex is not affected by them1() method. ✗ A, C, D, and E are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 11,
+    "topic": "collection",
+    "text": "Which statement is true?",
+    "code": "",
+    "options": {
+      "A": "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+      "B": "Objects with at least one reference will never be garbage collected.",
+      "C": "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+      "D": "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+      "E": "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. All objects are placed in the garbage collectible heap. ✗ A is incorrect because the garbage collector makes no guarantees. B is incorrect because islands of isolated objects can exist. C is incorrect because finalize() has no such mystical powers. E is incorrect because within a finalize() method, an object’s reference can be passed back to a live thread."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 12,
+    "topic": "collection",
+    "text": "Given the following,",
+    "code": "1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nafter line 9 runs, how many objects are eligible for garbage collection?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "2",
+      "D": "3",
+      "E": "4"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. This is an example of the islands of isolated objects . By the time line 9 has run, the objects instantiated in lines 4 and 5 are referring to each other, but no live thread can reach either of them. ✗ A, B, D, and E are incorrect based on the logic described above."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 13,
+    "topic": "collection",
+    "text": "Which statement is true?",
+    "code": "",
+    "options": {
+      "A": "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+      "B": "The garbage collector uses a mark and sweep algorithm.",
+      "C": "If an object can be accessed from a live thread, it can’t be garbage collected.",
+      "D": "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. This is a great way to think about when objects can be garbage collected. ✗ A and B assume guarantees that the garbage collector never makes. D is wrong because of the now famous islands of isolation scenario."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 14,
+    "topic": "collection",
+    "text": "Given the following,",
+    "code": "12.  X3 x2 = new X3();\n13.  X3 x3 = new X3();\n14.  X3 x5 = x3;\n15.  x3 = x2;\n16.  X3 x4 = x3;",
+    "options": {},
+    "correctLetters": [
+      "C",
+      "E"
+    ],
+    "explanation": "C and E. By the time line 18 is reached, x2 is null,x3 andx4 refer to the object created in line 12, andx5 refers to the object created in line 13. Any kind of redirection of x5 will leave the second object without a reference. ✗ A, B, and D are incorrect because the first object has two references; changing one of the references will not cause the first object to become unreachable."
+  },
+  {
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "questionNum": 15,
+    "topic": "collection",
+    "text": "",
+    "code": "",
+    "options": {},
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E is correct. A copy of a reference to the line 13 object is passed to the doStuff2() method. We don’t know what goes on in that method; it’s possible that the reference is passed to other live objects. ✗ A, B, C, and D are incorrect based on the logic described above. 50 Chapter 7: Objects and Collections"
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 1,
+    "topic": "javacore",
+    "text": "Given the following, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+    "code": "",
+    "options": {
+      "A": "MyOuter.MyInnerm=newMyOuter.MyInner();",
+      "B": "MyOuter.MyInnermi=newMyInner();",
+      "C": "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+      "D": "MyInnermi=newMyOuter.MyInner();"
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A. MyInner is a static nested class, so it must be instantiated using the fully-scoped name of MyOuter.MyInner. ✗ B is incorrect because it doesn’t use the enclosing name in thenew. C is incorrect because it uses incorrect syntax. When you instantiate a nested class by invoking new on an instance of the enclosing class, you do not use the enclosing name. The difference between A and C is that C is calling new on an instance of the enclosing class rather than just new by itself. D is incorrect because it doesn’t use the enclosing class name in the variable declaration."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 2,
+    "topic": "javacore",
+    "text": "Which two are true about a static nested class?",
+    "code": "",
+    "options": {
+      "A": "You must have a reference to an instance of the enclosing class in order to instantiate it.",
+      "B": "It does not have access to nonstatic members of the enclosing class.",
+      "C": "Its variables and methods must be static.",
+      "D": "It can be instantiated usingnewMyOuter.MyInner(); .",
+      "E": "It must extend the enclosing class."
+    },
+    "correctLetters": [
+      "B",
+      "D"
+    ],
+    "explanation": "B and D. B is correct because a static nested class is not tied to an instance of the enclosing class, and thus can’t access the nonstatic members of the class (just as a static method can’t access nonstatic members of a class).D uses the correct syntax for instantiating a static nested class. ✗ A is incorrect because static nested classes do not need (and can’t use) a reference to an instance of the enclosing class. C is incorrect because static nested classes can declare and define nonstatic members. E is wrong because…it just is. There’s no rule that says an inner or nested class has to extend anything."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 3,
+    "topic": "javacore",
+    "text": "Which constructs an anonymous inner class instance?",
+    "code": "",
+    "options": {
+      "A": "Runnabler=newRunnable(){};",
+      "B": "Runnabler=newRunnable(publicvoidrun(){});",
+      "C": "Runnabler=newRunnable{publicvoidrun(){}};",
+      "D": "Runnabler=newRunnable(){publicvoidrun{}};",
+      "E": "System.out.println(newRunnable() {publicvoidrun(){}});",
+      "F": "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E is correct. It defines an anonymous inner class instance, which also means it creates an instance of that new anonymous class at the same time. The anonymous class is an implementer of the Runnable interface, so it must override the run() method of Runnable. ý A is incorrect because it doesn’t override therun() method, so it violates the rules of interface implementation. B, C, and D use incorrect syntax."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 4,
+    "topic": "javacore",
+    "text": "Given the following, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+    "code": "",
+    "options": {
+      "A": "Boof=newBoo(24){};",
+      "B": "Boof=newBar(){};",
+      "C": "Boof=newBoo(){Strings;};",
+      "D": "Barf=newBoo(Strings){};",
+      "E": "Boof=newBoo.Bar(Strings){};"
+    },
+    "correctLetters": [
+      "B",
+      "C"
+    ],
+    "explanation": "B and C. B is correct because anonymous inner classes are no different from any other class when it comes to polymorphism. That means you are always allowed to declare a reference variable of the superclass type and have that reference variable refer to an instance of a subclass type, which in this case is an anonymous subclass of Bar. Since Bar is a subclass of Boo, it all works. C uses correct syntax for creating an instance of Boo. ý A is incorrect because it passes an int to the Boo constructor, and there is no matching constructor in the Boo class. D is incorrect because it violates the rules of polymorphism—you cannot refer to a superclass type using a reference variable declared as the subclass type. The superclass is not guaranteed to have everything the subclass has. E uses incorrect syntax. 34 Chapter 8: Inner Classes"
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 5,
+    "topic": "javacore",
+    "text": "Given the following, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+    "code": "2.   class Bar{ }\n3.}\n4.class Test {\n5.    public static void main (String [] args) {\n6.       Foo f = new Foo();\n7.       // Insert code here\n8.    }\n9.}",
+    "options": {
+      "A": "Foo.Barb=newFoo.Bar();",
+      "B": "Foo.Barb=f.newBar();",
+      "C": "Barb=newf.Bar();",
+      "D": "Barb=f.newBar();",
+      "E": "Foo.Barb=newf.Bar();"
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B is correct because the syntax is correct—using both names (the enclosing class and the inner class) in the reference declaration, then using a reference to the enclosing class to invoke new on the inner class. ✗ A, C, D, and E all use incorrect syntax. A is incorrect because it doesn’t use a reference to the enclosing class, and also because it includes both names in the new. C is incorrect because it doesn’t use the enclosing class name in the reference variable declaration, and because the new syntax is wrong. D is incorrect because it doesn’t use the enclosing class name in the reference variable declaration. E is incorrect because the new syntax is wrong."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 6,
+    "topic": "javacore",
+    "text": "Which two are true about a method-local inner class?",
+    "code": "",
+    "options": {
+      "A": "It must be markedfinal.",
+      "B": "It can be markedabstract.",
+      "C": "It can be markedpublic.",
+      "D": "It can be markedstatic.",
+      "E": "It can access private members of the enclosing class."
+    },
+    "correctLetters": [
+      "B",
+      "E"
+    ],
+    "explanation": "B and E. B is correct because a method-local inner class can be abstract, although it means a subclass of the inner class must be created if the abstract class is to be used (so an abstract method-local inner class is probably not useful). E is correct because a method-local inner class works like any other inner class—it has a special relationship to an instance of the enclosing class, thus it can access all members of the enclosing class. ✗ A is incorrect because a method-local inner class does not have to be declared final (although it is legal to do so). C and D are incorrect because a method-local inner class cannot be madepublic (remember—you cannot mark any local variables as public), orstatic."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 7,
+    "topic": "javacore",
+    "text": "Which is true about an anonymous inner class?",
+    "code": "",
+    "options": {
+      "A": "It can extend exactly one class and implement exactly one interface.",
+      "B": "It can extend exactly one class and can implement multiple interfaces.",
+      "C": "It can extend exactly one class or implement exactly one interface.",
+      "D": "It can implement multiple interfaces regardless of whether it also extends a class.",
+      "E": "It can implement multiple interfaces if it does not extend a class."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C is correct because the syntax of an anonymous inner class allows for only one named type after thenew, and that type must be either a single interface (in which case the anonymous class implements that one interface) or a single class (in which case the anonymous class extends that one class). ✗ A, B, D, and E are all incorrect because they don’t follow the syntax rules described in the response for answer C."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 8,
+    "topic": "javacore",
+    "text": "Given the following, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } what is the result?",
+    "code": "",
+    "options": {
+      "A": "Compilation fails.",
+      "B": "An error occurs at runtime.",
+      "C": "foobarhi",
+      "D": "barhi",
+      "E": "hi 30 Chapter 8: Inner Classes"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C is correct because first the Foo instance is created, which means the Foo constructor runs and prints “foo”. Next, themakeBar() method is invoked which creates a Bar, which means the Bar constructor runs and prints “bar”, and finally thego() method is invoked on the new Bar instance, which means the go() method prints “hi”. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 9,
+    "topic": "javacore",
+    "text": "Given the following, 1.public class TestObj { what is the result?",
+    "code": "2.  public static void main (String [] args) {\n3.    Object o = new Object() {\n4.       public boolean equals(Object obj) {\n5.        return true;\n6.       }\n7.    }\n8.     System.out.println(o.equals(\"Fred\"));\n9.   }\n10.}",
+    "options": {
+      "A": "An exception occurs at runtime.",
+      "B": "true",
+      "C": "fred",
+      "D": "Compilation fails because of an error on line 3.",
+      "E": "Compilation fails because of an error on line 4.",
+      "F": "Compilation fails because of an error on line 8.",
+      "G": "Compilation fails because of an error on a line other than 3, 4, or 8."
+    },
+    "correctLetters": [
+      "G"
+    ],
+    "explanation": "G. This code would be legal if line 7 ended with a semicolon. Remember that line 3 is a statement that doesn’t end until line 7, and a statement needs a closing semicolon! ✗ A, B, C, D, E, and F are incorrect based on the program logic described above. If the semicolon were added at line 7, then answer B would be correct—the program would print “true”, the return from theequals() method overridden by the anonymous subclass of Object."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 10,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }",
+    "options": {
+      "A": "An exception occurs at runtime at line 10.",
+      "B": "Zippo",
+      "C": "Compilation fails because of an error on line 3.",
+      "D": "Compilation fails because of an error on line 9.",
+      "E": "Compilation fails because of an error on line 10.",
+      "F": "Compilation fails because of an error on line 11."
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. The code in the HorseTest class is perfectly legal. Line 9 creates an instance of the method-local inner class Horse, using a reference variable declared as type Object. Line 10 casts the Horse object to a Horse reference variable, which allows line 11 to compile. If line 10 were removed, the HorseTest code would not compile, because class Object does not have a name variable. ✗ A, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 11,
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }",
+    "options": {
+      "A": "An exception occurs at runtime at line 10.",
+      "B": "Zippo",
+      "C": "Compilation fails because of an error on line 3.",
+      "D": "Compilation fails because of an error on line 9.",
+      "E": "Compilation fails because of an error on line 10."
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E. This code is identical to the code in question 10, except the casting statement has been removed. If you use a reference variable of type Object, you can access only those members defined in class Object. ✗ A, B, C, and D are incorrect based on the program logic described above and in the previous question."
+  },
+  {
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "questionNum": 12,
+    "topic": "javacore",
+    "text": "Given the following, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } what is the result?",
+    "code": "",
+    "options": {
+      "A": "5722",
+      "B": "4538",
+      "C": "4557",
+      "D": "An exception occurs at runtime.",
+      "E": "Compilation fails. 32 Chapter 8: Inner Classes"
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A. You can define an inner class as abstract, which means you can instantiate only concrete subclasses of the abstract inner class. The object referenced by the variable t is an instance of an anonymous subclass of AbstractTest, and the anonymous class overrides the getNum() method to return22. The variable referenced by f is an instance of an anonymous subclass of Bar, and the anonymous Bar subclass also overrides the getNum() method (to return57). Remember that to instantiate a Bar instance, we need an instance of the enclosing AbstractTest class to tie to the new Bar inner class instance. AbstractTest can’t be instantiated because it’s abstract, so we created an anonymous subclass (non-abstract) and then used the instance of that anonymous subclass to tie to the new Bar subclass instance. ✗ B, C, D, E, and F are incorrect based on the program logic described above."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 1,
+    "topic": "threads",
+    "text": "Given the following, what is the result?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1;i<3;++i) {\n10.           System.out.print(i + \"..\");\n11.        }\n12.     }\n13.  }",
+    "options": {
+      "A": "This code will not compile due to line 4.",
+      "B": "This code will not compile due to line 5.",
+      "C": "1..2..",
+      "D": "1..2..3..",
+      "E": "An exception is thrown at runtime."
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Line 5 calls therun() method, so therun() method executes as a normal method should. ✗ A is incorrect because line 4 is the proper way to create an object. B is incorrect because it is legal to call the run() method, even though this will not start a true thread of execution. The code after line 5 will not execute until the run() method is complete. D is incorrect because the for loop only does two iterations. E is incorrect because the program runs without exception."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 2,
+    "topic": "threads",
+    "text": "Which two of the following methods are defined in class Thread?",
+    "code": "",
+    "options": {
+      "A": "start()",
+      "B": "wait()",
+      "C": "notify()",
+      "D": "run()",
+      "E": "terminate() 50 Chapter 9: Threads"
+    },
+    "correctLetters": [
+      "A",
+      "D"
+    ],
+    "explanation": "A and D. Onlystart() andrun() are defined by the Thread class. ✗ B and C are incorrect because they are methods of the Object class. E is incorrect because there’s no such method in any thread-related class."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 3,
+    "topic": "threads",
+    "text": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+    "code": "",
+    "options": {
+      "A": "public class MyRunnable extends Runnable{public void run(){}}",
+      "B": "public class MyRunnable extends Object{public void run(){}}",
+      "C": "public class MyRunnable implements Runnable{public void run(){}}",
+      "D": "public class MyRunnable implements Runnable{void run(){}}",
+      "E": "public class MyRunnable implements Runnable{public void start(){}}"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. The class correctly implements the Runnable interface with a legal public void run() method. ✗ A is incorrect because interfaces are not extended; they are implemented. B is incorrect because even though the class would compile and it has a valid public void run() method, it does not implement the Runnable interface, so the compiler would complain when creating a Thread with an instance of it. D is incorrect because the run() method must be public. E is incorrect because the method to implement is run(),n o tstart()."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 4,
+    "topic": "threads",
+    "text": "Given the following, what is the result of this code?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.start();\n6.        System.out.print(\"one. \");\n7.        t.start();\n8.        System.out.print(\"two. \");\n9.     }\n10.\n11.     public void run() {\n12.        System.out.print(\"Thread \");\n13.     }\n14.  }",
+    "options": {
+      "A": "Compilation fails",
+      "B": "An exception occurs at runtime.",
+      "C": "Thread one. Thread two.",
+      "D": "The output cannot be determined."
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B. When thestart() method is attempted a second time on a single Thread object, the method will throw an IllegalThreadStateException (you will not need to know this exception name for the exam). Even if the thread has finished running, it is still illegal to callstart() again. ✗ A is incorrect because compilation will succeed. For the most part, the Java compiler only checks for illegal syntax, rather than class-specific logic. C and D are incorrect because of the logic explained above."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 5,
+    "topic": "threads",
+    "text": "Given the following, which of these will create and start this thread?",
+    "code": "1.  public class MyRunnable implements Runnable {\n2.     public void run() {\n3.        // some code here\n4.     }\n5.  }",
+    "options": {
+      "A": "new Runnable(MyRunnable).start();",
+      "B": "new Thread(MyRunnable).run();",
+      "C": "new Thread(new MyRunnable()).start();",
+      "D": "new MyRunnable().start();"
+    },
+    "correctLetters": [
+      "C"
+    ],
+    "explanation": "C. Because the class implements Runnable, an instance of it has to be passed to the Thread constructor, and then the instance of the Thread has to be started. ✗ A is incorrect. There is no constructor like this for Runnable because Runnable is an interface, and it is illegal to pass a class or interface name to any constructor. B is incorrect for the same reason; you can’t pass a class or interface name to any constructor.D is incorrect because MyRunnable doesn’t have astart() method, and the only start() method that can start a thread of execution is the start() in the Thread class. 60 Chapter 9: Threads"
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 6,
+    "topic": "threads",
+    "text": "Given the following, what is the result of this code?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        Thread x = new Thread(t);\n6.        x.start();\n7.     }\n8.\n9.     public void run() {\n10.        for(int i=0;i<3;++i) {\n11.           System.out.print(i + \"..\");\n12.        }\n13.     }\n14.  }",
+    "options": {
+      "A": "Compilation fails.",
+      "B": "1..2..3..",
+      "C": "0..1..2..3..",
+      "D": "0..1..2..",
+      "E": "An exception occurs at runtime."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. The thread MyThread will start and loop three times (from 0 to 2). ✗ A is incorrect because the Thread class implements the Runnable interface; therefore, in line 5, Thread can take an object of type Thread as an argument in the constructor. B and C are incorrect because the variable i in the for loop starts with a value of 0 and ends with a value of 2. E is incorrect because of the program logic described above."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 7,
+    "topic": "threads",
+    "text": "Given the following,",
+    "code": "1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0;i<lines.length;i++){\n9.           System.out.println(lines[i]);\n10.           Thread.currentThread().sleep(1000);\n52 Chapter 9: Threads\n11.        }\n12.     }\n13.  }\nthe static methodThread.currentThread()returns a reference to the currently executing\nThread object. What is the result of this code?",
+    "options": {
+      "A": "Each String in the array lines will output, with a 1-second pause.",
+      "B": "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+      "C": "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+      "D": "This code will not compile."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. Thesleep() method must be enclosed in a try/catch block, or the method printAll() must declare itthrows the InterruptedException. ✗ A is incorrect, but it would be correct if the InterruptedException was dealt with. B is incorrect, but it would still be incorrect if the InterruptedException was dealt with because all Java code, including the main() method, runs in threads. C is incorrect. Thesleep() method is static, so even if it is called on an instance, it still always affects the currently executing thread."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 8,
+    "topic": "threads",
+    "text": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+    "code": "",
+    "options": {
+      "A": "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;}",
+      "B": "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;}",
+      "C": "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}}",
+      "D": "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a=a;this.b=b;}}",
+      "E": "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;}",
+      "F": "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}}"
+    },
+    "correctLetters": [
+      "B",
+      "F"
+    ],
+    "explanation": "B and F. By marking the methods as synchronized, the threads will get the lock of the this object before proceeding. Only one thread will be either setting or reading at any given moment, thereby assuring that read() always returns the addition of a valid pair. ✗ A is incorrect because it is not synchronized; therefore, there is no guarantee that the values added by theread() method belong to the same pair. C and D are incorrect; only objects can be used to synchronize on. E is incorrect because it is not possible to select other objects to synchronize on when declaring a method assynchronized. Even usingthis is incorrect syntax."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 9,
+    "topic": "threads",
+    "text": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+    "code": "",
+    "options": {
+      "A": "Object",
+      "B": "Thread",
+      "C": "Runnable",
+      "D": "Class"
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A. The Object class defines these thread-specific methods. ✗ B, C, and D are incorrect because they do not define these methods. And yes, the Java API does define a class called Class, though you do not need to know it for the exam."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 10,
+    "topic": "threads",
+    "text": "Which two are true?",
+    "code": "",
+    "options": {
+      "A": "A static method cannot be synchronized.",
+      "B": "If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads",
+      "C": "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
+      "D": "When a thread sleeps, it releases its locks.",
+      "E": "When a thread invokeswait(), it releases its locks."
+    },
+    "correctLetters": [
+      "B",
+      "E"
+    ],
+    "explanation": "B and E. B is correct because multiple threads are allowed to enter nonsynchronized code, even within a class that has some synchronized methods. E is correct because a wait() call causes the thread to give up its locks. ✗ A is incorrect because static methods can be synchronized; they synchronize on the lock on the instance of class java.lang.Class that represents the class type. C is incorrect because only methods—not variables—can be marked synchronized. D is incorrect because a sleeping thread still maintains its locks."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 11,
+    "topic": "threads",
+    "text": "Which three are methods of the Object class? (Choose three.)",
+    "code": "",
+    "options": {
+      "A": "notify();",
+      "B": "notifyAll();",
+      "C": "isInterrupted();",
+      "D": "synchronized();",
+      "E": "interrupt();",
+      "F": "wait(long msecs);",
+      "G": "sleep(long msecs);",
+      "H": "yield();"
+    },
+    "correctLetters": [
+      "A",
+      "B"
+    ],
+    "explanation": "A, B, and F. They are all related to the list of threads waiting on the specified object. ✗ C, E, G, and H are incorrect answers. The methods isInterrupted() and interrupt() are instance methods of Thread. The methods sleep() andyield() are static methods of Thread. D is incorrect because synchronized is a keyword and the synchronized() construct is part of the Java language."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 12,
+    "topic": "threads",
+    "text": "Given the following, what is the result of trying to compile and run this program?",
+    "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.        }\n11.        System.out.print(\"3 \");\n12.     }\n13.  }",
+    "options": {
+      "A": "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+      "B": "1 2 3",
+      "C": "1 3",
+      "D": "1 2",
+      "E": "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+      "F": "It will fail to compile because it has to be synchronized on the this object."
+    },
+    "correctLetters": [
+      "D"
+    ],
+    "explanation": "D. 1 and 2 will be printed, but there will be no return from the wait call because no other thread will notify the main thread, so 3 will never be printed. The program is essentially frozen at line 7. ✗ A is incorrect; IllegalMonitorStateException is an unchecked exception so it doesn’t have to be dealt with explicitly. B and C are incorrect; 3 will never be printed, since this program will never terminate because it will wait forever. E is incorrect because IllegalMonitorStateException will never be thrown because the wait() is done on args within a block of code synchronized on args.F is incorrect because any object can be used to synchronize on and, furthermore, there is no this when running a static method."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 13,
+    "topic": "threads",
+    "text": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+    "code": "",
+    "options": {
+      "A": "After thread A is notified, or after two seconds.",
+      "B": "After the lock on B is released, or after two seconds.",
+      "C": "Two seconds after thread A is notified.",
+      "D": "Two seconds after lock B is released."
+    },
+    "correctLetters": [
+      "A"
+    ],
+    "explanation": "A. Either of the two events (notification or wait time expiration) will make the thread become a candidate for running again. ✗ B is incorrect because a waiting thread will not return to runnable when the lock is released, unless a notification occurs.C is incorrect because the thread will become a candidate immediately after notification, not two seconds afterwards.D is also incorrect because a thread will not come out of a waiting pool just because a lock has been released."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 14,
+    "topic": "threads",
+    "text": "Which two are true?",
+    "code": "",
+    "options": {
+      "A": "ThenotifyAll() method must be called from a synchronized context.",
+      "B": "To callwait(), an object must own the lock on the thread.",
+      "C": "Thenotify() method is defined in class java.lang.Thread.",
+      "D": "When a thread is waiting as a result ofwait(), it release its locks.",
+      "E": "Thenotify() method causes a thread to immediately release its locks.",
+      "F": "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+    },
+    "correctLetters": [
+      "A",
+      "D"
+    ],
+    "explanation": "A and D. A is correct because the notifyAll() method (along withwait() and notify()) must always be called from within a synchronized context. D is correct because a thread blocked on await() call releases its locks, so another thread can get into the synchronized code and eventually call notify() ornotifyAll(). ✗ B is incorrect because to call wait(), the thread must own the lock on the object that wait() is being invoked on, not the other way around. C is wrong becausenotify() is defined in java.lang.Object. E is wrong becausenotify() will not cause a thread to release its locks. The thread can only release its locks by exiting the synchronized code. F is wrong becausenotifyAll() notifies all the threads waiting on a particular locked object, not all threads waiting on any object."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 15,
+    "topic": "threads",
+    "text": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+    "code": "",
+    "options": {
+      "A": "backgroundThread.setPriority(Thread.LOW_PRIORITY);",
+      "B": "backgroundThread.setPriority(Thread.MAX_PRIORITY);",
+      "C": "backgroundThread.setPriority(1);",
+      "D": "backgroundThread.setPriority(Thread.NO_PRIORITY);",
+      "E": "backgroundThread.setPriority(Thread.MIN_PRIORITY);",
+      "F": "backgroundThread.setPriority(Thread.NORM_PRIORITY);",
+      "G": "backgroundThread.setPriority(10);"
+    },
+    "correctLetters": [
+      "C",
+      "E"
+    ],
+    "explanation": "C and E. In E, the constant Thread.MIN_PRIORITY is the lowest priority that a thread can have, and the background thread should have a very low priority or the lowest. Answer C is correct because 1 is a low (and usually the minimum) value, although for code clarity it is recommended to use the Thread.MIN_PRIORITY. ✗ A and D are incorrect because there are no such variables in the Thread class.B is incorrect; using MAX_PRIORITY would make other threads have fewer chances of getting a turn of the CPU, even to the point of freezing until the numerical processing is finished. F is incorrect because the thread would still compete for the CPU time and even delay other threads. G is incorrect because 10 is the value of MAX_PRIORITY, so i would be equivalent to answer B. 62 Chapter 9: Threads"
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 16,
+    "topic": "threads",
+    "text": "Which three guarantee that a thread will leave the running state?",
+    "code": "",
+    "options": {
+      "A": "yield()",
+      "B": "wait()",
+      "C": "notify()",
+      "D": "notifyAll()",
+      "E": "sleep(1000)",
+      "F": "aLiveThread.join()",
+      "G": "Thread.killThread()"
+    },
+    "correctLetters": [
+      "B",
+      "E"
+    ],
+    "explanation": "B, E, and F. B is correct becausewait() always causes the current thread to go into the object’s wait pool. E is correct because sleep() will always pause the currently running thread for at least the duration specified in the sleep argument (unless an interrupted exception is thrown). F is correct because, assuming that the thread you’re callingjoin() on is alive, the thread callingjoin() will immediately block until the thread you’re callingjoin() on is no longer alive. ✗ A is wrong, but tempting. The yield() method is not guaranteed to cause a thread to leave the running state, although if there are runnable threads of the same priority as the currently running thread, then the current thread will probably leave the running state. C and D are incorrect because they don’t cause the thread invoking them to leave the running state. G is wrong because there’s no such method."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 17,
+    "topic": "threads",
+    "text": "Which two are true?",
+    "code": "",
+    "options": {
+      "A": "Deadlock will not occur ifwait()/notify() is used.",
+      "B": "A thread will resume execution as soon as its sleep duration expires.",
+      "C": "Synchronization can prevent two objects from being accessed by the same thread.",
+      "D": "Thewait() method is overloaded to accept a duration.",
+      "E": "Thenotify() method is overloaded to accept a duration.",
+      "F": "Bothwait() andnotify() must be called from a synchronized context.",
+      "G": "wait() can throw a runtime exception",
+      "H": "sleep() can throw a runtime exception."
+    },
+    "correctLetters": [
+      "D",
+      "F"
+    ],
+    "explanation": "D and F. D is correct because thewait() method is overloaded to accept a wait duration in milliseconds. If the thread has not been notified by the time the wait duration has elapsed, then the thread will move back to runnable even without having been notified. F is correct because wait()/notify()/notifyAll() must all be called from within a synchronized, context. A thread must own the lock on the object its invoking wait()/notify()/notifyAll() on. ✗ A is incorrect because wait()/notify() will not prevent deadlock. B is incorrect because a sleeping thread will return to runnable when it wakes up, but it might not necessarily resume execution right away. To resume executing, the newly awakened thread must still be moved from runnable to running by the scheduler.C is incorrect because synchronization prevents two or more threads from accessing the same object. E is incorrect because notify() is not overloaded to accept a duration. G and H are incorrect because wait() andsleep() both declare a checked exception (InterruptedException)."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 18,
+    "topic": "threads",
+    "text": "Which two are valid constructors for Thread?",
+    "code": "",
+    "options": {
+      "A": "Thread(Runnable r, String name)",
+      "B": "Thread()",
+      "C": "Thread(int priority)",
+      "D": "Thread(Runnable r, ThreadGroup g)",
+      "E": "Thread(Runnable r, int priority)"
+    },
+    "correctLetters": [
+      "A",
+      "B"
+    ],
+    "explanation": "A and B are both valid constructors for Thread. ✗ C, D, and E are not legal Thread constructors, although D is close. If you reverse the arguments in D, you’d have a valid constructor."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 19,
+    "topic": "threads",
+    "text": "Given the following, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } what is the result?",
+    "code": "",
+    "options": {
+      "A": "foo",
+      "B": "MyThread foo",
+      "C": "MyThread bar",
+      "D": "foo bar",
+      "E": "foo bar baz",
+      "F": "bar foo",
+      "G": "Compilation fails."
+    },
+    "correctLetters": [
+      "B"
+    ],
+    "explanation": "B is correct because in the first line of main we’re constructing an instance of an anonymous inner class extending from MyThread. So the MyThread constructor runs and prints “ MyThread”. The next statement in main invokesstart() on the new thread instance, which causes the overridden run() method (therun() method defined in the anonymous inner class) to be invoked, which prints “ foo”. ✗ A, C, D, E, F, and G are all incorrect because of the program logic described above. 64 Chapter 9: Threads"
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 20,
+    "topic": "threads",
+    "text": "Given the following, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+    "code": "",
+    "options": {
+      "A": "Synchronize the run method.",
+      "B": "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+      "C": "The existing code will not compile.",
+      "D": "The existing code will cause a runtime exception.",
+      "E": "Put in await() call prior to invoking theincrease() method.",
+      "F": "Synchronize theincrease() method"
+    },
+    "correctLetters": [
+      "F"
+    ],
+    "explanation": "F is correct because synchronizing the code that actually does the increase will protect the code from being accessed by more than one thread at a time. ✗ A is incorrect because synchronizing the run() method would stop other threads from running therun() method (a bad idea) but still would not prevent other threads with other runnables from accessing theincrease() method. B is incorrect for virtually the same reason as A—synchronizing the code that calls theincrease() method does not prevent other code from calling the increase() method. C and D are incorrect because the program compiles and runs fine. E is incorrect because it will simply prevent the call to increase() from ever happening from this thread."
+  },
+  {
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "questionNum": 21,
+    "topic": "threads",
+    "text": "Given the following, what is the result?",
+    "code": "1. public class Test {\n2.  public static void main (String [] args) {\n3.    final Foo f = new Foo();\n4.   Thread t = new Thread(new Runnable() {\n5.         public void run() {\n6.        f.doStuff();\n7.       }\n8.   });\n9.   Thread g = new Thread() {\n10.    public void run() {\n11.         f.doStuff();\n12.      }\n13.     };\n14.     t.start();\n15.     g.start();\n16.  }\n17. }\n1. class Foo {\n2.   int x = 5;\n3.  public void doStuff() {\n4.     if (x < 10) {\n5.       // nothing to do\n6.      try {\n7.         wait();\n8.      } catch(InterruptedException ex) { }\n9.     } else {\n10.      System.out.println(\"x is \" + x++);\n11.      if (x >= 10) {\n12.          notify();\n13.        }\n14.    }\n15.  }\n16. }",
+    "options": {
+      "A": "The code will not compile because of an error on line 12 of class Foo.",
+      "B": "The code will not compile because of an error on line 7 of class Foo.",
+      "C": "The code will not compile because of an error on line 4 of class Test.",
+      "D": "The code will not compile because of some other error in class Test.",
+      "E": "An exception occurs at runtime.",
+      "F": "x is 5 x is 6"
+    },
+    "correctLetters": [
+      "E"
+    ],
+    "explanation": "E is correct because the thread does not own the lock of the object it invokes wait() on. If the method were synchronized, the code would run without exception. ✗ A, B, C, and D are incorrect because the code compiles without errors.F is incorrect because the exception is thrown before there is any output. EXERCISE ANSWERS Exercise 9-1: Creating a Thread and Putting It to Sleep The final code should look something like this: class TheCount extends Thread { public void run() { for(int i = 1;i<=100;++i) { System.out.print(i + \" \"); if(i % 10 == 0) System.out.println(\"Hahaha\"); try { Thread.sleep(1000); } catch(InterruptedException e) {} } } public static void main(String [] args) { new TheCount().start(); } } Exercise 9-2: Synchronizing a Block of Code Your code might look something like this when completed: 1. class InSync extends Thread { 2. StringBuffer letter; 3. 4. public InSync(StringBuffer letter) { 5. this.letter = letter; 6. } 7. 8. public void run() { 9. synchronized(letter) { 10. for(int i = 1;i<=100;++i) { 11. System.out.print(letter); 12. } 13. System.out.println(); 14. // Increment the letter in StringBuffer: 15. char temp = letter.charAt(0); 16. ++temp; 17. letter.setCharAt(0, temp); 18. } 19. } 20. 21. public static void main(String [] args) { 22. StringBuffer sb = new StringBuffer(\"A\"); 23. new InSync(sb).start(); 24. new InSync(sb).start(); 25. new InSync(sb).start(); 26. } 27. } Just for fun, try removing lines 9 and 18 then run the program again. It will be unsynchronized, and watch what happens. Exercise Answers 65"
+  }
+]

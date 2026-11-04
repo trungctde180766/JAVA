@@ -32,8 +32,14 @@ export default async function HomePage() {
   }
 
   const totalQuestions = quizzes.reduce((sum, q) => sum + (q.count || 0), 0);
+  const scjpQuizzes = quizzes.filter((q) => q.slug.startsWith("scjp-"));
+  const scjpRandom20 = scjpQuizzes.find((q) => q.slug === "scjp-random-20");
+  const scjpAll = scjpQuizzes.find((q) => q.slug === "scjp-chapter-all");
+  const scjpChapters = scjpQuizzes.filter((q) => q.slug.startsWith("scjp-ch0"));
   const interviewQuizzes = quizzes.filter((q) => q.slug.startsWith("interview-"));
-  const originalExamQuizzes = quizzes.filter((q) => !q.slug.startsWith("interview-") && !q.slug.startsWith("ai-"));
+  const originalExamQuizzes = quizzes.filter(
+    (q) => !q.slug.startsWith("interview-") && !q.slug.startsWith("ai-") && !q.slug.startsWith("scjp-")
+  );
   const aiGeneratedQuizzes = quizzes.filter((q) => q.slug.startsWith("ai-"));
 
   return (
@@ -41,6 +47,7 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="card card-glass hero-banner">
         <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
+          <span className="badge badge-accent" style={{ background: "linear-gradient(135deg, #0284c7, #0369a1)", color: "#fff" }}>🎲 SCJP Random 20 Câu</span>
           <span className="badge badge-primary">🏛️ 3 Bộ Đề Gốc Môn Học</span>
           <span className="badge badge-accent">🤖 3 Bộ Đề AI Mở Rộng</span>
           <span className="badge badge-warning">🎯 Ôn Phỏng Vấn 1-1</span>
@@ -67,14 +74,17 @@ export default async function HomePage() {
             lineHeight: 1.6,
           }}
         >
-          Hệ thống gồm <strong>{totalQuestions} câu hỏi</strong>: 3 bộ đề thi trắc nghiệm môn học và trọn bộ 
+          Hệ thống gồm <strong>{totalQuestions} câu hỏi</strong>: Bộ đề SCJP 9 Chapters (161 câu - bốc ngẫu nhiên 20 câu), 3 bộ đề thi trắc nghiệm môn học và trọn bộ 
           <strong> câu hỏi phỏng vấn 1-1 thực tế</strong> (SQL, Java Core, Spring Boot, Web Frontend, Git &amp; AI).
-          Mỗi câu đều có lời giải thích cặn kẽ và mẹo trả lời phỏng vấn ghi điểm!
+          Mỗi câu đều có lời giải thích cặn kẽ và mẹo làm bài ghi điểm!
         </p>
 
         <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
-          <Link href="/quiz/interview-all" className="btn btn-primary btn-lg">
-            <span>🎯</span> Luyện Phỏng Vấn 1-1 (Tổng Hợp)
+          <Link href="/exam/scjp-random-20" className="btn btn-primary btn-lg" style={{ background: "linear-gradient(135deg, #0284c7, #0369a1)", border: "none" }}>
+            <span>🎲</span> Thi SCJP Random 20 Câu
+          </Link>
+          <Link href="/quiz/interview-all" className="btn btn-secondary btn-lg">
+            <span>🎯</span> Luyện Phỏng Vấn 1-1
           </Link>
           <Link href="/quiz/quiz-1" className="btn btn-secondary btn-lg">
             <span>🚀</span> Luyện Đề Môn Học (Quiz 1)
@@ -219,6 +229,211 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      {/* SECTION: BỘ ĐỀ CHỨNG CHỈ SCJP CHAPTERS (KATHY SIERRA) - RANDOM 20 CÂU */}
+      {scjpQuizzes.length > 0 && (
+        <section style={{ scrollMarginTop: "2rem" }} id="scjp-chapters-section">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.25rem", flexWrap: "wrap", gap: "0.5rem" }}>
+            <div>
+              <div style={{ display: "inline-flex", gap: "0.4rem", marginBottom: "0.35rem", flexWrap: "wrap" }}>
+                <span className="badge badge-accent" style={{ background: "linear-gradient(135deg, #0284c7, #0369a1)", color: "#fff" }}>
+                  🎲 Bốc Ngẫu Nhiên 20 Câu / Lần Thi
+                </span>
+                <span className="badge badge-primary">☕ SCJP 310-035 (Sierra &amp; Bates)</span>
+                <span className="badge badge-warning">📚 Trọn Bộ 9 Chapters</span>
+              </div>
+              <h2 style={{ fontSize: "1.6rem", fontWeight: 700, marginBottom: "0.25rem" }}>
+                Bộ Đề Chứng Chỉ SCJP Chapters (Kathy Sierra &amp; Bert Bates)
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
+                Trích xuất trực tiếp từ 9 Chapters tài liệu SCJP kinh điển: Đề thi ngẫu nhiên 20 câu giúp rèn luyện phản xạ phòng thi cấp tốc hoặc cày nát từng Chapter!
+              </p>
+            </div>
+            {scjpRandom20 && (
+              <Link href="/exam/scjp-random-20" className="btn btn-primary btn-sm" style={{ background: "linear-gradient(135deg, #0284c7, #0369a1)", border: "none" }}>
+                <span>🎲</span> Vào Thi Thử 20 Câu Ngay &rarr;
+              </Link>
+            )}
+          </div>
+
+          {/* Hai card lớn nổi bật: Random 20 Câu & Toàn Bộ 161 Câu */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.25rem", marginBottom: "1.5rem" }}>
+            {/* Card Random 20 */}
+            {scjpRandom20 && (
+              <div
+                className="card"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  border: "2px solid #0284c7",
+                  background: "linear-gradient(180deg, rgba(2, 132, 199, 0.08) 0%, var(--bg-card) 60%)",
+                  boxShadow: "0 8px 24px rgba(2, 132, 199, 0.12)",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <div style={{ position: "absolute", top: 12, right: -30, background: "#0284c7", color: "#fff", fontSize: "0.7rem", fontWeight: 700, padding: "3px 35px", transform: "rotate(45deg)", letterSpacing: "0.05em" }}>
+                  HOT
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
+                  <span style={{ fontSize: "2.3rem" }}>🎲</span>
+                  <div style={{ display: "flex", gap: "0.3rem", alignItems: "center" }}>
+                    <span className="badge badge-primary" style={{ background: "#0284c7", color: "#fff" }}>🎲 Random 20 Câu</span>
+                    <span className="badge badge-accent">Từ 161 Câu 9 Chaps</span>
+                  </div>
+                </div>
+
+                <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem", color: "#38bdf8" }}>
+                  {scjpRandom20.title}
+                </h3>
+                <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", flex: 1, marginBottom: "1.25rem", lineHeight: 1.55 }}>
+                  {scjpRandom20.description}
+                </p>
+
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <Link
+                    href="/exam/scjp-random-20"
+                    className="btn btn-primary btn-sm"
+                    style={{ flex: 1.2, background: "linear-gradient(135deg, #0284c7, #0369a1)", border: "none", fontWeight: 600 }}
+                    title="Vào phòng thi thử chuẩn Safe Exam Browser (Bốc 20 câu ngẫu nhiên)"
+                  >
+                    ⏱️ Thi Thử SEB (20 Câu)
+                  </Link>
+                  <Link
+                    href="/quiz/scjp-random-20"
+                    className="btn btn-secondary btn-sm"
+                    style={{ flex: 1 }}
+                  >
+                    📖 Luyện Tập (20 Câu)
+                  </Link>
+                  <Link
+                    href="/leaderboard?quiz=scjp-random-20"
+                    className="btn btn-ghost btn-sm"
+                    style={{ border: "1px solid var(--border)", padding: "0.35rem 0.65rem" }}
+                    title="Xem bảng xếp hạng đề Random 20 câu"
+                  >
+                    🏆
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {/* Card Trọn Bộ 161 Câu */}
+            {scjpAll && (
+              <div
+                className="card"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderTop: "4px solid #4f46e5",
+                  background: "linear-gradient(180deg, rgba(79, 70, 229, 0.05) 0%, var(--bg-card) 60%)",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
+                  <span style={{ fontSize: "2.3rem" }}>📚</span>
+                  <div style={{ display: "flex", gap: "0.3rem", alignItems: "center" }}>
+                    <span className="badge badge-primary" style={{ background: "#4f46e5", color: "#fff" }}>Toàn Bộ Kho Đề</span>
+                    <span className="badge badge-accent">{scjpAll.count || 161} câu hỏi</span>
+                  </div>
+                </div>
+
+                <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+                  {scjpAll.title}
+                </h3>
+                <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", flex: 1, marginBottom: "1.25rem", lineHeight: 1.55 }}>
+                  {scjpAll.description}
+                </p>
+
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <Link
+                    href="/quiz/scjp-chapter-all"
+                    className="btn btn-secondary btn-sm"
+                    style={{ flex: 1 }}
+                  >
+                    📖 Luyện Tập Toàn Bộ (161 Câu)
+                  </Link>
+                  <Link
+                    href="/exam/scjp-chapter-all"
+                    className="btn btn-primary btn-sm"
+                    style={{ flex: 1, background: "linear-gradient(135deg, #4f46e5, #4338ca)", border: "none" }}
+                    title="Vào phòng thi thử chuẩn Safe Exam Browser cho toàn bộ 161 câu"
+                  >
+                    ⏱️ Thi Thử (161 Câu)
+                  </Link>
+                  <Link
+                    href="/leaderboard?quiz=scjp-chapter-all"
+                    className="btn btn-ghost btn-sm"
+                    style={{ border: "1px solid var(--border)", padding: "0.35rem 0.65rem" }}
+                    title="Xem bảng xếp hạng toàn bộ câu"
+                  >
+                    🏆
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Danh sách từng Chapter 1 đến 9 */}
+          {scjpChapters.length > 0 && (
+            <div>
+              <h3 style={{ fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.85rem", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <span>🗂️</span> Luyện Tập Chuyên Sâu Từng Chương (Chapters 1 – 9)
+              </h3>
+              <div className="grid-3">
+                {scjpChapters.map((q) => (
+                  <div
+                    key={q.slug}
+                    className="card"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      borderTop: `4px solid ${q.color || "var(--primary)"}`,
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.6rem" }}>
+                      <span style={{ fontSize: "1.8rem" }}>{q.icon || "📘"}</span>
+                      <span className="badge badge-accent">{q.count || 0} câu</span>
+                    </div>
+
+                    <h4 style={{ fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.35rem" }}>
+                      {q.title}
+                    </h4>
+                    <p style={{ color: "var(--text-muted)", fontSize: "0.84rem", flex: 1, marginBottom: "1rem", lineHeight: 1.45 }}>
+                      {q.description}
+                    </p>
+
+                    <div style={{ display: "flex", gap: "0.45rem" }}>
+                      <Link
+                        href={`/quiz/${q.slug}`}
+                        className="btn btn-secondary btn-sm"
+                        style={{ flex: 1 }}
+                      >
+                        📖 Luyện tập
+                      </Link>
+                      <Link
+                        href={`/exam/${q.slug}`}
+                        className="btn btn-primary btn-sm"
+                        style={{ flex: 1 }}
+                        title="Vào phòng thi thử chuẩn Safe Exam Browser"
+                      >
+                        ⏱️ Thi thử
+                      </Link>
+                      <Link
+                        href={`/leaderboard?quiz=${q.slug}`}
+                        className="btn btn-ghost btn-sm"
+                        style={{ border: "1px solid var(--border)", padding: "0.35rem 0.65rem" }}
+                        title="Xem bảng xếp hạng chương này"
+                      >
+                        🏆
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
       )}
 

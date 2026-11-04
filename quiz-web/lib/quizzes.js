@@ -1,5 +1,6 @@
 import { getDb } from "./db";
 import { TOPICS, ALL_TOPICS, topicName } from "./topics";
+import { scjpChapterQuestions } from "./scjpChapterData.js";
 export { TOPICS, ALL_TOPICS, topicName };
 
 const signature = (q) => `${q.text}|${q.code || ""}|${(q.options || []).join("|")}`;
@@ -37,6 +38,8 @@ export async function getQuizList() {
     order: q.order || 99,
     hidden: !!q.hidden,
     isAiGenerated: !!q.isAiGenerated || q.slug.startsWith("ai-"),
+    isScjpChapter: !!q.isScjpChapter || q.slug.startsWith("scjp-ch") || q.slug === "scjp-random-20" || q.slug === "scjp-chapter-all",
+    isRandom20: !!q.isRandom20 || q.slug === "scjp-random-20",
     count: (q.questions || []).length,
   }));
 }
@@ -162,6 +165,46 @@ export async function buildQuizSession(slug, user) {
     };
   }
 
+  // Dynamic Random 20 Questions from SCJP Chapters
+  if (slug === "scjp-random-20" || slug === "scjp-random") {
+    const raw = await getCachedQuizzesRaw();
+    const allQuiz = raw.find((q) => q.slug === "scjp-chapter-all");
+    const pool = (allQuiz && allQuiz.questions && allQuiz.questions.length > 0)
+      ? allQuiz.questions
+      : scjpChapterQuestions;
+
+    // Pick 20 questions randomly from the pool
+    const shuffled = [...pool].sort(() => 0.5 - Math.random());
+    const picked = shuffled.slice(0, 20);
+
+    return {
+      slug: "scjp-random-20",
+      kind: "quiz",
+      title: "SCJP Exam – Random 20 Câu (Sierra & Bates)",
+      icon: "🎲",
+      color: "#0284c7",
+      description: "Đề thi ngẫu nhiên 20 câu trích từ 161 câu hỏi trắc nghiệm của 9 Chapters SCJP (Kathy Sierra & Bert Bates). Mỗi lần vào thi hoặc làm lại sẽ bốc ngẫu nhiên một đề mới hoàn toàn!",
+      isRandom20: true,
+      isScjpChapter: true,
+      questions: picked.map((q) => ({
+        key: `scjp-random-20:${q.id}`,
+        quizSlug: "scjp-random-20",
+        quizTitle: "SCJP Exam – Random 20 Câu",
+        id: q.id,
+        topic: q.topic || "javacore",
+        text: q.text,
+        textVi: q.textVi || "",
+        textEn: q.textEn || "",
+        code: q.code || "",
+        options: q.options,
+        optionsVi: q.optionsVi || [],
+        optionsEn: q.optionsEn || [],
+        answer: q.answer,
+        explanation: q.explanation || "",
+      })),
+    };
+  }
+
   const raw = await getCachedQuizzesRaw();
   const quiz = raw.find((q) => q.slug === slug);
   if (!quiz || (quiz.hidden && user.role !== "admin")) return null;
@@ -193,6 +236,7 @@ export async function buildQuizSession(slug, user) {
 }
 
 export function sessionTitle(slug, quizTitleMap = {}) {
+  if (slug === "scjp-random-20" || slug === "scjp-random") return "SCJP Exam – Random 20 Câu";
   if (slug === "mix") return "Đề tổng hợp ngẫu nhiên";
   if (slug === "mistakes") return "Ôn toàn bộ câu sai";
   if (slug?.startsWith("mistakes-")) {

@@ -488,6 +488,24 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
             >
               🔄 Làm lại bộ đề này
             </button>
+            {(session.isRandom20 || session.slug === "scjp-random-20") && (
+              <button
+                onClick={() => {
+                  try {
+                    localStorage.removeItem(practiceStorageKey);
+                  } catch (e) {}
+                  window.location.reload();
+                }}
+                className="btn btn-secondary"
+                style={{
+                  background: "linear-gradient(135deg, #0284c7, #0369a1)",
+                  color: "#fff",
+                  border: "none",
+                }}
+              >
+                🎲 Bốc 20 câu ngẫu nhiên mới
+              </button>
+            )}
             {result.total - result.correct > 0 && !session.slug.startsWith("mistakes") ? (
               <Link href={`/quiz/mistakes-${session.slug}`} className="btn btn-danger">
                 🩹 Ôn lại {result.total - result.correct} câu sai của đề này
@@ -776,13 +794,21 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
             )}
             <span style={{ color: "var(--text-dim)" }}>/</span>
             <strong style={{ fontSize: "1.05rem" }}>{session.title}</strong>
-            {session.isAiGenerated ? (
+            {session.isRandom20 || session.slug === "scjp-random-20" ? (
+              <span className="badge badge-accent" style={{ fontSize: "0.75rem", background: "linear-gradient(135deg, #0284c7, #0369a1)", color: "#fff" }}>
+                🎲 Random 20 Câu (9 Chapters SCJP)
+              </span>
+            ) : session.isAiGenerated ? (
               <span className="badge badge-accent" style={{ fontSize: "0.75rem" }}>
                 🤖 Do AI Tạo (Mở Rộng Dựa Trên Đề Gốc)
               </span>
             ) : session.slug.startsWith("quiz-") ? (
               <span className="badge badge-primary" style={{ fontSize: "0.75rem" }}>
                 🏛️ Bộ Đề Gốc
+              </span>
+            ) : session.slug.startsWith("scjp-") ? (
+              <span className="badge badge-primary" style={{ fontSize: "0.75rem", background: "#4f46e5", color: "#fff" }}>
+                ☕ SCJP Chapter
               </span>
             ) : null}
           </div>
@@ -792,6 +818,28 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", flexWrap: "wrap" }}>
+          {(session.isRandom20 || session.slug === "scjp-random-20") && (
+            <button
+              onClick={() => {
+                if (confirm("Hệ thống sẽ bốc ngẫu nhiên một bộ 20 câu hỏi mới từ kho 161 câu 9 Chapters SCJP. Bạn có muốn đổi đề không?")) {
+                  try {
+                    localStorage.removeItem(practiceStorageKey);
+                  } catch (e) {}
+                  window.location.reload();
+                }
+              }}
+              className="btn btn-secondary btn-sm"
+              style={{
+                background: "linear-gradient(135deg, #0284c7, #0369a1)",
+                color: "#fff",
+                fontWeight: 600,
+                border: "none",
+              }}
+              title="Bốc ngẫu nhiên 20 câu hỏi mới từ kho 161 câu SCJP"
+            >
+              🎲 Đổi 20 câu ngẫu nhiên mới
+            </button>
+          )}
           <span className="badge badge-primary" style={{ padding: "0.35rem 0.65rem", fontSize: "0.82rem" }}>
             📖 Phòng Luyện Tập
           </span>

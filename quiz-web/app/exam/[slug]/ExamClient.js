@@ -80,7 +80,7 @@ export default function ExamClient({ session, user }) {
   const { originalQuizzes, aiQuizzes, interviewQuizzes } = useMemo(() => {
     const list = session.quizList || [];
     return {
-      originalQuizzes: list.filter((q) => !q.slug.startsWith("ai-") && !q.slug.startsWith("interview-")),
+      originalQuizzes: list.filter((q) => !q.slug.startsWith("ai-") && !q.slug.startsWith("interview-") && !q.slug.startsWith("scjp-")),
       aiQuizzes: list.filter((q) => q.slug.startsWith("ai-")),
       interviewQuizzes: list.filter((q) => q.slug.startsWith("interview-") && q.slug !== "interview-all"),
     };
@@ -171,7 +171,9 @@ export default function ExamClient({ session, user }) {
     const finalQuestions = randomized.map(shuffleQuestionOptions);
     setQuestions(finalQuestions);
 
-    const examSec = selectedDurationMinutes > 0 ? selectedDurationMinutes * 60 : EXAM_DURATION_SEC;
+    const isShortQuiz = !isMix && session.questions?.length <= 25;
+    const defaultSec = isShortQuiz ? 1800 : EXAM_DURATION_SEC;
+    const examSec = selectedDurationMinutes > 0 && isMix ? selectedDurationMinutes * 60 : defaultSec;
     setTimeLeft(examSec);
     setElapsedSec(0);
 
@@ -855,10 +857,17 @@ export default function ExamClient({ session, user }) {
     return (
       <div style={{ maxWidth: 840, margin: "2rem auto" }}>
         <div className="card card-glass" style={{ padding: "2.5rem 2.25rem", textAlign: "center" }}>
-          <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem" }}>
+          <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
             <span className="badge badge-warning">🛡️ Safe Exam Browser Mode</span>
-            <span className="badge badge-primary">⏱️ Thời Gian: 1 Tiếng (60:00)</span>
+            <span className="badge badge-primary">
+              ⏱️ Thời Gian: {session.questions?.length <= 25 ? "30 Phút (30:00)" : "1 Tiếng (60:00)"}
+            </span>
             <span className="badge badge-accent">🎲 Xáo Đề &amp; Đáp Án</span>
+            {(session.isRandom20 || session.slug === "scjp-random-20") && (
+              <span className="badge badge-accent" style={{ background: "linear-gradient(135deg, #0284c7, #0369a1)", color: "#fff" }}>
+                🎲 Bốc 20 Câu Ngẫu Nhiên
+              </span>
+            )}
           </div>
 
           <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "0.5rem" }}>
@@ -1018,6 +1027,21 @@ export default function ExamClient({ session, user }) {
             >
               🔄 Thi Lại Đề Này
             </button>
+            {(session.isRandom20 || session.slug === "scjp-random-20") && (
+              <button
+                onClick={() => {
+                  window.location.reload();
+                }}
+                className="btn btn-secondary"
+                style={{
+                  background: "linear-gradient(135deg, #0284c7, #0369a1)",
+                  color: "#fff",
+                  border: "none",
+                }}
+              >
+                🎲 Thi đề 20 câu ngẫu nhiên mới
+              </button>
+            )}
             {result.total - result.correct > 0 && session.slug !== "mix" && (
               <Link href={`/quiz/mistakes-${session.slug}`} className="btn btn-danger">
                 🩹 Ôn lại {result.total - result.correct} câu sai của đề này
