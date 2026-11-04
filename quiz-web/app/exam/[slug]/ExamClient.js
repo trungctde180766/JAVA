@@ -29,7 +29,9 @@ function shuffleQuestionOptions(q) {
       ? shuffledIndices.map((i) => q.optionsEn[i] || "")
       : q.optionsEn;
 
-  const newAnswer = shuffledIndices.indexOf(q.answer);
+  const newAnswer = Array.isArray(q.answer)
+    ? q.answer.map((a) => shuffledIndices.indexOf(a)).sort((a, b) => a - b)
+    : shuffledIndices.indexOf(q.answer);
 
   return {
     ...q,
@@ -279,11 +281,13 @@ export default function ExamClient({ session, user }) {
         return;
       }
 
-      // Option keyboard shortcuts 1, 2, 3, 4 / a, b, c, d
+      // Option keyboard shortcuts 1, 2, 3, 4, 5, 6 / a, b, c, d, e, f
       if (["1", "a"].includes(k)) handleSelectOption(0);
       else if (["2", "b"].includes(k)) handleSelectOption(1);
       else if (["3", "c"].includes(k)) handleSelectOption(2);
       else if (["4", "d"].includes(k)) handleSelectOption(3);
+      else if (["5", "e"].includes(k)) handleSelectOption(4);
+      else if (["6", "f"].includes(k)) handleSelectOption(5);
       else if (k === "arrowleft") setCurrentIndex((p) => Math.max(0, p - 1));
       else if (k === "arrowright") setCurrentIndex((p) => Math.min(questions.length - 1, p + 1));
       else if (k === "f") toggleFlag();
@@ -345,9 +349,34 @@ export default function ExamClient({ session, user }) {
   const chosen = qKey ? answers[qKey] : undefined;
   const isFlagged = qKey ? flagged.has(qKey) : false;
 
+  const isAnswerCorrect = (c, ans) => {
+    if (Array.isArray(ans)) {
+      if (!Array.isArray(c) || c.length !== ans.length) return false;
+      const sc = [...c].sort((x, y) => x - y);
+      const sa = [...ans].sort((x, y) => x - y);
+      return sc.every((val, i) => val === sa[i]);
+    }
+    return c === ans;
+  };
+
   const handleSelectOption = (idx) => {
     if (phase !== "in_progress" || !qKey) return;
-    setAnswers((prev) => ({ ...prev, [qKey]: idx }));
+    const isMulti = q?.isMultiple || Array.isArray(q?.answer);
+    if (isMulti) {
+      setAnswers((prev) => {
+        const cur = Array.isArray(prev[qKey]) ? [...prev[qKey]] : [];
+        const pos = cur.indexOf(idx);
+        let next;
+        if (pos >= 0) {
+          next = cur.filter((i) => i !== idx);
+        } else {
+          next = [...cur, idx].sort((a, b) => a - b);
+        }
+        return { ...prev, [qKey]: next };
+      });
+    } else {
+      setAnswers((prev) => ({ ...prev, [qKey]: idx }));
+    }
   };
 
   const toggleFlag = () => {
@@ -375,12 +404,22 @@ export default function ExamClient({ session, user }) {
 
     // Map answers back to original index
     const payloadAnswers = questions.map((item) => {
-      const chosenIdx = answers[item.key] ?? null;
-      const originalChosen =
-        chosenIdx !== null && item.shuffledOptionIndices
-          ? item.shuffledOptionIndices[chosenIdx]
-          : chosenIdx;
-      const chosenText = chosenIdx !== null ? item.options[chosenIdx] : null;
+      const chosenVal = answers[item.key] ?? null;
+      let originalChosen = chosenVal;
+      let chosenText = null;
+
+      if (Array.isArray(chosenVal)) {
+        originalChosen = item.shuffledOptionIndices
+          ? chosenVal.map((i) => item.shuffledOptionIndices[i]).sort((a, b) => a - b)
+          : chosenVal;
+        chosenText = chosenVal.map((i) => item.options[i]).join("; ");
+      } else if (chosenVal !== null && typeof chosenVal === "number") {
+        originalChosen = item.shuffledOptionIndices
+          ? item.shuffledOptionIndices[chosenVal]
+          : chosenVal;
+        chosenText = item.options[chosenVal] ?? null;
+      }
+
       return {
         key: item.key,
         chosen: originalChosen,
@@ -937,12 +976,14 @@ export default function ExamClient({ session, user }) {
 
   // 2. SUBMITTED RESULT VIEW
   if (phase === "submitted" && result) {
-    const answeredCount = Object.keys(answers).length;
+    const answeredCount = Object.values(answers).filter((v) =>
+      Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null
+    ).length;
     const isPassed = result.percent >= 75;
 
     const filteredQuestions = questions.filter((item) => {
       const userChoice = answers[item.key];
-      const isRight = userChoice === item.answer;
+      const isRight = isAnswerCorrect(userChoice, item.answer);
       if (filterReview === "wrong") return !isRight;
       if (filterReview === "correct") return isRight;
       return true;
@@ -1102,7 +1143,7 @@ export default function ExamClient({ session, user }) {
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
             {filteredQuestions.map((item, idx) => {
               const userChoice = answers[item.key];
-              const isRight = userChoice === item.answer;
+              const isRight = isAnswerCorrect(userChoice, item.answer);
 
               return (
                 <div
@@ -1165,8 +1206,12 @@ export default function ExamClient({ session, user }) {
 
                   <div style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.4rem" }}>
                     {item.options.map((opt, oIdx) => {
-                      const isOptionCorrect = oIdx === item.answer;
-                      const isOptionChosen = oIdx === userChoice;
+                      const isOptionCorrect = Array.isArray(item.answer)
+                        ? item.answer.includes(oIdx)
+                        : oIdx === item.answer;
+                      const isOptionChosen = Array.isArray(userChoice)
+                        ? userChoice.includes(oIdx)
+                        : oIdx === userChoice;
                       let optClass = "option-btn";
                       if (isOptionCorrect) optClass += " correct";
                       else if (isOptionChosen) optClass += " wrong";
@@ -1206,7 +1251,9 @@ export default function ExamClient({ session, user }) {
   }
 
   // 3. IN PROGRESS EXAM ROOM (Safe Exam Browser Interface)
-  const answeredCount = Object.keys(answers).length;
+  const answeredCount = Object.values(answers).filter((v) =>
+    Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null
+  ).length;
   const progressPct = Math.round(((currentIndex + 1) / questions.length) * 100);
 
   return (
@@ -1394,10 +1441,15 @@ export default function ExamClient({ session, user }) {
         {/* Left: Active Question Card */}
         <div className="card" style={{ padding: "1.75rem" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
-            <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "0.5rem", alignItems: "center", flexWrap: "wrap" }}>
               <span className="badge badge-primary">Câu {currentIndex + 1} / {questions.length}</span>
               <span className="badge badge-accent">{q.topic || "Java"}</span>
               {isFlagged && <span className="badge badge-warning">🚩 Xem lại sau</span>}
+              {(q.isMultiple || Array.isArray(q.answer)) && (
+                <span className="badge badge-warning" style={{ background: "rgba(245, 158, 11, 0.2)", color: "#f59e0b", border: "1px solid #f59e0b", fontWeight: 700 }}>
+                  ☑ Chọn {Array.isArray(q.answer) ? q.answer.length : "nhiều"} đáp án
+                </span>
+              )}
             </div>
 
             <button
@@ -1454,7 +1506,10 @@ export default function ExamClient({ session, user }) {
           {/* Options (shuffled) */}
           <div style={{ marginTop: "1.25rem" }}>
             {q.options.map((opt, idx) => {
-              const isSelected = chosen === idx;
+              const isMulti = q.isMultiple || Array.isArray(q.answer);
+              const isSelected = isMulti
+                ? Array.isArray(chosen) && chosen.includes(idx)
+                : chosen === idx;
               let optClass = "option-btn";
               if (isSelected) optClass += " selected";
 
@@ -1465,7 +1520,9 @@ export default function ExamClient({ session, user }) {
                     className={optClass}
                     style={{ width: "100%", marginBottom: 0, fontSize: "0.96rem" }}
                   >
-                    <span className="option-label">{String.fromCharCode(65 + idx)}</span>
+                    <span className="option-label" style={isMulti ? { borderRadius: "6px" } : {}}>
+                      {isMulti ? (isSelected ? "☑" : String.fromCharCode(65 + idx)) : String.fromCharCode(65 + idx)}
+                    </span>
                     <div style={{ flex: 1, textAlign: "left" }}>
                       <div>{opt}</div>
                     </div>
@@ -1521,7 +1578,9 @@ export default function ExamClient({ session, user }) {
             }}
           >
             {questions.map((item, idx) => {
-              const isAnswered = answers[item.key] !== undefined;
+              const isAnswered = Array.isArray(answers[item.key])
+                ? answers[item.key].length > 0
+                : answers[item.key] !== undefined && answers[item.key] !== null;
               const isCurrent = idx === currentIndex;
               const hasFlag = flagged.has(item.key);
 

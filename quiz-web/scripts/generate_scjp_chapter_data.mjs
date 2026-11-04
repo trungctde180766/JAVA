@@ -59,6 +59,8 @@ const questionsClean = rawQuestions.map((q) => ({
   options: q.options,
   optionsVi: q.optionsVi,
   answer: q.answer,
+  isMultiple: !!q.isMultiple,
+  correctLetters: q.correctLetters,
   explanation: q.explanation
 }));
 

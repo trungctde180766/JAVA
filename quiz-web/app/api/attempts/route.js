@@ -19,16 +19,36 @@ export async function POST(req) {
     const byKey = new Map(all.map((q) => [q.key, q]));
 
     const items = [];
+    const isAnswerCorrect = (c, ans) => {
+      if (Array.isArray(ans)) {
+        if (!Array.isArray(c) || c.length !== ans.length) return false;
+        const sc = [...c].sort((x, y) => x - y);
+        const sa = [...ans].sort((x, y) => x - y);
+        return sc.every((val, i) => val === sa[i]);
+      }
+      return c === ans;
+    };
+
     for (const a of answers) {
       const q = byKey.get(String(a?.key));
       if (!q) continue;
       let chosen = null;
-      if (typeof a?.chosenText === "string" && q.options.includes(a.chosenText)) {
+      if (Array.isArray(a?.chosen)) {
+        chosen = a.chosen
+          .filter((idx) => Number.isInteger(idx) && idx >= 0 && idx < q.options.length)
+          .sort((x, y) => x - y);
+      } else if (typeof a?.chosenText === "string" && q.options.includes(a.chosenText)) {
         chosen = q.options.indexOf(a.chosenText);
       } else if (Number.isInteger(a?.chosen) && a.chosen >= 0 && a.chosen < q.options.length) {
         chosen = a.chosen;
       }
-      items.push({ key: q.key, topic: q.topic, chosen, answer: q.answer, correct: chosen === q.answer });
+      items.push({
+        key: q.key,
+        topic: q.topic,
+        chosen,
+        answer: q.answer,
+        correct: isAnswerCorrect(chosen, q.answer),
+      });
     }
     if (items.length === 0) return jsonError("Không tìm thấy câu hỏi hợp lệ");
 

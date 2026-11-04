@@ -29,7 +29,9 @@ function shuffleQuestionOptions(q) {
       ? shuffledIndices.map((i) => q.optionsEn[i] || "")
       : q.optionsEn;
 
-  const newAnswer = shuffledIndices.indexOf(q.answer);
+  const newAnswer = Array.isArray(q.answer)
+    ? q.answer.map((a) => shuffledIndices.indexOf(a)).sort((a, b) => a - b)
+    : shuffledIndices.indexOf(q.answer);
 
   return {
     ...q,
@@ -184,11 +186,36 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
     q && !q.textVi && (q.textEn || /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(q.text || ""))
   );
 
+  const isAnswerCorrect = (c, ans) => {
+    if (Array.isArray(ans)) {
+      if (!Array.isArray(c) || c.length !== ans.length) return false;
+      const sc = [...c].sort((x, y) => x - y);
+      const sa = [...ans].sort((x, y) => x - y);
+      return sc.every((val, i) => val === sa[i]);
+    }
+    return c === ans;
+  };
+
   const handleSelectOption = (idx) => {
     if (submitted || !qKey) return;
-    setAnswers((prev) => ({ ...prev, [qKey]: idx }));
-    if (mode === "practice") {
-      setShowExplanation((prev) => ({ ...prev, [qKey]: true }));
+    const isMulti = q.isMultiple || Array.isArray(q.answer);
+    if (isMulti) {
+      setAnswers((prev) => {
+        const cur = Array.isArray(prev[qKey]) ? [...prev[qKey]] : [];
+        const pos = cur.indexOf(idx);
+        let next;
+        if (pos >= 0) {
+          next = cur.filter((i) => i !== idx);
+        } else {
+          next = [...cur, idx].sort((a, b) => a - b);
+        }
+        return { ...prev, [qKey]: next };
+      });
+    } else {
+      setAnswers((prev) => ({ ...prev, [qKey]: idx }));
+      if (mode === "practice") {
+        setShowExplanation((prev) => ({ ...prev, [qKey]: true }));
+      }
     }
   };
 
@@ -256,6 +283,8 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
       else if (k === "2" || k === "b") handleSelectOption(1);
       else if (k === "3" || k === "c") handleSelectOption(2);
       else if (k === "4" || k === "d") handleSelectOption(3);
+      else if (k === "5" || k === "e") handleSelectOption(4);
+      else if (k === "6" || k === "f") handleSelectOption(5);
       else if (k === "arrowleft" || k === "j") setCurrentIndex((p) => Math.max(0, p - 1));
       else if (k === "arrowright" || k === "k") setCurrentIndex((p) => Math.min(questions.length - 1, p + 1));
       else if (k === "f") toggleFlag();
@@ -311,12 +340,22 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
     setShowConfirmModal(false);
 
     const payloadAnswers = questions.map((item) => {
-      const chosenIdx = answers[item.key] ?? null;
-      const originalChosen =
-        chosenIdx !== null && item.shuffledOptionIndices
-          ? item.shuffledOptionIndices[chosenIdx]
-          : chosenIdx;
-      const chosenText = chosenIdx !== null ? item.options[chosenIdx] : null;
+      const chosenVal = answers[item.key] ?? null;
+      let originalChosen = chosenVal;
+      let chosenText = null;
+
+      if (Array.isArray(chosenVal)) {
+        originalChosen = item.shuffledOptionIndices
+          ? chosenVal.map((i) => item.shuffledOptionIndices[i]).sort((a, b) => a - b)
+          : chosenVal;
+        chosenText = chosenVal.map((i) => item.options[i]).join("; ");
+      } else if (chosenVal !== null && typeof chosenVal === "number") {
+        originalChosen = item.shuffledOptionIndices
+          ? item.shuffledOptionIndices[chosenVal]
+          : chosenVal;
+        chosenText = item.options[chosenVal] ?? null;
+      }
+
       return {
         key: item.key,
         chosen: originalChosen,
@@ -367,7 +406,9 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
 
   // If submitted, show result view
   if (submitted && result) {
-    const answeredCount = Object.keys(answers).length;
+    const answeredCount = Object.values(answers).filter((v) =>
+      Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null
+    ).length;
     const isPassed = result.percent >= 75;
 
     const topicStats = {};
@@ -375,13 +416,13 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
       const t = item.topic || "Khác";
       if (!topicStats[t]) topicStats[t] = { total: 0, correct: 0 };
       topicStats[t].total += 1;
-      if (answers[item.key] === item.answer) {
+      if (isAnswerCorrect(answers[item.key], item.answer)) {
         topicStats[t].correct += 1;
       }
     });
 
     const filteredQuestions = questions.filter((item) => {
-      const isCorrect = answers[item.key] === item.answer;
+      const isCorrect = isAnswerCorrect(answers[item.key], item.answer);
       if (filterReview === "wrong") return !isCorrect;
       if (filterReview === "correct") return isCorrect;
       return true;
@@ -395,7 +436,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
 
     questions.forEach((item) => {
       const c = confidence[item.key];
-      const isCorrect = answers[item.key] === item.answer;
+      const isCorrect = isAnswerCorrect(answers[item.key], item.answer);
       if (c) hasConfidenceData = true;
       if (c === "high") {
         if (isCorrect) confHighCorrect++;
@@ -723,8 +764,12 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
 
                   <div style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.4rem" }}>
                     {item.options.map((opt, oIdx) => {
-                      const isOptionCorrect = oIdx === item.answer;
-                      const isOptionChosen = oIdx === userChoice;
+                      const isOptionCorrect = Array.isArray(item.answer)
+                        ? item.answer.includes(oIdx)
+                        : oIdx === item.answer;
+                      const isOptionChosen = Array.isArray(userChoice)
+                        ? userChoice.includes(oIdx)
+                        : oIdx === userChoice;
                       let optClass = "option-btn";
                       if (isOptionCorrect) optClass += " correct";
                       else if (isOptionChosen) optClass += " wrong";
@@ -764,7 +809,9 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
   }
 
   // Active quiz screen
-  const answeredCount = Object.keys(answers).length;
+  const answeredCount = Object.values(answers).filter((v) =>
+    Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null
+  ).length;
   const progressPct = Math.round(((currentIndex + 1) / questions.length) * 100);
 
   return (
@@ -932,10 +979,15 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
         <div className="card" style={{ padding: "1.75rem" }}>
           {/* Question Meta Header */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
-            <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "0.5rem", alignItems: "center", flexWrap: "wrap" }}>
               <span className="badge badge-primary">Câu {currentIndex + 1} / {questions.length}</span>
               <span className="badge badge-accent">{q.topic || "Java"}</span>
               {isFlagged && <span className="badge badge-warning">🚩 Xem lại sau</span>}
+              {(q.isMultiple || Array.isArray(q.answer)) && (
+                <span className="badge badge-warning" style={{ background: "rgba(245, 158, 11, 0.2)", color: "#f59e0b", border: "1px solid #f59e0b", fontWeight: 700 }}>
+                  ☑ Chọn {Array.isArray(q.answer) ? q.answer.length : "nhiều"} đáp án
+                </span>
+              )}
             </div>
 
             {/* Assistive Controls Bar */}
@@ -1122,14 +1174,21 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           <div style={{ marginTop: "1.25rem" }}>
             {q.options.map((opt, idx) => {
               const isElim = (eliminated[qKey] || []).includes(idx);
+              const isMulti = q.isMultiple || Array.isArray(q.answer);
+              const isChosen = isMulti ? Array.isArray(chosen) && chosen.includes(idx) : chosen === idx;
               let optClass = "option-btn";
-              if (chosen === idx) optClass += " selected";
+              if (isChosen) optClass += " selected";
               if (isElim) optClass += " eliminated";
 
               // If practice mode and option selected, reveal result immediately!
-              if (mode === "practice" && chosen !== undefined) {
-                if (idx === q.answer) optClass += " correct";
-                else if (chosen === idx) optClass += " wrong";
+              if (mode === "practice" && (showExplanation[qKey] || (!isMulti && chosen !== undefined))) {
+                if (isMulti) {
+                  if (Array.isArray(q.answer) && q.answer.includes(idx)) optClass += " correct";
+                  else if (isChosen) optClass += " wrong";
+                } else {
+                  if (idx === q.answer) optClass += " correct";
+                  else if (chosen === idx) optClass += " wrong";
+                }
               }
 
               return (
@@ -1144,7 +1203,9 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                       fontSize: `${0.95 * fontScale}rem`,
                     }}
                   >
-                    <span className="option-label">{String.fromCharCode(65 + idx)}</span>
+                    <span className="option-label" style={isMulti ? { borderRadius: "6px" } : {}}>
+                      {isMulti ? (isChosen ? "☑" : String.fromCharCode(65 + idx)) : String.fromCharCode(65 + idx)}
+                    </span>
                     <div style={{ flex: 1, textAlign: "left" }}>
                       <div>{opt}</div>
                       {showTranslation && q.optionsVi && q.optionsVi[idx] && (
@@ -1158,11 +1219,28 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                         </div>
                       )}
                     </div>
-                    {mode === "practice" && chosen !== undefined && idx === q.answer && (
-                      <span style={{ color: "var(--success)", fontWeight: 700 }}>✓ Đúng</span>
-                    )}
-                    {mode === "practice" && chosen === idx && idx !== q.answer && (
-                      <span style={{ color: "var(--danger)", fontWeight: 700 }}>✗ Sai</span>
+                    {mode === "practice" && (showExplanation[qKey] || (!isMulti && chosen !== undefined)) && (
+                      <>
+                        {isMulti ? (
+                          <>
+                            {Array.isArray(q.answer) && q.answer.includes(idx) && (
+                              <span style={{ color: "var(--success)", fontWeight: 700 }}>✓ Đúng</span>
+                            )}
+                            {isChosen && Array.isArray(q.answer) && !q.answer.includes(idx) && (
+                              <span style={{ color: "var(--danger)", fontWeight: 700 }}>✗ Sai</span>
+                            )}
+                          </>
+                        ) : (
+                          <>
+                            {chosen !== undefined && idx === q.answer && (
+                              <span style={{ color: "var(--success)", fontWeight: 700 }}>✓ Đúng</span>
+                            )}
+                            {chosen === idx && idx !== q.answer && (
+                              <span style={{ color: "var(--danger)", fontWeight: 700 }}>✗ Sai</span>
+                            )}
+                          </>
+                        )}
+                      </>
                     )}
                   </button>
 
@@ -1179,6 +1257,38 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
               );
             })}
           </div>
+
+          {/* Multiple choice check action for Practice mode */}
+          {(q.isMultiple || Array.isArray(q.answer)) && mode === "practice" && (
+            <div style={{ display: "flex", gap: "0.75rem", marginTop: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+              {!showExplanation[qKey] ? (
+                <button
+                  type="button"
+                  onClick={() => setShowExplanation((prev) => ({ ...prev, [qKey]: true }))}
+                  disabled={!Array.isArray(chosen) || chosen.length === 0}
+                  className="btn btn-primary"
+                  style={{ padding: "0.55rem 1.4rem", fontWeight: 700 }}
+                >
+                  🔍 Kiểm tra đáp án ({Array.isArray(chosen) ? chosen.length : 0}/{Array.isArray(q.answer) ? q.answer.length : 2} đã chọn)
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAnswers((prev) => ({ ...prev, [qKey]: [] }));
+                    setShowExplanation((prev) => ({ ...prev, [qKey]: false }));
+                  }}
+                  className="btn btn-secondary btn-sm"
+                  style={{ border: "1px solid var(--border)" }}
+                >
+                  🔄 Chọn lại câu này
+                </button>
+              )}
+              <span style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                💡 Hãy chọn đủ {Array.isArray(q.answer) ? q.answer.length : "các"} phương án đúng rồi bấm &quot;Kiểm tra đáp án&quot;
+              </span>
+            </div>
+          )}
 
           {/* Confidence Selector (Đánh giá độ tự tin) */}
           <div className="confidence-box">
@@ -1230,7 +1340,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
           )}
 
           {/* Detailed Explanation in Practice Mode */}
-          {mode === "practice" && (showExplanation[qKey] || chosen !== undefined) && q.explanation && (
+          {mode === "practice" && (showExplanation[qKey] || (!q.isMultiple && !Array.isArray(q.answer) && chosen !== undefined)) && q.explanation && (
             <div className="explanation-box">
               <div className="explanation-title">💡 Giải thích chi tiết:</div>
               <div className="explanation-text" style={{ fontSize: `${0.92 * fontScale}rem` }}>{q.explanation}</div>
@@ -1271,7 +1381,9 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
             <div className="palette-grid">
               {questions.map((item, idx) => {
                 const isCurrent = idx === currentIndex;
-                const isAnswered = answers[item.key] !== undefined;
+                const isAnswered = Array.isArray(answers[item.key])
+                  ? answers[item.key].length > 0
+                  : answers[item.key] !== undefined && answers[item.key] !== null;
                 const hasFlag = flagged.has(item.key);
 
                 let cls = "palette-btn";
