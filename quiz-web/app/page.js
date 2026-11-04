@@ -37,9 +37,7 @@ export default async function HomePage() {
   const scjpAll = scjpQuizzes.find((q) => q.slug === "scjp-chapter-all");
   const scjpChapters = scjpQuizzes.filter((q) => q.slug.startsWith("scjp-ch0"));
   const interviewQuizzes = quizzes.filter((q) => q.slug.startsWith("interview-"));
-  const originalExamQuizzes = quizzes.filter(
-    (q) => !q.slug.startsWith("interview-") && !q.slug.startsWith("ai-") && !q.slug.startsWith("scjp-")
-  );
+  const originalExamQuizzes = quizzes.filter((q) => q.slug.startsWith("quiz-"));
   const aiGeneratedQuizzes = quizzes.filter((q) => q.slug.startsWith("ai-"));
 
   return (
