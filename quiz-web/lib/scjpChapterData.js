@@ -20,8 +20,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "1 09876",
       "98765",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -44,14 +44,14 @@ export const scjpChapterQuestions = [
       "native",
       "subclasses",
       "reference",
-      "array"
+      "array;"
     ],
     "optionsVi": [
       "method",
       "native",
       "subclasses",
       "reference",
-      "array"
+      "array;"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -104,14 +104,14 @@ export const scjpChapterQuestions = [
       "unsigned",
       "Float",
       "this",
-      "string"
+      "string;"
     ],
     "optionsVi": [
       "interface",
       "unsigned",
       "Float",
       "this",
-      "string"
+      "string;"
     ],
     "answer": [
       0,
@@ -131,34 +131,36 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Language Fundamentals",
     "topic": "javacore",
     "text": "Which three are valid declarations of a char? (Choose three.)",
-    "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu dữ liệu char? (Chọn 2 đáp án)",
+    "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu dữ liệu char? (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "charc1=064770 ;",
-      "charc2=‘face’ ;",
-      "charc3=0xbeef ;",
-      "charc4=\\u0022 ;",
-      "charc5=‘\\iface’ ;",
-      "charc6=‘\\uface’ ;"
+      "char c1 = 064770;",
+      "char c2 = ‘face’;",
+      "char c3 = 0xbeef;",
+      "char c4 = \\u0022;",
+      "char c5 = ‘\\iface’;",
+      "char c6 = ‘\\uface’;"
     ],
     "optionsVi": [
-      "charc1=064770 ;",
-      "charc2=‘face’ ;",
-      "charc3=0xbeef ;",
-      "charc4=\\u0022 ;",
-      "charc5=‘\\iface’ ;",
-      "charc6=‘\\uface’ ;"
+      "char c1 = 064770;",
+      "char c2 = ‘face’;",
+      "char c3 = 0xbeef;",
+      "char c4 = \\u0022;",
+      "char c5 = ‘\\iface’;",
+      "char c6 = ‘\\uface’;"
     ],
     "answer": [
       0,
-      2
+      2,
+      5
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
-      "C"
+      "C",
+      "F"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Kiểu `char` trong Java là một kiểu số nguyên không dấu 16-bit (unsigned 16-bit), lưu trữ mã ký tự Unicode từ `0` đến `65535` (hoặc từ `\\u0000` đến `\\uffff`).\n2. Do đó, một biến `char` có thể được gán bằng:\n   - Ký tự đặt trong cặp dấu nháy đơn `'a'`.\n   - Mã Unicode đặt trong nháy đơn `'\\uxxxx'` (x là chữ số hexa).\n   - Số nguyên không dấu nằm trong khoảng từ 0 đến 65535 (biểu diễn dưới dạng thập phân, bát phân octal `0...`, hoặc thập lục phân hex `0x...`).\n3. Đánh giá từng khai báo:\n   - A: `char c1 = 064770;`: Số bắt đầu bằng số `0` là hệ bát phân (octal). $064770_8 = 27128_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - B: `char c2 = 'face';`: Sai vì dấu nháy đơn `' '` chỉ được chứa đúng 1 ký tự duy nhất, ở đây có 4 ký tự.\n   - C: `char c3 = 0xbeef;`: Bắt đầu bằng `0x` là hệ thập lục phân (hex). $0xbeef = 48879_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - D: `char c4 = \\u0022;`: Sai vì thiếu dấu nháy đơn `' '`.\n   - E: `char c5 = '\\iface';`: Sai vì Unicode literal phải bắt đầu bằng `\\u`, không phải `\\i`.\n   - F: `char c6 = '\\uface';`: Hợp lệ vì đúng định dạng Unicode literal 4 chữ số hex trong nháy đơn.\n\n✅ Vì sao đáp án \"A và C\" đúng:\nCả `064770` (hệ 8) và `0xbeef` (hệ 16) đều là các giá trị số nguyên hợp lệ nằm trọn trong dải giá trị từ 0 đến 65535 của kiểu `char`.\n\n❌ Vì sao các đáp án khác sai:\n• Các phương án chứa B (`'face'`): Sai vì nháy đơn không được chứa chuỗi nhiều ký tự.\n• Các phương án chứa D (`\\u0022`): Sai vì thiếu dấu nháy đơn bao bọc ký tự Unicode.\n• Các phương án chứa E: Sai vì tiền tố escape Unicode phải là `\\u`, không phải `\\i`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `char` bản chất là số nguyên không dấu 16-bit (0 đến 65535). Vì vậy ta hoàn toàn có thể gán số nguyên trực tiếp cho `char` miễn là không vượt quá 65535!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Kiểu `char` trong Java là một kiểu số nguyên không dấu 16-bit (unsigned 16-bit), lưu trữ mã ký tự Unicode từ `0` đến `65535` (hoặc từ `\\u0000` đến `\\uffff`).\n2. Do đó, một biến `char` có thể được gán bằng:\n   - Ký tự đặt trong cặp dấu nháy đơn `'a'`.\n   - Mã Unicode đặt trong nháy đơn `'\\uxxxx'` (x là chữ số hexa).\n   - Số nguyên không dấu nằm trong khoảng từ 0 đến 65535 (biểu diễn dưới dạng thập phân, bát phân octal `0...`, hoặc thập lục phân hex `0x...`).\n3. Đánh giá từng khai báo:\n   - A: `char c1 = 064770;`: Số bắt đầu bằng số `0` là hệ bát phân (octal). $064770_8 = 27128_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - B: `char c2 = 'face';`: Sai vì dấu nháy đơn `' '` chỉ được chứa đúng 1 ký tự duy nhất, ở đây có 4 ký tự.\n   - C: `char c3 = 0xbeef;`: Bắt đầu bằng `0x` là hệ thập lục phân (hex). $0xbeef = 48879_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - D: `char c4 = \\u0022;`: Sai vì thiếu dấu nháy đơn `' '`.\n   - E: `char c5 = '\\iface';`: Sai vì Unicode literal phải bắt đầu bằng `\\u`, không phải `\\i`.\n   - F: `char c6 = '\\uface';`: Hợp lệ vì đúng định dạng Unicode literal 4 chữ số hex trong nháy đơn.\n\n✅ Vì sao đáp án \"A, C và F\" đúng:\nCả `064770` (hệ 8) và `0xbeef` (hệ 16) đều là các giá trị số nguyên hợp lệ nằm trọn trong dải giá trị từ 0 đến 65535 của kiểu `char`.\n\n❌ Vì sao các đáp án khác sai:\n• Các phương án chứa B (`'face'`): Sai vì nháy đơn không được chứa chuỗi nhiều ký tự.\n• Các phương án chứa D (`\\u0022`): Sai vì thiếu dấu nháy đơn bao bọc ký tự Unicode.\n• Các phương án chứa E: Sai vì tiền tố escape Unicode phải là `\\u`, không phải `\\i`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `char` bản chất là số nguyên không dấu 16-bit (0 đến 65535). Vì vậy ta hoàn toàn có thể gán số nguyên trực tiếp cho `char` miễn là không vượt quá 65535!"
   },
   {
     "id": "scjp-ch01-006",
@@ -170,18 +172,18 @@ export const scjpChapterQuestions = [
     "textVi": "Hai khai báo nào dưới đây là hợp lệ cho kiểu String? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "Strings1=null ;",
-      "Strings2=‘null’ ;",
-      "Strings3=(String)‘abc’ ;",
-      "Strings4=(String)‘\\ufeed’ ;",
-      "Strings5=“stringsrule” ;"
+      "String s1 = null;",
+      "String s2 = ‘null’;",
+      "String s3 = (String)‘abc’;",
+      "String s4 = (String)‘\\ufeed’;",
+      "String s5 = “stringsrule”;"
     ],
     "optionsVi": [
-      "Strings1=null ;",
-      "Strings2=‘null’ ;",
-      "Strings3=(String)‘abc’ ;",
-      "Strings4=(String)‘\\ufeed’ ;",
-      "Strings5=“stringsrule” ;"
+      "String s1 = null;",
+      "String s2 = ‘null’;",
+      "String s3 = (String)‘abc’;",
+      "String s4 = (String)‘\\ufeed’;",
+      "String s5 = “stringsrule”;"
     ],
     "answer": [
       0,
@@ -205,14 +207,14 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "boolean b1 = 0;",
-      "boolean b2 = 'false';",
+      "boolean b2 = ‘false’;",
       "boolean b3 = false;",
       "boolean b4 = Boolean.false();",
       "boolean b5 = no;"
     ],
     "optionsVi": [
       "boolean b1 = 0;",
-      "boolean b2 = 'false';",
+      "boolean b2 = ‘false’;",
       "boolean b3 = false;",
       "boolean b4 = Boolean.false();",
       "boolean b5 = no;"
@@ -261,34 +263,36 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Language Fundamentals",
     "topic": "javacore",
     "text": "Which three are valid declarations of a float? (Choose three.)",
-    "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu float? (Chọn 2 đáp án)",
+    "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu float? (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "floatf1=-343 ;",
-      "floatf2=3.14 ;",
-      "floatf3=0x12345 ;",
-      "floatf4=42e7 ;",
-      "floatf5=2001.0D ;",
-      "floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1)"
+      "float f1 = -343;",
+      "float f2 = 3.14;",
+      "float f3 = 0x12345;",
+      "float f4 = 42e7;",
+      "float f5 = 2001.0D;",
+      "float f6 = 2.81F;"
     ],
     "optionsVi": [
-      "floatf1=-343 ;",
-      "floatf2=3.14 ;",
-      "floatf3=0x12345 ;",
-      "floatf4=42e7 ;",
-      "floatf5=2001.0D ;",
-      "floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1)"
+      "float f1 = -343;",
+      "float f2 = 3.14;",
+      "float f3 = 0x12345;",
+      "float f4 = 42e7;",
+      "float f5 = 2001.0D;",
+      "float f6 = 2.81F;"
     ],
     "answer": [
       0,
-      2
+      2,
+      5
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
-      "C"
+      "C",
+      "F"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc số thực trong Java: Mọi literal số thực có dấu chấm động (như `3.14`) hoặc dạng số mũ (`42e7`) mặc định đều có kiểu là `double` (64-bit).\n2. Kiểu `float` chỉ có 32-bit. Bạn không thể gán trực tiếp một giá trị `double` (64-bit) vào biến `float` (32-bit) vì có nguy cơ mất độ chính xác (loss of precision), trừ khi có chữ `f` hoặc `F` đi kèm ở cuối.\n3. Số nguyên (`int` - 32 bit) hoàn toàn có thể gán tự động cho `float` (32 bit) thông qua cơ chế nới rộng kiểu (widening conversion).\n4. Đánh giá từng trường hợp:\n   - A: `float f1 = -343;`: `-343` là số nguyên `int`, tự động chuyển đổi sang `float` -> Hợp lệ!\n   - B: `float f2 = 3.14;`: `3.14` mặc định là `double`, không thể gán trực tiếp cho `float` -> Lỗi biên dịch.\n   - C: `float f3 = 0x12345;`: `0x12345` là số nguyên hệ hex (kiểu `int`), tự động chuyển đổi sang `float` -> Hợp lệ!\n   - D: `float f4 = 42e7;`: `42e7` mặc định là `double` -> Lỗi biên dịch.\n   - F: `float f6 = 2.81F;`: Có hậu tố `F` chỉ định rõ kiểu `float` -> Hợp lệ!\n\n✅ Vì sao đáp án \"A và C\" đúng:\nCả hai giá trị này đều là các số nguyên nguyên thủy (`int`), Java cho phép tự động chuyển đổi từ `int` sang `float` mà không cần ép kiểu.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B (`float f2 = 3.14;`): Sai vì `3.14` là kiểu `double`, trình biên dịch sẽ báo lỗi \"possible loss of precision\".\n• Phương án chứa D (`float f4 = 42e7;`): Sai vì dạng số mũ mặc định là `double`, không thể gán cho `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cứ thấy số có dấu chấm (`3.14`) hay số mũ (`e`) mà không có đuôi `f` hoặc `F` thì nó là `double`. Gán `double` vào `float` là lỗi biên dịch ngay!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc số thực trong Java: Mọi literal số thực có dấu chấm động (như `3.14`) hoặc dạng số mũ (`42e7`) mặc định đều có kiểu là `double` (64-bit).\n2. Kiểu `float` chỉ có 32-bit. Bạn không thể gán trực tiếp một giá trị `double` (64-bit) vào biến `float` (32-bit) vì có nguy cơ mất độ chính xác (loss of precision), trừ khi có chữ `f` hoặc `F` đi kèm ở cuối.\n3. Số nguyên (`int` - 32 bit) hoàn toàn có thể gán tự động cho `float` (32 bit) thông qua cơ chế nới rộng kiểu (widening conversion).\n4. Đánh giá từng trường hợp:\n   - A: `float f1 = -343;`: `-343` là số nguyên `int`, tự động chuyển đổi sang `float` -> Hợp lệ!\n   - B: `float f2 = 3.14;`: `3.14` mặc định là `double`, không thể gán trực tiếp cho `float` -> Lỗi biên dịch.\n   - C: `float f3 = 0x12345;`: `0x12345` là số nguyên hệ hex (kiểu `int`), tự động chuyển đổi sang `float` -> Hợp lệ!\n   - D: `float f4 = 42e7;`: `42e7` mặc định là `double` -> Lỗi biên dịch.\n   - F: `float f6 = 2.81F;`: Có hậu tố `F` chỉ định rõ kiểu `float` -> Hợp lệ!\n\n✅ Vì sao đáp án \"A, C và F\" đúng:\nCả hai giá trị này đều là các số nguyên nguyên thủy (`int`), Java cho phép tự động chuyển đổi từ `int` sang `float` mà không cần ép kiểu.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B (`float f2 = 3.14;`): Sai vì `3.14` là kiểu `double`, trình biên dịch sẽ báo lỗi \"possible loss of precision\".\n• Phương án chứa D (`float f4 = 42e7;`): Sai vì dạng số mũ mặc định là `double`, không thể gán cho `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cứ thấy số có dấu chấm (`3.14`) hay số mũ (`e`) mà không có đuôi `f` hoặc `F` thì nó là `double`. Gán `double` vào `float` là lỗi biên dịch ngay!"
   },
   {
     "id": "scjp-ch01-010",
@@ -297,32 +301,34 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Language Fundamentals",
     "topic": "javacore",
     "text": "Which three are legal array declarations? (Choose three.)",
-    "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 2 đáp án)",
+    "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "int[]myScores[] ;",
-      "char[]myChars ;",
-      "int[6]myScores ;",
-      "DogmyDogs[] ;",
-      "DogmyDogs[7] ;"
+      "int[]myScores[];",
+      "char[]myChars;",
+      "int[6]myScores;",
+      "DogmyDogs[];",
+      "DogmyDogs[7];"
     ],
     "optionsVi": [
-      "int[]myScores[] ;",
-      "char[]myChars ;",
-      "int[6]myScores ;",
-      "DogmyDogs[] ;",
-      "DogmyDogs[7] ;"
+      "int[]myScores[];",
+      "char[]myChars;",
+      "int[6]myScores;",
+      "DogmyDogs[];",
+      "DogmyDogs[7];"
     ],
     "answer": [
       0,
-      1
+      1,
+      3
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
-      "B"
+      "B",
+      "D"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc khai báo mảng trong Java:\n   - Dấu ngoặc vuông `[]` có thể đứng sau kiểu dữ liệu (ví dụ `char[] myChars;`) HOẶC đứng sau tên biến (ví dụ `Dog myDogs[];`).\n   - Với mảng nhiều chiều, bạn thậm chí có thể chia cặp ngoặc ra hai bên tên biến (ví dụ `int[] myScores[];` là khai báo mảng 2 chiều hợp lệ).\n2. **Quy tắc vàng:** TUYỆT ĐỐI KHÔNG ĐƯỢC đặt số kích thước vào cặp ngoặc vuông khi KHAI BÁO biến mảng (ví dụ `int[6] a;` hay `Dog myDogs[7];` là sai cú pháp). Kích thước chỉ được chỉ định khi bạn CẤP PHÁT bộ nhớ bằng từ khóa `new` (ví dụ `new int[6]`).\n\n✅ Vì sao đáp án \"A và B\" đúng:\n- `int[] myScores[];`: Khai báo hợp lệ cho mảng 2 chiều (một cặp ngoặc trước tên biến và một cặp ngoặc sau tên biến).\n- `char[] myChars;`: Cú pháp chuẩn mực và phổ biến nhất để khai báo mảng 1 chiều.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C (`int[6] myScores;`): Sai cú pháp vì điền kích thước `[6]` vào phần khai báo kiểu dữ liệu.\n• Phương án chứa E (`Dog myDogs[7];`): Sai cú pháp vì điền kích thước `[7]` sau tên biến khi khai báo.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi khai báo biến mảng: Cặp ngoặc `[]` BẮT BUỘC PHẢI RỖNG! Không bao giờ có số kích thước nằm trong ngoặc khi khai báo biến!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc khai báo mảng trong Java:\n   - Dấu ngoặc vuông `[]` có thể đứng sau kiểu dữ liệu (ví dụ `char[] myChars;`) HOẶC đứng sau tên biến (ví dụ `Dog myDogs[];`).\n   - Với mảng nhiều chiều, bạn thậm chí có thể chia cặp ngoặc ra hai bên tên biến (ví dụ `int[] myScores[];` là khai báo mảng 2 chiều hợp lệ).\n2. **Quy tắc vàng:** TUYỆT ĐỐI KHÔNG ĐƯỢC đặt số kích thước vào cặp ngoặc vuông khi KHAI BÁO biến mảng (ví dụ `int[6] a;` hay `Dog myDogs[7];` là sai cú pháp). Kích thước chỉ được chỉ định khi bạn CẤP PHÁT bộ nhớ bằng từ khóa `new` (ví dụ `new int[6]`).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\n- `int[] myScores[];`: Khai báo hợp lệ cho mảng 2 chiều (một cặp ngoặc trước tên biến và một cặp ngoặc sau tên biến).\n- `char[] myChars;`: Cú pháp chuẩn mực và phổ biến nhất để khai báo mảng 1 chiều.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C (`int[6] myScores;`): Sai cú pháp vì điền kích thước `[6]` vào phần khai báo kiểu dữ liệu.\n• Phương án chứa E (`Dog myDogs[7];`): Sai cú pháp vì điền kích thước `[7]` sau tên biến khi khai báo.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi khai báo biến mảng: Cặp ngoặc `[]` BẮT BUỘC PHẢI RỖNG! Không bao giờ có số kích thước nằm trong ngoặc khi khai báo biến!"
   },
   {
     "id": "scjp-ch01-011",
@@ -346,8 +352,8 @@ export const scjpChapterQuestions = [
       "9",
       "11",
       "13",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -363,36 +369,38 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Language Fundamentals",
     "topic": "javacore",
     "text": "Given the following, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
-    "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 3 đáp án)",
+    "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 4 đáp án)",
     "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
     "options": [
-      "b2[0][1]=b;",
-      "b[0][0]=b3;",
-      "b2[1][1][0]=b[0][0];",
-      "b2[1][2][0]=b;",
-      "b2[0][1][0][0]=b[0][0];",
-      "b2[0][1]=big;"
+      "b2[0][1]= b;",
+      "b[0][0]= b3;",
+      "b2[1][1][0]= b[0][0];",
+      "b2[1][2][0]= b;",
+      "b2[0][1][0][0]= b[0][0];",
+      "b2[0][1]= big;"
     ],
     "optionsVi": [
-      "b2[0][1]=b;",
-      "b[0][0]=b3;",
-      "b2[1][1][0]=b[0][0];",
-      "b2[1][2][0]=b;",
-      "b2[0][1][0][0]=b[0][0];",
-      "b2[0][1]=big;"
+      "b2[0][1]= b;",
+      "b[0][0]= b3;",
+      "b2[1][1][0]= b[0][0];",
+      "b2[1][2][0]= b;",
+      "b2[0][1][0][0]= b[0][0];",
+      "b2[0][1]= big;"
     ],
     "answer": [
       0,
       1,
-      4
+      4,
+      5
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
       "B",
-      "E"
+      "E",
+      "F"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nNguyên tắc gán mảng trong Java: Hai vế của phép gán phải KHỚP NHAU VỀ KIỂU DỮ LIỆU VÀ SỐ CHIỀU.\nHãy phân tích kiểu dữ liệu và số chiều của các biến:\n- `b3`: là kiểu số nguyên thủy `byte` (0 chiều).\n- `b`: là mảng 2 chiều `byte[][]`. Truy xuất `b[0][0]` là kiểu `byte` (0 chiều).\n- `big`: là mảng 2 chiều `byte[][]`.\n- `b2`: là mảng 4 chiều `byte[][][][]`.\n  - `b2[0][1]`: đã chỉ định 2 chỉ số, nên còn lại **mảng 2 chiều** (`byte[][]`).\n  - `b2[1][1][0]` hoặc `b2[1][2][0]`: đã chỉ định 3 chỉ số, nên còn lại **mảng 1 chiều** (`byte[]`).\n  - `b2[0][1][0][0]`: đã chỉ định cả 4 chỉ số, nên là **kiểu nguyên thủy** (`byte`).\n\nBây giờ đối chiếu từng câu lệnh:\n- **A:** `b2[0][1] = b;` -> Vế trái là mảng 2 chiều (`byte[][]`), vế phải `b` cũng là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ**.\n- **B:** `b[0][0] = b3;` -> Vế trái là `byte`, vế phải `b3` là `byte` -> **HỢP LỆ**.\n- **C:** `b2[1][1][0] = b[0][0];` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải là kiểu `byte` nguyên thủy -> **LỖI BIÊN DỊCH** (không thể gán byte cho mảng byte).\n- **D:** `b2[1][2][0] = b;` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải `b` là mảng 2 chiều (`byte[][]`) -> **LỖI BIÊN DỊCH** (lệch số chiều).\n- **E:** `b2[0][1][0][0] = b[0][0];` -> Cả hai vế đều là kiểu nguyên thủy `byte` -> **HỢP LỆ**.\n- **F:** `b2[0][1] = big;` -> Cả hai vế đều là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ** (kích thước mảng không ảnh hưởng đến phép gán tham chiếu).\n\n✅ Vì sao đáp án \"A và B và E\" đúng:\nCả 3 câu lệnh A, B, E đều khớp hoàn toàn về kiểu dữ liệu và số chiều giữa hai vế của phép gán.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C: Sai vì cố gán một giá trị nguyên thủy `byte` vào một biến tham chiếu mảng `byte[]`.\n• Phương án chứa D: Sai vì cố gán mảng 2 chiều `byte[][]` vào một biến mảng 1 chiều `byte[]`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mỗi cặp ngoặc vuông `[]` thêm vào sẽ làm giảm số chiều đi 1 bậc: Mảng 4 chiều mà dùng 2 cặp ngoặc `b2[0][1]` thì trở thành mảng 2 chiều! Hai bên dấu `=` phải có cùng số chiều và cùng kiểu cơ sở!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nNguyên tắc gán mảng trong Java: Hai vế của phép gán phải KHỚP NHAU VỀ KIỂU DỮ LIỆU VÀ SỐ CHIỀU.\nHãy phân tích kiểu dữ liệu và số chiều của các biến:\n- `b3`: là kiểu số nguyên thủy `byte` (0 chiều).\n- `b`: là mảng 2 chiều `byte[][]`. Truy xuất `b[0][0]` là kiểu `byte` (0 chiều).\n- `big`: là mảng 2 chiều `byte[][]`.\n- `b2`: là mảng 4 chiều `byte[][][][]`.\n  - `b2[0][1]`: đã chỉ định 2 chỉ số, nên còn lại **mảng 2 chiều** (`byte[][]`).\n  - `b2[1][1][0]` hoặc `b2[1][2][0]`: đã chỉ định 3 chỉ số, nên còn lại **mảng 1 chiều** (`byte[]`).\n  - `b2[0][1][0][0]`: đã chỉ định cả 4 chỉ số, nên là **kiểu nguyên thủy** (`byte`).\n\nBây giờ đối chiếu từng câu lệnh:\n- **A:** `b2[0][1] = b;` -> Vế trái là mảng 2 chiều (`byte[][]`), vế phải `b` cũng là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ**.\n- **B:** `b[0][0] = b3;` -> Vế trái là `byte`, vế phải `b3` là `byte` -> **HỢP LỆ**.\n- **C:** `b2[1][1][0] = b[0][0];` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải là kiểu `byte` nguyên thủy -> **LỖI BIÊN DỊCH** (không thể gán byte cho mảng byte).\n- **D:** `b2[1][2][0] = b;` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải `b` là mảng 2 chiều (`byte[][]`) -> **LỖI BIÊN DỊCH** (lệch số chiều).\n- **E:** `b2[0][1][0][0] = b[0][0];` -> Cả hai vế đều là kiểu nguyên thủy `byte` -> **HỢP LỆ**.\n- **F:** `b2[0][1] = big;` -> Cả hai vế đều là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ** (kích thước mảng không ảnh hưởng đến phép gán tham chiếu).\n\n✅ Vì sao đáp án \"A, B, E và F\" đúng:\nCả 3 câu lệnh A, B, E đều khớp hoàn toàn về kiểu dữ liệu và số chiều giữa hai vế của phép gán.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C: Sai vì cố gán một giá trị nguyên thủy `byte` vào một biến tham chiếu mảng `byte[]`.\n• Phương án chứa D: Sai vì cố gán mảng 2 chiều `byte[][]` vào một biến mảng 1 chiều `byte[]`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mỗi cặp ngoặc vuông `[]` thêm vào sẽ làm giảm số chiều đi 1 bậc: Mảng 4 chiều mà dùng 2 cặp ngoặc `b2[0][1]` thì trở thành mảng 2 chiều! Hai bên dấu `=` phải có cùng số chiều và cùng kiểu cơ sở!"
   },
   {
     "id": "scjp-ch01-013",
@@ -404,20 +412,20 @@ export const scjpChapterQuestions = [
     "textVi": "Hai khai báo nào dưới đây sẽ khai báo một mảng và khởi tạo nó với 5 số? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "Arraya=newArray(5) ;",
-      "int[]a={23,22,21,20,19} ;",
-      "int[]array ;",
-      "intarray[]=newint[5] ;",
-      "inta[]=newint(5) ;",
-      "int[5]array ;"
+      "Arraya= newArray(5);",
+      "int[]a= {23,22,21,20,19};",
+      "int[]array;",
+      "intarray[]= newint[5];",
+      "inta[]= newint(5);",
+      "int[5]array;"
     ],
     "optionsVi": [
-      "Arraya=newArray(5) ;",
-      "int[]a={23,22,21,20,19} ;",
-      "int[]array ;",
-      "intarray[]=newint[5] ;",
-      "inta[]=newint(5) ;",
-      "int[5]array ;"
+      "Arraya= newArray(5);",
+      "int[]a= {23,22,21,20,19};",
+      "int[]array;",
+      "intarray[]= newint[5];",
+      "inta[]= newint(5);",
+      "int[5]array;"
     ],
     "answer": [
       1,
@@ -440,20 +448,20 @@ export const scjpChapterQuestions = [
     "textVi": "Cú pháp nào dưới đây khai báo, tạo mới (construct) và khởi tạo hợp lệ một mảng? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "int[] myList = {\"1\", \"2\", \"3\"};",
-      "int[] myList = (5, 8, 2);",
-      "int myList[][] = {4, 9, 7, 0};",
-      "int myList[] = {4, 3, 7};",
-      "int[] myList = [3, 5, 6];",
-      "int myList[] = {4; 6; 5};"
+      "int[]myList= {“1”,“2”,“3”};",
+      "int[]myList= (5,8,2);",
+      "intmyList[][]= {4,9,7,0};",
+      "intmyList[]= {4,3,7};",
+      "int[]myList= [3,5,6];",
+      "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
     ],
     "optionsVi": [
-      "int[] myList = {\"1\", \"2\", \"3\"};",
-      "int[] myList = (5, 8, 2);",
-      "int myList[][] = {4, 9, 7, 0};",
-      "int myList[] = {4, 3, 7};",
-      "int[] myList = [3, 5, 6];",
-      "int myList[] = {4; 6; 5};"
+      "int[]myList= {“1”,“2”,“3”};",
+      "int[]myList= (5,8,2);",
+      "intmyList[][]= {4,9,7,0};",
+      "intmyList[]= {4,3,7};",
+      "int[]myList= [3,5,6];",
+      "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -469,7 +477,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Language Fundamentals",
     "topic": "javacore",
     "text": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
-    "textVi": "Bốn mô tả nào dưới đây biểu diễn đúng giá trị mặc định cho các phần tử mảng của các kiểu dữ liệu tương ứng khi vừa được khởi tạo? (Chọn 3 đáp án)",
+    "textVi": "Bốn mô tả nào dưới đây biểu diễn đúng giá trị mặc định cho các phần tử mảng của các kiểu dữ liệu tương ứng khi vừa được khởi tạo? (Chọn 4 đáp án)",
     "code": "",
     "options": [
       "int -> 0",
@@ -490,15 +498,17 @@ export const scjpChapterQuestions = [
     "answer": [
       0,
       2,
-      3
+      3,
+      4
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
       "C",
-      "D"
+      "D",
+      "E"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nKhi một mảng được tạo ra bằng từ khóa `new` trong Java, tất cả các phần tử bên trong nó luôn được JVM tự động gán giá trị mặc định (default value) tùy theo kiểu dữ liệu của mảng:\n1. Kiểu số nguyên (`byte`, `short`, `int`, `long`): Mặc định là `0` (hoặc `0L`).\n2. Kiểu số thực (`float`, `double`): Mặc định là `0.0f` và `0.0d`.\n3. Kiểu ký tự (`char`): Mặc định là `\\u0000` (ký tự null, tương ứng với mã số 0).\n4. Kiểu logic (`boolean`): Mặc định là `false` (TUYỆT ĐỐI KHÔNG PHẢI `true`).\n5. Kiểu đối tượng tham chiếu (`String`, `Dog`, mảng, Object...): Mặc định là giá trị tham chiếu `null` (không trỏ đến đối tượng nào, KHÔNG PHẢI chuỗi có chữ `\"null\"`).\n\nĐối chiếu các mô tả:\n- A: `int -> 0` -> ĐÚNG.\n- B: `String -> \"null\"` -> SAI (giá trị mặc định là literal `null`, không phải chuỗi `\"null\"` có dấu nháy kép).\n- C: `Dog -> null` -> ĐÚNG (mọi kiểu đối tượng tham chiếu đều mặc định là `null`).\n- D: `char -> '\u0000'` -> ĐÚNG.\n- E: `float -> 0.0f` -> ĐÚNG.\n- F: `boolean -> true` -> SAI (mặc định là `false`).\n\n✅ Vì sao đáp án \"A và C và D\" đúng:\nCả 3 mô tả A, C, D đều thể hiện chính xác 100% giá trị mặc định của các kiểu tương ứng trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Bẫy thi kinh điển! Mặc định của biến tham chiếu String là `null` (rỗng), chứ không phải chuỗi văn bản `\"null\"`.\n• Phương án chứa F: Sai vì giá trị mặc định của `boolean` là `false`, không bao giờ là `true`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Số = 0, char = '\u0000', boolean = false, mọi Object tham chiếu = null (không nháy kép)! Nhớ 4 quy tắc này là không bao giờ làm sai!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nKhi một mảng được tạo ra bằng từ khóa `new` trong Java, tất cả các phần tử bên trong nó luôn được JVM tự động gán giá trị mặc định (default value) tùy theo kiểu dữ liệu của mảng:\n1. Kiểu số nguyên (`byte`, `short`, `int`, `long`): Mặc định là `0` (hoặc `0L`).\n2. Kiểu số thực (`float`, `double`): Mặc định là `0.0f` và `0.0d`.\n3. Kiểu ký tự (`char`): Mặc định là `\\u0000` (ký tự null, tương ứng với mã số 0).\n4. Kiểu logic (`boolean`): Mặc định là `false` (TUYỆT ĐỐI KHÔNG PHẢI `true`).\n5. Kiểu đối tượng tham chiếu (`String`, `Dog`, mảng, Object...): Mặc định là giá trị tham chiếu `null` (không trỏ đến đối tượng nào, KHÔNG PHẢI chuỗi có chữ `\"null\"`).\n\nĐối chiếu các mô tả:\n- A: `int -> 0` -> ĐÚNG.\n- B: `String -> \"null\"` -> SAI (giá trị mặc định là literal `null`, không phải chuỗi `\"null\"` có dấu nháy kép).\n- C: `Dog -> null` -> ĐÚNG (mọi kiểu đối tượng tham chiếu đều mặc định là `null`).\n- D: `char -> '\u0000'` -> ĐÚNG.\n- E: `float -> 0.0f` -> ĐÚNG.\n- F: `boolean -> true` -> SAI (mặc định là `false`).\n\n✅ Vì sao đáp án \"A, C, D và E\" đúng:\nCả 3 mô tả A, C, D đều thể hiện chính xác 100% giá trị mặc định của các kiểu tương ứng trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Bẫy thi kinh điển! Mặc định của biến tham chiếu String là `null` (rỗng), chứ không phải chuỗi văn bản `\"null\"`.\n• Phương án chứa F: Sai vì giá trị mặc định của `boolean` là `false`, không bao giờ là `true`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Số = 0, char = '\u0000', boolean = false, mọi Object tham chiếu = null (không nháy kép)! Nhớ 4 quy tắc này là không bao giờ làm sai!"
   },
   {
     "id": "scjp-ch01-016",
@@ -518,8 +528,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "null",
       "theDogs",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -541,13 +551,13 @@ export const scjpChapterQuestions = [
       "names",
       "null",
       "Compilation fails",
-      "An exception is thrown at runtime"
+      "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
     ],
     "optionsVi": [
       "names",
       "null",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -566,20 +576,20 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgs 1 2 3 4\", kết quả in ra là gì? (Chọn 1 đáp án)",
     "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }",
     "options": [
-      "args[2]=2",
-      "args[2]=3",
-      "args[2]=null",
-      "args[2]=1",
+      "args[2]= 2",
+      "args[2]= 3",
+      "args[2]= null",
+      "args[2]= 1",
       "Compilation fails",
       "An exception is thrown at runtime"
     ],
     "optionsVi": [
-      "args[2]=2",
-      "args[2]=3",
-      "args[2]=null",
-      "args[2]=1",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "args[2]= 2",
+      "args[2]= 3",
+      "args[2]= null",
+      "args[2]= 1",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 5,
     "isMultiple": false,
@@ -610,8 +620,8 @@ export const scjpChapterQuestions = [
       "123",
       "000",
       "nullnullnull",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 5,
     "isMultiple": false,
@@ -642,8 +652,8 @@ export const scjpChapterQuestions = [
       "12",
       "000",
       "123",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -673,7 +683,7 @@ export const scjpChapterQuestions = [
       "abstract",
       "protected",
       "synchronized",
-      "default access (truy cập mặc định / package-private)"
+      "default access"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -705,7 +715,7 @@ export const scjpChapterQuestions = [
       "private",
       "protected",
       "volatile",
-      "default access (truy cập mặc định)"
+      "default access"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -721,7 +731,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Declarations and Access Control",
     "topic": "modifier",
     "text": "Given the following, which three of the following statements are true? (Choose three.)",
-    "textVi": "Cho đoạn mã sau, phát biểu nào dưới đây là đúng? (Chọn 2 đáp án)",
+    "textVi": "Cho đoạn mã sau, phát biểu nào dưới đây là đúng? (Chọn 3 đáp án)",
     "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
     "options": [
       "The code will compile with no changes.",
@@ -741,14 +751,16 @@ export const scjpChapterQuestions = [
     ],
     "answer": [
       0,
-      2
+      2,
+      4
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
-      "C"
+      "C",
+      "E"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích mối quan hệ kế thừa giữa hai lớp trừu tượng `A` và `B`:\n- `abstract class A` có một phương thức abstract là `abstract short m1();` và một phương thức cụ thể là `short m2() { return (short) 420; }`.\n- `abstract class B extends A` kế thừa `A` và đã cài đặt phương thức `short m1() { return (short) 42; }`.\n\nQuy tắc của Java đối với Abstract Class:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động kế thừa implementation này từ `A`.\n   - `B` có quyền override lại nếu muốn, hoặc thậm chí `B` có thể khai báo lại `abstract short m2();` (tái trừu tượng hóa để bắt buộc các lớp con của `B` phải tự viết lại).\n   - Tuy nhiên việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Vì vậy, mã nguồn hiện tại biên dịch hoàn hảo 100% mà không cần sửa đổi bất kỳ dòng nào (khẳng định A đúng). Và khẳng định C (B có quyền làm điều đó nhưng không bắt buộc) cũng đúng.\n\n✅ Vì sao đáp án \"A và C\" đúng:\nKhẳng định A đúng vì mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không lỗi. Khẳng định C đúng vì việc override hoặc biến `m2()` thành abstract trong lớp con `B` là quyền của `B` chứ không phải nghĩa vụ bắt buộc.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Sai vì khẳng định B cho rằng `B` \"bắt buộc\" (must) phải khai báo lại hoặc implement `m2()`. Thực tế `B` đã nghiễm nhiên thừa hưởng `m2()` từ cha `A` rồi.\n• Phương án chứa D: Sai vì một class con hoàn toàn có thể tự viết thêm phương thức mới mà không cần class cha phải khai báo nó trước.\n• Phương án chứa F: Sai vì trong Java, một abstract class hoàn toàn có thể kế thừa từ một concrete class bình thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất tự do: phương thức trừu tượng của cha thích thì implement, không thích thì để lớp con cháu sau này implement. Phương thức cụ thể của cha thì thích override cũng được, mà để nguyên dùng cũng được!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích mối quan hệ kế thừa giữa hai lớp trừu tượng `A` và `B`:\n- `abstract class A` có một phương thức abstract là `abstract short m1();` và một phương thức cụ thể là `short m2() { return (short) 420; }`.\n- `abstract class B extends A` kế thừa `A` và đã cài đặt phương thức `short m1() { return (short) 42; }`.\n\nQuy tắc của Java đối với Abstract Class:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động kế thừa implementation này từ `A`.\n   - `B` có quyền override lại nếu muốn, hoặc thậm chí `B` có thể khai báo lại `abstract short m2();` (tái trừu tượng hóa để bắt buộc các lớp con của `B` phải tự viết lại).\n   - Tuy nhiên việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Vì vậy, mã nguồn hiện tại biên dịch hoàn hảo 100% mà không cần sửa đổi bất kỳ dòng nào (khẳng định A đúng). Và khẳng định C (B có quyền làm điều đó nhưng không bắt buộc) cũng đúng.\n\n✅ Vì sao đáp án \"A, C và E\" đúng:\nKhẳng định A đúng vì mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không lỗi. Khẳng định C đúng vì việc override hoặc biến `m2()` thành abstract trong lớp con `B` là quyền của `B` chứ không phải nghĩa vụ bắt buộc.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Sai vì khẳng định B cho rằng `B` \"bắt buộc\" (must) phải khai báo lại hoặc implement `m2()`. Thực tế `B` đã nghiễm nhiên thừa hưởng `m2()` từ cha `A` rồi.\n• Phương án chứa D: Sai vì một class con hoàn toàn có thể tự viết thêm phương thức mới mà không cần class cha phải khai báo nó trước.\n• Phương án chứa F: Sai vì trong Java, một abstract class hoàn toàn có thể kế thừa từ một concrete class bình thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất tự do: phương thức trừu tượng của cha thích thì implement, không thích thì để lớp con cháu sau này implement. Phương thức cụ thể của cha thì thích override cũng được, mà để nguyên dùng cũng được!"
   },
   {
     "id": "scjp-ch02-004",
@@ -793,7 +805,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Declarations and Access Control",
     "topic": "modifier",
     "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
-    "textVi": "Trong 6 khai báo phương thức dưới đây, có bao nhiêu khai báo là HỢP LỆ? (Chọn 1 đáp án)\n1 – protected abstract void m1();\n2 – static final void m1(){}\n3 – transient private native void m1() {}\n4 – synchronized public final void m1() {}\n5 – private native void m1();\n6 – static final synchronized protected void m1() {}",
+    "textVi": "Trong 6 khai báo phương thức dưới đây, có bao nhiêu khai báo là HỢP LỆ? \n1 – protected abstract void m1();\n2 – static final void m1(){}\n3 – transient private native void m1() {}\n4 – synchronized public final void m1() {}\n5 – private native void m1();\n6 – static final synchronized protected void m1() {} (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "1",
@@ -828,18 +840,18 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau gồm hai file ở hai package khác nhau. Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
     "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
     "options": [
-      "The code compiles and runs, with output this 420 parent 420.",
+      "The code compiles and runs, with outputthis420parent420 .",
       "If line 8 is removed, the code will compile and run.",
       "If line 10 is removed, the code will compile and run.",
       "Both lines 8 and 10 must be removed for the code to compile.",
-      "An exception is thrown at runtime."
+      "An exception is thrown at runtime. Declaration Rules (;"
     ],
     "optionsVi": [
-      "Mã nguồn biên dịch và chạy bình thường, in ra: \"this 420 parent 420\".",
-      "Nếu xóa dòng 8, mã nguồn sẽ biên dịch và chạy được.",
-      "Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được.",
-      "Cả dòng 8 và dòng 10 đều phải bị xóa thì mã nguồn mới biên dịch được.",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+      "The code compiles and runs, with outputthis420parent420 .",
+      "If line 8 is removed, the code will compile and run.",
+      "If line 10 is removed, the code will compile and run.",
+      "Both lines 8 and 10 must be removed for the code to compile.",
+      "An exception is thrown at runtime. Declaration Rules (;"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -870,8 +882,8 @@ export const scjpChapterQuestions = [
       "123",
       "0123",
       "1234",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -956,17 +968,17 @@ export const scjpChapterQuestions = [
     "textVi": "Hai khai báo nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "publicstaticshortstop=23;",
-      "protectedshortstop=23;",
-      "transientshortstop=23;",
+      "publicstaticshortstop= 23;",
+      "protectedshortstop= 23;",
+      "transientshortstop= 23;",
       "finalvoidmadness(shortstop);",
       "publicBooleanmadness(longbow);",
       "staticcharmadness(doubleduty);"
     ],
     "optionsVi": [
-      "publicstaticshortstop=23;",
-      "protectedshortstop=23;",
-      "transientshortstop=23;",
+      "publicstaticshortstop= 23;",
+      "protectedshortstop= 23;",
+      "transientshortstop= 23;",
       "finalvoidmadness(shortstop);",
       "publicBooleanmadness(longbow);",
       "staticcharmadness(doubleduty);"
@@ -992,18 +1004,18 @@ export const scjpChapterQuestions = [
     "textVi": "Khai báo biến ở cấp độ lớp (biến non-local / biến toàn cục của class) nào dưới đây sẽ KHÔNG THỂ biên dịch? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "protected int a;",
-      "transient int b = 3;",
-      "public static final int c;",
-      "volatile int d;",
-      "private synchronized int e;"
+      "protectedinta;",
+      "transientintb= 3;",
+      "publicstaticfinalintc;",
+      "volatileintd;",
+      "privatesynchronizedinte;"
     ],
     "optionsVi": [
-      "protected int a;",
-      "transient int b = 3;",
-      "public static final int c;",
-      "volatile int d;",
-      "private synchronized int e;"
+      "protectedinta;",
+      "transientintb= 3;",
+      "publicstaticfinalintc;",
+      "volatileintd;",
+      "privatesynchronizedinte;"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -1053,7 +1065,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Declarations and Access Control",
     "topic": "modifier",
     "text": "Which three are valid method signatures in an interface? (Choose three.)",
-    "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
+    "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 3 đáp án)",
     "code": "",
     "options": [
       "privateintgetArea();",
@@ -1071,14 +1083,16 @@ export const scjpChapterQuestions = [
     ],
     "answer": [
       1,
-      2
+      2,
+      4
     ],
     "isMultiple": true,
     "correctLetters": [
       "B",
-      "C"
+      "C",
+      "E"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy định về phương thức trong Interface (chuẩn SCJP):\n1. Mọi phương thức trong interface đều mặc định là `public abstract`.\n2. Lập trình viên có thể viết tường minh `public abstract` hoặc lược bỏ.\n3. TUYỆT ĐỐI KHÔNG ĐƯỢC dùng các modifier sau: `private`, `protected`, `final`, `static`, `native`, `synchronized`.\n4. Tên phương thức có thể là bất kỳ định danh hợp lệ nào (kể cả tên `main`), tham số và kiểu trả về có thể là bất kỳ kiểu dữ liệu hợp lệ nào.\n\nPhân tích từng khai báo:\n- A: `private int getArea();` -> **SAI** vì phương thức interface không được phép là `private`.\n- B: `public float getVol(float x);` -> **HỢP LỆ** (khai báo `public` tường minh, kết thúc bằng `;`).\n- C: `public void main(String[] args);` -> **HỢP LỆ** (đây là một phương thức trừu tượng bình thường có tên là `main`, hoàn toàn hợp pháp).\n- D: `public static void main(String[] args);` -> **SAI** vì theo chuẩn Java truyền thống của SCJP, phương thức trong interface không được phép là `static`.\n- E: `boolean setFlag(Boolean[] test[]);` -> **HỢP LỆ** (ngầm định là public abstract, tham số là mảng 2 chiều `Boolean[][]`).\n\nBộ 3 hợp lệ gốc là B, C, E. Trong các phương án lựa chọn, tổ hợp A (`B và C`) là hoàn toàn chính xác.\n\n✅ Vì sao đáp án \"B và C\" đúng:\nCả hai phương thức B và C đều là các khai báo phương thức trừu tượng công khai (`public abstract`) hợp lệ bên trong interface.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Phương thức interface bị cấm dùng `private`.\n• Phương án chứa D: Phương thức interface trong SCJP bị cấm dùng `static`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong interface: Phương thức LUÔN LUÔN là `public abstract`. Thấy dính `private`, `protected`, `static`, `final` là loại ngay không cần suy nghĩ!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy định về phương thức trong Interface (chuẩn SCJP):\n1. Mọi phương thức trong interface đều mặc định là `public abstract`.\n2. Lập trình viên có thể viết tường minh `public abstract` hoặc lược bỏ.\n3. TUYỆT ĐỐI KHÔNG ĐƯỢC dùng các modifier sau: `private`, `protected`, `final`, `static`, `native`, `synchronized`.\n4. Tên phương thức có thể là bất kỳ định danh hợp lệ nào (kể cả tên `main`), tham số và kiểu trả về có thể là bất kỳ kiểu dữ liệu hợp lệ nào.\n\nPhân tích từng khai báo:\n- A: `private int getArea();` -> **SAI** vì phương thức interface không được phép là `private`.\n- B: `public float getVol(float x);` -> **HỢP LỆ** (khai báo `public` tường minh, kết thúc bằng `;`).\n- C: `public void main(String[] args);` -> **HỢP LỆ** (đây là một phương thức trừu tượng bình thường có tên là `main`, hoàn toàn hợp pháp).\n- D: `public static void main(String[] args);` -> **SAI** vì theo chuẩn Java truyền thống của SCJP, phương thức trong interface không được phép là `static`.\n- E: `boolean setFlag(Boolean[] test[]);` -> **HỢP LỆ** (ngầm định là public abstract, tham số là mảng 2 chiều `Boolean[][]`).\n\nBộ 3 hợp lệ gốc là B, C, E. Trong các phương án lựa chọn, tổ hợp A (`B và C`) là hoàn toàn chính xác.\n\n✅ Vì sao đáp án \"B, C và E\" đúng:\nCả hai phương thức B và C đều là các khai báo phương thức trừu tượng công khai (`public abstract`) hợp lệ bên trong interface.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Phương thức interface bị cấm dùng `private`.\n• Phương án chứa D: Phương thức interface trong SCJP bị cấm dùng `static`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong interface: Phương thức LUÔN LUÔN là `public abstract`. Thấy dính `private`, `protected`, `static`, `final` là loại ngay không cần suy nghĩ!"
   },
   {
     "id": "scjp-ch02-014",
@@ -1130,14 +1144,14 @@ export const scjpChapterQuestions = [
       "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
       "abstractclassClass2implementsBase{}",
       "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-      "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}}"
+      "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
     ],
     "optionsVi": [
       "interfaceBase2implementsBase{}",
       "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
       "abstractclassClass2implementsBase{}",
       "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-      "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}}"
+      "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
     ],
     "answer": [
       2,
@@ -1157,7 +1171,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Which two are equal? (Choose two.)",
-    "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai)",
+    "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "32/4;",
@@ -1193,23 +1207,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
-    "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai)",
+    "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
     "options": [
-      "booleantest=(Componentinstanceoft);",
-      "booleantest=(tinstanceofTicker);",
-      "booleantest=t.instanceof(Ticker);",
-      "booleantest=(tinstanceofComponent);",
-      "booleantest=t.instanceof(Object);",
-      "booleantest=(tinstanceofString);"
+      "boolean test = (Componentinstanceoft);",
+      "boolean test = (tinstanceofTicker);",
+      "boolean test = t.instanceof(Ticker);",
+      "boolean test = (tinstanceofComponent);",
+      "boolean test = t.instanceof(Object);",
+      "boolean test = (tinstanceofString);"
     ],
     "optionsVi": [
-      "booleantest=(Componentinstanceoft);",
-      "booleantest=(tinstanceofTicker);",
-      "booleantest=t.instanceof(Ticker);",
-      "booleantest=(tinstanceofComponent);",
-      "booleantest=t.instanceof(Object);",
-      "booleantest=(tinstanceofString);"
+      "boolean test = (Componentinstanceoft);",
+      "boolean test = (tinstanceofTicker);",
+      "boolean test = t.instanceof(Ticker);",
+      "boolean test = (tinstanceofComponent);",
+      "boolean test = t.instanceof(Object);",
+      "boolean test = (tinstanceofString);"
     ],
     "answer": [
       1,
@@ -1229,19 +1243,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
     "options": [
       "true",
       "false",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
       "true",
       "false",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1257,32 +1271,34 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, which three statements are true? (Choose three.)",
-    "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba)",
+    "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba) (Chọn 3 đáp án)",
     "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
     "options": [
-      "f1==f2",
-      "f1==f3",
-      "f2==f1[1]",
-      "x==f1[0]",
-      "f==f1[0]"
+      "f1= =f2",
+      "f1= =f3",
+      "f2= =f1[1]",
+      "x= =f1[0]",
+      "f= =f1[0]"
     ],
     "optionsVi": [
-      "f1==f2",
-      "f1==f3",
-      "f2==f1[1]",
-      "x==f1[0]",
-      "f==f1[0]"
+      "f1= =f2",
+      "f1= =f3",
+      "f2= =f1[1]",
+      "x= =f1[0]",
+      "f= =f1[0]"
     ],
     "answer": [
       1,
-      3
+      3,
+      4
     ],
     "isMultiple": true,
     "correctLetters": [
       "B",
-      "D"
+      "D",
+      "E"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài kiểm tra cơ chế so sánh bằng `==` giữa các biến tham chiếu (reference variables) và các biến kiểu nguyên thủy (primitive types):\n1. Phân tích chi tiết từng biểu thức so sánh:\n   • A. `f1 == f2`: `f1` và `f2` là hai biến tham chiếu trỏ đến hai đối tượng mảng float riêng biệt được tạo bởi hai toán tử `new` khác nhau ở dòng 5 và 6. Toán tử `==` khi so sánh hai biến tham chiếu sẽ so sánh địa chỉ ô nhớ trên Heap. Vì trỏ đến hai vùng nhớ khác nhau, `f1 == f2` trả về `false`.\n   • B. `f1 == f3`: Dòng 7 gán `float[] f3 = f1;`. Câu lệnh này sao chép địa chỉ tham chiếu từ `f1` sang `f3`, nghĩa là cả hai biến cùng trỏ vào DUY NHẤT một đối tượng mảng trên bộ nhớ Heap. Do đó `f1 == f3` trả về `true`.\n   • C. `f2 == f1[1]`: `f2` là biến tham chiếu đối tượng mảng (`float[]`), trong khi `f1[1]` là một giá trị số thực nguyên thủy (`float`). Trong Java, việc so sánh `==` giữa biến tham chiếu đối tượng và biến nguyên thủy là bất hợp pháp và gây lỗi biên dịch (\"incomparable types\").\n   • D. `x == f1[0]`: `x` là biến nguyên thủy kiểu `long` có giá trị 42. `f1[0]` là phần tử mảng kiểu nguyên thủy `float` có giá trị 42.0f. Khi so sánh giữa hai kiểu số nguyên thủy, Java tự động nới rộng kiểu (numeric promotion) từ `long` sang `float`: `42.0f == 42.0f` -> trả về `true`.\n   • E. `f == f1[0]`: Cả `f` và `f1[0]` đều là biến nguyên thủy kiểu `float` mang giá trị 42.0f -> trả về `true`.\n\n2. Kết luận: Các phát biểu trả về `true` trong đề thi gốc là B, D và E. Trong các phương án ghép cặp, phương án [0] đại diện cho cặp đúng tiêu biểu B và D.\n\n✅ Vì sao đáp án \"B và D\" đúng:\n• `f1 == f3` là `true` vì cả hai biến tham chiếu cùng trỏ đến cùng một đối tượng mảng trên bộ nhớ Heap.\n• `x == f1[0]` là `true` vì đây là phép so sánh giá trị số nguyên thủy, giá trị số 42 của `long` bằng 42.0f của `float`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B (A: f1 == f2 & B: f1 == f3)\": Sai vì biểu thức A (`f1 == f2`) trả về `false`. Hai mảng được tạo bởi 2 lệnh `new` độc lập nên nằm ở 2 ô nhớ khác nhau trên Heap, dù các phần tử bên trong có giống nhau thì so sánh `==` vẫn ra `false`.\n• \"A và C (A: f1 == f2 & C: f2 == f1[1])\": Sai vì A trả về `false`, còn C (`f2 == f1[1]`) gây lỗi biên dịch do so sánh biến tham chiếu mảng với giá trị số nguyên thủy.\n• \"D và E (D: x == f1[0] & E: f == f1[0])\": Mặc dù D và E đều là các biểu thức đúng, nhưng theo bộ mã đề gốc SCJP (đáp án B, D được chỉ định cho vị trí khóa), phương án [0] là phương án chính xác của câu hỏi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối với biến tham chiếu (Object/Array): `==` so sánh ĐỊA CHỈ VÙNG NHỚ (hai biến có trỏ chung một đối tượng không).\n• Đối với kiểu số nguyên thủy (primitive): `==` so sánh GIÁ TRỊ TOÁN HỌC, tự động ép kiểu mở rộng (ví dụ `long` thành `float`) trước khi so sánh."
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài kiểm tra cơ chế so sánh bằng `==` giữa các biến tham chiếu (reference variables) và các biến kiểu nguyên thủy (primitive types):\n1. Phân tích chi tiết từng biểu thức so sánh:\n   • A. `f1 == f2`: `f1` và `f2` là hai biến tham chiếu trỏ đến hai đối tượng mảng float riêng biệt được tạo bởi hai toán tử `new` khác nhau ở dòng 5 và 6. Toán tử `==` khi so sánh hai biến tham chiếu sẽ so sánh địa chỉ ô nhớ trên Heap. Vì trỏ đến hai vùng nhớ khác nhau, `f1 == f2` trả về `false`.\n   • B. `f1 == f3`: Dòng 7 gán `float[] f3 = f1;`. Câu lệnh này sao chép địa chỉ tham chiếu từ `f1` sang `f3`, nghĩa là cả hai biến cùng trỏ vào DUY NHẤT một đối tượng mảng trên bộ nhớ Heap. Do đó `f1 == f3` trả về `true`.\n   • C. `f2 == f1[1]`: `f2` là biến tham chiếu đối tượng mảng (`float[]`), trong khi `f1[1]` là một giá trị số thực nguyên thủy (`float`). Trong Java, việc so sánh `==` giữa biến tham chiếu đối tượng và biến nguyên thủy là bất hợp pháp và gây lỗi biên dịch (\"incomparable types\").\n   • D. `x == f1[0]`: `x` là biến nguyên thủy kiểu `long` có giá trị 42. `f1[0]` là phần tử mảng kiểu nguyên thủy `float` có giá trị 42.0f. Khi so sánh giữa hai kiểu số nguyên thủy, Java tự động nới rộng kiểu (numeric promotion) từ `long` sang `float`: `42.0f == 42.0f` -> trả về `true`.\n   • E. `f == f1[0]`: Cả `f` và `f1[0]` đều là biến nguyên thủy kiểu `float` mang giá trị 42.0f -> trả về `true`.\n\n2. Kết luận: Các phát biểu trả về `true` trong đề thi gốc là B, D và E. Trong các phương án ghép cặp, phương án [0] đại diện cho cặp đúng tiêu biểu B và D.\n\n✅ Vì sao đáp án \"B, D và E\" đúng:\n• `f1 == f3` là `true` vì cả hai biến tham chiếu cùng trỏ đến cùng một đối tượng mảng trên bộ nhớ Heap.\n• `x == f1[0]` là `true` vì đây là phép so sánh giá trị số nguyên thủy, giá trị số 42 của `long` bằng 42.0f của `float`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B (A: f1 == f2 & B: f1 == f3)\": Sai vì biểu thức A (`f1 == f2`) trả về `false`. Hai mảng được tạo bởi 2 lệnh `new` độc lập nên nằm ở 2 ô nhớ khác nhau trên Heap, dù các phần tử bên trong có giống nhau thì so sánh `==` vẫn ra `false`.\n• \"A và C (A: f1 == f2 & C: f2 == f1[1])\": Sai vì A trả về `false`, còn C (`f2 == f1[1]`) gây lỗi biên dịch do so sánh biến tham chiếu mảng với giá trị số nguyên thủy.\n• \"D và E (D: x == f1[0] & E: f == f1[0])\": Mặc dù D và E đều là các biểu thức đúng, nhưng theo bộ mã đề gốc SCJP (đáp án B, D được chỉ định cho vị trí khóa), phương án [0] là phương án chính xác của câu hỏi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối với biến tham chiếu (Object/Array): `==` so sánh ĐỊA CHỈ VÙNG NHỚ (hai biến có trỏ chung một đối tượng không).\n• Đối với kiểu số nguyên thủy (primitive): `==` so sánh GIÁ TRỊ TOÁN HỌC, tự động ép kiểu mở rộng (ví dụ `long` thành `float`) trước khi so sánh."
   },
   {
     "id": "scjp-ch03-005",
@@ -1291,21 +1307,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the output from this program?",
-    "textVi": "Cho đoạn mã sau, kết quả in ra màn hình của chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả in ra màn hình của chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
     "options": [
-      "-2147483648 and  1",
-      "0x80000000 and  0x00000001",
-      "-2147483648 and  -1",
-      "1 and  -2147483648",
-      "Không có đáp án nào đúng (None of the above)"
+      "-2147483648and1",
+      "0x80000000and0x00000001",
+      "-2147483648and-1",
+      "1and-2147483648",
+      "None of the above"
     ],
     "optionsVi": [
-      "-2147483648 and  1",
-      "0x80000000 and  0x00000001",
-      "-2147483648 and  -1",
-      "1 and  -2147483648",
-      "Không có đáp án nào đúng (None of the above)"
+      "-2147483648and1",
+      "0x80000000and0x00000001",
+      "-2147483648and-1",
+      "1and-2147483648",
+      "None of the above"
     ],
     "answer": 0,
     "isMultiple": false,
@@ -1321,7 +1337,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
     "options": [
       "0",
@@ -1351,32 +1367,34 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Which of the following are legal lines of code? (Choose all that apply.)",
-    "textVi": "Những dòng mã nào sau đây là hợp lệ trong Java? (Chọn tất cả các đáp án đúng)",
+    "textVi": "Những dòng mã nào sau đây là hợp lệ trong Java? (Chọn tất cả các đáp án đúng) (Chọn 4 đáp án)",
     "code": "",
     "options": [
-      "intw=(int)888.8;",
-      "bytex=(byte)1000L;",
-      "longy=(byte)100;",
-      "bytez=(byte)100L;"
+      "int w = (int)888.8;",
+      "byte x = (byte)1000L;",
+      "long y = (byte)100;",
+      "byte z = (byte)100L;"
     ],
     "optionsVi": [
-      "intw=(int)888.8;",
-      "bytex=(byte)1000L;",
-      "longy=(byte)100;",
-      "bytez=(byte)100L;"
+      "int w = (int)888.8;",
+      "byte x = (byte)1000L;",
+      "long y = (byte)100;",
+      "byte z = (byte)100L;"
     ],
     "answer": [
       0,
       1,
-      2
+      2,
+      3
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
       "B",
-      "C"
+      "C",
+      "D"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra quy tắc ép kiểu (casting) giữa các kiểu dữ liệu nguyên thủy trong Java:\n1. Xét câu lệnh A: `int w = (int) 888.8;`\n   • Số `888.8` mặc định là một hằng số kiểu `double` (64-bit).\n   • Phép ép kiểu tường minh `(int)` sẽ cắt bỏ hoàn toàn phần thập phân (.8) và giữ lại phần nguyên 888 để gán cho biến `w`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n2. Xét câu lệnh B: `byte x = (byte) 1000L;`\n   • Số `1000L` là một giá trị kiểu `long` (64-bit). Miền giá trị của kiểu `byte` chỉ từ -128 đến 127, nên 1000 vượt quá giới hạn của `byte`.\n   • TUY NHIÊN, khi lập trình viên đã chủ động sử dụng toán tử ép kiểu tường minh `(byte)`, trình biên dịch Java sẽ chấp nhận và chỉ thực hiện thao tác cắt lấy 8 bit thấp nhất (tràn số - overflow), không hề báo lỗi biên dịch!\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n3. Xét câu lệnh C: `long y = (byte) 100;`\n   • Giá trị 100 được ép kiểu thành `byte`. Sau đó gán cho biến `y` có kiểu `long`.\n   • Vì kiểu `long` (64-bit) rộng hơn kiểu `byte` (8-bit), Java sẽ tự động nới rộng kiểu (widening conversion) mà không gặp bất kỳ lỗi nào (dù phép ép kiểu `(byte)` ở đây là dư thừa).\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n4. Xét câu lệnh D: `byte z = (byte) 100L;`\n   • Số `100L` kiểu `long` được ép kiểu tường minh `(byte)` về `byte` (nằm trong khoảng [-128, 127]) và gán cho `z`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n\nTrong đề thi gốc, tất cả A, B, C, D đều hợp lệ. Trong các lựa chọn được tổ hợp, phương án chứa bộ ba A, B, C là phương án đúng được chỉ định.\n\n✅ Vì sao đáp án \"A và B và C\" đúng:\nTất cả các câu lệnh A, B, C đều sử dụng đúng cú pháp ép kiểu của Java. Ép kiểu số thực sang nguyên (A) cắt bỏ phần thập phân; ép kiểu số lớn vượt giới hạn sang byte (B) vẫn hợp lệ lúc biên dịch nhờ phép ép kiểu tường minh `(byte)`; và gán byte cho long (C) là chuyển đổi mở rộng hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và D\": Bị thiếu các dòng code hợp lệ khác như B và C.\n• \"D\": Thiếu tất cả các dòng A, B, C vốn đều hợp lệ về mặt cú pháp Java.\n• \"B và D\": Thiếu dòng A và C.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Compiler chỉ chặn khi bạn gán kiểu lớn cho kiểu nhỏ MÀ KHÔNG ép kiểu tường minh (ví dụ `byte b = 1000L;` sẽ báo lỗi). Nhưng một khi đã viết `(byte) 1000L`, compiler sẽ cho qua vì nó hiểu rằng lập trình viên đã chủ động chấp nhận mất mát dữ liệu hoặc tràn bit."
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra quy tắc ép kiểu (casting) giữa các kiểu dữ liệu nguyên thủy trong Java:\n1. Xét câu lệnh A: `int w = (int) 888.8;`\n   • Số `888.8` mặc định là một hằng số kiểu `double` (64-bit).\n   • Phép ép kiểu tường minh `(int)` sẽ cắt bỏ hoàn toàn phần thập phân (.8) và giữ lại phần nguyên 888 để gán cho biến `w`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n2. Xét câu lệnh B: `byte x = (byte) 1000L;`\n   • Số `1000L` là một giá trị kiểu `long` (64-bit). Miền giá trị của kiểu `byte` chỉ từ -128 đến 127, nên 1000 vượt quá giới hạn của `byte`.\n   • TUY NHIÊN, khi lập trình viên đã chủ động sử dụng toán tử ép kiểu tường minh `(byte)`, trình biên dịch Java sẽ chấp nhận và chỉ thực hiện thao tác cắt lấy 8 bit thấp nhất (tràn số - overflow), không hề báo lỗi biên dịch!\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n3. Xét câu lệnh C: `long y = (byte) 100;`\n   • Giá trị 100 được ép kiểu thành `byte`. Sau đó gán cho biến `y` có kiểu `long`.\n   • Vì kiểu `long` (64-bit) rộng hơn kiểu `byte` (8-bit), Java sẽ tự động nới rộng kiểu (widening conversion) mà không gặp bất kỳ lỗi nào (dù phép ép kiểu `(byte)` ở đây là dư thừa).\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n4. Xét câu lệnh D: `byte z = (byte) 100L;`\n   • Số `100L` kiểu `long` được ép kiểu tường minh `(byte)` về `byte` (nằm trong khoảng [-128, 127]) và gán cho `z`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n\nTrong đề thi gốc, tất cả A, B, C, D đều hợp lệ. Trong các lựa chọn được tổ hợp, phương án chứa bộ ba A, B, C là phương án đúng được chỉ định.\n\n✅ Vì sao đáp án \"A, B, C và D\" đúng:\nTất cả các câu lệnh A, B, C đều sử dụng đúng cú pháp ép kiểu của Java. Ép kiểu số thực sang nguyên (A) cắt bỏ phần thập phân; ép kiểu số lớn vượt giới hạn sang byte (B) vẫn hợp lệ lúc biên dịch nhờ phép ép kiểu tường minh `(byte)`; và gán byte cho long (C) là chuyển đổi mở rộng hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và D\": Bị thiếu các dòng code hợp lệ khác như B và C.\n• \"D\": Thiếu tất cả các dòng A, B, C vốn đều hợp lệ về mặt cú pháp Java.\n• \"B và D\": Thiếu dòng A và C.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Compiler chỉ chặn khi bạn gán kiểu lớn cho kiểu nhỏ MÀ KHÔNG ép kiểu tường minh (ví dụ `byte b = 1000L;` sẽ báo lỗi). Nhưng một khi đã viết `(byte) 1000L`, compiler sẽ cho qua vì nó hiểu rằng lập trình viên đã chủ động chấp nhận mất mát dữ liệu hoặc tràn bit."
   },
   {
     "id": "scjp-ch03-008",
@@ -1385,23 +1403,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
     "options": [
-      "5 3",
-      "8 2",
-      "8 3",
-      "8 5",
-      "10 3",
-      "10 5"
+      "53",
+      "82",
+      "83",
+      "85",
+      "103",
+      "105"
     ],
     "optionsVi": [
-      "5 3",
-      "8 2",
-      "8 3",
-      "8 5",
-      "10 3",
-      "10 5"
+      "53",
+      "82",
+      "83",
+      "85",
+      "103",
+      "105"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1417,23 +1435,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, What is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
     "options": [
-      "5 2",
-      "5 3",
-      "6 3",
-      "6 4",
-      "7 5",
-      "8 5"
+      "52",
+      "53",
+      "63",
+      "64",
+      "75",
+      "85"
     ],
     "optionsVi": [
-      "5 2",
-      "5 3",
-      "6 3",
-      "6 4",
-      "7 5",
-      "8 5"
+      "52",
+      "53",
+      "63",
+      "64",
+      "75",
+      "85"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1449,23 +1467,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
     "options": [
       "ok",
       "dokey",
       "okdokey",
-      "Không in gì ra màn hình (No output is produced)",
-      "Lỗi biên dịch (Compilation error)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "No output is produced",
+      "Compilation error",
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
       "ok",
       "dokey",
       "okdokey",
-      "Không in gì ra màn hình (No output is produced)",
-      "Lỗi biên dịch (Compilation error)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "No output is produced",
+      "Compilation error",
+      "An exception is thrown at runtime"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1481,19 +1499,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result of compiling and running this code?",
-    "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
     "options": [
       "small",
       "tiny",
       "huge",
-      "Lỗi biên dịch (Compilation fails)"
+      "Compilation fails"
     ],
     "optionsVi": [
       "small",
       "tiny",
       "huge",
-      "Lỗi biên dịch (Compilation fails)"
+      "Compilation fails"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1509,23 +1527,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
     "options": [
-      "count = 0",
-      "count = 2",
-      "count = 3",
-      "count = 4",
-      "count = 10",
-      "count = 11"
+      "count= 0",
+      "count= 2",
+      "count= 3",
+      "count= 4",
+      "count= 10",
+      "count= 11 Passing Variables into Methods (;"
     ],
     "optionsVi": [
-      "count = 0",
-      "count = 2",
-      "count = 3",
-      "count = 4",
-      "count = 10",
-      "count = 11"
+      "count= 0",
+      "count= 2",
+      "count= 3",
+      "count= 4",
+      "count= 10",
+      "count= 11 Passing Variables into Methods (;"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1541,23 +1559,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class Test {\n2.      static int s;\n3.      public static void main(String [] args) {\n4.        Test p = new Test();\n5.        p.start();\n6.        System.out.println(s);\n7.      }\n8.\n9.     void start() {\n10.       int x = 7;\n11.       twice(x);\n12.       System.out.print(x + \" \");\n13.     }\n14.\n15.     void twice(int x) {\n16.       x = x*2;\n17.       s = x;\n18.     }\n19.   }",
     "options": [
-      "7 7",
-      "7 14",
-      "14 0",
-      "14 14",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "77",
+      "714",
+      "140",
+      "1414",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
-      "7 7",
-      "7 14",
-      "14 0",
-      "14 14",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "77",
+      "714",
+      "140",
+      "1414",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1573,23 +1591,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
     "options": [
-      "true true",
-      "false true",
-      "true false",
-      "false false",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "truetrue",
+      "falsetrue",
+      "truefalse",
+      "falsefalse",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
-      "true true",
-      "false true",
-      "true false",
-      "false false",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "truetrue",
+      "falsetrue",
+      "truefalse",
+      "falsefalse",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1605,23 +1623,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
     "options": [
       "slipstream",
       "slipstreamstream",
       "streamslipstream",
       "slipstreamslipstream",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime;"
     ],
     "optionsVi": [
       "slipstream",
       "slipstreamstream",
       "streamslipstream",
       "slipstreamslipstream",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails",
+      "An exception is thrown at runtime;"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1637,7 +1655,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
     "options": [
       "977foo77foo",
@@ -1667,23 +1685,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
     "options": [
-      "12 15",
-      "15 15",
-      "345 375",
-      "375 375",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "1215",
+      "1515",
+      "345375",
+      "375375",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
-      "12 15",
-      "15 15",
-      "345 375",
-      "375 375",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "1215",
+      "1515",
+      "345375",
+      "375375",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1699,23 +1717,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Operators and Assignments",
     "topic": "javacore",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
     "options": [
-      "null null 42",
-      "0 0 42",
-      "0 42 42",
-      "0 0 0",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "nullnull42",
+      "0042",
+      "04242",
+      "000",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
-      "null null 42",
-      "0 0 42",
-      "0 42 42",
-      "0 0 0",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "nullnull42",
+      "0042",
+      "04242",
+      "000",
+      "Compilation fails",
+      "An exception is thrown at runtime"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1731,23 +1749,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
     "options": [
       "0 1 2",
       "0 1 2 1 2 2",
-      "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
-      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails at line 7.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "An exception is thrown at runtime."
     ],
     "optionsVi": [
       "0 1 2",
       "0 1 2 1 2 2",
-      "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
-      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails at line 7.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "An exception is thrown at runtime."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1763,23 +1781,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
     "options": [
       "0 1 2",
       "0 1 2 1 2 2",
       "2 1 0 1 0 0",
       "2 1 2 0 1 2",
-      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9."
     ],
     "optionsVi": [
       "0 1 2",
       "0 1 2 1 2 2",
       "2 1 0 1 0 0",
       "2 1 2 0 1 2",
-      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1795,23 +1813,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
     "options": [
       "41",
       "42",
       "50",
       "51",
-      "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
-      "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
+      "Compiler fails at line 5.",
+      "Compiler fails at line 6.;"
     ],
     "optionsVi": [
       "41",
       "42",
       "50",
       "51",
-      "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
-      "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
+      "Compiler fails at line 5.",
+      "Compiler fails at line 6.;"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1827,7 +1845,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
     "options": [
       "0 def 1",
@@ -1859,7 +1877,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
     "options": [
       "0",
@@ -1867,7 +1885,7 @@ export const scjpChapterQuestions = [
       "101",
       "111",
       "1001",
-      "1101"
+      "1101 Flow Control (loops) (;"
     ],
     "optionsVi": [
       "0",
@@ -1875,7 +1893,7 @@ export const scjpChapterQuestions = [
       "101",
       "111",
       "1001",
-      "1101"
+      "1101 Flow Control (loops) (;"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1891,23 +1909,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, Which statement is true?",
-    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là ĐÚNG?",
+    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
     "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
     "options": [
-      "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
-      "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
-      "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
-      "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
-      "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
-      "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
+      "There is a syntax error on line 1.",
+      "There are syntax errors on lines 1 and 4.",
+      "There are syntax errors on lines 1, 4, and 5.",
+      "There is a syntax error on line 4.",
+      "There are syntax errors on lines 4 and 5.",
+      "There is a syntax error on line 5."
     ],
     "optionsVi": [
-      "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
-      "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
-      "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
-      "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
-      "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
-      "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
+      "There is a syntax error on line 1.",
+      "There are syntax errors on lines 1 and 4.",
+      "There are syntax errors on lines 1, 4, and 5.",
+      "There is a syntax error on line 4.",
+      "There are syntax errors on lines 4 and 5.",
+      "There is a syntax error on line 5."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1923,7 +1941,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
-    "textVi": "Cho đoạn mã sau và kết quả đầu ra là: x = 0 x = 1. Hai dòng mã nào dưới đây khi chèn độc lập vào dòng 3 sẽ tạo ra kết quả này? (Chọn hai)",
+    "textVi": "Cho đoạn mã sau và kết quả đầu ra là: x = 0 x = 1. Hai dòng mã nào dưới đây khi chèn độc lập vào dòng 3 sẽ tạo ra kết quả này? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n5.       }\n6.     }\n7.  }",
     "options": [
       "for (int x = -1; x < 2; ++x) {",
@@ -1957,21 +1975,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
     "options": [
       "I is 1",
       "I is 1 I is 1",
-      "Không in gì ra màn hình (No output is produced)",
-      "Lỗi biên dịch (Compilation error)",
-      "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
+      "No output is produced.",
+      "Compilation error",
+      "I is 1 I is 1 I is 1 in an infinite loop."
     ],
     "optionsVi": [
       "I is 1",
       "I is 1 I is 1",
-      "Không in gì ra màn hình (No output is produced)",
-      "Lỗi biên dịch (Compilation error)",
-      "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
+      "No output is produced.",
+      "Compilation error",
+      "I is 1 I is 1 I is 1 in an infinite loop."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1987,7 +2005,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);",
     "options": [
       "1",
@@ -2015,19 +2033,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
     "options": [
       "I is 0",
       "I is 0 I is 1",
-      "Lỗi biên dịch (Compilation fails)",
-      "Không có đáp án nào đúng (None of the above)"
+      "Compilation fails.",
+      "None of the above Exceptions (;"
     ],
     "optionsVi": [
       "I is 0",
       "I is 0 I is 1",
-      "Lỗi biên dịch (Compilation fails)",
-      "Không có đáp án nào đúng (None of the above)"
+      "Compilation fails.",
+      "None of the above Exceptions (;"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -2043,19 +2061,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
-    "textVi": "Cho đoạn mã sau, biết rằng EOFException và FileNotFoundException đều là lớp con của IOException, và giả định khối mã này nằm trong một class hợp lệ. Phát biểu nào sau đây là ĐÚNG NHẤT?",
+    "textVi": "Cho đoạn mã sau, biết rằng EOFException và FileNotFoundException đều là lớp con của IOException, và giả định khối mã này nằm trong một class hợp lệ. Phát biểu nào sau đây là ĐÚNG NHẤT? (Chọn 1 đáp án)",
     "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
     "options": [
-      "Mã nguồn không thể biên dịch (The code will not compile)",
-      "Đầu ra: Start Hello world File Not Found.",
-      "Đầu ra: Start Hello world End of file exception.",
-      "Đầu ra: Start Hello world Catch Here File not found."
+      "The code will not compile.",
+      "Code output:Start Hello world File Not Found.",
+      "Code output:Start Hello world End of file exception.",
+      "Code output:Start Hello world Catch Here File not found."
     ],
     "optionsVi": [
-      "Mã nguồn không thể biên dịch (The code will not compile)",
-      "Đầu ra: Start Hello world File Not Found.",
-      "Đầu ra: Start Hello world End of file exception.",
-      "Đầu ra: Start Hello world Catch Here File not found."
+      "The code will not compile.",
+      "Code output:Start Hello world File Not Found.",
+      "Code output:Start Hello world End of file exception.",
+      "Code output:Start Hello world Catch Here File not found."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -2071,18 +2089,18 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
     "options": [
-      "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
-      "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
-      "Hello world",
+      "Nothing. The program will not compile because no exceptions are specified.",
+      "Nothing. The program will not compile because nocatch clauses are specified.",
+      "Hello world.",
       "Hello world Finally executing"
     ],
     "optionsVi": [
-      "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
-      "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
-      "Hello world",
+      "Nothing. The program will not compile because no exceptions are specified.",
+      "Nothing. The program will not compile because nocatch clauses are specified.",
+      "Hello world.",
       "Hello world Finally executing"
     ],
     "answer": 3,
@@ -2099,21 +2117,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
-    "textVi": "Cho đoạn mã sau, biết rằng mọi phương thức của lớp FileOutputStream (bao gồm close()) đều khai báo ném ngoại lệ IOException. Phát biểu nào sau đây là ĐÚNG? (Chọn một)",
+    "textVi": "Cho đoạn mã sau, biết rằng mọi phương thức của lớp FileOutputStream (bao gồm close()) đều khai báo ném ngoại lệ IOException. Phát biểu nào sau đây là ĐÚNG? (Chọn một) (Chọn 1 đáp án)",
     "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
     "options": [
-      "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
-      "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
-      "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
-      "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
-      "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
+      "This program will compile successfully.",
+      "This program fails to compile due to an error at line 4.",
+      "This program fails to compile due to an error at line 6.",
+      "This program fails to compile due to an error at line 9.",
+      "This program fails to compile due to an error at line 13."
     ],
     "optionsVi": [
-      "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
-      "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
-      "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
-      "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
-      "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
+      "This program will compile successfully.",
+      "This program fails to compile due to an error at line 4.",
+      "This program fails to compile due to an error at line 6.",
+      "This program fails to compile due to an error at line 9.",
+      "This program fails to compile due to an error at line 13."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2129,19 +2147,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, which answer most closely indicates the behavior of the program?",
-    "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy?",
+    "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy? (Chọn 1 đáp án)",
     "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
     "options": [
-      "Chương trình sẽ không biên dịch (The program will not compile)",
-      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
-      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
-      "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
+      "The program will not compile.;",
+      "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+      "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+      "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
     ],
     "optionsVi": [
-      "Chương trình sẽ không biên dịch (The program will not compile)",
-      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
-      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
-      "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
+      "The program will not compile.;",
+      "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+      "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+      "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -2157,23 +2175,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
     "options": [
       "hello throwit caught",
-      "Lỗi biên dịch (Compilation fails)",
+      "Compilation fails",
       "hello throwit RuntimeException caught after",
       "hello throwit RuntimeException",
       "hello throwit caught finally after",
-      "hello throwit caught finally after RuntimeException"
+      "hello throwit caught finally after RuntimeException;"
     ],
     "optionsVi": [
       "hello throwit caught",
-      "Lỗi biên dịch (Compilation fails)",
+      "Compilation fails",
       "hello throwit RuntimeException caught after",
       "hello throwit RuntimeException",
       "hello throwit caught finally after",
-      "hello throwit caught finally after RuntimeException"
+      "hello throwit caught finally after RuntimeException;"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2189,19 +2207,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Which of the following statements is true?",
-    "textVi": "Phát biểu nào sau đây về Assertions (khẳng định) trong Java là ĐÚNG?",
+    "textVi": "Phát biểu nào sau đây về Assertions (khẳng định) trong Java là ĐÚNG? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
-      "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
-      "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
-      "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
+      "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+      "If a switch block has no default, adding an assert default is considered appropriate.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "It is appropriate to handle assertion failures using acatch clause."
     ],
     "optionsVi": [
-      "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
-      "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
-      "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
-      "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
+      "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+      "If a switch block has no default, adding an assert default is considered appropriate.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "It is appropriate to handle assertion failures using acatch clause."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -2217,7 +2235,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Which two of the following statements are true? (Choose two.)",
-    "textVi": "Hai phát biểu nào sau đây về Assertion trong Java là ĐÚNG? (Chọn hai)",
+    "textVi": "Hai phát biểu nào sau đây về Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "It is sometimes good practice to throw an AssertionError explicitly.",
@@ -2251,23 +2269,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
     "options": [
       "bar",
       "bar done",
       "foo done",
       "bar foo done",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
+      "Compilation fails",
+      "An error is thrown at runtime."
     ],
     "optionsVi": [
       "bar",
       "bar done",
       "foo done",
       "bar foo done",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
+      "Compilation fails",
+      "An error is thrown at runtime."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2283,7 +2301,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Which two of the following statements are true? (Choose two.)",
-    "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai)",
+    "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
@@ -2317,21 +2335,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Flow Control, Exceptions, and Assertions",
     "topic": "exception",
     "text": "Given the following, which line is an example of an inappropriate use of assertions?",
-    "textVi": "Cho đoạn mã sau, dòng nào là ví dụ về việc sử dụng Assertion KHÔNG PHÙ HỢP (vi phạm nguyên tắc thiết kế)?",
+    "textVi": "Cho đoạn mã sau, dòng nào là ví dụ về việc sử dụng Assertion KHÔNG PHÙ HỢP (vi phạm nguyên tắc thiết kế)? (Chọn 1 đáp án)",
     "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
     "options": [
-      "Dòng 8 (Line 8)",
-      "Dòng 9 (Line 9)",
-      "Dòng 11 (Line 11)",
-      "Dòng 15 (Line 15)",
-      "Dòng 18 (Line 18)"
+      "Line 8",
+      "Line 9",
+      "Line 11",
+      "Line 15",
+      "Line 18;"
     ],
     "optionsVi": [
-      "Dòng 8 (Line 8)",
-      "Dòng 9 (Line 9)",
-      "Dòng 11 (Line 11)",
-      "Dòng 15 (Line 15)",
-      "Dòng 18 (Line 18)"
+      "Line 8",
+      "Line 9",
+      "Line 11",
+      "Line 15",
+      "Line 18;"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2347,7 +2365,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, which is true about the class described above?",
-    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell?",
+    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell? (Chọn 1 đáp án)",
     "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
     "options": [
       "Class Barbell is tightly encapsulated.",
@@ -2358,12 +2376,12 @@ export const scjpChapterQuestions = [
       "Lines 2, 5, and 8 are in conflict with encapsulation."
     ],
     "optionsVi": [
-      "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
-      "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
-      "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
-      "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
-      "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
-      "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
+      "Class Barbell is tightly encapsulated.",
+      "Line 2 is in conflict with encapsulation.",
+      "Line 5 is in conflict with encapsulation.",
+      "Line 8 is in conflict with encapsulation.",
+      "Lines 5 and 8 are in conflict with encapsulation.",
+      "Lines 2, 5, and 8 are in conflict with encapsulation."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -2379,7 +2397,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, which is true about the classes described above?",
-    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên?",
+    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên? (Chọn 1 đáp án)",
     "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
     "options": [
       "Class A is tightly encapsulated.",
@@ -2388,10 +2406,10 @@ export const scjpChapterQuestions = [
       "Neither class A nor class B is tightly encapsulated."
     ],
     "optionsVi": [
-      "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
-      "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
-      "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
-      "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
+      "Class A is tightly encapsulated.",
+      "Class B is tightly encapsulated.",
+      "Classes A and B are both tightly encapsulated.",
+      "Neither class A nor class B is tightly encapsulated."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -2407,7 +2425,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Which is true?",
-    "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng?",
+    "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "Tightly encapsulated classes are typically easier to reuse.",
@@ -2417,11 +2435,11 @@ export const scjpChapterQuestions = [
       "Tightly encapsulated classes typically do not use HAS-A relationships."
     ],
     "optionsVi": [
-      "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
-      "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
-      "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
-      "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
-      "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
+      "Tightly encapsulated classes are typically easier to reuse.",
+      "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+      "Methods in tightly encapsulated classes cannot be overridden.",
+      "Methods in tightly encapsulated classes cannot be overloaded.",
+      "Tightly encapsulated classes typically do not use HAS-A relationships."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -2437,7 +2455,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Which two are not benefits of encapsulation? (Choose two.)",
-    "textVi": "Hai điều nào sau đây KHÔNG phải là lợi ích của tính bao đóng (encapsulation)? (Chọn hai)",
+    "textVi": "Hai điều nào sau đây KHÔNG phải là lợi ích của tính bao đóng (encapsulation)? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "Clarity of code",
@@ -2471,21 +2489,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
-    "textVi": "Cho đoạn mã sau, hai phát biểu nào sau đây là đúng về các thể hiện (instance) của các lớp trên? (Chọn hai)",
+    "textVi": "Cho đoạn mã sau, hai phát biểu nào sau đây là đúng về các thể hiện (instance) của các lớp trên? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
     "options": [
       "A is-a B",
       "C is-a A",
       "A has-a C",
       "B has-a A",
-      "B has-a C"
+      "B has-a C;"
     ],
     "optionsVi": [
       "A is-a B",
       "C is-a A",
       "A has-a C",
       "B has-a A",
-      "B has-a C"
+      "B has-a C;"
     ],
     "answer": [
       2,
@@ -2505,7 +2523,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "A",
@@ -2516,8 +2534,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "A",
       "B",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -2533,7 +2551,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
-    "textVi": "Cho đoạn mã sau: class Foo { String doStuff(int x) { return \"hello\"; } }. Phương thức nào dưới đây KHÔNG hợp lệ trong một lớp con của Foo?",
+    "textVi": "Cho đoạn mã sau: class Foo { String doStuff(int x) { return \"hello\"; } }. Phương thức nào dưới đây KHÔNG hợp lệ trong một lớp con của Foo? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "String doStuff(int x) { return \"hello\"; }",
@@ -2565,7 +2583,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, What is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
     "options": [
       "x = 14",
@@ -2578,10 +2596,10 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "x = 14",
       "x = 21",
-      "Lỗi biên dịch tại dòng 2.",
-      "Lỗi biên dịch tại dòng 11.",
-      "Lỗi biên dịch tại dòng 14.",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails at line 2.",
+      "Compilation fails at line 11.",
+      "Compilation fails at line 14.",
+      "An exception is thrown at runtime."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2597,7 +2615,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
-    "textVi": "Cho đoạn mã sau, hai phương thức nào sau đây nếu được chèn độc lập vào dòng 8 sẽ gây lỗi biên dịch? (Chọn hai)",
+    "textVi": "Cho đoạn mã sau, hai phương thức nào sau đây nếu được chèn độc lập vào dòng 8 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
     "options": [
       "public int doStuff(int x, float y) { return 4; }",
@@ -2605,7 +2623,7 @@ export const scjpChapterQuestions = [
       "private int doStuff(int x, float y) {return 4; }",
       "private int doStuff(int x, double y) { return 4; }",
       "long doStuff(int x, float y) { return 4; }",
-      "int doStuff(float x, int y) { return 4; }"
+      "int doStuff(float x, int y) { return 4; };"
     ],
     "optionsVi": [
       "public int doStuff(int x, float y) { return 4; }",
@@ -2613,7 +2631,7 @@ export const scjpChapterQuestions = [
       "private int doStuff(int x, float y) {return 4; }",
       "private int doStuff(int x, double y) { return 4; }",
       "long doStuff(int x, float y) { return 4; }",
-      "int doStuff(float x, int y) { return 4; }"
+      "int doStuff(float x, int y) { return 4; };"
     ],
     "answer": [
       2,
@@ -2633,7 +2651,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
     "options": [
       "instantiate a child",
@@ -2648,8 +2666,8 @@ export const scjpChapterQuestions = [
       "instantiate a parent",
       "instantiate a child instantiate a parent",
       "instantiate a parent instantiate a child",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -2665,7 +2683,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
     "options": [
       "instantiate a child",
@@ -2680,8 +2698,8 @@ export const scjpChapterQuestions = [
       "instantiate a parent",
       "instantiate a child instantiate a parent",
       "instantiate a parent instantiate a child",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2697,10 +2715,10 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
     "options": [
-      "sub super 2",
+      "sub super 2;",
       "super 2 sub",
       "Compilation fails at line 2.",
       "Compilation fails at line 8.",
@@ -2708,12 +2726,12 @@ export const scjpChapterQuestions = [
       "Compilation fails at line 14."
     ],
     "optionsVi": [
-      "sub super 2",
+      "sub super 2;",
       "super 2 sub",
-      "Lỗi biên dịch tại dòng 2.",
-      "Lỗi biên dịch tại dòng 8.",
-      "Lỗi biên dịch tại dòng 9.",
-      "Lỗi biên dịch tại dòng 14."
+      "Compilation fails at line 2.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "Compilation fails at line 14."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -2729,7 +2747,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
     "options": [
       "4",
@@ -2745,7 +2763,7 @@ export const scjpChapterQuestions = [
       "8 4",
       "8 4 no-arg",
       "no-arg 8 4",
-      "Lỗi biên dịch (Compilation fails)"
+      "Compilation fails."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2761,7 +2779,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
     "options": [
       "no-arg",
@@ -2775,9 +2793,9 @@ export const scjpChapterQuestions = [
       "no-arg",
       "8 4 no-arg",
       "no-arg 8 4",
-      "Lỗi biên dịch (Compilation fails)",
-      "Không có kết quả nào được in ra (No output is produced)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "No output is produced.",
+      "An exception is thrown at runtime."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2793,7 +2811,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following,",
-    "textVi": "Cho đoạn mã sau: class Dog { Dog(String name) { } }. Nếu lớp Beagle kế thừa Dog, và lớp Beagle chỉ có duy nhất một constructor, thì khai báo constructor nào sau đây là hợp lệ cho lớp Beagle?",
+    "textVi": "Cho đoạn mã sau: class Dog { Dog(String name) { } }. Nếu lớp Beagle kế thừa Dog, và lớp Beagle chỉ có duy nhất một constructor, thì khai báo constructor nào sau đây là hợp lệ cho lớp Beagle? (Chọn 1 đáp án)",
     "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
     "options": [
       "Beagle() { }",
@@ -2805,7 +2823,7 @@ export const scjpChapterQuestions = [
       "Beagle() { }",
       "Beagle() { super(); }",
       "Beagle() { super(\"fido\"); }",
-      "Không khai báo constructor, để Java dùng constructor mặc định (default constructor)."
+      "No constructor, allow the default constructor"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -2821,19 +2839,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Which two of these statements are true about constructors? (Choose two.)",
-    "textVi": "Hai phát biểu nào sau đây là đúng về constructor trong Java? (Chọn hai)",
+    "textVi": "Hai phát biểu nào sau đây là đúng về constructor trong Java? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "Constructors must not have arguments if the superclass constructor does not have arguments.",
       "Constructors are not inherited.",
       "Constructors cannot be overloaded.",
-      "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4)"
+      "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
     ],
     "optionsVi": [
       "Constructors must not have arguments if the superclass constructor does not have arguments.",
       "Constructors are not inherited.",
       "Constructors cannot be overloaded.",
-      "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4)"
+      "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
     ],
     "answer": [
       1,
@@ -2853,7 +2871,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, which line of code, inserted at line 19, will not compile?",
-    "textVi": "Cho đoạn mã sau, dòng mã nào sau đây khi chèn vào dòng 19 sẽ gây lỗi biên dịch?",
+    "textVi": "Cho đoạn mã sau, dòng mã nào sau đây khi chèn vào dòng 19 sẽ gây lỗi biên dịch? (Chọn 1 đáp án)",
     "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
     "options": [
       "short y = 7;",
@@ -2883,7 +2901,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
-    "textVi": "Cho đoạn mã sau, hai dòng mã nào dưới đây nếu chèn độc lập vào dòng 15 sẽ gây lỗi biên dịch? (Chọn hai)",
+    "textVi": "Cho đoạn mã sau, hai dòng mã nào dưới đây nếu chèn độc lập vào dòng 15 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
     "code": "14.    long test( int x, float y) {\n15.\n16.    }",
     "options": [
       "return x;",
@@ -2919,7 +2937,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
-    "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai)",
+    "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.         // insert code here\n10.\n11.     }\n12.  }",
     "options": [
       "return null;",
@@ -2955,7 +2973,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
-    "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai)",
+    "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
     "options": [
       "char [] [] c = new char [2][2]; return c;",
@@ -2991,7 +3009,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
     "topic": "oop",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
     "options": [
       "Bar Bar Bar Bar Bar Bar",
@@ -3004,8 +3022,8 @@ export const scjpChapterQuestions = [
       "Bar Bar Bar Bar Bar Bar",
       "Foo Bar Foo Bar Foo Bar",
       "Foo Foo Foo Foo Foo Foo",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -3021,7 +3039,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
     "options": [
       "abcdefghi",
@@ -3036,8 +3054,8 @@ export const scjpChapterQuestions = [
       "abcdefdef",
       "abcghidef",
       "abcghighi",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3053,12 +3071,12 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
     "options": [
       "abcXyZ",
       "abcxyz",
-      "xyzabc",
+      "xyzabc;",
       "XyZabc",
       "Compilation fails.",
       "An exception is thrown at runtime."
@@ -3066,10 +3084,10 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "abcXyZ",
       "abcxyz",
-      "xyzabc",
+      "xyzabc;",
       "XyZabc",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3085,7 +3103,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, how many String objects have been created?",
-    "textVi": "Cho đoạn mã sau, có bao nhiêu đối tượng String đã được tạo ra trong bộ nhớ?",
+    "textVi": "Cho đoạn mã sau, có bao nhiêu đối tượng String đã được tạo ra trong bộ nhớ? (Chọn 1 đáp án)",
     "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
     "options": [
       "2",
@@ -3113,7 +3131,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
     "options": [
       "apa",
@@ -3145,7 +3163,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
     "options": [
       "wookkeewoo",
@@ -3153,15 +3171,15 @@ export const scjpChapterQuestions = [
       "wbookkeewoo",
       "wbookkeeperwoo",
       "Compilation fails.",
-      "An exception is thrown at runtime."
+      "An exception is thrown at runtime. Using the java.lang.Math Class (;"
     ],
     "optionsVi": [
       "wookkeewoo",
       "wbookkeeper",
       "wbookkeewoo",
       "wbookkeeperwoo",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime. Using the java.lang.Math Class (;"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -3177,7 +3195,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
     "options": [
       "same results 0 time(s)",
@@ -3190,8 +3208,8 @@ export const scjpChapterQuestions = [
       "same results 0 time(s)",
       "same results 2 time(s)",
       "same results 4 time(s)",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -3207,7 +3225,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
-    "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng)",
+    "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng) (Chọn 3 đáp án)",
     "code": "",
     "options": [
       "Math.max(1,4)",
@@ -3223,14 +3241,16 @@ export const scjpChapterQuestions = [
     ],
     "answer": [
       0,
-      1
+      1,
+      3
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
-      "B"
+      "B",
+      "D"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nTrong lớp `java.lang.Math`, phương thức `max()` được nạp chồng (overload) với đúng 4 phiên bản:\n1. `public static int max(int a, int b)`\n2. `public static long max(long a, long b)`\n3. `public static float max(float a, float b)`\n4. `public static double max(double a, double b)`\n\nQuy tắc cốt lõi:\n• Tất cả các phiên bản của `Math.max()` đều CHỈ NHẬN ĐÚNG 2 ĐỐI SỐ! Không có bất kỳ phiên bản nào nhận 3, 4 đối số hay nhận mảng/varargs.\n• Tính năng tự động nới rộng kiểu (Widening Conversion): Nếu hai đối số khác kiểu, Java sẽ tự động nới rộng kiểu nhỏ hơn lên kiểu lớn hơn (ví dụ: `int` lên `double`).\n\nXét từng trường hợp:\n• A: `Math.max(1, 4)`: Truyền 2 số `int`, gọi phiên bản `max(int, int)` -> Hoàn toàn hợp lệ.\n• B: `Math.max(2.3, 5)`: Truyền một số `double` (`2.3`) và một số `int` (`5`). Số `5` tự động nới rộng thành `5.0d`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n• C: `Math.max(1, 3, 5, 7)`: Truyền 4 đối số -> Không có phương thức nào nhận 4 tham số -> LỖI BIÊN DỊCH!\n• D: `Math.max(-1.5, -2.8f)`: Truyền một số `double` (`-1.5`) và một số `float` (`-2.8f`). `float` nới rộng thành `double`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n(Trong các cặp đáp án trắc nghiệm đã ghép, phương án A: A và B là phương án đúng).\n\n✅ Vì sao đáp án \"A và B\" đúng:\nVì cả A và B đều truyền đúng 2 đối số với các kiểu dữ liệu số hợp lệ có thể tự động nới rộng kiểu trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C đều sai vì `Math.max(1, 3, 5, 7)` truyền 4 tham số, vi phạm định nghĩa hàm của Java và gây lỗi biên dịch ngay lập tức.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Math.max chỉ so sánh được 2 số một lúc!\" Muốn tìm max trong 3 hay 4 số thì phải lồng nhau (ví dụ: `Math.max(a, Math.max(b, c))`), không thể phẩy danh sách vào hàm."
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nTrong lớp `java.lang.Math`, phương thức `max()` được nạp chồng (overload) với đúng 4 phiên bản:\n1. `public static int max(int a, int b)`\n2. `public static long max(long a, long b)`\n3. `public static float max(float a, float b)`\n4. `public static double max(double a, double b)`\n\nQuy tắc cốt lõi:\n• Tất cả các phiên bản của `Math.max()` đều CHỈ NHẬN ĐÚNG 2 ĐỐI SỐ! Không có bất kỳ phiên bản nào nhận 3, 4 đối số hay nhận mảng/varargs.\n• Tính năng tự động nới rộng kiểu (Widening Conversion): Nếu hai đối số khác kiểu, Java sẽ tự động nới rộng kiểu nhỏ hơn lên kiểu lớn hơn (ví dụ: `int` lên `double`).\n\nXét từng trường hợp:\n• A: `Math.max(1, 4)`: Truyền 2 số `int`, gọi phiên bản `max(int, int)` -> Hoàn toàn hợp lệ.\n• B: `Math.max(2.3, 5)`: Truyền một số `double` (`2.3`) và một số `int` (`5`). Số `5` tự động nới rộng thành `5.0d`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n• C: `Math.max(1, 3, 5, 7)`: Truyền 4 đối số -> Không có phương thức nào nhận 4 tham số -> LỖI BIÊN DỊCH!\n• D: `Math.max(-1.5, -2.8f)`: Truyền một số `double` (`-1.5`) và một số `float` (`-2.8f`). `float` nới rộng thành `double`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n(Trong các cặp đáp án trắc nghiệm đã ghép, phương án A: A và B là phương án đúng).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\nVì cả A và B đều truyền đúng 2 đối số với các kiểu dữ liệu số hợp lệ có thể tự động nới rộng kiểu trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C đều sai vì `Math.max(1, 3, 5, 7)` truyền 4 tham số, vi phạm định nghĩa hàm của Java và gây lỗi biên dịch ngay lập tức.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Math.max chỉ so sánh được 2 số một lúc!\" Muốn tìm max trong 3 hay 4 số thì phải lồng nhau (ví dụ: `Math.max(a, Math.max(b, c))`), không thể phẩy danh sách vào hàm."
   },
   {
     "id": "scjp-ch06-008",
@@ -3239,7 +3259,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
-    "textVi": "Hai phát biểu nào sau đây là đúng về kết quả thu được khi gọi Math.random()? (Chọn hai)",
+    "textVi": "Hai phát biểu nào sau đây là đúng về kết quả thu được khi gọi Math.random()? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "The result is less than 0.0.",
@@ -3275,7 +3295,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
     "options": [
       "3.0",
@@ -3288,8 +3308,8 @@ export const scjpChapterQuestions = [
       "3.0",
       "–3.0",
       "NaN",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3305,7 +3325,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, at what line will the sine of 75 degrees be output?",
-    "textVi": "Cho đoạn mã sau, ở dòng nào giá trị sin của góc 75 độ sẽ được in ra màn hình?",
+    "textVi": "Cho đoạn mã sau, ở dòng nào giá trị sin của góc 75 độ sẽ được in ra màn hình? (Chọn 1 đáp án)",
     "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
     "options": [
       "Line 3",
@@ -3313,15 +3333,15 @@ export const scjpChapterQuestions = [
       "Line 5",
       "Line 6",
       "Line 3 and either line 4, 5, or 6",
-      "None of the above"
+      "None of the above Using Wrapper Classes (;"
     ],
     "optionsVi": [
-      "Dòng 3",
-      "Dòng 4",
-      "Dòng 5",
-      "Dòng 6",
-      "Dòng 3 và một trong các dòng 4, 5, hoặc 6",
-      "Không có dòng nào ở trên"
+      "Line 3",
+      "Line 4",
+      "Line 5",
+      "Line 6",
+      "Line 3 and either line 4, 5, or 6",
+      "None of the above Using Wrapper Classes (;"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3337,7 +3357,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
-    "textVi": "Cho đoạn mã sau, hai dòng nào sẽ gây ra lỗi biên dịch? (Chọn hai)",
+    "textVi": "Cho đoạn mã sau, hai dòng nào sẽ gây ra lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
     "options": [
       "Line 3",
@@ -3373,7 +3393,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
     "options": [
       "42",
@@ -3387,9 +3407,9 @@ export const scjpChapterQuestions = [
       "42",
       "42.5",
       "43",
-      "bad number",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
+      "badnumber",
+      "Compilation fails.",
+      "An uncaught exception is thrown at runtime."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3405,7 +3425,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
     "options": [
       "z",
@@ -3420,8 +3440,8 @@ export const scjpChapterQuestions = [
       "xz",
       "yz",
       "xyz",
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Compilation fails.",
+      "An exception is thrown at runtime."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -3437,34 +3457,36 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
-    "textVi": "Cho đoạn mã sau, ba dòng nào dưới đây nếu chèn độc lập vào dòng 4 sẽ gây ra lỗi biên dịch? (Chọn ba)",
+    "textVi": "Cho đoạn mã sau, ba dòng nào dưới đây nếu chèn độc lập vào dòng 4 sẽ gây ra lỗi biên dịch? (Chọn ba) (Chọn 3 đáp án)",
     "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
     "options": [
-      "floatf1=Float.floatValue(s);",
-      "floatf2=Float.valueOf(s);",
-      "floatf3=newFloat(3.14f).floatValue();",
-      "floatf4=Float.parseFloat(1.23f);",
-      "floatf5=Float.valueOf(s).floatValue();",
-      "floatf6=(float)Double.parseDouble(\"3.14\");"
+      "float f1 = Float.floatValue(s);",
+      "float f2 = Float.valueOf(s);",
+      "float f3 = newFloat(3.14f).floatValue();",
+      "float f4 = Float.parseFloat(1.23f);",
+      "float f5 = Float.valueOf(s).floatValue();",
+      "float f6 = (float)Double.parseDouble(\"3.14\");"
     ],
     "optionsVi": [
-      "floatf1=Float.floatValue(s);",
-      "floatf2=Float.valueOf(s);",
-      "floatf3=newFloat(3.14f).floatValue();",
-      "floatf4=Float.parseFloat(1.23f);",
-      "floatf5=Float.valueOf(s).floatValue();",
-      "floatf6=(float)Double.parseDouble(\"3.14\");"
+      "float f1 = Float.floatValue(s);",
+      "float f2 = Float.valueOf(s);",
+      "float f3 = newFloat(3.14f).floatValue();",
+      "float f4 = Float.parseFloat(1.23f);",
+      "float f5 = Float.valueOf(s).floatValue();",
+      "float f6 = (float)Double.parseDouble(\"3.14\");"
     ],
     "answer": [
       0,
-      1
+      1,
+      3
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
-      "B"
+      "B",
+      "D"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã có biến `String s = \"98.6\";`. Chúng ta cần kiểm tra tính hợp lệ của các phương thức trong lớp `Float`:\n1. Dòng A: `float f1 = Float.floatValue(s);`\n   • Phương thức `floatValue()` là một **phương thức thể hiện (instance method)** không nhận tham số, dùng để lấy giá trị primitive từ một đối tượng `Float` (ví dụ `myFloatObj.floatValue()`).\n   • Nó KHÔNG PHẢI là phương thức tĩnh (`static`) và KHÔNG nhận tham số nào cả. Lời gọi tĩnh `Float.floatValue(s)` sẽ gây lỗi biên dịch: \"non-static method floatValue() cannot be referenced from a static context\" -> DÒNG A LỖI!\n2. Dòng B: `float f2 = Float.valueOf(s);`\n   • Phương thức `Float.valueOf(s)` là phương thức tĩnh hợp lệ, nhưng nó trả về một **Đối tượng Wrapper `Float`**, KHÔNG PHẢI kiểu nguyên thủy `float`.\n   • Trong chuẩn SCJP (không có auto-unboxing), không thể gán một đối tượng `Float` cho biến primitive `float f2` mà không gọi `.floatValue()`. Gây lỗi biên dịch: \"incompatible types\" -> DÒNG B LỖI!\n3. Dòng D: `float f4 = Float.parseFloat(1.23f);`\n   • Phương thức `Float.parseFloat(...)` CHỈ NHẬN THAM SỐ LÀ `String`.\n   • Nó KHÔNG CÓ phiên bản nhận tham số là số thực `float`. Việc truyền `1.23f` vào sẽ gây lỗi biên dịch -> DÒNG D LỖI!\n\nCác dòng còn lại hoàn toàn hợp lệ:\n• C: `new Float(3.14f).floatValue()`: Tạo đối tượng rồi gọi instance method `floatValue()`, trả về primitive float. Hợp lệ.\n• E: `Float.parseFloat(s)`: Nhận chuỗi `s` và trả về primitive float. Hợp lệ.\n• F: `(float) Double.parseDouble(\"3.14\")`: Parse ra double rồi ép kiểu về float. Hợp lệ.\n(Trong các phương án ghép đôi, phương án A: A và B là đáp án chỉ ra các dòng gây lỗi biên dịch).\n\n✅ Vì sao đáp án \"A và B\" đúng:\nVì dòng A gọi sai ngữ cảnh phương thức (gọi instance method từ static context kèm tham số), và dòng B cố gán wrapper object `Float` trực tiếp cho biến primitive `float` mà không unbox.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C hoặc F đều sai vì dòng C và F là các cách hợp lệ để thu được giá trị primitive `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phương thức dạng `xxxValue()` (như `intValue()`, `floatValue()`) luôn luôn là INSTANCE METHOD không có tham số (gọi từ object).\n• Các phương thức dạng `parseXxx()` và `valueOf()` luôn luôn là STATIC METHOD nhận `String` làm đối số."
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã có biến `String s = \"98.6\";`. Chúng ta cần kiểm tra tính hợp lệ của các phương thức trong lớp `Float`:\n1. Dòng A: `float f1 = Float.floatValue(s);`\n   • Phương thức `floatValue()` là một **phương thức thể hiện (instance method)** không nhận tham số, dùng để lấy giá trị primitive từ một đối tượng `Float` (ví dụ `myFloatObj.floatValue()`).\n   • Nó KHÔNG PHẢI là phương thức tĩnh (`static`) và KHÔNG nhận tham số nào cả. Lời gọi tĩnh `Float.floatValue(s)` sẽ gây lỗi biên dịch: \"non-static method floatValue() cannot be referenced from a static context\" -> DÒNG A LỖI!\n2. Dòng B: `float f2 = Float.valueOf(s);`\n   • Phương thức `Float.valueOf(s)` là phương thức tĩnh hợp lệ, nhưng nó trả về một **Đối tượng Wrapper `Float`**, KHÔNG PHẢI kiểu nguyên thủy `float`.\n   • Trong chuẩn SCJP (không có auto-unboxing), không thể gán một đối tượng `Float` cho biến primitive `float f2` mà không gọi `.floatValue()`. Gây lỗi biên dịch: \"incompatible types\" -> DÒNG B LỖI!\n3. Dòng D: `float f4 = Float.parseFloat(1.23f);`\n   • Phương thức `Float.parseFloat(...)` CHỈ NHẬN THAM SỐ LÀ `String`.\n   • Nó KHÔNG CÓ phiên bản nhận tham số là số thực `float`. Việc truyền `1.23f` vào sẽ gây lỗi biên dịch -> DÒNG D LỖI!\n\nCác dòng còn lại hoàn toàn hợp lệ:\n• C: `new Float(3.14f).floatValue()`: Tạo đối tượng rồi gọi instance method `floatValue()`, trả về primitive float. Hợp lệ.\n• E: `Float.parseFloat(s)`: Nhận chuỗi `s` và trả về primitive float. Hợp lệ.\n• F: `(float) Double.parseDouble(\"3.14\")`: Parse ra double rồi ép kiểu về float. Hợp lệ.\n(Trong các phương án ghép đôi, phương án A: A và B là đáp án chỉ ra các dòng gây lỗi biên dịch).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\nVì dòng A gọi sai ngữ cảnh phương thức (gọi instance method từ static context kèm tham số), và dòng B cố gán wrapper object `Float` trực tiếp cho biến primitive `float` mà không unbox.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C hoặc F đều sai vì dòng C và F là các cách hợp lệ để thu được giá trị primitive `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phương thức dạng `xxxValue()` (như `intValue()`, `floatValue()`) luôn luôn là INSTANCE METHOD không có tham số (gọi từ object).\n• Các phương thức dạng `parseXxx()` và `valueOf()` luôn luôn là STATIC METHOD nhận `String` làm đối số."
   },
   {
     "id": "scjp-ch06-015",
@@ -3473,23 +3495,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
     "options": [
       "9.0",
-      "bad number",
+      "badnumber",
       "Compilation fails on line 13.",
       "Compilation fails on line 14.",
       "Compilation fails on lines 13 and 14.",
-      "An uncaught exception is thrown at runtime."
+      "An uncaught exception is thrown at runtime.;"
     ],
     "optionsVi": [
       "9.0",
-      "bad number",
-      "Lỗi biên dịch tại dòng 13.",
-      "Lỗi biên dịch tại dòng 14.",
-      "Lỗi biên dịch tại cả dòng 13 và 14.",
-      "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
+      "badnumber",
+      "Compilation fails on line 13.",
+      "Compilation fails on line 14.",
+      "Compilation fails on lines 13 and 14.",
+      "An uncaught exception is thrown at runtime.;"
     ],
     "answer": 0,
     "isMultiple": false,
@@ -3505,23 +3527,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
     "options": [
-      "result=1",
-      "result=10",
-      "result=11",
-      "result=11010",
-      "result=11011",
-      "result=11111"
+      "result= 1",
+      "result= 10",
+      "result= 11",
+      "result= 11010",
+      "result= 11011",
+      "result= 11111"
     ],
     "optionsVi": [
-      "result = 1",
-      "result = 10",
-      "result = 11",
-      "result = 11010",
-      "result = 11011",
-      "result = 11111"
+      "result= 1",
+      "result= 10",
+      "result= 11",
+      "result= 11010",
+      "result= 11011",
+      "result= 11111"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -3537,7 +3559,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
     "options": [
       "0",
@@ -3569,18 +3591,18 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
     "options": [
       "1",
-      "10",
+      "10;",
       "101",
       "1001",
       "1101"
     ],
     "optionsVi": [
       "1",
-      "10",
+      "10;",
       "101",
       "1001",
       "1101"
@@ -3599,21 +3621,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
     "topic": "string",
     "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
-    "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai)",
+    "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-      "If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.",
-      "If x and y are String references and ifx.equals(y) istrue, then x== y istrue.",
+      "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
+      "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
       "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-      "If x and y are String references and x== y istrue, theny.equals(x) will betrue."
+      "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
     ],
     "optionsVi": [
       "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-      "If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.",
-      "If x and y are String references and ifx.equals(y) istrue, then x== y istrue.",
+      "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
+      "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
       "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-      "If x and y are String references and x== y istrue, theny.equals(x) will betrue."
+      "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
     ],
     "answer": [
       3,
@@ -3633,17 +3655,17 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Given the following:\n11.  int x = 0;\nand assuming that the equals() and hashCode() methods are properly implemented, if the output is \"x = 1111\", which of the following statements will always be true?",
-    "textVi": "Cho đoạn mã sau (với biến ban đầu `int x = 0;`) và giả sử các phương thức `equals()` cùng `hashCode()` đã được triển khai đúng chuẩn hợp đồng (contract). Nếu kết quả in ra là \"x = 1111\", phát biểu nào sau đây LUÔN ĐÚNG?",
+    "textVi": "Cho đoạn mã sau (với biến ban đầu `int x = 0;`) và giả sử các phương thức `equals()` cùng `hashCode()` đã được triển khai đúng chuẩn hợp đồng (contract). Nếu kết quả in ra là \"x = 1111\", phát biểu nào sau đây LUÔN ĐÚNG? (Chọn 1 đáp án)",
     "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
     "options": [
       "x2.equals(x1)",
-      "x3.hashCode() == x4.hashCode()",
+      "x3.hashCode() = = x4.hashCode()",
       "x5.hashCode() != x6.hashCode()",
       "x8.equals(x7)"
     ],
     "optionsVi": [
       "x2.equals(x1)",
-      "x3.hashCode() == x4.hashCode()",
+      "x3.hashCode() = = x4.hashCode()",
       "x5.hashCode() != x6.hashCode()",
       "x8.equals(x7)"
     ],
@@ -3661,21 +3683,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Given the following:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nwhich statement is true?",
-    "textVi": "Cho hai lớp sau:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nPhát biểu nào sau đây là ĐÚNG?",
+    "textVi": "Cho hai lớp sau:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nPhát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
     "code": "class Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}",
     "options": [
       "class Test1 will not compile.",
-      "The Test1 hashCode() method is more efficient than the Test2 hashCode() method.",
-      "The Test1 hashCode() method is less efficient than the Test2 hashCode() method.",
+      "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+      "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
       "class Test2 will not compile.",
-      "The two hashCode() methods will have the same efficiency."
+      "The twohashcode() methods will have the same efficiency."
     ],
     "optionsVi": [
-      "Lớp Test1 sẽ không biên dịch được.",
-      "Phương thức hashCode() của Test1 hiệu quả hơn phương thức của Test2.",
-      "Phương thức hashCode() của Test1 kém hiệu quả hơn phương thức của Test2.",
-      "Lớp Test2 sẽ không biên dịch được.",
-      "Hai phương thức hashCode() có hiệu quả như nhau."
+      "class Test1 will not compile.",
+      "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+      "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+      "class Test2 will not compile.",
+      "The twohashcode() methods will have the same efficiency."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3694,17 +3716,17 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào sau đây là ĐÚNG khi so sánh hai đối tượng cùng một lớp, với điều kiện các phương thức equals() và hashCode() đã được ghi đè đúng chuẩn hợp đồng? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "If theequals() method returnstrue, thehashCode() comparison == must returntrue.",
+      "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
       "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-      "If thehashCode() comparison == returnstrue, theequals() method must return true.",
-      "If thehashCode() comparison == returnstrue, theequals() method might returntrue.",
+      "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
+      "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
       "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
     ],
     "optionsVi": [
-      "If theequals() method returnstrue, thehashCode() comparison == must returntrue.",
+      "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
       "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-      "If thehashCode() comparison == returnstrue, theequals() method must return true.",
-      "If thehashCode() comparison == returnstrue, theequals() method might returntrue.",
+      "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
+      "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
       "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
     ],
     "answer": [
@@ -3725,7 +3747,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Which class does not override the equals() and hashCode() methods, inheriting them directly from class Object?",
-    "textVi": "Lớp nào sau đây KHÔNG ghi đè (override) phương thức equals() và hashCode(), mà kế thừa trực tiếp từ lớp Object?",
+    "textVi": "Lớp nào sau đây KHÔNG ghi đè (override) phương thức equals() và hashCode(), mà kế thừa trực tiếp từ lớp Object? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "java.lang.String",
@@ -3755,21 +3777,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "What two statements are true about properly overridden hashCode() and equals() methods?",
-    "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn?",
+    "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "hashCode() doesn’t have to be overridden ifequals() is.",
       "equals() doesn’t have to be overridden ifhashCode() is.",
       "hashCode() can always return the same value, regardless of the object that invoked it.",
       "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-      "equals() can be true even if it’s comparing different objects."
+      "equals() can be true even if it’s comparing different objects.;"
     ],
     "optionsVi": [
       "hashCode() doesn’t have to be overridden ifequals() is.",
       "equals() doesn’t have to be overridden ifhashCode() is.",
       "hashCode() can always return the same value, regardless of the object that invoked it.",
       "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-      "equals() can be true even if it’s comparing different objects."
+      "equals() can be true even if it’s comparing different objects.;"
     ],
     "answer": [
       2,
@@ -3789,7 +3811,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
-    "textVi": "Lớp tập hợp (collection class) nào cho phép tự động tăng giảm kích thước, hỗ trợ truy xuất phần tử theo chỉ mục (index), nhưng các phương thức của nó KHÔNG ĐƯỢC đồng bộ hóa (not synchronized)?",
+    "textVi": "Lớp tập hợp (collection class) nào cho phép tự động tăng giảm kích thước, hỗ trợ truy xuất phần tử theo chỉ mục (index), nhưng các phương thức của nó KHÔNG ĐƯỢC đồng bộ hóa (not synchronized)? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "java.util.HashSet",
@@ -3819,7 +3841,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
-    "textVi": "Lớp tập hợp nào cho phép truy xuất phần tử bằng cách liên kết khóa (key) với giá trị (value), đồng thời CÓ hỗ trợ đồng bộ hóa (synchronization)?",
+    "textVi": "Lớp tập hợp nào cho phép truy xuất phần tử bằng cách liên kết khóa (key) với giá trị (value), đồng thời CÓ hỗ trợ đồng bộ hóa (synchronization)? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "java.util.SortedMap",
@@ -3849,7 +3871,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "12.    TreeSet map = new TreeSet();\n13.    map.add(\"one\");\n14.    map.add(\"two\");\n15.    map.add(\"three\");\n16.    map.add(\"four\");\n17.    map.add(\"one\");\n18.    Iterator it = map.iterator();\n19.    while (it.hasNext()) {\n20.        System.out.print(it.next() + \" \");\n21.    }",
     "options": [
       "one two three four",
@@ -3857,7 +3879,7 @@ export const scjpChapterQuestions = [
       "four one three two",
       "one two three four one",
       "one four three two one",
-      "The print order is not guaranteed."
+      "The print order is not guaranteed.;"
     ],
     "optionsVi": [
       "one two three four",
@@ -3865,7 +3887,7 @@ export const scjpChapterQuestions = [
       "four one three two",
       "one two three four one",
       "one four three two one",
-      "Thứ tự in ra không được đảm bảo cố định."
+      "The print order is not guaranteed.;"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3881,7 +3903,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
-    "textVi": "Lớp tập hợp nào cho phép liên kết các phần tử với giá trị khóa (key), đồng thời cho phép lấy các đối tượng ra theo đúng thứ tự FIFO (First-In, First-Out - vào trước ra trước)?",
+    "textVi": "Lớp tập hợp nào cho phép liên kết các phần tử với giá trị khóa (key), đồng thời cho phép lấy các đối tượng ra theo đúng thứ tự FIFO (First-In, First-Out - vào trước ra trước)? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "java.util.ArrayList",
@@ -3889,7 +3911,7 @@ export const scjpChapterQuestions = [
       "java.util.HashMap",
       "java.util.TreeMap",
       "java.util.LinkedHashSet",
-      "java.util.TreeSet"
+      "java.util.TreeSet Garbage Collection (;"
     ],
     "optionsVi": [
       "java.util.ArrayList",
@@ -3897,7 +3919,7 @@ export const scjpChapterQuestions = [
       "java.util.HashMap",
       "java.util.TreeMap",
       "java.util.LinkedHashSet",
-      "java.util.TreeSet"
+      "java.util.TreeSet Garbage Collection (;"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -3913,7 +3935,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Given the following:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nAfter line 6 runs, how many objects are eligible for garbage collection?",
-    "textVi": "Cho đoạn mã sau:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nSau khi dòng 6 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+    "textVi": "Cho đoạn mã sau:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nSau khi dòng 6 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
     "code": "1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }",
     "options": [
       "0",
@@ -3943,21 +3965,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Which statement is true?",
-    "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+    "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
       "Objects with at least one reference will never be garbage collected.",
-      "Objects from a class with the finalize() method overridden will never be garbage collected.",
+      "Objects from a class with thefinalize() method overridden will never be garbage collected.",
       "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
-      "Once an overridden finalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+      "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
     ],
     "optionsVi": [
-      "Mọi đối tượng đủ điều kiện thu gom rác đều chắc chắn sẽ được bộ gom rác thu dọn.",
-      "Đối tượng có ít nhất một tham chiếu trỏ tới sẽ không bao giờ bị thu gom rác.",
-      "Đối tượng thuộc lớp có ghi đè phương thức finalize() sẽ không bao giờ bị thu gom rác.",
-      "Các đối tượng được khởi tạo bên trong anonymous inner class đều được đặt trên vùng nhớ Heap chịu sự quản lý của bộ gom rác.",
-      "Một khi phương thức finalize() được gọi, không có cách nào để cứu đối tượng đó thoát khỏi việc bị thu gom rác."
+      "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+      "Objects with at least one reference will never be garbage collected.",
+      "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+      "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+      "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -3973,7 +3995,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Given the following:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nafter line 9 runs, how many objects are eligible for garbage collection?",
-    "textVi": "Cho đoạn mã sau:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nSau khi dòng 9 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+    "textVi": "Cho đoạn mã sau:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nSau khi dòng 9 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
     "code": "1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }",
     "options": [
       "0",
@@ -4003,19 +4025,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Which statement is true?",
-    "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+    "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "Calling Runtime.gc() will cause eligible objects to be garbage collected.",
+      "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
       "The garbage collector uses a mark and sweep algorithm.",
       "If an object can be accessed from a live thread, it can’t be garbage collected.",
       "If object 1 refers to object 2, then object 2 can’t be garbage collected."
     ],
     "optionsVi": [
-      "Gọi Runtime.gc() sẽ đảm bảo các đối tượng đủ điều kiện sẽ được thu gom rác.",
-      "Bộ gom rác bắt buộc phải sử dụng thuật toán mark and sweep.",
-      "Nếu một đối tượng có thể được truy cập từ một luồng (thread) đang chạy, nó không thể bị thu gom rác.",
-      "Nếu đối tượng 1 đang tham chiếu tới đối tượng 2, thì đối tượng 2 không thể bị thu gom rác."
+      "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+      "The garbage collector uses a mark and sweep algorithm.",
+      "If an object can be accessed from a live thread, it can’t be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -4065,23 +4087,11 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Objects and Collections",
     "topic": "collection",
     "text": "Given the following:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nat what point is the object created in line 13 eligible for garbage collection?",
-    "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+    "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
     "code": "12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }",
-    "options": [
-      "After line 15 runs",
-      "After line 16 runs",
-      "After line 17 runs",
-      "The object is not eligible.",
-      "It is not possible to know for sure."
-    ],
-    "optionsVi": [
-      "Sau khi dòng 15 chạy xong",
-      "Sau khi dòng 16 chạy xong",
-      "Sau khi dòng 17 chạy xong",
-      "Đối tượng này không bao giờ đủ điều kiện thu gom rác.",
-      "Không thể biết chắc chắn được."
-    ],
-    "answer": 4,
+    "options": [],
+    "optionsVi": [],
+    "answer": 0,
     "isMultiple": false,
     "correctLetters": [
       "E"
@@ -4095,19 +4105,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Given the following:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nwhich statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
-    "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)?",
+    "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
     "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
     "options": [
-      "MyOuter.MyInner m = new MyOuter.MyInner();",
-      "MyOuter.MyInner mi = new MyInner();",
-      "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
-      "MyInner mi = new MyOuter.MyInner();"
+      "MyOuter.MyInnerm= newMyOuter.MyInner();",
+      "MyOuter.MyInnermi= newMyInner();",
+      "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
+      "MyInnermi= newMyOuter.MyInner();"
     ],
     "optionsVi": [
-      "MyOuter.MyInner m = new MyOuter.MyInner();",
-      "MyOuter.MyInner mi = new MyInner();",
-      "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
-      "MyInner mi = new MyOuter.MyInner();"
+      "MyOuter.MyInnerm= newMyOuter.MyInner();",
+      "MyOuter.MyInnermi= newMyInner();",
+      "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
+      "MyInnermi= newMyOuter.MyInner();"
     ],
     "answer": 0,
     "isMultiple": false,
@@ -4157,21 +4167,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Which constructs an anonymous inner class instance?",
-    "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)?",
+    "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "Runnable r = new Runnable() {};",
-      "Runnable r = new Runnable(public void run() {});",
-      "Runnable r = new Runnable {public void run() {}};",
-      "Runnable r = new Runnable() {public void run{}};",
-      "System.out.println(new Runnable() {public void run() {}});"
+      "Runnabler= newRunnable(){};",
+      "Runnabler= newRunnable(publicvoidrun(){});",
+      "Runnabler= newRunnable{publicvoidrun(){}};",
+      "Runnabler= newRunnable(){publicvoidrun{}};",
+      "System.out.println(newRunnable() {publicvoidrun(){}});",
+      "System.out.println(newRunnable(publicvoidrun(){}));"
     ],
     "optionsVi": [
-      "Runnable r = new Runnable() {};",
-      "Runnable r = new Runnable(public void run() {});",
-      "Runnable r = new Runnable {public void run() {}};",
-      "Runnable r = new Runnable() {public void run{}};",
-      "System.out.println(new Runnable() {public void run() {}});"
+      "Runnabler= newRunnable(){};",
+      "Runnabler= newRunnable(publicvoidrun(){});",
+      "Runnabler= newRunnable{publicvoidrun(){}};",
+      "Runnabler= newRunnable(){publicvoidrun{}};",
+      "System.out.println(newRunnable() {publicvoidrun(){}});",
+      "System.out.println(newRunnable(publicvoidrun(){}));"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -4190,18 +4202,18 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau:\nclass Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // chèn mã tại đây\n  }\n}\nHai câu lệnh nào dưới đây sẽ tạo một lớp nội danh ẩn danh (anonymous inner class) hợp lệ từ bên trong lớp Bar? (Chọn 2 đáp án)",
     "code": "class Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // insert code here\n  }\n}",
     "options": [
-      "Boof=newBoo(24){};",
-      "Boof=newBar(){};",
-      "Boof=newBoo(){Strings;};",
-      "Barf=newBoo(Strings){};",
-      "Boof=newBoo.Bar(Strings){};"
+      "Boof= newBoo(24){};",
+      "Boof= newBar(){};",
+      "Boof= newBoo(){Strings;};",
+      "Barf= newBoo(Strings){};",
+      "Boof= newBoo.Bar(Strings){};"
     ],
     "optionsVi": [
-      "Boof=newBoo(24){};",
-      "Boof=newBar(){};",
-      "Boof=newBoo(){Strings;};",
-      "Barf=newBoo(Strings){};",
-      "Boof=newBoo.Bar(Strings){};"
+      "Boof= newBoo(24){};",
+      "Boof= newBar(){};",
+      "Boof= newBoo(){Strings;};",
+      "Barf= newBoo(Strings){};",
+      "Boof= newBoo.Bar(Strings){};"
     ],
     "answer": [
       1,
@@ -4221,21 +4233,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Given the following:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }\nwhich statement, inserted at line 7, creates an instance of Bar?",
-    "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar?",
+    "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar? (Chọn 1 đáp án)",
     "code": "1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }",
     "options": [
-      "Foo.Bar b = new Foo.Bar();",
-      "Foo.Bar b = f.new Bar();",
-      "Bar b = new f.Bar();",
-      "Bar b = f.new Bar();",
-      "Foo.Bar b = new f.Bar();"
+      "Foo.Barb= newFoo.Bar();",
+      "Foo.Barb= f.newBar();",
+      "Barb= newf.Bar();",
+      "Barb= f.newBar();",
+      "Foo.Barb= newf.Bar();"
     ],
     "optionsVi": [
-      "Foo.Bar b = new Foo.Bar();",
-      "Foo.Bar b = f.new Bar();",
-      "Bar b = new f.Bar();",
-      "Bar b = f.new Bar();",
-      "Foo.Bar b = new f.Bar();"
+      "Foo.Barb= newFoo.Bar();",
+      "Foo.Barb= f.newBar();",
+      "Barb= newf.Bar();",
+      "Barb= f.newBar();",
+      "Foo.Barb= newf.Bar();"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -4285,26 +4297,26 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Which is true about an anonymous inner class?",
-    "textVi": "Phát biểu nào sau đây là ĐÚNG về lớp nội danh ẩn danh (anonymous inner class)?",
+    "textVi": "Phát biểu nào sau đây là ĐÚNG về lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "It can extend exactly one class and implement exactly one interface.",
-      "It can extend exactly one class and can implement multiple interfaces.",
-      "It can extend exactly one class or implement exactly one interface.",
-      "It can implement multiple interfaces regardless of whether it also extends a class.",
-      "It can implement multiple interfaces if it does not extend a class."
+      "java.util.SortedMap",
+      "java.util.TreeMap",
+      "java.util.TreeSet",
+      "java.util.HashMap",
+      "java.util.Hashtable"
     ],
     "optionsVi": [
-      "Nó có thể vừa kế thừa chính xác một lớp, vừa cài đặt chính xác một interface.",
-      "Nó có thể kế thừa chính xác một lớp và có thể cài đặt nhiều interface.",
-      "Nó có thể kế thừa chính xác một lớp HOẶC cài đặt chính xác một interface.",
-      "Nó có thể cài đặt nhiều interface bất kể nó có kế thừa một lớp hay không.",
-      "Nó có thể cài đặt nhiều interface nếu nó không kế thừa lớp nào."
+      "java.util.SortedMap",
+      "java.util.TreeMap",
+      "java.util.TreeSet",
+      "java.util.HashMap",
+      "java.util.Hashtable"
     ],
-    "answer": 2,
+    "answer": 4,
     "isMultiple": false,
     "correctLetters": [
-      "C"
+      "E"
     ],
     "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Cú pháp định nghĩa Anonymous Inner Class:\nMột anonymous inner class luôn được khởi tạo gắn liền với toán tử `new` theo một trong hai dạng cú pháp duy nhất:\n• Dạng 1 (Kế thừa một class):\n  `new SuperClass(arguments) { ... }`\n  -> Lúc này lớp ẩn danh ngầm định kế thừa (extends) `SuperClass`.\n• Dạng 2 (Cài đặt một interface):\n  `new InterfaceName() { ... }`\n  -> Lúc này lớp ẩn danh ngầm định cài đặt (implements) `InterfaceName` (và gián tiếp kế thừa `Object`).\n\n2. Giới hạn cú pháp (The \"OR\" Rule):\nSau từ khóa `new`, cú pháp Java chỉ cho phép bạn ghi DUY NHẤT MỘT định danh kiểu:\n• Bạn không thể viết `new MyClass, MyInterface() { ... }`.\n• Bạn không thể viết `implements` hay `extends` trong thân anonymous inner class.\n• Do đó, một anonymous inner class chỉ có thể: Hoặc là kế thừa duy nhất một lớp, HOẶC là cài đặt duy nhất một interface (either-or). Nó không bao giờ có thể làm cả hai, và không bao giờ có thể cài đặt nhiều hơn 1 interface.\n\nVì vậy, phát biểu C: \"It can extend exactly one class or implement exactly one interface\" là phát biểu duy nhất chính xác.\n\n✅ Vì sao đáp án \"It can extend exactly one class or implement exactly one interface.\" đúng:\nCú pháp của Java chỉ cho phép đặt đúng một tên class hoặc một tên interface sau từ khóa `new`, không có cách nào khai báo nhiều interface hay vừa extend vừa implement trong anonymous class.\n\n❌ Vì sao các đáp án khác sai:\n• \"It can extend exactly one class and implement exactly one interface.\": Sai vì không thể làm đồng thời cả hai.\n• \"It can extend exactly one class and can implement multiple interfaces.\": Sai vì không thể cài đặt interface nào khi đã extend một lớp.\n• \"...implement multiple interfaces...\": Cả D và E đều sai vì anonymous inner class không bao giờ có thể cài đặt từ 2 interface trở lên.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Anonymous class chỉ được chọn 1 trong 2: Hoặc 1 Class, HOẶC 1 Interface.\n• Từ khóa chìa khóa: \"OR\" (hoặc cái này hoặc cái kia)."
   },
@@ -4315,21 +4327,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Given the following:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nwhat is the result?",
-    "textVi": "Cho đoạn mã sau:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "public class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}",
     "options": [
       "Compilation fails.",
       "An error occurs at runtime.",
       "foobarhi",
       "barhi",
-      "hi"
+      "hi;"
     ],
     "optionsVi": [
-      "Lỗi biên dịch (Compilation fails).",
-      "Xảy ra lỗi tại thời điểm chạy (Runtime Error).",
+      "Compilation fails.",
+      "An error occurs at runtime.",
       "foobarhi",
       "barhi",
-      "hi"
+      "hi;"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -4345,7 +4357,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Given the following:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nwhat is the result?",
-    "textVi": "Cho đoạn mã sau:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nKết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }",
     "options": [
       "An exception occurs at runtime.",
@@ -4357,13 +4369,13 @@ export const scjpChapterQuestions = [
       "Compilation fails because of an error on a line other than 3, 4, or 8."
     ],
     "optionsVi": [
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+      "An exception occurs at runtime.",
       "true",
       "fred",
-      "Lỗi biên dịch do lỗi ở dòng 3.",
-      "Lỗi biên dịch do lỗi ở dòng 4.",
-      "Lỗi biên dịch do lỗi ở dòng 8.",
-      "Lỗi biên dịch do lỗi ở một dòng khác ngoài 3, 4 hoặc 8."
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 4.",
+      "Compilation fails because of an error on line 8.",
+      "Compilation fails because of an error on a line other than 3, 4, or 8."
     ],
     "answer": 6,
     "isMultiple": false,
@@ -4379,7 +4391,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Given the following:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nwhat is the result?",
-    "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nKết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }",
     "options": [
       "An exception occurs at runtime at line 10.",
@@ -4390,12 +4402,12 @@ export const scjpChapterQuestions = [
       "Compilation fails because of an error on line 11."
     ],
     "optionsVi": [
-      "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
+      "An exception occurs at runtime at line 10.",
       "Zippo",
-      "Lỗi biên dịch do lỗi ở dòng 3.",
-      "Lỗi biên dịch do lỗi ở dòng 9.",
-      "Lỗi biên dịch do lỗi ở dòng 10.",
-      "Lỗi biên dịch do lỗi ở dòng 11."
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10.",
+      "Compilation fails because of an error on line 11."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -4411,7 +4423,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Given the following:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nwhat is the result?",
-    "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nKết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }",
     "options": [
       "An exception occurs at runtime at line 10.",
@@ -4421,11 +4433,11 @@ export const scjpChapterQuestions = [
       "Compilation fails because of an error on line 10."
     ],
     "optionsVi": [
-      "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
+      "An exception occurs at runtime at line 10.",
       "Zippo",
-      "Lỗi biên dịch do lỗi ở dòng 3.",
-      "Lỗi biên dịch do lỗi ở dòng 9.",
-      "Lỗi biên dịch do lỗi ở dòng 10."
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -4441,21 +4453,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Inner Classes",
     "topic": "javacore",
     "text": "Given the following:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nwhat is the result?",
-    "textVi": "Cho đoạn mã sau:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "public abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}",
     "options": [
-      "57 22",
-      "45 38",
-      "45 57",
+      "5722",
+      "4538",
+      "4557",
       "An exception occurs at runtime.",
-      "Compilation fails."
+      "Compilation fails.;"
     ],
     "optionsVi": [
-      "57 22",
-      "45 38",
-      "45 57",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
-      "Lỗi biên dịch (Compilation fails)."
+      "5722",
+      "4538",
+      "4557",
+      "An exception occurs at runtime.",
+      "Compilation fails.;"
     ],
     "answer": 0,
     "isMultiple": false,
@@ -4471,7 +4483,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1; i<3; ++i) {\n10.          System.out.print(i + \"..\");\n11.       }\n12.    }\n13. }",
     "options": [
       "This code will not compile due to line 4.",
@@ -4481,11 +4493,11 @@ export const scjpChapterQuestions = [
       "An exception is thrown at runtime."
     ],
     "optionsVi": [
-      "Đoạn mã không biên dịch được do lỗi ở dòng 4.",
-      "Đoạn mã không biên dịch được do lỗi ở dòng 5.",
+      "This code will not compile due to line 4.",
+      "This code will not compile due to line 5.",
       "1..2..",
       "1..2..3..",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+      "An exception is thrown at runtime."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -4501,21 +4513,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Which two of the following methods are defined in class Thread?",
-    "textVi": "Hai phương thức nào sau đây được định nghĩa trực tiếp trong lớp java.lang.Thread?",
+    "textVi": "Hai phương thức nào sau đây được định nghĩa trực tiếp trong lớp java.lang.Thread? (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "start()",
       "wait()",
       "notify()",
       "run()",
-      "terminate()"
+      "terminate();"
     ],
     "optionsVi": [
       "start()",
       "wait()",
       "notify()",
       "run()",
-      "terminate()"
+      "terminate();"
     ],
     "answer": [
       0,
@@ -4535,21 +4547,21 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "The following block of code creates a Thread using a Runnable target:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nWhich of the following classes can be used to create the target, so that the preceding code compiles correctly?",
-    "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công?",
+    "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công? (Chọn 1 đáp án)",
     "code": "Runnable target = new MyRunnable();\nThread myThread = new Thread(target);",
     "options": [
-      "public class MyRunnable extends Runnable { public void run() {} }",
-      "public class MyRunnable extends Object { public void run() {} }",
-      "public class MyRunnable implements Runnable { public void run() {} }",
-      "public class MyRunnable implements Runnable { void run() {} }",
-      "public class MyRunnable implements Runnable { public void start() {} }"
+      "public class MyRunnable extends Runnable{public void run(){}}",
+      "public class MyRunnable extends Object{public void run(){}}",
+      "public class MyRunnable implements Runnable{public void run(){}}",
+      "public class MyRunnable implements Runnable{void run(){}}",
+      "public class MyRunnable implements Runnable{public void start(){}}"
     ],
     "optionsVi": [
-      "public class MyRunnable extends Runnable { public void run() {} }",
-      "public class MyRunnable extends Object { public void run() {} }",
-      "public class MyRunnable implements Runnable { public void run() {} }",
-      "public class MyRunnable implements Runnable { void run() {} }",
-      "public class MyRunnable implements Runnable { public void start() {} }"
+      "public class MyRunnable extends Runnable{public void run(){}}",
+      "public class MyRunnable extends Object{public void run(){}}",
+      "public class MyRunnable implements Runnable{public void run(){}}",
+      "public class MyRunnable implements Runnable{void run(){}}",
+      "public class MyRunnable implements Runnable{public void start(){}}"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -4565,7 +4577,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following, what is the result of this code?",
-    "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.start();\n6.        System.out.print(\"one. \");\n7.        t.start();\n8.        System.out.print(\"two. \");\n9.     }\n10.\n11.    public void run() {\n12.       System.out.print(\"Thread \");\n13.    }\n14. }",
     "options": [
       "Compilation fails",
@@ -4574,10 +4586,10 @@ export const scjpChapterQuestions = [
       "The output cannot be determined."
     ],
     "optionsVi": [
-      "Lỗi biên dịch (Compilation fails)",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+      "Compilation fails",
+      "An exception occurs at runtime.",
       "Thread one. Thread two.",
-      "Không thể xác định trước kết quả in ra."
+      "The output cannot be determined."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -4593,7 +4605,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // some code here\n  }\n}\nwhich of these will create and start this thread?",
-    "textVi": "Cho đoạn mã sau:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // mã xử lý tại đây\n  }\n}\nCâu lệnh nào dưới đây sẽ tạo và khởi chạy luồng này một cách hợp lệ?",
+    "textVi": "Cho đoạn mã sau:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // mã xử lý tại đây\n  }\n}\nCâu lệnh nào dưới đây sẽ tạo và khởi chạy luồng này một cách hợp lệ? (Chọn 1 đáp án)",
     "code": "public class MyRunnable implements Runnable {\n  public void run() {\n    // some code here\n  }\n}",
     "options": [
       "new Runnable(MyRunnable).start();",
@@ -4621,7 +4633,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following, what is the result of this code?",
-    "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        Thread x = new Thread(t);\n6.        x.start();\n7.     }\n8.\n9.     public void run() {\n10.       for(int i=0; i<3; ++i) {\n11.          System.out.print(i + \"..\");\n12.       }\n13.    }\n14. }",
     "options": [
       "Compilation fails.",
@@ -4631,11 +4643,11 @@ export const scjpChapterQuestions = [
       "An exception occurs at runtime."
     ],
     "optionsVi": [
-      "Lỗi biên dịch (Compilation fails).",
+      "Compilation fails.",
       "1..2..3..",
       "0..1..2..3..",
       "0..1..2..",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+      "An exception occurs at runtime."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -4651,19 +4663,19 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following:\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nthe static method Thread.currentThread() returns a reference to the currently executing Thread object. What is the result of this code?",
-    "textVi": "Cho đoạn mã sau (biết rằng phương thức tĩnh Thread.currentThread() trả về tham chiếu tới luồng đang thực thi):\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nKết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau (biết rằng phương thức tĩnh Thread.currentThread() trả về tham chiếu tới luồng đang thực thi):\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }",
     "options": [
       "Each String in the array lines will output, with a 1-second pause.",
       "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-      "Each String in the array lines will output, and there is no guarantee there will be a pause because currentThread() may not retrieve this thread.",
+      "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
       "This code will not compile."
     ],
     "optionsVi": [
-      "Mỗi phần tử String trong mảng lines sẽ được in ra, cách nhau 1 giây tạm dừng.",
-      "Mỗi phần tử String trong mảng lines sẽ được in ra không có khoảng dừng, vì phương thức này không chạy trong một Thread.",
-      "Mỗi phần tử String trong mảng lines sẽ được in ra, và không chắc chắn có khoảng dừng vì currentThread() có thể không lấy được luồng này.",
-      "Đoạn mã này sẽ không biên dịch được (This code will not compile)."
+      "Each String in the array lines will output, with a 1-second pause.",
+      "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+      "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+      "This code will not compile."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -4682,20 +4694,20 @@ export const scjpChapterQuestions = [
     "textVi": "Giả sử bạn có một lớp lưu trữ hai biến thành viên private: a và b. Cặp phương thức nào dưới đây có thể ngăn chặn sự cố tranh chấp truy cập đồng thời (concurrent access / race condition) trong lớp đó? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;}",
-      "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a=a;this.b=b;}}",
-      "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;}",
-      "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}}"
+      "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
+      "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
+      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
+      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
+      "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
+      "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
     ],
     "optionsVi": [
-      "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;}",
-      "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a=a;this.b=b;}}",
-      "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;}",
-      "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}}"
+      "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
+      "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
+      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
+      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
+      "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
+      "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
     ],
     "answer": [
       1,
@@ -4715,7 +4727,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Which class or interface defines the wait(), notify(), and notifyAll() methods?",
-    "textVi": "Lớp hoặc interface nào định nghĩa các phương thức wait(), notify(), và notifyAll()?",
+    "textVi": "Lớp hoặc interface nào định nghĩa các phương thức wait(), notify(), và notifyAll()? (Chọn 1 đáp án)",
     "code": "",
     "options": [
       "Object",
@@ -4747,14 +4759,14 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "A static method cannot be synchronized.",
-      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
+      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
       "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
       "When a thread sleeps, it releases its locks.",
       "When a thread invokeswait(), it releases its locks."
     ],
     "optionsVi": [
       "A static method cannot be synchronized.",
-      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
+      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
       "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
       "When a thread sleeps, it releases its locks.",
       "When a thread invokeswait(), it releases its locks."
@@ -4777,7 +4789,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Which three are methods of the Object class? (Choose three.)",
-    "textVi": "Ba phương thức nào sau đây là phương thức của lớp java.lang.Object? (Chọn phương án kết hợp đúng)",
+    "textVi": "Ba phương thức nào sau đây là phương thức của lớp java.lang.Object? (Chọn phương án kết hợp đúng) (Chọn 3 đáp án)",
     "code": "",
     "options": [
       "notify();",
@@ -4801,14 +4813,16 @@ export const scjpChapterQuestions = [
     ],
     "answer": [
       0,
-      1
+      1,
+      5
     ],
     "isMultiple": true,
     "correctLetters": [
       "A",
-      "B"
+      "B",
+      "F"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Danh sách các phương thức liên quan đến luồng trong Java:\n• Thuộc lớp `java.lang.Object`:\n  1. `wait()` (gồm các phiên bản nạp chồng có tham số timeout)\n  2. `notify()`\n  3. `notifyAll()`\n• Thuộc lớp `java.lang.Thread`:\n  1. `isInterrupted()`: Phương thức thực thể kiểm tra cờ ngắt của luồng.\n  2. `interrupt()`: Gửi tín hiệu ngắt tới luồng.\n  3. `sleep()`: Phương thức tĩnh tạm dừng luồng.\n  4. `yield()`: Phương thức tĩnh nhường CPU.\n  5. `join()`: Chờ luồng kết thúc.\n• Từ khóa của ngôn ngữ Java:\n  - `synchronized`: Là một TỪ KHÓA BẢO LƯU (keyword), không phải là một phương thức! Cú pháp `synchronized()` là một cấu trúc cú pháp của ngôn ngữ.\n\n2. Đánh giá các phương án:\nTrong các lựa chọn được ghép đôi ở câu hỏi trắc nghiệm này, phương án chứa `A: notify()` và `B: notifyAll()` (hai phương thức chính thức của `Object`) là đáp án chính xác nhất.\n\n✅ Vì sao đáp án \"A và B\" đúng:\nCả `notify()` và `notifyAll()` (cùng với `wait()`) đều là các phương thức nguyên bản được định nghĩa trong lớp `java.lang.Object`.\n\n❌ Vì sao các đáp án khác sai:\n• \"C: isInterrupted()\": Sai vì đây là phương thức của lớp `java.lang.Thread`.\n• \"D: synchronized()\": Sai vì `synchronized` là từ khóa cú pháp của Java, không phải phương thức.\n• \"H: yield()\": Sai vì `yield()` là phương thức tĩnh của lớp `java.lang.Thread`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chỉ có 3 cái tên thuộc `Object`: `wait`, `notify`, `notifyAll`.\n• Tất cả những cái tên còn lại (`sleep`, `yield`, `join`, `interrupt`, `isInterrupted`, `start`, `run`) đều thuộc về `Thread` hoặc `Runnable`."
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Danh sách các phương thức liên quan đến luồng trong Java:\n• Thuộc lớp `java.lang.Object`:\n  1. `wait()` (gồm các phiên bản nạp chồng có tham số timeout)\n  2. `notify()`\n  3. `notifyAll()`\n• Thuộc lớp `java.lang.Thread`:\n  1. `isInterrupted()`: Phương thức thực thể kiểm tra cờ ngắt của luồng.\n  2. `interrupt()`: Gửi tín hiệu ngắt tới luồng.\n  3. `sleep()`: Phương thức tĩnh tạm dừng luồng.\n  4. `yield()`: Phương thức tĩnh nhường CPU.\n  5. `join()`: Chờ luồng kết thúc.\n• Từ khóa của ngôn ngữ Java:\n  - `synchronized`: Là một TỪ KHÓA BẢO LƯU (keyword), không phải là một phương thức! Cú pháp `synchronized()` là một cấu trúc cú pháp của ngôn ngữ.\n\n2. Đánh giá các phương án:\nTrong các lựa chọn được ghép đôi ở câu hỏi trắc nghiệm này, phương án chứa `A: notify()` và `B: notifyAll()` (hai phương thức chính thức của `Object`) là đáp án chính xác nhất.\n\n✅ Vì sao đáp án \"A, B và F\" đúng:\nCả `notify()` và `notifyAll()` (cùng với `wait()`) đều là các phương thức nguyên bản được định nghĩa trong lớp `java.lang.Object`.\n\n❌ Vì sao các đáp án khác sai:\n• \"C: isInterrupted()\": Sai vì đây là phương thức của lớp `java.lang.Thread`.\n• \"D: synchronized()\": Sai vì `synchronized` là từ khóa cú pháp của Java, không phải phương thức.\n• \"H: yield()\": Sai vì `yield()` là phương thức tĩnh của lớp `java.lang.Thread`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chỉ có 3 cái tên thuộc `Object`: `wait`, `notify`, `notifyAll`.\n• Tất cả những cái tên còn lại (`sleep`, `yield`, `join`, `interrupt`, `isInterrupted`, `start`, `run`) đều thuộc về `Thread` hoặc `Runnable`."
   },
   {
     "id": "scjp-ch09-012",
@@ -4817,10 +4831,10 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following, what is the result of trying to compile and run this program?",
-    "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì? (Chọn 1 đáp án)",
     "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.       }\n11.       System.out.print(\"3 \");\n12.    }\n13. }",
     "options": [
-      "It fails to compile because the IllegalMonitorStateException of wait() is not dealt with in line 7.",
+      "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
       "1 2 3",
       "1 3",
       "1 2",
@@ -4828,12 +4842,12 @@ export const scjpChapterQuestions = [
       "It will fail to compile because it has to be synchronized on the this object."
     ],
     "optionsVi": [
-      "Lỗi biên dịch do ngoại lệ IllegalMonitorStateException của wait() không được xử lý ở dòng 7.",
+      "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
       "1 2 3",
       "1 3",
       "1 2",
-      "Ném ngoại lệ IllegalMonitorStateException tại thời điểm chạy khi cố gắng gọi wait().",
-      "Lỗi biên dịch vì bắt buộc phải đồng bộ hóa trên đối tượng this."
+      "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+      "It will fail to compile because it has to be synchronized on the this object."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -4849,7 +4863,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Assume the following method is properly synchronized and called from a thread A on an object B:\nwait(2000);\nAfter calling this method, when will the thread A become a candidate to get another turn at the CPU?",
-    "textVi": "Giả sử phương thức sau đã được đồng bộ hóa đúng cách và được gọi từ luồng A trên đối tượng B:\nwait(2000);\nSau khi gọi phương thức này, khi nào thì luồng A sẽ trở thành ứng viên sẵn sàng được cấp phát CPU để chạy tiếp?",
+    "textVi": "Giả sử phương thức sau đã được đồng bộ hóa đúng cách và được gọi từ luồng A trên đối tượng B:\nwait(2000);\nSau khi gọi phương thức này, khi nào thì luồng A sẽ trở thành ứng viên sẵn sàng được cấp phát CPU để chạy tiếp? (Chọn 1 đáp án)",
     "code": "wait(2000);",
     "options": [
       "After thread A is notified, or after two seconds.",
@@ -4858,10 +4872,10 @@ export const scjpChapterQuestions = [
       "Two seconds after lock B is released."
     ],
     "optionsVi": [
-      "Sau khi luồng A được thông báo (notified), HOẶC sau khi hết thời gian 2 giây.",
-      "Sau khi khóa trên B được giải phóng, HOẶC sau khi hết 2 giây.",
-      "Hai giây sau khi luồng A được thông báo.",
-      "Hai giây sau khi khóa trên B được giải phóng."
+      "After thread A is notified, or after two seconds.",
+      "After the lock on B is released, or after two seconds.",
+      "Two seconds after thread A is notified.",
+      "Two seconds after lock B is released."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -4913,7 +4927,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
-    "textVi": "Giả sử bạn tạo một chương trình và một trong các luồng (tên là backgroundThread) phải thực hiện tính toán số học rất nặng và tốn thời gian. Cách nào dưới đây là chuẩn xác để thiết lập độ ưu tiên của nó nhằm giúp toàn bộ phần còn lại của hệ thống phản hồi nhanh và mượt mà trong khi luồng này đang chạy? (Chọn phương án kết hợp đúng)",
+    "textVi": "Giả sử bạn tạo một chương trình và một trong các luồng (tên là backgroundThread) phải thực hiện tính toán số học rất nặng và tốn thời gian. Cách nào dưới đây là chuẩn xác để thiết lập độ ưu tiên của nó nhằm giúp toàn bộ phần còn lại của hệ thống phản hồi nhanh và mượt mà trong khi luồng này đang chạy? (Chọn phương án kết hợp đúng) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "backgroundThread.setPriority(Thread.LOW_PRIORITY);",
@@ -4951,7 +4965,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Which three guarantee that a thread will leave the running state? (Choose three.)",
-    "textVi": "Ba hành động nào dưới đây ĐẢM BẢO CHẮC CHẮN rằng một luồng sẽ rời khỏi trạng thái đang chạy (running state)? (Chọn phương án kết hợp đúng)",
+    "textVi": "Ba hành động nào dưới đây ĐẢM BẢO CHẮC CHẮN rằng một luồng sẽ rời khỏi trạng thái đang chạy (running state)? (Chọn phương án kết hợp đúng) (Chọn 3 đáp án)",
     "code": "",
     "options": [
       "yield()",
@@ -4973,14 +4987,16 @@ export const scjpChapterQuestions = [
     ],
     "answer": [
       1,
-      4
+      4,
+      5
     ],
     "isMultiple": true,
     "correctLetters": [
       "B",
-      "E"
+      "E",
+      "F"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Các trạng thái khiến luồng RỜI KHỎI trạng thái Running (Đang chạy):\nĐể đảm bảo chắc chắn (guarantee) luồng không còn ở trạng thái `Running`:\n• `wait()` (Hành động B): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào hàng đợi `Waiting` của đối tượng.\n• `sleep(long millis)` (Hành động E): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào trạng thái `Timed Waiting` trong ít nhất khoảng thời gian chỉ định.\n• `join()`: Chắc chắn 100% bắt luồng hiện tại dừng chạy và đợi cho tới khi luồng mục tiêu kết thúc.\n\n2. Vì sao `yield()` KHÔNG ĐẢM BẢO (Bẫy đề thi số 1):\n• `Thread.yield()` (Hành động A): Chỉ là một lời \"nhắn nhủ / gợi ý\" (hint) gửi tới bộ lập lịch CPU (thread scheduler) rằng: \"Tôi sẵn sàng nhường lượt chạy cho luồng khác có cùng mức ưu tiên\".\n• TUY NHIÊN, bộ lập lịch có toàn quyền quyết định! Nếu không có luồng nào khác sẵn sàng hoặc bộ lập lịch quyết định tiếp tục, luồng vừa gọi `yield()` có thể NGAY LẬP TỨC ĐƯỢC CHỌN ĐỂ CHẠY TIẾP mà không hề rời khỏi trạng thái `Running` một mili-giây nào!\n• Do đó, `yield()` KHÔNG BAO GIỜ có sự đảm bảo (no guarantee).\n\n3. Phân tích các hành động sai khác:\n• `notify()` (Hành động C): Chỉ gửi tín hiệu đánh thức một luồng khác, bản thân luồng đang gọi `notify()` vẫn tiếp tục chạy bình thường, không hề bị dừng lại.\n• `Thread.killThread()` (Hành động G): Phương thức này hoàn toàn KHÔNG TỒN TẠI trong Java.\n\nDo đó, các hành động đảm bảo luồng rời khỏi Running là B (`wait()`) và E (`sleep()`).\n\n✅ Vì sao đáp án \"B và E\" đúng:\nCả `wait()` và `sleep(1000)` đều đảm bảo 100% ngắt quãng trạng thái `Running` của luồng hiện tại và đưa nó sang trạng thái chờ.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A sai vì `yield()` không có bất kỳ sự bảo đảm nào về việc luồng sẽ rời khỏi trạng thái running.\n• Phương án chứa C sai vì `notify()` không làm luồng gọi nó rời khỏi running.\n• Phương án chứa G sai vì `killThread()` là hàm bịa đặt không có thật.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ từ khóa vàng: `yield()` = \"Không có gì đảm bảo\" (NO GUARANTEE).\n• `sleep()`, `wait()`, `join()` = \"Chắc chắn rời khỏi Running\" (GUARANTEED)."
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Các trạng thái khiến luồng RỜI KHỎI trạng thái Running (Đang chạy):\nĐể đảm bảo chắc chắn (guarantee) luồng không còn ở trạng thái `Running`:\n• `wait()` (Hành động B): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào hàng đợi `Waiting` của đối tượng.\n• `sleep(long millis)` (Hành động E): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào trạng thái `Timed Waiting` trong ít nhất khoảng thời gian chỉ định.\n• `join()`: Chắc chắn 100% bắt luồng hiện tại dừng chạy và đợi cho tới khi luồng mục tiêu kết thúc.\n\n2. Vì sao `yield()` KHÔNG ĐẢM BẢO (Bẫy đề thi số 1):\n• `Thread.yield()` (Hành động A): Chỉ là một lời \"nhắn nhủ / gợi ý\" (hint) gửi tới bộ lập lịch CPU (thread scheduler) rằng: \"Tôi sẵn sàng nhường lượt chạy cho luồng khác có cùng mức ưu tiên\".\n• TUY NHIÊN, bộ lập lịch có toàn quyền quyết định! Nếu không có luồng nào khác sẵn sàng hoặc bộ lập lịch quyết định tiếp tục, luồng vừa gọi `yield()` có thể NGAY LẬP TỨC ĐƯỢC CHỌN ĐỂ CHẠY TIẾP mà không hề rời khỏi trạng thái `Running` một mili-giây nào!\n• Do đó, `yield()` KHÔNG BAO GIỜ có sự đảm bảo (no guarantee).\n\n3. Phân tích các hành động sai khác:\n• `notify()` (Hành động C): Chỉ gửi tín hiệu đánh thức một luồng khác, bản thân luồng đang gọi `notify()` vẫn tiếp tục chạy bình thường, không hề bị dừng lại.\n• `Thread.killThread()` (Hành động G): Phương thức này hoàn toàn KHÔNG TỒN TẠI trong Java.\n\nDo đó, các hành động đảm bảo luồng rời khỏi Running là B (`wait()`) và E (`sleep()`).\n\n✅ Vì sao đáp án \"B, E và F\" đúng:\nCả `wait()` và `sleep(1000)` đều đảm bảo 100% ngắt quãng trạng thái `Running` của luồng hiện tại và đưa nó sang trạng thái chờ.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A sai vì `yield()` không có bất kỳ sự bảo đảm nào về việc luồng sẽ rời khỏi trạng thái running.\n• Phương án chứa C sai vì `notify()` không làm luồng gọi nó rời khỏi running.\n• Phương án chứa G sai vì `killThread()` là hàm bịa đặt không có thật.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ từ khóa vàng: `yield()` = \"Không có gì đảm bảo\" (NO GUARANTEE).\n• `sleep()`, `wait()`, `join()` = \"Chắc chắn rời khỏi Running\" (GUARANTEED)."
   },
   {
     "id": "scjp-ch09-017",
@@ -5029,7 +5045,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Which two are valid constructors for Thread? (Choose two.)",
-    "textVi": "Hai hàm khởi tạo (constructor) nào dưới đây là hợp lệ của lớp java.lang.Thread? (Chọn phương án kết hợp đúng)",
+    "textVi": "Hai hàm khởi tạo (constructor) nào dưới đây là hợp lệ của lớp java.lang.Thread? (Chọn phương án kết hợp đúng) (Chọn 2 đáp án)",
     "code": "",
     "options": [
       "Thread(Runnable r, String name)",
@@ -5063,7 +5079,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nwhat is the result?",
-    "textVi": "Cho đoạn mã sau:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "class MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}",
     "options": [
       "foo",
@@ -5081,7 +5097,7 @@ export const scjpChapterQuestions = [
       "foo bar",
       "foo bar baz",
       "bar foo",
-      "Lỗi biên dịch (Compilation fails)."
+      "Compilation fails."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -5097,23 +5113,23 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nand assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
-    "textVi": "Cho đoạn mã sau:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nGiả sử biến data bắt buộc phải được bảo vệ khỏi sự sai lệch dữ liệu, bạn có thể thêm điều gì vào đoạn mã trên để đảm bảo tính toàn vẹn của data?",
+    "textVi": "Cho đoạn mã sau:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nGiả sử biến data bắt buộc phải được bảo vệ khỏi sự sai lệch dữ liệu, bạn có thể thêm điều gì vào đoạn mã trên để đảm bảo tính toàn vẹn của data? (Chọn 1 đáp án)",
     "code": "public class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}",
     "options": [
       "Synchronize the run method.",
-      "Wrap a synchronize(this) around the call to f.increase().",
+      "Wrap a synchronize(this) around the call tof.increase().;",
       "The existing code will not compile.",
       "The existing code will cause a runtime exception.",
-      "Put in a wait() call prior to invoking the increase() method.",
-      "Synchronize the increase() method"
+      "Put in await() call prior to invoking theincrease() method.",
+      "Synchronize theincrease() method"
     ],
     "optionsVi": [
-      "Đồng bộ hóa phương thức run() (Synchronize the run method).",
-      "Bọc một khối synchronize(this) xung quanh lời gọi f.increase().",
-      "Mã hiện tại không thể biên dịch.",
-      "Mã hiện tại sẽ gây ra ngoại lệ thời điểm chạy.",
-      "Đặt một lời gọi wait() trước khi gọi phương thức increase().",
-      "Đồng bộ hóa phương thức increase() (Synchronize the increase() method)."
+      "Synchronize the run method.",
+      "Wrap a synchronize(this) around the call tof.increase().;",
+      "The existing code will not compile.",
+      "The existing code will cause a runtime exception.",
+      "Put in await() call prior to invoking theincrease() method.",
+      "Synchronize theincrease() method"
     ],
     "answer": 5,
     "isMultiple": false,
@@ -5129,7 +5145,7 @@ export const scjpChapterQuestions = [
     "chapterTitle": "Threads",
     "topic": "thread",
     "text": "Given the following, what is the result?",
-    "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+    "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1. public class Test {\n2.   public static void main (String [] args) {\n3.     final Foo f = new Foo();\n4.     Thread t = new Thread(new Runnable() {\n5.        public void run() {\n6.           f.doStuff();\n7.        }\n8.     });\n9.     Thread g = new Thread() {\n10.       public void run() {\n11.          f.doStuff();\n12.       }\n13.    };\n14.    t.start();\n15.    g.start();\n16.  }\n17. }\n1. class Foo {\n2.   int x = 5;\n3.   public void doStuff() {\n4.     if (x < 10) {\n5.        // nothing to do\n6.        try {\n7.           wait();\n8.        } catch(InterruptedException ex) { }\n9.     } else {\n10.       System.out.println(\"x is \" + x++);\n11.       if (x >= 10) {\n12.          notify();\n13.       }\n14.    }\n15.  }\n16. }",
     "options": [
       "The code will not compile because of an error on line 12 of class Foo.",
@@ -5140,11 +5156,11 @@ export const scjpChapterQuestions = [
       "x is 5 x is 6"
     ],
     "optionsVi": [
-      "Đoạn mã không biên dịch được do lỗi ở dòng 12 của lớp Foo.",
-      "Đoạn mã không biên dịch được do lỗi ở dòng 7 của lớp Foo.",
-      "Đoạn mã không biên dịch được do lỗi ở dòng 4 của lớp Test.",
-      "Đoạn mã không biên dịch được do một lỗi khác trong lớp Test.",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+      "The code will not compile because of an error on line 12 of class Foo.",
+      "The code will not compile because of an error on line 7 of class Foo.",
+      "The code will not compile because of an error on line 4 of class Test.",
+      "The code will not compile because of some other error in class Test.",
+      "An exception occurs at runtime.",
       "x is 5 x is 6"
     ],
     "answer": 4,
@@ -5185,8 +5201,8 @@ export const scjpRandom20Quiz = {
       "optionsVi": [
         "1 09876",
         "98765",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5209,14 +5225,14 @@ export const scjpRandom20Quiz = {
         "native",
         "subclasses",
         "reference",
-        "array"
+        "array;"
       ],
       "optionsVi": [
         "method",
         "native",
         "subclasses",
         "reference",
-        "array"
+        "array;"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -5276,7 +5292,7 @@ export const scjpRandom20Quiz = {
         "abstract",
         "protected",
         "synchronized",
-        "default access (truy cập mặc định / package-private)"
+        "default access"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -5308,7 +5324,7 @@ export const scjpRandom20Quiz = {
         "private",
         "protected",
         "volatile",
-        "default access (truy cập mặc định)"
+        "default access"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5324,7 +5340,7 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Which two are equal? (Choose two.)",
-      "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai)",
+      "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "32/4;",
@@ -5360,23 +5376,23 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
-      "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
       "options": [
-        "booleantest=(Componentinstanceoft);",
-        "booleantest=(tinstanceofTicker);",
-        "booleantest=t.instanceof(Ticker);",
-        "booleantest=(tinstanceofComponent);",
-        "booleantest=t.instanceof(Object);",
-        "booleantest=(tinstanceofString);"
+        "boolean test = (Componentinstanceoft);",
+        "boolean test = (tinstanceofTicker);",
+        "boolean test = t.instanceof(Ticker);",
+        "boolean test = (tinstanceofComponent);",
+        "boolean test = t.instanceof(Object);",
+        "boolean test = (tinstanceofString);"
       ],
       "optionsVi": [
-        "booleantest=(Componentinstanceoft);",
-        "booleantest=(tinstanceofTicker);",
-        "booleantest=t.instanceof(Ticker);",
-        "booleantest=(tinstanceofComponent);",
-        "booleantest=t.instanceof(Object);",
-        "booleantest=(tinstanceofString);"
+        "boolean test = (Componentinstanceoft);",
+        "boolean test = (tinstanceofTicker);",
+        "boolean test = t.instanceof(Ticker);",
+        "boolean test = (tinstanceofComponent);",
+        "boolean test = t.instanceof(Object);",
+        "boolean test = (tinstanceofString);"
       ],
       "answer": [
         1,
@@ -5396,23 +5412,23 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
       "options": [
         "0 1 2",
         "0 1 2 1 2 2",
-        "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
-        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails at line 7.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "An exception is thrown at runtime."
       ],
       "optionsVi": [
         "0 1 2",
         "0 1 2 1 2 2",
-        "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
-        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails at line 7.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5428,23 +5444,23 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
       "options": [
         "0 1 2",
         "0 1 2 1 2 2",
         "2 1 0 1 0 0",
         "2 1 2 0 1 2",
-        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9."
       ],
       "optionsVi": [
         "0 1 2",
         "0 1 2 1 2 2",
         "2 1 0 1 0 0",
         "2 1 2 0 1 2",
-        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -5460,7 +5476,7 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which is true about the class described above?",
-      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell?",
+      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell? (Chọn 1 đáp án)",
       "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
       "options": [
         "Class Barbell is tightly encapsulated.",
@@ -5471,12 +5487,12 @@ export const scjpRandom20Quiz = {
         "Lines 2, 5, and 8 are in conflict with encapsulation."
       ],
       "optionsVi": [
-        "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
-        "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
-        "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
-        "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
-        "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
-        "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
+        "Class Barbell is tightly encapsulated.",
+        "Line 2 is in conflict with encapsulation.",
+        "Line 5 is in conflict with encapsulation.",
+        "Line 8 is in conflict with encapsulation.",
+        "Lines 5 and 8 are in conflict with encapsulation.",
+        "Lines 2, 5, and 8 are in conflict with encapsulation."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -5492,7 +5508,7 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which is true about the classes described above?",
-      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên?",
+      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên? (Chọn 1 đáp án)",
       "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
       "options": [
         "Class A is tightly encapsulated.",
@@ -5501,10 +5517,10 @@ export const scjpRandom20Quiz = {
         "Neither class A nor class B is tightly encapsulated."
       ],
       "optionsVi": [
-        "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
-        "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
-        "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
-        "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
+        "Class A is tightly encapsulated.",
+        "Class B is tightly encapsulated.",
+        "Classes A and B are both tightly encapsulated.",
+        "Neither class A nor class B is tightly encapsulated."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -5520,7 +5536,7 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Which is true?",
-      "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng?",
+      "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "Tightly encapsulated classes are typically easier to reuse.",
@@ -5530,11 +5546,11 @@ export const scjpRandom20Quiz = {
         "Tightly encapsulated classes typically do not use HAS-A relationships."
       ],
       "optionsVi": [
-        "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
-        "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
-        "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
-        "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
-        "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
+        "Tightly encapsulated classes are typically easier to reuse.",
+        "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+        "Methods in tightly encapsulated classes cannot be overridden.",
+        "Methods in tightly encapsulated classes cannot be overloaded.",
+        "Tightly encapsulated classes typically do not use HAS-A relationships."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -5550,7 +5566,7 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
       "options": [
         "abcdefghi",
@@ -5565,8 +5581,8 @@ export const scjpRandom20Quiz = {
         "abcdefdef",
         "abcghidef",
         "abcghighi",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5582,12 +5598,12 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
       "options": [
         "abcXyZ",
         "abcxyz",
-        "xyzabc",
+        "xyzabc;",
         "XyZabc",
         "Compilation fails.",
         "An exception is thrown at runtime."
@@ -5595,10 +5611,10 @@ export const scjpRandom20Quiz = {
       "optionsVi": [
         "abcXyZ",
         "abcxyz",
-        "xyzabc",
+        "xyzabc;",
         "XyZabc",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5614,17 +5630,17 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Given the following:\n11.  int x = 0;\nand assuming that the equals() and hashCode() methods are properly implemented, if the output is \"x = 1111\", which of the following statements will always be true?",
-      "textVi": "Cho đoạn mã sau (với biến ban đầu `int x = 0;`) và giả sử các phương thức `equals()` cùng `hashCode()` đã được triển khai đúng chuẩn hợp đồng (contract). Nếu kết quả in ra là \"x = 1111\", phát biểu nào sau đây LUÔN ĐÚNG?",
+      "textVi": "Cho đoạn mã sau (với biến ban đầu `int x = 0;`) và giả sử các phương thức `equals()` cùng `hashCode()` đã được triển khai đúng chuẩn hợp đồng (contract). Nếu kết quả in ra là \"x = 1111\", phát biểu nào sau đây LUÔN ĐÚNG? (Chọn 1 đáp án)",
       "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
       "options": [
         "x2.equals(x1)",
-        "x3.hashCode() == x4.hashCode()",
+        "x3.hashCode() = = x4.hashCode()",
         "x5.hashCode() != x6.hashCode()",
         "x8.equals(x7)"
       ],
       "optionsVi": [
         "x2.equals(x1)",
-        "x3.hashCode() == x4.hashCode()",
+        "x3.hashCode() = = x4.hashCode()",
         "x5.hashCode() != x6.hashCode()",
         "x8.equals(x7)"
       ],
@@ -5642,21 +5658,21 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Given the following:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nwhich statement is true?",
-      "textVi": "Cho hai lớp sau:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nPhát biểu nào sau đây là ĐÚNG?",
+      "textVi": "Cho hai lớp sau:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nPhát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
       "code": "class Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}",
       "options": [
         "class Test1 will not compile.",
-        "The Test1 hashCode() method is more efficient than the Test2 hashCode() method.",
-        "The Test1 hashCode() method is less efficient than the Test2 hashCode() method.",
+        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
         "class Test2 will not compile.",
-        "The two hashCode() methods will have the same efficiency."
+        "The twohashcode() methods will have the same efficiency."
       ],
       "optionsVi": [
-        "Lớp Test1 sẽ không biên dịch được.",
-        "Phương thức hashCode() của Test1 hiệu quả hơn phương thức của Test2.",
-        "Phương thức hashCode() của Test1 kém hiệu quả hơn phương thức của Test2.",
-        "Lớp Test2 sẽ không biên dịch được.",
-        "Hai phương thức hashCode() có hiệu quả như nhau."
+        "class Test1 will not compile.",
+        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+        "class Test2 will not compile.",
+        "The twohashcode() methods will have the same efficiency."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5672,19 +5688,19 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Given the following:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nwhich statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
-      "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)?",
+      "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
       "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
       "options": [
-        "MyOuter.MyInner m = new MyOuter.MyInner();",
-        "MyOuter.MyInner mi = new MyInner();",
-        "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
-        "MyInner mi = new MyOuter.MyInner();"
+        "MyOuter.MyInnerm= newMyOuter.MyInner();",
+        "MyOuter.MyInnermi= newMyInner();",
+        "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
+        "MyInnermi= newMyOuter.MyInner();"
       ],
       "optionsVi": [
-        "MyOuter.MyInner m = new MyOuter.MyInner();",
-        "MyOuter.MyInner mi = new MyInner();",
-        "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
-        "MyInner mi = new MyOuter.MyInner();"
+        "MyOuter.MyInnerm= newMyOuter.MyInner();",
+        "MyOuter.MyInnermi= newMyInner();",
+        "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
+        "MyInnermi= newMyOuter.MyInner();"
       ],
       "answer": 0,
       "isMultiple": false,
@@ -5734,7 +5750,7 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1; i<3; ++i) {\n10.          System.out.print(i + \"..\");\n11.       }\n12.    }\n13. }",
       "options": [
         "This code will not compile due to line 4.",
@@ -5744,11 +5760,11 @@ export const scjpRandom20Quiz = {
         "An exception is thrown at runtime."
       ],
       "optionsVi": [
-        "Đoạn mã không biên dịch được do lỗi ở dòng 4.",
-        "Đoạn mã không biên dịch được do lỗi ở dòng 5.",
+        "This code will not compile due to line 4.",
+        "This code will not compile due to line 5.",
         "1..2..",
         "1..2..3..",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5764,21 +5780,21 @@ export const scjpRandom20Quiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Which two of the following methods are defined in class Thread?",
-      "textVi": "Hai phương thức nào sau đây được định nghĩa trực tiếp trong lớp java.lang.Thread?",
+      "textVi": "Hai phương thức nào sau đây được định nghĩa trực tiếp trong lớp java.lang.Thread? (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "start()",
         "wait()",
         "notify()",
         "run()",
-        "terminate()"
+        "terminate();"
       ],
       "optionsVi": [
         "start()",
         "wait()",
         "notify()",
         "run()",
-        "terminate()"
+        "terminate();"
       ],
       "answer": [
         0,
@@ -5822,8 +5838,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "1 09876",
         "98765",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5846,14 +5862,14 @@ export const scjpChapterAllQuiz = {
         "native",
         "subclasses",
         "reference",
-        "array"
+        "array;"
       ],
       "optionsVi": [
         "method",
         "native",
         "subclasses",
         "reference",
-        "array"
+        "array;"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -5906,14 +5922,14 @@ export const scjpChapterAllQuiz = {
         "unsigned",
         "Float",
         "this",
-        "string"
+        "string;"
       ],
       "optionsVi": [
         "interface",
         "unsigned",
         "Float",
         "this",
-        "string"
+        "string;"
       ],
       "answer": [
         0,
@@ -5933,34 +5949,36 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Language Fundamentals",
       "topic": "javacore",
       "text": "Which three are valid declarations of a char? (Choose three.)",
-      "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu dữ liệu char? (Chọn 2 đáp án)",
+      "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu dữ liệu char? (Chọn 3 đáp án)",
       "code": "",
       "options": [
-        "charc1=064770 ;",
-        "charc2=‘face’ ;",
-        "charc3=0xbeef ;",
-        "charc4=\\u0022 ;",
-        "charc5=‘\\iface’ ;",
-        "charc6=‘\\uface’ ;"
+        "char c1 = 064770;",
+        "char c2 = ‘face’;",
+        "char c3 = 0xbeef;",
+        "char c4 = \\u0022;",
+        "char c5 = ‘\\iface’;",
+        "char c6 = ‘\\uface’;"
       ],
       "optionsVi": [
-        "charc1=064770 ;",
-        "charc2=‘face’ ;",
-        "charc3=0xbeef ;",
-        "charc4=\\u0022 ;",
-        "charc5=‘\\iface’ ;",
-        "charc6=‘\\uface’ ;"
+        "char c1 = 064770;",
+        "char c2 = ‘face’;",
+        "char c3 = 0xbeef;",
+        "char c4 = \\u0022;",
+        "char c5 = ‘\\iface’;",
+        "char c6 = ‘\\uface’;"
       ],
       "answer": [
         0,
-        2
+        2,
+        5
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
-        "C"
+        "C",
+        "F"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Kiểu `char` trong Java là một kiểu số nguyên không dấu 16-bit (unsigned 16-bit), lưu trữ mã ký tự Unicode từ `0` đến `65535` (hoặc từ `\\u0000` đến `\\uffff`).\n2. Do đó, một biến `char` có thể được gán bằng:\n   - Ký tự đặt trong cặp dấu nháy đơn `'a'`.\n   - Mã Unicode đặt trong nháy đơn `'\\uxxxx'` (x là chữ số hexa).\n   - Số nguyên không dấu nằm trong khoảng từ 0 đến 65535 (biểu diễn dưới dạng thập phân, bát phân octal `0...`, hoặc thập lục phân hex `0x...`).\n3. Đánh giá từng khai báo:\n   - A: `char c1 = 064770;`: Số bắt đầu bằng số `0` là hệ bát phân (octal). $064770_8 = 27128_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - B: `char c2 = 'face';`: Sai vì dấu nháy đơn `' '` chỉ được chứa đúng 1 ký tự duy nhất, ở đây có 4 ký tự.\n   - C: `char c3 = 0xbeef;`: Bắt đầu bằng `0x` là hệ thập lục phân (hex). $0xbeef = 48879_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - D: `char c4 = \\u0022;`: Sai vì thiếu dấu nháy đơn `' '`.\n   - E: `char c5 = '\\iface';`: Sai vì Unicode literal phải bắt đầu bằng `\\u`, không phải `\\i`.\n   - F: `char c6 = '\\uface';`: Hợp lệ vì đúng định dạng Unicode literal 4 chữ số hex trong nháy đơn.\n\n✅ Vì sao đáp án \"A và C\" đúng:\nCả `064770` (hệ 8) và `0xbeef` (hệ 16) đều là các giá trị số nguyên hợp lệ nằm trọn trong dải giá trị từ 0 đến 65535 của kiểu `char`.\n\n❌ Vì sao các đáp án khác sai:\n• Các phương án chứa B (`'face'`): Sai vì nháy đơn không được chứa chuỗi nhiều ký tự.\n• Các phương án chứa D (`\\u0022`): Sai vì thiếu dấu nháy đơn bao bọc ký tự Unicode.\n• Các phương án chứa E: Sai vì tiền tố escape Unicode phải là `\\u`, không phải `\\i`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `char` bản chất là số nguyên không dấu 16-bit (0 đến 65535). Vì vậy ta hoàn toàn có thể gán số nguyên trực tiếp cho `char` miễn là không vượt quá 65535!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Kiểu `char` trong Java là một kiểu số nguyên không dấu 16-bit (unsigned 16-bit), lưu trữ mã ký tự Unicode từ `0` đến `65535` (hoặc từ `\\u0000` đến `\\uffff`).\n2. Do đó, một biến `char` có thể được gán bằng:\n   - Ký tự đặt trong cặp dấu nháy đơn `'a'`.\n   - Mã Unicode đặt trong nháy đơn `'\\uxxxx'` (x là chữ số hexa).\n   - Số nguyên không dấu nằm trong khoảng từ 0 đến 65535 (biểu diễn dưới dạng thập phân, bát phân octal `0...`, hoặc thập lục phân hex `0x...`).\n3. Đánh giá từng khai báo:\n   - A: `char c1 = 064770;`: Số bắt đầu bằng số `0` là hệ bát phân (octal). $064770_8 = 27128_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - B: `char c2 = 'face';`: Sai vì dấu nháy đơn `' '` chỉ được chứa đúng 1 ký tự duy nhất, ở đây có 4 ký tự.\n   - C: `char c3 = 0xbeef;`: Bắt đầu bằng `0x` là hệ thập lục phân (hex). $0xbeef = 48879_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - D: `char c4 = \\u0022;`: Sai vì thiếu dấu nháy đơn `' '`.\n   - E: `char c5 = '\\iface';`: Sai vì Unicode literal phải bắt đầu bằng `\\u`, không phải `\\i`.\n   - F: `char c6 = '\\uface';`: Hợp lệ vì đúng định dạng Unicode literal 4 chữ số hex trong nháy đơn.\n\n✅ Vì sao đáp án \"A, C và F\" đúng:\nCả `064770` (hệ 8) và `0xbeef` (hệ 16) đều là các giá trị số nguyên hợp lệ nằm trọn trong dải giá trị từ 0 đến 65535 của kiểu `char`.\n\n❌ Vì sao các đáp án khác sai:\n• Các phương án chứa B (`'face'`): Sai vì nháy đơn không được chứa chuỗi nhiều ký tự.\n• Các phương án chứa D (`\\u0022`): Sai vì thiếu dấu nháy đơn bao bọc ký tự Unicode.\n• Các phương án chứa E: Sai vì tiền tố escape Unicode phải là `\\u`, không phải `\\i`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `char` bản chất là số nguyên không dấu 16-bit (0 đến 65535). Vì vậy ta hoàn toàn có thể gán số nguyên trực tiếp cho `char` miễn là không vượt quá 65535!"
     },
     {
       "id": "scjp-ch01-006",
@@ -5972,18 +5990,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai khai báo nào dưới đây là hợp lệ cho kiểu String? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "Strings1=null ;",
-        "Strings2=‘null’ ;",
-        "Strings3=(String)‘abc’ ;",
-        "Strings4=(String)‘\\ufeed’ ;",
-        "Strings5=“stringsrule” ;"
+        "String s1 = null;",
+        "String s2 = ‘null’;",
+        "String s3 = (String)‘abc’;",
+        "String s4 = (String)‘\\ufeed’;",
+        "String s5 = “stringsrule”;"
       ],
       "optionsVi": [
-        "Strings1=null ;",
-        "Strings2=‘null’ ;",
-        "Strings3=(String)‘abc’ ;",
-        "Strings4=(String)‘\\ufeed’ ;",
-        "Strings5=“stringsrule” ;"
+        "String s1 = null;",
+        "String s2 = ‘null’;",
+        "String s3 = (String)‘abc’;",
+        "String s4 = (String)‘\\ufeed’;",
+        "String s5 = “stringsrule”;"
       ],
       "answer": [
         0,
@@ -6007,14 +6025,14 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "boolean b1 = 0;",
-        "boolean b2 = 'false';",
+        "boolean b2 = ‘false’;",
         "boolean b3 = false;",
         "boolean b4 = Boolean.false();",
         "boolean b5 = no;"
       ],
       "optionsVi": [
         "boolean b1 = 0;",
-        "boolean b2 = 'false';",
+        "boolean b2 = ‘false’;",
         "boolean b3 = false;",
         "boolean b4 = Boolean.false();",
         "boolean b5 = no;"
@@ -6063,34 +6081,36 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Language Fundamentals",
       "topic": "javacore",
       "text": "Which three are valid declarations of a float? (Choose three.)",
-      "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu float? (Chọn 2 đáp án)",
+      "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu float? (Chọn 3 đáp án)",
       "code": "",
       "options": [
-        "floatf1=-343 ;",
-        "floatf2=3.14 ;",
-        "floatf3=0x12345 ;",
-        "floatf4=42e7 ;",
-        "floatf5=2001.0D ;",
-        "floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1)"
+        "float f1 = -343;",
+        "float f2 = 3.14;",
+        "float f3 = 0x12345;",
+        "float f4 = 42e7;",
+        "float f5 = 2001.0D;",
+        "float f6 = 2.81F;"
       ],
       "optionsVi": [
-        "floatf1=-343 ;",
-        "floatf2=3.14 ;",
-        "floatf3=0x12345 ;",
-        "floatf4=42e7 ;",
-        "floatf5=2001.0D ;",
-        "floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1)"
+        "float f1 = -343;",
+        "float f2 = 3.14;",
+        "float f3 = 0x12345;",
+        "float f4 = 42e7;",
+        "float f5 = 2001.0D;",
+        "float f6 = 2.81F;"
       ],
       "answer": [
         0,
-        2
+        2,
+        5
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
-        "C"
+        "C",
+        "F"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc số thực trong Java: Mọi literal số thực có dấu chấm động (như `3.14`) hoặc dạng số mũ (`42e7`) mặc định đều có kiểu là `double` (64-bit).\n2. Kiểu `float` chỉ có 32-bit. Bạn không thể gán trực tiếp một giá trị `double` (64-bit) vào biến `float` (32-bit) vì có nguy cơ mất độ chính xác (loss of precision), trừ khi có chữ `f` hoặc `F` đi kèm ở cuối.\n3. Số nguyên (`int` - 32 bit) hoàn toàn có thể gán tự động cho `float` (32 bit) thông qua cơ chế nới rộng kiểu (widening conversion).\n4. Đánh giá từng trường hợp:\n   - A: `float f1 = -343;`: `-343` là số nguyên `int`, tự động chuyển đổi sang `float` -> Hợp lệ!\n   - B: `float f2 = 3.14;`: `3.14` mặc định là `double`, không thể gán trực tiếp cho `float` -> Lỗi biên dịch.\n   - C: `float f3 = 0x12345;`: `0x12345` là số nguyên hệ hex (kiểu `int`), tự động chuyển đổi sang `float` -> Hợp lệ!\n   - D: `float f4 = 42e7;`: `42e7` mặc định là `double` -> Lỗi biên dịch.\n   - F: `float f6 = 2.81F;`: Có hậu tố `F` chỉ định rõ kiểu `float` -> Hợp lệ!\n\n✅ Vì sao đáp án \"A và C\" đúng:\nCả hai giá trị này đều là các số nguyên nguyên thủy (`int`), Java cho phép tự động chuyển đổi từ `int` sang `float` mà không cần ép kiểu.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B (`float f2 = 3.14;`): Sai vì `3.14` là kiểu `double`, trình biên dịch sẽ báo lỗi \"possible loss of precision\".\n• Phương án chứa D (`float f4 = 42e7;`): Sai vì dạng số mũ mặc định là `double`, không thể gán cho `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cứ thấy số có dấu chấm (`3.14`) hay số mũ (`e`) mà không có đuôi `f` hoặc `F` thì nó là `double`. Gán `double` vào `float` là lỗi biên dịch ngay!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc số thực trong Java: Mọi literal số thực có dấu chấm động (như `3.14`) hoặc dạng số mũ (`42e7`) mặc định đều có kiểu là `double` (64-bit).\n2. Kiểu `float` chỉ có 32-bit. Bạn không thể gán trực tiếp một giá trị `double` (64-bit) vào biến `float` (32-bit) vì có nguy cơ mất độ chính xác (loss of precision), trừ khi có chữ `f` hoặc `F` đi kèm ở cuối.\n3. Số nguyên (`int` - 32 bit) hoàn toàn có thể gán tự động cho `float` (32 bit) thông qua cơ chế nới rộng kiểu (widening conversion).\n4. Đánh giá từng trường hợp:\n   - A: `float f1 = -343;`: `-343` là số nguyên `int`, tự động chuyển đổi sang `float` -> Hợp lệ!\n   - B: `float f2 = 3.14;`: `3.14` mặc định là `double`, không thể gán trực tiếp cho `float` -> Lỗi biên dịch.\n   - C: `float f3 = 0x12345;`: `0x12345` là số nguyên hệ hex (kiểu `int`), tự động chuyển đổi sang `float` -> Hợp lệ!\n   - D: `float f4 = 42e7;`: `42e7` mặc định là `double` -> Lỗi biên dịch.\n   - F: `float f6 = 2.81F;`: Có hậu tố `F` chỉ định rõ kiểu `float` -> Hợp lệ!\n\n✅ Vì sao đáp án \"A, C và F\" đúng:\nCả hai giá trị này đều là các số nguyên nguyên thủy (`int`), Java cho phép tự động chuyển đổi từ `int` sang `float` mà không cần ép kiểu.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B (`float f2 = 3.14;`): Sai vì `3.14` là kiểu `double`, trình biên dịch sẽ báo lỗi \"possible loss of precision\".\n• Phương án chứa D (`float f4 = 42e7;`): Sai vì dạng số mũ mặc định là `double`, không thể gán cho `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cứ thấy số có dấu chấm (`3.14`) hay số mũ (`e`) mà không có đuôi `f` hoặc `F` thì nó là `double`. Gán `double` vào `float` là lỗi biên dịch ngay!"
     },
     {
       "id": "scjp-ch01-010",
@@ -6099,32 +6119,34 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Language Fundamentals",
       "topic": "javacore",
       "text": "Which three are legal array declarations? (Choose three.)",
-      "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 2 đáp án)",
+      "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 3 đáp án)",
       "code": "",
       "options": [
-        "int[]myScores[] ;",
-        "char[]myChars ;",
-        "int[6]myScores ;",
-        "DogmyDogs[] ;",
-        "DogmyDogs[7] ;"
+        "int[]myScores[];",
+        "char[]myChars;",
+        "int[6]myScores;",
+        "DogmyDogs[];",
+        "DogmyDogs[7];"
       ],
       "optionsVi": [
-        "int[]myScores[] ;",
-        "char[]myChars ;",
-        "int[6]myScores ;",
-        "DogmyDogs[] ;",
-        "DogmyDogs[7] ;"
+        "int[]myScores[];",
+        "char[]myChars;",
+        "int[6]myScores;",
+        "DogmyDogs[];",
+        "DogmyDogs[7];"
       ],
       "answer": [
         0,
-        1
+        1,
+        3
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
-        "B"
+        "B",
+        "D"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc khai báo mảng trong Java:\n   - Dấu ngoặc vuông `[]` có thể đứng sau kiểu dữ liệu (ví dụ `char[] myChars;`) HOẶC đứng sau tên biến (ví dụ `Dog myDogs[];`).\n   - Với mảng nhiều chiều, bạn thậm chí có thể chia cặp ngoặc ra hai bên tên biến (ví dụ `int[] myScores[];` là khai báo mảng 2 chiều hợp lệ).\n2. **Quy tắc vàng:** TUYỆT ĐỐI KHÔNG ĐƯỢC đặt số kích thước vào cặp ngoặc vuông khi KHAI BÁO biến mảng (ví dụ `int[6] a;` hay `Dog myDogs[7];` là sai cú pháp). Kích thước chỉ được chỉ định khi bạn CẤP PHÁT bộ nhớ bằng từ khóa `new` (ví dụ `new int[6]`).\n\n✅ Vì sao đáp án \"A và B\" đúng:\n- `int[] myScores[];`: Khai báo hợp lệ cho mảng 2 chiều (một cặp ngoặc trước tên biến và một cặp ngoặc sau tên biến).\n- `char[] myChars;`: Cú pháp chuẩn mực và phổ biến nhất để khai báo mảng 1 chiều.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C (`int[6] myScores;`): Sai cú pháp vì điền kích thước `[6]` vào phần khai báo kiểu dữ liệu.\n• Phương án chứa E (`Dog myDogs[7];`): Sai cú pháp vì điền kích thước `[7]` sau tên biến khi khai báo.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi khai báo biến mảng: Cặp ngoặc `[]` BẮT BUỘC PHẢI RỖNG! Không bao giờ có số kích thước nằm trong ngoặc khi khai báo biến!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc khai báo mảng trong Java:\n   - Dấu ngoặc vuông `[]` có thể đứng sau kiểu dữ liệu (ví dụ `char[] myChars;`) HOẶC đứng sau tên biến (ví dụ `Dog myDogs[];`).\n   - Với mảng nhiều chiều, bạn thậm chí có thể chia cặp ngoặc ra hai bên tên biến (ví dụ `int[] myScores[];` là khai báo mảng 2 chiều hợp lệ).\n2. **Quy tắc vàng:** TUYỆT ĐỐI KHÔNG ĐƯỢC đặt số kích thước vào cặp ngoặc vuông khi KHAI BÁO biến mảng (ví dụ `int[6] a;` hay `Dog myDogs[7];` là sai cú pháp). Kích thước chỉ được chỉ định khi bạn CẤP PHÁT bộ nhớ bằng từ khóa `new` (ví dụ `new int[6]`).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\n- `int[] myScores[];`: Khai báo hợp lệ cho mảng 2 chiều (một cặp ngoặc trước tên biến và một cặp ngoặc sau tên biến).\n- `char[] myChars;`: Cú pháp chuẩn mực và phổ biến nhất để khai báo mảng 1 chiều.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C (`int[6] myScores;`): Sai cú pháp vì điền kích thước `[6]` vào phần khai báo kiểu dữ liệu.\n• Phương án chứa E (`Dog myDogs[7];`): Sai cú pháp vì điền kích thước `[7]` sau tên biến khi khai báo.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi khai báo biến mảng: Cặp ngoặc `[]` BẮT BUỘC PHẢI RỖNG! Không bao giờ có số kích thước nằm trong ngoặc khi khai báo biến!"
     },
     {
       "id": "scjp-ch01-011",
@@ -6148,8 +6170,8 @@ export const scjpChapterAllQuiz = {
         "9",
         "11",
         "13",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -6165,36 +6187,38 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Language Fundamentals",
       "topic": "javacore",
       "text": "Given the following, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
-      "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 3 đáp án)",
+      "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 4 đáp án)",
       "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
       "options": [
-        "b2[0][1]=b;",
-        "b[0][0]=b3;",
-        "b2[1][1][0]=b[0][0];",
-        "b2[1][2][0]=b;",
-        "b2[0][1][0][0]=b[0][0];",
-        "b2[0][1]=big;"
+        "b2[0][1]= b;",
+        "b[0][0]= b3;",
+        "b2[1][1][0]= b[0][0];",
+        "b2[1][2][0]= b;",
+        "b2[0][1][0][0]= b[0][0];",
+        "b2[0][1]= big;"
       ],
       "optionsVi": [
-        "b2[0][1]=b;",
-        "b[0][0]=b3;",
-        "b2[1][1][0]=b[0][0];",
-        "b2[1][2][0]=b;",
-        "b2[0][1][0][0]=b[0][0];",
-        "b2[0][1]=big;"
+        "b2[0][1]= b;",
+        "b[0][0]= b3;",
+        "b2[1][1][0]= b[0][0];",
+        "b2[1][2][0]= b;",
+        "b2[0][1][0][0]= b[0][0];",
+        "b2[0][1]= big;"
       ],
       "answer": [
         0,
         1,
-        4
+        4,
+        5
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
         "B",
-        "E"
+        "E",
+        "F"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nNguyên tắc gán mảng trong Java: Hai vế của phép gán phải KHỚP NHAU VỀ KIỂU DỮ LIỆU VÀ SỐ CHIỀU.\nHãy phân tích kiểu dữ liệu và số chiều của các biến:\n- `b3`: là kiểu số nguyên thủy `byte` (0 chiều).\n- `b`: là mảng 2 chiều `byte[][]`. Truy xuất `b[0][0]` là kiểu `byte` (0 chiều).\n- `big`: là mảng 2 chiều `byte[][]`.\n- `b2`: là mảng 4 chiều `byte[][][][]`.\n  - `b2[0][1]`: đã chỉ định 2 chỉ số, nên còn lại **mảng 2 chiều** (`byte[][]`).\n  - `b2[1][1][0]` hoặc `b2[1][2][0]`: đã chỉ định 3 chỉ số, nên còn lại **mảng 1 chiều** (`byte[]`).\n  - `b2[0][1][0][0]`: đã chỉ định cả 4 chỉ số, nên là **kiểu nguyên thủy** (`byte`).\n\nBây giờ đối chiếu từng câu lệnh:\n- **A:** `b2[0][1] = b;` -> Vế trái là mảng 2 chiều (`byte[][]`), vế phải `b` cũng là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ**.\n- **B:** `b[0][0] = b3;` -> Vế trái là `byte`, vế phải `b3` là `byte` -> **HỢP LỆ**.\n- **C:** `b2[1][1][0] = b[0][0];` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải là kiểu `byte` nguyên thủy -> **LỖI BIÊN DỊCH** (không thể gán byte cho mảng byte).\n- **D:** `b2[1][2][0] = b;` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải `b` là mảng 2 chiều (`byte[][]`) -> **LỖI BIÊN DỊCH** (lệch số chiều).\n- **E:** `b2[0][1][0][0] = b[0][0];` -> Cả hai vế đều là kiểu nguyên thủy `byte` -> **HỢP LỆ**.\n- **F:** `b2[0][1] = big;` -> Cả hai vế đều là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ** (kích thước mảng không ảnh hưởng đến phép gán tham chiếu).\n\n✅ Vì sao đáp án \"A và B và E\" đúng:\nCả 3 câu lệnh A, B, E đều khớp hoàn toàn về kiểu dữ liệu và số chiều giữa hai vế của phép gán.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C: Sai vì cố gán một giá trị nguyên thủy `byte` vào một biến tham chiếu mảng `byte[]`.\n• Phương án chứa D: Sai vì cố gán mảng 2 chiều `byte[][]` vào một biến mảng 1 chiều `byte[]`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mỗi cặp ngoặc vuông `[]` thêm vào sẽ làm giảm số chiều đi 1 bậc: Mảng 4 chiều mà dùng 2 cặp ngoặc `b2[0][1]` thì trở thành mảng 2 chiều! Hai bên dấu `=` phải có cùng số chiều và cùng kiểu cơ sở!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nNguyên tắc gán mảng trong Java: Hai vế của phép gán phải KHỚP NHAU VỀ KIỂU DỮ LIỆU VÀ SỐ CHIỀU.\nHãy phân tích kiểu dữ liệu và số chiều của các biến:\n- `b3`: là kiểu số nguyên thủy `byte` (0 chiều).\n- `b`: là mảng 2 chiều `byte[][]`. Truy xuất `b[0][0]` là kiểu `byte` (0 chiều).\n- `big`: là mảng 2 chiều `byte[][]`.\n- `b2`: là mảng 4 chiều `byte[][][][]`.\n  - `b2[0][1]`: đã chỉ định 2 chỉ số, nên còn lại **mảng 2 chiều** (`byte[][]`).\n  - `b2[1][1][0]` hoặc `b2[1][2][0]`: đã chỉ định 3 chỉ số, nên còn lại **mảng 1 chiều** (`byte[]`).\n  - `b2[0][1][0][0]`: đã chỉ định cả 4 chỉ số, nên là **kiểu nguyên thủy** (`byte`).\n\nBây giờ đối chiếu từng câu lệnh:\n- **A:** `b2[0][1] = b;` -> Vế trái là mảng 2 chiều (`byte[][]`), vế phải `b` cũng là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ**.\n- **B:** `b[0][0] = b3;` -> Vế trái là `byte`, vế phải `b3` là `byte` -> **HỢP LỆ**.\n- **C:** `b2[1][1][0] = b[0][0];` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải là kiểu `byte` nguyên thủy -> **LỖI BIÊN DỊCH** (không thể gán byte cho mảng byte).\n- **D:** `b2[1][2][0] = b;` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải `b` là mảng 2 chiều (`byte[][]`) -> **LỖI BIÊN DỊCH** (lệch số chiều).\n- **E:** `b2[0][1][0][0] = b[0][0];` -> Cả hai vế đều là kiểu nguyên thủy `byte` -> **HỢP LỆ**.\n- **F:** `b2[0][1] = big;` -> Cả hai vế đều là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ** (kích thước mảng không ảnh hưởng đến phép gán tham chiếu).\n\n✅ Vì sao đáp án \"A, B, E và F\" đúng:\nCả 3 câu lệnh A, B, E đều khớp hoàn toàn về kiểu dữ liệu và số chiều giữa hai vế của phép gán.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C: Sai vì cố gán một giá trị nguyên thủy `byte` vào một biến tham chiếu mảng `byte[]`.\n• Phương án chứa D: Sai vì cố gán mảng 2 chiều `byte[][]` vào một biến mảng 1 chiều `byte[]`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mỗi cặp ngoặc vuông `[]` thêm vào sẽ làm giảm số chiều đi 1 bậc: Mảng 4 chiều mà dùng 2 cặp ngoặc `b2[0][1]` thì trở thành mảng 2 chiều! Hai bên dấu `=` phải có cùng số chiều và cùng kiểu cơ sở!"
     },
     {
       "id": "scjp-ch01-013",
@@ -6206,20 +6230,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai khai báo nào dưới đây sẽ khai báo một mảng và khởi tạo nó với 5 số? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "Arraya=newArray(5) ;",
-        "int[]a={23,22,21,20,19} ;",
-        "int[]array ;",
-        "intarray[]=newint[5] ;",
-        "inta[]=newint(5) ;",
-        "int[5]array ;"
+        "Arraya= newArray(5);",
+        "int[]a= {23,22,21,20,19};",
+        "int[]array;",
+        "intarray[]= newint[5];",
+        "inta[]= newint(5);",
+        "int[5]array;"
       ],
       "optionsVi": [
-        "Arraya=newArray(5) ;",
-        "int[]a={23,22,21,20,19} ;",
-        "int[]array ;",
-        "intarray[]=newint[5] ;",
-        "inta[]=newint(5) ;",
-        "int[5]array ;"
+        "Arraya= newArray(5);",
+        "int[]a= {23,22,21,20,19};",
+        "int[]array;",
+        "intarray[]= newint[5];",
+        "inta[]= newint(5);",
+        "int[5]array;"
       ],
       "answer": [
         1,
@@ -6242,20 +6266,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cú pháp nào dưới đây khai báo, tạo mới (construct) và khởi tạo hợp lệ một mảng? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "int[] myList = {\"1\", \"2\", \"3\"};",
-        "int[] myList = (5, 8, 2);",
-        "int myList[][] = {4, 9, 7, 0};",
-        "int myList[] = {4, 3, 7};",
-        "int[] myList = [3, 5, 6];",
-        "int myList[] = {4; 6; 5};"
+        "int[]myList= {“1”,“2”,“3”};",
+        "int[]myList= (5,8,2);",
+        "intmyList[][]= {4,9,7,0};",
+        "intmyList[]= {4,3,7};",
+        "int[]myList= [3,5,6];",
+        "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
       ],
       "optionsVi": [
-        "int[] myList = {\"1\", \"2\", \"3\"};",
-        "int[] myList = (5, 8, 2);",
-        "int myList[][] = {4, 9, 7, 0};",
-        "int myList[] = {4, 3, 7};",
-        "int[] myList = [3, 5, 6];",
-        "int myList[] = {4; 6; 5};"
+        "int[]myList= {“1”,“2”,“3”};",
+        "int[]myList= (5,8,2);",
+        "intmyList[][]= {4,9,7,0};",
+        "intmyList[]= {4,3,7};",
+        "int[]myList= [3,5,6];",
+        "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -6271,7 +6295,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Language Fundamentals",
       "topic": "javacore",
       "text": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
-      "textVi": "Bốn mô tả nào dưới đây biểu diễn đúng giá trị mặc định cho các phần tử mảng của các kiểu dữ liệu tương ứng khi vừa được khởi tạo? (Chọn 3 đáp án)",
+      "textVi": "Bốn mô tả nào dưới đây biểu diễn đúng giá trị mặc định cho các phần tử mảng của các kiểu dữ liệu tương ứng khi vừa được khởi tạo? (Chọn 4 đáp án)",
       "code": "",
       "options": [
         "int -> 0",
@@ -6292,15 +6316,17 @@ export const scjpChapterAllQuiz = {
       "answer": [
         0,
         2,
-        3
+        3,
+        4
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
         "C",
-        "D"
+        "D",
+        "E"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nKhi một mảng được tạo ra bằng từ khóa `new` trong Java, tất cả các phần tử bên trong nó luôn được JVM tự động gán giá trị mặc định (default value) tùy theo kiểu dữ liệu của mảng:\n1. Kiểu số nguyên (`byte`, `short`, `int`, `long`): Mặc định là `0` (hoặc `0L`).\n2. Kiểu số thực (`float`, `double`): Mặc định là `0.0f` và `0.0d`.\n3. Kiểu ký tự (`char`): Mặc định là `\\u0000` (ký tự null, tương ứng với mã số 0).\n4. Kiểu logic (`boolean`): Mặc định là `false` (TUYỆT ĐỐI KHÔNG PHẢI `true`).\n5. Kiểu đối tượng tham chiếu (`String`, `Dog`, mảng, Object...): Mặc định là giá trị tham chiếu `null` (không trỏ đến đối tượng nào, KHÔNG PHẢI chuỗi có chữ `\"null\"`).\n\nĐối chiếu các mô tả:\n- A: `int -> 0` -> ĐÚNG.\n- B: `String -> \"null\"` -> SAI (giá trị mặc định là literal `null`, không phải chuỗi `\"null\"` có dấu nháy kép).\n- C: `Dog -> null` -> ĐÚNG (mọi kiểu đối tượng tham chiếu đều mặc định là `null`).\n- D: `char -> '\u0000'` -> ĐÚNG.\n- E: `float -> 0.0f` -> ĐÚNG.\n- F: `boolean -> true` -> SAI (mặc định là `false`).\n\n✅ Vì sao đáp án \"A và C và D\" đúng:\nCả 3 mô tả A, C, D đều thể hiện chính xác 100% giá trị mặc định của các kiểu tương ứng trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Bẫy thi kinh điển! Mặc định của biến tham chiếu String là `null` (rỗng), chứ không phải chuỗi văn bản `\"null\"`.\n• Phương án chứa F: Sai vì giá trị mặc định của `boolean` là `false`, không bao giờ là `true`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Số = 0, char = '\u0000', boolean = false, mọi Object tham chiếu = null (không nháy kép)! Nhớ 4 quy tắc này là không bao giờ làm sai!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nKhi một mảng được tạo ra bằng từ khóa `new` trong Java, tất cả các phần tử bên trong nó luôn được JVM tự động gán giá trị mặc định (default value) tùy theo kiểu dữ liệu của mảng:\n1. Kiểu số nguyên (`byte`, `short`, `int`, `long`): Mặc định là `0` (hoặc `0L`).\n2. Kiểu số thực (`float`, `double`): Mặc định là `0.0f` và `0.0d`.\n3. Kiểu ký tự (`char`): Mặc định là `\\u0000` (ký tự null, tương ứng với mã số 0).\n4. Kiểu logic (`boolean`): Mặc định là `false` (TUYỆT ĐỐI KHÔNG PHẢI `true`).\n5. Kiểu đối tượng tham chiếu (`String`, `Dog`, mảng, Object...): Mặc định là giá trị tham chiếu `null` (không trỏ đến đối tượng nào, KHÔNG PHẢI chuỗi có chữ `\"null\"`).\n\nĐối chiếu các mô tả:\n- A: `int -> 0` -> ĐÚNG.\n- B: `String -> \"null\"` -> SAI (giá trị mặc định là literal `null`, không phải chuỗi `\"null\"` có dấu nháy kép).\n- C: `Dog -> null` -> ĐÚNG (mọi kiểu đối tượng tham chiếu đều mặc định là `null`).\n- D: `char -> '\u0000'` -> ĐÚNG.\n- E: `float -> 0.0f` -> ĐÚNG.\n- F: `boolean -> true` -> SAI (mặc định là `false`).\n\n✅ Vì sao đáp án \"A, C, D và E\" đúng:\nCả 3 mô tả A, C, D đều thể hiện chính xác 100% giá trị mặc định của các kiểu tương ứng trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Bẫy thi kinh điển! Mặc định của biến tham chiếu String là `null` (rỗng), chứ không phải chuỗi văn bản `\"null\"`.\n• Phương án chứa F: Sai vì giá trị mặc định của `boolean` là `false`, không bao giờ là `true`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Số = 0, char = '\u0000', boolean = false, mọi Object tham chiếu = null (không nháy kép)! Nhớ 4 quy tắc này là không bao giờ làm sai!"
     },
     {
       "id": "scjp-ch01-016",
@@ -6320,8 +6346,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "null",
         "theDogs",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -6343,13 +6369,13 @@ export const scjpChapterAllQuiz = {
         "names",
         "null",
         "Compilation fails",
-        "An exception is thrown at runtime"
+        "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
       ],
       "optionsVi": [
         "names",
         "null",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -6368,20 +6394,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgs 1 2 3 4\", kết quả in ra là gì? (Chọn 1 đáp án)",
       "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }",
       "options": [
-        "args[2]=2",
-        "args[2]=3",
-        "args[2]=null",
-        "args[2]=1",
+        "args[2]= 2",
+        "args[2]= 3",
+        "args[2]= null",
+        "args[2]= 1",
         "Compilation fails",
         "An exception is thrown at runtime"
       ],
       "optionsVi": [
-        "args[2]=2",
-        "args[2]=3",
-        "args[2]=null",
-        "args[2]=1",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "args[2]= 2",
+        "args[2]= 3",
+        "args[2]= null",
+        "args[2]= 1",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 5,
       "isMultiple": false,
@@ -6412,8 +6438,8 @@ export const scjpChapterAllQuiz = {
         "123",
         "000",
         "nullnullnull",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 5,
       "isMultiple": false,
@@ -6444,8 +6470,8 @@ export const scjpChapterAllQuiz = {
         "12",
         "000",
         "123",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -6475,7 +6501,7 @@ export const scjpChapterAllQuiz = {
         "abstract",
         "protected",
         "synchronized",
-        "default access (truy cập mặc định / package-private)"
+        "default access"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6507,7 +6533,7 @@ export const scjpChapterAllQuiz = {
         "private",
         "protected",
         "volatile",
-        "default access (truy cập mặc định)"
+        "default access"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -6523,7 +6549,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Declarations and Access Control",
       "topic": "modifier",
       "text": "Given the following, which three of the following statements are true? (Choose three.)",
-      "textVi": "Cho đoạn mã sau, phát biểu nào dưới đây là đúng? (Chọn 2 đáp án)",
+      "textVi": "Cho đoạn mã sau, phát biểu nào dưới đây là đúng? (Chọn 3 đáp án)",
       "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
       "options": [
         "The code will compile with no changes.",
@@ -6543,14 +6569,16 @@ export const scjpChapterAllQuiz = {
       ],
       "answer": [
         0,
-        2
+        2,
+        4
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
-        "C"
+        "C",
+        "E"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích mối quan hệ kế thừa giữa hai lớp trừu tượng `A` và `B`:\n- `abstract class A` có một phương thức abstract là `abstract short m1();` và một phương thức cụ thể là `short m2() { return (short) 420; }`.\n- `abstract class B extends A` kế thừa `A` và đã cài đặt phương thức `short m1() { return (short) 42; }`.\n\nQuy tắc của Java đối với Abstract Class:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động kế thừa implementation này từ `A`.\n   - `B` có quyền override lại nếu muốn, hoặc thậm chí `B` có thể khai báo lại `abstract short m2();` (tái trừu tượng hóa để bắt buộc các lớp con của `B` phải tự viết lại).\n   - Tuy nhiên việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Vì vậy, mã nguồn hiện tại biên dịch hoàn hảo 100% mà không cần sửa đổi bất kỳ dòng nào (khẳng định A đúng). Và khẳng định C (B có quyền làm điều đó nhưng không bắt buộc) cũng đúng.\n\n✅ Vì sao đáp án \"A và C\" đúng:\nKhẳng định A đúng vì mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không lỗi. Khẳng định C đúng vì việc override hoặc biến `m2()` thành abstract trong lớp con `B` là quyền của `B` chứ không phải nghĩa vụ bắt buộc.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Sai vì khẳng định B cho rằng `B` \"bắt buộc\" (must) phải khai báo lại hoặc implement `m2()`. Thực tế `B` đã nghiễm nhiên thừa hưởng `m2()` từ cha `A` rồi.\n• Phương án chứa D: Sai vì một class con hoàn toàn có thể tự viết thêm phương thức mới mà không cần class cha phải khai báo nó trước.\n• Phương án chứa F: Sai vì trong Java, một abstract class hoàn toàn có thể kế thừa từ một concrete class bình thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất tự do: phương thức trừu tượng của cha thích thì implement, không thích thì để lớp con cháu sau này implement. Phương thức cụ thể của cha thì thích override cũng được, mà để nguyên dùng cũng được!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích mối quan hệ kế thừa giữa hai lớp trừu tượng `A` và `B`:\n- `abstract class A` có một phương thức abstract là `abstract short m1();` và một phương thức cụ thể là `short m2() { return (short) 420; }`.\n- `abstract class B extends A` kế thừa `A` và đã cài đặt phương thức `short m1() { return (short) 42; }`.\n\nQuy tắc của Java đối với Abstract Class:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động kế thừa implementation này từ `A`.\n   - `B` có quyền override lại nếu muốn, hoặc thậm chí `B` có thể khai báo lại `abstract short m2();` (tái trừu tượng hóa để bắt buộc các lớp con của `B` phải tự viết lại).\n   - Tuy nhiên việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Vì vậy, mã nguồn hiện tại biên dịch hoàn hảo 100% mà không cần sửa đổi bất kỳ dòng nào (khẳng định A đúng). Và khẳng định C (B có quyền làm điều đó nhưng không bắt buộc) cũng đúng.\n\n✅ Vì sao đáp án \"A, C và E\" đúng:\nKhẳng định A đúng vì mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không lỗi. Khẳng định C đúng vì việc override hoặc biến `m2()` thành abstract trong lớp con `B` là quyền của `B` chứ không phải nghĩa vụ bắt buộc.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Sai vì khẳng định B cho rằng `B` \"bắt buộc\" (must) phải khai báo lại hoặc implement `m2()`. Thực tế `B` đã nghiễm nhiên thừa hưởng `m2()` từ cha `A` rồi.\n• Phương án chứa D: Sai vì một class con hoàn toàn có thể tự viết thêm phương thức mới mà không cần class cha phải khai báo nó trước.\n• Phương án chứa F: Sai vì trong Java, một abstract class hoàn toàn có thể kế thừa từ một concrete class bình thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất tự do: phương thức trừu tượng của cha thích thì implement, không thích thì để lớp con cháu sau này implement. Phương thức cụ thể của cha thì thích override cũng được, mà để nguyên dùng cũng được!"
     },
     {
       "id": "scjp-ch02-004",
@@ -6595,7 +6623,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Declarations and Access Control",
       "topic": "modifier",
       "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
-      "textVi": "Trong 6 khai báo phương thức dưới đây, có bao nhiêu khai báo là HỢP LỆ? (Chọn 1 đáp án)\n1 – protected abstract void m1();\n2 – static final void m1(){}\n3 – transient private native void m1() {}\n4 – synchronized public final void m1() {}\n5 – private native void m1();\n6 – static final synchronized protected void m1() {}",
+      "textVi": "Trong 6 khai báo phương thức dưới đây, có bao nhiêu khai báo là HỢP LỆ? \n1 – protected abstract void m1();\n2 – static final void m1(){}\n3 – transient private native void m1() {}\n4 – synchronized public final void m1() {}\n5 – private native void m1();\n6 – static final synchronized protected void m1() {} (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "1",
@@ -6630,18 +6658,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau gồm hai file ở hai package khác nhau. Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
       "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
       "options": [
-        "The code compiles and runs, with output this 420 parent 420.",
+        "The code compiles and runs, with outputthis420parent420 .",
         "If line 8 is removed, the code will compile and run.",
         "If line 10 is removed, the code will compile and run.",
         "Both lines 8 and 10 must be removed for the code to compile.",
-        "An exception is thrown at runtime."
+        "An exception is thrown at runtime. Declaration Rules (;"
       ],
       "optionsVi": [
-        "Mã nguồn biên dịch và chạy bình thường, in ra: \"this 420 parent 420\".",
-        "Nếu xóa dòng 8, mã nguồn sẽ biên dịch và chạy được.",
-        "Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được.",
-        "Cả dòng 8 và dòng 10 đều phải bị xóa thì mã nguồn mới biên dịch được.",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+        "The code compiles and runs, with outputthis420parent420 .",
+        "If line 8 is removed, the code will compile and run.",
+        "If line 10 is removed, the code will compile and run.",
+        "Both lines 8 and 10 must be removed for the code to compile.",
+        "An exception is thrown at runtime. Declaration Rules (;"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -6672,8 +6700,8 @@ export const scjpChapterAllQuiz = {
         "123",
         "0123",
         "1234",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6758,17 +6786,17 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai khai báo nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "publicstaticshortstop=23;",
-        "protectedshortstop=23;",
-        "transientshortstop=23;",
+        "publicstaticshortstop= 23;",
+        "protectedshortstop= 23;",
+        "transientshortstop= 23;",
         "finalvoidmadness(shortstop);",
         "publicBooleanmadness(longbow);",
         "staticcharmadness(doubleduty);"
       ],
       "optionsVi": [
-        "publicstaticshortstop=23;",
-        "protectedshortstop=23;",
-        "transientshortstop=23;",
+        "publicstaticshortstop= 23;",
+        "protectedshortstop= 23;",
+        "transientshortstop= 23;",
         "finalvoidmadness(shortstop);",
         "publicBooleanmadness(longbow);",
         "staticcharmadness(doubleduty);"
@@ -6794,18 +6822,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Khai báo biến ở cấp độ lớp (biến non-local / biến toàn cục của class) nào dưới đây sẽ KHÔNG THỂ biên dịch? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "protected int a;",
-        "transient int b = 3;",
-        "public static final int c;",
-        "volatile int d;",
-        "private synchronized int e;"
+        "protectedinta;",
+        "transientintb= 3;",
+        "publicstaticfinalintc;",
+        "volatileintd;",
+        "privatesynchronizedinte;"
       ],
       "optionsVi": [
-        "protected int a;",
-        "transient int b = 3;",
-        "public static final int c;",
-        "volatile int d;",
-        "private synchronized int e;"
+        "protectedinta;",
+        "transientintb= 3;",
+        "publicstaticfinalintc;",
+        "volatileintd;",
+        "privatesynchronizedinte;"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6855,7 +6883,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Declarations and Access Control",
       "topic": "modifier",
       "text": "Which three are valid method signatures in an interface? (Choose three.)",
-      "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
+      "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 3 đáp án)",
       "code": "",
       "options": [
         "privateintgetArea();",
@@ -6873,14 +6901,16 @@ export const scjpChapterAllQuiz = {
       ],
       "answer": [
         1,
-        2
+        2,
+        4
       ],
       "isMultiple": true,
       "correctLetters": [
         "B",
-        "C"
+        "C",
+        "E"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy định về phương thức trong Interface (chuẩn SCJP):\n1. Mọi phương thức trong interface đều mặc định là `public abstract`.\n2. Lập trình viên có thể viết tường minh `public abstract` hoặc lược bỏ.\n3. TUYỆT ĐỐI KHÔNG ĐƯỢC dùng các modifier sau: `private`, `protected`, `final`, `static`, `native`, `synchronized`.\n4. Tên phương thức có thể là bất kỳ định danh hợp lệ nào (kể cả tên `main`), tham số và kiểu trả về có thể là bất kỳ kiểu dữ liệu hợp lệ nào.\n\nPhân tích từng khai báo:\n- A: `private int getArea();` -> **SAI** vì phương thức interface không được phép là `private`.\n- B: `public float getVol(float x);` -> **HỢP LỆ** (khai báo `public` tường minh, kết thúc bằng `;`).\n- C: `public void main(String[] args);` -> **HỢP LỆ** (đây là một phương thức trừu tượng bình thường có tên là `main`, hoàn toàn hợp pháp).\n- D: `public static void main(String[] args);` -> **SAI** vì theo chuẩn Java truyền thống của SCJP, phương thức trong interface không được phép là `static`.\n- E: `boolean setFlag(Boolean[] test[]);` -> **HỢP LỆ** (ngầm định là public abstract, tham số là mảng 2 chiều `Boolean[][]`).\n\nBộ 3 hợp lệ gốc là B, C, E. Trong các phương án lựa chọn, tổ hợp A (`B và C`) là hoàn toàn chính xác.\n\n✅ Vì sao đáp án \"B và C\" đúng:\nCả hai phương thức B và C đều là các khai báo phương thức trừu tượng công khai (`public abstract`) hợp lệ bên trong interface.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Phương thức interface bị cấm dùng `private`.\n• Phương án chứa D: Phương thức interface trong SCJP bị cấm dùng `static`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong interface: Phương thức LUÔN LUÔN là `public abstract`. Thấy dính `private`, `protected`, `static`, `final` là loại ngay không cần suy nghĩ!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy định về phương thức trong Interface (chuẩn SCJP):\n1. Mọi phương thức trong interface đều mặc định là `public abstract`.\n2. Lập trình viên có thể viết tường minh `public abstract` hoặc lược bỏ.\n3. TUYỆT ĐỐI KHÔNG ĐƯỢC dùng các modifier sau: `private`, `protected`, `final`, `static`, `native`, `synchronized`.\n4. Tên phương thức có thể là bất kỳ định danh hợp lệ nào (kể cả tên `main`), tham số và kiểu trả về có thể là bất kỳ kiểu dữ liệu hợp lệ nào.\n\nPhân tích từng khai báo:\n- A: `private int getArea();` -> **SAI** vì phương thức interface không được phép là `private`.\n- B: `public float getVol(float x);` -> **HỢP LỆ** (khai báo `public` tường minh, kết thúc bằng `;`).\n- C: `public void main(String[] args);` -> **HỢP LỆ** (đây là một phương thức trừu tượng bình thường có tên là `main`, hoàn toàn hợp pháp).\n- D: `public static void main(String[] args);` -> **SAI** vì theo chuẩn Java truyền thống của SCJP, phương thức trong interface không được phép là `static`.\n- E: `boolean setFlag(Boolean[] test[]);` -> **HỢP LỆ** (ngầm định là public abstract, tham số là mảng 2 chiều `Boolean[][]`).\n\nBộ 3 hợp lệ gốc là B, C, E. Trong các phương án lựa chọn, tổ hợp A (`B và C`) là hoàn toàn chính xác.\n\n✅ Vì sao đáp án \"B, C và E\" đúng:\nCả hai phương thức B và C đều là các khai báo phương thức trừu tượng công khai (`public abstract`) hợp lệ bên trong interface.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Phương thức interface bị cấm dùng `private`.\n• Phương án chứa D: Phương thức interface trong SCJP bị cấm dùng `static`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong interface: Phương thức LUÔN LUÔN là `public abstract`. Thấy dính `private`, `protected`, `static`, `final` là loại ngay không cần suy nghĩ!"
     },
     {
       "id": "scjp-ch02-014",
@@ -6932,14 +6962,14 @@ export const scjpChapterAllQuiz = {
         "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
         "abstractclassClass2implementsBase{}",
         "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-        "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}}"
+        "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
       ],
       "optionsVi": [
         "interfaceBase2implementsBase{}",
         "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
         "abstractclassClass2implementsBase{}",
         "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-        "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}}"
+        "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
       ],
       "answer": [
         2,
@@ -6959,7 +6989,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Which two are equal? (Choose two.)",
-      "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai)",
+      "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "32/4;",
@@ -6995,23 +7025,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
-      "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
       "options": [
-        "booleantest=(Componentinstanceoft);",
-        "booleantest=(tinstanceofTicker);",
-        "booleantest=t.instanceof(Ticker);",
-        "booleantest=(tinstanceofComponent);",
-        "booleantest=t.instanceof(Object);",
-        "booleantest=(tinstanceofString);"
+        "boolean test = (Componentinstanceoft);",
+        "boolean test = (tinstanceofTicker);",
+        "boolean test = t.instanceof(Ticker);",
+        "boolean test = (tinstanceofComponent);",
+        "boolean test = t.instanceof(Object);",
+        "boolean test = (tinstanceofString);"
       ],
       "optionsVi": [
-        "booleantest=(Componentinstanceoft);",
-        "booleantest=(tinstanceofTicker);",
-        "booleantest=t.instanceof(Ticker);",
-        "booleantest=(tinstanceofComponent);",
-        "booleantest=t.instanceof(Object);",
-        "booleantest=(tinstanceofString);"
+        "boolean test = (Componentinstanceoft);",
+        "boolean test = (tinstanceofTicker);",
+        "boolean test = t.instanceof(Ticker);",
+        "boolean test = (tinstanceofComponent);",
+        "boolean test = t.instanceof(Object);",
+        "boolean test = (tinstanceofString);"
       ],
       "answer": [
         1,
@@ -7031,19 +7061,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
       "options": [
         "true",
         "false",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "optionsVi": [
         "true",
         "false",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7059,32 +7089,34 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, which three statements are true? (Choose three.)",
-      "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba)",
+      "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba) (Chọn 3 đáp án)",
       "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
       "options": [
-        "f1==f2",
-        "f1==f3",
-        "f2==f1[1]",
-        "x==f1[0]",
-        "f==f1[0]"
+        "f1= =f2",
+        "f1= =f3",
+        "f2= =f1[1]",
+        "x= =f1[0]",
+        "f= =f1[0]"
       ],
       "optionsVi": [
-        "f1==f2",
-        "f1==f3",
-        "f2==f1[1]",
-        "x==f1[0]",
-        "f==f1[0]"
+        "f1= =f2",
+        "f1= =f3",
+        "f2= =f1[1]",
+        "x= =f1[0]",
+        "f= =f1[0]"
       ],
       "answer": [
         1,
-        3
+        3,
+        4
       ],
       "isMultiple": true,
       "correctLetters": [
         "B",
-        "D"
+        "D",
+        "E"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài kiểm tra cơ chế so sánh bằng `==` giữa các biến tham chiếu (reference variables) và các biến kiểu nguyên thủy (primitive types):\n1. Phân tích chi tiết từng biểu thức so sánh:\n   • A. `f1 == f2`: `f1` và `f2` là hai biến tham chiếu trỏ đến hai đối tượng mảng float riêng biệt được tạo bởi hai toán tử `new` khác nhau ở dòng 5 và 6. Toán tử `==` khi so sánh hai biến tham chiếu sẽ so sánh địa chỉ ô nhớ trên Heap. Vì trỏ đến hai vùng nhớ khác nhau, `f1 == f2` trả về `false`.\n   • B. `f1 == f3`: Dòng 7 gán `float[] f3 = f1;`. Câu lệnh này sao chép địa chỉ tham chiếu từ `f1` sang `f3`, nghĩa là cả hai biến cùng trỏ vào DUY NHẤT một đối tượng mảng trên bộ nhớ Heap. Do đó `f1 == f3` trả về `true`.\n   • C. `f2 == f1[1]`: `f2` là biến tham chiếu đối tượng mảng (`float[]`), trong khi `f1[1]` là một giá trị số thực nguyên thủy (`float`). Trong Java, việc so sánh `==` giữa biến tham chiếu đối tượng và biến nguyên thủy là bất hợp pháp và gây lỗi biên dịch (\"incomparable types\").\n   • D. `x == f1[0]`: `x` là biến nguyên thủy kiểu `long` có giá trị 42. `f1[0]` là phần tử mảng kiểu nguyên thủy `float` có giá trị 42.0f. Khi so sánh giữa hai kiểu số nguyên thủy, Java tự động nới rộng kiểu (numeric promotion) từ `long` sang `float`: `42.0f == 42.0f` -> trả về `true`.\n   • E. `f == f1[0]`: Cả `f` và `f1[0]` đều là biến nguyên thủy kiểu `float` mang giá trị 42.0f -> trả về `true`.\n\n2. Kết luận: Các phát biểu trả về `true` trong đề thi gốc là B, D và E. Trong các phương án ghép cặp, phương án [0] đại diện cho cặp đúng tiêu biểu B và D.\n\n✅ Vì sao đáp án \"B và D\" đúng:\n• `f1 == f3` là `true` vì cả hai biến tham chiếu cùng trỏ đến cùng một đối tượng mảng trên bộ nhớ Heap.\n• `x == f1[0]` là `true` vì đây là phép so sánh giá trị số nguyên thủy, giá trị số 42 của `long` bằng 42.0f của `float`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B (A: f1 == f2 & B: f1 == f3)\": Sai vì biểu thức A (`f1 == f2`) trả về `false`. Hai mảng được tạo bởi 2 lệnh `new` độc lập nên nằm ở 2 ô nhớ khác nhau trên Heap, dù các phần tử bên trong có giống nhau thì so sánh `==` vẫn ra `false`.\n• \"A và C (A: f1 == f2 & C: f2 == f1[1])\": Sai vì A trả về `false`, còn C (`f2 == f1[1]`) gây lỗi biên dịch do so sánh biến tham chiếu mảng với giá trị số nguyên thủy.\n• \"D và E (D: x == f1[0] & E: f == f1[0])\": Mặc dù D và E đều là các biểu thức đúng, nhưng theo bộ mã đề gốc SCJP (đáp án B, D được chỉ định cho vị trí khóa), phương án [0] là phương án chính xác của câu hỏi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối với biến tham chiếu (Object/Array): `==` so sánh ĐỊA CHỈ VÙNG NHỚ (hai biến có trỏ chung một đối tượng không).\n• Đối với kiểu số nguyên thủy (primitive): `==` so sánh GIÁ TRỊ TOÁN HỌC, tự động ép kiểu mở rộng (ví dụ `long` thành `float`) trước khi so sánh."
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài kiểm tra cơ chế so sánh bằng `==` giữa các biến tham chiếu (reference variables) và các biến kiểu nguyên thủy (primitive types):\n1. Phân tích chi tiết từng biểu thức so sánh:\n   • A. `f1 == f2`: `f1` và `f2` là hai biến tham chiếu trỏ đến hai đối tượng mảng float riêng biệt được tạo bởi hai toán tử `new` khác nhau ở dòng 5 và 6. Toán tử `==` khi so sánh hai biến tham chiếu sẽ so sánh địa chỉ ô nhớ trên Heap. Vì trỏ đến hai vùng nhớ khác nhau, `f1 == f2` trả về `false`.\n   • B. `f1 == f3`: Dòng 7 gán `float[] f3 = f1;`. Câu lệnh này sao chép địa chỉ tham chiếu từ `f1` sang `f3`, nghĩa là cả hai biến cùng trỏ vào DUY NHẤT một đối tượng mảng trên bộ nhớ Heap. Do đó `f1 == f3` trả về `true`.\n   • C. `f2 == f1[1]`: `f2` là biến tham chiếu đối tượng mảng (`float[]`), trong khi `f1[1]` là một giá trị số thực nguyên thủy (`float`). Trong Java, việc so sánh `==` giữa biến tham chiếu đối tượng và biến nguyên thủy là bất hợp pháp và gây lỗi biên dịch (\"incomparable types\").\n   • D. `x == f1[0]`: `x` là biến nguyên thủy kiểu `long` có giá trị 42. `f1[0]` là phần tử mảng kiểu nguyên thủy `float` có giá trị 42.0f. Khi so sánh giữa hai kiểu số nguyên thủy, Java tự động nới rộng kiểu (numeric promotion) từ `long` sang `float`: `42.0f == 42.0f` -> trả về `true`.\n   • E. `f == f1[0]`: Cả `f` và `f1[0]` đều là biến nguyên thủy kiểu `float` mang giá trị 42.0f -> trả về `true`.\n\n2. Kết luận: Các phát biểu trả về `true` trong đề thi gốc là B, D và E. Trong các phương án ghép cặp, phương án [0] đại diện cho cặp đúng tiêu biểu B và D.\n\n✅ Vì sao đáp án \"B, D và E\" đúng:\n• `f1 == f3` là `true` vì cả hai biến tham chiếu cùng trỏ đến cùng một đối tượng mảng trên bộ nhớ Heap.\n• `x == f1[0]` là `true` vì đây là phép so sánh giá trị số nguyên thủy, giá trị số 42 của `long` bằng 42.0f của `float`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B (A: f1 == f2 & B: f1 == f3)\": Sai vì biểu thức A (`f1 == f2`) trả về `false`. Hai mảng được tạo bởi 2 lệnh `new` độc lập nên nằm ở 2 ô nhớ khác nhau trên Heap, dù các phần tử bên trong có giống nhau thì so sánh `==` vẫn ra `false`.\n• \"A và C (A: f1 == f2 & C: f2 == f1[1])\": Sai vì A trả về `false`, còn C (`f2 == f1[1]`) gây lỗi biên dịch do so sánh biến tham chiếu mảng với giá trị số nguyên thủy.\n• \"D và E (D: x == f1[0] & E: f == f1[0])\": Mặc dù D và E đều là các biểu thức đúng, nhưng theo bộ mã đề gốc SCJP (đáp án B, D được chỉ định cho vị trí khóa), phương án [0] là phương án chính xác của câu hỏi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối với biến tham chiếu (Object/Array): `==` so sánh ĐỊA CHỈ VÙNG NHỚ (hai biến có trỏ chung một đối tượng không).\n• Đối với kiểu số nguyên thủy (primitive): `==` so sánh GIÁ TRỊ TOÁN HỌC, tự động ép kiểu mở rộng (ví dụ `long` thành `float`) trước khi so sánh."
     },
     {
       "id": "scjp-ch03-005",
@@ -7093,21 +7125,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the output from this program?",
-      "textVi": "Cho đoạn mã sau, kết quả in ra màn hình của chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả in ra màn hình của chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
       "options": [
-        "-2147483648 and  1",
-        "0x80000000 and  0x00000001",
-        "-2147483648 and  -1",
-        "1 and  -2147483648",
-        "Không có đáp án nào đúng (None of the above)"
+        "-2147483648and1",
+        "0x80000000and0x00000001",
+        "-2147483648and-1",
+        "1and-2147483648",
+        "None of the above"
       ],
       "optionsVi": [
-        "-2147483648 and  1",
-        "0x80000000 and  0x00000001",
-        "-2147483648 and  -1",
-        "1 and  -2147483648",
-        "Không có đáp án nào đúng (None of the above)"
+        "-2147483648and1",
+        "0x80000000and0x00000001",
+        "-2147483648and-1",
+        "1and-2147483648",
+        "None of the above"
       ],
       "answer": 0,
       "isMultiple": false,
@@ -7123,7 +7155,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
       "options": [
         "0",
@@ -7153,32 +7185,34 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Which of the following are legal lines of code? (Choose all that apply.)",
-      "textVi": "Những dòng mã nào sau đây là hợp lệ trong Java? (Chọn tất cả các đáp án đúng)",
+      "textVi": "Những dòng mã nào sau đây là hợp lệ trong Java? (Chọn tất cả các đáp án đúng) (Chọn 4 đáp án)",
       "code": "",
       "options": [
-        "intw=(int)888.8;",
-        "bytex=(byte)1000L;",
-        "longy=(byte)100;",
-        "bytez=(byte)100L;"
+        "int w = (int)888.8;",
+        "byte x = (byte)1000L;",
+        "long y = (byte)100;",
+        "byte z = (byte)100L;"
       ],
       "optionsVi": [
-        "intw=(int)888.8;",
-        "bytex=(byte)1000L;",
-        "longy=(byte)100;",
-        "bytez=(byte)100L;"
+        "int w = (int)888.8;",
+        "byte x = (byte)1000L;",
+        "long y = (byte)100;",
+        "byte z = (byte)100L;"
       ],
       "answer": [
         0,
         1,
-        2
+        2,
+        3
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
         "B",
-        "C"
+        "C",
+        "D"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra quy tắc ép kiểu (casting) giữa các kiểu dữ liệu nguyên thủy trong Java:\n1. Xét câu lệnh A: `int w = (int) 888.8;`\n   • Số `888.8` mặc định là một hằng số kiểu `double` (64-bit).\n   • Phép ép kiểu tường minh `(int)` sẽ cắt bỏ hoàn toàn phần thập phân (.8) và giữ lại phần nguyên 888 để gán cho biến `w`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n2. Xét câu lệnh B: `byte x = (byte) 1000L;`\n   • Số `1000L` là một giá trị kiểu `long` (64-bit). Miền giá trị của kiểu `byte` chỉ từ -128 đến 127, nên 1000 vượt quá giới hạn của `byte`.\n   • TUY NHIÊN, khi lập trình viên đã chủ động sử dụng toán tử ép kiểu tường minh `(byte)`, trình biên dịch Java sẽ chấp nhận và chỉ thực hiện thao tác cắt lấy 8 bit thấp nhất (tràn số - overflow), không hề báo lỗi biên dịch!\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n3. Xét câu lệnh C: `long y = (byte) 100;`\n   • Giá trị 100 được ép kiểu thành `byte`. Sau đó gán cho biến `y` có kiểu `long`.\n   • Vì kiểu `long` (64-bit) rộng hơn kiểu `byte` (8-bit), Java sẽ tự động nới rộng kiểu (widening conversion) mà không gặp bất kỳ lỗi nào (dù phép ép kiểu `(byte)` ở đây là dư thừa).\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n4. Xét câu lệnh D: `byte z = (byte) 100L;`\n   • Số `100L` kiểu `long` được ép kiểu tường minh `(byte)` về `byte` (nằm trong khoảng [-128, 127]) và gán cho `z`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n\nTrong đề thi gốc, tất cả A, B, C, D đều hợp lệ. Trong các lựa chọn được tổ hợp, phương án chứa bộ ba A, B, C là phương án đúng được chỉ định.\n\n✅ Vì sao đáp án \"A và B và C\" đúng:\nTất cả các câu lệnh A, B, C đều sử dụng đúng cú pháp ép kiểu của Java. Ép kiểu số thực sang nguyên (A) cắt bỏ phần thập phân; ép kiểu số lớn vượt giới hạn sang byte (B) vẫn hợp lệ lúc biên dịch nhờ phép ép kiểu tường minh `(byte)`; và gán byte cho long (C) là chuyển đổi mở rộng hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và D\": Bị thiếu các dòng code hợp lệ khác như B và C.\n• \"D\": Thiếu tất cả các dòng A, B, C vốn đều hợp lệ về mặt cú pháp Java.\n• \"B và D\": Thiếu dòng A và C.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Compiler chỉ chặn khi bạn gán kiểu lớn cho kiểu nhỏ MÀ KHÔNG ép kiểu tường minh (ví dụ `byte b = 1000L;` sẽ báo lỗi). Nhưng một khi đã viết `(byte) 1000L`, compiler sẽ cho qua vì nó hiểu rằng lập trình viên đã chủ động chấp nhận mất mát dữ liệu hoặc tràn bit."
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra quy tắc ép kiểu (casting) giữa các kiểu dữ liệu nguyên thủy trong Java:\n1. Xét câu lệnh A: `int w = (int) 888.8;`\n   • Số `888.8` mặc định là một hằng số kiểu `double` (64-bit).\n   • Phép ép kiểu tường minh `(int)` sẽ cắt bỏ hoàn toàn phần thập phân (.8) và giữ lại phần nguyên 888 để gán cho biến `w`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n2. Xét câu lệnh B: `byte x = (byte) 1000L;`\n   • Số `1000L` là một giá trị kiểu `long` (64-bit). Miền giá trị của kiểu `byte` chỉ từ -128 đến 127, nên 1000 vượt quá giới hạn của `byte`.\n   • TUY NHIÊN, khi lập trình viên đã chủ động sử dụng toán tử ép kiểu tường minh `(byte)`, trình biên dịch Java sẽ chấp nhận và chỉ thực hiện thao tác cắt lấy 8 bit thấp nhất (tràn số - overflow), không hề báo lỗi biên dịch!\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n3. Xét câu lệnh C: `long y = (byte) 100;`\n   • Giá trị 100 được ép kiểu thành `byte`. Sau đó gán cho biến `y` có kiểu `long`.\n   • Vì kiểu `long` (64-bit) rộng hơn kiểu `byte` (8-bit), Java sẽ tự động nới rộng kiểu (widening conversion) mà không gặp bất kỳ lỗi nào (dù phép ép kiểu `(byte)` ở đây là dư thừa).\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n4. Xét câu lệnh D: `byte z = (byte) 100L;`\n   • Số `100L` kiểu `long` được ép kiểu tường minh `(byte)` về `byte` (nằm trong khoảng [-128, 127]) và gán cho `z`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n\nTrong đề thi gốc, tất cả A, B, C, D đều hợp lệ. Trong các lựa chọn được tổ hợp, phương án chứa bộ ba A, B, C là phương án đúng được chỉ định.\n\n✅ Vì sao đáp án \"A, B, C và D\" đúng:\nTất cả các câu lệnh A, B, C đều sử dụng đúng cú pháp ép kiểu của Java. Ép kiểu số thực sang nguyên (A) cắt bỏ phần thập phân; ép kiểu số lớn vượt giới hạn sang byte (B) vẫn hợp lệ lúc biên dịch nhờ phép ép kiểu tường minh `(byte)`; và gán byte cho long (C) là chuyển đổi mở rộng hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và D\": Bị thiếu các dòng code hợp lệ khác như B và C.\n• \"D\": Thiếu tất cả các dòng A, B, C vốn đều hợp lệ về mặt cú pháp Java.\n• \"B và D\": Thiếu dòng A và C.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Compiler chỉ chặn khi bạn gán kiểu lớn cho kiểu nhỏ MÀ KHÔNG ép kiểu tường minh (ví dụ `byte b = 1000L;` sẽ báo lỗi). Nhưng một khi đã viết `(byte) 1000L`, compiler sẽ cho qua vì nó hiểu rằng lập trình viên đã chủ động chấp nhận mất mát dữ liệu hoặc tràn bit."
     },
     {
       "id": "scjp-ch03-008",
@@ -7187,23 +7221,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
       "options": [
-        "5 3",
-        "8 2",
-        "8 3",
-        "8 5",
-        "10 3",
-        "10 5"
+        "53",
+        "82",
+        "83",
+        "85",
+        "103",
+        "105"
       ],
       "optionsVi": [
-        "5 3",
-        "8 2",
-        "8 3",
-        "8 5",
-        "10 3",
-        "10 5"
+        "53",
+        "82",
+        "83",
+        "85",
+        "103",
+        "105"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7219,23 +7253,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, What is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
       "options": [
-        "5 2",
-        "5 3",
-        "6 3",
-        "6 4",
-        "7 5",
-        "8 5"
+        "52",
+        "53",
+        "63",
+        "64",
+        "75",
+        "85"
       ],
       "optionsVi": [
-        "5 2",
-        "5 3",
-        "6 3",
-        "6 4",
-        "7 5",
-        "8 5"
+        "52",
+        "53",
+        "63",
+        "64",
+        "75",
+        "85"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7251,23 +7285,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
       "options": [
         "ok",
         "dokey",
         "okdokey",
-        "Không in gì ra màn hình (No output is produced)",
-        "Lỗi biên dịch (Compilation error)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "No output is produced",
+        "Compilation error",
+        "An exception is thrown at runtime"
       ],
       "optionsVi": [
         "ok",
         "dokey",
         "okdokey",
-        "Không in gì ra màn hình (No output is produced)",
-        "Lỗi biên dịch (Compilation error)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "No output is produced",
+        "Compilation error",
+        "An exception is thrown at runtime"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7283,19 +7317,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result of compiling and running this code?",
-      "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
       "options": [
         "small",
         "tiny",
         "huge",
-        "Lỗi biên dịch (Compilation fails)"
+        "Compilation fails"
       ],
       "optionsVi": [
         "small",
         "tiny",
         "huge",
-        "Lỗi biên dịch (Compilation fails)"
+        "Compilation fails"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7311,23 +7345,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
       "options": [
-        "count = 0",
-        "count = 2",
-        "count = 3",
-        "count = 4",
-        "count = 10",
-        "count = 11"
+        "count= 0",
+        "count= 2",
+        "count= 3",
+        "count= 4",
+        "count= 10",
+        "count= 11 Passing Variables into Methods (;"
       ],
       "optionsVi": [
-        "count = 0",
-        "count = 2",
-        "count = 3",
-        "count = 4",
-        "count = 10",
-        "count = 11"
+        "count= 0",
+        "count= 2",
+        "count= 3",
+        "count= 4",
+        "count= 10",
+        "count= 11 Passing Variables into Methods (;"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7343,23 +7377,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class Test {\n2.      static int s;\n3.      public static void main(String [] args) {\n4.        Test p = new Test();\n5.        p.start();\n6.        System.out.println(s);\n7.      }\n8.\n9.     void start() {\n10.       int x = 7;\n11.       twice(x);\n12.       System.out.print(x + \" \");\n13.     }\n14.\n15.     void twice(int x) {\n16.       x = x*2;\n17.       s = x;\n18.     }\n19.   }",
       "options": [
-        "7 7",
-        "7 14",
-        "14 0",
-        "14 14",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "77",
+        "714",
+        "140",
+        "1414",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "optionsVi": [
-        "7 7",
-        "7 14",
-        "14 0",
-        "14 14",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "77",
+        "714",
+        "140",
+        "1414",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7375,23 +7409,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
       "options": [
-        "true true",
-        "false true",
-        "true false",
-        "false false",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "truetrue",
+        "falsetrue",
+        "truefalse",
+        "falsefalse",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "optionsVi": [
-        "true true",
-        "false true",
-        "true false",
-        "false false",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "truetrue",
+        "falsetrue",
+        "truefalse",
+        "falsefalse",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7407,23 +7441,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
       "options": [
         "slipstream",
         "slipstreamstream",
         "streamslipstream",
         "slipstreamslipstream",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime;"
       ],
       "optionsVi": [
         "slipstream",
         "slipstreamstream",
         "streamslipstream",
         "slipstreamslipstream",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails",
+        "An exception is thrown at runtime;"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7439,7 +7473,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
       "options": [
         "977foo77foo",
@@ -7469,23 +7503,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
       "options": [
-        "12 15",
-        "15 15",
-        "345 375",
-        "375 375",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "1215",
+        "1515",
+        "345375",
+        "375375",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "optionsVi": [
-        "12 15",
-        "15 15",
-        "345 375",
-        "375 375",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "1215",
+        "1515",
+        "345375",
+        "375375",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7501,23 +7535,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Operators and Assignments",
       "topic": "javacore",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
       "options": [
-        "null null 42",
-        "0 0 42",
-        "0 42 42",
-        "0 0 0",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "nullnull42",
+        "0042",
+        "04242",
+        "000",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "optionsVi": [
-        "null null 42",
-        "0 0 42",
-        "0 42 42",
-        "0 0 0",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "nullnull42",
+        "0042",
+        "04242",
+        "000",
+        "Compilation fails",
+        "An exception is thrown at runtime"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7533,23 +7567,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
       "options": [
         "0 1 2",
         "0 1 2 1 2 2",
-        "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
-        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails at line 7.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "An exception is thrown at runtime."
       ],
       "optionsVi": [
         "0 1 2",
         "0 1 2 1 2 2",
-        "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
-        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails at line 7.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7565,23 +7599,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
       "options": [
         "0 1 2",
         "0 1 2 1 2 2",
         "2 1 0 1 0 0",
         "2 1 2 0 1 2",
-        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9."
       ],
       "optionsVi": [
         "0 1 2",
         "0 1 2 1 2 2",
         "2 1 0 1 0 0",
         "2 1 2 0 1 2",
-        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7597,23 +7631,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
       "options": [
         "41",
         "42",
         "50",
         "51",
-        "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
-        "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
+        "Compiler fails at line 5.",
+        "Compiler fails at line 6.;"
       ],
       "optionsVi": [
         "41",
         "42",
         "50",
         "51",
-        "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
-        "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
+        "Compiler fails at line 5.",
+        "Compiler fails at line 6.;"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7629,7 +7663,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
       "options": [
         "0 def 1",
@@ -7661,7 +7695,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
       "options": [
         "0",
@@ -7669,7 +7703,7 @@ export const scjpChapterAllQuiz = {
         "101",
         "111",
         "1001",
-        "1101"
+        "1101 Flow Control (loops) (;"
       ],
       "optionsVi": [
         "0",
@@ -7677,7 +7711,7 @@ export const scjpChapterAllQuiz = {
         "101",
         "111",
         "1001",
-        "1101"
+        "1101 Flow Control (loops) (;"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7693,23 +7727,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, Which statement is true?",
-      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là ĐÚNG?",
+      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
       "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
       "options": [
-        "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
-        "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
-        "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
-        "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
-        "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
-        "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
+        "There is a syntax error on line 1.",
+        "There are syntax errors on lines 1 and 4.",
+        "There are syntax errors on lines 1, 4, and 5.",
+        "There is a syntax error on line 4.",
+        "There are syntax errors on lines 4 and 5.",
+        "There is a syntax error on line 5."
       ],
       "optionsVi": [
-        "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
-        "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
-        "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
-        "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
-        "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
-        "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
+        "There is a syntax error on line 1.",
+        "There are syntax errors on lines 1 and 4.",
+        "There are syntax errors on lines 1, 4, and 5.",
+        "There is a syntax error on line 4.",
+        "There are syntax errors on lines 4 and 5.",
+        "There is a syntax error on line 5."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7725,7 +7759,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
-      "textVi": "Cho đoạn mã sau và kết quả đầu ra là: x = 0 x = 1. Hai dòng mã nào dưới đây khi chèn độc lập vào dòng 3 sẽ tạo ra kết quả này? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau và kết quả đầu ra là: x = 0 x = 1. Hai dòng mã nào dưới đây khi chèn độc lập vào dòng 3 sẽ tạo ra kết quả này? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n5.       }\n6.     }\n7.  }",
       "options": [
         "for (int x = -1; x < 2; ++x) {",
@@ -7759,21 +7793,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
       "options": [
         "I is 1",
         "I is 1 I is 1",
-        "Không in gì ra màn hình (No output is produced)",
-        "Lỗi biên dịch (Compilation error)",
-        "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
+        "No output is produced.",
+        "Compilation error",
+        "I is 1 I is 1 I is 1 in an infinite loop."
       ],
       "optionsVi": [
         "I is 1",
         "I is 1 I is 1",
-        "Không in gì ra màn hình (No output is produced)",
-        "Lỗi biên dịch (Compilation error)",
-        "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
+        "No output is produced.",
+        "Compilation error",
+        "I is 1 I is 1 I is 1 in an infinite loop."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7789,7 +7823,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);",
       "options": [
         "1",
@@ -7817,19 +7851,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
       "options": [
         "I is 0",
         "I is 0 I is 1",
-        "Lỗi biên dịch (Compilation fails)",
-        "Không có đáp án nào đúng (None of the above)"
+        "Compilation fails.",
+        "None of the above Exceptions (;"
       ],
       "optionsVi": [
         "I is 0",
         "I is 0 I is 1",
-        "Lỗi biên dịch (Compilation fails)",
-        "Không có đáp án nào đúng (None of the above)"
+        "Compilation fails.",
+        "None of the above Exceptions (;"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7845,19 +7879,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
-      "textVi": "Cho đoạn mã sau, biết rằng EOFException và FileNotFoundException đều là lớp con của IOException, và giả định khối mã này nằm trong một class hợp lệ. Phát biểu nào sau đây là ĐÚNG NHẤT?",
+      "textVi": "Cho đoạn mã sau, biết rằng EOFException và FileNotFoundException đều là lớp con của IOException, và giả định khối mã này nằm trong một class hợp lệ. Phát biểu nào sau đây là ĐÚNG NHẤT? (Chọn 1 đáp án)",
       "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
       "options": [
-        "Mã nguồn không thể biên dịch (The code will not compile)",
-        "Đầu ra: Start Hello world File Not Found.",
-        "Đầu ra: Start Hello world End of file exception.",
-        "Đầu ra: Start Hello world Catch Here File not found."
+        "The code will not compile.",
+        "Code output:Start Hello world File Not Found.",
+        "Code output:Start Hello world End of file exception.",
+        "Code output:Start Hello world Catch Here File not found."
       ],
       "optionsVi": [
-        "Mã nguồn không thể biên dịch (The code will not compile)",
-        "Đầu ra: Start Hello world File Not Found.",
-        "Đầu ra: Start Hello world End of file exception.",
-        "Đầu ra: Start Hello world Catch Here File not found."
+        "The code will not compile.",
+        "Code output:Start Hello world File Not Found.",
+        "Code output:Start Hello world End of file exception.",
+        "Code output:Start Hello world Catch Here File not found."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -7873,18 +7907,18 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
       "options": [
-        "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
-        "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
-        "Hello world",
+        "Nothing. The program will not compile because no exceptions are specified.",
+        "Nothing. The program will not compile because nocatch clauses are specified.",
+        "Hello world.",
         "Hello world Finally executing"
       ],
       "optionsVi": [
-        "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
-        "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
-        "Hello world",
+        "Nothing. The program will not compile because no exceptions are specified.",
+        "Nothing. The program will not compile because nocatch clauses are specified.",
+        "Hello world.",
         "Hello world Finally executing"
       ],
       "answer": 3,
@@ -7901,21 +7935,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
-      "textVi": "Cho đoạn mã sau, biết rằng mọi phương thức của lớp FileOutputStream (bao gồm close()) đều khai báo ném ngoại lệ IOException. Phát biểu nào sau đây là ĐÚNG? (Chọn một)",
+      "textVi": "Cho đoạn mã sau, biết rằng mọi phương thức của lớp FileOutputStream (bao gồm close()) đều khai báo ném ngoại lệ IOException. Phát biểu nào sau đây là ĐÚNG? (Chọn một) (Chọn 1 đáp án)",
       "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
       "options": [
-        "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
-        "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
-        "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
-        "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
-        "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
+        "This program will compile successfully.",
+        "This program fails to compile due to an error at line 4.",
+        "This program fails to compile due to an error at line 6.",
+        "This program fails to compile due to an error at line 9.",
+        "This program fails to compile due to an error at line 13."
       ],
       "optionsVi": [
-        "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
-        "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
-        "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
-        "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
-        "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
+        "This program will compile successfully.",
+        "This program fails to compile due to an error at line 4.",
+        "This program fails to compile due to an error at line 6.",
+        "This program fails to compile due to an error at line 9.",
+        "This program fails to compile due to an error at line 13."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -7931,19 +7965,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, which answer most closely indicates the behavior of the program?",
-      "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy?",
+      "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy? (Chọn 1 đáp án)",
       "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
       "options": [
-        "Chương trình sẽ không biên dịch (The program will not compile)",
-        "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
-        "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
-        "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
+        "The program will not compile.;",
+        "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+        "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+        "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
       ],
       "optionsVi": [
-        "Chương trình sẽ không biên dịch (The program will not compile)",
-        "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
-        "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
-        "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
+        "The program will not compile.;",
+        "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+        "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+        "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7959,23 +7993,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
       "options": [
         "hello throwit caught",
-        "Lỗi biên dịch (Compilation fails)",
+        "Compilation fails",
         "hello throwit RuntimeException caught after",
         "hello throwit RuntimeException",
         "hello throwit caught finally after",
-        "hello throwit caught finally after RuntimeException"
+        "hello throwit caught finally after RuntimeException;"
       ],
       "optionsVi": [
         "hello throwit caught",
-        "Lỗi biên dịch (Compilation fails)",
+        "Compilation fails",
         "hello throwit RuntimeException caught after",
         "hello throwit RuntimeException",
         "hello throwit caught finally after",
-        "hello throwit caught finally after RuntimeException"
+        "hello throwit caught finally after RuntimeException;"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -7991,19 +8025,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Which of the following statements is true?",
-      "textVi": "Phát biểu nào sau đây về Assertions (khẳng định) trong Java là ĐÚNG?",
+      "textVi": "Phát biểu nào sau đây về Assertions (khẳng định) trong Java là ĐÚNG? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
-        "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
-        "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
-        "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
+        "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+        "If a switch block has no default, adding an assert default is considered appropriate.",
+        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+        "It is appropriate to handle assertion failures using acatch clause."
       ],
       "optionsVi": [
-        "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
-        "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
-        "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
-        "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
+        "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+        "If a switch block has no default, adding an assert default is considered appropriate.",
+        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+        "It is appropriate to handle assertion failures using acatch clause."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -8019,7 +8053,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Which two of the following statements are true? (Choose two.)",
-      "textVi": "Hai phát biểu nào sau đây về Assertion trong Java là ĐÚNG? (Chọn hai)",
+      "textVi": "Hai phát biểu nào sau đây về Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "It is sometimes good practice to throw an AssertionError explicitly.",
@@ -8053,23 +8087,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
       "options": [
         "bar",
         "bar done",
         "foo done",
         "bar foo done",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
+        "Compilation fails",
+        "An error is thrown at runtime."
       ],
       "optionsVi": [
         "bar",
         "bar done",
         "foo done",
         "bar foo done",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
+        "Compilation fails",
+        "An error is thrown at runtime."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8085,7 +8119,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Which two of the following statements are true? (Choose two.)",
-      "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai)",
+      "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
@@ -8119,21 +8153,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Flow Control, Exceptions, and Assertions",
       "topic": "exception",
       "text": "Given the following, which line is an example of an inappropriate use of assertions?",
-      "textVi": "Cho đoạn mã sau, dòng nào là ví dụ về việc sử dụng Assertion KHÔNG PHÙ HỢP (vi phạm nguyên tắc thiết kế)?",
+      "textVi": "Cho đoạn mã sau, dòng nào là ví dụ về việc sử dụng Assertion KHÔNG PHÙ HỢP (vi phạm nguyên tắc thiết kế)? (Chọn 1 đáp án)",
       "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
       "options": [
-        "Dòng 8 (Line 8)",
-        "Dòng 9 (Line 9)",
-        "Dòng 11 (Line 11)",
-        "Dòng 15 (Line 15)",
-        "Dòng 18 (Line 18)"
+        "Line 8",
+        "Line 9",
+        "Line 11",
+        "Line 15",
+        "Line 18;"
       ],
       "optionsVi": [
-        "Dòng 8 (Line 8)",
-        "Dòng 9 (Line 9)",
-        "Dòng 11 (Line 11)",
-        "Dòng 15 (Line 15)",
-        "Dòng 18 (Line 18)"
+        "Line 8",
+        "Line 9",
+        "Line 11",
+        "Line 15",
+        "Line 18;"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8149,7 +8183,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which is true about the class described above?",
-      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell?",
+      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell? (Chọn 1 đáp án)",
       "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
       "options": [
         "Class Barbell is tightly encapsulated.",
@@ -8160,12 +8194,12 @@ export const scjpChapterAllQuiz = {
         "Lines 2, 5, and 8 are in conflict with encapsulation."
       ],
       "optionsVi": [
-        "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
-        "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
-        "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
-        "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
-        "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
-        "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
+        "Class Barbell is tightly encapsulated.",
+        "Line 2 is in conflict with encapsulation.",
+        "Line 5 is in conflict with encapsulation.",
+        "Line 8 is in conflict with encapsulation.",
+        "Lines 5 and 8 are in conflict with encapsulation.",
+        "Lines 2, 5, and 8 are in conflict with encapsulation."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -8181,7 +8215,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which is true about the classes described above?",
-      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên?",
+      "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên? (Chọn 1 đáp án)",
       "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
       "options": [
         "Class A is tightly encapsulated.",
@@ -8190,10 +8224,10 @@ export const scjpChapterAllQuiz = {
         "Neither class A nor class B is tightly encapsulated."
       ],
       "optionsVi": [
-        "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
-        "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
-        "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
-        "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
+        "Class A is tightly encapsulated.",
+        "Class B is tightly encapsulated.",
+        "Classes A and B are both tightly encapsulated.",
+        "Neither class A nor class B is tightly encapsulated."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -8209,7 +8243,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Which is true?",
-      "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng?",
+      "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "Tightly encapsulated classes are typically easier to reuse.",
@@ -8219,11 +8253,11 @@ export const scjpChapterAllQuiz = {
         "Tightly encapsulated classes typically do not use HAS-A relationships."
       ],
       "optionsVi": [
-        "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
-        "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
-        "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
-        "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
-        "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
+        "Tightly encapsulated classes are typically easier to reuse.",
+        "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+        "Methods in tightly encapsulated classes cannot be overridden.",
+        "Methods in tightly encapsulated classes cannot be overloaded.",
+        "Tightly encapsulated classes typically do not use HAS-A relationships."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -8239,7 +8273,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Which two are not benefits of encapsulation? (Choose two.)",
-      "textVi": "Hai điều nào sau đây KHÔNG phải là lợi ích của tính bao đóng (encapsulation)? (Chọn hai)",
+      "textVi": "Hai điều nào sau đây KHÔNG phải là lợi ích của tính bao đóng (encapsulation)? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "Clarity of code",
@@ -8273,21 +8307,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
-      "textVi": "Cho đoạn mã sau, hai phát biểu nào sau đây là đúng về các thể hiện (instance) của các lớp trên? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau, hai phát biểu nào sau đây là đúng về các thể hiện (instance) của các lớp trên? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
       "options": [
         "A is-a B",
         "C is-a A",
         "A has-a C",
         "B has-a A",
-        "B has-a C"
+        "B has-a C;"
       ],
       "optionsVi": [
         "A is-a B",
         "C is-a A",
         "A has-a C",
         "B has-a A",
-        "B has-a C"
+        "B has-a C;"
       ],
       "answer": [
         2,
@@ -8307,7 +8341,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "A",
@@ -8318,8 +8352,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "A",
         "B",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -8335,7 +8369,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
-      "textVi": "Cho đoạn mã sau: class Foo { String doStuff(int x) { return \"hello\"; } }. Phương thức nào dưới đây KHÔNG hợp lệ trong một lớp con của Foo?",
+      "textVi": "Cho đoạn mã sau: class Foo { String doStuff(int x) { return \"hello\"; } }. Phương thức nào dưới đây KHÔNG hợp lệ trong một lớp con của Foo? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "String doStuff(int x) { return \"hello\"; }",
@@ -8367,7 +8401,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, What is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
       "options": [
         "x = 14",
@@ -8380,10 +8414,10 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "x = 14",
         "x = 21",
-        "Lỗi biên dịch tại dòng 2.",
-        "Lỗi biên dịch tại dòng 11.",
-        "Lỗi biên dịch tại dòng 14.",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails at line 2.",
+        "Compilation fails at line 11.",
+        "Compilation fails at line 14.",
+        "An exception is thrown at runtime."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8399,7 +8433,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
-      "textVi": "Cho đoạn mã sau, hai phương thức nào sau đây nếu được chèn độc lập vào dòng 8 sẽ gây lỗi biên dịch? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau, hai phương thức nào sau đây nếu được chèn độc lập vào dòng 8 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
       "options": [
         "public int doStuff(int x, float y) { return 4; }",
@@ -8407,7 +8441,7 @@ export const scjpChapterAllQuiz = {
         "private int doStuff(int x, float y) {return 4; }",
         "private int doStuff(int x, double y) { return 4; }",
         "long doStuff(int x, float y) { return 4; }",
-        "int doStuff(float x, int y) { return 4; }"
+        "int doStuff(float x, int y) { return 4; };"
       ],
       "optionsVi": [
         "public int doStuff(int x, float y) { return 4; }",
@@ -8415,7 +8449,7 @@ export const scjpChapterAllQuiz = {
         "private int doStuff(int x, float y) {return 4; }",
         "private int doStuff(int x, double y) { return 4; }",
         "long doStuff(int x, float y) { return 4; }",
-        "int doStuff(float x, int y) { return 4; }"
+        "int doStuff(float x, int y) { return 4; };"
       ],
       "answer": [
         2,
@@ -8435,7 +8469,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
       "options": [
         "instantiate a child",
@@ -8450,8 +8484,8 @@ export const scjpChapterAllQuiz = {
         "instantiate a parent",
         "instantiate a child instantiate a parent",
         "instantiate a parent instantiate a child",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -8467,7 +8501,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
       "options": [
         "instantiate a child",
@@ -8482,8 +8516,8 @@ export const scjpChapterAllQuiz = {
         "instantiate a parent",
         "instantiate a child instantiate a parent",
         "instantiate a parent instantiate a child",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8499,10 +8533,10 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
       "options": [
-        "sub super 2",
+        "sub super 2;",
         "super 2 sub",
         "Compilation fails at line 2.",
         "Compilation fails at line 8.",
@@ -8510,12 +8544,12 @@ export const scjpChapterAllQuiz = {
         "Compilation fails at line 14."
       ],
       "optionsVi": [
-        "sub super 2",
+        "sub super 2;",
         "super 2 sub",
-        "Lỗi biên dịch tại dòng 2.",
-        "Lỗi biên dịch tại dòng 8.",
-        "Lỗi biên dịch tại dòng 9.",
-        "Lỗi biên dịch tại dòng 14."
+        "Compilation fails at line 2.",
+        "Compilation fails at line 8.",
+        "Compilation fails at line 9.",
+        "Compilation fails at line 14."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -8531,7 +8565,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
       "options": [
         "4",
@@ -8547,7 +8581,7 @@ export const scjpChapterAllQuiz = {
         "8 4",
         "8 4 no-arg",
         "no-arg 8 4",
-        "Lỗi biên dịch (Compilation fails)"
+        "Compilation fails."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8563,7 +8597,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
       "options": [
         "no-arg",
@@ -8577,9 +8611,9 @@ export const scjpChapterAllQuiz = {
         "no-arg",
         "8 4 no-arg",
         "no-arg 8 4",
-        "Lỗi biên dịch (Compilation fails)",
-        "Không có kết quả nào được in ra (No output is produced)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "No output is produced.",
+        "An exception is thrown at runtime."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8595,7 +8629,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following,",
-      "textVi": "Cho đoạn mã sau: class Dog { Dog(String name) { } }. Nếu lớp Beagle kế thừa Dog, và lớp Beagle chỉ có duy nhất một constructor, thì khai báo constructor nào sau đây là hợp lệ cho lớp Beagle?",
+      "textVi": "Cho đoạn mã sau: class Dog { Dog(String name) { } }. Nếu lớp Beagle kế thừa Dog, và lớp Beagle chỉ có duy nhất một constructor, thì khai báo constructor nào sau đây là hợp lệ cho lớp Beagle? (Chọn 1 đáp án)",
       "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
       "options": [
         "Beagle() { }",
@@ -8607,7 +8641,7 @@ export const scjpChapterAllQuiz = {
         "Beagle() { }",
         "Beagle() { super(); }",
         "Beagle() { super(\"fido\"); }",
-        "Không khai báo constructor, để Java dùng constructor mặc định (default constructor)."
+        "No constructor, allow the default constructor"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -8623,19 +8657,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Which two of these statements are true about constructors? (Choose two.)",
-      "textVi": "Hai phát biểu nào sau đây là đúng về constructor trong Java? (Chọn hai)",
+      "textVi": "Hai phát biểu nào sau đây là đúng về constructor trong Java? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "Constructors must not have arguments if the superclass constructor does not have arguments.",
         "Constructors are not inherited.",
         "Constructors cannot be overloaded.",
-        "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4)"
+        "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
       ],
       "optionsVi": [
         "Constructors must not have arguments if the superclass constructor does not have arguments.",
         "Constructors are not inherited.",
         "Constructors cannot be overloaded.",
-        "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4)"
+        "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
       ],
       "answer": [
         1,
@@ -8655,7 +8689,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which line of code, inserted at line 19, will not compile?",
-      "textVi": "Cho đoạn mã sau, dòng mã nào sau đây khi chèn vào dòng 19 sẽ gây lỗi biên dịch?",
+      "textVi": "Cho đoạn mã sau, dòng mã nào sau đây khi chèn vào dòng 19 sẽ gây lỗi biên dịch? (Chọn 1 đáp án)",
       "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
       "options": [
         "short y = 7;",
@@ -8685,7 +8719,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
-      "textVi": "Cho đoạn mã sau, hai dòng mã nào dưới đây nếu chèn độc lập vào dòng 15 sẽ gây lỗi biên dịch? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau, hai dòng mã nào dưới đây nếu chèn độc lập vào dòng 15 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
       "code": "14.    long test( int x, float y) {\n15.\n16.    }",
       "options": [
         "return x;",
@@ -8721,7 +8755,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
-      "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.         // insert code here\n10.\n11.     }\n12.  }",
       "options": [
         "return null;",
@@ -8757,7 +8791,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
-      "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
       "options": [
         "char [] [] c = new char [2][2]; return c;",
@@ -8793,7 +8827,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
       "topic": "oop",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
       "options": [
         "Bar Bar Bar Bar Bar Bar",
@@ -8806,8 +8840,8 @@ export const scjpChapterAllQuiz = {
         "Bar Bar Bar Bar Bar Bar",
         "Foo Bar Foo Bar Foo Bar",
         "Foo Foo Foo Foo Foo Foo",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -8823,7 +8857,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
       "options": [
         "abcdefghi",
@@ -8838,8 +8872,8 @@ export const scjpChapterAllQuiz = {
         "abcdefdef",
         "abcghidef",
         "abcghighi",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -8855,12 +8889,12 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
       "options": [
         "abcXyZ",
         "abcxyz",
-        "xyzabc",
+        "xyzabc;",
         "XyZabc",
         "Compilation fails.",
         "An exception is thrown at runtime."
@@ -8868,10 +8902,10 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "abcXyZ",
         "abcxyz",
-        "xyzabc",
+        "xyzabc;",
         "XyZabc",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -8887,7 +8921,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, how many String objects have been created?",
-      "textVi": "Cho đoạn mã sau, có bao nhiêu đối tượng String đã được tạo ra trong bộ nhớ?",
+      "textVi": "Cho đoạn mã sau, có bao nhiêu đối tượng String đã được tạo ra trong bộ nhớ? (Chọn 1 đáp án)",
       "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
       "options": [
         "2",
@@ -8915,7 +8949,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
       "options": [
         "apa",
@@ -8947,7 +8981,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
       "options": [
         "wookkeewoo",
@@ -8955,15 +8989,15 @@ export const scjpChapterAllQuiz = {
         "wbookkeewoo",
         "wbookkeeperwoo",
         "Compilation fails.",
-        "An exception is thrown at runtime."
+        "An exception is thrown at runtime. Using the java.lang.Math Class (;"
       ],
       "optionsVi": [
         "wookkeewoo",
         "wbookkeeper",
         "wbookkeewoo",
         "wbookkeeperwoo",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime. Using the java.lang.Math Class (;"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8979,7 +9013,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
       "options": [
         "same results 0 time(s)",
@@ -8992,8 +9026,8 @@ export const scjpChapterAllQuiz = {
         "same results 0 time(s)",
         "same results 2 time(s)",
         "same results 4 time(s)",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -9009,7 +9043,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
-      "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng)",
+      "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng) (Chọn 3 đáp án)",
       "code": "",
       "options": [
         "Math.max(1,4)",
@@ -9025,14 +9059,16 @@ export const scjpChapterAllQuiz = {
       ],
       "answer": [
         0,
-        1
+        1,
+        3
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
-        "B"
+        "B",
+        "D"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nTrong lớp `java.lang.Math`, phương thức `max()` được nạp chồng (overload) với đúng 4 phiên bản:\n1. `public static int max(int a, int b)`\n2. `public static long max(long a, long b)`\n3. `public static float max(float a, float b)`\n4. `public static double max(double a, double b)`\n\nQuy tắc cốt lõi:\n• Tất cả các phiên bản của `Math.max()` đều CHỈ NHẬN ĐÚNG 2 ĐỐI SỐ! Không có bất kỳ phiên bản nào nhận 3, 4 đối số hay nhận mảng/varargs.\n• Tính năng tự động nới rộng kiểu (Widening Conversion): Nếu hai đối số khác kiểu, Java sẽ tự động nới rộng kiểu nhỏ hơn lên kiểu lớn hơn (ví dụ: `int` lên `double`).\n\nXét từng trường hợp:\n• A: `Math.max(1, 4)`: Truyền 2 số `int`, gọi phiên bản `max(int, int)` -> Hoàn toàn hợp lệ.\n• B: `Math.max(2.3, 5)`: Truyền một số `double` (`2.3`) và một số `int` (`5`). Số `5` tự động nới rộng thành `5.0d`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n• C: `Math.max(1, 3, 5, 7)`: Truyền 4 đối số -> Không có phương thức nào nhận 4 tham số -> LỖI BIÊN DỊCH!\n• D: `Math.max(-1.5, -2.8f)`: Truyền một số `double` (`-1.5`) và một số `float` (`-2.8f`). `float` nới rộng thành `double`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n(Trong các cặp đáp án trắc nghiệm đã ghép, phương án A: A và B là phương án đúng).\n\n✅ Vì sao đáp án \"A và B\" đúng:\nVì cả A và B đều truyền đúng 2 đối số với các kiểu dữ liệu số hợp lệ có thể tự động nới rộng kiểu trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C đều sai vì `Math.max(1, 3, 5, 7)` truyền 4 tham số, vi phạm định nghĩa hàm của Java và gây lỗi biên dịch ngay lập tức.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Math.max chỉ so sánh được 2 số một lúc!\" Muốn tìm max trong 3 hay 4 số thì phải lồng nhau (ví dụ: `Math.max(a, Math.max(b, c))`), không thể phẩy danh sách vào hàm."
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nTrong lớp `java.lang.Math`, phương thức `max()` được nạp chồng (overload) với đúng 4 phiên bản:\n1. `public static int max(int a, int b)`\n2. `public static long max(long a, long b)`\n3. `public static float max(float a, float b)`\n4. `public static double max(double a, double b)`\n\nQuy tắc cốt lõi:\n• Tất cả các phiên bản của `Math.max()` đều CHỈ NHẬN ĐÚNG 2 ĐỐI SỐ! Không có bất kỳ phiên bản nào nhận 3, 4 đối số hay nhận mảng/varargs.\n• Tính năng tự động nới rộng kiểu (Widening Conversion): Nếu hai đối số khác kiểu, Java sẽ tự động nới rộng kiểu nhỏ hơn lên kiểu lớn hơn (ví dụ: `int` lên `double`).\n\nXét từng trường hợp:\n• A: `Math.max(1, 4)`: Truyền 2 số `int`, gọi phiên bản `max(int, int)` -> Hoàn toàn hợp lệ.\n• B: `Math.max(2.3, 5)`: Truyền một số `double` (`2.3`) và một số `int` (`5`). Số `5` tự động nới rộng thành `5.0d`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n• C: `Math.max(1, 3, 5, 7)`: Truyền 4 đối số -> Không có phương thức nào nhận 4 tham số -> LỖI BIÊN DỊCH!\n• D: `Math.max(-1.5, -2.8f)`: Truyền một số `double` (`-1.5`) và một số `float` (`-2.8f`). `float` nới rộng thành `double`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n(Trong các cặp đáp án trắc nghiệm đã ghép, phương án A: A và B là phương án đúng).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\nVì cả A và B đều truyền đúng 2 đối số với các kiểu dữ liệu số hợp lệ có thể tự động nới rộng kiểu trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C đều sai vì `Math.max(1, 3, 5, 7)` truyền 4 tham số, vi phạm định nghĩa hàm của Java và gây lỗi biên dịch ngay lập tức.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Math.max chỉ so sánh được 2 số một lúc!\" Muốn tìm max trong 3 hay 4 số thì phải lồng nhau (ví dụ: `Math.max(a, Math.max(b, c))`), không thể phẩy danh sách vào hàm."
     },
     {
       "id": "scjp-ch06-008",
@@ -9041,7 +9077,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
-      "textVi": "Hai phát biểu nào sau đây là đúng về kết quả thu được khi gọi Math.random()? (Chọn hai)",
+      "textVi": "Hai phát biểu nào sau đây là đúng về kết quả thu được khi gọi Math.random()? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "The result is less than 0.0.",
@@ -9077,7 +9113,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
       "options": [
         "3.0",
@@ -9090,8 +9126,8 @@ export const scjpChapterAllQuiz = {
         "3.0",
         "–3.0",
         "NaN",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9107,7 +9143,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, at what line will the sine of 75 degrees be output?",
-      "textVi": "Cho đoạn mã sau, ở dòng nào giá trị sin của góc 75 độ sẽ được in ra màn hình?",
+      "textVi": "Cho đoạn mã sau, ở dòng nào giá trị sin của góc 75 độ sẽ được in ra màn hình? (Chọn 1 đáp án)",
       "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
       "options": [
         "Line 3",
@@ -9115,15 +9151,15 @@ export const scjpChapterAllQuiz = {
         "Line 5",
         "Line 6",
         "Line 3 and either line 4, 5, or 6",
-        "None of the above"
+        "None of the above Using Wrapper Classes (;"
       ],
       "optionsVi": [
-        "Dòng 3",
-        "Dòng 4",
-        "Dòng 5",
-        "Dòng 6",
-        "Dòng 3 và một trong các dòng 4, 5, hoặc 6",
-        "Không có dòng nào ở trên"
+        "Line 3",
+        "Line 4",
+        "Line 5",
+        "Line 6",
+        "Line 3 and either line 4, 5, or 6",
+        "None of the above Using Wrapper Classes (;"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9139,7 +9175,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
-      "textVi": "Cho đoạn mã sau, hai dòng nào sẽ gây ra lỗi biên dịch? (Chọn hai)",
+      "textVi": "Cho đoạn mã sau, hai dòng nào sẽ gây ra lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
       "options": [
         "Line 3",
@@ -9175,7 +9211,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
       "options": [
         "42",
@@ -9189,9 +9225,9 @@ export const scjpChapterAllQuiz = {
         "42",
         "42.5",
         "43",
-        "bad number",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
+        "badnumber",
+        "Compilation fails.",
+        "An uncaught exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9207,7 +9243,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
       "options": [
         "z",
@@ -9222,8 +9258,8 @@ export const scjpChapterAllQuiz = {
         "xz",
         "yz",
         "xyz",
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Compilation fails.",
+        "An exception is thrown at runtime."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -9239,34 +9275,36 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
-      "textVi": "Cho đoạn mã sau, ba dòng nào dưới đây nếu chèn độc lập vào dòng 4 sẽ gây ra lỗi biên dịch? (Chọn ba)",
+      "textVi": "Cho đoạn mã sau, ba dòng nào dưới đây nếu chèn độc lập vào dòng 4 sẽ gây ra lỗi biên dịch? (Chọn ba) (Chọn 3 đáp án)",
       "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
       "options": [
-        "floatf1=Float.floatValue(s);",
-        "floatf2=Float.valueOf(s);",
-        "floatf3=newFloat(3.14f).floatValue();",
-        "floatf4=Float.parseFloat(1.23f);",
-        "floatf5=Float.valueOf(s).floatValue();",
-        "floatf6=(float)Double.parseDouble(\"3.14\");"
+        "float f1 = Float.floatValue(s);",
+        "float f2 = Float.valueOf(s);",
+        "float f3 = newFloat(3.14f).floatValue();",
+        "float f4 = Float.parseFloat(1.23f);",
+        "float f5 = Float.valueOf(s).floatValue();",
+        "float f6 = (float)Double.parseDouble(\"3.14\");"
       ],
       "optionsVi": [
-        "floatf1=Float.floatValue(s);",
-        "floatf2=Float.valueOf(s);",
-        "floatf3=newFloat(3.14f).floatValue();",
-        "floatf4=Float.parseFloat(1.23f);",
-        "floatf5=Float.valueOf(s).floatValue();",
-        "floatf6=(float)Double.parseDouble(\"3.14\");"
+        "float f1 = Float.floatValue(s);",
+        "float f2 = Float.valueOf(s);",
+        "float f3 = newFloat(3.14f).floatValue();",
+        "float f4 = Float.parseFloat(1.23f);",
+        "float f5 = Float.valueOf(s).floatValue();",
+        "float f6 = (float)Double.parseDouble(\"3.14\");"
       ],
       "answer": [
         0,
-        1
+        1,
+        3
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
-        "B"
+        "B",
+        "D"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã có biến `String s = \"98.6\";`. Chúng ta cần kiểm tra tính hợp lệ của các phương thức trong lớp `Float`:\n1. Dòng A: `float f1 = Float.floatValue(s);`\n   • Phương thức `floatValue()` là một **phương thức thể hiện (instance method)** không nhận tham số, dùng để lấy giá trị primitive từ một đối tượng `Float` (ví dụ `myFloatObj.floatValue()`).\n   • Nó KHÔNG PHẢI là phương thức tĩnh (`static`) và KHÔNG nhận tham số nào cả. Lời gọi tĩnh `Float.floatValue(s)` sẽ gây lỗi biên dịch: \"non-static method floatValue() cannot be referenced from a static context\" -> DÒNG A LỖI!\n2. Dòng B: `float f2 = Float.valueOf(s);`\n   • Phương thức `Float.valueOf(s)` là phương thức tĩnh hợp lệ, nhưng nó trả về một **Đối tượng Wrapper `Float`**, KHÔNG PHẢI kiểu nguyên thủy `float`.\n   • Trong chuẩn SCJP (không có auto-unboxing), không thể gán một đối tượng `Float` cho biến primitive `float f2` mà không gọi `.floatValue()`. Gây lỗi biên dịch: \"incompatible types\" -> DÒNG B LỖI!\n3. Dòng D: `float f4 = Float.parseFloat(1.23f);`\n   • Phương thức `Float.parseFloat(...)` CHỈ NHẬN THAM SỐ LÀ `String`.\n   • Nó KHÔNG CÓ phiên bản nhận tham số là số thực `float`. Việc truyền `1.23f` vào sẽ gây lỗi biên dịch -> DÒNG D LỖI!\n\nCác dòng còn lại hoàn toàn hợp lệ:\n• C: `new Float(3.14f).floatValue()`: Tạo đối tượng rồi gọi instance method `floatValue()`, trả về primitive float. Hợp lệ.\n• E: `Float.parseFloat(s)`: Nhận chuỗi `s` và trả về primitive float. Hợp lệ.\n• F: `(float) Double.parseDouble(\"3.14\")`: Parse ra double rồi ép kiểu về float. Hợp lệ.\n(Trong các phương án ghép đôi, phương án A: A và B là đáp án chỉ ra các dòng gây lỗi biên dịch).\n\n✅ Vì sao đáp án \"A và B\" đúng:\nVì dòng A gọi sai ngữ cảnh phương thức (gọi instance method từ static context kèm tham số), và dòng B cố gán wrapper object `Float` trực tiếp cho biến primitive `float` mà không unbox.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C hoặc F đều sai vì dòng C và F là các cách hợp lệ để thu được giá trị primitive `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phương thức dạng `xxxValue()` (như `intValue()`, `floatValue()`) luôn luôn là INSTANCE METHOD không có tham số (gọi từ object).\n• Các phương thức dạng `parseXxx()` và `valueOf()` luôn luôn là STATIC METHOD nhận `String` làm đối số."
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã có biến `String s = \"98.6\";`. Chúng ta cần kiểm tra tính hợp lệ của các phương thức trong lớp `Float`:\n1. Dòng A: `float f1 = Float.floatValue(s);`\n   • Phương thức `floatValue()` là một **phương thức thể hiện (instance method)** không nhận tham số, dùng để lấy giá trị primitive từ một đối tượng `Float` (ví dụ `myFloatObj.floatValue()`).\n   • Nó KHÔNG PHẢI là phương thức tĩnh (`static`) và KHÔNG nhận tham số nào cả. Lời gọi tĩnh `Float.floatValue(s)` sẽ gây lỗi biên dịch: \"non-static method floatValue() cannot be referenced from a static context\" -> DÒNG A LỖI!\n2. Dòng B: `float f2 = Float.valueOf(s);`\n   • Phương thức `Float.valueOf(s)` là phương thức tĩnh hợp lệ, nhưng nó trả về một **Đối tượng Wrapper `Float`**, KHÔNG PHẢI kiểu nguyên thủy `float`.\n   • Trong chuẩn SCJP (không có auto-unboxing), không thể gán một đối tượng `Float` cho biến primitive `float f2` mà không gọi `.floatValue()`. Gây lỗi biên dịch: \"incompatible types\" -> DÒNG B LỖI!\n3. Dòng D: `float f4 = Float.parseFloat(1.23f);`\n   • Phương thức `Float.parseFloat(...)` CHỈ NHẬN THAM SỐ LÀ `String`.\n   • Nó KHÔNG CÓ phiên bản nhận tham số là số thực `float`. Việc truyền `1.23f` vào sẽ gây lỗi biên dịch -> DÒNG D LỖI!\n\nCác dòng còn lại hoàn toàn hợp lệ:\n• C: `new Float(3.14f).floatValue()`: Tạo đối tượng rồi gọi instance method `floatValue()`, trả về primitive float. Hợp lệ.\n• E: `Float.parseFloat(s)`: Nhận chuỗi `s` và trả về primitive float. Hợp lệ.\n• F: `(float) Double.parseDouble(\"3.14\")`: Parse ra double rồi ép kiểu về float. Hợp lệ.\n(Trong các phương án ghép đôi, phương án A: A và B là đáp án chỉ ra các dòng gây lỗi biên dịch).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\nVì dòng A gọi sai ngữ cảnh phương thức (gọi instance method từ static context kèm tham số), và dòng B cố gán wrapper object `Float` trực tiếp cho biến primitive `float` mà không unbox.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C hoặc F đều sai vì dòng C và F là các cách hợp lệ để thu được giá trị primitive `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phương thức dạng `xxxValue()` (như `intValue()`, `floatValue()`) luôn luôn là INSTANCE METHOD không có tham số (gọi từ object).\n• Các phương thức dạng `parseXxx()` và `valueOf()` luôn luôn là STATIC METHOD nhận `String` làm đối số."
     },
     {
       "id": "scjp-ch06-015",
@@ -9275,23 +9313,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
       "options": [
         "9.0",
-        "bad number",
+        "badnumber",
         "Compilation fails on line 13.",
         "Compilation fails on line 14.",
         "Compilation fails on lines 13 and 14.",
-        "An uncaught exception is thrown at runtime."
+        "An uncaught exception is thrown at runtime.;"
       ],
       "optionsVi": [
         "9.0",
-        "bad number",
-        "Lỗi biên dịch tại dòng 13.",
-        "Lỗi biên dịch tại dòng 14.",
-        "Lỗi biên dịch tại cả dòng 13 và 14.",
-        "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
+        "badnumber",
+        "Compilation fails on line 13.",
+        "Compilation fails on line 14.",
+        "Compilation fails on lines 13 and 14.",
+        "An uncaught exception is thrown at runtime.;"
       ],
       "answer": 0,
       "isMultiple": false,
@@ -9307,23 +9345,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
       "options": [
-        "result=1",
-        "result=10",
-        "result=11",
-        "result=11010",
-        "result=11011",
-        "result=11111"
+        "result= 1",
+        "result= 10",
+        "result= 11",
+        "result= 11010",
+        "result= 11011",
+        "result= 11111"
       ],
       "optionsVi": [
-        "result = 1",
-        "result = 10",
-        "result = 11",
-        "result = 11010",
-        "result = 11011",
-        "result = 11111"
+        "result= 1",
+        "result= 10",
+        "result= 11",
+        "result= 11010",
+        "result= 11011",
+        "result= 11111"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -9339,7 +9377,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
       "options": [
         "0",
@@ -9371,18 +9409,18 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
       "options": [
         "1",
-        "10",
+        "10;",
         "101",
         "1001",
         "1101"
       ],
       "optionsVi": [
         "1",
-        "10",
+        "10;",
         "101",
         "1001",
         "1101"
@@ -9401,21 +9439,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
       "topic": "string",
       "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
-      "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai)",
+      "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-        "If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.",
-        "If x and y are String references and ifx.equals(y) istrue, then x== y istrue.",
+        "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
+        "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
         "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-        "If x and y are String references and x== y istrue, theny.equals(x) will betrue."
+        "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
       ],
       "optionsVi": [
         "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-        "If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.",
-        "If x and y are String references and ifx.equals(y) istrue, then x== y istrue.",
+        "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
+        "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
         "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-        "If x and y are String references and x== y istrue, theny.equals(x) will betrue."
+        "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
       ],
       "answer": [
         3,
@@ -9435,17 +9473,17 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Given the following:\n11.  int x = 0;\nand assuming that the equals() and hashCode() methods are properly implemented, if the output is \"x = 1111\", which of the following statements will always be true?",
-      "textVi": "Cho đoạn mã sau (với biến ban đầu `int x = 0;`) và giả sử các phương thức `equals()` cùng `hashCode()` đã được triển khai đúng chuẩn hợp đồng (contract). Nếu kết quả in ra là \"x = 1111\", phát biểu nào sau đây LUÔN ĐÚNG?",
+      "textVi": "Cho đoạn mã sau (với biến ban đầu `int x = 0;`) và giả sử các phương thức `equals()` cùng `hashCode()` đã được triển khai đúng chuẩn hợp đồng (contract). Nếu kết quả in ra là \"x = 1111\", phát biểu nào sau đây LUÔN ĐÚNG? (Chọn 1 đáp án)",
       "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
       "options": [
         "x2.equals(x1)",
-        "x3.hashCode() == x4.hashCode()",
+        "x3.hashCode() = = x4.hashCode()",
         "x5.hashCode() != x6.hashCode()",
         "x8.equals(x7)"
       ],
       "optionsVi": [
         "x2.equals(x1)",
-        "x3.hashCode() == x4.hashCode()",
+        "x3.hashCode() = = x4.hashCode()",
         "x5.hashCode() != x6.hashCode()",
         "x8.equals(x7)"
       ],
@@ -9463,21 +9501,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Given the following:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nwhich statement is true?",
-      "textVi": "Cho hai lớp sau:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nPhát biểu nào sau đây là ĐÚNG?",
+      "textVi": "Cho hai lớp sau:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nPhát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
       "code": "class Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}",
       "options": [
         "class Test1 will not compile.",
-        "The Test1 hashCode() method is more efficient than the Test2 hashCode() method.",
-        "The Test1 hashCode() method is less efficient than the Test2 hashCode() method.",
+        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
         "class Test2 will not compile.",
-        "The two hashCode() methods will have the same efficiency."
+        "The twohashcode() methods will have the same efficiency."
       ],
       "optionsVi": [
-        "Lớp Test1 sẽ không biên dịch được.",
-        "Phương thức hashCode() của Test1 hiệu quả hơn phương thức của Test2.",
-        "Phương thức hashCode() của Test1 kém hiệu quả hơn phương thức của Test2.",
-        "Lớp Test2 sẽ không biên dịch được.",
-        "Hai phương thức hashCode() có hiệu quả như nhau."
+        "class Test1 will not compile.",
+        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+        "class Test2 will not compile.",
+        "The twohashcode() methods will have the same efficiency."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9496,17 +9534,17 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào sau đây là ĐÚNG khi so sánh hai đối tượng cùng một lớp, với điều kiện các phương thức equals() và hashCode() đã được ghi đè đúng chuẩn hợp đồng? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "If theequals() method returnstrue, thehashCode() comparison == must returntrue.",
+        "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
         "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-        "If thehashCode() comparison == returnstrue, theequals() method must return true.",
-        "If thehashCode() comparison == returnstrue, theequals() method might returntrue.",
+        "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
+        "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
         "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
       ],
       "optionsVi": [
-        "If theequals() method returnstrue, thehashCode() comparison == must returntrue.",
+        "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
         "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-        "If thehashCode() comparison == returnstrue, theequals() method must return true.",
-        "If thehashCode() comparison == returnstrue, theequals() method might returntrue.",
+        "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
+        "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
         "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
       ],
       "answer": [
@@ -9527,7 +9565,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Which class does not override the equals() and hashCode() methods, inheriting them directly from class Object?",
-      "textVi": "Lớp nào sau đây KHÔNG ghi đè (override) phương thức equals() và hashCode(), mà kế thừa trực tiếp từ lớp Object?",
+      "textVi": "Lớp nào sau đây KHÔNG ghi đè (override) phương thức equals() và hashCode(), mà kế thừa trực tiếp từ lớp Object? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "java.lang.String",
@@ -9557,21 +9595,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "What two statements are true about properly overridden hashCode() and equals() methods?",
-      "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn?",
+      "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "hashCode() doesn’t have to be overridden ifequals() is.",
         "equals() doesn’t have to be overridden ifhashCode() is.",
         "hashCode() can always return the same value, regardless of the object that invoked it.",
         "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-        "equals() can be true even if it’s comparing different objects."
+        "equals() can be true even if it’s comparing different objects.;"
       ],
       "optionsVi": [
         "hashCode() doesn’t have to be overridden ifequals() is.",
         "equals() doesn’t have to be overridden ifhashCode() is.",
         "hashCode() can always return the same value, regardless of the object that invoked it.",
         "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-        "equals() can be true even if it’s comparing different objects."
+        "equals() can be true even if it’s comparing different objects.;"
       ],
       "answer": [
         2,
@@ -9591,7 +9629,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
-      "textVi": "Lớp tập hợp (collection class) nào cho phép tự động tăng giảm kích thước, hỗ trợ truy xuất phần tử theo chỉ mục (index), nhưng các phương thức của nó KHÔNG ĐƯỢC đồng bộ hóa (not synchronized)?",
+      "textVi": "Lớp tập hợp (collection class) nào cho phép tự động tăng giảm kích thước, hỗ trợ truy xuất phần tử theo chỉ mục (index), nhưng các phương thức của nó KHÔNG ĐƯỢC đồng bộ hóa (not synchronized)? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "java.util.HashSet",
@@ -9621,7 +9659,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
-      "textVi": "Lớp tập hợp nào cho phép truy xuất phần tử bằng cách liên kết khóa (key) với giá trị (value), đồng thời CÓ hỗ trợ đồng bộ hóa (synchronization)?",
+      "textVi": "Lớp tập hợp nào cho phép truy xuất phần tử bằng cách liên kết khóa (key) với giá trị (value), đồng thời CÓ hỗ trợ đồng bộ hóa (synchronization)? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "java.util.SortedMap",
@@ -9651,7 +9689,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "12.    TreeSet map = new TreeSet();\n13.    map.add(\"one\");\n14.    map.add(\"two\");\n15.    map.add(\"three\");\n16.    map.add(\"four\");\n17.    map.add(\"one\");\n18.    Iterator it = map.iterator();\n19.    while (it.hasNext()) {\n20.        System.out.print(it.next() + \" \");\n21.    }",
       "options": [
         "one two three four",
@@ -9659,7 +9697,7 @@ export const scjpChapterAllQuiz = {
         "four one three two",
         "one two three four one",
         "one four three two one",
-        "The print order is not guaranteed."
+        "The print order is not guaranteed.;"
       ],
       "optionsVi": [
         "one two three four",
@@ -9667,7 +9705,7 @@ export const scjpChapterAllQuiz = {
         "four one three two",
         "one two three four one",
         "one four three two one",
-        "Thứ tự in ra không được đảm bảo cố định."
+        "The print order is not guaranteed.;"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9683,7 +9721,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
-      "textVi": "Lớp tập hợp nào cho phép liên kết các phần tử với giá trị khóa (key), đồng thời cho phép lấy các đối tượng ra theo đúng thứ tự FIFO (First-In, First-Out - vào trước ra trước)?",
+      "textVi": "Lớp tập hợp nào cho phép liên kết các phần tử với giá trị khóa (key), đồng thời cho phép lấy các đối tượng ra theo đúng thứ tự FIFO (First-In, First-Out - vào trước ra trước)? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "java.util.ArrayList",
@@ -9691,7 +9729,7 @@ export const scjpChapterAllQuiz = {
         "java.util.HashMap",
         "java.util.TreeMap",
         "java.util.LinkedHashSet",
-        "java.util.TreeSet"
+        "java.util.TreeSet Garbage Collection (;"
       ],
       "optionsVi": [
         "java.util.ArrayList",
@@ -9699,7 +9737,7 @@ export const scjpChapterAllQuiz = {
         "java.util.HashMap",
         "java.util.TreeMap",
         "java.util.LinkedHashSet",
-        "java.util.TreeSet"
+        "java.util.TreeSet Garbage Collection (;"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -9715,7 +9753,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Given the following:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nAfter line 6 runs, how many objects are eligible for garbage collection?",
-      "textVi": "Cho đoạn mã sau:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nSau khi dòng 6 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+      "textVi": "Cho đoạn mã sau:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nSau khi dòng 6 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
       "code": "1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }",
       "options": [
         "0",
@@ -9745,21 +9783,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Which statement is true?",
-      "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+      "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
         "Objects with at least one reference will never be garbage collected.",
-        "Objects from a class with the finalize() method overridden will never be garbage collected.",
+        "Objects from a class with thefinalize() method overridden will never be garbage collected.",
         "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
-        "Once an overridden finalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+        "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
       ],
       "optionsVi": [
-        "Mọi đối tượng đủ điều kiện thu gom rác đều chắc chắn sẽ được bộ gom rác thu dọn.",
-        "Đối tượng có ít nhất một tham chiếu trỏ tới sẽ không bao giờ bị thu gom rác.",
-        "Đối tượng thuộc lớp có ghi đè phương thức finalize() sẽ không bao giờ bị thu gom rác.",
-        "Các đối tượng được khởi tạo bên trong anonymous inner class đều được đặt trên vùng nhớ Heap chịu sự quản lý của bộ gom rác.",
-        "Một khi phương thức finalize() được gọi, không có cách nào để cứu đối tượng đó thoát khỏi việc bị thu gom rác."
+        "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+        "Objects with at least one reference will never be garbage collected.",
+        "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+        "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+        "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -9775,7 +9813,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Given the following:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nafter line 9 runs, how many objects are eligible for garbage collection?",
-      "textVi": "Cho đoạn mã sau:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nSau khi dòng 9 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+      "textVi": "Cho đoạn mã sau:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nSau khi dòng 9 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
       "code": "1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }",
       "options": [
         "0",
@@ -9805,19 +9843,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Which statement is true?",
-      "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+      "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "Calling Runtime.gc() will cause eligible objects to be garbage collected.",
+        "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
         "The garbage collector uses a mark and sweep algorithm.",
         "If an object can be accessed from a live thread, it can’t be garbage collected.",
         "If object 1 refers to object 2, then object 2 can’t be garbage collected."
       ],
       "optionsVi": [
-        "Gọi Runtime.gc() sẽ đảm bảo các đối tượng đủ điều kiện sẽ được thu gom rác.",
-        "Bộ gom rác bắt buộc phải sử dụng thuật toán mark and sweep.",
-        "Nếu một đối tượng có thể được truy cập từ một luồng (thread) đang chạy, nó không thể bị thu gom rác.",
-        "Nếu đối tượng 1 đang tham chiếu tới đối tượng 2, thì đối tượng 2 không thể bị thu gom rác."
+        "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+        "The garbage collector uses a mark and sweep algorithm.",
+        "If an object can be accessed from a live thread, it can’t be garbage collected.",
+        "If object 1 refers to object 2, then object 2 can’t be garbage collected."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9867,23 +9905,11 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Objects and Collections",
       "topic": "collection",
       "text": "Given the following:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nat what point is the object created in line 13 eligible for garbage collection?",
-      "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+      "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
       "code": "12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }",
-      "options": [
-        "After line 15 runs",
-        "After line 16 runs",
-        "After line 17 runs",
-        "The object is not eligible.",
-        "It is not possible to know for sure."
-      ],
-      "optionsVi": [
-        "Sau khi dòng 15 chạy xong",
-        "Sau khi dòng 16 chạy xong",
-        "Sau khi dòng 17 chạy xong",
-        "Đối tượng này không bao giờ đủ điều kiện thu gom rác.",
-        "Không thể biết chắc chắn được."
-      ],
-      "answer": 4,
+      "options": [],
+      "optionsVi": [],
+      "answer": 0,
       "isMultiple": false,
       "correctLetters": [
         "E"
@@ -9897,19 +9923,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Given the following:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nwhich statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
-      "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)?",
+      "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
       "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
       "options": [
-        "MyOuter.MyInner m = new MyOuter.MyInner();",
-        "MyOuter.MyInner mi = new MyInner();",
-        "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
-        "MyInner mi = new MyOuter.MyInner();"
+        "MyOuter.MyInnerm= newMyOuter.MyInner();",
+        "MyOuter.MyInnermi= newMyInner();",
+        "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
+        "MyInnermi= newMyOuter.MyInner();"
       ],
       "optionsVi": [
-        "MyOuter.MyInner m = new MyOuter.MyInner();",
-        "MyOuter.MyInner mi = new MyInner();",
-        "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
-        "MyInner mi = new MyOuter.MyInner();"
+        "MyOuter.MyInnerm= newMyOuter.MyInner();",
+        "MyOuter.MyInnermi= newMyInner();",
+        "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
+        "MyInnermi= newMyOuter.MyInner();"
       ],
       "answer": 0,
       "isMultiple": false,
@@ -9959,21 +9985,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Which constructs an anonymous inner class instance?",
-      "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)?",
+      "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "Runnable r = new Runnable() {};",
-        "Runnable r = new Runnable(public void run() {});",
-        "Runnable r = new Runnable {public void run() {}};",
-        "Runnable r = new Runnable() {public void run{}};",
-        "System.out.println(new Runnable() {public void run() {}});"
+        "Runnabler= newRunnable(){};",
+        "Runnabler= newRunnable(publicvoidrun(){});",
+        "Runnabler= newRunnable{publicvoidrun(){}};",
+        "Runnabler= newRunnable(){publicvoidrun{}};",
+        "System.out.println(newRunnable() {publicvoidrun(){}});",
+        "System.out.println(newRunnable(publicvoidrun(){}));"
       ],
       "optionsVi": [
-        "Runnable r = new Runnable() {};",
-        "Runnable r = new Runnable(public void run() {});",
-        "Runnable r = new Runnable {public void run() {}};",
-        "Runnable r = new Runnable() {public void run{}};",
-        "System.out.println(new Runnable() {public void run() {}});"
+        "Runnabler= newRunnable(){};",
+        "Runnabler= newRunnable(publicvoidrun(){});",
+        "Runnabler= newRunnable{publicvoidrun(){}};",
+        "Runnabler= newRunnable(){publicvoidrun{}};",
+        "System.out.println(newRunnable() {publicvoidrun(){}});",
+        "System.out.println(newRunnable(publicvoidrun(){}));"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -9992,18 +10020,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau:\nclass Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // chèn mã tại đây\n  }\n}\nHai câu lệnh nào dưới đây sẽ tạo một lớp nội danh ẩn danh (anonymous inner class) hợp lệ từ bên trong lớp Bar? (Chọn 2 đáp án)",
       "code": "class Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // insert code here\n  }\n}",
       "options": [
-        "Boof=newBoo(24){};",
-        "Boof=newBar(){};",
-        "Boof=newBoo(){Strings;};",
-        "Barf=newBoo(Strings){};",
-        "Boof=newBoo.Bar(Strings){};"
+        "Boof= newBoo(24){};",
+        "Boof= newBar(){};",
+        "Boof= newBoo(){Strings;};",
+        "Barf= newBoo(Strings){};",
+        "Boof= newBoo.Bar(Strings){};"
       ],
       "optionsVi": [
-        "Boof=newBoo(24){};",
-        "Boof=newBar(){};",
-        "Boof=newBoo(){Strings;};",
-        "Barf=newBoo(Strings){};",
-        "Boof=newBoo.Bar(Strings){};"
+        "Boof= newBoo(24){};",
+        "Boof= newBar(){};",
+        "Boof= newBoo(){Strings;};",
+        "Barf= newBoo(Strings){};",
+        "Boof= newBoo.Bar(Strings){};"
       ],
       "answer": [
         1,
@@ -10023,21 +10051,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Given the following:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }\nwhich statement, inserted at line 7, creates an instance of Bar?",
-      "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar?",
+      "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar? (Chọn 1 đáp án)",
       "code": "1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }",
       "options": [
-        "Foo.Bar b = new Foo.Bar();",
-        "Foo.Bar b = f.new Bar();",
-        "Bar b = new f.Bar();",
-        "Bar b = f.new Bar();",
-        "Foo.Bar b = new f.Bar();"
+        "Foo.Barb= newFoo.Bar();",
+        "Foo.Barb= f.newBar();",
+        "Barb= newf.Bar();",
+        "Barb= f.newBar();",
+        "Foo.Barb= newf.Bar();"
       ],
       "optionsVi": [
-        "Foo.Bar b = new Foo.Bar();",
-        "Foo.Bar b = f.new Bar();",
-        "Bar b = new f.Bar();",
-        "Bar b = f.new Bar();",
-        "Foo.Bar b = new f.Bar();"
+        "Foo.Barb= newFoo.Bar();",
+        "Foo.Barb= f.newBar();",
+        "Barb= newf.Bar();",
+        "Barb= f.newBar();",
+        "Foo.Barb= newf.Bar();"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -10087,26 +10115,26 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Which is true about an anonymous inner class?",
-      "textVi": "Phát biểu nào sau đây là ĐÚNG về lớp nội danh ẩn danh (anonymous inner class)?",
+      "textVi": "Phát biểu nào sau đây là ĐÚNG về lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "It can extend exactly one class and implement exactly one interface.",
-        "It can extend exactly one class and can implement multiple interfaces.",
-        "It can extend exactly one class or implement exactly one interface.",
-        "It can implement multiple interfaces regardless of whether it also extends a class.",
-        "It can implement multiple interfaces if it does not extend a class."
+        "java.util.SortedMap",
+        "java.util.TreeMap",
+        "java.util.TreeSet",
+        "java.util.HashMap",
+        "java.util.Hashtable"
       ],
       "optionsVi": [
-        "Nó có thể vừa kế thừa chính xác một lớp, vừa cài đặt chính xác một interface.",
-        "Nó có thể kế thừa chính xác một lớp và có thể cài đặt nhiều interface.",
-        "Nó có thể kế thừa chính xác một lớp HOẶC cài đặt chính xác một interface.",
-        "Nó có thể cài đặt nhiều interface bất kể nó có kế thừa một lớp hay không.",
-        "Nó có thể cài đặt nhiều interface nếu nó không kế thừa lớp nào."
+        "java.util.SortedMap",
+        "java.util.TreeMap",
+        "java.util.TreeSet",
+        "java.util.HashMap",
+        "java.util.Hashtable"
       ],
-      "answer": 2,
+      "answer": 4,
       "isMultiple": false,
       "correctLetters": [
-        "C"
+        "E"
       ],
       "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Cú pháp định nghĩa Anonymous Inner Class:\nMột anonymous inner class luôn được khởi tạo gắn liền với toán tử `new` theo một trong hai dạng cú pháp duy nhất:\n• Dạng 1 (Kế thừa một class):\n  `new SuperClass(arguments) { ... }`\n  -> Lúc này lớp ẩn danh ngầm định kế thừa (extends) `SuperClass`.\n• Dạng 2 (Cài đặt một interface):\n  `new InterfaceName() { ... }`\n  -> Lúc này lớp ẩn danh ngầm định cài đặt (implements) `InterfaceName` (và gián tiếp kế thừa `Object`).\n\n2. Giới hạn cú pháp (The \"OR\" Rule):\nSau từ khóa `new`, cú pháp Java chỉ cho phép bạn ghi DUY NHẤT MỘT định danh kiểu:\n• Bạn không thể viết `new MyClass, MyInterface() { ... }`.\n• Bạn không thể viết `implements` hay `extends` trong thân anonymous inner class.\n• Do đó, một anonymous inner class chỉ có thể: Hoặc là kế thừa duy nhất một lớp, HOẶC là cài đặt duy nhất một interface (either-or). Nó không bao giờ có thể làm cả hai, và không bao giờ có thể cài đặt nhiều hơn 1 interface.\n\nVì vậy, phát biểu C: \"It can extend exactly one class or implement exactly one interface\" là phát biểu duy nhất chính xác.\n\n✅ Vì sao đáp án \"It can extend exactly one class or implement exactly one interface.\" đúng:\nCú pháp của Java chỉ cho phép đặt đúng một tên class hoặc một tên interface sau từ khóa `new`, không có cách nào khai báo nhiều interface hay vừa extend vừa implement trong anonymous class.\n\n❌ Vì sao các đáp án khác sai:\n• \"It can extend exactly one class and implement exactly one interface.\": Sai vì không thể làm đồng thời cả hai.\n• \"It can extend exactly one class and can implement multiple interfaces.\": Sai vì không thể cài đặt interface nào khi đã extend một lớp.\n• \"...implement multiple interfaces...\": Cả D và E đều sai vì anonymous inner class không bao giờ có thể cài đặt từ 2 interface trở lên.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Anonymous class chỉ được chọn 1 trong 2: Hoặc 1 Class, HOẶC 1 Interface.\n• Từ khóa chìa khóa: \"OR\" (hoặc cái này hoặc cái kia)."
     },
@@ -10117,21 +10145,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Given the following:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nwhat is the result?",
-      "textVi": "Cho đoạn mã sau:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "public class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}",
       "options": [
         "Compilation fails.",
         "An error occurs at runtime.",
         "foobarhi",
         "barhi",
-        "hi"
+        "hi;"
       ],
       "optionsVi": [
-        "Lỗi biên dịch (Compilation fails).",
-        "Xảy ra lỗi tại thời điểm chạy (Runtime Error).",
+        "Compilation fails.",
+        "An error occurs at runtime.",
         "foobarhi",
         "barhi",
-        "hi"
+        "hi;"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -10147,7 +10175,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Given the following:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nwhat is the result?",
-      "textVi": "Cho đoạn mã sau:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nKết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }",
       "options": [
         "An exception occurs at runtime.",
@@ -10159,13 +10187,13 @@ export const scjpChapterAllQuiz = {
         "Compilation fails because of an error on a line other than 3, 4, or 8."
       ],
       "optionsVi": [
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+        "An exception occurs at runtime.",
         "true",
         "fred",
-        "Lỗi biên dịch do lỗi ở dòng 3.",
-        "Lỗi biên dịch do lỗi ở dòng 4.",
-        "Lỗi biên dịch do lỗi ở dòng 8.",
-        "Lỗi biên dịch do lỗi ở một dòng khác ngoài 3, 4 hoặc 8."
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 4.",
+        "Compilation fails because of an error on line 8.",
+        "Compilation fails because of an error on a line other than 3, 4, or 8."
       ],
       "answer": 6,
       "isMultiple": false,
@@ -10181,7 +10209,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Given the following:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nwhat is the result?",
-      "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nKết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }",
       "options": [
         "An exception occurs at runtime at line 10.",
@@ -10192,12 +10220,12 @@ export const scjpChapterAllQuiz = {
         "Compilation fails because of an error on line 11."
       ],
       "optionsVi": [
-        "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
+        "An exception occurs at runtime at line 10.",
         "Zippo",
-        "Lỗi biên dịch do lỗi ở dòng 3.",
-        "Lỗi biên dịch do lỗi ở dòng 9.",
-        "Lỗi biên dịch do lỗi ở dòng 10.",
-        "Lỗi biên dịch do lỗi ở dòng 11."
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 9.",
+        "Compilation fails because of an error on line 10.",
+        "Compilation fails because of an error on line 11."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -10213,7 +10241,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Given the following:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nwhat is the result?",
-      "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nKết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }",
       "options": [
         "An exception occurs at runtime at line 10.",
@@ -10223,11 +10251,11 @@ export const scjpChapterAllQuiz = {
         "Compilation fails because of an error on line 10."
       ],
       "optionsVi": [
-        "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
+        "An exception occurs at runtime at line 10.",
         "Zippo",
-        "Lỗi biên dịch do lỗi ở dòng 3.",
-        "Lỗi biên dịch do lỗi ở dòng 9.",
-        "Lỗi biên dịch do lỗi ở dòng 10."
+        "Compilation fails because of an error on line 3.",
+        "Compilation fails because of an error on line 9.",
+        "Compilation fails because of an error on line 10."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -10243,21 +10271,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Inner Classes",
       "topic": "javacore",
       "text": "Given the following:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nwhat is the result?",
-      "textVi": "Cho đoạn mã sau:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "public abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}",
       "options": [
-        "57 22",
-        "45 38",
-        "45 57",
+        "5722",
+        "4538",
+        "4557",
         "An exception occurs at runtime.",
-        "Compilation fails."
+        "Compilation fails.;"
       ],
       "optionsVi": [
-        "57 22",
-        "45 38",
-        "45 57",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
-        "Lỗi biên dịch (Compilation fails)."
+        "5722",
+        "4538",
+        "4557",
+        "An exception occurs at runtime.",
+        "Compilation fails.;"
       ],
       "answer": 0,
       "isMultiple": false,
@@ -10273,7 +10301,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1; i<3; ++i) {\n10.          System.out.print(i + \"..\");\n11.       }\n12.    }\n13. }",
       "options": [
         "This code will not compile due to line 4.",
@@ -10283,11 +10311,11 @@ export const scjpChapterAllQuiz = {
         "An exception is thrown at runtime."
       ],
       "optionsVi": [
-        "Đoạn mã không biên dịch được do lỗi ở dòng 4.",
-        "Đoạn mã không biên dịch được do lỗi ở dòng 5.",
+        "This code will not compile due to line 4.",
+        "This code will not compile due to line 5.",
         "1..2..",
         "1..2..3..",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -10303,21 +10331,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Which two of the following methods are defined in class Thread?",
-      "textVi": "Hai phương thức nào sau đây được định nghĩa trực tiếp trong lớp java.lang.Thread?",
+      "textVi": "Hai phương thức nào sau đây được định nghĩa trực tiếp trong lớp java.lang.Thread? (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "start()",
         "wait()",
         "notify()",
         "run()",
-        "terminate()"
+        "terminate();"
       ],
       "optionsVi": [
         "start()",
         "wait()",
         "notify()",
         "run()",
-        "terminate()"
+        "terminate();"
       ],
       "answer": [
         0,
@@ -10337,21 +10365,21 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "The following block of code creates a Thread using a Runnable target:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nWhich of the following classes can be used to create the target, so that the preceding code compiles correctly?",
-      "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công?",
+      "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công? (Chọn 1 đáp án)",
       "code": "Runnable target = new MyRunnable();\nThread myThread = new Thread(target);",
       "options": [
-        "public class MyRunnable extends Runnable { public void run() {} }",
-        "public class MyRunnable extends Object { public void run() {} }",
-        "public class MyRunnable implements Runnable { public void run() {} }",
-        "public class MyRunnable implements Runnable { void run() {} }",
-        "public class MyRunnable implements Runnable { public void start() {} }"
+        "public class MyRunnable extends Runnable{public void run(){}}",
+        "public class MyRunnable extends Object{public void run(){}}",
+        "public class MyRunnable implements Runnable{public void run(){}}",
+        "public class MyRunnable implements Runnable{void run(){}}",
+        "public class MyRunnable implements Runnable{public void start(){}}"
       ],
       "optionsVi": [
-        "public class MyRunnable extends Runnable { public void run() {} }",
-        "public class MyRunnable extends Object { public void run() {} }",
-        "public class MyRunnable implements Runnable { public void run() {} }",
-        "public class MyRunnable implements Runnable { void run() {} }",
-        "public class MyRunnable implements Runnable { public void start() {} }"
+        "public class MyRunnable extends Runnable{public void run(){}}",
+        "public class MyRunnable extends Object{public void run(){}}",
+        "public class MyRunnable implements Runnable{public void run(){}}",
+        "public class MyRunnable implements Runnable{void run(){}}",
+        "public class MyRunnable implements Runnable{public void start(){}}"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -10367,7 +10395,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following, what is the result of this code?",
-      "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.start();\n6.        System.out.print(\"one. \");\n7.        t.start();\n8.        System.out.print(\"two. \");\n9.     }\n10.\n11.    public void run() {\n12.       System.out.print(\"Thread \");\n13.    }\n14. }",
       "options": [
         "Compilation fails",
@@ -10376,10 +10404,10 @@ export const scjpChapterAllQuiz = {
         "The output cannot be determined."
       ],
       "optionsVi": [
-        "Lỗi biên dịch (Compilation fails)",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+        "Compilation fails",
+        "An exception occurs at runtime.",
         "Thread one. Thread two.",
-        "Không thể xác định trước kết quả in ra."
+        "The output cannot be determined."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -10395,7 +10423,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // some code here\n  }\n}\nwhich of these will create and start this thread?",
-      "textVi": "Cho đoạn mã sau:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // mã xử lý tại đây\n  }\n}\nCâu lệnh nào dưới đây sẽ tạo và khởi chạy luồng này một cách hợp lệ?",
+      "textVi": "Cho đoạn mã sau:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // mã xử lý tại đây\n  }\n}\nCâu lệnh nào dưới đây sẽ tạo và khởi chạy luồng này một cách hợp lệ? (Chọn 1 đáp án)",
       "code": "public class MyRunnable implements Runnable {\n  public void run() {\n    // some code here\n  }\n}",
       "options": [
         "new Runnable(MyRunnable).start();",
@@ -10423,7 +10451,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following, what is the result of this code?",
-      "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        Thread x = new Thread(t);\n6.        x.start();\n7.     }\n8.\n9.     public void run() {\n10.       for(int i=0; i<3; ++i) {\n11.          System.out.print(i + \"..\");\n12.       }\n13.    }\n14. }",
       "options": [
         "Compilation fails.",
@@ -10433,11 +10461,11 @@ export const scjpChapterAllQuiz = {
         "An exception occurs at runtime."
       ],
       "optionsVi": [
-        "Lỗi biên dịch (Compilation fails).",
+        "Compilation fails.",
         "1..2..3..",
         "0..1..2..3..",
         "0..1..2..",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+        "An exception occurs at runtime."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -10453,19 +10481,19 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following:\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nthe static method Thread.currentThread() returns a reference to the currently executing Thread object. What is the result of this code?",
-      "textVi": "Cho đoạn mã sau (biết rằng phương thức tĩnh Thread.currentThread() trả về tham chiếu tới luồng đang thực thi):\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nKết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau (biết rằng phương thức tĩnh Thread.currentThread() trả về tham chiếu tới luồng đang thực thi):\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }",
       "options": [
         "Each String in the array lines will output, with a 1-second pause.",
         "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-        "Each String in the array lines will output, and there is no guarantee there will be a pause because currentThread() may not retrieve this thread.",
+        "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
         "This code will not compile."
       ],
       "optionsVi": [
-        "Mỗi phần tử String trong mảng lines sẽ được in ra, cách nhau 1 giây tạm dừng.",
-        "Mỗi phần tử String trong mảng lines sẽ được in ra không có khoảng dừng, vì phương thức này không chạy trong một Thread.",
-        "Mỗi phần tử String trong mảng lines sẽ được in ra, và không chắc chắn có khoảng dừng vì currentThread() có thể không lấy được luồng này.",
-        "Đoạn mã này sẽ không biên dịch được (This code will not compile)."
+        "Each String in the array lines will output, with a 1-second pause.",
+        "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+        "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+        "This code will not compile."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -10484,20 +10512,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Giả sử bạn có một lớp lưu trữ hai biến thành viên private: a và b. Cặp phương thức nào dưới đây có thể ngăn chặn sự cố tranh chấp truy cập đồng thời (concurrent access / race condition) trong lớp đó? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;}",
-        "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;}",
-        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}}",
-        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a=a;this.b=b;}}",
-        "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;}",
-        "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}}"
+        "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
+        "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
+        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
+        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
+        "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
+        "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
       ],
       "optionsVi": [
-        "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;}",
-        "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;}",
-        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}}",
-        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a=a;this.b=b;}}",
-        "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;}",
-        "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}}"
+        "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
+        "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
+        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
+        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
+        "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
+        "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
       ],
       "answer": [
         1,
@@ -10517,7 +10545,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Which class or interface defines the wait(), notify(), and notifyAll() methods?",
-      "textVi": "Lớp hoặc interface nào định nghĩa các phương thức wait(), notify(), và notifyAll()?",
+      "textVi": "Lớp hoặc interface nào định nghĩa các phương thức wait(), notify(), và notifyAll()? (Chọn 1 đáp án)",
       "code": "",
       "options": [
         "Object",
@@ -10549,14 +10577,14 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "A static method cannot be synchronized.",
-        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
+        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
         "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
         "When a thread sleeps, it releases its locks.",
         "When a thread invokeswait(), it releases its locks."
       ],
       "optionsVi": [
         "A static method cannot be synchronized.",
-        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
+        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
         "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
         "When a thread sleeps, it releases its locks.",
         "When a thread invokeswait(), it releases its locks."
@@ -10579,7 +10607,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Which three are methods of the Object class? (Choose three.)",
-      "textVi": "Ba phương thức nào sau đây là phương thức của lớp java.lang.Object? (Chọn phương án kết hợp đúng)",
+      "textVi": "Ba phương thức nào sau đây là phương thức của lớp java.lang.Object? (Chọn phương án kết hợp đúng) (Chọn 3 đáp án)",
       "code": "",
       "options": [
         "notify();",
@@ -10603,14 +10631,16 @@ export const scjpChapterAllQuiz = {
       ],
       "answer": [
         0,
-        1
+        1,
+        5
       ],
       "isMultiple": true,
       "correctLetters": [
         "A",
-        "B"
+        "B",
+        "F"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Danh sách các phương thức liên quan đến luồng trong Java:\n• Thuộc lớp `java.lang.Object`:\n  1. `wait()` (gồm các phiên bản nạp chồng có tham số timeout)\n  2. `notify()`\n  3. `notifyAll()`\n• Thuộc lớp `java.lang.Thread`:\n  1. `isInterrupted()`: Phương thức thực thể kiểm tra cờ ngắt của luồng.\n  2. `interrupt()`: Gửi tín hiệu ngắt tới luồng.\n  3. `sleep()`: Phương thức tĩnh tạm dừng luồng.\n  4. `yield()`: Phương thức tĩnh nhường CPU.\n  5. `join()`: Chờ luồng kết thúc.\n• Từ khóa của ngôn ngữ Java:\n  - `synchronized`: Là một TỪ KHÓA BẢO LƯU (keyword), không phải là một phương thức! Cú pháp `synchronized()` là một cấu trúc cú pháp của ngôn ngữ.\n\n2. Đánh giá các phương án:\nTrong các lựa chọn được ghép đôi ở câu hỏi trắc nghiệm này, phương án chứa `A: notify()` và `B: notifyAll()` (hai phương thức chính thức của `Object`) là đáp án chính xác nhất.\n\n✅ Vì sao đáp án \"A và B\" đúng:\nCả `notify()` và `notifyAll()` (cùng với `wait()`) đều là các phương thức nguyên bản được định nghĩa trong lớp `java.lang.Object`.\n\n❌ Vì sao các đáp án khác sai:\n• \"C: isInterrupted()\": Sai vì đây là phương thức của lớp `java.lang.Thread`.\n• \"D: synchronized()\": Sai vì `synchronized` là từ khóa cú pháp của Java, không phải phương thức.\n• \"H: yield()\": Sai vì `yield()` là phương thức tĩnh của lớp `java.lang.Thread`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chỉ có 3 cái tên thuộc `Object`: `wait`, `notify`, `notifyAll`.\n• Tất cả những cái tên còn lại (`sleep`, `yield`, `join`, `interrupt`, `isInterrupted`, `start`, `run`) đều thuộc về `Thread` hoặc `Runnable`."
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Danh sách các phương thức liên quan đến luồng trong Java:\n• Thuộc lớp `java.lang.Object`:\n  1. `wait()` (gồm các phiên bản nạp chồng có tham số timeout)\n  2. `notify()`\n  3. `notifyAll()`\n• Thuộc lớp `java.lang.Thread`:\n  1. `isInterrupted()`: Phương thức thực thể kiểm tra cờ ngắt của luồng.\n  2. `interrupt()`: Gửi tín hiệu ngắt tới luồng.\n  3. `sleep()`: Phương thức tĩnh tạm dừng luồng.\n  4. `yield()`: Phương thức tĩnh nhường CPU.\n  5. `join()`: Chờ luồng kết thúc.\n• Từ khóa của ngôn ngữ Java:\n  - `synchronized`: Là một TỪ KHÓA BẢO LƯU (keyword), không phải là một phương thức! Cú pháp `synchronized()` là một cấu trúc cú pháp của ngôn ngữ.\n\n2. Đánh giá các phương án:\nTrong các lựa chọn được ghép đôi ở câu hỏi trắc nghiệm này, phương án chứa `A: notify()` và `B: notifyAll()` (hai phương thức chính thức của `Object`) là đáp án chính xác nhất.\n\n✅ Vì sao đáp án \"A, B và F\" đúng:\nCả `notify()` và `notifyAll()` (cùng với `wait()`) đều là các phương thức nguyên bản được định nghĩa trong lớp `java.lang.Object`.\n\n❌ Vì sao các đáp án khác sai:\n• \"C: isInterrupted()\": Sai vì đây là phương thức của lớp `java.lang.Thread`.\n• \"D: synchronized()\": Sai vì `synchronized` là từ khóa cú pháp của Java, không phải phương thức.\n• \"H: yield()\": Sai vì `yield()` là phương thức tĩnh của lớp `java.lang.Thread`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chỉ có 3 cái tên thuộc `Object`: `wait`, `notify`, `notifyAll`.\n• Tất cả những cái tên còn lại (`sleep`, `yield`, `join`, `interrupt`, `isInterrupted`, `start`, `run`) đều thuộc về `Thread` hoặc `Runnable`."
     },
     {
       "id": "scjp-ch09-012",
@@ -10619,10 +10649,10 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following, what is the result of trying to compile and run this program?",
-      "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì? (Chọn 1 đáp án)",
       "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.       }\n11.       System.out.print(\"3 \");\n12.    }\n13. }",
       "options": [
-        "It fails to compile because the IllegalMonitorStateException of wait() is not dealt with in line 7.",
+        "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
         "1 2 3",
         "1 3",
         "1 2",
@@ -10630,12 +10660,12 @@ export const scjpChapterAllQuiz = {
         "It will fail to compile because it has to be synchronized on the this object."
       ],
       "optionsVi": [
-        "Lỗi biên dịch do ngoại lệ IllegalMonitorStateException của wait() không được xử lý ở dòng 7.",
+        "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
         "1 2 3",
         "1 3",
         "1 2",
-        "Ném ngoại lệ IllegalMonitorStateException tại thời điểm chạy khi cố gắng gọi wait().",
-        "Lỗi biên dịch vì bắt buộc phải đồng bộ hóa trên đối tượng this."
+        "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+        "It will fail to compile because it has to be synchronized on the this object."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -10651,7 +10681,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Assume the following method is properly synchronized and called from a thread A on an object B:\nwait(2000);\nAfter calling this method, when will the thread A become a candidate to get another turn at the CPU?",
-      "textVi": "Giả sử phương thức sau đã được đồng bộ hóa đúng cách và được gọi từ luồng A trên đối tượng B:\nwait(2000);\nSau khi gọi phương thức này, khi nào thì luồng A sẽ trở thành ứng viên sẵn sàng được cấp phát CPU để chạy tiếp?",
+      "textVi": "Giả sử phương thức sau đã được đồng bộ hóa đúng cách và được gọi từ luồng A trên đối tượng B:\nwait(2000);\nSau khi gọi phương thức này, khi nào thì luồng A sẽ trở thành ứng viên sẵn sàng được cấp phát CPU để chạy tiếp? (Chọn 1 đáp án)",
       "code": "wait(2000);",
       "options": [
         "After thread A is notified, or after two seconds.",
@@ -10660,10 +10690,10 @@ export const scjpChapterAllQuiz = {
         "Two seconds after lock B is released."
       ],
       "optionsVi": [
-        "Sau khi luồng A được thông báo (notified), HOẶC sau khi hết thời gian 2 giây.",
-        "Sau khi khóa trên B được giải phóng, HOẶC sau khi hết 2 giây.",
-        "Hai giây sau khi luồng A được thông báo.",
-        "Hai giây sau khi khóa trên B được giải phóng."
+        "After thread A is notified, or after two seconds.",
+        "After the lock on B is released, or after two seconds.",
+        "Two seconds after thread A is notified.",
+        "Two seconds after lock B is released."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -10715,7 +10745,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
-      "textVi": "Giả sử bạn tạo một chương trình và một trong các luồng (tên là backgroundThread) phải thực hiện tính toán số học rất nặng và tốn thời gian. Cách nào dưới đây là chuẩn xác để thiết lập độ ưu tiên của nó nhằm giúp toàn bộ phần còn lại của hệ thống phản hồi nhanh và mượt mà trong khi luồng này đang chạy? (Chọn phương án kết hợp đúng)",
+      "textVi": "Giả sử bạn tạo một chương trình và một trong các luồng (tên là backgroundThread) phải thực hiện tính toán số học rất nặng và tốn thời gian. Cách nào dưới đây là chuẩn xác để thiết lập độ ưu tiên của nó nhằm giúp toàn bộ phần còn lại của hệ thống phản hồi nhanh và mượt mà trong khi luồng này đang chạy? (Chọn phương án kết hợp đúng) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "backgroundThread.setPriority(Thread.LOW_PRIORITY);",
@@ -10753,7 +10783,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Which three guarantee that a thread will leave the running state? (Choose three.)",
-      "textVi": "Ba hành động nào dưới đây ĐẢM BẢO CHẮC CHẮN rằng một luồng sẽ rời khỏi trạng thái đang chạy (running state)? (Chọn phương án kết hợp đúng)",
+      "textVi": "Ba hành động nào dưới đây ĐẢM BẢO CHẮC CHẮN rằng một luồng sẽ rời khỏi trạng thái đang chạy (running state)? (Chọn phương án kết hợp đúng) (Chọn 3 đáp án)",
       "code": "",
       "options": [
         "yield()",
@@ -10775,14 +10805,16 @@ export const scjpChapterAllQuiz = {
       ],
       "answer": [
         1,
-        4
+        4,
+        5
       ],
       "isMultiple": true,
       "correctLetters": [
         "B",
-        "E"
+        "E",
+        "F"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Các trạng thái khiến luồng RỜI KHỎI trạng thái Running (Đang chạy):\nĐể đảm bảo chắc chắn (guarantee) luồng không còn ở trạng thái `Running`:\n• `wait()` (Hành động B): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào hàng đợi `Waiting` của đối tượng.\n• `sleep(long millis)` (Hành động E): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào trạng thái `Timed Waiting` trong ít nhất khoảng thời gian chỉ định.\n• `join()`: Chắc chắn 100% bắt luồng hiện tại dừng chạy và đợi cho tới khi luồng mục tiêu kết thúc.\n\n2. Vì sao `yield()` KHÔNG ĐẢM BẢO (Bẫy đề thi số 1):\n• `Thread.yield()` (Hành động A): Chỉ là một lời \"nhắn nhủ / gợi ý\" (hint) gửi tới bộ lập lịch CPU (thread scheduler) rằng: \"Tôi sẵn sàng nhường lượt chạy cho luồng khác có cùng mức ưu tiên\".\n• TUY NHIÊN, bộ lập lịch có toàn quyền quyết định! Nếu không có luồng nào khác sẵn sàng hoặc bộ lập lịch quyết định tiếp tục, luồng vừa gọi `yield()` có thể NGAY LẬP TỨC ĐƯỢC CHỌN ĐỂ CHẠY TIẾP mà không hề rời khỏi trạng thái `Running` một mili-giây nào!\n• Do đó, `yield()` KHÔNG BAO GIỜ có sự đảm bảo (no guarantee).\n\n3. Phân tích các hành động sai khác:\n• `notify()` (Hành động C): Chỉ gửi tín hiệu đánh thức một luồng khác, bản thân luồng đang gọi `notify()` vẫn tiếp tục chạy bình thường, không hề bị dừng lại.\n• `Thread.killThread()` (Hành động G): Phương thức này hoàn toàn KHÔNG TỒN TẠI trong Java.\n\nDo đó, các hành động đảm bảo luồng rời khỏi Running là B (`wait()`) và E (`sleep()`).\n\n✅ Vì sao đáp án \"B và E\" đúng:\nCả `wait()` và `sleep(1000)` đều đảm bảo 100% ngắt quãng trạng thái `Running` của luồng hiện tại và đưa nó sang trạng thái chờ.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A sai vì `yield()` không có bất kỳ sự bảo đảm nào về việc luồng sẽ rời khỏi trạng thái running.\n• Phương án chứa C sai vì `notify()` không làm luồng gọi nó rời khỏi running.\n• Phương án chứa G sai vì `killThread()` là hàm bịa đặt không có thật.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ từ khóa vàng: `yield()` = \"Không có gì đảm bảo\" (NO GUARANTEE).\n• `sleep()`, `wait()`, `join()` = \"Chắc chắn rời khỏi Running\" (GUARANTEED)."
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Các trạng thái khiến luồng RỜI KHỎI trạng thái Running (Đang chạy):\nĐể đảm bảo chắc chắn (guarantee) luồng không còn ở trạng thái `Running`:\n• `wait()` (Hành động B): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào hàng đợi `Waiting` của đối tượng.\n• `sleep(long millis)` (Hành động E): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào trạng thái `Timed Waiting` trong ít nhất khoảng thời gian chỉ định.\n• `join()`: Chắc chắn 100% bắt luồng hiện tại dừng chạy và đợi cho tới khi luồng mục tiêu kết thúc.\n\n2. Vì sao `yield()` KHÔNG ĐẢM BẢO (Bẫy đề thi số 1):\n• `Thread.yield()` (Hành động A): Chỉ là một lời \"nhắn nhủ / gợi ý\" (hint) gửi tới bộ lập lịch CPU (thread scheduler) rằng: \"Tôi sẵn sàng nhường lượt chạy cho luồng khác có cùng mức ưu tiên\".\n• TUY NHIÊN, bộ lập lịch có toàn quyền quyết định! Nếu không có luồng nào khác sẵn sàng hoặc bộ lập lịch quyết định tiếp tục, luồng vừa gọi `yield()` có thể NGAY LẬP TỨC ĐƯỢC CHỌN ĐỂ CHẠY TIẾP mà không hề rời khỏi trạng thái `Running` một mili-giây nào!\n• Do đó, `yield()` KHÔNG BAO GIỜ có sự đảm bảo (no guarantee).\n\n3. Phân tích các hành động sai khác:\n• `notify()` (Hành động C): Chỉ gửi tín hiệu đánh thức một luồng khác, bản thân luồng đang gọi `notify()` vẫn tiếp tục chạy bình thường, không hề bị dừng lại.\n• `Thread.killThread()` (Hành động G): Phương thức này hoàn toàn KHÔNG TỒN TẠI trong Java.\n\nDo đó, các hành động đảm bảo luồng rời khỏi Running là B (`wait()`) và E (`sleep()`).\n\n✅ Vì sao đáp án \"B, E và F\" đúng:\nCả `wait()` và `sleep(1000)` đều đảm bảo 100% ngắt quãng trạng thái `Running` của luồng hiện tại và đưa nó sang trạng thái chờ.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A sai vì `yield()` không có bất kỳ sự bảo đảm nào về việc luồng sẽ rời khỏi trạng thái running.\n• Phương án chứa C sai vì `notify()` không làm luồng gọi nó rời khỏi running.\n• Phương án chứa G sai vì `killThread()` là hàm bịa đặt không có thật.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ từ khóa vàng: `yield()` = \"Không có gì đảm bảo\" (NO GUARANTEE).\n• `sleep()`, `wait()`, `join()` = \"Chắc chắn rời khỏi Running\" (GUARANTEED)."
     },
     {
       "id": "scjp-ch09-017",
@@ -10831,7 +10863,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Which two are valid constructors for Thread? (Choose two.)",
-      "textVi": "Hai hàm khởi tạo (constructor) nào dưới đây là hợp lệ của lớp java.lang.Thread? (Chọn phương án kết hợp đúng)",
+      "textVi": "Hai hàm khởi tạo (constructor) nào dưới đây là hợp lệ của lớp java.lang.Thread? (Chọn phương án kết hợp đúng) (Chọn 2 đáp án)",
       "code": "",
       "options": [
         "Thread(Runnable r, String name)",
@@ -10865,7 +10897,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nwhat is the result?",
-      "textVi": "Cho đoạn mã sau:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "class MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}",
       "options": [
         "foo",
@@ -10883,7 +10915,7 @@ export const scjpChapterAllQuiz = {
         "foo bar",
         "foo bar baz",
         "bar foo",
-        "Lỗi biên dịch (Compilation fails)."
+        "Compilation fails."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -10899,23 +10931,23 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nand assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
-      "textVi": "Cho đoạn mã sau:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nGiả sử biến data bắt buộc phải được bảo vệ khỏi sự sai lệch dữ liệu, bạn có thể thêm điều gì vào đoạn mã trên để đảm bảo tính toàn vẹn của data?",
+      "textVi": "Cho đoạn mã sau:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nGiả sử biến data bắt buộc phải được bảo vệ khỏi sự sai lệch dữ liệu, bạn có thể thêm điều gì vào đoạn mã trên để đảm bảo tính toàn vẹn của data? (Chọn 1 đáp án)",
       "code": "public class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}",
       "options": [
         "Synchronize the run method.",
-        "Wrap a synchronize(this) around the call to f.increase().",
+        "Wrap a synchronize(this) around the call tof.increase().;",
         "The existing code will not compile.",
         "The existing code will cause a runtime exception.",
-        "Put in a wait() call prior to invoking the increase() method.",
-        "Synchronize the increase() method"
+        "Put in await() call prior to invoking theincrease() method.",
+        "Synchronize theincrease() method"
       ],
       "optionsVi": [
-        "Đồng bộ hóa phương thức run() (Synchronize the run method).",
-        "Bọc một khối synchronize(this) xung quanh lời gọi f.increase().",
-        "Mã hiện tại không thể biên dịch.",
-        "Mã hiện tại sẽ gây ra ngoại lệ thời điểm chạy.",
-        "Đặt một lời gọi wait() trước khi gọi phương thức increase().",
-        "Đồng bộ hóa phương thức increase() (Synchronize the increase() method)."
+        "Synchronize the run method.",
+        "Wrap a synchronize(this) around the call tof.increase().;",
+        "The existing code will not compile.",
+        "The existing code will cause a runtime exception.",
+        "Put in await() call prior to invoking theincrease() method.",
+        "Synchronize theincrease() method"
       ],
       "answer": 5,
       "isMultiple": false,
@@ -10931,7 +10963,7 @@ export const scjpChapterAllQuiz = {
       "chapterTitle": "Threads",
       "topic": "thread",
       "text": "Given the following, what is the result?",
-      "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+      "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1. public class Test {\n2.   public static void main (String [] args) {\n3.     final Foo f = new Foo();\n4.     Thread t = new Thread(new Runnable() {\n5.        public void run() {\n6.           f.doStuff();\n7.        }\n8.     });\n9.     Thread g = new Thread() {\n10.       public void run() {\n11.          f.doStuff();\n12.       }\n13.    };\n14.    t.start();\n15.    g.start();\n16.  }\n17. }\n1. class Foo {\n2.   int x = 5;\n3.   public void doStuff() {\n4.     if (x < 10) {\n5.        // nothing to do\n6.        try {\n7.           wait();\n8.        } catch(InterruptedException ex) { }\n9.     } else {\n10.       System.out.println(\"x is \" + x++);\n11.       if (x >= 10) {\n12.          notify();\n13.       }\n14.    }\n15.  }\n16. }",
       "options": [
         "The code will not compile because of an error on line 12 of class Foo.",
@@ -10942,11 +10974,11 @@ export const scjpChapterAllQuiz = {
         "x is 5 x is 6"
       ],
       "optionsVi": [
-        "Đoạn mã không biên dịch được do lỗi ở dòng 12 của lớp Foo.",
-        "Đoạn mã không biên dịch được do lỗi ở dòng 7 của lớp Foo.",
-        "Đoạn mã không biên dịch được do lỗi ở dòng 4 của lớp Test.",
-        "Đoạn mã không biên dịch được do một lỗi khác trong lớp Test.",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+        "The code will not compile because of an error on line 12 of class Foo.",
+        "The code will not compile because of an error on line 7 of class Foo.",
+        "The code will not compile because of an error on line 4 of class Test.",
+        "The code will not compile because of some other error in class Test.",
+        "An exception occurs at runtime.",
         "x is 5 x is 6"
       ],
       "answer": 4,
@@ -10989,8 +11021,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "1 09876",
           "98765",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11013,14 +11045,14 @@ export const scjpChapterQuizzes = [
           "native",
           "subclasses",
           "reference",
-          "array"
+          "array;"
         ],
         "optionsVi": [
           "method",
           "native",
           "subclasses",
           "reference",
-          "array"
+          "array;"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -11073,14 +11105,14 @@ export const scjpChapterQuizzes = [
           "unsigned",
           "Float",
           "this",
-          "string"
+          "string;"
         ],
         "optionsVi": [
           "interface",
           "unsigned",
           "Float",
           "this",
-          "string"
+          "string;"
         ],
         "answer": [
           0,
@@ -11100,34 +11132,36 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Language Fundamentals",
         "topic": "javacore",
         "text": "Which three are valid declarations of a char? (Choose three.)",
-        "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu dữ liệu char? (Chọn 2 đáp án)",
+        "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu dữ liệu char? (Chọn 3 đáp án)",
         "code": "",
         "options": [
-          "charc1=064770 ;",
-          "charc2=‘face’ ;",
-          "charc3=0xbeef ;",
-          "charc4=\\u0022 ;",
-          "charc5=‘\\iface’ ;",
-          "charc6=‘\\uface’ ;"
+          "char c1 = 064770;",
+          "char c2 = ‘face’;",
+          "char c3 = 0xbeef;",
+          "char c4 = \\u0022;",
+          "char c5 = ‘\\iface’;",
+          "char c6 = ‘\\uface’;"
         ],
         "optionsVi": [
-          "charc1=064770 ;",
-          "charc2=‘face’ ;",
-          "charc3=0xbeef ;",
-          "charc4=\\u0022 ;",
-          "charc5=‘\\iface’ ;",
-          "charc6=‘\\uface’ ;"
+          "char c1 = 064770;",
+          "char c2 = ‘face’;",
+          "char c3 = 0xbeef;",
+          "char c4 = \\u0022;",
+          "char c5 = ‘\\iface’;",
+          "char c6 = ‘\\uface’;"
         ],
         "answer": [
           0,
-          2
+          2,
+          5
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
-          "C"
+          "C",
+          "F"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Kiểu `char` trong Java là một kiểu số nguyên không dấu 16-bit (unsigned 16-bit), lưu trữ mã ký tự Unicode từ `0` đến `65535` (hoặc từ `\\u0000` đến `\\uffff`).\n2. Do đó, một biến `char` có thể được gán bằng:\n   - Ký tự đặt trong cặp dấu nháy đơn `'a'`.\n   - Mã Unicode đặt trong nháy đơn `'\\uxxxx'` (x là chữ số hexa).\n   - Số nguyên không dấu nằm trong khoảng từ 0 đến 65535 (biểu diễn dưới dạng thập phân, bát phân octal `0...`, hoặc thập lục phân hex `0x...`).\n3. Đánh giá từng khai báo:\n   - A: `char c1 = 064770;`: Số bắt đầu bằng số `0` là hệ bát phân (octal). $064770_8 = 27128_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - B: `char c2 = 'face';`: Sai vì dấu nháy đơn `' '` chỉ được chứa đúng 1 ký tự duy nhất, ở đây có 4 ký tự.\n   - C: `char c3 = 0xbeef;`: Bắt đầu bằng `0x` là hệ thập lục phân (hex). $0xbeef = 48879_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - D: `char c4 = \\u0022;`: Sai vì thiếu dấu nháy đơn `' '`.\n   - E: `char c5 = '\\iface';`: Sai vì Unicode literal phải bắt đầu bằng `\\u`, không phải `\\i`.\n   - F: `char c6 = '\\uface';`: Hợp lệ vì đúng định dạng Unicode literal 4 chữ số hex trong nháy đơn.\n\n✅ Vì sao đáp án \"A và C\" đúng:\nCả `064770` (hệ 8) và `0xbeef` (hệ 16) đều là các giá trị số nguyên hợp lệ nằm trọn trong dải giá trị từ 0 đến 65535 của kiểu `char`.\n\n❌ Vì sao các đáp án khác sai:\n• Các phương án chứa B (`'face'`): Sai vì nháy đơn không được chứa chuỗi nhiều ký tự.\n• Các phương án chứa D (`\\u0022`): Sai vì thiếu dấu nháy đơn bao bọc ký tự Unicode.\n• Các phương án chứa E: Sai vì tiền tố escape Unicode phải là `\\u`, không phải `\\i`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `char` bản chất là số nguyên không dấu 16-bit (0 đến 65535). Vì vậy ta hoàn toàn có thể gán số nguyên trực tiếp cho `char` miễn là không vượt quá 65535!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Kiểu `char` trong Java là một kiểu số nguyên không dấu 16-bit (unsigned 16-bit), lưu trữ mã ký tự Unicode từ `0` đến `65535` (hoặc từ `\\u0000` đến `\\uffff`).\n2. Do đó, một biến `char` có thể được gán bằng:\n   - Ký tự đặt trong cặp dấu nháy đơn `'a'`.\n   - Mã Unicode đặt trong nháy đơn `'\\uxxxx'` (x là chữ số hexa).\n   - Số nguyên không dấu nằm trong khoảng từ 0 đến 65535 (biểu diễn dưới dạng thập phân, bát phân octal `0...`, hoặc thập lục phân hex `0x...`).\n3. Đánh giá từng khai báo:\n   - A: `char c1 = 064770;`: Số bắt đầu bằng số `0` là hệ bát phân (octal). $064770_8 = 27128_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - B: `char c2 = 'face';`: Sai vì dấu nháy đơn `' '` chỉ được chứa đúng 1 ký tự duy nhất, ở đây có 4 ký tự.\n   - C: `char c3 = 0xbeef;`: Bắt đầu bằng `0x` là hệ thập lục phân (hex). $0xbeef = 48879_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - D: `char c4 = \\u0022;`: Sai vì thiếu dấu nháy đơn `' '`.\n   - E: `char c5 = '\\iface';`: Sai vì Unicode literal phải bắt đầu bằng `\\u`, không phải `\\i`.\n   - F: `char c6 = '\\uface';`: Hợp lệ vì đúng định dạng Unicode literal 4 chữ số hex trong nháy đơn.\n\n✅ Vì sao đáp án \"A, C và F\" đúng:\nCả `064770` (hệ 8) và `0xbeef` (hệ 16) đều là các giá trị số nguyên hợp lệ nằm trọn trong dải giá trị từ 0 đến 65535 của kiểu `char`.\n\n❌ Vì sao các đáp án khác sai:\n• Các phương án chứa B (`'face'`): Sai vì nháy đơn không được chứa chuỗi nhiều ký tự.\n• Các phương án chứa D (`\\u0022`): Sai vì thiếu dấu nháy đơn bao bọc ký tự Unicode.\n• Các phương án chứa E: Sai vì tiền tố escape Unicode phải là `\\u`, không phải `\\i`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `char` bản chất là số nguyên không dấu 16-bit (0 đến 65535). Vì vậy ta hoàn toàn có thể gán số nguyên trực tiếp cho `char` miễn là không vượt quá 65535!"
       },
       {
         "id": "scjp-ch01-006",
@@ -11139,18 +11173,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai khai báo nào dưới đây là hợp lệ cho kiểu String? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "Strings1=null ;",
-          "Strings2=‘null’ ;",
-          "Strings3=(String)‘abc’ ;",
-          "Strings4=(String)‘\\ufeed’ ;",
-          "Strings5=“stringsrule” ;"
+          "String s1 = null;",
+          "String s2 = ‘null’;",
+          "String s3 = (String)‘abc’;",
+          "String s4 = (String)‘\\ufeed’;",
+          "String s5 = “stringsrule”;"
         ],
         "optionsVi": [
-          "Strings1=null ;",
-          "Strings2=‘null’ ;",
-          "Strings3=(String)‘abc’ ;",
-          "Strings4=(String)‘\\ufeed’ ;",
-          "Strings5=“stringsrule” ;"
+          "String s1 = null;",
+          "String s2 = ‘null’;",
+          "String s3 = (String)‘abc’;",
+          "String s4 = (String)‘\\ufeed’;",
+          "String s5 = “stringsrule”;"
         ],
         "answer": [
           0,
@@ -11174,14 +11208,14 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "boolean b1 = 0;",
-          "boolean b2 = 'false';",
+          "boolean b2 = ‘false’;",
           "boolean b3 = false;",
           "boolean b4 = Boolean.false();",
           "boolean b5 = no;"
         ],
         "optionsVi": [
           "boolean b1 = 0;",
-          "boolean b2 = 'false';",
+          "boolean b2 = ‘false’;",
           "boolean b3 = false;",
           "boolean b4 = Boolean.false();",
           "boolean b5 = no;"
@@ -11230,34 +11264,36 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Language Fundamentals",
         "topic": "javacore",
         "text": "Which three are valid declarations of a float? (Choose three.)",
-        "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu float? (Chọn 2 đáp án)",
+        "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu float? (Chọn 3 đáp án)",
         "code": "",
         "options": [
-          "floatf1=-343 ;",
-          "floatf2=3.14 ;",
-          "floatf3=0x12345 ;",
-          "floatf4=42e7 ;",
-          "floatf5=2001.0D ;",
-          "floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1)"
+          "float f1 = -343;",
+          "float f2 = 3.14;",
+          "float f3 = 0x12345;",
+          "float f4 = 42e7;",
+          "float f5 = 2001.0D;",
+          "float f6 = 2.81F;"
         ],
         "optionsVi": [
-          "floatf1=-343 ;",
-          "floatf2=3.14 ;",
-          "floatf3=0x12345 ;",
-          "floatf4=42e7 ;",
-          "floatf5=2001.0D ;",
-          "floatf6=2.81F ; Array Declaration, Construction, and Initialization (Objective 1.1)"
+          "float f1 = -343;",
+          "float f2 = 3.14;",
+          "float f3 = 0x12345;",
+          "float f4 = 42e7;",
+          "float f5 = 2001.0D;",
+          "float f6 = 2.81F;"
         ],
         "answer": [
           0,
-          2
+          2,
+          5
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
-          "C"
+          "C",
+          "F"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc số thực trong Java: Mọi literal số thực có dấu chấm động (như `3.14`) hoặc dạng số mũ (`42e7`) mặc định đều có kiểu là `double` (64-bit).\n2. Kiểu `float` chỉ có 32-bit. Bạn không thể gán trực tiếp một giá trị `double` (64-bit) vào biến `float` (32-bit) vì có nguy cơ mất độ chính xác (loss of precision), trừ khi có chữ `f` hoặc `F` đi kèm ở cuối.\n3. Số nguyên (`int` - 32 bit) hoàn toàn có thể gán tự động cho `float` (32 bit) thông qua cơ chế nới rộng kiểu (widening conversion).\n4. Đánh giá từng trường hợp:\n   - A: `float f1 = -343;`: `-343` là số nguyên `int`, tự động chuyển đổi sang `float` -> Hợp lệ!\n   - B: `float f2 = 3.14;`: `3.14` mặc định là `double`, không thể gán trực tiếp cho `float` -> Lỗi biên dịch.\n   - C: `float f3 = 0x12345;`: `0x12345` là số nguyên hệ hex (kiểu `int`), tự động chuyển đổi sang `float` -> Hợp lệ!\n   - D: `float f4 = 42e7;`: `42e7` mặc định là `double` -> Lỗi biên dịch.\n   - F: `float f6 = 2.81F;`: Có hậu tố `F` chỉ định rõ kiểu `float` -> Hợp lệ!\n\n✅ Vì sao đáp án \"A và C\" đúng:\nCả hai giá trị này đều là các số nguyên nguyên thủy (`int`), Java cho phép tự động chuyển đổi từ `int` sang `float` mà không cần ép kiểu.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B (`float f2 = 3.14;`): Sai vì `3.14` là kiểu `double`, trình biên dịch sẽ báo lỗi \"possible loss of precision\".\n• Phương án chứa D (`float f4 = 42e7;`): Sai vì dạng số mũ mặc định là `double`, không thể gán cho `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cứ thấy số có dấu chấm (`3.14`) hay số mũ (`e`) mà không có đuôi `f` hoặc `F` thì nó là `double`. Gán `double` vào `float` là lỗi biên dịch ngay!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc số thực trong Java: Mọi literal số thực có dấu chấm động (như `3.14`) hoặc dạng số mũ (`42e7`) mặc định đều có kiểu là `double` (64-bit).\n2. Kiểu `float` chỉ có 32-bit. Bạn không thể gán trực tiếp một giá trị `double` (64-bit) vào biến `float` (32-bit) vì có nguy cơ mất độ chính xác (loss of precision), trừ khi có chữ `f` hoặc `F` đi kèm ở cuối.\n3. Số nguyên (`int` - 32 bit) hoàn toàn có thể gán tự động cho `float` (32 bit) thông qua cơ chế nới rộng kiểu (widening conversion).\n4. Đánh giá từng trường hợp:\n   - A: `float f1 = -343;`: `-343` là số nguyên `int`, tự động chuyển đổi sang `float` -> Hợp lệ!\n   - B: `float f2 = 3.14;`: `3.14` mặc định là `double`, không thể gán trực tiếp cho `float` -> Lỗi biên dịch.\n   - C: `float f3 = 0x12345;`: `0x12345` là số nguyên hệ hex (kiểu `int`), tự động chuyển đổi sang `float` -> Hợp lệ!\n   - D: `float f4 = 42e7;`: `42e7` mặc định là `double` -> Lỗi biên dịch.\n   - F: `float f6 = 2.81F;`: Có hậu tố `F` chỉ định rõ kiểu `float` -> Hợp lệ!\n\n✅ Vì sao đáp án \"A, C và F\" đúng:\nCả hai giá trị này đều là các số nguyên nguyên thủy (`int`), Java cho phép tự động chuyển đổi từ `int` sang `float` mà không cần ép kiểu.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B (`float f2 = 3.14;`): Sai vì `3.14` là kiểu `double`, trình biên dịch sẽ báo lỗi \"possible loss of precision\".\n• Phương án chứa D (`float f4 = 42e7;`): Sai vì dạng số mũ mặc định là `double`, không thể gán cho `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cứ thấy số có dấu chấm (`3.14`) hay số mũ (`e`) mà không có đuôi `f` hoặc `F` thì nó là `double`. Gán `double` vào `float` là lỗi biên dịch ngay!"
       },
       {
         "id": "scjp-ch01-010",
@@ -11266,32 +11302,34 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Language Fundamentals",
         "topic": "javacore",
         "text": "Which three are legal array declarations? (Choose three.)",
-        "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 2 đáp án)",
+        "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 3 đáp án)",
         "code": "",
         "options": [
-          "int[]myScores[] ;",
-          "char[]myChars ;",
-          "int[6]myScores ;",
-          "DogmyDogs[] ;",
-          "DogmyDogs[7] ;"
+          "int[]myScores[];",
+          "char[]myChars;",
+          "int[6]myScores;",
+          "DogmyDogs[];",
+          "DogmyDogs[7];"
         ],
         "optionsVi": [
-          "int[]myScores[] ;",
-          "char[]myChars ;",
-          "int[6]myScores ;",
-          "DogmyDogs[] ;",
-          "DogmyDogs[7] ;"
+          "int[]myScores[];",
+          "char[]myChars;",
+          "int[6]myScores;",
+          "DogmyDogs[];",
+          "DogmyDogs[7];"
         ],
         "answer": [
           0,
-          1
+          1,
+          3
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
-          "B"
+          "B",
+          "D"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc khai báo mảng trong Java:\n   - Dấu ngoặc vuông `[]` có thể đứng sau kiểu dữ liệu (ví dụ `char[] myChars;`) HOẶC đứng sau tên biến (ví dụ `Dog myDogs[];`).\n   - Với mảng nhiều chiều, bạn thậm chí có thể chia cặp ngoặc ra hai bên tên biến (ví dụ `int[] myScores[];` là khai báo mảng 2 chiều hợp lệ).\n2. **Quy tắc vàng:** TUYỆT ĐỐI KHÔNG ĐƯỢC đặt số kích thước vào cặp ngoặc vuông khi KHAI BÁO biến mảng (ví dụ `int[6] a;` hay `Dog myDogs[7];` là sai cú pháp). Kích thước chỉ được chỉ định khi bạn CẤP PHÁT bộ nhớ bằng từ khóa `new` (ví dụ `new int[6]`).\n\n✅ Vì sao đáp án \"A và B\" đúng:\n- `int[] myScores[];`: Khai báo hợp lệ cho mảng 2 chiều (một cặp ngoặc trước tên biến và một cặp ngoặc sau tên biến).\n- `char[] myChars;`: Cú pháp chuẩn mực và phổ biến nhất để khai báo mảng 1 chiều.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C (`int[6] myScores;`): Sai cú pháp vì điền kích thước `[6]` vào phần khai báo kiểu dữ liệu.\n• Phương án chứa E (`Dog myDogs[7];`): Sai cú pháp vì điền kích thước `[7]` sau tên biến khi khai báo.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi khai báo biến mảng: Cặp ngoặc `[]` BẮT BUỘC PHẢI RỖNG! Không bao giờ có số kích thước nằm trong ngoặc khi khai báo biến!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc khai báo mảng trong Java:\n   - Dấu ngoặc vuông `[]` có thể đứng sau kiểu dữ liệu (ví dụ `char[] myChars;`) HOẶC đứng sau tên biến (ví dụ `Dog myDogs[];`).\n   - Với mảng nhiều chiều, bạn thậm chí có thể chia cặp ngoặc ra hai bên tên biến (ví dụ `int[] myScores[];` là khai báo mảng 2 chiều hợp lệ).\n2. **Quy tắc vàng:** TUYỆT ĐỐI KHÔNG ĐƯỢC đặt số kích thước vào cặp ngoặc vuông khi KHAI BÁO biến mảng (ví dụ `int[6] a;` hay `Dog myDogs[7];` là sai cú pháp). Kích thước chỉ được chỉ định khi bạn CẤP PHÁT bộ nhớ bằng từ khóa `new` (ví dụ `new int[6]`).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\n- `int[] myScores[];`: Khai báo hợp lệ cho mảng 2 chiều (một cặp ngoặc trước tên biến và một cặp ngoặc sau tên biến).\n- `char[] myChars;`: Cú pháp chuẩn mực và phổ biến nhất để khai báo mảng 1 chiều.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C (`int[6] myScores;`): Sai cú pháp vì điền kích thước `[6]` vào phần khai báo kiểu dữ liệu.\n• Phương án chứa E (`Dog myDogs[7];`): Sai cú pháp vì điền kích thước `[7]` sau tên biến khi khai báo.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi khai báo biến mảng: Cặp ngoặc `[]` BẮT BUỘC PHẢI RỖNG! Không bao giờ có số kích thước nằm trong ngoặc khi khai báo biến!"
       },
       {
         "id": "scjp-ch01-011",
@@ -11315,8 +11353,8 @@ export const scjpChapterQuizzes = [
           "9",
           "11",
           "13",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11332,36 +11370,38 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Language Fundamentals",
         "topic": "javacore",
         "text": "Given the following, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
-        "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 3 đáp án)",
+        "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 4 đáp án)",
         "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
         "options": [
-          "b2[0][1]=b;",
-          "b[0][0]=b3;",
-          "b2[1][1][0]=b[0][0];",
-          "b2[1][2][0]=b;",
-          "b2[0][1][0][0]=b[0][0];",
-          "b2[0][1]=big;"
+          "b2[0][1]= b;",
+          "b[0][0]= b3;",
+          "b2[1][1][0]= b[0][0];",
+          "b2[1][2][0]= b;",
+          "b2[0][1][0][0]= b[0][0];",
+          "b2[0][1]= big;"
         ],
         "optionsVi": [
-          "b2[0][1]=b;",
-          "b[0][0]=b3;",
-          "b2[1][1][0]=b[0][0];",
-          "b2[1][2][0]=b;",
-          "b2[0][1][0][0]=b[0][0];",
-          "b2[0][1]=big;"
+          "b2[0][1]= b;",
+          "b[0][0]= b3;",
+          "b2[1][1][0]= b[0][0];",
+          "b2[1][2][0]= b;",
+          "b2[0][1][0][0]= b[0][0];",
+          "b2[0][1]= big;"
         ],
         "answer": [
           0,
           1,
-          4
+          4,
+          5
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
           "B",
-          "E"
+          "E",
+          "F"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nNguyên tắc gán mảng trong Java: Hai vế của phép gán phải KHỚP NHAU VỀ KIỂU DỮ LIỆU VÀ SỐ CHIỀU.\nHãy phân tích kiểu dữ liệu và số chiều của các biến:\n- `b3`: là kiểu số nguyên thủy `byte` (0 chiều).\n- `b`: là mảng 2 chiều `byte[][]`. Truy xuất `b[0][0]` là kiểu `byte` (0 chiều).\n- `big`: là mảng 2 chiều `byte[][]`.\n- `b2`: là mảng 4 chiều `byte[][][][]`.\n  - `b2[0][1]`: đã chỉ định 2 chỉ số, nên còn lại **mảng 2 chiều** (`byte[][]`).\n  - `b2[1][1][0]` hoặc `b2[1][2][0]`: đã chỉ định 3 chỉ số, nên còn lại **mảng 1 chiều** (`byte[]`).\n  - `b2[0][1][0][0]`: đã chỉ định cả 4 chỉ số, nên là **kiểu nguyên thủy** (`byte`).\n\nBây giờ đối chiếu từng câu lệnh:\n- **A:** `b2[0][1] = b;` -> Vế trái là mảng 2 chiều (`byte[][]`), vế phải `b` cũng là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ**.\n- **B:** `b[0][0] = b3;` -> Vế trái là `byte`, vế phải `b3` là `byte` -> **HỢP LỆ**.\n- **C:** `b2[1][1][0] = b[0][0];` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải là kiểu `byte` nguyên thủy -> **LỖI BIÊN DỊCH** (không thể gán byte cho mảng byte).\n- **D:** `b2[1][2][0] = b;` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải `b` là mảng 2 chiều (`byte[][]`) -> **LỖI BIÊN DỊCH** (lệch số chiều).\n- **E:** `b2[0][1][0][0] = b[0][0];` -> Cả hai vế đều là kiểu nguyên thủy `byte` -> **HỢP LỆ**.\n- **F:** `b2[0][1] = big;` -> Cả hai vế đều là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ** (kích thước mảng không ảnh hưởng đến phép gán tham chiếu).\n\n✅ Vì sao đáp án \"A và B và E\" đúng:\nCả 3 câu lệnh A, B, E đều khớp hoàn toàn về kiểu dữ liệu và số chiều giữa hai vế của phép gán.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C: Sai vì cố gán một giá trị nguyên thủy `byte` vào một biến tham chiếu mảng `byte[]`.\n• Phương án chứa D: Sai vì cố gán mảng 2 chiều `byte[][]` vào một biến mảng 1 chiều `byte[]`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mỗi cặp ngoặc vuông `[]` thêm vào sẽ làm giảm số chiều đi 1 bậc: Mảng 4 chiều mà dùng 2 cặp ngoặc `b2[0][1]` thì trở thành mảng 2 chiều! Hai bên dấu `=` phải có cùng số chiều và cùng kiểu cơ sở!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nNguyên tắc gán mảng trong Java: Hai vế của phép gán phải KHỚP NHAU VỀ KIỂU DỮ LIỆU VÀ SỐ CHIỀU.\nHãy phân tích kiểu dữ liệu và số chiều của các biến:\n- `b3`: là kiểu số nguyên thủy `byte` (0 chiều).\n- `b`: là mảng 2 chiều `byte[][]`. Truy xuất `b[0][0]` là kiểu `byte` (0 chiều).\n- `big`: là mảng 2 chiều `byte[][]`.\n- `b2`: là mảng 4 chiều `byte[][][][]`.\n  - `b2[0][1]`: đã chỉ định 2 chỉ số, nên còn lại **mảng 2 chiều** (`byte[][]`).\n  - `b2[1][1][0]` hoặc `b2[1][2][0]`: đã chỉ định 3 chỉ số, nên còn lại **mảng 1 chiều** (`byte[]`).\n  - `b2[0][1][0][0]`: đã chỉ định cả 4 chỉ số, nên là **kiểu nguyên thủy** (`byte`).\n\nBây giờ đối chiếu từng câu lệnh:\n- **A:** `b2[0][1] = b;` -> Vế trái là mảng 2 chiều (`byte[][]`), vế phải `b` cũng là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ**.\n- **B:** `b[0][0] = b3;` -> Vế trái là `byte`, vế phải `b3` là `byte` -> **HỢP LỆ**.\n- **C:** `b2[1][1][0] = b[0][0];` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải là kiểu `byte` nguyên thủy -> **LỖI BIÊN DỊCH** (không thể gán byte cho mảng byte).\n- **D:** `b2[1][2][0] = b;` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải `b` là mảng 2 chiều (`byte[][]`) -> **LỖI BIÊN DỊCH** (lệch số chiều).\n- **E:** `b2[0][1][0][0] = b[0][0];` -> Cả hai vế đều là kiểu nguyên thủy `byte` -> **HỢP LỆ**.\n- **F:** `b2[0][1] = big;` -> Cả hai vế đều là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ** (kích thước mảng không ảnh hưởng đến phép gán tham chiếu).\n\n✅ Vì sao đáp án \"A, B, E và F\" đúng:\nCả 3 câu lệnh A, B, E đều khớp hoàn toàn về kiểu dữ liệu và số chiều giữa hai vế của phép gán.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C: Sai vì cố gán một giá trị nguyên thủy `byte` vào một biến tham chiếu mảng `byte[]`.\n• Phương án chứa D: Sai vì cố gán mảng 2 chiều `byte[][]` vào một biến mảng 1 chiều `byte[]`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mỗi cặp ngoặc vuông `[]` thêm vào sẽ làm giảm số chiều đi 1 bậc: Mảng 4 chiều mà dùng 2 cặp ngoặc `b2[0][1]` thì trở thành mảng 2 chiều! Hai bên dấu `=` phải có cùng số chiều và cùng kiểu cơ sở!"
       },
       {
         "id": "scjp-ch01-013",
@@ -11373,20 +11413,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai khai báo nào dưới đây sẽ khai báo một mảng và khởi tạo nó với 5 số? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "Arraya=newArray(5) ;",
-          "int[]a={23,22,21,20,19} ;",
-          "int[]array ;",
-          "intarray[]=newint[5] ;",
-          "inta[]=newint(5) ;",
-          "int[5]array ;"
+          "Arraya= newArray(5);",
+          "int[]a= {23,22,21,20,19};",
+          "int[]array;",
+          "intarray[]= newint[5];",
+          "inta[]= newint(5);",
+          "int[5]array;"
         ],
         "optionsVi": [
-          "Arraya=newArray(5) ;",
-          "int[]a={23,22,21,20,19} ;",
-          "int[]array ;",
-          "intarray[]=newint[5] ;",
-          "inta[]=newint(5) ;",
-          "int[5]array ;"
+          "Arraya= newArray(5);",
+          "int[]a= {23,22,21,20,19};",
+          "int[]array;",
+          "intarray[]= newint[5];",
+          "inta[]= newint(5);",
+          "int[5]array;"
         ],
         "answer": [
           1,
@@ -11409,20 +11449,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Cú pháp nào dưới đây khai báo, tạo mới (construct) và khởi tạo hợp lệ một mảng? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "int[] myList = {\"1\", \"2\", \"3\"};",
-          "int[] myList = (5, 8, 2);",
-          "int myList[][] = {4, 9, 7, 0};",
-          "int myList[] = {4, 3, 7};",
-          "int[] myList = [3, 5, 6];",
-          "int myList[] = {4; 6; 5};"
+          "int[]myList= {“1”,“2”,“3”};",
+          "int[]myList= (5,8,2);",
+          "intmyList[][]= {4,9,7,0};",
+          "intmyList[]= {4,3,7};",
+          "int[]myList= [3,5,6];",
+          "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
         ],
         "optionsVi": [
-          "int[] myList = {\"1\", \"2\", \"3\"};",
-          "int[] myList = (5, 8, 2);",
-          "int myList[][] = {4, 9, 7, 0};",
-          "int myList[] = {4, 3, 7};",
-          "int[] myList = [3, 5, 6];",
-          "int myList[] = {4; 6; 5};"
+          "int[]myList= {“1”,“2”,“3”};",
+          "int[]myList= (5,8,2);",
+          "intmyList[][]= {4,9,7,0};",
+          "intmyList[]= {4,3,7};",
+          "int[]myList= [3,5,6];",
+          "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -11438,7 +11478,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Language Fundamentals",
         "topic": "javacore",
         "text": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
-        "textVi": "Bốn mô tả nào dưới đây biểu diễn đúng giá trị mặc định cho các phần tử mảng của các kiểu dữ liệu tương ứng khi vừa được khởi tạo? (Chọn 3 đáp án)",
+        "textVi": "Bốn mô tả nào dưới đây biểu diễn đúng giá trị mặc định cho các phần tử mảng của các kiểu dữ liệu tương ứng khi vừa được khởi tạo? (Chọn 4 đáp án)",
         "code": "",
         "options": [
           "int -> 0",
@@ -11459,15 +11499,17 @@ export const scjpChapterQuizzes = [
         "answer": [
           0,
           2,
-          3
+          3,
+          4
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
           "C",
-          "D"
+          "D",
+          "E"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nKhi một mảng được tạo ra bằng từ khóa `new` trong Java, tất cả các phần tử bên trong nó luôn được JVM tự động gán giá trị mặc định (default value) tùy theo kiểu dữ liệu của mảng:\n1. Kiểu số nguyên (`byte`, `short`, `int`, `long`): Mặc định là `0` (hoặc `0L`).\n2. Kiểu số thực (`float`, `double`): Mặc định là `0.0f` và `0.0d`.\n3. Kiểu ký tự (`char`): Mặc định là `\\u0000` (ký tự null, tương ứng với mã số 0).\n4. Kiểu logic (`boolean`): Mặc định là `false` (TUYỆT ĐỐI KHÔNG PHẢI `true`).\n5. Kiểu đối tượng tham chiếu (`String`, `Dog`, mảng, Object...): Mặc định là giá trị tham chiếu `null` (không trỏ đến đối tượng nào, KHÔNG PHẢI chuỗi có chữ `\"null\"`).\n\nĐối chiếu các mô tả:\n- A: `int -> 0` -> ĐÚNG.\n- B: `String -> \"null\"` -> SAI (giá trị mặc định là literal `null`, không phải chuỗi `\"null\"` có dấu nháy kép).\n- C: `Dog -> null` -> ĐÚNG (mọi kiểu đối tượng tham chiếu đều mặc định là `null`).\n- D: `char -> '\u0000'` -> ĐÚNG.\n- E: `float -> 0.0f` -> ĐÚNG.\n- F: `boolean -> true` -> SAI (mặc định là `false`).\n\n✅ Vì sao đáp án \"A và C và D\" đúng:\nCả 3 mô tả A, C, D đều thể hiện chính xác 100% giá trị mặc định của các kiểu tương ứng trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Bẫy thi kinh điển! Mặc định của biến tham chiếu String là `null` (rỗng), chứ không phải chuỗi văn bản `\"null\"`.\n• Phương án chứa F: Sai vì giá trị mặc định của `boolean` là `false`, không bao giờ là `true`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Số = 0, char = '\u0000', boolean = false, mọi Object tham chiếu = null (không nháy kép)! Nhớ 4 quy tắc này là không bao giờ làm sai!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nKhi một mảng được tạo ra bằng từ khóa `new` trong Java, tất cả các phần tử bên trong nó luôn được JVM tự động gán giá trị mặc định (default value) tùy theo kiểu dữ liệu của mảng:\n1. Kiểu số nguyên (`byte`, `short`, `int`, `long`): Mặc định là `0` (hoặc `0L`).\n2. Kiểu số thực (`float`, `double`): Mặc định là `0.0f` và `0.0d`.\n3. Kiểu ký tự (`char`): Mặc định là `\\u0000` (ký tự null, tương ứng với mã số 0).\n4. Kiểu logic (`boolean`): Mặc định là `false` (TUYỆT ĐỐI KHÔNG PHẢI `true`).\n5. Kiểu đối tượng tham chiếu (`String`, `Dog`, mảng, Object...): Mặc định là giá trị tham chiếu `null` (không trỏ đến đối tượng nào, KHÔNG PHẢI chuỗi có chữ `\"null\"`).\n\nĐối chiếu các mô tả:\n- A: `int -> 0` -> ĐÚNG.\n- B: `String -> \"null\"` -> SAI (giá trị mặc định là literal `null`, không phải chuỗi `\"null\"` có dấu nháy kép).\n- C: `Dog -> null` -> ĐÚNG (mọi kiểu đối tượng tham chiếu đều mặc định là `null`).\n- D: `char -> '\u0000'` -> ĐÚNG.\n- E: `float -> 0.0f` -> ĐÚNG.\n- F: `boolean -> true` -> SAI (mặc định là `false`).\n\n✅ Vì sao đáp án \"A, C, D và E\" đúng:\nCả 3 mô tả A, C, D đều thể hiện chính xác 100% giá trị mặc định của các kiểu tương ứng trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Bẫy thi kinh điển! Mặc định của biến tham chiếu String là `null` (rỗng), chứ không phải chuỗi văn bản `\"null\"`.\n• Phương án chứa F: Sai vì giá trị mặc định của `boolean` là `false`, không bao giờ là `true`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Số = 0, char = '\u0000', boolean = false, mọi Object tham chiếu = null (không nháy kép)! Nhớ 4 quy tắc này là không bao giờ làm sai!"
       },
       {
         "id": "scjp-ch01-016",
@@ -11487,8 +11529,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "null",
           "theDogs",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -11510,13 +11552,13 @@ export const scjpChapterQuizzes = [
           "names",
           "null",
           "Compilation fails",
-          "An exception is thrown at runtime"
+          "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
         ],
         "optionsVi": [
           "names",
           "null",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -11535,20 +11577,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgs 1 2 3 4\", kết quả in ra là gì? (Chọn 1 đáp án)",
         "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }",
         "options": [
-          "args[2]=2",
-          "args[2]=3",
-          "args[2]=null",
-          "args[2]=1",
+          "args[2]= 2",
+          "args[2]= 3",
+          "args[2]= null",
+          "args[2]= 1",
           "Compilation fails",
           "An exception is thrown at runtime"
         ],
         "optionsVi": [
-          "args[2]=2",
-          "args[2]=3",
-          "args[2]=null",
-          "args[2]=1",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "args[2]= 2",
+          "args[2]= 3",
+          "args[2]= null",
+          "args[2]= 1",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 5,
         "isMultiple": false,
@@ -11579,8 +11621,8 @@ export const scjpChapterQuizzes = [
           "123",
           "000",
           "nullnullnull",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 5,
         "isMultiple": false,
@@ -11611,8 +11653,8 @@ export const scjpChapterQuizzes = [
           "12",
           "000",
           "123",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -11655,7 +11697,7 @@ export const scjpChapterQuizzes = [
           "abstract",
           "protected",
           "synchronized",
-          "default access (truy cập mặc định / package-private)"
+          "default access"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -11687,7 +11729,7 @@ export const scjpChapterQuizzes = [
           "private",
           "protected",
           "volatile",
-          "default access (truy cập mặc định)"
+          "default access"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11703,7 +11745,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Declarations and Access Control",
         "topic": "modifier",
         "text": "Given the following, which three of the following statements are true? (Choose three.)",
-        "textVi": "Cho đoạn mã sau, phát biểu nào dưới đây là đúng? (Chọn 2 đáp án)",
+        "textVi": "Cho đoạn mã sau, phát biểu nào dưới đây là đúng? (Chọn 3 đáp án)",
         "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
         "options": [
           "The code will compile with no changes.",
@@ -11723,14 +11765,16 @@ export const scjpChapterQuizzes = [
         ],
         "answer": [
           0,
-          2
+          2,
+          4
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
-          "C"
+          "C",
+          "E"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích mối quan hệ kế thừa giữa hai lớp trừu tượng `A` và `B`:\n- `abstract class A` có một phương thức abstract là `abstract short m1();` và một phương thức cụ thể là `short m2() { return (short) 420; }`.\n- `abstract class B extends A` kế thừa `A` và đã cài đặt phương thức `short m1() { return (short) 42; }`.\n\nQuy tắc của Java đối với Abstract Class:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động kế thừa implementation này từ `A`.\n   - `B` có quyền override lại nếu muốn, hoặc thậm chí `B` có thể khai báo lại `abstract short m2();` (tái trừu tượng hóa để bắt buộc các lớp con của `B` phải tự viết lại).\n   - Tuy nhiên việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Vì vậy, mã nguồn hiện tại biên dịch hoàn hảo 100% mà không cần sửa đổi bất kỳ dòng nào (khẳng định A đúng). Và khẳng định C (B có quyền làm điều đó nhưng không bắt buộc) cũng đúng.\n\n✅ Vì sao đáp án \"A và C\" đúng:\nKhẳng định A đúng vì mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không lỗi. Khẳng định C đúng vì việc override hoặc biến `m2()` thành abstract trong lớp con `B` là quyền của `B` chứ không phải nghĩa vụ bắt buộc.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Sai vì khẳng định B cho rằng `B` \"bắt buộc\" (must) phải khai báo lại hoặc implement `m2()`. Thực tế `B` đã nghiễm nhiên thừa hưởng `m2()` từ cha `A` rồi.\n• Phương án chứa D: Sai vì một class con hoàn toàn có thể tự viết thêm phương thức mới mà không cần class cha phải khai báo nó trước.\n• Phương án chứa F: Sai vì trong Java, một abstract class hoàn toàn có thể kế thừa từ một concrete class bình thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất tự do: phương thức trừu tượng của cha thích thì implement, không thích thì để lớp con cháu sau này implement. Phương thức cụ thể của cha thì thích override cũng được, mà để nguyên dùng cũng được!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích mối quan hệ kế thừa giữa hai lớp trừu tượng `A` và `B`:\n- `abstract class A` có một phương thức abstract là `abstract short m1();` và một phương thức cụ thể là `short m2() { return (short) 420; }`.\n- `abstract class B extends A` kế thừa `A` và đã cài đặt phương thức `short m1() { return (short) 42; }`.\n\nQuy tắc của Java đối với Abstract Class:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động kế thừa implementation này từ `A`.\n   - `B` có quyền override lại nếu muốn, hoặc thậm chí `B` có thể khai báo lại `abstract short m2();` (tái trừu tượng hóa để bắt buộc các lớp con của `B` phải tự viết lại).\n   - Tuy nhiên việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Vì vậy, mã nguồn hiện tại biên dịch hoàn hảo 100% mà không cần sửa đổi bất kỳ dòng nào (khẳng định A đúng). Và khẳng định C (B có quyền làm điều đó nhưng không bắt buộc) cũng đúng.\n\n✅ Vì sao đáp án \"A, C và E\" đúng:\nKhẳng định A đúng vì mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không lỗi. Khẳng định C đúng vì việc override hoặc biến `m2()` thành abstract trong lớp con `B` là quyền của `B` chứ không phải nghĩa vụ bắt buộc.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Sai vì khẳng định B cho rằng `B` \"bắt buộc\" (must) phải khai báo lại hoặc implement `m2()`. Thực tế `B` đã nghiễm nhiên thừa hưởng `m2()` từ cha `A` rồi.\n• Phương án chứa D: Sai vì một class con hoàn toàn có thể tự viết thêm phương thức mới mà không cần class cha phải khai báo nó trước.\n• Phương án chứa F: Sai vì trong Java, một abstract class hoàn toàn có thể kế thừa từ một concrete class bình thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất tự do: phương thức trừu tượng của cha thích thì implement, không thích thì để lớp con cháu sau này implement. Phương thức cụ thể của cha thì thích override cũng được, mà để nguyên dùng cũng được!"
       },
       {
         "id": "scjp-ch02-004",
@@ -11775,7 +11819,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Declarations and Access Control",
         "topic": "modifier",
         "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
-        "textVi": "Trong 6 khai báo phương thức dưới đây, có bao nhiêu khai báo là HỢP LỆ? (Chọn 1 đáp án)\n1 – protected abstract void m1();\n2 – static final void m1(){}\n3 – transient private native void m1() {}\n4 – synchronized public final void m1() {}\n5 – private native void m1();\n6 – static final synchronized protected void m1() {}",
+        "textVi": "Trong 6 khai báo phương thức dưới đây, có bao nhiêu khai báo là HỢP LỆ? \n1 – protected abstract void m1();\n2 – static final void m1(){}\n3 – transient private native void m1() {}\n4 – synchronized public final void m1() {}\n5 – private native void m1();\n6 – static final synchronized protected void m1() {} (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "1",
@@ -11810,18 +11854,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau gồm hai file ở hai package khác nhau. Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
         "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
         "options": [
-          "The code compiles and runs, with output this 420 parent 420.",
+          "The code compiles and runs, with outputthis420parent420 .",
           "If line 8 is removed, the code will compile and run.",
           "If line 10 is removed, the code will compile and run.",
           "Both lines 8 and 10 must be removed for the code to compile.",
-          "An exception is thrown at runtime."
+          "An exception is thrown at runtime. Declaration Rules (;"
         ],
         "optionsVi": [
-          "Mã nguồn biên dịch và chạy bình thường, in ra: \"this 420 parent 420\".",
-          "Nếu xóa dòng 8, mã nguồn sẽ biên dịch và chạy được.",
-          "Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được.",
-          "Cả dòng 8 và dòng 10 đều phải bị xóa thì mã nguồn mới biên dịch được.",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+          "The code compiles and runs, with outputthis420parent420 .",
+          "If line 8 is removed, the code will compile and run.",
+          "If line 10 is removed, the code will compile and run.",
+          "Both lines 8 and 10 must be removed for the code to compile.",
+          "An exception is thrown at runtime. Declaration Rules (;"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11852,8 +11896,8 @@ export const scjpChapterQuizzes = [
           "123",
           "0123",
           "1234",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -11938,17 +11982,17 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai khai báo nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "publicstaticshortstop=23;",
-          "protectedshortstop=23;",
-          "transientshortstop=23;",
+          "publicstaticshortstop= 23;",
+          "protectedshortstop= 23;",
+          "transientshortstop= 23;",
           "finalvoidmadness(shortstop);",
           "publicBooleanmadness(longbow);",
           "staticcharmadness(doubleduty);"
         ],
         "optionsVi": [
-          "publicstaticshortstop=23;",
-          "protectedshortstop=23;",
-          "transientshortstop=23;",
+          "publicstaticshortstop= 23;",
+          "protectedshortstop= 23;",
+          "transientshortstop= 23;",
           "finalvoidmadness(shortstop);",
           "publicBooleanmadness(longbow);",
           "staticcharmadness(doubleduty);"
@@ -11974,18 +12018,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Khai báo biến ở cấp độ lớp (biến non-local / biến toàn cục của class) nào dưới đây sẽ KHÔNG THỂ biên dịch? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "protected int a;",
-          "transient int b = 3;",
-          "public static final int c;",
-          "volatile int d;",
-          "private synchronized int e;"
+          "protectedinta;",
+          "transientintb= 3;",
+          "publicstaticfinalintc;",
+          "volatileintd;",
+          "privatesynchronizedinte;"
         ],
         "optionsVi": [
-          "protected int a;",
-          "transient int b = 3;",
-          "public static final int c;",
-          "volatile int d;",
-          "private synchronized int e;"
+          "protectedinta;",
+          "transientintb= 3;",
+          "publicstaticfinalintc;",
+          "volatileintd;",
+          "privatesynchronizedinte;"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -12035,7 +12079,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Declarations and Access Control",
         "topic": "modifier",
         "text": "Which three are valid method signatures in an interface? (Choose three.)",
-        "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
+        "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 3 đáp án)",
         "code": "",
         "options": [
           "privateintgetArea();",
@@ -12053,14 +12097,16 @@ export const scjpChapterQuizzes = [
         ],
         "answer": [
           1,
-          2
+          2,
+          4
         ],
         "isMultiple": true,
         "correctLetters": [
           "B",
-          "C"
+          "C",
+          "E"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy định về phương thức trong Interface (chuẩn SCJP):\n1. Mọi phương thức trong interface đều mặc định là `public abstract`.\n2. Lập trình viên có thể viết tường minh `public abstract` hoặc lược bỏ.\n3. TUYỆT ĐỐI KHÔNG ĐƯỢC dùng các modifier sau: `private`, `protected`, `final`, `static`, `native`, `synchronized`.\n4. Tên phương thức có thể là bất kỳ định danh hợp lệ nào (kể cả tên `main`), tham số và kiểu trả về có thể là bất kỳ kiểu dữ liệu hợp lệ nào.\n\nPhân tích từng khai báo:\n- A: `private int getArea();` -> **SAI** vì phương thức interface không được phép là `private`.\n- B: `public float getVol(float x);` -> **HỢP LỆ** (khai báo `public` tường minh, kết thúc bằng `;`).\n- C: `public void main(String[] args);` -> **HỢP LỆ** (đây là một phương thức trừu tượng bình thường có tên là `main`, hoàn toàn hợp pháp).\n- D: `public static void main(String[] args);` -> **SAI** vì theo chuẩn Java truyền thống của SCJP, phương thức trong interface không được phép là `static`.\n- E: `boolean setFlag(Boolean[] test[]);` -> **HỢP LỆ** (ngầm định là public abstract, tham số là mảng 2 chiều `Boolean[][]`).\n\nBộ 3 hợp lệ gốc là B, C, E. Trong các phương án lựa chọn, tổ hợp A (`B và C`) là hoàn toàn chính xác.\n\n✅ Vì sao đáp án \"B và C\" đúng:\nCả hai phương thức B và C đều là các khai báo phương thức trừu tượng công khai (`public abstract`) hợp lệ bên trong interface.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Phương thức interface bị cấm dùng `private`.\n• Phương án chứa D: Phương thức interface trong SCJP bị cấm dùng `static`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong interface: Phương thức LUÔN LUÔN là `public abstract`. Thấy dính `private`, `protected`, `static`, `final` là loại ngay không cần suy nghĩ!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy định về phương thức trong Interface (chuẩn SCJP):\n1. Mọi phương thức trong interface đều mặc định là `public abstract`.\n2. Lập trình viên có thể viết tường minh `public abstract` hoặc lược bỏ.\n3. TUYỆT ĐỐI KHÔNG ĐƯỢC dùng các modifier sau: `private`, `protected`, `final`, `static`, `native`, `synchronized`.\n4. Tên phương thức có thể là bất kỳ định danh hợp lệ nào (kể cả tên `main`), tham số và kiểu trả về có thể là bất kỳ kiểu dữ liệu hợp lệ nào.\n\nPhân tích từng khai báo:\n- A: `private int getArea();` -> **SAI** vì phương thức interface không được phép là `private`.\n- B: `public float getVol(float x);` -> **HỢP LỆ** (khai báo `public` tường minh, kết thúc bằng `;`).\n- C: `public void main(String[] args);` -> **HỢP LỆ** (đây là một phương thức trừu tượng bình thường có tên là `main`, hoàn toàn hợp pháp).\n- D: `public static void main(String[] args);` -> **SAI** vì theo chuẩn Java truyền thống của SCJP, phương thức trong interface không được phép là `static`.\n- E: `boolean setFlag(Boolean[] test[]);` -> **HỢP LỆ** (ngầm định là public abstract, tham số là mảng 2 chiều `Boolean[][]`).\n\nBộ 3 hợp lệ gốc là B, C, E. Trong các phương án lựa chọn, tổ hợp A (`B và C`) là hoàn toàn chính xác.\n\n✅ Vì sao đáp án \"B, C và E\" đúng:\nCả hai phương thức B và C đều là các khai báo phương thức trừu tượng công khai (`public abstract`) hợp lệ bên trong interface.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Phương thức interface bị cấm dùng `private`.\n• Phương án chứa D: Phương thức interface trong SCJP bị cấm dùng `static`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong interface: Phương thức LUÔN LUÔN là `public abstract`. Thấy dính `private`, `protected`, `static`, `final` là loại ngay không cần suy nghĩ!"
       },
       {
         "id": "scjp-ch02-014",
@@ -12112,14 +12158,14 @@ export const scjpChapterQuizzes = [
           "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
           "abstractclassClass2implementsBase{}",
           "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-          "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}}"
+          "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
         ],
         "optionsVi": [
           "interfaceBase2implementsBase{}",
           "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
           "abstractclassClass2implementsBase{}",
           "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-          "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}}"
+          "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
         ],
         "answer": [
           2,
@@ -12152,7 +12198,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Which two are equal? (Choose two.)",
-        "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai)",
+        "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "32/4;",
@@ -12188,23 +12234,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
-        "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai)",
+        "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
         "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
         "options": [
-          "booleantest=(Componentinstanceoft);",
-          "booleantest=(tinstanceofTicker);",
-          "booleantest=t.instanceof(Ticker);",
-          "booleantest=(tinstanceofComponent);",
-          "booleantest=t.instanceof(Object);",
-          "booleantest=(tinstanceofString);"
+          "boolean test = (Componentinstanceoft);",
+          "boolean test = (tinstanceofTicker);",
+          "boolean test = t.instanceof(Ticker);",
+          "boolean test = (tinstanceofComponent);",
+          "boolean test = t.instanceof(Object);",
+          "boolean test = (tinstanceofString);"
         ],
         "optionsVi": [
-          "booleantest=(Componentinstanceoft);",
-          "booleantest=(tinstanceofTicker);",
-          "booleantest=t.instanceof(Ticker);",
-          "booleantest=(tinstanceofComponent);",
-          "booleantest=t.instanceof(Object);",
-          "booleantest=(tinstanceofString);"
+          "boolean test = (Componentinstanceoft);",
+          "boolean test = (tinstanceofTicker);",
+          "boolean test = t.instanceof(Ticker);",
+          "boolean test = (tinstanceofComponent);",
+          "boolean test = t.instanceof(Object);",
+          "boolean test = (tinstanceofString);"
         ],
         "answer": [
           1,
@@ -12224,19 +12270,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
         "options": [
           "true",
           "false",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "optionsVi": [
           "true",
           "false",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12252,32 +12298,34 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, which three statements are true? (Choose three.)",
-        "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba)",
+        "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba) (Chọn 3 đáp án)",
         "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
         "options": [
-          "f1==f2",
-          "f1==f3",
-          "f2==f1[1]",
-          "x==f1[0]",
-          "f==f1[0]"
+          "f1= =f2",
+          "f1= =f3",
+          "f2= =f1[1]",
+          "x= =f1[0]",
+          "f= =f1[0]"
         ],
         "optionsVi": [
-          "f1==f2",
-          "f1==f3",
-          "f2==f1[1]",
-          "x==f1[0]",
-          "f==f1[0]"
+          "f1= =f2",
+          "f1= =f3",
+          "f2= =f1[1]",
+          "x= =f1[0]",
+          "f= =f1[0]"
         ],
         "answer": [
           1,
-          3
+          3,
+          4
         ],
         "isMultiple": true,
         "correctLetters": [
           "B",
-          "D"
+          "D",
+          "E"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài kiểm tra cơ chế so sánh bằng `==` giữa các biến tham chiếu (reference variables) và các biến kiểu nguyên thủy (primitive types):\n1. Phân tích chi tiết từng biểu thức so sánh:\n   • A. `f1 == f2`: `f1` và `f2` là hai biến tham chiếu trỏ đến hai đối tượng mảng float riêng biệt được tạo bởi hai toán tử `new` khác nhau ở dòng 5 và 6. Toán tử `==` khi so sánh hai biến tham chiếu sẽ so sánh địa chỉ ô nhớ trên Heap. Vì trỏ đến hai vùng nhớ khác nhau, `f1 == f2` trả về `false`.\n   • B. `f1 == f3`: Dòng 7 gán `float[] f3 = f1;`. Câu lệnh này sao chép địa chỉ tham chiếu từ `f1` sang `f3`, nghĩa là cả hai biến cùng trỏ vào DUY NHẤT một đối tượng mảng trên bộ nhớ Heap. Do đó `f1 == f3` trả về `true`.\n   • C. `f2 == f1[1]`: `f2` là biến tham chiếu đối tượng mảng (`float[]`), trong khi `f1[1]` là một giá trị số thực nguyên thủy (`float`). Trong Java, việc so sánh `==` giữa biến tham chiếu đối tượng và biến nguyên thủy là bất hợp pháp và gây lỗi biên dịch (\"incomparable types\").\n   • D. `x == f1[0]`: `x` là biến nguyên thủy kiểu `long` có giá trị 42. `f1[0]` là phần tử mảng kiểu nguyên thủy `float` có giá trị 42.0f. Khi so sánh giữa hai kiểu số nguyên thủy, Java tự động nới rộng kiểu (numeric promotion) từ `long` sang `float`: `42.0f == 42.0f` -> trả về `true`.\n   • E. `f == f1[0]`: Cả `f` và `f1[0]` đều là biến nguyên thủy kiểu `float` mang giá trị 42.0f -> trả về `true`.\n\n2. Kết luận: Các phát biểu trả về `true` trong đề thi gốc là B, D và E. Trong các phương án ghép cặp, phương án [0] đại diện cho cặp đúng tiêu biểu B và D.\n\n✅ Vì sao đáp án \"B và D\" đúng:\n• `f1 == f3` là `true` vì cả hai biến tham chiếu cùng trỏ đến cùng một đối tượng mảng trên bộ nhớ Heap.\n• `x == f1[0]` là `true` vì đây là phép so sánh giá trị số nguyên thủy, giá trị số 42 của `long` bằng 42.0f của `float`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B (A: f1 == f2 & B: f1 == f3)\": Sai vì biểu thức A (`f1 == f2`) trả về `false`. Hai mảng được tạo bởi 2 lệnh `new` độc lập nên nằm ở 2 ô nhớ khác nhau trên Heap, dù các phần tử bên trong có giống nhau thì so sánh `==` vẫn ra `false`.\n• \"A và C (A: f1 == f2 & C: f2 == f1[1])\": Sai vì A trả về `false`, còn C (`f2 == f1[1]`) gây lỗi biên dịch do so sánh biến tham chiếu mảng với giá trị số nguyên thủy.\n• \"D và E (D: x == f1[0] & E: f == f1[0])\": Mặc dù D và E đều là các biểu thức đúng, nhưng theo bộ mã đề gốc SCJP (đáp án B, D được chỉ định cho vị trí khóa), phương án [0] là phương án chính xác của câu hỏi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối với biến tham chiếu (Object/Array): `==` so sánh ĐỊA CHỈ VÙNG NHỚ (hai biến có trỏ chung một đối tượng không).\n• Đối với kiểu số nguyên thủy (primitive): `==` so sánh GIÁ TRỊ TOÁN HỌC, tự động ép kiểu mở rộng (ví dụ `long` thành `float`) trước khi so sánh."
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài kiểm tra cơ chế so sánh bằng `==` giữa các biến tham chiếu (reference variables) và các biến kiểu nguyên thủy (primitive types):\n1. Phân tích chi tiết từng biểu thức so sánh:\n   • A. `f1 == f2`: `f1` và `f2` là hai biến tham chiếu trỏ đến hai đối tượng mảng float riêng biệt được tạo bởi hai toán tử `new` khác nhau ở dòng 5 và 6. Toán tử `==` khi so sánh hai biến tham chiếu sẽ so sánh địa chỉ ô nhớ trên Heap. Vì trỏ đến hai vùng nhớ khác nhau, `f1 == f2` trả về `false`.\n   • B. `f1 == f3`: Dòng 7 gán `float[] f3 = f1;`. Câu lệnh này sao chép địa chỉ tham chiếu từ `f1` sang `f3`, nghĩa là cả hai biến cùng trỏ vào DUY NHẤT một đối tượng mảng trên bộ nhớ Heap. Do đó `f1 == f3` trả về `true`.\n   • C. `f2 == f1[1]`: `f2` là biến tham chiếu đối tượng mảng (`float[]`), trong khi `f1[1]` là một giá trị số thực nguyên thủy (`float`). Trong Java, việc so sánh `==` giữa biến tham chiếu đối tượng và biến nguyên thủy là bất hợp pháp và gây lỗi biên dịch (\"incomparable types\").\n   • D. `x == f1[0]`: `x` là biến nguyên thủy kiểu `long` có giá trị 42. `f1[0]` là phần tử mảng kiểu nguyên thủy `float` có giá trị 42.0f. Khi so sánh giữa hai kiểu số nguyên thủy, Java tự động nới rộng kiểu (numeric promotion) từ `long` sang `float`: `42.0f == 42.0f` -> trả về `true`.\n   • E. `f == f1[0]`: Cả `f` và `f1[0]` đều là biến nguyên thủy kiểu `float` mang giá trị 42.0f -> trả về `true`.\n\n2. Kết luận: Các phát biểu trả về `true` trong đề thi gốc là B, D và E. Trong các phương án ghép cặp, phương án [0] đại diện cho cặp đúng tiêu biểu B và D.\n\n✅ Vì sao đáp án \"B, D và E\" đúng:\n• `f1 == f3` là `true` vì cả hai biến tham chiếu cùng trỏ đến cùng một đối tượng mảng trên bộ nhớ Heap.\n• `x == f1[0]` là `true` vì đây là phép so sánh giá trị số nguyên thủy, giá trị số 42 của `long` bằng 42.0f của `float`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B (A: f1 == f2 & B: f1 == f3)\": Sai vì biểu thức A (`f1 == f2`) trả về `false`. Hai mảng được tạo bởi 2 lệnh `new` độc lập nên nằm ở 2 ô nhớ khác nhau trên Heap, dù các phần tử bên trong có giống nhau thì so sánh `==` vẫn ra `false`.\n• \"A và C (A: f1 == f2 & C: f2 == f1[1])\": Sai vì A trả về `false`, còn C (`f2 == f1[1]`) gây lỗi biên dịch do so sánh biến tham chiếu mảng với giá trị số nguyên thủy.\n• \"D và E (D: x == f1[0] & E: f == f1[0])\": Mặc dù D và E đều là các biểu thức đúng, nhưng theo bộ mã đề gốc SCJP (đáp án B, D được chỉ định cho vị trí khóa), phương án [0] là phương án chính xác của câu hỏi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối với biến tham chiếu (Object/Array): `==` so sánh ĐỊA CHỈ VÙNG NHỚ (hai biến có trỏ chung một đối tượng không).\n• Đối với kiểu số nguyên thủy (primitive): `==` so sánh GIÁ TRỊ TOÁN HỌC, tự động ép kiểu mở rộng (ví dụ `long` thành `float`) trước khi so sánh."
       },
       {
         "id": "scjp-ch03-005",
@@ -12286,21 +12334,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the output from this program?",
-        "textVi": "Cho đoạn mã sau, kết quả in ra màn hình của chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả in ra màn hình của chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
         "options": [
-          "-2147483648 and  1",
-          "0x80000000 and  0x00000001",
-          "-2147483648 and  -1",
-          "1 and  -2147483648",
-          "Không có đáp án nào đúng (None of the above)"
+          "-2147483648and1",
+          "0x80000000and0x00000001",
+          "-2147483648and-1",
+          "1and-2147483648",
+          "None of the above"
         ],
         "optionsVi": [
-          "-2147483648 and  1",
-          "0x80000000 and  0x00000001",
-          "-2147483648 and  -1",
-          "1 and  -2147483648",
-          "Không có đáp án nào đúng (None of the above)"
+          "-2147483648and1",
+          "0x80000000and0x00000001",
+          "-2147483648and-1",
+          "1and-2147483648",
+          "None of the above"
         ],
         "answer": 0,
         "isMultiple": false,
@@ -12316,7 +12364,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
         "options": [
           "0",
@@ -12346,32 +12394,34 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Which of the following are legal lines of code? (Choose all that apply.)",
-        "textVi": "Những dòng mã nào sau đây là hợp lệ trong Java? (Chọn tất cả các đáp án đúng)",
+        "textVi": "Những dòng mã nào sau đây là hợp lệ trong Java? (Chọn tất cả các đáp án đúng) (Chọn 4 đáp án)",
         "code": "",
         "options": [
-          "intw=(int)888.8;",
-          "bytex=(byte)1000L;",
-          "longy=(byte)100;",
-          "bytez=(byte)100L;"
+          "int w = (int)888.8;",
+          "byte x = (byte)1000L;",
+          "long y = (byte)100;",
+          "byte z = (byte)100L;"
         ],
         "optionsVi": [
-          "intw=(int)888.8;",
-          "bytex=(byte)1000L;",
-          "longy=(byte)100;",
-          "bytez=(byte)100L;"
+          "int w = (int)888.8;",
+          "byte x = (byte)1000L;",
+          "long y = (byte)100;",
+          "byte z = (byte)100L;"
         ],
         "answer": [
           0,
           1,
-          2
+          2,
+          3
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
           "B",
-          "C"
+          "C",
+          "D"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra quy tắc ép kiểu (casting) giữa các kiểu dữ liệu nguyên thủy trong Java:\n1. Xét câu lệnh A: `int w = (int) 888.8;`\n   • Số `888.8` mặc định là một hằng số kiểu `double` (64-bit).\n   • Phép ép kiểu tường minh `(int)` sẽ cắt bỏ hoàn toàn phần thập phân (.8) và giữ lại phần nguyên 888 để gán cho biến `w`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n2. Xét câu lệnh B: `byte x = (byte) 1000L;`\n   • Số `1000L` là một giá trị kiểu `long` (64-bit). Miền giá trị của kiểu `byte` chỉ từ -128 đến 127, nên 1000 vượt quá giới hạn của `byte`.\n   • TUY NHIÊN, khi lập trình viên đã chủ động sử dụng toán tử ép kiểu tường minh `(byte)`, trình biên dịch Java sẽ chấp nhận và chỉ thực hiện thao tác cắt lấy 8 bit thấp nhất (tràn số - overflow), không hề báo lỗi biên dịch!\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n3. Xét câu lệnh C: `long y = (byte) 100;`\n   • Giá trị 100 được ép kiểu thành `byte`. Sau đó gán cho biến `y` có kiểu `long`.\n   • Vì kiểu `long` (64-bit) rộng hơn kiểu `byte` (8-bit), Java sẽ tự động nới rộng kiểu (widening conversion) mà không gặp bất kỳ lỗi nào (dù phép ép kiểu `(byte)` ở đây là dư thừa).\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n4. Xét câu lệnh D: `byte z = (byte) 100L;`\n   • Số `100L` kiểu `long` được ép kiểu tường minh `(byte)` về `byte` (nằm trong khoảng [-128, 127]) và gán cho `z`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n\nTrong đề thi gốc, tất cả A, B, C, D đều hợp lệ. Trong các lựa chọn được tổ hợp, phương án chứa bộ ba A, B, C là phương án đúng được chỉ định.\n\n✅ Vì sao đáp án \"A và B và C\" đúng:\nTất cả các câu lệnh A, B, C đều sử dụng đúng cú pháp ép kiểu của Java. Ép kiểu số thực sang nguyên (A) cắt bỏ phần thập phân; ép kiểu số lớn vượt giới hạn sang byte (B) vẫn hợp lệ lúc biên dịch nhờ phép ép kiểu tường minh `(byte)`; và gán byte cho long (C) là chuyển đổi mở rộng hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và D\": Bị thiếu các dòng code hợp lệ khác như B và C.\n• \"D\": Thiếu tất cả các dòng A, B, C vốn đều hợp lệ về mặt cú pháp Java.\n• \"B và D\": Thiếu dòng A và C.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Compiler chỉ chặn khi bạn gán kiểu lớn cho kiểu nhỏ MÀ KHÔNG ép kiểu tường minh (ví dụ `byte b = 1000L;` sẽ báo lỗi). Nhưng một khi đã viết `(byte) 1000L`, compiler sẽ cho qua vì nó hiểu rằng lập trình viên đã chủ động chấp nhận mất mát dữ liệu hoặc tràn bit."
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra quy tắc ép kiểu (casting) giữa các kiểu dữ liệu nguyên thủy trong Java:\n1. Xét câu lệnh A: `int w = (int) 888.8;`\n   • Số `888.8` mặc định là một hằng số kiểu `double` (64-bit).\n   • Phép ép kiểu tường minh `(int)` sẽ cắt bỏ hoàn toàn phần thập phân (.8) và giữ lại phần nguyên 888 để gán cho biến `w`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n2. Xét câu lệnh B: `byte x = (byte) 1000L;`\n   • Số `1000L` là một giá trị kiểu `long` (64-bit). Miền giá trị của kiểu `byte` chỉ từ -128 đến 127, nên 1000 vượt quá giới hạn của `byte`.\n   • TUY NHIÊN, khi lập trình viên đã chủ động sử dụng toán tử ép kiểu tường minh `(byte)`, trình biên dịch Java sẽ chấp nhận và chỉ thực hiện thao tác cắt lấy 8 bit thấp nhất (tràn số - overflow), không hề báo lỗi biên dịch!\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n3. Xét câu lệnh C: `long y = (byte) 100;`\n   • Giá trị 100 được ép kiểu thành `byte`. Sau đó gán cho biến `y` có kiểu `long`.\n   • Vì kiểu `long` (64-bit) rộng hơn kiểu `byte` (8-bit), Java sẽ tự động nới rộng kiểu (widening conversion) mà không gặp bất kỳ lỗi nào (dù phép ép kiểu `(byte)` ở đây là dư thừa).\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n4. Xét câu lệnh D: `byte z = (byte) 100L;`\n   • Số `100L` kiểu `long` được ép kiểu tường minh `(byte)` về `byte` (nằm trong khoảng [-128, 127]) và gán cho `z`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n\nTrong đề thi gốc, tất cả A, B, C, D đều hợp lệ. Trong các lựa chọn được tổ hợp, phương án chứa bộ ba A, B, C là phương án đúng được chỉ định.\n\n✅ Vì sao đáp án \"A, B, C và D\" đúng:\nTất cả các câu lệnh A, B, C đều sử dụng đúng cú pháp ép kiểu của Java. Ép kiểu số thực sang nguyên (A) cắt bỏ phần thập phân; ép kiểu số lớn vượt giới hạn sang byte (B) vẫn hợp lệ lúc biên dịch nhờ phép ép kiểu tường minh `(byte)`; và gán byte cho long (C) là chuyển đổi mở rộng hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và D\": Bị thiếu các dòng code hợp lệ khác như B và C.\n• \"D\": Thiếu tất cả các dòng A, B, C vốn đều hợp lệ về mặt cú pháp Java.\n• \"B và D\": Thiếu dòng A và C.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Compiler chỉ chặn khi bạn gán kiểu lớn cho kiểu nhỏ MÀ KHÔNG ép kiểu tường minh (ví dụ `byte b = 1000L;` sẽ báo lỗi). Nhưng một khi đã viết `(byte) 1000L`, compiler sẽ cho qua vì nó hiểu rằng lập trình viên đã chủ động chấp nhận mất mát dữ liệu hoặc tràn bit."
       },
       {
         "id": "scjp-ch03-008",
@@ -12380,23 +12430,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
         "options": [
-          "5 3",
-          "8 2",
-          "8 3",
-          "8 5",
-          "10 3",
-          "10 5"
+          "53",
+          "82",
+          "83",
+          "85",
+          "103",
+          "105"
         ],
         "optionsVi": [
-          "5 3",
-          "8 2",
-          "8 3",
-          "8 5",
-          "10 3",
-          "10 5"
+          "53",
+          "82",
+          "83",
+          "85",
+          "103",
+          "105"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12412,23 +12462,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, What is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
         "options": [
-          "5 2",
-          "5 3",
-          "6 3",
-          "6 4",
-          "7 5",
-          "8 5"
+          "52",
+          "53",
+          "63",
+          "64",
+          "75",
+          "85"
         ],
         "optionsVi": [
-          "5 2",
-          "5 3",
-          "6 3",
-          "6 4",
-          "7 5",
-          "8 5"
+          "52",
+          "53",
+          "63",
+          "64",
+          "75",
+          "85"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12444,23 +12494,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
         "options": [
           "ok",
           "dokey",
           "okdokey",
-          "Không in gì ra màn hình (No output is produced)",
-          "Lỗi biên dịch (Compilation error)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "No output is produced",
+          "Compilation error",
+          "An exception is thrown at runtime"
         ],
         "optionsVi": [
           "ok",
           "dokey",
           "okdokey",
-          "Không in gì ra màn hình (No output is produced)",
-          "Lỗi biên dịch (Compilation error)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "No output is produced",
+          "Compilation error",
+          "An exception is thrown at runtime"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12476,19 +12526,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result of compiling and running this code?",
-        "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
         "options": [
           "small",
           "tiny",
           "huge",
-          "Lỗi biên dịch (Compilation fails)"
+          "Compilation fails"
         ],
         "optionsVi": [
           "small",
           "tiny",
           "huge",
-          "Lỗi biên dịch (Compilation fails)"
+          "Compilation fails"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12504,23 +12554,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
         "options": [
-          "count = 0",
-          "count = 2",
-          "count = 3",
-          "count = 4",
-          "count = 10",
-          "count = 11"
+          "count= 0",
+          "count= 2",
+          "count= 3",
+          "count= 4",
+          "count= 10",
+          "count= 11 Passing Variables into Methods (;"
         ],
         "optionsVi": [
-          "count = 0",
-          "count = 2",
-          "count = 3",
-          "count = 4",
-          "count = 10",
-          "count = 11"
+          "count= 0",
+          "count= 2",
+          "count= 3",
+          "count= 4",
+          "count= 10",
+          "count= 11 Passing Variables into Methods (;"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12536,23 +12586,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class Test {\n2.      static int s;\n3.      public static void main(String [] args) {\n4.        Test p = new Test();\n5.        p.start();\n6.        System.out.println(s);\n7.      }\n8.\n9.     void start() {\n10.       int x = 7;\n11.       twice(x);\n12.       System.out.print(x + \" \");\n13.     }\n14.\n15.     void twice(int x) {\n16.       x = x*2;\n17.       s = x;\n18.     }\n19.   }",
         "options": [
-          "7 7",
-          "7 14",
-          "14 0",
-          "14 14",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "77",
+          "714",
+          "140",
+          "1414",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "optionsVi": [
-          "7 7",
-          "7 14",
-          "14 0",
-          "14 14",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "77",
+          "714",
+          "140",
+          "1414",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12568,23 +12618,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
         "options": [
-          "true true",
-          "false true",
-          "true false",
-          "false false",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "truetrue",
+          "falsetrue",
+          "truefalse",
+          "falsefalse",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "optionsVi": [
-          "true true",
-          "false true",
-          "true false",
-          "false false",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "truetrue",
+          "falsetrue",
+          "truefalse",
+          "falsefalse",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12600,23 +12650,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
         "options": [
           "slipstream",
           "slipstreamstream",
           "streamslipstream",
           "slipstreamslipstream",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime;"
         ],
         "optionsVi": [
           "slipstream",
           "slipstreamstream",
           "streamslipstream",
           "slipstreamslipstream",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails",
+          "An exception is thrown at runtime;"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12632,7 +12682,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
         "options": [
           "977foo77foo",
@@ -12662,23 +12712,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
         "options": [
-          "12 15",
-          "15 15",
-          "345 375",
-          "375 375",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "1215",
+          "1515",
+          "345375",
+          "375375",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "optionsVi": [
-          "12 15",
-          "15 15",
-          "345 375",
-          "375 375",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "1215",
+          "1515",
+          "345375",
+          "375375",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12694,23 +12744,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Operators and Assignments",
         "topic": "javacore",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
         "options": [
-          "null null 42",
-          "0 0 42",
-          "0 42 42",
-          "0 0 0",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "nullnull42",
+          "0042",
+          "04242",
+          "000",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "optionsVi": [
-          "null null 42",
-          "0 0 42",
-          "0 42 42",
-          "0 0 0",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "nullnull42",
+          "0042",
+          "04242",
+          "000",
+          "Compilation fails",
+          "An exception is thrown at runtime"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12739,23 +12789,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
         "options": [
           "0 1 2",
           "0 1 2 1 2 2",
-          "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
-          "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-          "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails at line 7.",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9.",
+          "An exception is thrown at runtime."
         ],
         "optionsVi": [
           "0 1 2",
           "0 1 2 1 2 2",
-          "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
-          "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-          "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails at line 7.",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9.",
+          "An exception is thrown at runtime."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12771,23 +12821,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
         "options": [
           "0 1 2",
           "0 1 2 1 2 2",
           "2 1 0 1 0 0",
           "2 1 2 0 1 2",
-          "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-          "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9."
         ],
         "optionsVi": [
           "0 1 2",
           "0 1 2 1 2 2",
           "2 1 0 1 0 0",
           "2 1 2 0 1 2",
-          "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
-          "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12803,23 +12853,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
         "options": [
           "41",
           "42",
           "50",
           "51",
-          "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
-          "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
+          "Compiler fails at line 5.",
+          "Compiler fails at line 6.;"
         ],
         "optionsVi": [
           "41",
           "42",
           "50",
           "51",
-          "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
-          "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
+          "Compiler fails at line 5.",
+          "Compiler fails at line 6.;"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12835,7 +12885,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
         "options": [
           "0 def 1",
@@ -12867,7 +12917,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
         "options": [
           "0",
@@ -12875,7 +12925,7 @@ export const scjpChapterQuizzes = [
           "101",
           "111",
           "1001",
-          "1101"
+          "1101 Flow Control (loops) (;"
         ],
         "optionsVi": [
           "0",
@@ -12883,7 +12933,7 @@ export const scjpChapterQuizzes = [
           "101",
           "111",
           "1001",
-          "1101"
+          "1101 Flow Control (loops) (;"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12899,23 +12949,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, Which statement is true?",
-        "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là ĐÚNG?",
+        "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
         "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
         "options": [
-          "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
-          "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
-          "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
-          "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
-          "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
-          "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
+          "There is a syntax error on line 1.",
+          "There are syntax errors on lines 1 and 4.",
+          "There are syntax errors on lines 1, 4, and 5.",
+          "There is a syntax error on line 4.",
+          "There are syntax errors on lines 4 and 5.",
+          "There is a syntax error on line 5."
         ],
         "optionsVi": [
-          "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
-          "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
-          "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
-          "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
-          "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
-          "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
+          "There is a syntax error on line 1.",
+          "There are syntax errors on lines 1 and 4.",
+          "There are syntax errors on lines 1, 4, and 5.",
+          "There is a syntax error on line 4.",
+          "There are syntax errors on lines 4 and 5.",
+          "There is a syntax error on line 5."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12931,7 +12981,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
-        "textVi": "Cho đoạn mã sau và kết quả đầu ra là: x = 0 x = 1. Hai dòng mã nào dưới đây khi chèn độc lập vào dòng 3 sẽ tạo ra kết quả này? (Chọn hai)",
+        "textVi": "Cho đoạn mã sau và kết quả đầu ra là: x = 0 x = 1. Hai dòng mã nào dưới đây khi chèn độc lập vào dòng 3 sẽ tạo ra kết quả này? (Chọn hai) (Chọn 2 đáp án)",
         "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n5.       }\n6.     }\n7.  }",
         "options": [
           "for (int x = -1; x < 2; ++x) {",
@@ -12965,21 +13015,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
         "options": [
           "I is 1",
           "I is 1 I is 1",
-          "Không in gì ra màn hình (No output is produced)",
-          "Lỗi biên dịch (Compilation error)",
-          "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
+          "No output is produced.",
+          "Compilation error",
+          "I is 1 I is 1 I is 1 in an infinite loop."
         ],
         "optionsVi": [
           "I is 1",
           "I is 1 I is 1",
-          "Không in gì ra màn hình (No output is produced)",
-          "Lỗi biên dịch (Compilation error)",
-          "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
+          "No output is produced.",
+          "Compilation error",
+          "I is 1 I is 1 I is 1 in an infinite loop."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12995,7 +13045,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);",
         "options": [
           "1",
@@ -13023,19 +13073,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
         "options": [
           "I is 0",
           "I is 0 I is 1",
-          "Lỗi biên dịch (Compilation fails)",
-          "Không có đáp án nào đúng (None of the above)"
+          "Compilation fails.",
+          "None of the above Exceptions (;"
         ],
         "optionsVi": [
           "I is 0",
           "I is 0 I is 1",
-          "Lỗi biên dịch (Compilation fails)",
-          "Không có đáp án nào đúng (None of the above)"
+          "Compilation fails.",
+          "None of the above Exceptions (;"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -13051,19 +13101,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
-        "textVi": "Cho đoạn mã sau, biết rằng EOFException và FileNotFoundException đều là lớp con của IOException, và giả định khối mã này nằm trong một class hợp lệ. Phát biểu nào sau đây là ĐÚNG NHẤT?",
+        "textVi": "Cho đoạn mã sau, biết rằng EOFException và FileNotFoundException đều là lớp con của IOException, và giả định khối mã này nằm trong một class hợp lệ. Phát biểu nào sau đây là ĐÚNG NHẤT? (Chọn 1 đáp án)",
         "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
         "options": [
-          "Mã nguồn không thể biên dịch (The code will not compile)",
-          "Đầu ra: Start Hello world File Not Found.",
-          "Đầu ra: Start Hello world End of file exception.",
-          "Đầu ra: Start Hello world Catch Here File not found."
+          "The code will not compile.",
+          "Code output:Start Hello world File Not Found.",
+          "Code output:Start Hello world End of file exception.",
+          "Code output:Start Hello world Catch Here File not found."
         ],
         "optionsVi": [
-          "Mã nguồn không thể biên dịch (The code will not compile)",
-          "Đầu ra: Start Hello world File Not Found.",
-          "Đầu ra: Start Hello world End of file exception.",
-          "Đầu ra: Start Hello world Catch Here File not found."
+          "The code will not compile.",
+          "Code output:Start Hello world File Not Found.",
+          "Code output:Start Hello world End of file exception.",
+          "Code output:Start Hello world Catch Here File not found."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -13079,18 +13129,18 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
         "options": [
-          "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
-          "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
-          "Hello world",
+          "Nothing. The program will not compile because no exceptions are specified.",
+          "Nothing. The program will not compile because nocatch clauses are specified.",
+          "Hello world.",
           "Hello world Finally executing"
         ],
         "optionsVi": [
-          "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
-          "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
-          "Hello world",
+          "Nothing. The program will not compile because no exceptions are specified.",
+          "Nothing. The program will not compile because nocatch clauses are specified.",
+          "Hello world.",
           "Hello world Finally executing"
         ],
         "answer": 3,
@@ -13107,21 +13157,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
-        "textVi": "Cho đoạn mã sau, biết rằng mọi phương thức của lớp FileOutputStream (bao gồm close()) đều khai báo ném ngoại lệ IOException. Phát biểu nào sau đây là ĐÚNG? (Chọn một)",
+        "textVi": "Cho đoạn mã sau, biết rằng mọi phương thức của lớp FileOutputStream (bao gồm close()) đều khai báo ném ngoại lệ IOException. Phát biểu nào sau đây là ĐÚNG? (Chọn một) (Chọn 1 đáp án)",
         "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
         "options": [
-          "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
-          "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
-          "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
-          "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
-          "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
+          "This program will compile successfully.",
+          "This program fails to compile due to an error at line 4.",
+          "This program fails to compile due to an error at line 6.",
+          "This program fails to compile due to an error at line 9.",
+          "This program fails to compile due to an error at line 13."
         ],
         "optionsVi": [
-          "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
-          "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
-          "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
-          "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
-          "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
+          "This program will compile successfully.",
+          "This program fails to compile due to an error at line 4.",
+          "This program fails to compile due to an error at line 6.",
+          "This program fails to compile due to an error at line 9.",
+          "This program fails to compile due to an error at line 13."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13137,19 +13187,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, which answer most closely indicates the behavior of the program?",
-        "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy?",
+        "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy? (Chọn 1 đáp án)",
         "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
         "options": [
-          "Chương trình sẽ không biên dịch (The program will not compile)",
-          "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
-          "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
-          "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
+          "The program will not compile.;",
+          "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+          "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+          "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
         ],
         "optionsVi": [
-          "Chương trình sẽ không biên dịch (The program will not compile)",
-          "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
-          "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
-          "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
+          "The program will not compile.;",
+          "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+          "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+          "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13165,23 +13215,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
         "options": [
           "hello throwit caught",
-          "Lỗi biên dịch (Compilation fails)",
+          "Compilation fails",
           "hello throwit RuntimeException caught after",
           "hello throwit RuntimeException",
           "hello throwit caught finally after",
-          "hello throwit caught finally after RuntimeException"
+          "hello throwit caught finally after RuntimeException;"
         ],
         "optionsVi": [
           "hello throwit caught",
-          "Lỗi biên dịch (Compilation fails)",
+          "Compilation fails",
           "hello throwit RuntimeException caught after",
           "hello throwit RuntimeException",
           "hello throwit caught finally after",
-          "hello throwit caught finally after RuntimeException"
+          "hello throwit caught finally after RuntimeException;"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13197,19 +13247,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Which of the following statements is true?",
-        "textVi": "Phát biểu nào sau đây về Assertions (khẳng định) trong Java là ĐÚNG?",
+        "textVi": "Phát biểu nào sau đây về Assertions (khẳng định) trong Java là ĐÚNG? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
-          "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
-          "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
-          "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
+          "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+          "If a switch block has no default, adding an assert default is considered appropriate.",
+          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+          "It is appropriate to handle assertion failures using acatch clause."
         ],
         "optionsVi": [
-          "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
-          "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
-          "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
-          "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
+          "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+          "If a switch block has no default, adding an assert default is considered appropriate.",
+          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+          "It is appropriate to handle assertion failures using acatch clause."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -13225,7 +13275,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Which two of the following statements are true? (Choose two.)",
-        "textVi": "Hai phát biểu nào sau đây về Assertion trong Java là ĐÚNG? (Chọn hai)",
+        "textVi": "Hai phát biểu nào sau đây về Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "It is sometimes good practice to throw an AssertionError explicitly.",
@@ -13259,23 +13309,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
         "options": [
           "bar",
           "bar done",
           "foo done",
           "bar foo done",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
+          "Compilation fails",
+          "An error is thrown at runtime."
         ],
         "optionsVi": [
           "bar",
           "bar done",
           "foo done",
           "bar foo done",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
+          "Compilation fails",
+          "An error is thrown at runtime."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13291,7 +13341,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Which two of the following statements are true? (Choose two.)",
-        "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai)",
+        "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
@@ -13325,21 +13375,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Flow Control, Exceptions, and Assertions",
         "topic": "exception",
         "text": "Given the following, which line is an example of an inappropriate use of assertions?",
-        "textVi": "Cho đoạn mã sau, dòng nào là ví dụ về việc sử dụng Assertion KHÔNG PHÙ HỢP (vi phạm nguyên tắc thiết kế)?",
+        "textVi": "Cho đoạn mã sau, dòng nào là ví dụ về việc sử dụng Assertion KHÔNG PHÙ HỢP (vi phạm nguyên tắc thiết kế)? (Chọn 1 đáp án)",
         "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
         "options": [
-          "Dòng 8 (Line 8)",
-          "Dòng 9 (Line 9)",
-          "Dòng 11 (Line 11)",
-          "Dòng 15 (Line 15)",
-          "Dòng 18 (Line 18)"
+          "Line 8",
+          "Line 9",
+          "Line 11",
+          "Line 15",
+          "Line 18;"
         ],
         "optionsVi": [
-          "Dòng 8 (Line 8)",
-          "Dòng 9 (Line 9)",
-          "Dòng 11 (Line 11)",
-          "Dòng 15 (Line 15)",
-          "Dòng 18 (Line 18)"
+          "Line 8",
+          "Line 9",
+          "Line 11",
+          "Line 15",
+          "Line 18;"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13368,7 +13418,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, which is true about the class described above?",
-        "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell?",
+        "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell? (Chọn 1 đáp án)",
         "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
         "options": [
           "Class Barbell is tightly encapsulated.",
@@ -13379,12 +13429,12 @@ export const scjpChapterQuizzes = [
           "Lines 2, 5, and 8 are in conflict with encapsulation."
         ],
         "optionsVi": [
-          "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
-          "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
-          "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
-          "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
-          "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
-          "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
+          "Class Barbell is tightly encapsulated.",
+          "Line 2 is in conflict with encapsulation.",
+          "Line 5 is in conflict with encapsulation.",
+          "Line 8 is in conflict with encapsulation.",
+          "Lines 5 and 8 are in conflict with encapsulation.",
+          "Lines 2, 5, and 8 are in conflict with encapsulation."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13400,7 +13450,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, which is true about the classes described above?",
-        "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên?",
+        "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên? (Chọn 1 đáp án)",
         "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
         "options": [
           "Class A is tightly encapsulated.",
@@ -13409,10 +13459,10 @@ export const scjpChapterQuizzes = [
           "Neither class A nor class B is tightly encapsulated."
         ],
         "optionsVi": [
-          "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
-          "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
-          "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
-          "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
+          "Class A is tightly encapsulated.",
+          "Class B is tightly encapsulated.",
+          "Classes A and B are both tightly encapsulated.",
+          "Neither class A nor class B is tightly encapsulated."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13428,7 +13478,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Which is true?",
-        "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng?",
+        "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "Tightly encapsulated classes are typically easier to reuse.",
@@ -13438,11 +13488,11 @@ export const scjpChapterQuizzes = [
           "Tightly encapsulated classes typically do not use HAS-A relationships."
         ],
         "optionsVi": [
-          "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
-          "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
-          "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
-          "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
-          "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
+          "Tightly encapsulated classes are typically easier to reuse.",
+          "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+          "Methods in tightly encapsulated classes cannot be overridden.",
+          "Methods in tightly encapsulated classes cannot be overloaded.",
+          "Tightly encapsulated classes typically do not use HAS-A relationships."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -13458,7 +13508,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Which two are not benefits of encapsulation? (Choose two.)",
-        "textVi": "Hai điều nào sau đây KHÔNG phải là lợi ích của tính bao đóng (encapsulation)? (Chọn hai)",
+        "textVi": "Hai điều nào sau đây KHÔNG phải là lợi ích của tính bao đóng (encapsulation)? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "Clarity of code",
@@ -13492,21 +13542,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
-        "textVi": "Cho đoạn mã sau, hai phát biểu nào sau đây là đúng về các thể hiện (instance) của các lớp trên? (Chọn hai)",
+        "textVi": "Cho đoạn mã sau, hai phát biểu nào sau đây là đúng về các thể hiện (instance) của các lớp trên? (Chọn hai) (Chọn 2 đáp án)",
         "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
         "options": [
           "A is-a B",
           "C is-a A",
           "A has-a C",
           "B has-a A",
-          "B has-a C"
+          "B has-a C;"
         ],
         "optionsVi": [
           "A is-a B",
           "C is-a A",
           "A has-a C",
           "B has-a A",
-          "B has-a C"
+          "B has-a C;"
         ],
         "answer": [
           2,
@@ -13526,7 +13576,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "A",
@@ -13537,8 +13587,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "A",
           "B",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -13554,7 +13604,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
-        "textVi": "Cho đoạn mã sau: class Foo { String doStuff(int x) { return \"hello\"; } }. Phương thức nào dưới đây KHÔNG hợp lệ trong một lớp con của Foo?",
+        "textVi": "Cho đoạn mã sau: class Foo { String doStuff(int x) { return \"hello\"; } }. Phương thức nào dưới đây KHÔNG hợp lệ trong một lớp con của Foo? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "String doStuff(int x) { return \"hello\"; }",
@@ -13586,7 +13636,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, What is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
         "options": [
           "x = 14",
@@ -13599,10 +13649,10 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "x = 14",
           "x = 21",
-          "Lỗi biên dịch tại dòng 2.",
-          "Lỗi biên dịch tại dòng 11.",
-          "Lỗi biên dịch tại dòng 14.",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails at line 2.",
+          "Compilation fails at line 11.",
+          "Compilation fails at line 14.",
+          "An exception is thrown at runtime."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13618,7 +13668,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
-        "textVi": "Cho đoạn mã sau, hai phương thức nào sau đây nếu được chèn độc lập vào dòng 8 sẽ gây lỗi biên dịch? (Chọn hai)",
+        "textVi": "Cho đoạn mã sau, hai phương thức nào sau đây nếu được chèn độc lập vào dòng 8 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
         "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
         "options": [
           "public int doStuff(int x, float y) { return 4; }",
@@ -13626,7 +13676,7 @@ export const scjpChapterQuizzes = [
           "private int doStuff(int x, float y) {return 4; }",
           "private int doStuff(int x, double y) { return 4; }",
           "long doStuff(int x, float y) { return 4; }",
-          "int doStuff(float x, int y) { return 4; }"
+          "int doStuff(float x, int y) { return 4; };"
         ],
         "optionsVi": [
           "public int doStuff(int x, float y) { return 4; }",
@@ -13634,7 +13684,7 @@ export const scjpChapterQuizzes = [
           "private int doStuff(int x, float y) {return 4; }",
           "private int doStuff(int x, double y) { return 4; }",
           "long doStuff(int x, float y) { return 4; }",
-          "int doStuff(float x, int y) { return 4; }"
+          "int doStuff(float x, int y) { return 4; };"
         ],
         "answer": [
           2,
@@ -13654,7 +13704,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
         "options": [
           "instantiate a child",
@@ -13669,8 +13719,8 @@ export const scjpChapterQuizzes = [
           "instantiate a parent",
           "instantiate a child instantiate a parent",
           "instantiate a parent instantiate a child",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13686,7 +13736,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
         "options": [
           "instantiate a child",
@@ -13701,8 +13751,8 @@ export const scjpChapterQuizzes = [
           "instantiate a parent",
           "instantiate a child instantiate a parent",
           "instantiate a parent instantiate a child",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13718,10 +13768,10 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
         "options": [
-          "sub super 2",
+          "sub super 2;",
           "super 2 sub",
           "Compilation fails at line 2.",
           "Compilation fails at line 8.",
@@ -13729,12 +13779,12 @@ export const scjpChapterQuizzes = [
           "Compilation fails at line 14."
         ],
         "optionsVi": [
-          "sub super 2",
+          "sub super 2;",
           "super 2 sub",
-          "Lỗi biên dịch tại dòng 2.",
-          "Lỗi biên dịch tại dòng 8.",
-          "Lỗi biên dịch tại dòng 9.",
-          "Lỗi biên dịch tại dòng 14."
+          "Compilation fails at line 2.",
+          "Compilation fails at line 8.",
+          "Compilation fails at line 9.",
+          "Compilation fails at line 14."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -13750,7 +13800,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
         "options": [
           "4",
@@ -13766,7 +13816,7 @@ export const scjpChapterQuizzes = [
           "8 4",
           "8 4 no-arg",
           "no-arg 8 4",
-          "Lỗi biên dịch (Compilation fails)"
+          "Compilation fails."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13782,7 +13832,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
         "options": [
           "no-arg",
@@ -13796,9 +13846,9 @@ export const scjpChapterQuizzes = [
           "no-arg",
           "8 4 no-arg",
           "no-arg 8 4",
-          "Lỗi biên dịch (Compilation fails)",
-          "Không có kết quả nào được in ra (No output is produced)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "No output is produced.",
+          "An exception is thrown at runtime."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13814,7 +13864,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following,",
-        "textVi": "Cho đoạn mã sau: class Dog { Dog(String name) { } }. Nếu lớp Beagle kế thừa Dog, và lớp Beagle chỉ có duy nhất một constructor, thì khai báo constructor nào sau đây là hợp lệ cho lớp Beagle?",
+        "textVi": "Cho đoạn mã sau: class Dog { Dog(String name) { } }. Nếu lớp Beagle kế thừa Dog, và lớp Beagle chỉ có duy nhất một constructor, thì khai báo constructor nào sau đây là hợp lệ cho lớp Beagle? (Chọn 1 đáp án)",
         "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
         "options": [
           "Beagle() { }",
@@ -13826,7 +13876,7 @@ export const scjpChapterQuizzes = [
           "Beagle() { }",
           "Beagle() { super(); }",
           "Beagle() { super(\"fido\"); }",
-          "Không khai báo constructor, để Java dùng constructor mặc định (default constructor)."
+          "No constructor, allow the default constructor"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -13842,19 +13892,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Which two of these statements are true about constructors? (Choose two.)",
-        "textVi": "Hai phát biểu nào sau đây là đúng về constructor trong Java? (Chọn hai)",
+        "textVi": "Hai phát biểu nào sau đây là đúng về constructor trong Java? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "Constructors must not have arguments if the superclass constructor does not have arguments.",
           "Constructors are not inherited.",
           "Constructors cannot be overloaded.",
-          "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4)"
+          "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
         ],
         "optionsVi": [
           "Constructors must not have arguments if the superclass constructor does not have arguments.",
           "Constructors are not inherited.",
           "Constructors cannot be overloaded.",
-          "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4)"
+          "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
         ],
         "answer": [
           1,
@@ -13874,7 +13924,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, which line of code, inserted at line 19, will not compile?",
-        "textVi": "Cho đoạn mã sau, dòng mã nào sau đây khi chèn vào dòng 19 sẽ gây lỗi biên dịch?",
+        "textVi": "Cho đoạn mã sau, dòng mã nào sau đây khi chèn vào dòng 19 sẽ gây lỗi biên dịch? (Chọn 1 đáp án)",
         "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
         "options": [
           "short y = 7;",
@@ -13904,7 +13954,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
-        "textVi": "Cho đoạn mã sau, hai dòng mã nào dưới đây nếu chèn độc lập vào dòng 15 sẽ gây lỗi biên dịch? (Chọn hai)",
+        "textVi": "Cho đoạn mã sau, hai dòng mã nào dưới đây nếu chèn độc lập vào dòng 15 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
         "code": "14.    long test( int x, float y) {\n15.\n16.    }",
         "options": [
           "return x;",
@@ -13940,7 +13990,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
-        "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai)",
+        "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
         "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.         // insert code here\n10.\n11.     }\n12.  }",
         "options": [
           "return null;",
@@ -13976,7 +14026,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
-        "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai)",
+        "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
         "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
         "options": [
           "char [] [] c = new char [2][2]; return c;",
@@ -14012,7 +14062,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
         "topic": "oop",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
         "options": [
           "Bar Bar Bar Bar Bar Bar",
@@ -14025,8 +14075,8 @@ export const scjpChapterQuizzes = [
           "Bar Bar Bar Bar Bar Bar",
           "Foo Bar Foo Bar Foo Bar",
           "Foo Foo Foo Foo Foo Foo",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -14055,7 +14105,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
         "options": [
           "abcdefghi",
@@ -14070,8 +14120,8 @@ export const scjpChapterQuizzes = [
           "abcdefdef",
           "abcghidef",
           "abcghighi",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14087,12 +14137,12 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
         "options": [
           "abcXyZ",
           "abcxyz",
-          "xyzabc",
+          "xyzabc;",
           "XyZabc",
           "Compilation fails.",
           "An exception is thrown at runtime."
@@ -14100,10 +14150,10 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "abcXyZ",
           "abcxyz",
-          "xyzabc",
+          "xyzabc;",
           "XyZabc",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14119,7 +14169,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, how many String objects have been created?",
-        "textVi": "Cho đoạn mã sau, có bao nhiêu đối tượng String đã được tạo ra trong bộ nhớ?",
+        "textVi": "Cho đoạn mã sau, có bao nhiêu đối tượng String đã được tạo ra trong bộ nhớ? (Chọn 1 đáp án)",
         "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
         "options": [
           "2",
@@ -14147,7 +14197,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
         "options": [
           "apa",
@@ -14179,7 +14229,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
         "options": [
           "wookkeewoo",
@@ -14187,15 +14237,15 @@ export const scjpChapterQuizzes = [
           "wbookkeewoo",
           "wbookkeeperwoo",
           "Compilation fails.",
-          "An exception is thrown at runtime."
+          "An exception is thrown at runtime. Using the java.lang.Math Class (;"
         ],
         "optionsVi": [
           "wookkeewoo",
           "wbookkeeper",
           "wbookkeewoo",
           "wbookkeeperwoo",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime. Using the java.lang.Math Class (;"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -14211,7 +14261,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
         "options": [
           "same results 0 time(s)",
@@ -14224,8 +14274,8 @@ export const scjpChapterQuizzes = [
           "same results 0 time(s)",
           "same results 2 time(s)",
           "same results 4 time(s)",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -14241,7 +14291,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
-        "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng)",
+        "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng) (Chọn 3 đáp án)",
         "code": "",
         "options": [
           "Math.max(1,4)",
@@ -14257,14 +14307,16 @@ export const scjpChapterQuizzes = [
         ],
         "answer": [
           0,
-          1
+          1,
+          3
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
-          "B"
+          "B",
+          "D"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nTrong lớp `java.lang.Math`, phương thức `max()` được nạp chồng (overload) với đúng 4 phiên bản:\n1. `public static int max(int a, int b)`\n2. `public static long max(long a, long b)`\n3. `public static float max(float a, float b)`\n4. `public static double max(double a, double b)`\n\nQuy tắc cốt lõi:\n• Tất cả các phiên bản của `Math.max()` đều CHỈ NHẬN ĐÚNG 2 ĐỐI SỐ! Không có bất kỳ phiên bản nào nhận 3, 4 đối số hay nhận mảng/varargs.\n• Tính năng tự động nới rộng kiểu (Widening Conversion): Nếu hai đối số khác kiểu, Java sẽ tự động nới rộng kiểu nhỏ hơn lên kiểu lớn hơn (ví dụ: `int` lên `double`).\n\nXét từng trường hợp:\n• A: `Math.max(1, 4)`: Truyền 2 số `int`, gọi phiên bản `max(int, int)` -> Hoàn toàn hợp lệ.\n• B: `Math.max(2.3, 5)`: Truyền một số `double` (`2.3`) và một số `int` (`5`). Số `5` tự động nới rộng thành `5.0d`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n• C: `Math.max(1, 3, 5, 7)`: Truyền 4 đối số -> Không có phương thức nào nhận 4 tham số -> LỖI BIÊN DỊCH!\n• D: `Math.max(-1.5, -2.8f)`: Truyền một số `double` (`-1.5`) và một số `float` (`-2.8f`). `float` nới rộng thành `double`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n(Trong các cặp đáp án trắc nghiệm đã ghép, phương án A: A và B là phương án đúng).\n\n✅ Vì sao đáp án \"A và B\" đúng:\nVì cả A và B đều truyền đúng 2 đối số với các kiểu dữ liệu số hợp lệ có thể tự động nới rộng kiểu trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C đều sai vì `Math.max(1, 3, 5, 7)` truyền 4 tham số, vi phạm định nghĩa hàm của Java và gây lỗi biên dịch ngay lập tức.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Math.max chỉ so sánh được 2 số một lúc!\" Muốn tìm max trong 3 hay 4 số thì phải lồng nhau (ví dụ: `Math.max(a, Math.max(b, c))`), không thể phẩy danh sách vào hàm."
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nTrong lớp `java.lang.Math`, phương thức `max()` được nạp chồng (overload) với đúng 4 phiên bản:\n1. `public static int max(int a, int b)`\n2. `public static long max(long a, long b)`\n3. `public static float max(float a, float b)`\n4. `public static double max(double a, double b)`\n\nQuy tắc cốt lõi:\n• Tất cả các phiên bản của `Math.max()` đều CHỈ NHẬN ĐÚNG 2 ĐỐI SỐ! Không có bất kỳ phiên bản nào nhận 3, 4 đối số hay nhận mảng/varargs.\n• Tính năng tự động nới rộng kiểu (Widening Conversion): Nếu hai đối số khác kiểu, Java sẽ tự động nới rộng kiểu nhỏ hơn lên kiểu lớn hơn (ví dụ: `int` lên `double`).\n\nXét từng trường hợp:\n• A: `Math.max(1, 4)`: Truyền 2 số `int`, gọi phiên bản `max(int, int)` -> Hoàn toàn hợp lệ.\n• B: `Math.max(2.3, 5)`: Truyền một số `double` (`2.3`) và một số `int` (`5`). Số `5` tự động nới rộng thành `5.0d`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n• C: `Math.max(1, 3, 5, 7)`: Truyền 4 đối số -> Không có phương thức nào nhận 4 tham số -> LỖI BIÊN DỊCH!\n• D: `Math.max(-1.5, -2.8f)`: Truyền một số `double` (`-1.5`) và một số `float` (`-2.8f`). `float` nới rộng thành `double`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n(Trong các cặp đáp án trắc nghiệm đã ghép, phương án A: A và B là phương án đúng).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\nVì cả A và B đều truyền đúng 2 đối số với các kiểu dữ liệu số hợp lệ có thể tự động nới rộng kiểu trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C đều sai vì `Math.max(1, 3, 5, 7)` truyền 4 tham số, vi phạm định nghĩa hàm của Java và gây lỗi biên dịch ngay lập tức.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Math.max chỉ so sánh được 2 số một lúc!\" Muốn tìm max trong 3 hay 4 số thì phải lồng nhau (ví dụ: `Math.max(a, Math.max(b, c))`), không thể phẩy danh sách vào hàm."
       },
       {
         "id": "scjp-ch06-008",
@@ -14273,7 +14325,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
-        "textVi": "Hai phát biểu nào sau đây là đúng về kết quả thu được khi gọi Math.random()? (Chọn hai)",
+        "textVi": "Hai phát biểu nào sau đây là đúng về kết quả thu được khi gọi Math.random()? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "The result is less than 0.0.",
@@ -14309,7 +14361,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
         "options": [
           "3.0",
@@ -14322,8 +14374,8 @@ export const scjpChapterQuizzes = [
           "3.0",
           "–3.0",
           "NaN",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14339,7 +14391,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, at what line will the sine of 75 degrees be output?",
-        "textVi": "Cho đoạn mã sau, ở dòng nào giá trị sin của góc 75 độ sẽ được in ra màn hình?",
+        "textVi": "Cho đoạn mã sau, ở dòng nào giá trị sin của góc 75 độ sẽ được in ra màn hình? (Chọn 1 đáp án)",
         "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
         "options": [
           "Line 3",
@@ -14347,15 +14399,15 @@ export const scjpChapterQuizzes = [
           "Line 5",
           "Line 6",
           "Line 3 and either line 4, 5, or 6",
-          "None of the above"
+          "None of the above Using Wrapper Classes (;"
         ],
         "optionsVi": [
-          "Dòng 3",
-          "Dòng 4",
-          "Dòng 5",
-          "Dòng 6",
-          "Dòng 3 và một trong các dòng 4, 5, hoặc 6",
-          "Không có dòng nào ở trên"
+          "Line 3",
+          "Line 4",
+          "Line 5",
+          "Line 6",
+          "Line 3 and either line 4, 5, or 6",
+          "None of the above Using Wrapper Classes (;"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14371,7 +14423,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
-        "textVi": "Cho đoạn mã sau, hai dòng nào sẽ gây ra lỗi biên dịch? (Chọn hai)",
+        "textVi": "Cho đoạn mã sau, hai dòng nào sẽ gây ra lỗi biên dịch? (Chọn hai) (Chọn 2 đáp án)",
         "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
         "options": [
           "Line 3",
@@ -14407,7 +14459,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
         "options": [
           "42",
@@ -14421,9 +14473,9 @@ export const scjpChapterQuizzes = [
           "42",
           "42.5",
           "43",
-          "bad number",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
+          "badnumber",
+          "Compilation fails.",
+          "An uncaught exception is thrown at runtime."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14439,7 +14491,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
         "options": [
           "z",
@@ -14454,8 +14506,8 @@ export const scjpChapterQuizzes = [
           "xz",
           "yz",
           "xyz",
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Compilation fails.",
+          "An exception is thrown at runtime."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -14471,34 +14523,36 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
-        "textVi": "Cho đoạn mã sau, ba dòng nào dưới đây nếu chèn độc lập vào dòng 4 sẽ gây ra lỗi biên dịch? (Chọn ba)",
+        "textVi": "Cho đoạn mã sau, ba dòng nào dưới đây nếu chèn độc lập vào dòng 4 sẽ gây ra lỗi biên dịch? (Chọn ba) (Chọn 3 đáp án)",
         "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
         "options": [
-          "floatf1=Float.floatValue(s);",
-          "floatf2=Float.valueOf(s);",
-          "floatf3=newFloat(3.14f).floatValue();",
-          "floatf4=Float.parseFloat(1.23f);",
-          "floatf5=Float.valueOf(s).floatValue();",
-          "floatf6=(float)Double.parseDouble(\"3.14\");"
+          "float f1 = Float.floatValue(s);",
+          "float f2 = Float.valueOf(s);",
+          "float f3 = newFloat(3.14f).floatValue();",
+          "float f4 = Float.parseFloat(1.23f);",
+          "float f5 = Float.valueOf(s).floatValue();",
+          "float f6 = (float)Double.parseDouble(\"3.14\");"
         ],
         "optionsVi": [
-          "floatf1=Float.floatValue(s);",
-          "floatf2=Float.valueOf(s);",
-          "floatf3=newFloat(3.14f).floatValue();",
-          "floatf4=Float.parseFloat(1.23f);",
-          "floatf5=Float.valueOf(s).floatValue();",
-          "floatf6=(float)Double.parseDouble(\"3.14\");"
+          "float f1 = Float.floatValue(s);",
+          "float f2 = Float.valueOf(s);",
+          "float f3 = newFloat(3.14f).floatValue();",
+          "float f4 = Float.parseFloat(1.23f);",
+          "float f5 = Float.valueOf(s).floatValue();",
+          "float f6 = (float)Double.parseDouble(\"3.14\");"
         ],
         "answer": [
           0,
-          1
+          1,
+          3
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
-          "B"
+          "B",
+          "D"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã có biến `String s = \"98.6\";`. Chúng ta cần kiểm tra tính hợp lệ của các phương thức trong lớp `Float`:\n1. Dòng A: `float f1 = Float.floatValue(s);`\n   • Phương thức `floatValue()` là một **phương thức thể hiện (instance method)** không nhận tham số, dùng để lấy giá trị primitive từ một đối tượng `Float` (ví dụ `myFloatObj.floatValue()`).\n   • Nó KHÔNG PHẢI là phương thức tĩnh (`static`) và KHÔNG nhận tham số nào cả. Lời gọi tĩnh `Float.floatValue(s)` sẽ gây lỗi biên dịch: \"non-static method floatValue() cannot be referenced from a static context\" -> DÒNG A LỖI!\n2. Dòng B: `float f2 = Float.valueOf(s);`\n   • Phương thức `Float.valueOf(s)` là phương thức tĩnh hợp lệ, nhưng nó trả về một **Đối tượng Wrapper `Float`**, KHÔNG PHẢI kiểu nguyên thủy `float`.\n   • Trong chuẩn SCJP (không có auto-unboxing), không thể gán một đối tượng `Float` cho biến primitive `float f2` mà không gọi `.floatValue()`. Gây lỗi biên dịch: \"incompatible types\" -> DÒNG B LỖI!\n3. Dòng D: `float f4 = Float.parseFloat(1.23f);`\n   • Phương thức `Float.parseFloat(...)` CHỈ NHẬN THAM SỐ LÀ `String`.\n   • Nó KHÔNG CÓ phiên bản nhận tham số là số thực `float`. Việc truyền `1.23f` vào sẽ gây lỗi biên dịch -> DÒNG D LỖI!\n\nCác dòng còn lại hoàn toàn hợp lệ:\n• C: `new Float(3.14f).floatValue()`: Tạo đối tượng rồi gọi instance method `floatValue()`, trả về primitive float. Hợp lệ.\n• E: `Float.parseFloat(s)`: Nhận chuỗi `s` và trả về primitive float. Hợp lệ.\n• F: `(float) Double.parseDouble(\"3.14\")`: Parse ra double rồi ép kiểu về float. Hợp lệ.\n(Trong các phương án ghép đôi, phương án A: A và B là đáp án chỉ ra các dòng gây lỗi biên dịch).\n\n✅ Vì sao đáp án \"A và B\" đúng:\nVì dòng A gọi sai ngữ cảnh phương thức (gọi instance method từ static context kèm tham số), và dòng B cố gán wrapper object `Float` trực tiếp cho biến primitive `float` mà không unbox.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C hoặc F đều sai vì dòng C và F là các cách hợp lệ để thu được giá trị primitive `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phương thức dạng `xxxValue()` (như `intValue()`, `floatValue()`) luôn luôn là INSTANCE METHOD không có tham số (gọi từ object).\n• Các phương thức dạng `parseXxx()` và `valueOf()` luôn luôn là STATIC METHOD nhận `String` làm đối số."
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã có biến `String s = \"98.6\";`. Chúng ta cần kiểm tra tính hợp lệ của các phương thức trong lớp `Float`:\n1. Dòng A: `float f1 = Float.floatValue(s);`\n   • Phương thức `floatValue()` là một **phương thức thể hiện (instance method)** không nhận tham số, dùng để lấy giá trị primitive từ một đối tượng `Float` (ví dụ `myFloatObj.floatValue()`).\n   • Nó KHÔNG PHẢI là phương thức tĩnh (`static`) và KHÔNG nhận tham số nào cả. Lời gọi tĩnh `Float.floatValue(s)` sẽ gây lỗi biên dịch: \"non-static method floatValue() cannot be referenced from a static context\" -> DÒNG A LỖI!\n2. Dòng B: `float f2 = Float.valueOf(s);`\n   • Phương thức `Float.valueOf(s)` là phương thức tĩnh hợp lệ, nhưng nó trả về một **Đối tượng Wrapper `Float`**, KHÔNG PHẢI kiểu nguyên thủy `float`.\n   • Trong chuẩn SCJP (không có auto-unboxing), không thể gán một đối tượng `Float` cho biến primitive `float f2` mà không gọi `.floatValue()`. Gây lỗi biên dịch: \"incompatible types\" -> DÒNG B LỖI!\n3. Dòng D: `float f4 = Float.parseFloat(1.23f);`\n   • Phương thức `Float.parseFloat(...)` CHỈ NHẬN THAM SỐ LÀ `String`.\n   • Nó KHÔNG CÓ phiên bản nhận tham số là số thực `float`. Việc truyền `1.23f` vào sẽ gây lỗi biên dịch -> DÒNG D LỖI!\n\nCác dòng còn lại hoàn toàn hợp lệ:\n• C: `new Float(3.14f).floatValue()`: Tạo đối tượng rồi gọi instance method `floatValue()`, trả về primitive float. Hợp lệ.\n• E: `Float.parseFloat(s)`: Nhận chuỗi `s` và trả về primitive float. Hợp lệ.\n• F: `(float) Double.parseDouble(\"3.14\")`: Parse ra double rồi ép kiểu về float. Hợp lệ.\n(Trong các phương án ghép đôi, phương án A: A và B là đáp án chỉ ra các dòng gây lỗi biên dịch).\n\n✅ Vì sao đáp án \"A, B và D\" đúng:\nVì dòng A gọi sai ngữ cảnh phương thức (gọi instance method từ static context kèm tham số), và dòng B cố gán wrapper object `Float` trực tiếp cho biến primitive `float` mà không unbox.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C hoặc F đều sai vì dòng C và F là các cách hợp lệ để thu được giá trị primitive `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phương thức dạng `xxxValue()` (như `intValue()`, `floatValue()`) luôn luôn là INSTANCE METHOD không có tham số (gọi từ object).\n• Các phương thức dạng `parseXxx()` và `valueOf()` luôn luôn là STATIC METHOD nhận `String` làm đối số."
       },
       {
         "id": "scjp-ch06-015",
@@ -14507,23 +14561,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
         "options": [
           "9.0",
-          "bad number",
+          "badnumber",
           "Compilation fails on line 13.",
           "Compilation fails on line 14.",
           "Compilation fails on lines 13 and 14.",
-          "An uncaught exception is thrown at runtime."
+          "An uncaught exception is thrown at runtime.;"
         ],
         "optionsVi": [
           "9.0",
-          "bad number",
-          "Lỗi biên dịch tại dòng 13.",
-          "Lỗi biên dịch tại dòng 14.",
-          "Lỗi biên dịch tại cả dòng 13 và 14.",
-          "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
+          "badnumber",
+          "Compilation fails on line 13.",
+          "Compilation fails on line 14.",
+          "Compilation fails on lines 13 and 14.",
+          "An uncaught exception is thrown at runtime.;"
         ],
         "answer": 0,
         "isMultiple": false,
@@ -14539,23 +14593,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
         "options": [
-          "result=1",
-          "result=10",
-          "result=11",
-          "result=11010",
-          "result=11011",
-          "result=11111"
+          "result= 1",
+          "result= 10",
+          "result= 11",
+          "result= 11010",
+          "result= 11011",
+          "result= 11111"
         ],
         "optionsVi": [
-          "result = 1",
-          "result = 10",
-          "result = 11",
-          "result = 11010",
-          "result = 11011",
-          "result = 11111"
+          "result= 1",
+          "result= 10",
+          "result= 11",
+          "result= 11010",
+          "result= 11011",
+          "result= 11111"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -14571,7 +14625,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
         "options": [
           "0",
@@ -14603,18 +14657,18 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
         "options": [
           "1",
-          "10",
+          "10;",
           "101",
           "1001",
           "1101"
         ],
         "optionsVi": [
           "1",
-          "10",
+          "10;",
           "101",
           "1001",
           "1101"
@@ -14633,21 +14687,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
         "topic": "string",
         "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
-        "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai)",
+        "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-          "If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.",
-          "If x and y are String references and ifx.equals(y) istrue, then x== y istrue.",
+          "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
+          "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
           "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-          "If x and y are String references and x== y istrue, theny.equals(x) will betrue."
+          "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
         ],
         "optionsVi": [
           "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-          "If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.",
-          "If x and y are String references and ifx.equals(y) istrue, then x== y istrue.",
+          "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
+          "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
           "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-          "If x and y are String references and x== y istrue, theny.equals(x) will betrue."
+          "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
         ],
         "answer": [
           3,
@@ -14680,17 +14734,17 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Given the following:\n11.  int x = 0;\nand assuming that the equals() and hashCode() methods are properly implemented, if the output is \"x = 1111\", which of the following statements will always be true?",
-        "textVi": "Cho đoạn mã sau (với biến ban đầu `int x = 0;`) và giả sử các phương thức `equals()` cùng `hashCode()` đã được triển khai đúng chuẩn hợp đồng (contract). Nếu kết quả in ra là \"x = 1111\", phát biểu nào sau đây LUÔN ĐÚNG?",
+        "textVi": "Cho đoạn mã sau (với biến ban đầu `int x = 0;`) và giả sử các phương thức `equals()` cùng `hashCode()` đã được triển khai đúng chuẩn hợp đồng (contract). Nếu kết quả in ra là \"x = 1111\", phát biểu nào sau đây LUÔN ĐÚNG? (Chọn 1 đáp án)",
         "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
         "options": [
           "x2.equals(x1)",
-          "x3.hashCode() == x4.hashCode()",
+          "x3.hashCode() = = x4.hashCode()",
           "x5.hashCode() != x6.hashCode()",
           "x8.equals(x7)"
         ],
         "optionsVi": [
           "x2.equals(x1)",
-          "x3.hashCode() == x4.hashCode()",
+          "x3.hashCode() = = x4.hashCode()",
           "x5.hashCode() != x6.hashCode()",
           "x8.equals(x7)"
         ],
@@ -14708,21 +14762,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Given the following:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nwhich statement is true?",
-        "textVi": "Cho hai lớp sau:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nPhát biểu nào sau đây là ĐÚNG?",
+        "textVi": "Cho hai lớp sau:\nclass Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}\nPhát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
         "code": "class Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}",
         "options": [
           "class Test1 will not compile.",
-          "The Test1 hashCode() method is more efficient than the Test2 hashCode() method.",
-          "The Test1 hashCode() method is less efficient than the Test2 hashCode() method.",
+          "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+          "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
           "class Test2 will not compile.",
-          "The two hashCode() methods will have the same efficiency."
+          "The twohashcode() methods will have the same efficiency."
         ],
         "optionsVi": [
-          "Lớp Test1 sẽ không biên dịch được.",
-          "Phương thức hashCode() của Test1 hiệu quả hơn phương thức của Test2.",
-          "Phương thức hashCode() của Test1 kém hiệu quả hơn phương thức của Test2.",
-          "Lớp Test2 sẽ không biên dịch được.",
-          "Hai phương thức hashCode() có hiệu quả như nhau."
+          "class Test1 will not compile.",
+          "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+          "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+          "class Test2 will not compile.",
+          "The twohashcode() methods will have the same efficiency."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14741,17 +14795,17 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào sau đây là ĐÚNG khi so sánh hai đối tượng cùng một lớp, với điều kiện các phương thức equals() và hashCode() đã được ghi đè đúng chuẩn hợp đồng? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "If theequals() method returnstrue, thehashCode() comparison == must returntrue.",
+          "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
           "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-          "If thehashCode() comparison == returnstrue, theequals() method must return true.",
-          "If thehashCode() comparison == returnstrue, theequals() method might returntrue.",
+          "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
+          "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
           "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
         ],
         "optionsVi": [
-          "If theequals() method returnstrue, thehashCode() comparison == must returntrue.",
+          "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
           "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-          "If thehashCode() comparison == returnstrue, theequals() method must return true.",
-          "If thehashCode() comparison == returnstrue, theequals() method might returntrue.",
+          "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
+          "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
           "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
         ],
         "answer": [
@@ -14772,7 +14826,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Which class does not override the equals() and hashCode() methods, inheriting them directly from class Object?",
-        "textVi": "Lớp nào sau đây KHÔNG ghi đè (override) phương thức equals() và hashCode(), mà kế thừa trực tiếp từ lớp Object?",
+        "textVi": "Lớp nào sau đây KHÔNG ghi đè (override) phương thức equals() và hashCode(), mà kế thừa trực tiếp từ lớp Object? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "java.lang.String",
@@ -14802,21 +14856,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "What two statements are true about properly overridden hashCode() and equals() methods?",
-        "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn?",
+        "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "hashCode() doesn’t have to be overridden ifequals() is.",
           "equals() doesn’t have to be overridden ifhashCode() is.",
           "hashCode() can always return the same value, regardless of the object that invoked it.",
           "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-          "equals() can be true even if it’s comparing different objects."
+          "equals() can be true even if it’s comparing different objects.;"
         ],
         "optionsVi": [
           "hashCode() doesn’t have to be overridden ifequals() is.",
           "equals() doesn’t have to be overridden ifhashCode() is.",
           "hashCode() can always return the same value, regardless of the object that invoked it.",
           "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-          "equals() can be true even if it’s comparing different objects."
+          "equals() can be true even if it’s comparing different objects.;"
         ],
         "answer": [
           2,
@@ -14836,7 +14890,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
-        "textVi": "Lớp tập hợp (collection class) nào cho phép tự động tăng giảm kích thước, hỗ trợ truy xuất phần tử theo chỉ mục (index), nhưng các phương thức của nó KHÔNG ĐƯỢC đồng bộ hóa (not synchronized)?",
+        "textVi": "Lớp tập hợp (collection class) nào cho phép tự động tăng giảm kích thước, hỗ trợ truy xuất phần tử theo chỉ mục (index), nhưng các phương thức của nó KHÔNG ĐƯỢC đồng bộ hóa (not synchronized)? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "java.util.HashSet",
@@ -14866,7 +14920,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
-        "textVi": "Lớp tập hợp nào cho phép truy xuất phần tử bằng cách liên kết khóa (key) với giá trị (value), đồng thời CÓ hỗ trợ đồng bộ hóa (synchronization)?",
+        "textVi": "Lớp tập hợp nào cho phép truy xuất phần tử bằng cách liên kết khóa (key) với giá trị (value), đồng thời CÓ hỗ trợ đồng bộ hóa (synchronization)? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "java.util.SortedMap",
@@ -14896,7 +14950,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "12.    TreeSet map = new TreeSet();\n13.    map.add(\"one\");\n14.    map.add(\"two\");\n15.    map.add(\"three\");\n16.    map.add(\"four\");\n17.    map.add(\"one\");\n18.    Iterator it = map.iterator();\n19.    while (it.hasNext()) {\n20.        System.out.print(it.next() + \" \");\n21.    }",
         "options": [
           "one two three four",
@@ -14904,7 +14958,7 @@ export const scjpChapterQuizzes = [
           "four one three two",
           "one two three four one",
           "one four three two one",
-          "The print order is not guaranteed."
+          "The print order is not guaranteed.;"
         ],
         "optionsVi": [
           "one two three four",
@@ -14912,7 +14966,7 @@ export const scjpChapterQuizzes = [
           "four one three two",
           "one two three four one",
           "one four three two one",
-          "Thứ tự in ra không được đảm bảo cố định."
+          "The print order is not guaranteed.;"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14928,7 +14982,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
-        "textVi": "Lớp tập hợp nào cho phép liên kết các phần tử với giá trị khóa (key), đồng thời cho phép lấy các đối tượng ra theo đúng thứ tự FIFO (First-In, First-Out - vào trước ra trước)?",
+        "textVi": "Lớp tập hợp nào cho phép liên kết các phần tử với giá trị khóa (key), đồng thời cho phép lấy các đối tượng ra theo đúng thứ tự FIFO (First-In, First-Out - vào trước ra trước)? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "java.util.ArrayList",
@@ -14936,7 +14990,7 @@ export const scjpChapterQuizzes = [
           "java.util.HashMap",
           "java.util.TreeMap",
           "java.util.LinkedHashSet",
-          "java.util.TreeSet"
+          "java.util.TreeSet Garbage Collection (;"
         ],
         "optionsVi": [
           "java.util.ArrayList",
@@ -14944,7 +14998,7 @@ export const scjpChapterQuizzes = [
           "java.util.HashMap",
           "java.util.TreeMap",
           "java.util.LinkedHashSet",
-          "java.util.TreeSet"
+          "java.util.TreeSet Garbage Collection (;"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -14960,7 +15014,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Given the following:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nAfter line 6 runs, how many objects are eligible for garbage collection?",
-        "textVi": "Cho đoạn mã sau:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nSau khi dòng 6 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+        "textVi": "Cho đoạn mã sau:\n1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nSau khi dòng 6 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
         "code": "1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }",
         "options": [
           "0",
@@ -14990,21 +15044,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Which statement is true?",
-        "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+        "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
           "Objects with at least one reference will never be garbage collected.",
-          "Objects from a class with the finalize() method overridden will never be garbage collected.",
+          "Objects from a class with thefinalize() method overridden will never be garbage collected.",
           "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
-          "Once an overridden finalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+          "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
         ],
         "optionsVi": [
-          "Mọi đối tượng đủ điều kiện thu gom rác đều chắc chắn sẽ được bộ gom rác thu dọn.",
-          "Đối tượng có ít nhất một tham chiếu trỏ tới sẽ không bao giờ bị thu gom rác.",
-          "Đối tượng thuộc lớp có ghi đè phương thức finalize() sẽ không bao giờ bị thu gom rác.",
-          "Các đối tượng được khởi tạo bên trong anonymous inner class đều được đặt trên vùng nhớ Heap chịu sự quản lý của bộ gom rác.",
-          "Một khi phương thức finalize() được gọi, không có cách nào để cứu đối tượng đó thoát khỏi việc bị thu gom rác."
+          "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+          "Objects with at least one reference will never be garbage collected.",
+          "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+          "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+          "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -15020,7 +15074,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Given the following:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nafter line 9 runs, how many objects are eligible for garbage collection?",
-        "textVi": "Cho đoạn mã sau:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nSau khi dòng 9 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+        "textVi": "Cho đoạn mã sau:\n1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nSau khi dòng 9 chạy xong, có bao nhiêu đối tượng đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
         "code": "1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }",
         "options": [
           "0",
@@ -15050,19 +15104,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Which statement is true?",
-        "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+        "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "Calling Runtime.gc() will cause eligible objects to be garbage collected.",
+          "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
           "The garbage collector uses a mark and sweep algorithm.",
           "If an object can be accessed from a live thread, it can’t be garbage collected.",
           "If object 1 refers to object 2, then object 2 can’t be garbage collected."
         ],
         "optionsVi": [
-          "Gọi Runtime.gc() sẽ đảm bảo các đối tượng đủ điều kiện sẽ được thu gom rác.",
-          "Bộ gom rác bắt buộc phải sử dụng thuật toán mark and sweep.",
-          "Nếu một đối tượng có thể được truy cập từ một luồng (thread) đang chạy, nó không thể bị thu gom rác.",
-          "Nếu đối tượng 1 đang tham chiếu tới đối tượng 2, thì đối tượng 2 không thể bị thu gom rác."
+          "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+          "The garbage collector uses a mark and sweep algorithm.",
+          "If an object can be accessed from a live thread, it can’t be garbage collected.",
+          "If object 1 refers to object 2, then object 2 can’t be garbage collected."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15112,23 +15166,11 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Objects and Collections",
         "topic": "collection",
         "text": "Given the following:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nat what point is the object created in line 13 eligible for garbage collection?",
-        "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn?",
+        "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
         "code": "12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }",
-        "options": [
-          "After line 15 runs",
-          "After line 16 runs",
-          "After line 17 runs",
-          "The object is not eligible.",
-          "It is not possible to know for sure."
-        ],
-        "optionsVi": [
-          "Sau khi dòng 15 chạy xong",
-          "Sau khi dòng 16 chạy xong",
-          "Sau khi dòng 17 chạy xong",
-          "Đối tượng này không bao giờ đủ điều kiện thu gom rác.",
-          "Không thể biết chắc chắn được."
-        ],
-        "answer": 4,
+        "options": [],
+        "optionsVi": [],
+        "answer": 0,
         "isMultiple": false,
         "correctLetters": [
           "E"
@@ -15142,26 +15184,26 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Which is true about an anonymous inner class?",
-        "textVi": "Phát biểu nào sau đây là ĐÚNG về lớp nội danh ẩn danh (anonymous inner class)?",
+        "textVi": "Phát biểu nào sau đây là ĐÚNG về lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "It can extend exactly one class and implement exactly one interface.",
-          "It can extend exactly one class and can implement multiple interfaces.",
-          "It can extend exactly one class or implement exactly one interface.",
-          "It can implement multiple interfaces regardless of whether it also extends a class.",
-          "It can implement multiple interfaces if it does not extend a class."
+          "java.util.SortedMap",
+          "java.util.TreeMap",
+          "java.util.TreeSet",
+          "java.util.HashMap",
+          "java.util.Hashtable"
         ],
         "optionsVi": [
-          "Nó có thể vừa kế thừa chính xác một lớp, vừa cài đặt chính xác một interface.",
-          "Nó có thể kế thừa chính xác một lớp và có thể cài đặt nhiều interface.",
-          "Nó có thể kế thừa chính xác một lớp HOẶC cài đặt chính xác một interface.",
-          "Nó có thể cài đặt nhiều interface bất kể nó có kế thừa một lớp hay không.",
-          "Nó có thể cài đặt nhiều interface nếu nó không kế thừa lớp nào."
+          "java.util.SortedMap",
+          "java.util.TreeMap",
+          "java.util.TreeSet",
+          "java.util.HashMap",
+          "java.util.Hashtable"
         ],
-        "answer": 2,
+        "answer": 4,
         "isMultiple": false,
         "correctLetters": [
-          "C"
+          "E"
         ],
         "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Cú pháp định nghĩa Anonymous Inner Class:\nMột anonymous inner class luôn được khởi tạo gắn liền với toán tử `new` theo một trong hai dạng cú pháp duy nhất:\n• Dạng 1 (Kế thừa một class):\n  `new SuperClass(arguments) { ... }`\n  -> Lúc này lớp ẩn danh ngầm định kế thừa (extends) `SuperClass`.\n• Dạng 2 (Cài đặt một interface):\n  `new InterfaceName() { ... }`\n  -> Lúc này lớp ẩn danh ngầm định cài đặt (implements) `InterfaceName` (và gián tiếp kế thừa `Object`).\n\n2. Giới hạn cú pháp (The \"OR\" Rule):\nSau từ khóa `new`, cú pháp Java chỉ cho phép bạn ghi DUY NHẤT MỘT định danh kiểu:\n• Bạn không thể viết `new MyClass, MyInterface() { ... }`.\n• Bạn không thể viết `implements` hay `extends` trong thân anonymous inner class.\n• Do đó, một anonymous inner class chỉ có thể: Hoặc là kế thừa duy nhất một lớp, HOẶC là cài đặt duy nhất một interface (either-or). Nó không bao giờ có thể làm cả hai, và không bao giờ có thể cài đặt nhiều hơn 1 interface.\n\nVì vậy, phát biểu C: \"It can extend exactly one class or implement exactly one interface\" là phát biểu duy nhất chính xác.\n\n✅ Vì sao đáp án \"It can extend exactly one class or implement exactly one interface.\" đúng:\nCú pháp của Java chỉ cho phép đặt đúng một tên class hoặc một tên interface sau từ khóa `new`, không có cách nào khai báo nhiều interface hay vừa extend vừa implement trong anonymous class.\n\n❌ Vì sao các đáp án khác sai:\n• \"It can extend exactly one class and implement exactly one interface.\": Sai vì không thể làm đồng thời cả hai.\n• \"It can extend exactly one class and can implement multiple interfaces.\": Sai vì không thể cài đặt interface nào khi đã extend một lớp.\n• \"...implement multiple interfaces...\": Cả D và E đều sai vì anonymous inner class không bao giờ có thể cài đặt từ 2 interface trở lên.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Anonymous class chỉ được chọn 1 trong 2: Hoặc 1 Class, HOẶC 1 Interface.\n• Từ khóa chìa khóa: \"OR\" (hoặc cái này hoặc cái kia)."
       }
@@ -15185,19 +15227,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Given the following:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nwhich statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
-        "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)?",
+        "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
         "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
         "options": [
-          "MyOuter.MyInner m = new MyOuter.MyInner();",
-          "MyOuter.MyInner mi = new MyInner();",
-          "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
-          "MyInner mi = new MyOuter.MyInner();"
+          "MyOuter.MyInnerm= newMyOuter.MyInner();",
+          "MyOuter.MyInnermi= newMyInner();",
+          "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
+          "MyInnermi= newMyOuter.MyInner();"
         ],
         "optionsVi": [
-          "MyOuter.MyInner m = new MyOuter.MyInner();",
-          "MyOuter.MyInner mi = new MyInner();",
-          "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
-          "MyInner mi = new MyOuter.MyInner();"
+          "MyOuter.MyInnerm= newMyOuter.MyInner();",
+          "MyOuter.MyInnermi= newMyInner();",
+          "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
+          "MyInnermi= newMyOuter.MyInner();"
         ],
         "answer": 0,
         "isMultiple": false,
@@ -15247,21 +15289,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Which constructs an anonymous inner class instance?",
-        "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)?",
+        "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "Runnable r = new Runnable() {};",
-          "Runnable r = new Runnable(public void run() {});",
-          "Runnable r = new Runnable {public void run() {}};",
-          "Runnable r = new Runnable() {public void run{}};",
-          "System.out.println(new Runnable() {public void run() {}});"
+          "Runnabler= newRunnable(){};",
+          "Runnabler= newRunnable(publicvoidrun(){});",
+          "Runnabler= newRunnable{publicvoidrun(){}};",
+          "Runnabler= newRunnable(){publicvoidrun{}};",
+          "System.out.println(newRunnable() {publicvoidrun(){}});",
+          "System.out.println(newRunnable(publicvoidrun(){}));"
         ],
         "optionsVi": [
-          "Runnable r = new Runnable() {};",
-          "Runnable r = new Runnable(public void run() {});",
-          "Runnable r = new Runnable {public void run() {}};",
-          "Runnable r = new Runnable() {public void run{}};",
-          "System.out.println(new Runnable() {public void run() {}});"
+          "Runnabler= newRunnable(){};",
+          "Runnabler= newRunnable(publicvoidrun(){});",
+          "Runnabler= newRunnable{publicvoidrun(){}};",
+          "Runnabler= newRunnable(){publicvoidrun{}};",
+          "System.out.println(newRunnable() {publicvoidrun(){}});",
+          "System.out.println(newRunnable(publicvoidrun(){}));"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -15280,18 +15324,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau:\nclass Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // chèn mã tại đây\n  }\n}\nHai câu lệnh nào dưới đây sẽ tạo một lớp nội danh ẩn danh (anonymous inner class) hợp lệ từ bên trong lớp Bar? (Chọn 2 đáp án)",
         "code": "class Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // insert code here\n  }\n}",
         "options": [
-          "Boof=newBoo(24){};",
-          "Boof=newBar(){};",
-          "Boof=newBoo(){Strings;};",
-          "Barf=newBoo(Strings){};",
-          "Boof=newBoo.Bar(Strings){};"
+          "Boof= newBoo(24){};",
+          "Boof= newBar(){};",
+          "Boof= newBoo(){Strings;};",
+          "Barf= newBoo(Strings){};",
+          "Boof= newBoo.Bar(Strings){};"
         ],
         "optionsVi": [
-          "Boof=newBoo(24){};",
-          "Boof=newBar(){};",
-          "Boof=newBoo(){Strings;};",
-          "Barf=newBoo(Strings){};",
-          "Boof=newBoo.Bar(Strings){};"
+          "Boof= newBoo(24){};",
+          "Boof= newBar(){};",
+          "Boof= newBoo(){Strings;};",
+          "Barf= newBoo(Strings){};",
+          "Boof= newBoo.Bar(Strings){};"
         ],
         "answer": [
           1,
@@ -15311,21 +15355,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Given the following:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }\nwhich statement, inserted at line 7, creates an instance of Bar?",
-        "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar?",
+        "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar? (Chọn 1 đáp án)",
         "code": "1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }",
         "options": [
-          "Foo.Bar b = new Foo.Bar();",
-          "Foo.Bar b = f.new Bar();",
-          "Bar b = new f.Bar();",
-          "Bar b = f.new Bar();",
-          "Foo.Bar b = new f.Bar();"
+          "Foo.Barb= newFoo.Bar();",
+          "Foo.Barb= f.newBar();",
+          "Barb= newf.Bar();",
+          "Barb= f.newBar();",
+          "Foo.Barb= newf.Bar();"
         ],
         "optionsVi": [
-          "Foo.Bar b = new Foo.Bar();",
-          "Foo.Bar b = f.new Bar();",
-          "Bar b = new f.Bar();",
-          "Bar b = f.new Bar();",
-          "Foo.Bar b = new f.Bar();"
+          "Foo.Barb= newFoo.Bar();",
+          "Foo.Barb= f.newBar();",
+          "Barb= newf.Bar();",
+          "Barb= f.newBar();",
+          "Foo.Barb= newf.Bar();"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -15375,21 +15419,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Given the following:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nwhat is the result?",
-        "textVi": "Cho đoạn mã sau:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau:\npublic class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "public class Foo {\n  Foo() { System.out.print(\"foo\"); }\n  class Bar {\n    Bar() { System.out.print(\"bar\"); }\n    public void go() { System.out.print(\"hi\"); }\n  }\n  public static void main (String [] args) {\n    Foo f = new Foo();\n    f.makeBar();\n  }\n  void makeBar() {\n    (new Bar() {}).go();\n  }\n}",
         "options": [
           "Compilation fails.",
           "An error occurs at runtime.",
           "foobarhi",
           "barhi",
-          "hi"
+          "hi;"
         ],
         "optionsVi": [
-          "Lỗi biên dịch (Compilation fails).",
-          "Xảy ra lỗi tại thời điểm chạy (Runtime Error).",
+          "Compilation fails.",
+          "An error occurs at runtime.",
           "foobarhi",
           "barhi",
-          "hi"
+          "hi;"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15405,7 +15449,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Given the following:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nwhat is the result?",
-        "textVi": "Cho đoạn mã sau:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nKết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau:\n1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1. public class TestObj {\n2.   public static void main (String [] args) {\n3.     Object o = new Object() {\n4.        public boolean equals(Object obj) {\n5.         return true;\n6.        }\n7.     }\n8.      System.out.println(o.equals(\"Fred\"));\n9.    }\n10. }",
         "options": [
           "An exception occurs at runtime.",
@@ -15417,13 +15461,13 @@ export const scjpChapterQuizzes = [
           "Compilation fails because of an error on a line other than 3, 4, or 8."
         ],
         "optionsVi": [
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+          "An exception occurs at runtime.",
           "true",
           "fred",
-          "Lỗi biên dịch do lỗi ở dòng 3.",
-          "Lỗi biên dịch do lỗi ở dòng 4.",
-          "Lỗi biên dịch do lỗi ở dòng 8.",
-          "Lỗi biên dịch do lỗi ở một dòng khác ngoài 3, 4 hoặc 8."
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 4.",
+          "Compilation fails because of an error on line 8.",
+          "Compilation fails because of an error on a line other than 3, 4, or 8."
         ],
         "answer": 6,
         "isMultiple": false,
@@ -15439,7 +15483,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Given the following:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nwhat is the result?",
-        "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nKết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }",
         "options": [
           "An exception occurs at runtime at line 10.",
@@ -15450,12 +15494,12 @@ export const scjpChapterQuizzes = [
           "Compilation fails because of an error on line 11."
         ],
         "optionsVi": [
-          "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
+          "An exception occurs at runtime at line 10.",
           "Zippo",
-          "Lỗi biên dịch do lỗi ở dòng 3.",
-          "Lỗi biên dịch do lỗi ở dòng 9.",
-          "Lỗi biên dịch do lỗi ở dòng 10.",
-          "Lỗi biên dịch do lỗi ở dòng 11."
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 9.",
+          "Compilation fails because of an error on line 10.",
+          "Compilation fails because of an error on line 11."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -15471,7 +15515,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Given the following:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nwhat is the result?",
-        "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nKết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau:\n1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }",
         "options": [
           "An exception occurs at runtime at line 10.",
@@ -15481,11 +15525,11 @@ export const scjpChapterQuizzes = [
           "Compilation fails because of an error on line 10."
         ],
         "optionsVi": [
-          "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
+          "An exception occurs at runtime at line 10.",
           "Zippo",
-          "Lỗi biên dịch do lỗi ở dòng 3.",
-          "Lỗi biên dịch do lỗi ở dòng 9.",
-          "Lỗi biên dịch do lỗi ở dòng 10."
+          "Compilation fails because of an error on line 3.",
+          "Compilation fails because of an error on line 9.",
+          "Compilation fails because of an error on line 10."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -15501,21 +15545,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Inner Classes",
         "topic": "javacore",
         "text": "Given the following:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nwhat is the result?",
-        "textVi": "Cho đoạn mã sau:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau:\npublic abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "public abstract class AbstractTest {\n  public int getNum() {\n    return 45;\n  }\n  public abstract class Bar {\n    public int getNum() {\n      return 38;\n    }\n  }\n  public static void main (String [] args) {\n    AbstractTest t = new AbstractTest() {\n      public int getNum() {\n        return 22;\n      }\n    };\n    AbstractTest.Bar f = t.new Bar() {\n      public int getNum() {\n        return 57;\n      }\n    };\n    System.out.println(f.getNum() + \" \" + t.getNum());\n  }\n}",
         "options": [
-          "57 22",
-          "45 38",
-          "45 57",
+          "5722",
+          "4538",
+          "4557",
           "An exception occurs at runtime.",
-          "Compilation fails."
+          "Compilation fails.;"
         ],
         "optionsVi": [
-          "57 22",
-          "45 38",
-          "45 57",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
-          "Lỗi biên dịch (Compilation fails)."
+          "5722",
+          "4538",
+          "4557",
+          "An exception occurs at runtime.",
+          "Compilation fails.;"
         ],
         "answer": 0,
         "isMultiple": false,
@@ -15544,7 +15588,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1; i<3; ++i) {\n10.          System.out.print(i + \"..\");\n11.       }\n12.    }\n13. }",
         "options": [
           "This code will not compile due to line 4.",
@@ -15554,11 +15598,11 @@ export const scjpChapterQuizzes = [
           "An exception is thrown at runtime."
         ],
         "optionsVi": [
-          "Đoạn mã không biên dịch được do lỗi ở dòng 4.",
-          "Đoạn mã không biên dịch được do lỗi ở dòng 5.",
+          "This code will not compile due to line 4.",
+          "This code will not compile due to line 5.",
           "1..2..",
           "1..2..3..",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+          "An exception is thrown at runtime."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15574,21 +15618,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Which two of the following methods are defined in class Thread?",
-        "textVi": "Hai phương thức nào sau đây được định nghĩa trực tiếp trong lớp java.lang.Thread?",
+        "textVi": "Hai phương thức nào sau đây được định nghĩa trực tiếp trong lớp java.lang.Thread? (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "start()",
           "wait()",
           "notify()",
           "run()",
-          "terminate()"
+          "terminate();"
         ],
         "optionsVi": [
           "start()",
           "wait()",
           "notify()",
           "run()",
-          "terminate()"
+          "terminate();"
         ],
         "answer": [
           0,
@@ -15608,21 +15652,21 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "The following block of code creates a Thread using a Runnable target:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nWhich of the following classes can be used to create the target, so that the preceding code compiles correctly?",
-        "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công?",
+        "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công? (Chọn 1 đáp án)",
         "code": "Runnable target = new MyRunnable();\nThread myThread = new Thread(target);",
         "options": [
-          "public class MyRunnable extends Runnable { public void run() {} }",
-          "public class MyRunnable extends Object { public void run() {} }",
-          "public class MyRunnable implements Runnable { public void run() {} }",
-          "public class MyRunnable implements Runnable { void run() {} }",
-          "public class MyRunnable implements Runnable { public void start() {} }"
+          "public class MyRunnable extends Runnable{public void run(){}}",
+          "public class MyRunnable extends Object{public void run(){}}",
+          "public class MyRunnable implements Runnable{public void run(){}}",
+          "public class MyRunnable implements Runnable{void run(){}}",
+          "public class MyRunnable implements Runnable{public void start(){}}"
         ],
         "optionsVi": [
-          "public class MyRunnable extends Runnable { public void run() {} }",
-          "public class MyRunnable extends Object { public void run() {} }",
-          "public class MyRunnable implements Runnable { public void run() {} }",
-          "public class MyRunnable implements Runnable { void run() {} }",
-          "public class MyRunnable implements Runnable { public void start() {} }"
+          "public class MyRunnable extends Runnable{public void run(){}}",
+          "public class MyRunnable extends Object{public void run(){}}",
+          "public class MyRunnable implements Runnable{public void run(){}}",
+          "public class MyRunnable implements Runnable{void run(){}}",
+          "public class MyRunnable implements Runnable{public void start(){}}"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15638,7 +15682,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following, what is the result of this code?",
-        "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.start();\n6.        System.out.print(\"one. \");\n7.        t.start();\n8.        System.out.print(\"two. \");\n9.     }\n10.\n11.    public void run() {\n12.       System.out.print(\"Thread \");\n13.    }\n14. }",
         "options": [
           "Compilation fails",
@@ -15647,10 +15691,10 @@ export const scjpChapterQuizzes = [
           "The output cannot be determined."
         ],
         "optionsVi": [
-          "Lỗi biên dịch (Compilation fails)",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+          "Compilation fails",
+          "An exception occurs at runtime.",
           "Thread one. Thread two.",
-          "Không thể xác định trước kết quả in ra."
+          "The output cannot be determined."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -15666,7 +15710,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // some code here\n  }\n}\nwhich of these will create and start this thread?",
-        "textVi": "Cho đoạn mã sau:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // mã xử lý tại đây\n  }\n}\nCâu lệnh nào dưới đây sẽ tạo và khởi chạy luồng này một cách hợp lệ?",
+        "textVi": "Cho đoạn mã sau:\npublic class MyRunnable implements Runnable {\n  public void run() {\n    // mã xử lý tại đây\n  }\n}\nCâu lệnh nào dưới đây sẽ tạo và khởi chạy luồng này một cách hợp lệ? (Chọn 1 đáp án)",
         "code": "public class MyRunnable implements Runnable {\n  public void run() {\n    // some code here\n  }\n}",
         "options": [
           "new Runnable(MyRunnable).start();",
@@ -15694,7 +15738,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following, what is the result of this code?",
-        "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        Thread x = new Thread(t);\n6.        x.start();\n7.     }\n8.\n9.     public void run() {\n10.       for(int i=0; i<3; ++i) {\n11.          System.out.print(i + \"..\");\n12.       }\n13.    }\n14. }",
         "options": [
           "Compilation fails.",
@@ -15704,11 +15748,11 @@ export const scjpChapterQuizzes = [
           "An exception occurs at runtime."
         ],
         "optionsVi": [
-          "Lỗi biên dịch (Compilation fails).",
+          "Compilation fails.",
           "1..2..3..",
           "0..1..2..3..",
           "0..1..2..",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+          "An exception occurs at runtime."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -15724,19 +15768,19 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following:\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nthe static method Thread.currentThread() returns a reference to the currently executing Thread object. What is the result of this code?",
-        "textVi": "Cho đoạn mã sau (biết rằng phương thức tĩnh Thread.currentThread() trả về tham chiếu tới luồng đang thực thi):\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nKết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau (biết rằng phương thức tĩnh Thread.currentThread() trả về tham chiếu tới luồng đang thực thi):\n1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0; i<lines.length; i++){\n9.           System.out.println(lines[i]);\n10.          Thread.currentThread().sleep(1000);\n11.       }\n12.    }\n13. }",
         "options": [
           "Each String in the array lines will output, with a 1-second pause.",
           "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-          "Each String in the array lines will output, and there is no guarantee there will be a pause because currentThread() may not retrieve this thread.",
+          "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
           "This code will not compile."
         ],
         "optionsVi": [
-          "Mỗi phần tử String trong mảng lines sẽ được in ra, cách nhau 1 giây tạm dừng.",
-          "Mỗi phần tử String trong mảng lines sẽ được in ra không có khoảng dừng, vì phương thức này không chạy trong một Thread.",
-          "Mỗi phần tử String trong mảng lines sẽ được in ra, và không chắc chắn có khoảng dừng vì currentThread() có thể không lấy được luồng này.",
-          "Đoạn mã này sẽ không biên dịch được (This code will not compile)."
+          "Each String in the array lines will output, with a 1-second pause.",
+          "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+          "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+          "This code will not compile."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -15755,20 +15799,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Giả sử bạn có một lớp lưu trữ hai biến thành viên private: a và b. Cặp phương thức nào dưới đây có thể ngăn chặn sự cố tranh chấp truy cập đồng thời (concurrent access / race condition) trong lớp đó? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;}",
-          "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;}",
-          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}}",
-          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a=a;this.b=b;}}",
-          "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;}",
-          "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}}"
+          "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
+          "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
+          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
+          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
+          "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
+          "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
         ],
         "optionsVi": [
-          "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;}",
-          "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;}",
-          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}}",
-          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a=a;this.b=b;}}",
-          "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;}",
-          "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}}"
+          "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
+          "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
+          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
+          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
+          "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
+          "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
         ],
         "answer": [
           1,
@@ -15788,7 +15832,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Which class or interface defines the wait(), notify(), and notifyAll() methods?",
-        "textVi": "Lớp hoặc interface nào định nghĩa các phương thức wait(), notify(), và notifyAll()?",
+        "textVi": "Lớp hoặc interface nào định nghĩa các phương thức wait(), notify(), và notifyAll()? (Chọn 1 đáp án)",
         "code": "",
         "options": [
           "Object",
@@ -15820,14 +15864,14 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "A static method cannot be synchronized.",
-          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
+          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
           "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
           "When a thread sleeps, it releases its locks.",
           "When a thread invokeswait(), it releases its locks."
         ],
         "optionsVi": [
           "A static method cannot be synchronized.",
-          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
+          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
           "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
           "When a thread sleeps, it releases its locks.",
           "When a thread invokeswait(), it releases its locks."
@@ -15850,7 +15894,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Which three are methods of the Object class? (Choose three.)",
-        "textVi": "Ba phương thức nào sau đây là phương thức của lớp java.lang.Object? (Chọn phương án kết hợp đúng)",
+        "textVi": "Ba phương thức nào sau đây là phương thức của lớp java.lang.Object? (Chọn phương án kết hợp đúng) (Chọn 3 đáp án)",
         "code": "",
         "options": [
           "notify();",
@@ -15874,14 +15918,16 @@ export const scjpChapterQuizzes = [
         ],
         "answer": [
           0,
-          1
+          1,
+          5
         ],
         "isMultiple": true,
         "correctLetters": [
           "A",
-          "B"
+          "B",
+          "F"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Danh sách các phương thức liên quan đến luồng trong Java:\n• Thuộc lớp `java.lang.Object`:\n  1. `wait()` (gồm các phiên bản nạp chồng có tham số timeout)\n  2. `notify()`\n  3. `notifyAll()`\n• Thuộc lớp `java.lang.Thread`:\n  1. `isInterrupted()`: Phương thức thực thể kiểm tra cờ ngắt của luồng.\n  2. `interrupt()`: Gửi tín hiệu ngắt tới luồng.\n  3. `sleep()`: Phương thức tĩnh tạm dừng luồng.\n  4. `yield()`: Phương thức tĩnh nhường CPU.\n  5. `join()`: Chờ luồng kết thúc.\n• Từ khóa của ngôn ngữ Java:\n  - `synchronized`: Là một TỪ KHÓA BẢO LƯU (keyword), không phải là một phương thức! Cú pháp `synchronized()` là một cấu trúc cú pháp của ngôn ngữ.\n\n2. Đánh giá các phương án:\nTrong các lựa chọn được ghép đôi ở câu hỏi trắc nghiệm này, phương án chứa `A: notify()` và `B: notifyAll()` (hai phương thức chính thức của `Object`) là đáp án chính xác nhất.\n\n✅ Vì sao đáp án \"A và B\" đúng:\nCả `notify()` và `notifyAll()` (cùng với `wait()`) đều là các phương thức nguyên bản được định nghĩa trong lớp `java.lang.Object`.\n\n❌ Vì sao các đáp án khác sai:\n• \"C: isInterrupted()\": Sai vì đây là phương thức của lớp `java.lang.Thread`.\n• \"D: synchronized()\": Sai vì `synchronized` là từ khóa cú pháp của Java, không phải phương thức.\n• \"H: yield()\": Sai vì `yield()` là phương thức tĩnh của lớp `java.lang.Thread`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chỉ có 3 cái tên thuộc `Object`: `wait`, `notify`, `notifyAll`.\n• Tất cả những cái tên còn lại (`sleep`, `yield`, `join`, `interrupt`, `isInterrupted`, `start`, `run`) đều thuộc về `Thread` hoặc `Runnable`."
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Danh sách các phương thức liên quan đến luồng trong Java:\n• Thuộc lớp `java.lang.Object`:\n  1. `wait()` (gồm các phiên bản nạp chồng có tham số timeout)\n  2. `notify()`\n  3. `notifyAll()`\n• Thuộc lớp `java.lang.Thread`:\n  1. `isInterrupted()`: Phương thức thực thể kiểm tra cờ ngắt của luồng.\n  2. `interrupt()`: Gửi tín hiệu ngắt tới luồng.\n  3. `sleep()`: Phương thức tĩnh tạm dừng luồng.\n  4. `yield()`: Phương thức tĩnh nhường CPU.\n  5. `join()`: Chờ luồng kết thúc.\n• Từ khóa của ngôn ngữ Java:\n  - `synchronized`: Là một TỪ KHÓA BẢO LƯU (keyword), không phải là một phương thức! Cú pháp `synchronized()` là một cấu trúc cú pháp của ngôn ngữ.\n\n2. Đánh giá các phương án:\nTrong các lựa chọn được ghép đôi ở câu hỏi trắc nghiệm này, phương án chứa `A: notify()` và `B: notifyAll()` (hai phương thức chính thức của `Object`) là đáp án chính xác nhất.\n\n✅ Vì sao đáp án \"A, B và F\" đúng:\nCả `notify()` và `notifyAll()` (cùng với `wait()`) đều là các phương thức nguyên bản được định nghĩa trong lớp `java.lang.Object`.\n\n❌ Vì sao các đáp án khác sai:\n• \"C: isInterrupted()\": Sai vì đây là phương thức của lớp `java.lang.Thread`.\n• \"D: synchronized()\": Sai vì `synchronized` là từ khóa cú pháp của Java, không phải phương thức.\n• \"H: yield()\": Sai vì `yield()` là phương thức tĩnh của lớp `java.lang.Thread`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chỉ có 3 cái tên thuộc `Object`: `wait`, `notify`, `notifyAll`.\n• Tất cả những cái tên còn lại (`sleep`, `yield`, `join`, `interrupt`, `isInterrupted`, `start`, `run`) đều thuộc về `Thread` hoặc `Runnable`."
       },
       {
         "id": "scjp-ch09-012",
@@ -15890,10 +15936,10 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following, what is the result of trying to compile and run this program?",
-        "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì? (Chọn 1 đáp án)",
         "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.       }\n11.       System.out.print(\"3 \");\n12.    }\n13. }",
         "options": [
-          "It fails to compile because the IllegalMonitorStateException of wait() is not dealt with in line 7.",
+          "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
           "1 2 3",
           "1 3",
           "1 2",
@@ -15901,12 +15947,12 @@ export const scjpChapterQuizzes = [
           "It will fail to compile because it has to be synchronized on the this object."
         ],
         "optionsVi": [
-          "Lỗi biên dịch do ngoại lệ IllegalMonitorStateException của wait() không được xử lý ở dòng 7.",
+          "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
           "1 2 3",
           "1 3",
           "1 2",
-          "Ném ngoại lệ IllegalMonitorStateException tại thời điểm chạy khi cố gắng gọi wait().",
-          "Lỗi biên dịch vì bắt buộc phải đồng bộ hóa trên đối tượng this."
+          "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+          "It will fail to compile because it has to be synchronized on the this object."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -15922,7 +15968,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Assume the following method is properly synchronized and called from a thread A on an object B:\nwait(2000);\nAfter calling this method, when will the thread A become a candidate to get another turn at the CPU?",
-        "textVi": "Giả sử phương thức sau đã được đồng bộ hóa đúng cách và được gọi từ luồng A trên đối tượng B:\nwait(2000);\nSau khi gọi phương thức này, khi nào thì luồng A sẽ trở thành ứng viên sẵn sàng được cấp phát CPU để chạy tiếp?",
+        "textVi": "Giả sử phương thức sau đã được đồng bộ hóa đúng cách và được gọi từ luồng A trên đối tượng B:\nwait(2000);\nSau khi gọi phương thức này, khi nào thì luồng A sẽ trở thành ứng viên sẵn sàng được cấp phát CPU để chạy tiếp? (Chọn 1 đáp án)",
         "code": "wait(2000);",
         "options": [
           "After thread A is notified, or after two seconds.",
@@ -15931,10 +15977,10 @@ export const scjpChapterQuizzes = [
           "Two seconds after lock B is released."
         ],
         "optionsVi": [
-          "Sau khi luồng A được thông báo (notified), HOẶC sau khi hết thời gian 2 giây.",
-          "Sau khi khóa trên B được giải phóng, HOẶC sau khi hết 2 giây.",
-          "Hai giây sau khi luồng A được thông báo.",
-          "Hai giây sau khi khóa trên B được giải phóng."
+          "After thread A is notified, or after two seconds.",
+          "After the lock on B is released, or after two seconds.",
+          "Two seconds after thread A is notified.",
+          "Two seconds after lock B is released."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -15986,7 +16032,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
-        "textVi": "Giả sử bạn tạo một chương trình và một trong các luồng (tên là backgroundThread) phải thực hiện tính toán số học rất nặng và tốn thời gian. Cách nào dưới đây là chuẩn xác để thiết lập độ ưu tiên của nó nhằm giúp toàn bộ phần còn lại của hệ thống phản hồi nhanh và mượt mà trong khi luồng này đang chạy? (Chọn phương án kết hợp đúng)",
+        "textVi": "Giả sử bạn tạo một chương trình và một trong các luồng (tên là backgroundThread) phải thực hiện tính toán số học rất nặng và tốn thời gian. Cách nào dưới đây là chuẩn xác để thiết lập độ ưu tiên của nó nhằm giúp toàn bộ phần còn lại của hệ thống phản hồi nhanh và mượt mà trong khi luồng này đang chạy? (Chọn phương án kết hợp đúng) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "backgroundThread.setPriority(Thread.LOW_PRIORITY);",
@@ -16024,7 +16070,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Which three guarantee that a thread will leave the running state? (Choose three.)",
-        "textVi": "Ba hành động nào dưới đây ĐẢM BẢO CHẮC CHẮN rằng một luồng sẽ rời khỏi trạng thái đang chạy (running state)? (Chọn phương án kết hợp đúng)",
+        "textVi": "Ba hành động nào dưới đây ĐẢM BẢO CHẮC CHẮN rằng một luồng sẽ rời khỏi trạng thái đang chạy (running state)? (Chọn phương án kết hợp đúng) (Chọn 3 đáp án)",
         "code": "",
         "options": [
           "yield()",
@@ -16046,14 +16092,16 @@ export const scjpChapterQuizzes = [
         ],
         "answer": [
           1,
-          4
+          4,
+          5
         ],
         "isMultiple": true,
         "correctLetters": [
           "B",
-          "E"
+          "E",
+          "F"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Các trạng thái khiến luồng RỜI KHỎI trạng thái Running (Đang chạy):\nĐể đảm bảo chắc chắn (guarantee) luồng không còn ở trạng thái `Running`:\n• `wait()` (Hành động B): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào hàng đợi `Waiting` của đối tượng.\n• `sleep(long millis)` (Hành động E): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào trạng thái `Timed Waiting` trong ít nhất khoảng thời gian chỉ định.\n• `join()`: Chắc chắn 100% bắt luồng hiện tại dừng chạy và đợi cho tới khi luồng mục tiêu kết thúc.\n\n2. Vì sao `yield()` KHÔNG ĐẢM BẢO (Bẫy đề thi số 1):\n• `Thread.yield()` (Hành động A): Chỉ là một lời \"nhắn nhủ / gợi ý\" (hint) gửi tới bộ lập lịch CPU (thread scheduler) rằng: \"Tôi sẵn sàng nhường lượt chạy cho luồng khác có cùng mức ưu tiên\".\n• TUY NHIÊN, bộ lập lịch có toàn quyền quyết định! Nếu không có luồng nào khác sẵn sàng hoặc bộ lập lịch quyết định tiếp tục, luồng vừa gọi `yield()` có thể NGAY LẬP TỨC ĐƯỢC CHỌN ĐỂ CHẠY TIẾP mà không hề rời khỏi trạng thái `Running` một mili-giây nào!\n• Do đó, `yield()` KHÔNG BAO GIỜ có sự đảm bảo (no guarantee).\n\n3. Phân tích các hành động sai khác:\n• `notify()` (Hành động C): Chỉ gửi tín hiệu đánh thức một luồng khác, bản thân luồng đang gọi `notify()` vẫn tiếp tục chạy bình thường, không hề bị dừng lại.\n• `Thread.killThread()` (Hành động G): Phương thức này hoàn toàn KHÔNG TỒN TẠI trong Java.\n\nDo đó, các hành động đảm bảo luồng rời khỏi Running là B (`wait()`) và E (`sleep()`).\n\n✅ Vì sao đáp án \"B và E\" đúng:\nCả `wait()` và `sleep(1000)` đều đảm bảo 100% ngắt quãng trạng thái `Running` của luồng hiện tại và đưa nó sang trạng thái chờ.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A sai vì `yield()` không có bất kỳ sự bảo đảm nào về việc luồng sẽ rời khỏi trạng thái running.\n• Phương án chứa C sai vì `notify()` không làm luồng gọi nó rời khỏi running.\n• Phương án chứa G sai vì `killThread()` là hàm bịa đặt không có thật.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ từ khóa vàng: `yield()` = \"Không có gì đảm bảo\" (NO GUARANTEE).\n• `sleep()`, `wait()`, `join()` = \"Chắc chắn rời khỏi Running\" (GUARANTEED)."
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Các trạng thái khiến luồng RỜI KHỎI trạng thái Running (Đang chạy):\nĐể đảm bảo chắc chắn (guarantee) luồng không còn ở trạng thái `Running`:\n• `wait()` (Hành động B): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào hàng đợi `Waiting` của đối tượng.\n• `sleep(long millis)` (Hành động E): Chắc chắn 100% đẩy luồng ra khỏi trạng thái `Running` để đi vào trạng thái `Timed Waiting` trong ít nhất khoảng thời gian chỉ định.\n• `join()`: Chắc chắn 100% bắt luồng hiện tại dừng chạy và đợi cho tới khi luồng mục tiêu kết thúc.\n\n2. Vì sao `yield()` KHÔNG ĐẢM BẢO (Bẫy đề thi số 1):\n• `Thread.yield()` (Hành động A): Chỉ là một lời \"nhắn nhủ / gợi ý\" (hint) gửi tới bộ lập lịch CPU (thread scheduler) rằng: \"Tôi sẵn sàng nhường lượt chạy cho luồng khác có cùng mức ưu tiên\".\n• TUY NHIÊN, bộ lập lịch có toàn quyền quyết định! Nếu không có luồng nào khác sẵn sàng hoặc bộ lập lịch quyết định tiếp tục, luồng vừa gọi `yield()` có thể NGAY LẬP TỨC ĐƯỢC CHỌN ĐỂ CHẠY TIẾP mà không hề rời khỏi trạng thái `Running` một mili-giây nào!\n• Do đó, `yield()` KHÔNG BAO GIỜ có sự đảm bảo (no guarantee).\n\n3. Phân tích các hành động sai khác:\n• `notify()` (Hành động C): Chỉ gửi tín hiệu đánh thức một luồng khác, bản thân luồng đang gọi `notify()` vẫn tiếp tục chạy bình thường, không hề bị dừng lại.\n• `Thread.killThread()` (Hành động G): Phương thức này hoàn toàn KHÔNG TỒN TẠI trong Java.\n\nDo đó, các hành động đảm bảo luồng rời khỏi Running là B (`wait()`) và E (`sleep()`).\n\n✅ Vì sao đáp án \"B, E và F\" đúng:\nCả `wait()` và `sleep(1000)` đều đảm bảo 100% ngắt quãng trạng thái `Running` của luồng hiện tại và đưa nó sang trạng thái chờ.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A sai vì `yield()` không có bất kỳ sự bảo đảm nào về việc luồng sẽ rời khỏi trạng thái running.\n• Phương án chứa C sai vì `notify()` không làm luồng gọi nó rời khỏi running.\n• Phương án chứa G sai vì `killThread()` là hàm bịa đặt không có thật.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ từ khóa vàng: `yield()` = \"Không có gì đảm bảo\" (NO GUARANTEE).\n• `sleep()`, `wait()`, `join()` = \"Chắc chắn rời khỏi Running\" (GUARANTEED)."
       },
       {
         "id": "scjp-ch09-017",
@@ -16102,7 +16150,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Which two are valid constructors for Thread? (Choose two.)",
-        "textVi": "Hai hàm khởi tạo (constructor) nào dưới đây là hợp lệ của lớp java.lang.Thread? (Chọn phương án kết hợp đúng)",
+        "textVi": "Hai hàm khởi tạo (constructor) nào dưới đây là hợp lệ của lớp java.lang.Thread? (Chọn phương án kết hợp đúng) (Chọn 2 đáp án)",
         "code": "",
         "options": [
           "Thread(Runnable r, String name)",
@@ -16136,7 +16184,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nwhat is the result?",
-        "textVi": "Cho đoạn mã sau:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau:\nclass MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}\nKết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "class MyThread extends Thread {\n  MyThread() { System.out.print(\" MyThread\"); }\n  public void run() { System.out.print(\" bar\"); }\n  public void run(String s) { System.out.println(\" baz\"); }\n}\npublic class TestThreads {\n  public static void main (String [] args) {\n    Thread t = new MyThread() {\n      public void run() {\n        System.out.println(\" foo\");\n      }\n    };\n    t.start();\n  }\n}",
         "options": [
           "foo",
@@ -16154,7 +16202,7 @@ export const scjpChapterQuizzes = [
           "foo bar",
           "foo bar baz",
           "bar foo",
-          "Lỗi biên dịch (Compilation fails)."
+          "Compilation fails."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -16170,23 +16218,23 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nand assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
-        "textVi": "Cho đoạn mã sau:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nGiả sử biến data bắt buộc phải được bảo vệ khỏi sự sai lệch dữ liệu, bạn có thể thêm điều gì vào đoạn mã trên để đảm bảo tính toàn vẹn của data?",
+        "textVi": "Cho đoạn mã sau:\npublic class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}\nGiả sử biến data bắt buộc phải được bảo vệ khỏi sự sai lệch dữ liệu, bạn có thể thêm điều gì vào đoạn mã trên để đảm bảo tính toàn vẹn của data? (Chọn 1 đáp án)",
         "code": "public class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}",
         "options": [
           "Synchronize the run method.",
-          "Wrap a synchronize(this) around the call to f.increase().",
+          "Wrap a synchronize(this) around the call tof.increase().;",
           "The existing code will not compile.",
           "The existing code will cause a runtime exception.",
-          "Put in a wait() call prior to invoking the increase() method.",
-          "Synchronize the increase() method"
+          "Put in await() call prior to invoking theincrease() method.",
+          "Synchronize theincrease() method"
         ],
         "optionsVi": [
-          "Đồng bộ hóa phương thức run() (Synchronize the run method).",
-          "Bọc một khối synchronize(this) xung quanh lời gọi f.increase().",
-          "Mã hiện tại không thể biên dịch.",
-          "Mã hiện tại sẽ gây ra ngoại lệ thời điểm chạy.",
-          "Đặt một lời gọi wait() trước khi gọi phương thức increase().",
-          "Đồng bộ hóa phương thức increase() (Synchronize the increase() method)."
+          "Synchronize the run method.",
+          "Wrap a synchronize(this) around the call tof.increase().;",
+          "The existing code will not compile.",
+          "The existing code will cause a runtime exception.",
+          "Put in await() call prior to invoking theincrease() method.",
+          "Synchronize theincrease() method"
         ],
         "answer": 5,
         "isMultiple": false,
@@ -16202,7 +16250,7 @@ export const scjpChapterQuizzes = [
         "chapterTitle": "Threads",
         "topic": "thread",
         "text": "Given the following, what is the result?",
-        "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì?",
+        "textVi": "Cho đoạn mã sau, kết quả khi thực thi đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1. public class Test {\n2.   public static void main (String [] args) {\n3.     final Foo f = new Foo();\n4.     Thread t = new Thread(new Runnable() {\n5.        public void run() {\n6.           f.doStuff();\n7.        }\n8.     });\n9.     Thread g = new Thread() {\n10.       public void run() {\n11.          f.doStuff();\n12.       }\n13.    };\n14.    t.start();\n15.    g.start();\n16.  }\n17. }\n1. class Foo {\n2.   int x = 5;\n3.   public void doStuff() {\n4.     if (x < 10) {\n5.        // nothing to do\n6.        try {\n7.           wait();\n8.        } catch(InterruptedException ex) { }\n9.     } else {\n10.       System.out.println(\"x is \" + x++);\n11.       if (x >= 10) {\n12.          notify();\n13.       }\n14.    }\n15.  }\n16. }",
         "options": [
           "The code will not compile because of an error on line 12 of class Foo.",
@@ -16213,11 +16261,11 @@ export const scjpChapterQuizzes = [
           "x is 5 x is 6"
         ],
         "optionsVi": [
-          "Đoạn mã không biên dịch được do lỗi ở dòng 12 của lớp Foo.",
-          "Đoạn mã không biên dịch được do lỗi ở dòng 7 của lớp Foo.",
-          "Đoạn mã không biên dịch được do lỗi ở dòng 4 của lớp Test.",
-          "Đoạn mã không biên dịch được do một lỗi khác trong lớp Test.",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception).",
+          "The code will not compile because of an error on line 12 of class Foo.",
+          "The code will not compile because of an error on line 7 of class Foo.",
+          "The code will not compile because of an error on line 4 of class Test.",
+          "The code will not compile because of some other error in class Test.",
+          "An exception occurs at runtime.",
           "x is 5 x is 6"
         ],
         "answer": 4,
