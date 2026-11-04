@@ -44,14 +44,14 @@ export const scjpChapterQuestions = [
       "native",
       "subclasses",
       "reference",
-      "array;"
+      "array"
     ],
     "optionsVi": [
       "method",
       "native",
       "subclasses",
       "reference",
-      "array;"
+      "array"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -70,18 +70,18 @@ export const scjpChapterQuestions = [
     "textVi": "Danh sách nào dưới đây CHỈ chứa toàn bộ các từ khóa hợp lệ trong ngôn ngữ Java? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "class,if,void,long,Int,continue",
-      "goto,instanceof,native,finally,default,throws",
-      "try,virtual,throw,final,volatile,transient",
-      "strictfp,constant,super,implements,do",
-      "byte,break,assert,switch,include"
+      "class, if, void, long, Int, continue",
+      "goto, instanceof, native, finally, default, throws",
+      "try, virtual, throw, final, volatile, transient",
+      "strictfp, constant, super, implements, do",
+      "byte, break, assert, switch, include"
     ],
     "optionsVi": [
-      "class,if,void,long,Int,continue",
-      "goto,instanceof,native,finally,default,throws",
-      "try,virtual,throw,final,volatile,transient",
-      "strictfp,constant,super,implements,do",
-      "byte,break,assert,switch,include"
+      "class, if, void, long, Int, continue",
+      "goto, instanceof, native, finally, default, throws",
+      "try, virtual, throw, final, volatile, transient",
+      "strictfp, constant, super, implements, do",
+      "byte, break, assert, switch, include"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -104,14 +104,14 @@ export const scjpChapterQuestions = [
       "unsigned",
       "Float",
       "this",
-      "string;"
+      "string"
     ],
     "optionsVi": [
       "interface",
       "unsigned",
       "Float",
       "this",
-      "string;"
+      "string"
     ],
     "answer": [
       0,
@@ -135,19 +135,19 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "char c1 = 064770;",
-      "char c2 = ‘face’;",
+      "char c2 = 'face';",
       "char c3 = 0xbeef;",
       "char c4 = \\u0022;",
-      "char c5 = ‘\\iface’;",
-      "char c6 = ‘\\uface’;"
+      "char c5 = '\\iface';",
+      "char c6 = '\\uface';"
     ],
     "optionsVi": [
       "char c1 = 064770;",
-      "char c2 = ‘face’;",
+      "char c2 = 'face';",
       "char c3 = 0xbeef;",
       "char c4 = \\u0022;",
-      "char c5 = ‘\\iface’;",
-      "char c6 = ‘\\uface’;"
+      "char c5 = '\\iface';",
+      "char c6 = '\\uface';"
     ],
     "answer": [
       0,
@@ -173,17 +173,17 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "String s1 = null;",
-      "String s2 = ‘null’;",
-      "String s3 = (String)‘abc’;",
-      "String s4 = (String)‘\\ufeed’;",
-      "String s5 = “stringsrule”;"
+      "String s2 = 'null';",
+      "String s3 = (String)'abc';",
+      "String s4 = (String)'\\ufeed';",
+      "String s5 = \"stringsrule\";"
     ],
     "optionsVi": [
       "String s1 = null;",
-      "String s2 = ‘null’;",
-      "String s3 = (String)‘abc’;",
-      "String s4 = (String)‘\\ufeed’;",
-      "String s5 = “stringsrule”;"
+      "String s2 = 'null';",
+      "String s3 = (String)'abc';",
+      "String s4 = (String)'\\ufeed';",
+      "String s5 = \"stringsrule\";"
     ],
     "answer": [
       0,
@@ -207,14 +207,14 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "boolean b1 = 0;",
-      "boolean b2 = ‘false’;",
+      "boolean b2 = 'false';",
       "boolean b3 = false;",
       "boolean b4 = Boolean.false();",
       "boolean b5 = no;"
     ],
     "optionsVi": [
       "boolean b1 = 0;",
-      "boolean b2 = ‘false’;",
+      "boolean b2 = 'false';",
       "boolean b3 = false;",
       "boolean b4 = Boolean.false();",
       "boolean b5 = no;"
@@ -304,18 +304,18 @@ export const scjpChapterQuestions = [
     "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "int[]myScores[];",
-      "char[]myChars;",
-      "int[6]myScores;",
-      "DogmyDogs[];",
-      "DogmyDogs[7];"
+      "int[] myScores[];",
+      "char[] myChars;",
+      "int[6] myScores;",
+      "Dog myDogs[];",
+      "Dog myDogs[7];"
     ],
     "optionsVi": [
-      "int[]myScores[];",
-      "char[]myChars;",
-      "int[6]myScores;",
-      "DogmyDogs[];",
-      "DogmyDogs[7];"
+      "int[] myScores[];",
+      "char[] myChars;",
+      "int[6] myScores;",
+      "Dog myDogs[];",
+      "Dog myDogs[7];"
     ],
     "answer": [
       0,
@@ -372,20 +372,20 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 4 đáp án)",
     "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
     "options": [
-      "b2[0][1]= b;",
-      "b[0][0]= b3;",
-      "b2[1][1][0]= b[0][0];",
-      "b2[1][2][0]= b;",
-      "b2[0][1][0][0]= b[0][0];",
-      "b2[0][1]= big;"
+      "b2[0][1] = b;",
+      "b[0][0] = b3;",
+      "b2[1][1][0] = b[0][0];",
+      "b2[1][2][0] = b;",
+      "b2[0][1][0][0] = b[0][0];",
+      "b2[0][1] = big;"
     ],
     "optionsVi": [
-      "b2[0][1]= b;",
-      "b[0][0]= b3;",
-      "b2[1][1][0]= b[0][0];",
-      "b2[1][2][0]= b;",
-      "b2[0][1][0][0]= b[0][0];",
-      "b2[0][1]= big;"
+      "b2[0][1] = b;",
+      "b[0][0] = b3;",
+      "b2[1][1][0] = b[0][0];",
+      "b2[1][2][0] = b;",
+      "b2[0][1][0][0] = b[0][0];",
+      "b2[0][1] = big;"
     ],
     "answer": [
       0,
@@ -412,20 +412,20 @@ export const scjpChapterQuestions = [
     "textVi": "Hai khai báo nào dưới đây sẽ khai báo một mảng và khởi tạo nó với 5 số? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "Arraya= newArray(5);",
-      "int[]a= {23,22,21,20,19};",
-      "int[]array;",
-      "intarray[]= newint[5];",
-      "inta[]= newint(5);",
-      "int[5]array;"
+      "Array a = new Array(5);",
+      "int[] a = { 23, 22, 21, 20, 19 };",
+      "int[] array;",
+      "int array[] = new int[5];",
+      "int a[] = new int(5);",
+      "int[5] array;"
     ],
     "optionsVi": [
-      "Arraya= newArray(5);",
-      "int[]a= {23,22,21,20,19};",
-      "int[]array;",
-      "intarray[]= newint[5];",
-      "inta[]= newint(5);",
-      "int[5]array;"
+      "Array a = new Array(5);",
+      "int[] a = { 23, 22, 21, 20, 19 };",
+      "int[] array;",
+      "int array[] = new int[5];",
+      "int a[] = new int(5);",
+      "int[5] array;"
     ],
     "answer": [
       1,
@@ -448,20 +448,20 @@ export const scjpChapterQuestions = [
     "textVi": "Cú pháp nào dưới đây khai báo, tạo mới (construct) và khởi tạo hợp lệ một mảng? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "int[]myList= {“1”,“2”,“3”};",
-      "int[]myList= (5,8,2);",
-      "intmyList[][]= {4,9,7,0};",
-      "intmyList[]= {4,3,7};",
-      "int[]myList= [3,5,6];",
-      "int myList[] = {4; 6; 5};"
+      "int[] myList = { \"1\",\"2\",\"3\" };",
+      "int[] myList = (5, 8, 2);",
+      "int myList[][] = { 4, 9, 7, 0 };",
+      "int myList[] = { 4, 3, 7 };",
+      "int[] myList= [3, 5, 6];",
+      "int myList[] = { 4; 6; 5 };"
     ],
     "optionsVi": [
-      "int[]myList= {“1”,“2”,“3”};",
-      "int[]myList= (5,8,2);",
-      "intmyList[][]= {4,9,7,0};",
-      "intmyList[]= {4,3,7};",
-      "int[]myList= [3,5,6];",
-      "int myList[] = {4; 6; 5};"
+      "int[] myList = { \"1\",\"2\",\"3\" };",
+      "int[] myList = (5, 8, 2);",
+      "int myList[][] = { 4, 9, 7, 0 };",
+      "int myList[] = { 4, 3, 7 };",
+      "int[] myList= [3, 5, 6];",
+      "int myList[] = { 4; 6; 5 };"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -481,17 +481,17 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "int -> 0",
-      "String -> “null”",
+      "String -> \"null\"",
       "Dog -> null",
-      "char -> ‘\\u0000’",
+      "char -> '\\u0000'",
       "float -> 0.0f",
       "boolean -> true"
     ],
     "optionsVi": [
       "int -> 0",
-      "String -> “null”",
+      "String -> \"null\"",
       "Dog -> null",
-      "char -> ‘\\u0000’",
+      "char -> '\\u0000'",
       "float -> 0.0f",
       "boolean -> true"
     ],
@@ -576,18 +576,18 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgs 1 2 3 4\", kết quả in ra là gì? (Chọn 1 đáp án)",
     "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }",
     "options": [
-      "args[2]= 2",
-      "args[2]= 3",
-      "args[2]= null",
-      "args[2]= 1",
+      "args[2] = 2",
+      "args[2] = 3",
+      "args[2] = null",
+      "args[2] = 1",
       "Compilation fails",
       "An exception is thrown at runtime"
     ],
     "optionsVi": [
-      "args[2]= 2",
-      "args[2]= 3",
-      "args[2]= null",
-      "args[2]= 1",
+      "args[2] = 2",
+      "args[2] = 3",
+      "args[2] = null",
+      "args[2] = 1",
       "Compilation fails",
       "An exception is thrown at runtime"
     ],
@@ -738,7 +738,7 @@ export const scjpChapterQuestions = [
       "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
       "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
       "As long as line 8 exists, class A must declare methodm1() in some way.",
-      "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+      "If line 6 were replaced with'class B extends A{ ' the code would compile.",
       "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
     ],
     "optionsVi": [
@@ -746,7 +746,7 @@ export const scjpChapterQuestions = [
       "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
       "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
       "As long as line 8 exists, class A must declare methodm1() in some way.",
-      "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+      "If line 6 were replaced with'class B extends A{ ' the code would compile.",
       "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
     ],
     "answer": [
@@ -772,20 +772,20 @@ export const scjpChapterQuestions = [
     "textVi": "Hai khai báo nào dưới đây là hợp lệ cho các class và interface độc lập ở cấp ngoài cùng (non-nested / top-level)? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "finalabstractclassTest{}",
-      "publicstaticinterfaceTest{}",
-      "finalpublicclassTest{}",
-      "protectedabstractclassTest{}",
-      "protectedinterfaceTest{}",
-      "abstractpublicclassTest{}"
+      "final abstract class Test {}",
+      "public static interface Test {}",
+      "final public class Test {}",
+      "protected abstract class Test {}",
+      "protected interface Test {}",
+      "abstract public class Test {}"
     ],
     "optionsVi": [
-      "finalabstractclassTest{}",
-      "publicstaticinterfaceTest{}",
-      "finalpublicclassTest{}",
-      "protectedabstractclassTest{}",
-      "protectedinterfaceTest{}",
-      "abstractpublicclassTest{}"
+      "final abstract class Test {}",
+      "public static interface Test {}",
+      "final public class Test {}",
+      "protected abstract class Test {}",
+      "protected interface Test {}",
+      "abstract public class Test {}"
     ],
     "answer": [
       2,
@@ -844,14 +844,14 @@ export const scjpChapterQuestions = [
       "If line 8 is removed, the code will compile and run.",
       "If line 10 is removed, the code will compile and run.",
       "Both lines 8 and 10 must be removed for the code to compile.",
-      "An exception is thrown at runtime. Declaration Rules (;"
+      "An exception is thrown at runtime."
     ],
     "optionsVi": [
       "The code compiles and runs, with outputthis420parent420 .",
       "If line 8 is removed, the code will compile and run.",
       "If line 10 is removed, the code will compile and run.",
       "Both lines 8 and 10 must be removed for the code to compile.",
-      "An exception is thrown at runtime. Declaration Rules (;"
+      "An exception is thrown at runtime."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -935,17 +935,17 @@ export const scjpChapterQuestions = [
     "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
     "options": [
       "No statement is required",
-      "importjava.util.*;",
+      "import java.util.*;",
       "import.java.util.Tree*;",
-      "importjava.util.TreeSet;",
-      "importjava.util.TreeMap;"
+      "import java.util.TreeSet;",
+      "import java.util.TreeMap;"
     ],
     "optionsVi": [
       "No statement is required",
-      "importjava.util.*;",
+      "import java.util.*;",
       "import.java.util.Tree*;",
-      "importjava.util.TreeSet;",
-      "importjava.util.TreeMap;"
+      "import java.util.TreeSet;",
+      "import java.util.TreeMap;"
     ],
     "answer": [
       1,
@@ -968,20 +968,20 @@ export const scjpChapterQuestions = [
     "textVi": "Hai khai báo nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "publicstaticshortstop= 23;",
-      "protectedshortstop= 23;",
-      "transientshortstop= 23;",
-      "finalvoidmadness(shortstop);",
-      "publicBooleanmadness(longbow);",
-      "staticcharmadness(doubleduty);"
+      "public static short stop = 23;",
+      "protected short stop = 23;",
+      "transient short stop = 23;",
+      "final void madness(short stop);",
+      "public Boolean madness(long bow);",
+      "static char madness(double duty);"
     ],
     "optionsVi": [
-      "publicstaticshortstop= 23;",
-      "protectedshortstop= 23;",
-      "transientshortstop= 23;",
-      "finalvoidmadness(shortstop);",
-      "publicBooleanmadness(longbow);",
-      "staticcharmadness(doubleduty);"
+      "public static short stop = 23;",
+      "protected short stop = 23;",
+      "transient short stop = 23;",
+      "final void madness(short stop);",
+      "public Boolean madness(long bow);",
+      "static char madness(double duty);"
     ],
     "answer": [
       0,
@@ -1004,18 +1004,18 @@ export const scjpChapterQuestions = [
     "textVi": "Khai báo biến ở cấp độ lớp (biến non-local / biến toàn cục của class) nào dưới đây sẽ KHÔNG THỂ biên dịch? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "protectedinta;",
-      "transientintb= 3;",
-      "publicstaticfinalintc;",
-      "volatileintd;",
-      "privatesynchronizedinte;"
+      "protected int a;",
+      "transient int b = 3;",
+      "public static final int c;",
+      "volatile int d;",
+      "private synchronized int e;"
     ],
     "optionsVi": [
-      "protectedinta;",
-      "transientintb= 3;",
-      "publicstaticfinalintc;",
-      "volatileintd;",
-      "privatesynchronizedinte;"
+      "protected int a;",
+      "transient int b = 3;",
+      "public static final int c;",
+      "volatile int d;",
+      "private synchronized int e;"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -1034,18 +1034,18 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi chèn vào dòng 7 và 8 sẽ biên dịch thành công? (Chọn 2 đáp án)",
     "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
     "options": [
-      "classAllMathextendsDoMath{ doublegetArea(intr);}",
-      "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
-      "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
-      "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
-      "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+      "class AllMath extends DoMath { double getArea(int r); }",
+      "interface AllMath implements MathPlus { double getVol(int x, int y); }",
+      "interface AllMath extends DoMath { float getAvg(int h, int l); }",
+      "class AllMath implements MathPlus { double getArea(int rad); }",
+      "abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }"
     ],
     "optionsVi": [
-      "classAllMathextendsDoMath{ doublegetArea(intr);}",
-      "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
-      "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
-      "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
-      "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+      "class AllMath extends DoMath { double getArea(int r); }",
+      "interface AllMath implements MathPlus { double getVol(int x, int y); }",
+      "interface AllMath extends DoMath { float getAvg(int h, int l); }",
+      "class AllMath implements MathPlus { double getArea(int rad); }",
+      "abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }"
     ],
     "answer": [
       2,
@@ -1068,18 +1068,18 @@ export const scjpChapterQuestions = [
     "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "privateintgetArea();",
-      "publicfloatgetVol(floatx);",
-      "publicvoidmain(String[]args);",
-      "publicstaticvoidmain(String[]args);",
-      "booleansetFlag(Boolean[]test[]);"
+      "private int getArea();",
+      "public float getVol(float x);",
+      "public void main(String[] args);",
+      "public static void main(String[] args);",
+      "boolean setFlag(Boolean[] test[]);"
     ],
     "optionsVi": [
-      "privateintgetArea();",
-      "publicfloatgetVol(floatx);",
-      "publicvoidmain(String[]args);",
-      "publicstaticvoidmain(String[]args);",
-      "booleansetFlag(Boolean[]test[]);"
+      "private int getArea();",
+      "public float getVol(float x);",
+      "public void main(String[] args);",
+      "public static void main(String[] args);",
+      "boolean setFlag(Boolean[] test[]);"
     ],
     "answer": [
       1,
@@ -1104,19 +1104,19 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào dưới đây là ĐÚNG đối với bất kỳ một concrete class (lớp cụ thể) nào implement interface java.lang.Runnable? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "You can extend theRunnable interface as long as you override thepublicrun() method.",
+      "You can extend the Runnable interface as long as you override the public run() method.",
       "The class must contain a method calledrun() from which all code for that thread will be initiated.",
       "The class must contain an emptypublicvoid method namedrun().",
       "The class must contain apublicvoid method namedrunnable().",
-      "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+      "The class definition must include the words implements Threads and contain a method calledrun().",
       "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
     ],
     "optionsVi": [
-      "You can extend theRunnable interface as long as you override thepublicrun() method.",
+      "You can extend the Runnable interface as long as you override the public run() method.",
       "The class must contain a method calledrun() from which all code for that thread will be initiated.",
       "The class must contain an emptypublicvoid method namedrun().",
       "The class must contain apublicvoid method namedrunnable().",
-      "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+      "The class definition must include the words implements Threads and contain a method calledrun().",
       "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
     ],
     "answer": [
@@ -1140,18 +1140,18 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi biên dịch độc lập sẽ biên dịch thành công? (Chọn 2 đáp án)",
     "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
     "options": [
-      "interfaceBase2implementsBase{}",
-      "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
-      "abstractclassClass2implementsBase{}",
-      "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-      "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
+      "interface Base2 implements Base {}",
+      "abstract class Class2 extends Base { public boolean m1() { return true; } }",
+      "abstract class Class2 implements Base {}",
+      "abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }",
+      "class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }"
     ],
     "optionsVi": [
-      "interfaceBase2implementsBase{}",
-      "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
-      "abstractclassClass2implementsBase{}",
-      "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-      "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
+      "interface Base2 implements Base {}",
+      "abstract class Class2 extends Base { public boolean m1() { return true; } }",
+      "abstract class Class2 implements Base {}",
+      "abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }",
+      "class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }"
     ],
     "answer": [
       2,
@@ -1210,20 +1210,20 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
     "options": [
-      "boolean test = (Componentinstanceoft);",
-      "boolean test = (tinstanceofTicker);",
+      "boolean test = (Component instanceof t);",
+      "boolean test = (t instanceof Ticker);",
       "boolean test = t.instanceof(Ticker);",
-      "boolean test = (tinstanceofComponent);",
+      "boolean test = (t instanceof Component);",
       "boolean test = t.instanceof(Object);",
-      "boolean test = (tinstanceofString);"
+      "boolean test = (t instanceof String);"
     ],
     "optionsVi": [
-      "boolean test = (Componentinstanceoft);",
-      "boolean test = (tinstanceofTicker);",
+      "boolean test = (Component instanceof t);",
+      "boolean test = (t instanceof Ticker);",
       "boolean test = t.instanceof(Ticker);",
-      "boolean test = (tinstanceofComponent);",
+      "boolean test = (t instanceof Component);",
       "boolean test = t.instanceof(Object);",
-      "boolean test = (tinstanceofString);"
+      "boolean test = (t instanceof String);"
     ],
     "answer": [
       1,
@@ -1274,18 +1274,18 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba) (Chọn 3 đáp án)",
     "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
     "options": [
-      "f1= =f2",
-      "f1= =f3",
-      "f2= =f1[1]",
-      "x= =f1[0]",
-      "f= =f1[0]"
+      "f1 == f2",
+      "f1 == f3",
+      "f2 == f1[1]",
+      "x == f1[0]",
+      "f == f1[0]"
     ],
     "optionsVi": [
-      "f1= =f2",
-      "f1= =f3",
-      "f2= =f1[1]",
-      "x= =f1[0]",
-      "f= =f1[0]"
+      "f1 == f2",
+      "f1 == f3",
+      "f2 == f1[1]",
+      "x == f1[0]",
+      "f == f1[0]"
     ],
     "answer": [
       1,
@@ -1530,20 +1530,20 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
     "options": [
-      "count= 0",
-      "count= 2",
-      "count= 3",
-      "count= 4",
-      "count= 10",
-      "count= 11 Passing Variables into Methods (;"
+      "count = 0",
+      "count = 2",
+      "count = 3",
+      "count = 4",
+      "count = 10",
+      "count = 11"
     ],
     "optionsVi": [
-      "count= 0",
-      "count= 2",
-      "count= 3",
-      "count= 4",
-      "count= 10",
-      "count= 11 Passing Variables into Methods (;"
+      "count = 0",
+      "count = 2",
+      "count = 3",
+      "count = 4",
+      "count = 10",
+      "count = 11"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1631,7 +1631,7 @@ export const scjpChapterQuestions = [
       "streamslipstream",
       "slipstreamslipstream",
       "Compilation fails",
-      "An exception is thrown at runtime;"
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
       "slipstream",
@@ -1639,7 +1639,7 @@ export const scjpChapterQuestions = [
       "streamslipstream",
       "slipstreamslipstream",
       "Compilation fails",
-      "An exception is thrown at runtime;"
+      "An exception is thrown at runtime"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1821,7 +1821,7 @@ export const scjpChapterQuestions = [
       "50",
       "51",
       "Compiler fails at line 5.",
-      "Compiler fails at line 6.;"
+      "Compiler fails at line 6."
     ],
     "optionsVi": [
       "41",
@@ -1829,7 +1829,7 @@ export const scjpChapterQuestions = [
       "50",
       "51",
       "Compiler fails at line 5.",
-      "Compiler fails at line 6.;"
+      "Compiler fails at line 6."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1885,7 +1885,7 @@ export const scjpChapterQuestions = [
       "101",
       "111",
       "1001",
-      "1101 Flow Control (loops) (;"
+      "1101"
     ],
     "optionsVi": [
       "0",
@@ -1893,7 +1893,7 @@ export const scjpChapterQuestions = [
       "101",
       "111",
       "1001",
-      "1101 Flow Control (loops) (;"
+      "1101"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -2039,13 +2039,13 @@ export const scjpChapterQuestions = [
       "I is 0",
       "I is 0 I is 1",
       "Compilation fails.",
-      "None of the above Exceptions (;"
+      "None of the above"
     ],
     "optionsVi": [
       "I is 0",
       "I is 0 I is 1",
       "Compilation fails.",
-      "None of the above Exceptions (;"
+      "None of the above"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -2150,13 +2150,13 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy? (Chọn 1 đáp án)",
     "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
     "options": [
-      "The program will not compile.;",
+      "The program will not compile.",
       "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
       "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
       "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
     ],
     "optionsVi": [
-      "The program will not compile.;",
+      "The program will not compile.",
       "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
       "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
       "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
@@ -2212,13 +2212,13 @@ export const scjpChapterQuestions = [
     "options": [
       "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
       "If a switch block has no default, adding an assert default is considered appropriate.",
-      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
       "It is appropriate to handle assertion failures using acatch clause."
     ],
     "optionsVi": [
       "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
       "If a switch block has no default, adding an assert default is considered appropriate.",
-      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
       "It is appropriate to handle assertion failures using acatch clause."
     ],
     "answer": 1,
@@ -2304,14 +2304,14 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+      "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
       "As of Java version 1.4, assertion statements are compiled by default.",
       "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
       "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
       "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
     ],
     "optionsVi": [
-      "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+      "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
       "As of Java version 1.4, assertion statements are compiled by default.",
       "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
       "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
@@ -2619,16 +2619,16 @@ export const scjpChapterQuestions = [
     "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
     "options": [
       "public int doStuff(int x, float y) { return 4; }",
-      "protected int doStuff(int x, float y) {return 4; }",
-      "private int doStuff(int x, float y) {return 4; }",
+      "protected int doStuff(int x, float y) { return 4; }",
+      "private int doStuff(int x, float y) { return 4; }",
       "private int doStuff(int x, double y) { return 4; }",
       "long doStuff(int x, float y) { return 4; }",
       "int doStuff(float x, int y) { return 4; };"
     ],
     "optionsVi": [
       "public int doStuff(int x, float y) { return 4; }",
-      "protected int doStuff(int x, float y) {return 4; }",
-      "private int doStuff(int x, float y) {return 4; }",
+      "protected int doStuff(int x, float y) { return 4; }",
+      "private int doStuff(int x, float y) { return 4; }",
       "private int doStuff(int x, double y) { return 4; }",
       "long doStuff(int x, float y) { return 4; }",
       "int doStuff(float x, int y) { return 4; };"
@@ -2845,13 +2845,13 @@ export const scjpChapterQuestions = [
       "Constructors must not have arguments if the superclass constructor does not have arguments.",
       "Constructors are not inherited.",
       "Constructors cannot be overloaded.",
-      "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
+      "The first statement of every constructor is a legal call to the super() or this() method."
     ],
     "optionsVi": [
       "Constructors must not have arguments if the superclass constructor does not have arguments.",
       "Constructors are not inherited.",
       "Constructors cannot be overloaded.",
-      "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
+      "The first statement of every constructor is a legal call to the super() or this() method."
     ],
     "answer": [
       1,
@@ -2909,7 +2909,7 @@ export const scjpChapterQuestions = [
       "return (long) y;",
       "return (int) 3.14d;",
       "return ( y / x );",
-      "return  x / 7;"
+      "return x / 7;"
     ],
     "optionsVi": [
       "return x;",
@@ -2917,7 +2917,7 @@ export const scjpChapterQuestions = [
       "return (long) y;",
       "return (int) 3.14d;",
       "return ( y / x );",
-      "return  x / 7;"
+      "return x / 7;"
     ],
     "answer": [
       1,
@@ -2978,7 +2978,7 @@ export const scjpChapterQuestions = [
     "options": [
       "char [] [] c = new char [2][2]; return c;",
       "return (Object) 7;",
-      "return (Object) (new int [] {1,2,3} );",
+      "return (Object) (new int [] { 1, 2, 3 } );",
       "ArrayList a = new ArrayList(); return a;",
       "return (Object) \"test\";",
       "return (Float) 4.3;"
@@ -2986,7 +2986,7 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "char [] [] c = new char [2][2]; return c;",
       "return (Object) 7;",
-      "return (Object) (new int [] {1,2,3} );",
+      "return (Object) (new int [] { 1, 2, 3 } );",
       "ArrayList a = new ArrayList(); return a;",
       "return (Object) \"test\";",
       "return (Float) 4.3;"
@@ -3171,7 +3171,7 @@ export const scjpChapterQuestions = [
       "wbookkeewoo",
       "wbookkeeperwoo",
       "Compilation fails.",
-      "An exception is thrown at runtime. Using the java.lang.Math Class (;"
+      "An exception is thrown at runtime."
     ],
     "optionsVi": [
       "wookkeewoo",
@@ -3179,7 +3179,7 @@ export const scjpChapterQuestions = [
       "wbookkeewoo",
       "wbookkeeperwoo",
       "Compilation fails.",
-      "An exception is thrown at runtime. Using the java.lang.Math Class (;"
+      "An exception is thrown at runtime."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -3228,15 +3228,15 @@ export const scjpChapterQuestions = [
     "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng) (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "Math.max(1,4)",
-      "Math.max(2.3,5)",
-      "Math.max(1,3,5,7)",
+      "Math.max(1, 4)",
+      "Math.max(2.3, 5)",
+      "Math.max(1, 3, 5, 7)",
       "Math.max(-1.5,-2.8f)"
     ],
     "optionsVi": [
-      "Math.max(1,4)",
-      "Math.max(2.3,5)",
-      "Math.max(1,3,5,7)",
+      "Math.max(1, 4)",
+      "Math.max(2.3, 5)",
+      "Math.max(1, 3, 5, 7)",
       "Math.max(-1.5,-2.8f)"
     ],
     "answer": [
@@ -3333,7 +3333,7 @@ export const scjpChapterQuestions = [
       "Line 5",
       "Line 6",
       "Line 3 and either line 4, 5, or 6",
-      "None of the above Using Wrapper Classes (;"
+      "None of the above"
     ],
     "optionsVi": [
       "Line 3",
@@ -3341,7 +3341,7 @@ export const scjpChapterQuestions = [
       "Line 5",
       "Line 6",
       "Line 3 and either line 4, 5, or 6",
-      "None of the above Using Wrapper Classes (;"
+      "None of the above"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3462,7 +3462,7 @@ export const scjpChapterQuestions = [
     "options": [
       "float f1 = Float.floatValue(s);",
       "float f2 = Float.valueOf(s);",
-      "float f3 = newFloat(3.14f).floatValue();",
+      "float f3 = new Float(3.14f).floatValue();",
       "float f4 = Float.parseFloat(1.23f);",
       "float f5 = Float.valueOf(s).floatValue();",
       "float f6 = (float)Double.parseDouble(\"3.14\");"
@@ -3470,7 +3470,7 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "float f1 = Float.floatValue(s);",
       "float f2 = Float.valueOf(s);",
-      "float f3 = newFloat(3.14f).floatValue();",
+      "float f3 = new Float(3.14f).floatValue();",
       "float f4 = Float.parseFloat(1.23f);",
       "float f5 = Float.valueOf(s).floatValue();",
       "float f6 = (float)Double.parseDouble(\"3.14\");"
@@ -3503,7 +3503,7 @@ export const scjpChapterQuestions = [
       "Compilation fails on line 13.",
       "Compilation fails on line 14.",
       "Compilation fails on lines 13 and 14.",
-      "An uncaught exception is thrown at runtime.;"
+      "An uncaught exception is thrown at runtime."
     ],
     "optionsVi": [
       "9.0",
@@ -3511,7 +3511,7 @@ export const scjpChapterQuestions = [
       "Compilation fails on line 13.",
       "Compilation fails on line 14.",
       "Compilation fails on lines 13 and 14.",
-      "An uncaught exception is thrown at runtime.;"
+      "An uncaught exception is thrown at runtime."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -3530,20 +3530,20 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
     "options": [
-      "result= 1",
-      "result= 10",
-      "result= 11",
-      "result= 11010",
-      "result= 11011",
-      "result= 11111"
+      "result = 1",
+      "result = 10",
+      "result = 11",
+      "result = 11010",
+      "result = 11011",
+      "result = 11111"
     ],
     "optionsVi": [
-      "result= 1",
-      "result= 10",
-      "result= 11",
-      "result= 11010",
-      "result= 11011",
-      "result= 11111"
+      "result = 1",
+      "result = 10",
+      "result = 11",
+      "result = 11010",
+      "result = 11011",
+      "result = 11111"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -3625,17 +3625,17 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-      "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
-      "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
-      "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-      "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
+      "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
+      "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
+      "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
+      "If x and y are String references and x == y is true, theny.equals(x) will be true."
     ],
     "optionsVi": [
       "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-      "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
-      "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
-      "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-      "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
+      "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
+      "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
+      "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
+      "If x and y are String references and x == y is true, theny.equals(x) will be true."
     ],
     "answer": [
       3,
@@ -3659,13 +3659,13 @@ export const scjpChapterQuestions = [
     "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
     "options": [
       "x2.equals(x1)",
-      "x3.hashCode() = = x4.hashCode()",
+      "x3.hashCode() == x4.hashCode()",
       "x5.hashCode() != x6.hashCode()",
       "x8.equals(x7)"
     ],
     "optionsVi": [
       "x2.equals(x1)",
-      "x3.hashCode() = = x4.hashCode()",
+      "x3.hashCode() == x4.hashCode()",
       "x5.hashCode() != x6.hashCode()",
       "x8.equals(x7)"
     ],
@@ -3716,18 +3716,18 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào sau đây là ĐÚNG khi so sánh hai đối tượng cùng một lớp, với điều kiện các phương thức equals() và hashCode() đã được ghi đè đúng chuẩn hợp đồng? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
-      "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-      "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
-      "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
-      "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+      "If the equals() method return s true, the hashCode() comparison == must return true.",
+      "If the equals() method return s false, the hashCode() comparison != must return true.",
+      "If the hashCode() comparison == return s true, the equals() method must return true.",
+      "If the hashCode() comparison == return s true, the equals() method might return true.",
+      "If the hashCode() comparison != return s true, the equals() method might return true."
     ],
     "optionsVi": [
-      "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
-      "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-      "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
-      "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
-      "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+      "If the equals() method return s true, the hashCode() comparison == must return true.",
+      "If the equals() method return s false, the hashCode() comparison != must return true.",
+      "If the hashCode() comparison == return s true, the equals() method must return true.",
+      "If the hashCode() comparison == return s true, the equals() method might return true.",
+      "If the hashCode() comparison != return s true, the equals() method might return true."
     ],
     "answer": [
       0,
@@ -3780,18 +3780,18 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "hashCode() doesn’t have to be overridden ifequals() is.",
-      "equals() doesn’t have to be overridden ifhashCode() is.",
+      "hashCode() doesn't have to be overridden ifequals() is.",
+      "equals() doesn't have to be overridden ifhashCode() is.",
       "hashCode() can always return the same value, regardless of the object that invoked it.",
-      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-      "equals() can be true even if it’s comparing different objects.;"
+      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+      "equals() can be true even if it's comparing different objects."
     ],
     "optionsVi": [
-      "hashCode() doesn’t have to be overridden ifequals() is.",
-      "equals() doesn’t have to be overridden ifhashCode() is.",
+      "hashCode() doesn't have to be overridden ifequals() is.",
+      "equals() doesn't have to be overridden ifhashCode() is.",
       "hashCode() can always return the same value, regardless of the object that invoked it.",
-      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-      "equals() can be true even if it’s comparing different objects.;"
+      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+      "equals() can be true even if it's comparing different objects."
     ],
     "answer": [
       2,
@@ -3879,7 +3879,7 @@ export const scjpChapterQuestions = [
       "four one three two",
       "one two three four one",
       "one four three two one",
-      "The print order is not guaranteed.;"
+      "The print order is not guaranteed."
     ],
     "optionsVi": [
       "one two three four",
@@ -3887,7 +3887,7 @@ export const scjpChapterQuestions = [
       "four one three two",
       "one two three four one",
       "one four three two one",
-      "The print order is not guaranteed.;"
+      "The print order is not guaranteed."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3911,7 +3911,7 @@ export const scjpChapterQuestions = [
       "java.util.HashMap",
       "java.util.TreeMap",
       "java.util.LinkedHashSet",
-      "java.util.TreeSet Garbage Collection (;"
+      "java.util.TreeSet"
     ],
     "optionsVi": [
       "java.util.ArrayList",
@@ -3919,7 +3919,7 @@ export const scjpChapterQuestions = [
       "java.util.HashMap",
       "java.util.TreeMap",
       "java.util.LinkedHashSet",
-      "java.util.TreeSet Garbage Collection (;"
+      "java.util.TreeSet"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -4030,14 +4030,14 @@ export const scjpChapterQuestions = [
     "options": [
       "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
       "The garbage collector uses a mark and sweep algorithm.",
-      "If an object can be accessed from a live thread, it can’t be garbage collected.",
-      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+      "If an object can be accessed from a live thread, it can't be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can't be garbage collected."
     ],
     "optionsVi": [
       "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
       "The garbage collector uses a mark and sweep algorithm.",
-      "If an object can be accessed from a live thread, it can’t be garbage collected.",
-      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+      "If an object can be accessed from a live thread, it can't be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can't be garbage collected."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -4120,16 +4120,16 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
     "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
     "options": [
-      "MyOuter.MyInnerm= newMyOuter.MyInner();",
-      "MyOuter.MyInnermi= newMyInner();",
-      "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-      "MyInnermi= newMyOuter.MyInner();"
+      "MyOuter.MyInner m = new MyOuter.MyInner();",
+      "MyOuter.MyInner mi = new MyInner();",
+      "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+      "MyInner mi = new MyOuter.MyInner();"
     ],
     "optionsVi": [
-      "MyOuter.MyInnerm= newMyOuter.MyInner();",
-      "MyOuter.MyInnermi= newMyInner();",
-      "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-      "MyInnermi= newMyOuter.MyInner();"
+      "MyOuter.MyInner m = new MyOuter.MyInner();",
+      "MyOuter.MyInner mi = new MyInner();",
+      "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+      "MyInner mi = new MyOuter.MyInner();"
     ],
     "answer": 0,
     "isMultiple": false,
@@ -4151,14 +4151,14 @@ export const scjpChapterQuestions = [
       "You must have a reference to an instance of the enclosing class in order to instantiate it.",
       "It does not have access to nonstatic members of the enclosing class.",
       "Its variables and methods must be static.",
-      "It can be instantiated usingnewMyOuter.MyInner(); .",
+      "It can be instantiated using new MyOuter.MyInner(); .",
       "It must extend the enclosing class."
     ],
     "optionsVi": [
       "You must have a reference to an instance of the enclosing class in order to instantiate it.",
       "It does not have access to nonstatic members of the enclosing class.",
       "Its variables and methods must be static.",
-      "It can be instantiated usingnewMyOuter.MyInner(); .",
+      "It can be instantiated using new MyOuter.MyInner(); .",
       "It must extend the enclosing class."
     ],
     "answer": [
@@ -4182,20 +4182,20 @@ export const scjpChapterQuestions = [
     "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "Runnabler= newRunnable(){};",
-      "Runnabler= newRunnable(publicvoidrun(){});",
-      "Runnabler= newRunnable{publicvoidrun(){}};",
-      "Runnabler= newRunnable(){publicvoidrun{}};",
-      "System.out.println(newRunnable() {publicvoidrun(){}});",
-      "System.out.println(newRunnable(publicvoidrun(){}));"
+      "Runnable r = new Runnable() {};",
+      "Runnable r = new Runnable(public void run() {});",
+      "Runnable r = new Runnable { public void run() {} };",
+      "Runnable r = new Runnable() { public void run {} };",
+      "System.out.println(new Runnable() { public void run() {} });",
+      "System.out.println(new Runnable(public void run() {}));"
     ],
     "optionsVi": [
-      "Runnabler= newRunnable(){};",
-      "Runnabler= newRunnable(publicvoidrun(){});",
-      "Runnabler= newRunnable{publicvoidrun(){}};",
-      "Runnabler= newRunnable(){publicvoidrun{}};",
-      "System.out.println(newRunnable() {publicvoidrun(){}});",
-      "System.out.println(newRunnable(publicvoidrun(){}));"
+      "Runnable r = new Runnable() {};",
+      "Runnable r = new Runnable(public void run() {});",
+      "Runnable r = new Runnable { public void run() {} };",
+      "Runnable r = new Runnable() { public void run {} };",
+      "System.out.println(new Runnable() { public void run() {} });",
+      "System.out.println(new Runnable(public void run() {}));"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -4214,18 +4214,18 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau:\nclass Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // chèn mã tại đây\n  }\n}\nHai câu lệnh nào dưới đây sẽ tạo một lớp nội danh ẩn danh (anonymous inner class) hợp lệ từ bên trong lớp Bar? (Chọn 2 đáp án)",
     "code": "class Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // insert code here\n  }\n}",
     "options": [
-      "Boof= newBoo(24){};",
-      "Boof= newBar(){};",
-      "Boof= newBoo(){Strings;};",
-      "Barf= newBoo(Strings){};",
-      "Boof= newBoo.Bar(Strings){};"
+      "Boo f = new Boo(24) {};",
+      "Boo f = new Bar() {};",
+      "Boo f = new Boo() { String s; };",
+      "Bar f = new Boo(String s) {};",
+      "Boo f = new Boo.Bar(String s) {};"
     ],
     "optionsVi": [
-      "Boof= newBoo(24){};",
-      "Boof= newBar(){};",
-      "Boof= newBoo(){Strings;};",
-      "Barf= newBoo(Strings){};",
-      "Boof= newBoo.Bar(Strings){};"
+      "Boo f = new Boo(24) {};",
+      "Boo f = new Bar() {};",
+      "Boo f = new Boo() { String s; };",
+      "Bar f = new Boo(String s) {};",
+      "Boo f = new Boo.Bar(String s) {};"
     ],
     "answer": [
       1,
@@ -4248,18 +4248,18 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar? (Chọn 1 đáp án)",
     "code": "1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }",
     "options": [
-      "Foo.Barb= newFoo.Bar();",
-      "Foo.Barb= f.newBar();",
-      "Barb= newf.Bar();",
-      "Barb= f.newBar();",
-      "Foo.Barb= newf.Bar();"
+      "Foo.Bar b = new Foo.Bar();",
+      "Foo.Bar b = f.new Bar();",
+      "Bar b = new f.Bar();",
+      "Bar b = f.new Bar();",
+      "Foo.Bar b = new f.Bar();"
     ],
     "optionsVi": [
-      "Foo.Barb= newFoo.Bar();",
-      "Foo.Barb= f.newBar();",
-      "Barb= newf.Bar();",
-      "Barb= f.newBar();",
-      "Foo.Barb= newf.Bar();"
+      "Foo.Bar b = new Foo.Bar();",
+      "Foo.Bar b = f.new Bar();",
+      "Bar b = new f.Bar();",
+      "Bar b = f.new Bar();",
+      "Foo.Bar b = new f.Bar();"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -4472,14 +4472,14 @@ export const scjpChapterQuestions = [
       "4538",
       "4557",
       "An exception occurs at runtime.",
-      "Compilation fails.;"
+      "Compilation fails."
     ],
     "optionsVi": [
       "5722",
       "4538",
       "4557",
       "An exception occurs at runtime.",
-      "Compilation fails.;"
+      "Compilation fails."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -4562,18 +4562,18 @@ export const scjpChapterQuestions = [
     "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công? (Chọn 1 đáp án)",
     "code": "Runnable target = new MyRunnable();\nThread myThread = new Thread(target);",
     "options": [
-      "public class MyRunnable extends Runnable{public void run(){}}",
-      "public class MyRunnable extends Object{public void run(){}}",
-      "public class MyRunnable implements Runnable{public void run(){}}",
-      "public class MyRunnable implements Runnable{void run(){}}",
-      "public class MyRunnable implements Runnable{public void start(){}}"
+      "public class MyRunnable extends Runnable { public void run() {} }",
+      "public class MyRunnable extends Object { public void run() {} }",
+      "public class MyRunnable implements Runnable { public void run() {} }",
+      "public class MyRunnable implements Runnable { void run() {} }",
+      "public class MyRunnable implements Runnable { public void start() {} }"
     ],
     "optionsVi": [
-      "public class MyRunnable extends Runnable{public void run(){}}",
-      "public class MyRunnable extends Object{public void run(){}}",
-      "public class MyRunnable implements Runnable{public void run(){}}",
-      "public class MyRunnable implements Runnable{void run(){}}",
-      "public class MyRunnable implements Runnable{public void start(){}}"
+      "public class MyRunnable extends Runnable { public void run() {} }",
+      "public class MyRunnable extends Object { public void run() {} }",
+      "public class MyRunnable implements Runnable { public void run() {} }",
+      "public class MyRunnable implements Runnable { void run() {} }",
+      "public class MyRunnable implements Runnable { public void start() {} }"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -4706,20 +4706,20 @@ export const scjpChapterQuestions = [
     "textVi": "Giả sử bạn có một lớp lưu trữ hai biến thành viên private: a và b. Cặp phương thức nào dưới đây có thể ngăn chặn sự cố tranh chấp truy cập đồng thời (concurrent access / race condition) trong lớp đó? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
-      "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
-      "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
-      "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
+      "public int read(int a, int b) { return a + b; } public void set(int a, int b) { this.a = a; this.b = b; }",
+      "public synchronized int read(int a, int b) { return a + b; } public synchronized void set(int a, int b) { this.a = a; this.b = b; }",
+      "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(a) { this.a = a; this.b = b; } }",
+      "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(b) { this.a = a; this.b = b; } }",
+      "public synchronized(this) int read(int a, int b) { return a + b; } public synchronized(this) void set(int a, int b) { this.a = a; this.b = b; }",
+      "public int read(int a, int b) { synchronized(this) { return a + b; } } public void set(int a, int b) { synchronized(this) { this.a = a; this.b = b; } }"
     ],
     "optionsVi": [
-      "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
-      "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
-      "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
-      "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
+      "public int read(int a, int b) { return a + b; } public void set(int a, int b) { this.a = a; this.b = b; }",
+      "public synchronized int read(int a, int b) { return a + b; } public synchronized void set(int a, int b) { this.a = a; this.b = b; }",
+      "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(a) { this.a = a; this.b = b; } }",
+      "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(b) { this.a = a; this.b = b; } }",
+      "public synchronized(this) int read(int a, int b) { return a + b; } public synchronized(this) void set(int a, int b) { this.a = a; this.b = b; }",
+      "public int read(int a, int b) { synchronized(this) { return a + b; } } public void set(int a, int b) { synchronized(this) { this.a = a; this.b = b; } }"
     ],
     "answer": [
       1,
@@ -4771,14 +4771,14 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "A static method cannot be synchronized.",
-      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
+      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
       "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
       "When a thread sleeps, it releases its locks.",
       "When a thread invokeswait(), it releases its locks."
     ],
     "optionsVi": [
       "A static method cannot be synchronized.",
-      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
+      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
       "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
       "When a thread sleeps, it releases its locks.",
       "When a thread invokeswait(), it releases its locks."
@@ -4911,7 +4911,7 @@ export const scjpChapterQuestions = [
       "Thenotify() method is defined in class java.lang.Thread.",
       "When a thread is waiting as a result ofwait(), it release its locks.",
       "Thenotify() method causes a thread to immediately release its locks.",
-      "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+      "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
     ],
     "optionsVi": [
       "ThenotifyAll() method must be called from a synchronized context.",
@@ -4919,7 +4919,7 @@ export const scjpChapterQuestions = [
       "Thenotify() method is defined in class java.lang.Thread.",
       "When a thread is waiting as a result ofwait(), it release its locks.",
       "Thenotify() method causes a thread to immediately release its locks.",
-      "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+      "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
     ],
     "answer": [
       0,
@@ -5129,7 +5129,7 @@ export const scjpChapterQuestions = [
     "code": "public class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}",
     "options": [
       "Synchronize the run method.",
-      "Wrap a synchronize(this) around the call tof.increase().;",
+      "Wrap a synchronize(this) around the call to f.increase().",
       "The existing code will not compile.",
       "The existing code will cause a runtime exception.",
       "Put in await() call prior to invoking theincrease() method.",
@@ -5137,7 +5137,7 @@ export const scjpChapterQuestions = [
     ],
     "optionsVi": [
       "Synchronize the run method.",
-      "Wrap a synchronize(this) around the call tof.increase().;",
+      "Wrap a synchronize(this) around the call to f.increase().",
       "The existing code will not compile.",
       "The existing code will cause a runtime exception.",
       "Put in await() call prior to invoking theincrease() method.",
@@ -5237,14 +5237,14 @@ export const scjpRandom20Quiz = {
         "native",
         "subclasses",
         "reference",
-        "array;"
+        "array"
       ],
       "optionsVi": [
         "method",
         "native",
         "subclasses",
         "reference",
-        "array;"
+        "array"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -5263,18 +5263,18 @@ export const scjpRandom20Quiz = {
       "textVi": "Danh sách nào dưới đây CHỈ chứa toàn bộ các từ khóa hợp lệ trong ngôn ngữ Java? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "class,if,void,long,Int,continue",
-        "goto,instanceof,native,finally,default,throws",
-        "try,virtual,throw,final,volatile,transient",
-        "strictfp,constant,super,implements,do",
-        "byte,break,assert,switch,include"
+        "class, if, void, long, Int, continue",
+        "goto, instanceof, native, finally, default, throws",
+        "try, virtual, throw, final, volatile, transient",
+        "strictfp, constant, super, implements, do",
+        "byte, break, assert, switch, include"
       ],
       "optionsVi": [
-        "class,if,void,long,Int,continue",
-        "goto,instanceof,native,finally,default,throws",
-        "try,virtual,throw,final,volatile,transient",
-        "strictfp,constant,super,implements,do",
-        "byte,break,assert,switch,include"
+        "class, if, void, long, Int, continue",
+        "goto, instanceof, native, finally, default, throws",
+        "try, virtual, throw, final, volatile, transient",
+        "strictfp, constant, super, implements, do",
+        "byte, break, assert, switch, include"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -5391,20 +5391,20 @@ export const scjpRandom20Quiz = {
       "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
       "options": [
-        "boolean test = (Componentinstanceoft);",
-        "boolean test = (tinstanceofTicker);",
+        "boolean test = (Component instanceof t);",
+        "boolean test = (t instanceof Ticker);",
         "boolean test = t.instanceof(Ticker);",
-        "boolean test = (tinstanceofComponent);",
+        "boolean test = (t instanceof Component);",
         "boolean test = t.instanceof(Object);",
-        "boolean test = (tinstanceofString);"
+        "boolean test = (t instanceof String);"
       ],
       "optionsVi": [
-        "boolean test = (Componentinstanceoft);",
-        "boolean test = (tinstanceofTicker);",
+        "boolean test = (Component instanceof t);",
+        "boolean test = (t instanceof Ticker);",
         "boolean test = t.instanceof(Ticker);",
-        "boolean test = (tinstanceofComponent);",
+        "boolean test = (t instanceof Component);",
         "boolean test = t.instanceof(Object);",
-        "boolean test = (tinstanceofString);"
+        "boolean test = (t instanceof String);"
       ],
       "answer": [
         1,
@@ -5646,13 +5646,13 @@ export const scjpRandom20Quiz = {
       "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
       "options": [
         "x2.equals(x1)",
-        "x3.hashCode() = = x4.hashCode()",
+        "x3.hashCode() == x4.hashCode()",
         "x5.hashCode() != x6.hashCode()",
         "x8.equals(x7)"
       ],
       "optionsVi": [
         "x2.equals(x1)",
-        "x3.hashCode() = = x4.hashCode()",
+        "x3.hashCode() == x4.hashCode()",
         "x5.hashCode() != x6.hashCode()",
         "x8.equals(x7)"
       ],
@@ -5703,16 +5703,16 @@ export const scjpRandom20Quiz = {
       "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
       "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
       "options": [
-        "MyOuter.MyInnerm= newMyOuter.MyInner();",
-        "MyOuter.MyInnermi= newMyInner();",
-        "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-        "MyInnermi= newMyOuter.MyInner();"
+        "MyOuter.MyInner m = new MyOuter.MyInner();",
+        "MyOuter.MyInner mi = new MyInner();",
+        "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+        "MyInner mi = new MyOuter.MyInner();"
       ],
       "optionsVi": [
-        "MyOuter.MyInnerm= newMyOuter.MyInner();",
-        "MyOuter.MyInnermi= newMyInner();",
-        "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-        "MyInnermi= newMyOuter.MyInner();"
+        "MyOuter.MyInner m = new MyOuter.MyInner();",
+        "MyOuter.MyInner mi = new MyInner();",
+        "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+        "MyInner mi = new MyOuter.MyInner();"
       ],
       "answer": 0,
       "isMultiple": false,
@@ -5734,14 +5734,14 @@ export const scjpRandom20Quiz = {
         "You must have a reference to an instance of the enclosing class in order to instantiate it.",
         "It does not have access to nonstatic members of the enclosing class.",
         "Its variables and methods must be static.",
-        "It can be instantiated usingnewMyOuter.MyInner(); .",
+        "It can be instantiated using new MyOuter.MyInner(); .",
         "It must extend the enclosing class."
       ],
       "optionsVi": [
         "You must have a reference to an instance of the enclosing class in order to instantiate it.",
         "It does not have access to nonstatic members of the enclosing class.",
         "Its variables and methods must be static.",
-        "It can be instantiated usingnewMyOuter.MyInner(); .",
+        "It can be instantiated using new MyOuter.MyInner(); .",
         "It must extend the enclosing class."
       ],
       "answer": [
@@ -5874,14 +5874,14 @@ export const scjpChapterAllQuiz = {
         "native",
         "subclasses",
         "reference",
-        "array;"
+        "array"
       ],
       "optionsVi": [
         "method",
         "native",
         "subclasses",
         "reference",
-        "array;"
+        "array"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -5900,18 +5900,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Danh sách nào dưới đây CHỈ chứa toàn bộ các từ khóa hợp lệ trong ngôn ngữ Java? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "class,if,void,long,Int,continue",
-        "goto,instanceof,native,finally,default,throws",
-        "try,virtual,throw,final,volatile,transient",
-        "strictfp,constant,super,implements,do",
-        "byte,break,assert,switch,include"
+        "class, if, void, long, Int, continue",
+        "goto, instanceof, native, finally, default, throws",
+        "try, virtual, throw, final, volatile, transient",
+        "strictfp, constant, super, implements, do",
+        "byte, break, assert, switch, include"
       ],
       "optionsVi": [
-        "class,if,void,long,Int,continue",
-        "goto,instanceof,native,finally,default,throws",
-        "try,virtual,throw,final,volatile,transient",
-        "strictfp,constant,super,implements,do",
-        "byte,break,assert,switch,include"
+        "class, if, void, long, Int, continue",
+        "goto, instanceof, native, finally, default, throws",
+        "try, virtual, throw, final, volatile, transient",
+        "strictfp, constant, super, implements, do",
+        "byte, break, assert, switch, include"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -5934,14 +5934,14 @@ export const scjpChapterAllQuiz = {
         "unsigned",
         "Float",
         "this",
-        "string;"
+        "string"
       ],
       "optionsVi": [
         "interface",
         "unsigned",
         "Float",
         "this",
-        "string;"
+        "string"
       ],
       "answer": [
         0,
@@ -5965,19 +5965,19 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "char c1 = 064770;",
-        "char c2 = ‘face’;",
+        "char c2 = 'face';",
         "char c3 = 0xbeef;",
         "char c4 = \\u0022;",
-        "char c5 = ‘\\iface’;",
-        "char c6 = ‘\\uface’;"
+        "char c5 = '\\iface';",
+        "char c6 = '\\uface';"
       ],
       "optionsVi": [
         "char c1 = 064770;",
-        "char c2 = ‘face’;",
+        "char c2 = 'face';",
         "char c3 = 0xbeef;",
         "char c4 = \\u0022;",
-        "char c5 = ‘\\iface’;",
-        "char c6 = ‘\\uface’;"
+        "char c5 = '\\iface';",
+        "char c6 = '\\uface';"
       ],
       "answer": [
         0,
@@ -6003,17 +6003,17 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "String s1 = null;",
-        "String s2 = ‘null’;",
-        "String s3 = (String)‘abc’;",
-        "String s4 = (String)‘\\ufeed’;",
-        "String s5 = “stringsrule”;"
+        "String s2 = 'null';",
+        "String s3 = (String)'abc';",
+        "String s4 = (String)'\\ufeed';",
+        "String s5 = \"stringsrule\";"
       ],
       "optionsVi": [
         "String s1 = null;",
-        "String s2 = ‘null’;",
-        "String s3 = (String)‘abc’;",
-        "String s4 = (String)‘\\ufeed’;",
-        "String s5 = “stringsrule”;"
+        "String s2 = 'null';",
+        "String s3 = (String)'abc';",
+        "String s4 = (String)'\\ufeed';",
+        "String s5 = \"stringsrule\";"
       ],
       "answer": [
         0,
@@ -6037,14 +6037,14 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "boolean b1 = 0;",
-        "boolean b2 = ‘false’;",
+        "boolean b2 = 'false';",
         "boolean b3 = false;",
         "boolean b4 = Boolean.false();",
         "boolean b5 = no;"
       ],
       "optionsVi": [
         "boolean b1 = 0;",
-        "boolean b2 = ‘false’;",
+        "boolean b2 = 'false';",
         "boolean b3 = false;",
         "boolean b4 = Boolean.false();",
         "boolean b5 = no;"
@@ -6134,18 +6134,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 3 đáp án)",
       "code": "",
       "options": [
-        "int[]myScores[];",
-        "char[]myChars;",
-        "int[6]myScores;",
-        "DogmyDogs[];",
-        "DogmyDogs[7];"
+        "int[] myScores[];",
+        "char[] myChars;",
+        "int[6] myScores;",
+        "Dog myDogs[];",
+        "Dog myDogs[7];"
       ],
       "optionsVi": [
-        "int[]myScores[];",
-        "char[]myChars;",
-        "int[6]myScores;",
-        "DogmyDogs[];",
-        "DogmyDogs[7];"
+        "int[] myScores[];",
+        "char[] myChars;",
+        "int[6] myScores;",
+        "Dog myDogs[];",
+        "Dog myDogs[7];"
       ],
       "answer": [
         0,
@@ -6202,20 +6202,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 4 đáp án)",
       "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
       "options": [
-        "b2[0][1]= b;",
-        "b[0][0]= b3;",
-        "b2[1][1][0]= b[0][0];",
-        "b2[1][2][0]= b;",
-        "b2[0][1][0][0]= b[0][0];",
-        "b2[0][1]= big;"
+        "b2[0][1] = b;",
+        "b[0][0] = b3;",
+        "b2[1][1][0] = b[0][0];",
+        "b2[1][2][0] = b;",
+        "b2[0][1][0][0] = b[0][0];",
+        "b2[0][1] = big;"
       ],
       "optionsVi": [
-        "b2[0][1]= b;",
-        "b[0][0]= b3;",
-        "b2[1][1][0]= b[0][0];",
-        "b2[1][2][0]= b;",
-        "b2[0][1][0][0]= b[0][0];",
-        "b2[0][1]= big;"
+        "b2[0][1] = b;",
+        "b[0][0] = b3;",
+        "b2[1][1][0] = b[0][0];",
+        "b2[1][2][0] = b;",
+        "b2[0][1][0][0] = b[0][0];",
+        "b2[0][1] = big;"
       ],
       "answer": [
         0,
@@ -6242,20 +6242,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai khai báo nào dưới đây sẽ khai báo một mảng và khởi tạo nó với 5 số? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "Arraya= newArray(5);",
-        "int[]a= {23,22,21,20,19};",
-        "int[]array;",
-        "intarray[]= newint[5];",
-        "inta[]= newint(5);",
-        "int[5]array;"
+        "Array a = new Array(5);",
+        "int[] a = { 23, 22, 21, 20, 19 };",
+        "int[] array;",
+        "int array[] = new int[5];",
+        "int a[] = new int(5);",
+        "int[5] array;"
       ],
       "optionsVi": [
-        "Arraya= newArray(5);",
-        "int[]a= {23,22,21,20,19};",
-        "int[]array;",
-        "intarray[]= newint[5];",
-        "inta[]= newint(5);",
-        "int[5]array;"
+        "Array a = new Array(5);",
+        "int[] a = { 23, 22, 21, 20, 19 };",
+        "int[] array;",
+        "int array[] = new int[5];",
+        "int a[] = new int(5);",
+        "int[5] array;"
       ],
       "answer": [
         1,
@@ -6278,20 +6278,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cú pháp nào dưới đây khai báo, tạo mới (construct) và khởi tạo hợp lệ một mảng? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "int[]myList= {“1”,“2”,“3”};",
-        "int[]myList= (5,8,2);",
-        "intmyList[][]= {4,9,7,0};",
-        "intmyList[]= {4,3,7};",
-        "int[]myList= [3,5,6];",
-        "int myList[] = {4; 6; 5};"
+        "int[] myList = { \"1\",\"2\",\"3\" };",
+        "int[] myList = (5, 8, 2);",
+        "int myList[][] = { 4, 9, 7, 0 };",
+        "int myList[] = { 4, 3, 7 };",
+        "int[] myList= [3, 5, 6];",
+        "int myList[] = { 4; 6; 5 };"
       ],
       "optionsVi": [
-        "int[]myList= {“1”,“2”,“3”};",
-        "int[]myList= (5,8,2);",
-        "intmyList[][]= {4,9,7,0};",
-        "intmyList[]= {4,3,7};",
-        "int[]myList= [3,5,6];",
-        "int myList[] = {4; 6; 5};"
+        "int[] myList = { \"1\",\"2\",\"3\" };",
+        "int[] myList = (5, 8, 2);",
+        "int myList[][] = { 4, 9, 7, 0 };",
+        "int myList[] = { 4, 3, 7 };",
+        "int[] myList= [3, 5, 6];",
+        "int myList[] = { 4; 6; 5 };"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -6311,17 +6311,17 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "int -> 0",
-        "String -> “null”",
+        "String -> \"null\"",
         "Dog -> null",
-        "char -> ‘\\u0000’",
+        "char -> '\\u0000'",
         "float -> 0.0f",
         "boolean -> true"
       ],
       "optionsVi": [
         "int -> 0",
-        "String -> “null”",
+        "String -> \"null\"",
         "Dog -> null",
-        "char -> ‘\\u0000’",
+        "char -> '\\u0000'",
         "float -> 0.0f",
         "boolean -> true"
       ],
@@ -6406,18 +6406,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgs 1 2 3 4\", kết quả in ra là gì? (Chọn 1 đáp án)",
       "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }",
       "options": [
-        "args[2]= 2",
-        "args[2]= 3",
-        "args[2]= null",
-        "args[2]= 1",
+        "args[2] = 2",
+        "args[2] = 3",
+        "args[2] = null",
+        "args[2] = 1",
         "Compilation fails",
         "An exception is thrown at runtime"
       ],
       "optionsVi": [
-        "args[2]= 2",
-        "args[2]= 3",
-        "args[2]= null",
-        "args[2]= 1",
+        "args[2] = 2",
+        "args[2] = 3",
+        "args[2] = null",
+        "args[2] = 1",
         "Compilation fails",
         "An exception is thrown at runtime"
       ],
@@ -6568,7 +6568,7 @@ export const scjpChapterAllQuiz = {
         "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
         "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
         "As long as line 8 exists, class A must declare methodm1() in some way.",
-        "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+        "If line 6 were replaced with'class B extends A{ ' the code would compile.",
         "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
       ],
       "optionsVi": [
@@ -6576,7 +6576,7 @@ export const scjpChapterAllQuiz = {
         "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
         "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
         "As long as line 8 exists, class A must declare methodm1() in some way.",
-        "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+        "If line 6 were replaced with'class B extends A{ ' the code would compile.",
         "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
       ],
       "answer": [
@@ -6602,20 +6602,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai khai báo nào dưới đây là hợp lệ cho các class và interface độc lập ở cấp ngoài cùng (non-nested / top-level)? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "finalabstractclassTest{}",
-        "publicstaticinterfaceTest{}",
-        "finalpublicclassTest{}",
-        "protectedabstractclassTest{}",
-        "protectedinterfaceTest{}",
-        "abstractpublicclassTest{}"
+        "final abstract class Test {}",
+        "public static interface Test {}",
+        "final public class Test {}",
+        "protected abstract class Test {}",
+        "protected interface Test {}",
+        "abstract public class Test {}"
       ],
       "optionsVi": [
-        "finalabstractclassTest{}",
-        "publicstaticinterfaceTest{}",
-        "finalpublicclassTest{}",
-        "protectedabstractclassTest{}",
-        "protectedinterfaceTest{}",
-        "abstractpublicclassTest{}"
+        "final abstract class Test {}",
+        "public static interface Test {}",
+        "final public class Test {}",
+        "protected abstract class Test {}",
+        "protected interface Test {}",
+        "abstract public class Test {}"
       ],
       "answer": [
         2,
@@ -6674,14 +6674,14 @@ export const scjpChapterAllQuiz = {
         "If line 8 is removed, the code will compile and run.",
         "If line 10 is removed, the code will compile and run.",
         "Both lines 8 and 10 must be removed for the code to compile.",
-        "An exception is thrown at runtime. Declaration Rules (;"
+        "An exception is thrown at runtime."
       ],
       "optionsVi": [
         "The code compiles and runs, with outputthis420parent420 .",
         "If line 8 is removed, the code will compile and run.",
         "If line 10 is removed, the code will compile and run.",
         "Both lines 8 and 10 must be removed for the code to compile.",
-        "An exception is thrown at runtime. Declaration Rules (;"
+        "An exception is thrown at runtime."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -6765,17 +6765,17 @@ export const scjpChapterAllQuiz = {
       "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
       "options": [
         "No statement is required",
-        "importjava.util.*;",
+        "import java.util.*;",
         "import.java.util.Tree*;",
-        "importjava.util.TreeSet;",
-        "importjava.util.TreeMap;"
+        "import java.util.TreeSet;",
+        "import java.util.TreeMap;"
       ],
       "optionsVi": [
         "No statement is required",
-        "importjava.util.*;",
+        "import java.util.*;",
         "import.java.util.Tree*;",
-        "importjava.util.TreeSet;",
-        "importjava.util.TreeMap;"
+        "import java.util.TreeSet;",
+        "import java.util.TreeMap;"
       ],
       "answer": [
         1,
@@ -6798,20 +6798,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai khai báo nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "publicstaticshortstop= 23;",
-        "protectedshortstop= 23;",
-        "transientshortstop= 23;",
-        "finalvoidmadness(shortstop);",
-        "publicBooleanmadness(longbow);",
-        "staticcharmadness(doubleduty);"
+        "public static short stop = 23;",
+        "protected short stop = 23;",
+        "transient short stop = 23;",
+        "final void madness(short stop);",
+        "public Boolean madness(long bow);",
+        "static char madness(double duty);"
       ],
       "optionsVi": [
-        "publicstaticshortstop= 23;",
-        "protectedshortstop= 23;",
-        "transientshortstop= 23;",
-        "finalvoidmadness(shortstop);",
-        "publicBooleanmadness(longbow);",
-        "staticcharmadness(doubleduty);"
+        "public static short stop = 23;",
+        "protected short stop = 23;",
+        "transient short stop = 23;",
+        "final void madness(short stop);",
+        "public Boolean madness(long bow);",
+        "static char madness(double duty);"
       ],
       "answer": [
         0,
@@ -6834,18 +6834,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Khai báo biến ở cấp độ lớp (biến non-local / biến toàn cục của class) nào dưới đây sẽ KHÔNG THỂ biên dịch? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "protectedinta;",
-        "transientintb= 3;",
-        "publicstaticfinalintc;",
-        "volatileintd;",
-        "privatesynchronizedinte;"
+        "protected int a;",
+        "transient int b = 3;",
+        "public static final int c;",
+        "volatile int d;",
+        "private synchronized int e;"
       ],
       "optionsVi": [
-        "protectedinta;",
-        "transientintb= 3;",
-        "publicstaticfinalintc;",
-        "volatileintd;",
-        "privatesynchronizedinte;"
+        "protected int a;",
+        "transient int b = 3;",
+        "public static final int c;",
+        "volatile int d;",
+        "private synchronized int e;"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6864,18 +6864,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi chèn vào dòng 7 và 8 sẽ biên dịch thành công? (Chọn 2 đáp án)",
       "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
       "options": [
-        "classAllMathextendsDoMath{ doublegetArea(intr);}",
-        "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
-        "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
-        "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
-        "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+        "class AllMath extends DoMath { double getArea(int r); }",
+        "interface AllMath implements MathPlus { double getVol(int x, int y); }",
+        "interface AllMath extends DoMath { float getAvg(int h, int l); }",
+        "class AllMath implements MathPlus { double getArea(int rad); }",
+        "abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }"
       ],
       "optionsVi": [
-        "classAllMathextendsDoMath{ doublegetArea(intr);}",
-        "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
-        "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
-        "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
-        "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+        "class AllMath extends DoMath { double getArea(int r); }",
+        "interface AllMath implements MathPlus { double getVol(int x, int y); }",
+        "interface AllMath extends DoMath { float getAvg(int h, int l); }",
+        "class AllMath implements MathPlus { double getArea(int rad); }",
+        "abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }"
       ],
       "answer": [
         2,
@@ -6898,18 +6898,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 3 đáp án)",
       "code": "",
       "options": [
-        "privateintgetArea();",
-        "publicfloatgetVol(floatx);",
-        "publicvoidmain(String[]args);",
-        "publicstaticvoidmain(String[]args);",
-        "booleansetFlag(Boolean[]test[]);"
+        "private int getArea();",
+        "public float getVol(float x);",
+        "public void main(String[] args);",
+        "public static void main(String[] args);",
+        "boolean setFlag(Boolean[] test[]);"
       ],
       "optionsVi": [
-        "privateintgetArea();",
-        "publicfloatgetVol(floatx);",
-        "publicvoidmain(String[]args);",
-        "publicstaticvoidmain(String[]args);",
-        "booleansetFlag(Boolean[]test[]);"
+        "private int getArea();",
+        "public float getVol(float x);",
+        "public void main(String[] args);",
+        "public static void main(String[] args);",
+        "boolean setFlag(Boolean[] test[]);"
       ],
       "answer": [
         1,
@@ -6934,19 +6934,19 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào dưới đây là ĐÚNG đối với bất kỳ một concrete class (lớp cụ thể) nào implement interface java.lang.Runnable? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "You can extend theRunnable interface as long as you override thepublicrun() method.",
+        "You can extend the Runnable interface as long as you override the public run() method.",
         "The class must contain a method calledrun() from which all code for that thread will be initiated.",
         "The class must contain an emptypublicvoid method namedrun().",
         "The class must contain apublicvoid method namedrunnable().",
-        "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+        "The class definition must include the words implements Threads and contain a method calledrun().",
         "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
       ],
       "optionsVi": [
-        "You can extend theRunnable interface as long as you override thepublicrun() method.",
+        "You can extend the Runnable interface as long as you override the public run() method.",
         "The class must contain a method calledrun() from which all code for that thread will be initiated.",
         "The class must contain an emptypublicvoid method namedrun().",
         "The class must contain apublicvoid method namedrunnable().",
-        "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+        "The class definition must include the words implements Threads and contain a method calledrun().",
         "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
       ],
       "answer": [
@@ -6970,18 +6970,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi biên dịch độc lập sẽ biên dịch thành công? (Chọn 2 đáp án)",
       "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
       "options": [
-        "interfaceBase2implementsBase{}",
-        "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
-        "abstractclassClass2implementsBase{}",
-        "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-        "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
+        "interface Base2 implements Base {}",
+        "abstract class Class2 extends Base { public boolean m1() { return true; } }",
+        "abstract class Class2 implements Base {}",
+        "abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }",
+        "class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }"
       ],
       "optionsVi": [
-        "interfaceBase2implementsBase{}",
-        "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
-        "abstractclassClass2implementsBase{}",
-        "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-        "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
+        "interface Base2 implements Base {}",
+        "abstract class Class2 extends Base { public boolean m1() { return true; } }",
+        "abstract class Class2 implements Base {}",
+        "abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }",
+        "class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }"
       ],
       "answer": [
         2,
@@ -7040,20 +7040,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
       "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
       "options": [
-        "boolean test = (Componentinstanceoft);",
-        "boolean test = (tinstanceofTicker);",
+        "boolean test = (Component instanceof t);",
+        "boolean test = (t instanceof Ticker);",
         "boolean test = t.instanceof(Ticker);",
-        "boolean test = (tinstanceofComponent);",
+        "boolean test = (t instanceof Component);",
         "boolean test = t.instanceof(Object);",
-        "boolean test = (tinstanceofString);"
+        "boolean test = (t instanceof String);"
       ],
       "optionsVi": [
-        "boolean test = (Componentinstanceoft);",
-        "boolean test = (tinstanceofTicker);",
+        "boolean test = (Component instanceof t);",
+        "boolean test = (t instanceof Ticker);",
         "boolean test = t.instanceof(Ticker);",
-        "boolean test = (tinstanceofComponent);",
+        "boolean test = (t instanceof Component);",
         "boolean test = t.instanceof(Object);",
-        "boolean test = (tinstanceofString);"
+        "boolean test = (t instanceof String);"
       ],
       "answer": [
         1,
@@ -7104,18 +7104,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba) (Chọn 3 đáp án)",
       "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
       "options": [
-        "f1= =f2",
-        "f1= =f3",
-        "f2= =f1[1]",
-        "x= =f1[0]",
-        "f= =f1[0]"
+        "f1 == f2",
+        "f1 == f3",
+        "f2 == f1[1]",
+        "x == f1[0]",
+        "f == f1[0]"
       ],
       "optionsVi": [
-        "f1= =f2",
-        "f1= =f3",
-        "f2= =f1[1]",
-        "x= =f1[0]",
-        "f= =f1[0]"
+        "f1 == f2",
+        "f1 == f3",
+        "f2 == f1[1]",
+        "x == f1[0]",
+        "f == f1[0]"
       ],
       "answer": [
         1,
@@ -7360,20 +7360,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
       "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
       "options": [
-        "count= 0",
-        "count= 2",
-        "count= 3",
-        "count= 4",
-        "count= 10",
-        "count= 11 Passing Variables into Methods (;"
+        "count = 0",
+        "count = 2",
+        "count = 3",
+        "count = 4",
+        "count = 10",
+        "count = 11"
       ],
       "optionsVi": [
-        "count= 0",
-        "count= 2",
-        "count= 3",
-        "count= 4",
-        "count= 10",
-        "count= 11 Passing Variables into Methods (;"
+        "count = 0",
+        "count = 2",
+        "count = 3",
+        "count = 4",
+        "count = 10",
+        "count = 11"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7461,7 +7461,7 @@ export const scjpChapterAllQuiz = {
         "streamslipstream",
         "slipstreamslipstream",
         "Compilation fails",
-        "An exception is thrown at runtime;"
+        "An exception is thrown at runtime"
       ],
       "optionsVi": [
         "slipstream",
@@ -7469,7 +7469,7 @@ export const scjpChapterAllQuiz = {
         "streamslipstream",
         "slipstreamslipstream",
         "Compilation fails",
-        "An exception is thrown at runtime;"
+        "An exception is thrown at runtime"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7651,7 +7651,7 @@ export const scjpChapterAllQuiz = {
         "50",
         "51",
         "Compiler fails at line 5.",
-        "Compiler fails at line 6.;"
+        "Compiler fails at line 6."
       ],
       "optionsVi": [
         "41",
@@ -7659,7 +7659,7 @@ export const scjpChapterAllQuiz = {
         "50",
         "51",
         "Compiler fails at line 5.",
-        "Compiler fails at line 6.;"
+        "Compiler fails at line 6."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7715,7 +7715,7 @@ export const scjpChapterAllQuiz = {
         "101",
         "111",
         "1001",
-        "1101 Flow Control (loops) (;"
+        "1101"
       ],
       "optionsVi": [
         "0",
@@ -7723,7 +7723,7 @@ export const scjpChapterAllQuiz = {
         "101",
         "111",
         "1001",
-        "1101 Flow Control (loops) (;"
+        "1101"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7869,13 +7869,13 @@ export const scjpChapterAllQuiz = {
         "I is 0",
         "I is 0 I is 1",
         "Compilation fails.",
-        "None of the above Exceptions (;"
+        "None of the above"
       ],
       "optionsVi": [
         "I is 0",
         "I is 0 I is 1",
         "Compilation fails.",
-        "None of the above Exceptions (;"
+        "None of the above"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7980,13 +7980,13 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy? (Chọn 1 đáp án)",
       "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
       "options": [
-        "The program will not compile.;",
+        "The program will not compile.",
         "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
         "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
         "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
       ],
       "optionsVi": [
-        "The program will not compile.;",
+        "The program will not compile.",
         "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
         "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
         "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
@@ -8042,13 +8042,13 @@ export const scjpChapterAllQuiz = {
       "options": [
         "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
         "If a switch block has no default, adding an assert default is considered appropriate.",
-        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
         "It is appropriate to handle assertion failures using acatch clause."
       ],
       "optionsVi": [
         "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
         "If a switch block has no default, adding an assert default is considered appropriate.",
-        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
         "It is appropriate to handle assertion failures using acatch clause."
       ],
       "answer": 1,
@@ -8134,14 +8134,14 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+        "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
         "As of Java version 1.4, assertion statements are compiled by default.",
         "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
         "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
         "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
       ],
       "optionsVi": [
-        "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+        "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
         "As of Java version 1.4, assertion statements are compiled by default.",
         "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
         "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
@@ -8449,16 +8449,16 @@ export const scjpChapterAllQuiz = {
       "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
       "options": [
         "public int doStuff(int x, float y) { return 4; }",
-        "protected int doStuff(int x, float y) {return 4; }",
-        "private int doStuff(int x, float y) {return 4; }",
+        "protected int doStuff(int x, float y) { return 4; }",
+        "private int doStuff(int x, float y) { return 4; }",
         "private int doStuff(int x, double y) { return 4; }",
         "long doStuff(int x, float y) { return 4; }",
         "int doStuff(float x, int y) { return 4; };"
       ],
       "optionsVi": [
         "public int doStuff(int x, float y) { return 4; }",
-        "protected int doStuff(int x, float y) {return 4; }",
-        "private int doStuff(int x, float y) {return 4; }",
+        "protected int doStuff(int x, float y) { return 4; }",
+        "private int doStuff(int x, float y) { return 4; }",
         "private int doStuff(int x, double y) { return 4; }",
         "long doStuff(int x, float y) { return 4; }",
         "int doStuff(float x, int y) { return 4; };"
@@ -8675,13 +8675,13 @@ export const scjpChapterAllQuiz = {
         "Constructors must not have arguments if the superclass constructor does not have arguments.",
         "Constructors are not inherited.",
         "Constructors cannot be overloaded.",
-        "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
+        "The first statement of every constructor is a legal call to the super() or this() method."
       ],
       "optionsVi": [
         "Constructors must not have arguments if the superclass constructor does not have arguments.",
         "Constructors are not inherited.",
         "Constructors cannot be overloaded.",
-        "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
+        "The first statement of every constructor is a legal call to the super() or this() method."
       ],
       "answer": [
         1,
@@ -8739,7 +8739,7 @@ export const scjpChapterAllQuiz = {
         "return (long) y;",
         "return (int) 3.14d;",
         "return ( y / x );",
-        "return  x / 7;"
+        "return x / 7;"
       ],
       "optionsVi": [
         "return x;",
@@ -8747,7 +8747,7 @@ export const scjpChapterAllQuiz = {
         "return (long) y;",
         "return (int) 3.14d;",
         "return ( y / x );",
-        "return  x / 7;"
+        "return x / 7;"
       ],
       "answer": [
         1,
@@ -8808,7 +8808,7 @@ export const scjpChapterAllQuiz = {
       "options": [
         "char [] [] c = new char [2][2]; return c;",
         "return (Object) 7;",
-        "return (Object) (new int [] {1,2,3} );",
+        "return (Object) (new int [] { 1, 2, 3 } );",
         "ArrayList a = new ArrayList(); return a;",
         "return (Object) \"test\";",
         "return (Float) 4.3;"
@@ -8816,7 +8816,7 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "char [] [] c = new char [2][2]; return c;",
         "return (Object) 7;",
-        "return (Object) (new int [] {1,2,3} );",
+        "return (Object) (new int [] { 1, 2, 3 } );",
         "ArrayList a = new ArrayList(); return a;",
         "return (Object) \"test\";",
         "return (Float) 4.3;"
@@ -9001,7 +9001,7 @@ export const scjpChapterAllQuiz = {
         "wbookkeewoo",
         "wbookkeeperwoo",
         "Compilation fails.",
-        "An exception is thrown at runtime. Using the java.lang.Math Class (;"
+        "An exception is thrown at runtime."
       ],
       "optionsVi": [
         "wookkeewoo",
@@ -9009,7 +9009,7 @@ export const scjpChapterAllQuiz = {
         "wbookkeewoo",
         "wbookkeeperwoo",
         "Compilation fails.",
-        "An exception is thrown at runtime. Using the java.lang.Math Class (;"
+        "An exception is thrown at runtime."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -9058,15 +9058,15 @@ export const scjpChapterAllQuiz = {
       "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng) (Chọn 3 đáp án)",
       "code": "",
       "options": [
-        "Math.max(1,4)",
-        "Math.max(2.3,5)",
-        "Math.max(1,3,5,7)",
+        "Math.max(1, 4)",
+        "Math.max(2.3, 5)",
+        "Math.max(1, 3, 5, 7)",
         "Math.max(-1.5,-2.8f)"
       ],
       "optionsVi": [
-        "Math.max(1,4)",
-        "Math.max(2.3,5)",
-        "Math.max(1,3,5,7)",
+        "Math.max(1, 4)",
+        "Math.max(2.3, 5)",
+        "Math.max(1, 3, 5, 7)",
         "Math.max(-1.5,-2.8f)"
       ],
       "answer": [
@@ -9163,7 +9163,7 @@ export const scjpChapterAllQuiz = {
         "Line 5",
         "Line 6",
         "Line 3 and either line 4, 5, or 6",
-        "None of the above Using Wrapper Classes (;"
+        "None of the above"
       ],
       "optionsVi": [
         "Line 3",
@@ -9171,7 +9171,7 @@ export const scjpChapterAllQuiz = {
         "Line 5",
         "Line 6",
         "Line 3 and either line 4, 5, or 6",
-        "None of the above Using Wrapper Classes (;"
+        "None of the above"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9292,7 +9292,7 @@ export const scjpChapterAllQuiz = {
       "options": [
         "float f1 = Float.floatValue(s);",
         "float f2 = Float.valueOf(s);",
-        "float f3 = newFloat(3.14f).floatValue();",
+        "float f3 = new Float(3.14f).floatValue();",
         "float f4 = Float.parseFloat(1.23f);",
         "float f5 = Float.valueOf(s).floatValue();",
         "float f6 = (float)Double.parseDouble(\"3.14\");"
@@ -9300,7 +9300,7 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "float f1 = Float.floatValue(s);",
         "float f2 = Float.valueOf(s);",
-        "float f3 = newFloat(3.14f).floatValue();",
+        "float f3 = new Float(3.14f).floatValue();",
         "float f4 = Float.parseFloat(1.23f);",
         "float f5 = Float.valueOf(s).floatValue();",
         "float f6 = (float)Double.parseDouble(\"3.14\");"
@@ -9333,7 +9333,7 @@ export const scjpChapterAllQuiz = {
         "Compilation fails on line 13.",
         "Compilation fails on line 14.",
         "Compilation fails on lines 13 and 14.",
-        "An uncaught exception is thrown at runtime.;"
+        "An uncaught exception is thrown at runtime."
       ],
       "optionsVi": [
         "9.0",
@@ -9341,7 +9341,7 @@ export const scjpChapterAllQuiz = {
         "Compilation fails on line 13.",
         "Compilation fails on line 14.",
         "Compilation fails on lines 13 and 14.",
-        "An uncaught exception is thrown at runtime.;"
+        "An uncaught exception is thrown at runtime."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -9360,20 +9360,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
       "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
       "options": [
-        "result= 1",
-        "result= 10",
-        "result= 11",
-        "result= 11010",
-        "result= 11011",
-        "result= 11111"
+        "result = 1",
+        "result = 10",
+        "result = 11",
+        "result = 11010",
+        "result = 11011",
+        "result = 11111"
       ],
       "optionsVi": [
-        "result= 1",
-        "result= 10",
-        "result= 11",
-        "result= 11010",
-        "result= 11011",
-        "result= 11111"
+        "result = 1",
+        "result = 10",
+        "result = 11",
+        "result = 11010",
+        "result = 11011",
+        "result = 11111"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -9455,17 +9455,17 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-        "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
-        "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
-        "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-        "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
+        "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
+        "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
+        "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
+        "If x and y are String references and x == y is true, theny.equals(x) will be true."
       ],
       "optionsVi": [
         "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-        "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
-        "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
-        "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-        "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
+        "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
+        "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
+        "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
+        "If x and y are String references and x == y is true, theny.equals(x) will be true."
       ],
       "answer": [
         3,
@@ -9489,13 +9489,13 @@ export const scjpChapterAllQuiz = {
       "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
       "options": [
         "x2.equals(x1)",
-        "x3.hashCode() = = x4.hashCode()",
+        "x3.hashCode() == x4.hashCode()",
         "x5.hashCode() != x6.hashCode()",
         "x8.equals(x7)"
       ],
       "optionsVi": [
         "x2.equals(x1)",
-        "x3.hashCode() = = x4.hashCode()",
+        "x3.hashCode() == x4.hashCode()",
         "x5.hashCode() != x6.hashCode()",
         "x8.equals(x7)"
       ],
@@ -9546,18 +9546,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào sau đây là ĐÚNG khi so sánh hai đối tượng cùng một lớp, với điều kiện các phương thức equals() và hashCode() đã được ghi đè đúng chuẩn hợp đồng? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
-        "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-        "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
-        "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
-        "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+        "If the equals() method return s true, the hashCode() comparison == must return true.",
+        "If the equals() method return s false, the hashCode() comparison != must return true.",
+        "If the hashCode() comparison == return s true, the equals() method must return true.",
+        "If the hashCode() comparison == return s true, the equals() method might return true.",
+        "If the hashCode() comparison != return s true, the equals() method might return true."
       ],
       "optionsVi": [
-        "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
-        "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-        "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
-        "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
-        "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+        "If the equals() method return s true, the hashCode() comparison == must return true.",
+        "If the equals() method return s false, the hashCode() comparison != must return true.",
+        "If the hashCode() comparison == return s true, the equals() method must return true.",
+        "If the hashCode() comparison == return s true, the equals() method might return true.",
+        "If the hashCode() comparison != return s true, the equals() method might return true."
       ],
       "answer": [
         0,
@@ -9610,18 +9610,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "hashCode() doesn’t have to be overridden ifequals() is.",
-        "equals() doesn’t have to be overridden ifhashCode() is.",
+        "hashCode() doesn't have to be overridden ifequals() is.",
+        "equals() doesn't have to be overridden ifhashCode() is.",
         "hashCode() can always return the same value, regardless of the object that invoked it.",
-        "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-        "equals() can be true even if it’s comparing different objects.;"
+        "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+        "equals() can be true even if it's comparing different objects."
       ],
       "optionsVi": [
-        "hashCode() doesn’t have to be overridden ifequals() is.",
-        "equals() doesn’t have to be overridden ifhashCode() is.",
+        "hashCode() doesn't have to be overridden ifequals() is.",
+        "equals() doesn't have to be overridden ifhashCode() is.",
         "hashCode() can always return the same value, regardless of the object that invoked it.",
-        "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-        "equals() can be true even if it’s comparing different objects.;"
+        "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+        "equals() can be true even if it's comparing different objects."
       ],
       "answer": [
         2,
@@ -9709,7 +9709,7 @@ export const scjpChapterAllQuiz = {
         "four one three two",
         "one two three four one",
         "one four three two one",
-        "The print order is not guaranteed.;"
+        "The print order is not guaranteed."
       ],
       "optionsVi": [
         "one two three four",
@@ -9717,7 +9717,7 @@ export const scjpChapterAllQuiz = {
         "four one three two",
         "one two three four one",
         "one four three two one",
-        "The print order is not guaranteed.;"
+        "The print order is not guaranteed."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9741,7 +9741,7 @@ export const scjpChapterAllQuiz = {
         "java.util.HashMap",
         "java.util.TreeMap",
         "java.util.LinkedHashSet",
-        "java.util.TreeSet Garbage Collection (;"
+        "java.util.TreeSet"
       ],
       "optionsVi": [
         "java.util.ArrayList",
@@ -9749,7 +9749,7 @@ export const scjpChapterAllQuiz = {
         "java.util.HashMap",
         "java.util.TreeMap",
         "java.util.LinkedHashSet",
-        "java.util.TreeSet Garbage Collection (;"
+        "java.util.TreeSet"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -9860,14 +9860,14 @@ export const scjpChapterAllQuiz = {
       "options": [
         "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
         "The garbage collector uses a mark and sweep algorithm.",
-        "If an object can be accessed from a live thread, it can’t be garbage collected.",
-        "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+        "If an object can be accessed from a live thread, it can't be garbage collected.",
+        "If object 1 refers to object 2, then object 2 can't be garbage collected."
       ],
       "optionsVi": [
         "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
         "The garbage collector uses a mark and sweep algorithm.",
-        "If an object can be accessed from a live thread, it can’t be garbage collected.",
-        "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+        "If an object can be accessed from a live thread, it can't be garbage collected.",
+        "If object 1 refers to object 2, then object 2 can't be garbage collected."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9950,16 +9950,16 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
       "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
       "options": [
-        "MyOuter.MyInnerm= newMyOuter.MyInner();",
-        "MyOuter.MyInnermi= newMyInner();",
-        "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-        "MyInnermi= newMyOuter.MyInner();"
+        "MyOuter.MyInner m = new MyOuter.MyInner();",
+        "MyOuter.MyInner mi = new MyInner();",
+        "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+        "MyInner mi = new MyOuter.MyInner();"
       ],
       "optionsVi": [
-        "MyOuter.MyInnerm= newMyOuter.MyInner();",
-        "MyOuter.MyInnermi= newMyInner();",
-        "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-        "MyInnermi= newMyOuter.MyInner();"
+        "MyOuter.MyInner m = new MyOuter.MyInner();",
+        "MyOuter.MyInner mi = new MyInner();",
+        "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+        "MyInner mi = new MyOuter.MyInner();"
       ],
       "answer": 0,
       "isMultiple": false,
@@ -9981,14 +9981,14 @@ export const scjpChapterAllQuiz = {
         "You must have a reference to an instance of the enclosing class in order to instantiate it.",
         "It does not have access to nonstatic members of the enclosing class.",
         "Its variables and methods must be static.",
-        "It can be instantiated usingnewMyOuter.MyInner(); .",
+        "It can be instantiated using new MyOuter.MyInner(); .",
         "It must extend the enclosing class."
       ],
       "optionsVi": [
         "You must have a reference to an instance of the enclosing class in order to instantiate it.",
         "It does not have access to nonstatic members of the enclosing class.",
         "Its variables and methods must be static.",
-        "It can be instantiated usingnewMyOuter.MyInner(); .",
+        "It can be instantiated using new MyOuter.MyInner(); .",
         "It must extend the enclosing class."
       ],
       "answer": [
@@ -10012,20 +10012,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "Runnabler= newRunnable(){};",
-        "Runnabler= newRunnable(publicvoidrun(){});",
-        "Runnabler= newRunnable{publicvoidrun(){}};",
-        "Runnabler= newRunnable(){publicvoidrun{}};",
-        "System.out.println(newRunnable() {publicvoidrun(){}});",
-        "System.out.println(newRunnable(publicvoidrun(){}));"
+        "Runnable r = new Runnable() {};",
+        "Runnable r = new Runnable(public void run() {});",
+        "Runnable r = new Runnable { public void run() {} };",
+        "Runnable r = new Runnable() { public void run {} };",
+        "System.out.println(new Runnable() { public void run() {} });",
+        "System.out.println(new Runnable(public void run() {}));"
       ],
       "optionsVi": [
-        "Runnabler= newRunnable(){};",
-        "Runnabler= newRunnable(publicvoidrun(){});",
-        "Runnabler= newRunnable{publicvoidrun(){}};",
-        "Runnabler= newRunnable(){publicvoidrun{}};",
-        "System.out.println(newRunnable() {publicvoidrun(){}});",
-        "System.out.println(newRunnable(publicvoidrun(){}));"
+        "Runnable r = new Runnable() {};",
+        "Runnable r = new Runnable(public void run() {});",
+        "Runnable r = new Runnable { public void run() {} };",
+        "Runnable r = new Runnable() { public void run {} };",
+        "System.out.println(new Runnable() { public void run() {} });",
+        "System.out.println(new Runnable(public void run() {}));"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -10044,18 +10044,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau:\nclass Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // chèn mã tại đây\n  }\n}\nHai câu lệnh nào dưới đây sẽ tạo một lớp nội danh ẩn danh (anonymous inner class) hợp lệ từ bên trong lớp Bar? (Chọn 2 đáp án)",
       "code": "class Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // insert code here\n  }\n}",
       "options": [
-        "Boof= newBoo(24){};",
-        "Boof= newBar(){};",
-        "Boof= newBoo(){Strings;};",
-        "Barf= newBoo(Strings){};",
-        "Boof= newBoo.Bar(Strings){};"
+        "Boo f = new Boo(24) {};",
+        "Boo f = new Bar() {};",
+        "Boo f = new Boo() { String s; };",
+        "Bar f = new Boo(String s) {};",
+        "Boo f = new Boo.Bar(String s) {};"
       ],
       "optionsVi": [
-        "Boof= newBoo(24){};",
-        "Boof= newBar(){};",
-        "Boof= newBoo(){Strings;};",
-        "Barf= newBoo(Strings){};",
-        "Boof= newBoo.Bar(Strings){};"
+        "Boo f = new Boo(24) {};",
+        "Boo f = new Bar() {};",
+        "Boo f = new Boo() { String s; };",
+        "Bar f = new Boo(String s) {};",
+        "Boo f = new Boo.Bar(String s) {};"
       ],
       "answer": [
         1,
@@ -10078,18 +10078,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar? (Chọn 1 đáp án)",
       "code": "1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }",
       "options": [
-        "Foo.Barb= newFoo.Bar();",
-        "Foo.Barb= f.newBar();",
-        "Barb= newf.Bar();",
-        "Barb= f.newBar();",
-        "Foo.Barb= newf.Bar();"
+        "Foo.Bar b = new Foo.Bar();",
+        "Foo.Bar b = f.new Bar();",
+        "Bar b = new f.Bar();",
+        "Bar b = f.new Bar();",
+        "Foo.Bar b = new f.Bar();"
       ],
       "optionsVi": [
-        "Foo.Barb= newFoo.Bar();",
-        "Foo.Barb= f.newBar();",
-        "Barb= newf.Bar();",
-        "Barb= f.newBar();",
-        "Foo.Barb= newf.Bar();"
+        "Foo.Bar b = new Foo.Bar();",
+        "Foo.Bar b = f.new Bar();",
+        "Bar b = new f.Bar();",
+        "Bar b = f.new Bar();",
+        "Foo.Bar b = new f.Bar();"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -10302,14 +10302,14 @@ export const scjpChapterAllQuiz = {
         "4538",
         "4557",
         "An exception occurs at runtime.",
-        "Compilation fails.;"
+        "Compilation fails."
       ],
       "optionsVi": [
         "5722",
         "4538",
         "4557",
         "An exception occurs at runtime.",
-        "Compilation fails.;"
+        "Compilation fails."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -10392,18 +10392,18 @@ export const scjpChapterAllQuiz = {
       "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công? (Chọn 1 đáp án)",
       "code": "Runnable target = new MyRunnable();\nThread myThread = new Thread(target);",
       "options": [
-        "public class MyRunnable extends Runnable{public void run(){}}",
-        "public class MyRunnable extends Object{public void run(){}}",
-        "public class MyRunnable implements Runnable{public void run(){}}",
-        "public class MyRunnable implements Runnable{void run(){}}",
-        "public class MyRunnable implements Runnable{public void start(){}}"
+        "public class MyRunnable extends Runnable { public void run() {} }",
+        "public class MyRunnable extends Object { public void run() {} }",
+        "public class MyRunnable implements Runnable { public void run() {} }",
+        "public class MyRunnable implements Runnable { void run() {} }",
+        "public class MyRunnable implements Runnable { public void start() {} }"
       ],
       "optionsVi": [
-        "public class MyRunnable extends Runnable{public void run(){}}",
-        "public class MyRunnable extends Object{public void run(){}}",
-        "public class MyRunnable implements Runnable{public void run(){}}",
-        "public class MyRunnable implements Runnable{void run(){}}",
-        "public class MyRunnable implements Runnable{public void start(){}}"
+        "public class MyRunnable extends Runnable { public void run() {} }",
+        "public class MyRunnable extends Object { public void run() {} }",
+        "public class MyRunnable implements Runnable { public void run() {} }",
+        "public class MyRunnable implements Runnable { void run() {} }",
+        "public class MyRunnable implements Runnable { public void start() {} }"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -10536,20 +10536,20 @@ export const scjpChapterAllQuiz = {
       "textVi": "Giả sử bạn có một lớp lưu trữ hai biến thành viên private: a và b. Cặp phương thức nào dưới đây có thể ngăn chặn sự cố tranh chấp truy cập đồng thời (concurrent access / race condition) trong lớp đó? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
-        "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
-        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
-        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
-        "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
-        "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
+        "public int read(int a, int b) { return a + b; } public void set(int a, int b) { this.a = a; this.b = b; }",
+        "public synchronized int read(int a, int b) { return a + b; } public synchronized void set(int a, int b) { this.a = a; this.b = b; }",
+        "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(a) { this.a = a; this.b = b; } }",
+        "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(b) { this.a = a; this.b = b; } }",
+        "public synchronized(this) int read(int a, int b) { return a + b; } public synchronized(this) void set(int a, int b) { this.a = a; this.b = b; }",
+        "public int read(int a, int b) { synchronized(this) { return a + b; } } public void set(int a, int b) { synchronized(this) { this.a = a; this.b = b; } }"
       ],
       "optionsVi": [
-        "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
-        "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
-        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
-        "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
-        "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
-        "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
+        "public int read(int a, int b) { return a + b; } public void set(int a, int b) { this.a = a; this.b = b; }",
+        "public synchronized int read(int a, int b) { return a + b; } public synchronized void set(int a, int b) { this.a = a; this.b = b; }",
+        "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(a) { this.a = a; this.b = b; } }",
+        "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(b) { this.a = a; this.b = b; } }",
+        "public synchronized(this) int read(int a, int b) { return a + b; } public synchronized(this) void set(int a, int b) { this.a = a; this.b = b; }",
+        "public int read(int a, int b) { synchronized(this) { return a + b; } } public void set(int a, int b) { synchronized(this) { this.a = a; this.b = b; } }"
       ],
       "answer": [
         1,
@@ -10601,14 +10601,14 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "A static method cannot be synchronized.",
-        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
+        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
         "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
         "When a thread sleeps, it releases its locks.",
         "When a thread invokeswait(), it releases its locks."
       ],
       "optionsVi": [
         "A static method cannot be synchronized.",
-        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
+        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
         "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
         "When a thread sleeps, it releases its locks.",
         "When a thread invokeswait(), it releases its locks."
@@ -10741,7 +10741,7 @@ export const scjpChapterAllQuiz = {
         "Thenotify() method is defined in class java.lang.Thread.",
         "When a thread is waiting as a result ofwait(), it release its locks.",
         "Thenotify() method causes a thread to immediately release its locks.",
-        "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+        "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
       ],
       "optionsVi": [
         "ThenotifyAll() method must be called from a synchronized context.",
@@ -10749,7 +10749,7 @@ export const scjpChapterAllQuiz = {
         "Thenotify() method is defined in class java.lang.Thread.",
         "When a thread is waiting as a result ofwait(), it release its locks.",
         "Thenotify() method causes a thread to immediately release its locks.",
-        "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+        "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
       ],
       "answer": [
         0,
@@ -10959,7 +10959,7 @@ export const scjpChapterAllQuiz = {
       "code": "public class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}",
       "options": [
         "Synchronize the run method.",
-        "Wrap a synchronize(this) around the call tof.increase().;",
+        "Wrap a synchronize(this) around the call to f.increase().",
         "The existing code will not compile.",
         "The existing code will cause a runtime exception.",
         "Put in await() call prior to invoking theincrease() method.",
@@ -10967,7 +10967,7 @@ export const scjpChapterAllQuiz = {
       ],
       "optionsVi": [
         "Synchronize the run method.",
-        "Wrap a synchronize(this) around the call tof.increase().;",
+        "Wrap a synchronize(this) around the call to f.increase().",
         "The existing code will not compile.",
         "The existing code will cause a runtime exception.",
         "Put in await() call prior to invoking theincrease() method.",
@@ -11069,14 +11069,14 @@ export const scjpChapterQuizzes = [
           "native",
           "subclasses",
           "reference",
-          "array;"
+          "array"
         ],
         "optionsVi": [
           "method",
           "native",
           "subclasses",
           "reference",
-          "array;"
+          "array"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -11095,18 +11095,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Danh sách nào dưới đây CHỈ chứa toàn bộ các từ khóa hợp lệ trong ngôn ngữ Java? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "class,if,void,long,Int,continue",
-          "goto,instanceof,native,finally,default,throws",
-          "try,virtual,throw,final,volatile,transient",
-          "strictfp,constant,super,implements,do",
-          "byte,break,assert,switch,include"
+          "class, if, void, long, Int, continue",
+          "goto, instanceof, native, finally, default, throws",
+          "try, virtual, throw, final, volatile, transient",
+          "strictfp, constant, super, implements, do",
+          "byte, break, assert, switch, include"
         ],
         "optionsVi": [
-          "class,if,void,long,Int,continue",
-          "goto,instanceof,native,finally,default,throws",
-          "try,virtual,throw,final,volatile,transient",
-          "strictfp,constant,super,implements,do",
-          "byte,break,assert,switch,include"
+          "class, if, void, long, Int, continue",
+          "goto, instanceof, native, finally, default, throws",
+          "try, virtual, throw, final, volatile, transient",
+          "strictfp, constant, super, implements, do",
+          "byte, break, assert, switch, include"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -11129,14 +11129,14 @@ export const scjpChapterQuizzes = [
           "unsigned",
           "Float",
           "this",
-          "string;"
+          "string"
         ],
         "optionsVi": [
           "interface",
           "unsigned",
           "Float",
           "this",
-          "string;"
+          "string"
         ],
         "answer": [
           0,
@@ -11160,19 +11160,19 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "char c1 = 064770;",
-          "char c2 = ‘face’;",
+          "char c2 = 'face';",
           "char c3 = 0xbeef;",
           "char c4 = \\u0022;",
-          "char c5 = ‘\\iface’;",
-          "char c6 = ‘\\uface’;"
+          "char c5 = '\\iface';",
+          "char c6 = '\\uface';"
         ],
         "optionsVi": [
           "char c1 = 064770;",
-          "char c2 = ‘face’;",
+          "char c2 = 'face';",
           "char c3 = 0xbeef;",
           "char c4 = \\u0022;",
-          "char c5 = ‘\\iface’;",
-          "char c6 = ‘\\uface’;"
+          "char c5 = '\\iface';",
+          "char c6 = '\\uface';"
         ],
         "answer": [
           0,
@@ -11198,17 +11198,17 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "String s1 = null;",
-          "String s2 = ‘null’;",
-          "String s3 = (String)‘abc’;",
-          "String s4 = (String)‘\\ufeed’;",
-          "String s5 = “stringsrule”;"
+          "String s2 = 'null';",
+          "String s3 = (String)'abc';",
+          "String s4 = (String)'\\ufeed';",
+          "String s5 = \"stringsrule\";"
         ],
         "optionsVi": [
           "String s1 = null;",
-          "String s2 = ‘null’;",
-          "String s3 = (String)‘abc’;",
-          "String s4 = (String)‘\\ufeed’;",
-          "String s5 = “stringsrule”;"
+          "String s2 = 'null';",
+          "String s3 = (String)'abc';",
+          "String s4 = (String)'\\ufeed';",
+          "String s5 = \"stringsrule\";"
         ],
         "answer": [
           0,
@@ -11232,14 +11232,14 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "boolean b1 = 0;",
-          "boolean b2 = ‘false’;",
+          "boolean b2 = 'false';",
           "boolean b3 = false;",
           "boolean b4 = Boolean.false();",
           "boolean b5 = no;"
         ],
         "optionsVi": [
           "boolean b1 = 0;",
-          "boolean b2 = ‘false’;",
+          "boolean b2 = 'false';",
           "boolean b3 = false;",
           "boolean b4 = Boolean.false();",
           "boolean b5 = no;"
@@ -11329,18 +11329,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 3 đáp án)",
         "code": "",
         "options": [
-          "int[]myScores[];",
-          "char[]myChars;",
-          "int[6]myScores;",
-          "DogmyDogs[];",
-          "DogmyDogs[7];"
+          "int[] myScores[];",
+          "char[] myChars;",
+          "int[6] myScores;",
+          "Dog myDogs[];",
+          "Dog myDogs[7];"
         ],
         "optionsVi": [
-          "int[]myScores[];",
-          "char[]myChars;",
-          "int[6]myScores;",
-          "DogmyDogs[];",
-          "DogmyDogs[7];"
+          "int[] myScores[];",
+          "char[] myChars;",
+          "int[6] myScores;",
+          "Dog myDogs[];",
+          "Dog myDogs[7];"
         ],
         "answer": [
           0,
@@ -11397,20 +11397,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 4 đáp án)",
         "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
         "options": [
-          "b2[0][1]= b;",
-          "b[0][0]= b3;",
-          "b2[1][1][0]= b[0][0];",
-          "b2[1][2][0]= b;",
-          "b2[0][1][0][0]= b[0][0];",
-          "b2[0][1]= big;"
+          "b2[0][1] = b;",
+          "b[0][0] = b3;",
+          "b2[1][1][0] = b[0][0];",
+          "b2[1][2][0] = b;",
+          "b2[0][1][0][0] = b[0][0];",
+          "b2[0][1] = big;"
         ],
         "optionsVi": [
-          "b2[0][1]= b;",
-          "b[0][0]= b3;",
-          "b2[1][1][0]= b[0][0];",
-          "b2[1][2][0]= b;",
-          "b2[0][1][0][0]= b[0][0];",
-          "b2[0][1]= big;"
+          "b2[0][1] = b;",
+          "b[0][0] = b3;",
+          "b2[1][1][0] = b[0][0];",
+          "b2[1][2][0] = b;",
+          "b2[0][1][0][0] = b[0][0];",
+          "b2[0][1] = big;"
         ],
         "answer": [
           0,
@@ -11437,20 +11437,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai khai báo nào dưới đây sẽ khai báo một mảng và khởi tạo nó với 5 số? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "Arraya= newArray(5);",
-          "int[]a= {23,22,21,20,19};",
-          "int[]array;",
-          "intarray[]= newint[5];",
-          "inta[]= newint(5);",
-          "int[5]array;"
+          "Array a = new Array(5);",
+          "int[] a = { 23, 22, 21, 20, 19 };",
+          "int[] array;",
+          "int array[] = new int[5];",
+          "int a[] = new int(5);",
+          "int[5] array;"
         ],
         "optionsVi": [
-          "Arraya= newArray(5);",
-          "int[]a= {23,22,21,20,19};",
-          "int[]array;",
-          "intarray[]= newint[5];",
-          "inta[]= newint(5);",
-          "int[5]array;"
+          "Array a = new Array(5);",
+          "int[] a = { 23, 22, 21, 20, 19 };",
+          "int[] array;",
+          "int array[] = new int[5];",
+          "int a[] = new int(5);",
+          "int[5] array;"
         ],
         "answer": [
           1,
@@ -11473,20 +11473,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Cú pháp nào dưới đây khai báo, tạo mới (construct) và khởi tạo hợp lệ một mảng? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "int[]myList= {“1”,“2”,“3”};",
-          "int[]myList= (5,8,2);",
-          "intmyList[][]= {4,9,7,0};",
-          "intmyList[]= {4,3,7};",
-          "int[]myList= [3,5,6];",
-          "int myList[] = {4; 6; 5};"
+          "int[] myList = { \"1\",\"2\",\"3\" };",
+          "int[] myList = (5, 8, 2);",
+          "int myList[][] = { 4, 9, 7, 0 };",
+          "int myList[] = { 4, 3, 7 };",
+          "int[] myList= [3, 5, 6];",
+          "int myList[] = { 4; 6; 5 };"
         ],
         "optionsVi": [
-          "int[]myList= {“1”,“2”,“3”};",
-          "int[]myList= (5,8,2);",
-          "intmyList[][]= {4,9,7,0};",
-          "intmyList[]= {4,3,7};",
-          "int[]myList= [3,5,6];",
-          "int myList[] = {4; 6; 5};"
+          "int[] myList = { \"1\",\"2\",\"3\" };",
+          "int[] myList = (5, 8, 2);",
+          "int myList[][] = { 4, 9, 7, 0 };",
+          "int myList[] = { 4, 3, 7 };",
+          "int[] myList= [3, 5, 6];",
+          "int myList[] = { 4; 6; 5 };"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -11506,17 +11506,17 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "int -> 0",
-          "String -> “null”",
+          "String -> \"null\"",
           "Dog -> null",
-          "char -> ‘\\u0000’",
+          "char -> '\\u0000'",
           "float -> 0.0f",
           "boolean -> true"
         ],
         "optionsVi": [
           "int -> 0",
-          "String -> “null”",
+          "String -> \"null\"",
           "Dog -> null",
-          "char -> ‘\\u0000’",
+          "char -> '\\u0000'",
           "float -> 0.0f",
           "boolean -> true"
         ],
@@ -11601,18 +11601,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgs 1 2 3 4\", kết quả in ra là gì? (Chọn 1 đáp án)",
         "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }",
         "options": [
-          "args[2]= 2",
-          "args[2]= 3",
-          "args[2]= null",
-          "args[2]= 1",
+          "args[2] = 2",
+          "args[2] = 3",
+          "args[2] = null",
+          "args[2] = 1",
           "Compilation fails",
           "An exception is thrown at runtime"
         ],
         "optionsVi": [
-          "args[2]= 2",
-          "args[2]= 3",
-          "args[2]= null",
-          "args[2]= 1",
+          "args[2] = 2",
+          "args[2] = 3",
+          "args[2] = null",
+          "args[2] = 1",
           "Compilation fails",
           "An exception is thrown at runtime"
         ],
@@ -11776,7 +11776,7 @@ export const scjpChapterQuizzes = [
           "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
           "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
           "As long as line 8 exists, class A must declare methodm1() in some way.",
-          "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+          "If line 6 were replaced with'class B extends A{ ' the code would compile.",
           "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
         ],
         "optionsVi": [
@@ -11784,7 +11784,7 @@ export const scjpChapterQuizzes = [
           "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
           "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
           "As long as line 8 exists, class A must declare methodm1() in some way.",
-          "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+          "If line 6 were replaced with'class B extends A{ ' the code would compile.",
           "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
         ],
         "answer": [
@@ -11810,20 +11810,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai khai báo nào dưới đây là hợp lệ cho các class và interface độc lập ở cấp ngoài cùng (non-nested / top-level)? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "finalabstractclassTest{}",
-          "publicstaticinterfaceTest{}",
-          "finalpublicclassTest{}",
-          "protectedabstractclassTest{}",
-          "protectedinterfaceTest{}",
-          "abstractpublicclassTest{}"
+          "final abstract class Test {}",
+          "public static interface Test {}",
+          "final public class Test {}",
+          "protected abstract class Test {}",
+          "protected interface Test {}",
+          "abstract public class Test {}"
         ],
         "optionsVi": [
-          "finalabstractclassTest{}",
-          "publicstaticinterfaceTest{}",
-          "finalpublicclassTest{}",
-          "protectedabstractclassTest{}",
-          "protectedinterfaceTest{}",
-          "abstractpublicclassTest{}"
+          "final abstract class Test {}",
+          "public static interface Test {}",
+          "final public class Test {}",
+          "protected abstract class Test {}",
+          "protected interface Test {}",
+          "abstract public class Test {}"
         ],
         "answer": [
           2,
@@ -11882,14 +11882,14 @@ export const scjpChapterQuizzes = [
           "If line 8 is removed, the code will compile and run.",
           "If line 10 is removed, the code will compile and run.",
           "Both lines 8 and 10 must be removed for the code to compile.",
-          "An exception is thrown at runtime. Declaration Rules (;"
+          "An exception is thrown at runtime."
         ],
         "optionsVi": [
           "The code compiles and runs, with outputthis420parent420 .",
           "If line 8 is removed, the code will compile and run.",
           "If line 10 is removed, the code will compile and run.",
           "Both lines 8 and 10 must be removed for the code to compile.",
-          "An exception is thrown at runtime. Declaration Rules (;"
+          "An exception is thrown at runtime."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11973,17 +11973,17 @@ export const scjpChapterQuizzes = [
         "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
         "options": [
           "No statement is required",
-          "importjava.util.*;",
+          "import java.util.*;",
           "import.java.util.Tree*;",
-          "importjava.util.TreeSet;",
-          "importjava.util.TreeMap;"
+          "import java.util.TreeSet;",
+          "import java.util.TreeMap;"
         ],
         "optionsVi": [
           "No statement is required",
-          "importjava.util.*;",
+          "import java.util.*;",
           "import.java.util.Tree*;",
-          "importjava.util.TreeSet;",
-          "importjava.util.TreeMap;"
+          "import java.util.TreeSet;",
+          "import java.util.TreeMap;"
         ],
         "answer": [
           1,
@@ -12006,20 +12006,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai khai báo nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "publicstaticshortstop= 23;",
-          "protectedshortstop= 23;",
-          "transientshortstop= 23;",
-          "finalvoidmadness(shortstop);",
-          "publicBooleanmadness(longbow);",
-          "staticcharmadness(doubleduty);"
+          "public static short stop = 23;",
+          "protected short stop = 23;",
+          "transient short stop = 23;",
+          "final void madness(short stop);",
+          "public Boolean madness(long bow);",
+          "static char madness(double duty);"
         ],
         "optionsVi": [
-          "publicstaticshortstop= 23;",
-          "protectedshortstop= 23;",
-          "transientshortstop= 23;",
-          "finalvoidmadness(shortstop);",
-          "publicBooleanmadness(longbow);",
-          "staticcharmadness(doubleduty);"
+          "public static short stop = 23;",
+          "protected short stop = 23;",
+          "transient short stop = 23;",
+          "final void madness(short stop);",
+          "public Boolean madness(long bow);",
+          "static char madness(double duty);"
         ],
         "answer": [
           0,
@@ -12042,18 +12042,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Khai báo biến ở cấp độ lớp (biến non-local / biến toàn cục của class) nào dưới đây sẽ KHÔNG THỂ biên dịch? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "protectedinta;",
-          "transientintb= 3;",
-          "publicstaticfinalintc;",
-          "volatileintd;",
-          "privatesynchronizedinte;"
+          "protected int a;",
+          "transient int b = 3;",
+          "public static final int c;",
+          "volatile int d;",
+          "private synchronized int e;"
         ],
         "optionsVi": [
-          "protectedinta;",
-          "transientintb= 3;",
-          "publicstaticfinalintc;",
-          "volatileintd;",
-          "privatesynchronizedinte;"
+          "protected int a;",
+          "transient int b = 3;",
+          "public static final int c;",
+          "volatile int d;",
+          "private synchronized int e;"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -12072,18 +12072,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi chèn vào dòng 7 và 8 sẽ biên dịch thành công? (Chọn 2 đáp án)",
         "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
         "options": [
-          "classAllMathextendsDoMath{ doublegetArea(intr);}",
-          "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
-          "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
-          "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
-          "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+          "class AllMath extends DoMath { double getArea(int r); }",
+          "interface AllMath implements MathPlus { double getVol(int x, int y); }",
+          "interface AllMath extends DoMath { float getAvg(int h, int l); }",
+          "class AllMath implements MathPlus { double getArea(int rad); }",
+          "abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }"
         ],
         "optionsVi": [
-          "classAllMathextendsDoMath{ doublegetArea(intr);}",
-          "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
-          "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
-          "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
-          "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+          "class AllMath extends DoMath { double getArea(int r); }",
+          "interface AllMath implements MathPlus { double getVol(int x, int y); }",
+          "interface AllMath extends DoMath { float getAvg(int h, int l); }",
+          "class AllMath implements MathPlus { double getArea(int rad); }",
+          "abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }"
         ],
         "answer": [
           2,
@@ -12106,18 +12106,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 3 đáp án)",
         "code": "",
         "options": [
-          "privateintgetArea();",
-          "publicfloatgetVol(floatx);",
-          "publicvoidmain(String[]args);",
-          "publicstaticvoidmain(String[]args);",
-          "booleansetFlag(Boolean[]test[]);"
+          "private int getArea();",
+          "public float getVol(float x);",
+          "public void main(String[] args);",
+          "public static void main(String[] args);",
+          "boolean setFlag(Boolean[] test[]);"
         ],
         "optionsVi": [
-          "privateintgetArea();",
-          "publicfloatgetVol(floatx);",
-          "publicvoidmain(String[]args);",
-          "publicstaticvoidmain(String[]args);",
-          "booleansetFlag(Boolean[]test[]);"
+          "private int getArea();",
+          "public float getVol(float x);",
+          "public void main(String[] args);",
+          "public static void main(String[] args);",
+          "boolean setFlag(Boolean[] test[]);"
         ],
         "answer": [
           1,
@@ -12142,19 +12142,19 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào dưới đây là ĐÚNG đối với bất kỳ một concrete class (lớp cụ thể) nào implement interface java.lang.Runnable? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "You can extend theRunnable interface as long as you override thepublicrun() method.",
+          "You can extend the Runnable interface as long as you override the public run() method.",
           "The class must contain a method calledrun() from which all code for that thread will be initiated.",
           "The class must contain an emptypublicvoid method namedrun().",
           "The class must contain apublicvoid method namedrunnable().",
-          "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+          "The class definition must include the words implements Threads and contain a method calledrun().",
           "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
         ],
         "optionsVi": [
-          "You can extend theRunnable interface as long as you override thepublicrun() method.",
+          "You can extend the Runnable interface as long as you override the public run() method.",
           "The class must contain a method calledrun() from which all code for that thread will be initiated.",
           "The class must contain an emptypublicvoid method namedrun().",
           "The class must contain apublicvoid method namedrunnable().",
-          "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+          "The class definition must include the words implements Threads and contain a method calledrun().",
           "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
         ],
         "answer": [
@@ -12178,18 +12178,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi biên dịch độc lập sẽ biên dịch thành công? (Chọn 2 đáp án)",
         "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
         "options": [
-          "interfaceBase2implementsBase{}",
-          "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
-          "abstractclassClass2implementsBase{}",
-          "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-          "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
+          "interface Base2 implements Base {}",
+          "abstract class Class2 extends Base { public boolean m1() { return true; } }",
+          "abstract class Class2 implements Base {}",
+          "abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }",
+          "class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }"
         ],
         "optionsVi": [
-          "interfaceBase2implementsBase{}",
-          "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
-          "abstractclassClass2implementsBase{}",
-          "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-          "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
+          "interface Base2 implements Base {}",
+          "abstract class Class2 extends Base { public boolean m1() { return true; } }",
+          "abstract class Class2 implements Base {}",
+          "abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }",
+          "class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }"
         ],
         "answer": [
           2,
@@ -12261,20 +12261,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
         "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
         "options": [
-          "boolean test = (Componentinstanceoft);",
-          "boolean test = (tinstanceofTicker);",
+          "boolean test = (Component instanceof t);",
+          "boolean test = (t instanceof Ticker);",
           "boolean test = t.instanceof(Ticker);",
-          "boolean test = (tinstanceofComponent);",
+          "boolean test = (t instanceof Component);",
           "boolean test = t.instanceof(Object);",
-          "boolean test = (tinstanceofString);"
+          "boolean test = (t instanceof String);"
         ],
         "optionsVi": [
-          "boolean test = (Componentinstanceoft);",
-          "boolean test = (tinstanceofTicker);",
+          "boolean test = (Component instanceof t);",
+          "boolean test = (t instanceof Ticker);",
           "boolean test = t.instanceof(Ticker);",
-          "boolean test = (tinstanceofComponent);",
+          "boolean test = (t instanceof Component);",
           "boolean test = t.instanceof(Object);",
-          "boolean test = (tinstanceofString);"
+          "boolean test = (t instanceof String);"
         ],
         "answer": [
           1,
@@ -12325,18 +12325,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba) (Chọn 3 đáp án)",
         "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
         "options": [
-          "f1= =f2",
-          "f1= =f3",
-          "f2= =f1[1]",
-          "x= =f1[0]",
-          "f= =f1[0]"
+          "f1 == f2",
+          "f1 == f3",
+          "f2 == f1[1]",
+          "x == f1[0]",
+          "f == f1[0]"
         ],
         "optionsVi": [
-          "f1= =f2",
-          "f1= =f3",
-          "f2= =f1[1]",
-          "x= =f1[0]",
-          "f= =f1[0]"
+          "f1 == f2",
+          "f1 == f3",
+          "f2 == f1[1]",
+          "x == f1[0]",
+          "f == f1[0]"
         ],
         "answer": [
           1,
@@ -12581,20 +12581,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
         "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
         "options": [
-          "count= 0",
-          "count= 2",
-          "count= 3",
-          "count= 4",
-          "count= 10",
-          "count= 11 Passing Variables into Methods (;"
+          "count = 0",
+          "count = 2",
+          "count = 3",
+          "count = 4",
+          "count = 10",
+          "count = 11"
         ],
         "optionsVi": [
-          "count= 0",
-          "count= 2",
-          "count= 3",
-          "count= 4",
-          "count= 10",
-          "count= 11 Passing Variables into Methods (;"
+          "count = 0",
+          "count = 2",
+          "count = 3",
+          "count = 4",
+          "count = 10",
+          "count = 11"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12682,7 +12682,7 @@ export const scjpChapterQuizzes = [
           "streamslipstream",
           "slipstreamslipstream",
           "Compilation fails",
-          "An exception is thrown at runtime;"
+          "An exception is thrown at runtime"
         ],
         "optionsVi": [
           "slipstream",
@@ -12690,7 +12690,7 @@ export const scjpChapterQuizzes = [
           "streamslipstream",
           "slipstreamslipstream",
           "Compilation fails",
-          "An exception is thrown at runtime;"
+          "An exception is thrown at runtime"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12885,7 +12885,7 @@ export const scjpChapterQuizzes = [
           "50",
           "51",
           "Compiler fails at line 5.",
-          "Compiler fails at line 6.;"
+          "Compiler fails at line 6."
         ],
         "optionsVi": [
           "41",
@@ -12893,7 +12893,7 @@ export const scjpChapterQuizzes = [
           "50",
           "51",
           "Compiler fails at line 5.",
-          "Compiler fails at line 6.;"
+          "Compiler fails at line 6."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12949,7 +12949,7 @@ export const scjpChapterQuizzes = [
           "101",
           "111",
           "1001",
-          "1101 Flow Control (loops) (;"
+          "1101"
         ],
         "optionsVi": [
           "0",
@@ -12957,7 +12957,7 @@ export const scjpChapterQuizzes = [
           "101",
           "111",
           "1001",
-          "1101 Flow Control (loops) (;"
+          "1101"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -13103,13 +13103,13 @@ export const scjpChapterQuizzes = [
           "I is 0",
           "I is 0 I is 1",
           "Compilation fails.",
-          "None of the above Exceptions (;"
+          "None of the above"
         ],
         "optionsVi": [
           "I is 0",
           "I is 0 I is 1",
           "Compilation fails.",
-          "None of the above Exceptions (;"
+          "None of the above"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -13214,13 +13214,13 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy? (Chọn 1 đáp án)",
         "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
         "options": [
-          "The program will not compile.;",
+          "The program will not compile.",
           "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
           "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
           "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
         ],
         "optionsVi": [
-          "The program will not compile.;",
+          "The program will not compile.",
           "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
           "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
           "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
@@ -13276,13 +13276,13 @@ export const scjpChapterQuizzes = [
         "options": [
           "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
           "If a switch block has no default, adding an assert default is considered appropriate.",
-          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
           "It is appropriate to handle assertion failures using acatch clause."
         ],
         "optionsVi": [
           "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
           "If a switch block has no default, adding an assert default is considered appropriate.",
-          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
           "It is appropriate to handle assertion failures using acatch clause."
         ],
         "answer": 1,
@@ -13368,14 +13368,14 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+          "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
           "As of Java version 1.4, assertion statements are compiled by default.",
           "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
           "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
           "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
         ],
         "optionsVi": [
-          "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+          "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
           "As of Java version 1.4, assertion statements are compiled by default.",
           "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
           "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
@@ -13696,16 +13696,16 @@ export const scjpChapterQuizzes = [
         "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
         "options": [
           "public int doStuff(int x, float y) { return 4; }",
-          "protected int doStuff(int x, float y) {return 4; }",
-          "private int doStuff(int x, float y) {return 4; }",
+          "protected int doStuff(int x, float y) { return 4; }",
+          "private int doStuff(int x, float y) { return 4; }",
           "private int doStuff(int x, double y) { return 4; }",
           "long doStuff(int x, float y) { return 4; }",
           "int doStuff(float x, int y) { return 4; };"
         ],
         "optionsVi": [
           "public int doStuff(int x, float y) { return 4; }",
-          "protected int doStuff(int x, float y) {return 4; }",
-          "private int doStuff(int x, float y) {return 4; }",
+          "protected int doStuff(int x, float y) { return 4; }",
+          "private int doStuff(int x, float y) { return 4; }",
           "private int doStuff(int x, double y) { return 4; }",
           "long doStuff(int x, float y) { return 4; }",
           "int doStuff(float x, int y) { return 4; };"
@@ -13922,13 +13922,13 @@ export const scjpChapterQuizzes = [
           "Constructors must not have arguments if the superclass constructor does not have arguments.",
           "Constructors are not inherited.",
           "Constructors cannot be overloaded.",
-          "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
+          "The first statement of every constructor is a legal call to the super() or this() method."
         ],
         "optionsVi": [
           "Constructors must not have arguments if the superclass constructor does not have arguments.",
           "Constructors are not inherited.",
           "Constructors cannot be overloaded.",
-          "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
+          "The first statement of every constructor is a legal call to the super() or this() method."
         ],
         "answer": [
           1,
@@ -13986,7 +13986,7 @@ export const scjpChapterQuizzes = [
           "return (long) y;",
           "return (int) 3.14d;",
           "return ( y / x );",
-          "return  x / 7;"
+          "return x / 7;"
         ],
         "optionsVi": [
           "return x;",
@@ -13994,7 +13994,7 @@ export const scjpChapterQuizzes = [
           "return (long) y;",
           "return (int) 3.14d;",
           "return ( y / x );",
-          "return  x / 7;"
+          "return x / 7;"
         ],
         "answer": [
           1,
@@ -14055,7 +14055,7 @@ export const scjpChapterQuizzes = [
         "options": [
           "char [] [] c = new char [2][2]; return c;",
           "return (Object) 7;",
-          "return (Object) (new int [] {1,2,3} );",
+          "return (Object) (new int [] { 1, 2, 3 } );",
           "ArrayList a = new ArrayList(); return a;",
           "return (Object) \"test\";",
           "return (Float) 4.3;"
@@ -14063,7 +14063,7 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "char [] [] c = new char [2][2]; return c;",
           "return (Object) 7;",
-          "return (Object) (new int [] {1,2,3} );",
+          "return (Object) (new int [] { 1, 2, 3 } );",
           "ArrayList a = new ArrayList(); return a;",
           "return (Object) \"test\";",
           "return (Float) 4.3;"
@@ -14261,7 +14261,7 @@ export const scjpChapterQuizzes = [
           "wbookkeewoo",
           "wbookkeeperwoo",
           "Compilation fails.",
-          "An exception is thrown at runtime. Using the java.lang.Math Class (;"
+          "An exception is thrown at runtime."
         ],
         "optionsVi": [
           "wookkeewoo",
@@ -14269,7 +14269,7 @@ export const scjpChapterQuizzes = [
           "wbookkeewoo",
           "wbookkeeperwoo",
           "Compilation fails.",
-          "An exception is thrown at runtime. Using the java.lang.Math Class (;"
+          "An exception is thrown at runtime."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -14318,15 +14318,15 @@ export const scjpChapterQuizzes = [
         "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng) (Chọn 3 đáp án)",
         "code": "",
         "options": [
-          "Math.max(1,4)",
-          "Math.max(2.3,5)",
-          "Math.max(1,3,5,7)",
+          "Math.max(1, 4)",
+          "Math.max(2.3, 5)",
+          "Math.max(1, 3, 5, 7)",
           "Math.max(-1.5,-2.8f)"
         ],
         "optionsVi": [
-          "Math.max(1,4)",
-          "Math.max(2.3,5)",
-          "Math.max(1,3,5,7)",
+          "Math.max(1, 4)",
+          "Math.max(2.3, 5)",
+          "Math.max(1, 3, 5, 7)",
           "Math.max(-1.5,-2.8f)"
         ],
         "answer": [
@@ -14423,7 +14423,7 @@ export const scjpChapterQuizzes = [
           "Line 5",
           "Line 6",
           "Line 3 and either line 4, 5, or 6",
-          "None of the above Using Wrapper Classes (;"
+          "None of the above"
         ],
         "optionsVi": [
           "Line 3",
@@ -14431,7 +14431,7 @@ export const scjpChapterQuizzes = [
           "Line 5",
           "Line 6",
           "Line 3 and either line 4, 5, or 6",
-          "None of the above Using Wrapper Classes (;"
+          "None of the above"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14552,7 +14552,7 @@ export const scjpChapterQuizzes = [
         "options": [
           "float f1 = Float.floatValue(s);",
           "float f2 = Float.valueOf(s);",
-          "float f3 = newFloat(3.14f).floatValue();",
+          "float f3 = new Float(3.14f).floatValue();",
           "float f4 = Float.parseFloat(1.23f);",
           "float f5 = Float.valueOf(s).floatValue();",
           "float f6 = (float)Double.parseDouble(\"3.14\");"
@@ -14560,7 +14560,7 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "float f1 = Float.floatValue(s);",
           "float f2 = Float.valueOf(s);",
-          "float f3 = newFloat(3.14f).floatValue();",
+          "float f3 = new Float(3.14f).floatValue();",
           "float f4 = Float.parseFloat(1.23f);",
           "float f5 = Float.valueOf(s).floatValue();",
           "float f6 = (float)Double.parseDouble(\"3.14\");"
@@ -14593,7 +14593,7 @@ export const scjpChapterQuizzes = [
           "Compilation fails on line 13.",
           "Compilation fails on line 14.",
           "Compilation fails on lines 13 and 14.",
-          "An uncaught exception is thrown at runtime.;"
+          "An uncaught exception is thrown at runtime."
         ],
         "optionsVi": [
           "9.0",
@@ -14601,7 +14601,7 @@ export const scjpChapterQuizzes = [
           "Compilation fails on line 13.",
           "Compilation fails on line 14.",
           "Compilation fails on lines 13 and 14.",
-          "An uncaught exception is thrown at runtime.;"
+          "An uncaught exception is thrown at runtime."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -14620,20 +14620,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
         "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
         "options": [
-          "result= 1",
-          "result= 10",
-          "result= 11",
-          "result= 11010",
-          "result= 11011",
-          "result= 11111"
+          "result = 1",
+          "result = 10",
+          "result = 11",
+          "result = 11010",
+          "result = 11011",
+          "result = 11111"
         ],
         "optionsVi": [
-          "result= 1",
-          "result= 10",
-          "result= 11",
-          "result= 11010",
-          "result= 11011",
-          "result= 11111"
+          "result = 1",
+          "result = 10",
+          "result = 11",
+          "result = 11010",
+          "result = 11011",
+          "result = 11111"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -14715,17 +14715,17 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-          "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
-          "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
-          "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-          "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
+          "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
+          "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
+          "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
+          "If x and y are String references and x == y is true, theny.equals(x) will be true."
         ],
         "optionsVi": [
           "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-          "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
-          "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
-          "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-          "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
+          "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
+          "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
+          "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
+          "If x and y are String references and x == y is true, theny.equals(x) will be true."
         ],
         "answer": [
           3,
@@ -14762,13 +14762,13 @@ export const scjpChapterQuizzes = [
         "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
         "options": [
           "x2.equals(x1)",
-          "x3.hashCode() = = x4.hashCode()",
+          "x3.hashCode() == x4.hashCode()",
           "x5.hashCode() != x6.hashCode()",
           "x8.equals(x7)"
         ],
         "optionsVi": [
           "x2.equals(x1)",
-          "x3.hashCode() = = x4.hashCode()",
+          "x3.hashCode() == x4.hashCode()",
           "x5.hashCode() != x6.hashCode()",
           "x8.equals(x7)"
         ],
@@ -14819,18 +14819,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào sau đây là ĐÚNG khi so sánh hai đối tượng cùng một lớp, với điều kiện các phương thức equals() và hashCode() đã được ghi đè đúng chuẩn hợp đồng? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
-          "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-          "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
-          "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
-          "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+          "If the equals() method return s true, the hashCode() comparison == must return true.",
+          "If the equals() method return s false, the hashCode() comparison != must return true.",
+          "If the hashCode() comparison == return s true, the equals() method must return true.",
+          "If the hashCode() comparison == return s true, the equals() method might return true.",
+          "If the hashCode() comparison != return s true, the equals() method might return true."
         ],
         "optionsVi": [
-          "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
-          "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-          "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
-          "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
-          "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+          "If the equals() method return s true, the hashCode() comparison == must return true.",
+          "If the equals() method return s false, the hashCode() comparison != must return true.",
+          "If the hashCode() comparison == return s true, the equals() method must return true.",
+          "If the hashCode() comparison == return s true, the equals() method might return true.",
+          "If the hashCode() comparison != return s true, the equals() method might return true."
         ],
         "answer": [
           0,
@@ -14883,18 +14883,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "hashCode() doesn’t have to be overridden ifequals() is.",
-          "equals() doesn’t have to be overridden ifhashCode() is.",
+          "hashCode() doesn't have to be overridden ifequals() is.",
+          "equals() doesn't have to be overridden ifhashCode() is.",
           "hashCode() can always return the same value, regardless of the object that invoked it.",
-          "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-          "equals() can be true even if it’s comparing different objects.;"
+          "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+          "equals() can be true even if it's comparing different objects."
         ],
         "optionsVi": [
-          "hashCode() doesn’t have to be overridden ifequals() is.",
-          "equals() doesn’t have to be overridden ifhashCode() is.",
+          "hashCode() doesn't have to be overridden ifequals() is.",
+          "equals() doesn't have to be overridden ifhashCode() is.",
           "hashCode() can always return the same value, regardless of the object that invoked it.",
-          "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-          "equals() can be true even if it’s comparing different objects.;"
+          "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+          "equals() can be true even if it's comparing different objects."
         ],
         "answer": [
           2,
@@ -14982,7 +14982,7 @@ export const scjpChapterQuizzes = [
           "four one three two",
           "one two three four one",
           "one four three two one",
-          "The print order is not guaranteed.;"
+          "The print order is not guaranteed."
         ],
         "optionsVi": [
           "one two three four",
@@ -14990,7 +14990,7 @@ export const scjpChapterQuizzes = [
           "four one three two",
           "one two three four one",
           "one four three two one",
-          "The print order is not guaranteed.;"
+          "The print order is not guaranteed."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15014,7 +15014,7 @@ export const scjpChapterQuizzes = [
           "java.util.HashMap",
           "java.util.TreeMap",
           "java.util.LinkedHashSet",
-          "java.util.TreeSet Garbage Collection (;"
+          "java.util.TreeSet"
         ],
         "optionsVi": [
           "java.util.ArrayList",
@@ -15022,7 +15022,7 @@ export const scjpChapterQuizzes = [
           "java.util.HashMap",
           "java.util.TreeMap",
           "java.util.LinkedHashSet",
-          "java.util.TreeSet Garbage Collection (;"
+          "java.util.TreeSet"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -15133,14 +15133,14 @@ export const scjpChapterQuizzes = [
         "options": [
           "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
           "The garbage collector uses a mark and sweep algorithm.",
-          "If an object can be accessed from a live thread, it can’t be garbage collected.",
-          "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+          "If an object can be accessed from a live thread, it can't be garbage collected.",
+          "If object 1 refers to object 2, then object 2 can't be garbage collected."
         ],
         "optionsVi": [
           "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
           "The garbage collector uses a mark and sweep algorithm.",
-          "If an object can be accessed from a live thread, it can’t be garbage collected.",
-          "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+          "If an object can be accessed from a live thread, it can't be garbage collected.",
+          "If object 1 refers to object 2, then object 2 can't be garbage collected."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15266,16 +15266,16 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
         "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
         "options": [
-          "MyOuter.MyInnerm= newMyOuter.MyInner();",
-          "MyOuter.MyInnermi= newMyInner();",
-          "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-          "MyInnermi= newMyOuter.MyInner();"
+          "MyOuter.MyInner m = new MyOuter.MyInner();",
+          "MyOuter.MyInner mi = new MyInner();",
+          "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+          "MyInner mi = new MyOuter.MyInner();"
         ],
         "optionsVi": [
-          "MyOuter.MyInnerm= newMyOuter.MyInner();",
-          "MyOuter.MyInnermi= newMyInner();",
-          "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-          "MyInnermi= newMyOuter.MyInner();"
+          "MyOuter.MyInner m = new MyOuter.MyInner();",
+          "MyOuter.MyInner mi = new MyInner();",
+          "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+          "MyInner mi = new MyOuter.MyInner();"
         ],
         "answer": 0,
         "isMultiple": false,
@@ -15297,14 +15297,14 @@ export const scjpChapterQuizzes = [
           "You must have a reference to an instance of the enclosing class in order to instantiate it.",
           "It does not have access to nonstatic members of the enclosing class.",
           "Its variables and methods must be static.",
-          "It can be instantiated usingnewMyOuter.MyInner(); .",
+          "It can be instantiated using new MyOuter.MyInner(); .",
           "It must extend the enclosing class."
         ],
         "optionsVi": [
           "You must have a reference to an instance of the enclosing class in order to instantiate it.",
           "It does not have access to nonstatic members of the enclosing class.",
           "Its variables and methods must be static.",
-          "It can be instantiated usingnewMyOuter.MyInner(); .",
+          "It can be instantiated using new MyOuter.MyInner(); .",
           "It must extend the enclosing class."
         ],
         "answer": [
@@ -15328,20 +15328,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "Runnabler= newRunnable(){};",
-          "Runnabler= newRunnable(publicvoidrun(){});",
-          "Runnabler= newRunnable{publicvoidrun(){}};",
-          "Runnabler= newRunnable(){publicvoidrun{}};",
-          "System.out.println(newRunnable() {publicvoidrun(){}});",
-          "System.out.println(newRunnable(publicvoidrun(){}));"
+          "Runnable r = new Runnable() {};",
+          "Runnable r = new Runnable(public void run() {});",
+          "Runnable r = new Runnable { public void run() {} };",
+          "Runnable r = new Runnable() { public void run {} };",
+          "System.out.println(new Runnable() { public void run() {} });",
+          "System.out.println(new Runnable(public void run() {}));"
         ],
         "optionsVi": [
-          "Runnabler= newRunnable(){};",
-          "Runnabler= newRunnable(publicvoidrun(){});",
-          "Runnabler= newRunnable{publicvoidrun(){}};",
-          "Runnabler= newRunnable(){publicvoidrun{}};",
-          "System.out.println(newRunnable() {publicvoidrun(){}});",
-          "System.out.println(newRunnable(publicvoidrun(){}));"
+          "Runnable r = new Runnable() {};",
+          "Runnable r = new Runnable(public void run() {});",
+          "Runnable r = new Runnable { public void run() {} };",
+          "Runnable r = new Runnable() { public void run {} };",
+          "System.out.println(new Runnable() { public void run() {} });",
+          "System.out.println(new Runnable(public void run() {}));"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -15360,18 +15360,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau:\nclass Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // chèn mã tại đây\n  }\n}\nHai câu lệnh nào dưới đây sẽ tạo một lớp nội danh ẩn danh (anonymous inner class) hợp lệ từ bên trong lớp Bar? (Chọn 2 đáp án)",
         "code": "class Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // insert code here\n  }\n}",
         "options": [
-          "Boof= newBoo(24){};",
-          "Boof= newBar(){};",
-          "Boof= newBoo(){Strings;};",
-          "Barf= newBoo(Strings){};",
-          "Boof= newBoo.Bar(Strings){};"
+          "Boo f = new Boo(24) {};",
+          "Boo f = new Bar() {};",
+          "Boo f = new Boo() { String s; };",
+          "Bar f = new Boo(String s) {};",
+          "Boo f = new Boo.Bar(String s) {};"
         ],
         "optionsVi": [
-          "Boof= newBoo(24){};",
-          "Boof= newBar(){};",
-          "Boof= newBoo(){Strings;};",
-          "Barf= newBoo(Strings){};",
-          "Boof= newBoo.Bar(Strings){};"
+          "Boo f = new Boo(24) {};",
+          "Boo f = new Bar() {};",
+          "Boo f = new Boo() { String s; };",
+          "Bar f = new Boo(String s) {};",
+          "Boo f = new Boo.Bar(String s) {};"
         ],
         "answer": [
           1,
@@ -15394,18 +15394,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar? (Chọn 1 đáp án)",
         "code": "1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }",
         "options": [
-          "Foo.Barb= newFoo.Bar();",
-          "Foo.Barb= f.newBar();",
-          "Barb= newf.Bar();",
-          "Barb= f.newBar();",
-          "Foo.Barb= newf.Bar();"
+          "Foo.Bar b = new Foo.Bar();",
+          "Foo.Bar b = f.new Bar();",
+          "Bar b = new f.Bar();",
+          "Bar b = f.new Bar();",
+          "Foo.Bar b = new f.Bar();"
         ],
         "optionsVi": [
-          "Foo.Barb= newFoo.Bar();",
-          "Foo.Barb= f.newBar();",
-          "Barb= newf.Bar();",
-          "Barb= f.newBar();",
-          "Foo.Barb= newf.Bar();"
+          "Foo.Bar b = new Foo.Bar();",
+          "Foo.Bar b = f.new Bar();",
+          "Bar b = new f.Bar();",
+          "Bar b = f.new Bar();",
+          "Foo.Bar b = new f.Bar();"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -15588,14 +15588,14 @@ export const scjpChapterQuizzes = [
           "4538",
           "4557",
           "An exception occurs at runtime.",
-          "Compilation fails.;"
+          "Compilation fails."
         ],
         "optionsVi": [
           "5722",
           "4538",
           "4557",
           "An exception occurs at runtime.",
-          "Compilation fails.;"
+          "Compilation fails."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -15691,18 +15691,18 @@ export const scjpChapterQuizzes = [
         "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công? (Chọn 1 đáp án)",
         "code": "Runnable target = new MyRunnable();\nThread myThread = new Thread(target);",
         "options": [
-          "public class MyRunnable extends Runnable{public void run(){}}",
-          "public class MyRunnable extends Object{public void run(){}}",
-          "public class MyRunnable implements Runnable{public void run(){}}",
-          "public class MyRunnable implements Runnable{void run(){}}",
-          "public class MyRunnable implements Runnable{public void start(){}}"
+          "public class MyRunnable extends Runnable { public void run() {} }",
+          "public class MyRunnable extends Object { public void run() {} }",
+          "public class MyRunnable implements Runnable { public void run() {} }",
+          "public class MyRunnable implements Runnable { void run() {} }",
+          "public class MyRunnable implements Runnable { public void start() {} }"
         ],
         "optionsVi": [
-          "public class MyRunnable extends Runnable{public void run(){}}",
-          "public class MyRunnable extends Object{public void run(){}}",
-          "public class MyRunnable implements Runnable{public void run(){}}",
-          "public class MyRunnable implements Runnable{void run(){}}",
-          "public class MyRunnable implements Runnable{public void start(){}}"
+          "public class MyRunnable extends Runnable { public void run() {} }",
+          "public class MyRunnable extends Object { public void run() {} }",
+          "public class MyRunnable implements Runnable { public void run() {} }",
+          "public class MyRunnable implements Runnable { void run() {} }",
+          "public class MyRunnable implements Runnable { public void start() {} }"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15835,20 +15835,20 @@ export const scjpChapterQuizzes = [
         "textVi": "Giả sử bạn có một lớp lưu trữ hai biến thành viên private: a và b. Cặp phương thức nào dưới đây có thể ngăn chặn sự cố tranh chấp truy cập đồng thời (concurrent access / race condition) trong lớp đó? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
-          "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
-          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
-          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
-          "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
-          "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
+          "public int read(int a, int b) { return a + b; } public void set(int a, int b) { this.a = a; this.b = b; }",
+          "public synchronized int read(int a, int b) { return a + b; } public synchronized void set(int a, int b) { this.a = a; this.b = b; }",
+          "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(a) { this.a = a; this.b = b; } }",
+          "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(b) { this.a = a; this.b = b; } }",
+          "public synchronized(this) int read(int a, int b) { return a + b; } public synchronized(this) void set(int a, int b) { this.a = a; this.b = b; }",
+          "public int read(int a, int b) { synchronized(this) { return a + b; } } public void set(int a, int b) { synchronized(this) { this.a = a; this.b = b; } }"
         ],
         "optionsVi": [
-          "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
-          "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
-          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
-          "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
-          "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
-          "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
+          "public int read(int a, int b) { return a + b; } public void set(int a, int b) { this.a = a; this.b = b; }",
+          "public synchronized int read(int a, int b) { return a + b; } public synchronized void set(int a, int b) { this.a = a; this.b = b; }",
+          "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(a) { this.a = a; this.b = b; } }",
+          "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(b) { this.a = a; this.b = b; } }",
+          "public synchronized(this) int read(int a, int b) { return a + b; } public synchronized(this) void set(int a, int b) { this.a = a; this.b = b; }",
+          "public int read(int a, int b) { synchronized(this) { return a + b; } } public void set(int a, int b) { synchronized(this) { this.a = a; this.b = b; } }"
         ],
         "answer": [
           1,
@@ -15900,14 +15900,14 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "A static method cannot be synchronized.",
-          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
+          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
           "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
           "When a thread sleeps, it releases its locks.",
           "When a thread invokeswait(), it releases its locks."
         ],
         "optionsVi": [
           "A static method cannot be synchronized.",
-          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
+          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
           "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
           "When a thread sleeps, it releases its locks.",
           "When a thread invokeswait(), it releases its locks."
@@ -16040,7 +16040,7 @@ export const scjpChapterQuizzes = [
           "Thenotify() method is defined in class java.lang.Thread.",
           "When a thread is waiting as a result ofwait(), it release its locks.",
           "Thenotify() method causes a thread to immediately release its locks.",
-          "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+          "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
         ],
         "optionsVi": [
           "ThenotifyAll() method must be called from a synchronized context.",
@@ -16048,7 +16048,7 @@ export const scjpChapterQuizzes = [
           "Thenotify() method is defined in class java.lang.Thread.",
           "When a thread is waiting as a result ofwait(), it release its locks.",
           "Thenotify() method causes a thread to immediately release its locks.",
-          "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+          "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
         ],
         "answer": [
           0,
@@ -16258,7 +16258,7 @@ export const scjpChapterQuizzes = [
         "code": "public class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}",
         "options": [
           "Synchronize the run method.",
-          "Wrap a synchronize(this) around the call tof.increase().;",
+          "Wrap a synchronize(this) around the call to f.increase().",
           "The existing code will not compile.",
           "The existing code will cause a runtime exception.",
           "Put in await() call prior to invoking theincrease() method.",
@@ -16266,7 +16266,7 @@ export const scjpChapterQuizzes = [
         ],
         "optionsVi": [
           "Synchronize the run method.",
-          "Wrap a synchronize(this) around the call tof.increase().;",
+          "Wrap a synchronize(this) around the call to f.increase().",
           "The existing code will not compile.",
           "The existing code will cause a runtime exception.",
           "Put in await() call prior to invoking theincrease() method.",

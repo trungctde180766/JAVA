@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { highlightJava, formatJavaCode } from "@/lib/highlight";
+import OptionFormattedText from "@/components/OptionFormattedText";
 
 function shuffleArray(arr) {
   const result = [...arr];
@@ -1220,12 +1221,18 @@ export default function ExamClient({ session, user }) {
                         <div key={oIdx} className={optClass} style={{ cursor: "default", margin: 0, padding: "0.75rem 1rem" }}>
                           <span className="option-label">{String.fromCharCode(65 + oIdx)}</span>
                           <div style={{ flex: 1, textAlign: "left" }}>
-                            <div style={{ fontSize: "0.92rem" }}>{opt}</div>
+                            <div style={{ fontSize: "0.92rem" }}>
+                              <OptionFormattedText text={opt} />
+                            </div>
                             {showTranslation && item.optionsVi && item.optionsVi[oIdx] && (
-                              <div className="option-translation-text">↳ {item.optionsVi[oIdx]}</div>
+                              <div className="option-translation-text">
+                                ↳ <OptionFormattedText text={item.optionsVi[oIdx]} />
+                              </div>
                             )}
                             {showTranslation && item.optionsEn && item.optionsEn[oIdx] && (
-                              <div className="option-translation-text" style={{ color: "#a5b4fc" }}>↳ {item.optionsEn[oIdx]}</div>
+                              <div className="option-translation-text" style={{ color: "#a5b4fc" }}>
+                                ↳ <OptionFormattedText text={item.optionsEn[oIdx]} />
+                              </div>
                             )}
                           </div>
                           {isOptionCorrect && <strong style={{ color: "var(--success)", fontSize: "0.85rem" }}>✓ Đáp án đúng</strong>}
@@ -1524,7 +1531,9 @@ export default function ExamClient({ session, user }) {
                       {isMulti ? (isSelected ? "☑" : String.fromCharCode(65 + idx)) : String.fromCharCode(65 + idx)}
                     </span>
                     <div style={{ flex: 1, textAlign: "left" }}>
-                      <div>{opt}</div>
+                      <div>
+                        <OptionFormattedText text={opt} />
+                      </div>
                     </div>
                   </button>
                 </div>

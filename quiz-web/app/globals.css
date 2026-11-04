@@ -748,6 +748,83 @@ a {
   color: #fff;
 }
 
+/* Option Code Styling */
+.option-code-text {
+  font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.93rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 0.22rem 0.55rem;
+  display: inline-block;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.45;
+}
+
+[data-theme="light"] .option-code-text {
+  color: #0f172a;
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.option-btn.selected .option-code-text {
+  background: rgba(99, 102, 241, 0.18);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #fff;
+}
+
+.option-btn.correct .option-code-text {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #ecfdf5;
+}
+
+.option-btn.wrong .option-code-text {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fef2f2;
+}
+
+[data-theme="light"] .option-btn.selected .option-code-text {
+  background: #e0e7ff;
+  border-color: #a5b4fc;
+  color: #312e81;
+}
+
+[data-theme="light"] .option-btn.correct .option-code-text {
+  background: #d1fae5;
+  border-color: #6ee7b7;
+  color: #065f46;
+}
+
+[data-theme="light"] .option-btn.wrong .option-code-text {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.option-code-inline {
+  font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #c7d2fe;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+[data-theme="light"] .option-code-inline {
+  color: #3730a3;
+  background: #e0e7ff;
+  border-color: #c7d2fe;
+}
+
+
 /* Explanation Box */
 .explanation-box {
   background: rgba(18, 28, 48, 0.85);

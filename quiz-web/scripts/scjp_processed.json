@@ -41,14 +41,14 @@
       "native",
       "subclasses",
       "reference",
-      "array;"
+      "array"
     ],
     "optionsVi": [
       "method",
       "native",
       "subclasses",
       "reference",
-      "array;"
+      "array"
     ],
     "answer": 1,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Java có một danh sách các từ khóa bảo lưu (keywords/reserved words) có ý nghĩa đặc biệt đối với trình biên dịch và lập trình viên không được dùng chúng làm tên biến, tên lớp hay tên phương thức.\n2. Từ `native` là một modifier chính thức trong Java. Nó được dùng để khai báo các phương thức mà phần cài đặt thân hàm được viết bằng một ngôn ngữ lập trình khác (thường là C hoặc C++) và được gọi thông qua JNI (Java Native Interface). Ví dụ: `public native int hashCode();`.\n3. Các từ còn lại trong câu hỏi chỉ là những thuật ngữ thông dụng trong lập trình hướng đối tượng hoặc cấu trúc dữ liệu, không phải từ khóa Java.\n\n✅ Vì sao đáp án \"B. native\" đúng:\n`native` là từ khóa chuẩn trong Java, dùng để định nghĩa phương thức được cài đặt bằng mã nguồn gốc (C/C++).\n\n❌ Vì sao các đáp án khác sai:\n• \"A. method\": Sai vì đây chỉ là danh từ chỉ phương thức (hàm trong lớp), không phải từ khóa.\n• \"C. subclasses\": Sai vì trong Java, từ khóa dùng để kế thừa tạo lớp con là `extends`, từ `subclasses` không phải từ khóa.\n• \"D. reference\": Sai vì đây chỉ là thuật ngữ chỉ kiểu tham chiếu (reference type), không phải từ khóa.\n• \"E. array\": Sai vì mảng trong Java sử dụng ký hiệu cặp ngoặc vuông `[]`, Java không dùng từ khóa `array`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các từ quen thuộc như `method`, `reference`, `array`, `subclasses` chỉ là thuật ngữ đời thường. Java dùng `native` để giao tiếp với code C/C++ ở tầng hệ điều hành!",
@@ -67,18 +67,18 @@
     "textVi": "Danh sách nào dưới đây CHỈ chứa toàn bộ các từ khóa hợp lệ trong ngôn ngữ Java? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "class,if,void,long,Int,continue",
-      "goto,instanceof,native,finally,default,throws",
-      "try,virtual,throw,final,volatile,transient",
-      "strictfp,constant,super,implements,do",
-      "byte,break,assert,switch,include"
+      "class, if, void, long, Int, continue",
+      "goto, instanceof, native, finally, default, throws",
+      "try, virtual, throw, final, volatile, transient",
+      "strictfp, constant, super, implements, do",
+      "byte, break, assert, switch, include"
     ],
     "optionsVi": [
-      "class,if,void,long,Int,continue",
-      "goto,instanceof,native,finally,default,throws",
-      "try,virtual,throw,final,volatile,transient",
-      "strictfp,constant,super,implements,do",
-      "byte,break,assert,switch,include"
+      "class, if, void, long, Int, continue",
+      "goto, instanceof, native, finally, default, throws",
+      "try, virtual, throw, final, volatile, transient",
+      "strictfp, constant, super, implements, do",
+      "byte, break, assert, switch, include"
     ],
     "answer": 1,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Trong Java, tất cả các từ khóa đều được viết thường toàn bộ (lowercase) và ngôn ngữ phân biệt hoa thường (case-sensitive) rất khắt khe.\n2. Hãy phân tích từng từ trong danh sách B:\n   - `goto`: Là một từ khóa bảo lưu trong Java (reserved keyword) dù hiện tại chưa được sử dụng.\n   - `instanceof`: Toán tử kiểm tra kiểu đối tượng.\n   - `native`: Modifier cho phương thức gọi mã C/C++.\n   - `finally`: Khối lệnh dọn dẹp tài nguyên trong cấu trúc `try-catch-finally`.\n   - `default`: Dùng trong cấu trúc `switch-case` hoặc khai báo method mặc định trong interface.\n   - `throws`: Dùng ở phần khai báo phương thức để báo hiệu ngoại lệ có thể ném ra.\n   Tất cả 6 từ trong B đều là từ khóa 100%.\n\n✅ Vì sao đáp án \"B. goto, instanceof, native, finally, default, throws\" đúng:\nCả 6 từ này đều là từ khóa bảo lưu chính thức của Java (viết thường toàn bộ).\n\n❌ Vì sao các đáp án khác sai:\n• \"A. class, if, void, long, Int, continue\": Sai vì có từ `Int` (chữ I viết hoa). Từ khóa của kiểu nguyên thủy trong Java phải là `int` (viết thường). `Int` không phải từ khóa.\n• \"C. try, virtual, throw, final, volatile, transient\": Sai vì `virtual` là từ khóa của C++, Java không có từ khóa `virtual` (mọi phương thức không phải `final`/`private`/`static` trong Java mặc định đã là ảo/virtual).\n• \"D. strictfp, constant, super, implements, do\": Sai vì `constant` không phải từ khóa Java. Hằng số trong Java được khai báo bằng `static final`. (Java chỉ giữ chỗ từ `const`, không có từ `constant`).\n• \"E. byte, break, assert, switch, include\": Sai vì `include` là chỉ thị tiền xử lý của C/C++, Java dùng từ khóa `import`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Tất cả từ khóa Java đều viết chữ thường toàn bộ! `goto` và `const` tuy không dùng nhưng vẫn là từ khóa bảo lưu (reserved). Các từ của C/C++ như `virtual`, `include` không tồn tại trong Java!",
@@ -101,14 +101,14 @@
       "unsigned",
       "Float",
       "this",
-      "string;"
+      "string"
     ],
     "optionsVi": [
       "interface",
       "unsigned",
       "Float",
       "this",
-      "string;"
+      "string"
     ],
     "answer": [
       0,
@@ -132,19 +132,19 @@
     "code": "",
     "options": [
       "char c1 = 064770;",
-      "char c2 = ‘face’;",
+      "char c2 = 'face';",
       "char c3 = 0xbeef;",
       "char c4 = \\u0022;",
-      "char c5 = ‘\\iface’;",
-      "char c6 = ‘\\uface’;"
+      "char c5 = '\\iface';",
+      "char c6 = '\\uface';"
     ],
     "optionsVi": [
       "char c1 = 064770;",
-      "char c2 = ‘face’;",
+      "char c2 = 'face';",
       "char c3 = 0xbeef;",
       "char c4 = \\u0022;",
-      "char c5 = ‘\\iface’;",
-      "char c6 = ‘\\uface’;"
+      "char c5 = '\\iface';",
+      "char c6 = '\\uface';"
     ],
     "answer": [
       0,
@@ -170,17 +170,17 @@
     "code": "",
     "options": [
       "String s1 = null;",
-      "String s2 = ‘null’;",
-      "String s3 = (String)‘abc’;",
-      "String s4 = (String)‘\\ufeed’;",
-      "String s5 = “stringsrule”;"
+      "String s2 = 'null';",
+      "String s3 = (String)'abc';",
+      "String s4 = (String)'\\ufeed';",
+      "String s5 = \"stringsrule\";"
     ],
     "optionsVi": [
       "String s1 = null;",
-      "String s2 = ‘null’;",
-      "String s3 = (String)‘abc’;",
-      "String s4 = (String)‘\\ufeed’;",
-      "String s5 = “stringsrule”;"
+      "String s2 = 'null';",
+      "String s3 = (String)'abc';",
+      "String s4 = (String)'\\ufeed';",
+      "String s5 = \"stringsrule\";"
     ],
     "answer": [
       0,
@@ -204,14 +204,14 @@
     "code": "",
     "options": [
       "boolean b1 = 0;",
-      "boolean b2 = ‘false’;",
+      "boolean b2 = 'false';",
       "boolean b3 = false;",
       "boolean b4 = Boolean.false();",
       "boolean b5 = no;"
     ],
     "optionsVi": [
       "boolean b1 = 0;",
-      "boolean b2 = ‘false’;",
+      "boolean b2 = 'false';",
       "boolean b3 = false;",
       "boolean b4 = Boolean.false();",
       "boolean b5 = no;"
@@ -301,18 +301,18 @@
     "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "int[]myScores[];",
-      "char[]myChars;",
-      "int[6]myScores;",
-      "DogmyDogs[];",
-      "DogmyDogs[7];"
+      "int[] myScores[];",
+      "char[] myChars;",
+      "int[6] myScores;",
+      "Dog myDogs[];",
+      "Dog myDogs[7];"
     ],
     "optionsVi": [
-      "int[]myScores[];",
-      "char[]myChars;",
-      "int[6]myScores;",
-      "DogmyDogs[];",
-      "DogmyDogs[7];"
+      "int[] myScores[];",
+      "char[] myChars;",
+      "int[6] myScores;",
+      "Dog myDogs[];",
+      "Dog myDogs[7];"
     ],
     "answer": [
       0,
@@ -369,20 +369,20 @@
     "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn 4 đáp án)",
     "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
     "options": [
-      "b2[0][1]= b;",
-      "b[0][0]= b3;",
-      "b2[1][1][0]= b[0][0];",
-      "b2[1][2][0]= b;",
-      "b2[0][1][0][0]= b[0][0];",
-      "b2[0][1]= big;"
+      "b2[0][1] = b;",
+      "b[0][0] = b3;",
+      "b2[1][1][0] = b[0][0];",
+      "b2[1][2][0] = b;",
+      "b2[0][1][0][0] = b[0][0];",
+      "b2[0][1] = big;"
     ],
     "optionsVi": [
-      "b2[0][1]= b;",
-      "b[0][0]= b3;",
-      "b2[1][1][0]= b[0][0];",
-      "b2[1][2][0]= b;",
-      "b2[0][1][0][0]= b[0][0];",
-      "b2[0][1]= big;"
+      "b2[0][1] = b;",
+      "b[0][0] = b3;",
+      "b2[1][1][0] = b[0][0];",
+      "b2[1][2][0] = b;",
+      "b2[0][1][0][0] = b[0][0];",
+      "b2[0][1] = big;"
     ],
     "answer": [
       0,
@@ -409,20 +409,20 @@
     "textVi": "Hai khai báo nào dưới đây sẽ khai báo một mảng và khởi tạo nó với 5 số? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "Arraya= newArray(5);",
-      "int[]a= {23,22,21,20,19};",
-      "int[]array;",
-      "intarray[]= newint[5];",
-      "inta[]= newint(5);",
-      "int[5]array;"
+      "Array a = new Array(5);",
+      "int[] a = { 23, 22, 21, 20, 19 };",
+      "int[] array;",
+      "int array[] = new int[5];",
+      "int a[] = new int(5);",
+      "int[5] array;"
     ],
     "optionsVi": [
-      "Arraya= newArray(5);",
-      "int[]a= {23,22,21,20,19};",
-      "int[]array;",
-      "intarray[]= newint[5];",
-      "inta[]= newint(5);",
-      "int[5]array;"
+      "Array a = new Array(5);",
+      "int[] a = { 23, 22, 21, 20, 19 };",
+      "int[] array;",
+      "int array[] = new int[5];",
+      "int a[] = new int(5);",
+      "int[5] array;"
     ],
     "answer": [
       1,
@@ -445,20 +445,20 @@
     "textVi": "Cú pháp nào dưới đây khai báo, tạo mới (construct) và khởi tạo hợp lệ một mảng? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "int[]myList= {“1”,“2”,“3”};",
-      "int[]myList= (5,8,2);",
-      "intmyList[][]= {4,9,7,0};",
-      "intmyList[]= {4,3,7};",
-      "int[]myList= [3,5,6];",
-      "int myList[] = {4; 6; 5};"
+      "int[] myList = { \"1\",\"2\",\"3\" };",
+      "int[] myList = (5, 8, 2);",
+      "int myList[][] = { 4, 9, 7, 0 };",
+      "int myList[] = { 4, 3, 7 };",
+      "int[] myList= [3, 5, 6];",
+      "int myList[] = { 4; 6; 5 };"
     ],
     "optionsVi": [
-      "int[]myList= {“1”,“2”,“3”};",
-      "int[]myList= (5,8,2);",
-      "intmyList[][]= {4,9,7,0};",
-      "intmyList[]= {4,3,7};",
-      "int[]myList= [3,5,6];",
-      "int myList[] = {4; 6; 5};"
+      "int[] myList = { \"1\",\"2\",\"3\" };",
+      "int[] myList = (5, 8, 2);",
+      "int myList[][] = { 4, 9, 7, 0 };",
+      "int myList[] = { 4, 3, 7 };",
+      "int[] myList= [3, 5, 6];",
+      "int myList[] = { 4; 6; 5 };"
     ],
     "answer": 3,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐể khai báo và khởi tạo nhanh một mảng bằng giá trị cố định, Java yêu cầu tuân thủ đúng các quy tắc cú pháp sau:\n1. Dấu ngoặc vuông `[]` đặt trước hoặc sau tên biến để chỉ định mảng.\n2. Danh sách phần tử khởi tạo BẮT BUỘC phải đặt trong cặp dấu ngoặc nhọn `{}`.\n3. Các phần tử phân tách nhau bằng dấu phẩy `,`.\n4. Kiểu của các giá trị trong ngoặc nhọn phải tương thích với kiểu của mảng đã khai báo.\n\nĐánh giá từng phương án:\n- A: `int[] myList = {\"1\", \"2\", \"3\"};`: Sai vì `\"1\"`, `\"2\"`, `\"3\"` là kiểu `String`, không thể gán vào mảng số nguyên `int[]`.\n- B: `int[] myList = (5, 8, 2);`: Sai vì Java không dùng ngoặc tròn `()` để khởi tạo danh sách mảng.\n- C: `int myList[][] = {4, 9, 7, 0};`: Sai vì khai báo mảng 2 chiều (`int[][]`) nhưng danh sách khởi tạo chỉ có 1 chiều (thiếu cặp ngoặc nhọn lồng nhau).\n- D: `int myList[] = {4, 3, 7};`: Hoàn toàn hợp lệ, khai báo mảng 1 chiều và khởi tạo với 3 số nguyên trong cặp ngoặc nhọn.\n- E: `int[] myList = [3, 5, 6];`: Sai vì Java không dùng ngoặc vuông `[]` làm literal cho mảng (đây là cú pháp của JavaScript/Python).\n- F: `int myList[] = {4; 6; 5};`: Sai vì phân tách các phần tử bằng dấu chấm phẩy `;` thay vì dấu phẩy `,`.\n\n✅ Vì sao đáp án \"int myList[] = {4, 3, 7};\" đúng:\nĐúng chuẩn 100% cú pháp Java: dấu ngoặc nhọn `{}`, phân tách bằng dấu phẩy `,`, và các phần tử khớp kiểu `int`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A\": Sai vì truyền chuỗi String vào mảng int.\n• \"B\": Sai cú pháp vì dùng ngoặc tròn `()`.\n• \"C\": Sai vì lệch số chiều (mảng 2 chiều nhưng khởi tạo kiểu 1 chiều).\n• \"E\": Sai vì dùng ngoặc vuông `[]`.\n• \"F\": Sai vì dùng dấu chấm phẩy `;`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mảng trong Java: Khởi tạo danh sách luôn luôn dùng `{}` và ngăn cách bằng dấu phẩy `,`! Ngoặc vuông `[]` chỉ dùng để khai báo kiểu hoặc chỉ số truy cập.",
@@ -478,17 +478,17 @@
     "code": "",
     "options": [
       "int -> 0",
-      "String -> “null”",
+      "String -> \"null\"",
       "Dog -> null",
-      "char -> ‘\\u0000’",
+      "char -> '\\u0000'",
       "float -> 0.0f",
       "boolean -> true"
     ],
     "optionsVi": [
       "int -> 0",
-      "String -> “null”",
+      "String -> \"null\"",
       "Dog -> null",
-      "char -> ‘\\u0000’",
+      "char -> '\\u0000'",
       "float -> 0.0f",
       "boolean -> true"
     ],
@@ -573,18 +573,18 @@
     "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgs 1 2 3 4\", kết quả in ra là gì? (Chọn 1 đáp án)",
     "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }",
     "options": [
-      "args[2]= 2",
-      "args[2]= 3",
-      "args[2]= null",
-      "args[2]= 1",
+      "args[2] = 2",
+      "args[2] = 3",
+      "args[2] = null",
+      "args[2] = 1",
       "Compilation fails",
       "An exception is thrown at runtime"
     ],
     "optionsVi": [
-      "args[2]= 2",
-      "args[2]= 3",
-      "args[2]= null",
-      "args[2]= 1",
+      "args[2] = 2",
+      "args[2] = 3",
+      "args[2] = null",
+      "args[2] = 1",
       "Compilation fails",
       "An exception is thrown at runtime"
     ],
@@ -735,7 +735,7 @@
       "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
       "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
       "As long as line 8 exists, class A must declare methodm1() in some way.",
-      "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+      "If line 6 were replaced with'class B extends A{ ' the code would compile.",
       "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
     ],
     "optionsVi": [
@@ -743,7 +743,7 @@
       "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
       "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
       "As long as line 8 exists, class A must declare methodm1() in some way.",
-      "If line 6 were replaced with‘classBextendsA{‘ the code would compile.",
+      "If line 6 were replaced with'class B extends A{ ' the code would compile.",
       "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
     ],
     "answer": [
@@ -769,20 +769,20 @@
     "textVi": "Hai khai báo nào dưới đây là hợp lệ cho các class và interface độc lập ở cấp ngoài cùng (non-nested / top-level)? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "finalabstractclassTest{}",
-      "publicstaticinterfaceTest{}",
-      "finalpublicclassTest{}",
-      "protectedabstractclassTest{}",
-      "protectedinterfaceTest{}",
-      "abstractpublicclassTest{}"
+      "final abstract class Test {}",
+      "public static interface Test {}",
+      "final public class Test {}",
+      "protected abstract class Test {}",
+      "protected interface Test {}",
+      "abstract public class Test {}"
     ],
     "optionsVi": [
-      "finalabstractclassTest{}",
-      "publicstaticinterfaceTest{}",
-      "finalpublicclassTest{}",
-      "protectedabstractclassTest{}",
-      "protectedinterfaceTest{}",
-      "abstractpublicclassTest{}"
+      "final abstract class Test {}",
+      "public static interface Test {}",
+      "final public class Test {}",
+      "protected abstract class Test {}",
+      "protected interface Test {}",
+      "abstract public class Test {}"
     ],
     "answer": [
       2,
@@ -841,14 +841,14 @@
       "If line 8 is removed, the code will compile and run.",
       "If line 10 is removed, the code will compile and run.",
       "Both lines 8 and 10 must be removed for the code to compile.",
-      "An exception is thrown at runtime. Declaration Rules (;"
+      "An exception is thrown at runtime."
     ],
     "optionsVi": [
       "The code compiles and runs, with outputthis420parent420 .",
       "If line 8 is removed, the code will compile and run.",
       "If line 10 is removed, the code will compile and run.",
       "Both lines 8 and 10 must be removed for the code to compile.",
-      "An exception is thrown at runtime. Declaration Rules (;"
+      "An exception is thrown at runtime."
     ],
     "answer": 2,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐây là một trong những câu hỏi kinh điển nhất về access modifier `protected` trong kỳ thi SCJP!\n- Package `testpkg.p1` có lớp `ParentUtil`, chứa phương thức `protected int doStuff()`.\n- Package `testpkg.p2` có lớp `ChildUtil extends ParentUtil` (lớp con nằm ở KHÁC PACKAGE).\n\n**QUY TẮC VÀNG VỀ `protected`:**\nKhi một lớp con ở package khác muốn truy cập thành viên `protected` của lớp cha, nó CHỈ ĐƯỢC PHÉP TRUY CẬP THÔNG QUA TÍNH KẾ THỪA (nghĩa là truy cập qua chính nó: `this.doStuff()` hoặc qua biến tham chiếu có kiểu là `ChildUtil`).\nLớp con KHÔNG ĐƯỢC PHÉP tạo một đối tượng cha độc lập (`ParentUtil p = new ParentUtil();`) rồi gọi `p.doStuff()`! Bởi vì khi đứng ở một package khác, đối với đối tượng `p`, bạn chỉ là một kẻ bên ngoài không cùng package, không có quyền chạm vào thành viên `protected` của nó.\n\nĐối chiếu vào mã nguồn trong `callStuff()`:\n- Dòng 8: `System.out.print(\"this \" + this.doStuff());` -> Gọi thông qua kế thừa (`this`), hoàn toàn **HỢP LỆ**!\n- Dòng 9 - 10: `ParentUtil p = new ParentUtil(); System.out.print(\" parent \" + p.doStuff());` -> Gọi `doStuff()` trên một đối tượng cha `p` ở ngoài package -> **LỖI BIÊN DỊCH TẠI DÒNG 10** (`doStuff() has protected access in ParentUtil`).\n\nDo đó, chỉ cần xóa bỏ dòng 10 là mã nguồn sẽ biên dịch và chạy ngon lành!\n\n✅ Vì sao đáp án \"C. Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được\" đúng:\nDòng 10 là dòng duy nhất gây lỗi biên dịch do vi phạm quy tắc truy cập `protected` từ ngoài package thông qua biến đối tượng cha. Dòng 8 hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A\": Sai vì code hiện tại không biên dịch được do lỗi dòng 10.\n• \"B\": Sai vì dòng 8 không hề có lỗi, xóa dòng 8 thì dòng 10 vẫn còn đó và code vẫn lỗi.\n• \"D\": Sai vì dòng 8 hợp lệ, không cần thiết phải xóa.\n• \"E\": Sai vì lỗi xảy ra ở bước biên dịch (compile-time), chương trình chưa thể chạy để gặp lỗi runtime.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Quy tắc `protected` ngoài package: Lớp con chỉ được gọi phương thức `protected` của cha khi xem nó như là của chính mình (`this.method()` hoặc `super.method()`). Cấm tiệt kiểu `Parent p = new Parent(); p.protectedMethod();`!",
@@ -932,17 +932,17 @@
     "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
     "options": [
       "No statement is required",
-      "importjava.util.*;",
+      "import java.util.*;",
       "import.java.util.Tree*;",
-      "importjava.util.TreeSet;",
-      "importjava.util.TreeMap;"
+      "import java.util.TreeSet;",
+      "import java.util.TreeMap;"
     ],
     "optionsVi": [
       "No statement is required",
-      "importjava.util.*;",
+      "import java.util.*;",
       "import.java.util.Tree*;",
-      "importjava.util.TreeSet;",
-      "importjava.util.TreeMap;"
+      "import java.util.TreeSet;",
+      "import java.util.TreeMap;"
     ],
     "answer": [
       1,
@@ -965,20 +965,20 @@
     "textVi": "Hai khai báo nào dưới đây là hợp lệ bên trong một interface? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "publicstaticshortstop= 23;",
-      "protectedshortstop= 23;",
-      "transientshortstop= 23;",
-      "finalvoidmadness(shortstop);",
-      "publicBooleanmadness(longbow);",
-      "staticcharmadness(doubleduty);"
+      "public static short stop = 23;",
+      "protected short stop = 23;",
+      "transient short stop = 23;",
+      "final void madness(short stop);",
+      "public Boolean madness(long bow);",
+      "static char madness(double duty);"
     ],
     "optionsVi": [
-      "publicstaticshortstop= 23;",
-      "protectedshortstop= 23;",
-      "transientshortstop= 23;",
-      "finalvoidmadness(shortstop);",
-      "publicBooleanmadness(longbow);",
-      "staticcharmadness(doubleduty);"
+      "public static short stop = 23;",
+      "protected short stop = 23;",
+      "transient short stop = 23;",
+      "final void madness(short stop);",
+      "public Boolean madness(long bow);",
+      "static char madness(double duty);"
     ],
     "answer": [
       0,
@@ -1001,18 +1001,18 @@
     "textVi": "Khai báo biến ở cấp độ lớp (biến non-local / biến toàn cục của class) nào dưới đây sẽ KHÔNG THỂ biên dịch? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "protectedinta;",
-      "transientintb= 3;",
-      "publicstaticfinalintc;",
-      "volatileintd;",
-      "privatesynchronizedinte;"
+      "protected int a;",
+      "transient int b = 3;",
+      "public static final int c;",
+      "volatile int d;",
+      "private synchronized int e;"
     ],
     "optionsVi": [
-      "protectedinta;",
-      "transientintb= 3;",
-      "publicstaticfinalintc;",
-      "volatileintd;",
-      "privatesynchronizedinte;"
+      "protected int a;",
+      "transient int b = 3;",
+      "public static final int c;",
+      "volatile int d;",
+      "private synchronized int e;"
     ],
     "answer": 4,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy xem xét mục đích và phạm vi sử dụng của từng từ khóa đối với biến (field) trong class:\n- A: `protected int a;` -> Hợp lệ, `protected` là access modifier hợp lệ cho biến thành viên.\n- B: `transient int b = 3;` -> Hợp lệ, `transient` là modifier chuyên dùng cho biến để báo hiệu không lưu trường này khi serialization.\n- C: `public static final int c;` -> Hợp lệ, đây là \"blank final variable\" (hằng số chưa gán giá trị ngay). Java cho phép khai báo hằng số như vậy miễn là nó được khởi tạo giá trị trong khối `static { c = 10; }` của class.\n- D: `volatile int d;` -> Hợp lệ, `volatile` là modifier chuyên dùng cho biến để thông báo cho JVM luôn đọc/ghi trực tiếp từ bộ nhớ chính (main memory), phục vụ lập trình đa luồng.\n- E: `private synchronized int e;` -> **LỖI BIÊN DỊCH NGHIÊM TRỌNG!**\n  Từ khóa `synchronized` chỉ có thể dùng để đồng bộ hóa hành vi (behavior) - nghĩa là **CHỈ ÁP DỤNG CHO PHƯƠNG THỨC HOẶC KHỐI LỆNH**, TUYỆT ĐỐI KHÔNG ĐƯỢC dùng cho biến! Trình biên dịch sẽ báo lỗi: `modifier synchronized not allowed here`.\n\n✅ Vì sao đáp án \"private synchronized int e;\" đúng:\n`synchronized` không phải là một modifier hợp lệ dành cho biến, dẫn đến lỗi biên dịch.\n\n❌ Vì sao các đáp án khác sai:\n• \"A\", \"B\", \"D\": Đều sử dụng các modifier hợp lệ dành riêng cho biến (`protected`, `transient`, `volatile`).\n• \"C\": Cú pháp khai báo biến hằng số `final` không gán ngay (blank final) là hoàn toàn hợp lệ nếu được khởi tạo sau trong static block.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `synchronized` khóa hành động (phương thức/khối mã), không thể khóa dữ liệu (biến). Biến thì dùng `volatile`, phương thức mới dùng `synchronized`!",
@@ -1031,18 +1031,18 @@
     "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi chèn vào dòng 7 và 8 sẽ biên dịch thành công? (Chọn 2 đáp án)",
     "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
     "options": [
-      "classAllMathextendsDoMath{ doublegetArea(intr);}",
-      "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
-      "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
-      "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
-      "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+      "class AllMath extends DoMath { double getArea(int r); }",
+      "interface AllMath implements MathPlus { double getVol(int x, int y); }",
+      "interface AllMath extends DoMath { float getAvg(int h, int l); }",
+      "class AllMath implements MathPlus { double getArea(int rad); }",
+      "abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }"
     ],
     "optionsVi": [
-      "classAllMathextendsDoMath{ doublegetArea(intr);}",
-      "interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);}",
-      "interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);}",
-      "classAllMathimplementsMathPlus{ doublegetArea(intrad); }",
-      "abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}}"
+      "class AllMath extends DoMath { double getArea(int r); }",
+      "interface AllMath implements MathPlus { double getVol(int x, int y); }",
+      "interface AllMath extends DoMath { float getAvg(int h, int l); }",
+      "class AllMath implements MathPlus { double getArea(int rad); }",
+      "abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }"
     ],
     "answer": [
       2,
@@ -1065,18 +1065,18 @@
     "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "privateintgetArea();",
-      "publicfloatgetVol(floatx);",
-      "publicvoidmain(String[]args);",
-      "publicstaticvoidmain(String[]args);",
-      "booleansetFlag(Boolean[]test[]);"
+      "private int getArea();",
+      "public float getVol(float x);",
+      "public void main(String[] args);",
+      "public static void main(String[] args);",
+      "boolean setFlag(Boolean[] test[]);"
     ],
     "optionsVi": [
-      "privateintgetArea();",
-      "publicfloatgetVol(floatx);",
-      "publicvoidmain(String[]args);",
-      "publicstaticvoidmain(String[]args);",
-      "booleansetFlag(Boolean[]test[]);"
+      "private int getArea();",
+      "public float getVol(float x);",
+      "public void main(String[] args);",
+      "public static void main(String[] args);",
+      "boolean setFlag(Boolean[] test[]);"
     ],
     "answer": [
       1,
@@ -1101,19 +1101,19 @@
     "textVi": "Hai phát biểu nào dưới đây là ĐÚNG đối với bất kỳ một concrete class (lớp cụ thể) nào implement interface java.lang.Runnable? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "You can extend theRunnable interface as long as you override thepublicrun() method.",
+      "You can extend the Runnable interface as long as you override the public run() method.",
       "The class must contain a method calledrun() from which all code for that thread will be initiated.",
       "The class must contain an emptypublicvoid method namedrun().",
       "The class must contain apublicvoid method namedrunnable().",
-      "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+      "The class definition must include the words implements Threads and contain a method calledrun().",
       "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
     ],
     "optionsVi": [
-      "You can extend theRunnable interface as long as you override thepublicrun() method.",
+      "You can extend the Runnable interface as long as you override the public run() method.",
       "The class must contain a method calledrun() from which all code for that thread will be initiated.",
       "The class must contain an emptypublicvoid method namedrun().",
       "The class must contain apublicvoid method namedrunnable().",
-      "The class definition must include the wordsimplementsThreads and contain a method calledrun().",
+      "The class definition must include the words implements Threads and contain a method calledrun().",
       "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
     ],
     "answer": [
@@ -1137,18 +1137,18 @@
     "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi biên dịch độc lập sẽ biên dịch thành công? (Chọn 2 đáp án)",
     "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
     "options": [
-      "interfaceBase2implementsBase{}",
-      "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
-      "abstractclassClass2implementsBase{}",
-      "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-      "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
+      "interface Base2 implements Base {}",
+      "abstract class Class2 extends Base { public boolean m1() { return true; } }",
+      "abstract class Class2 implements Base {}",
+      "abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }",
+      "class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }"
     ],
     "optionsVi": [
-      "interfaceBase2implementsBase{}",
-      "abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}}",
-      "abstractclassClass2implementsBase{}",
-      "abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}}",
-      "classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}};"
+      "interface Base2 implements Base {}",
+      "abstract class Class2 extends Base { public boolean m1() { return true; } }",
+      "abstract class Class2 implements Base {}",
+      "abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }",
+      "class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }"
     ],
     "answer": [
       2,
@@ -1207,20 +1207,20 @@
     "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai) (Chọn 2 đáp án)",
     "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
     "options": [
-      "boolean test = (Componentinstanceoft);",
-      "boolean test = (tinstanceofTicker);",
+      "boolean test = (Component instanceof t);",
+      "boolean test = (t instanceof Ticker);",
       "boolean test = t.instanceof(Ticker);",
-      "boolean test = (tinstanceofComponent);",
+      "boolean test = (t instanceof Component);",
       "boolean test = t.instanceof(Object);",
-      "boolean test = (tinstanceofString);"
+      "boolean test = (t instanceof String);"
     ],
     "optionsVi": [
-      "boolean test = (Componentinstanceoft);",
-      "boolean test = (tinstanceofTicker);",
+      "boolean test = (Component instanceof t);",
+      "boolean test = (t instanceof Ticker);",
       "boolean test = t.instanceof(Ticker);",
-      "boolean test = (tinstanceofComponent);",
+      "boolean test = (t instanceof Component);",
       "boolean test = t.instanceof(Object);",
-      "boolean test = (tinstanceofString);"
+      "boolean test = (t instanceof String);"
     ],
     "answer": [
       1,
@@ -1271,18 +1271,18 @@
     "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba) (Chọn 3 đáp án)",
     "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
     "options": [
-      "f1= =f2",
-      "f1= =f3",
-      "f2= =f1[1]",
-      "x= =f1[0]",
-      "f= =f1[0]"
+      "f1 == f2",
+      "f1 == f3",
+      "f2 == f1[1]",
+      "x == f1[0]",
+      "f == f1[0]"
     ],
     "optionsVi": [
-      "f1= =f2",
-      "f1= =f3",
-      "f2= =f1[1]",
-      "x= =f1[0]",
-      "f= =f1[0]"
+      "f1 == f2",
+      "f1 == f3",
+      "f2 == f1[1]",
+      "x == f1[0]",
+      "f == f1[0]"
     ],
     "answer": [
       1,
@@ -1527,20 +1527,20 @@
     "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì? (Chọn 1 đáp án)",
     "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
     "options": [
-      "count= 0",
-      "count= 2",
-      "count= 3",
-      "count= 4",
-      "count= 10",
-      "count= 11 Passing Variables into Methods (;"
+      "count = 0",
+      "count = 2",
+      "count = 3",
+      "count = 4",
+      "count = 10",
+      "count = 11"
     ],
     "optionsVi": [
-      "count= 0",
-      "count= 2",
-      "count= 3",
-      "count= 4",
-      "count= 10",
-      "count= 11 Passing Variables into Methods (;"
+      "count = 0",
+      "count = 2",
+      "count = 3",
+      "count = 4",
+      "count = 10",
+      "count = 11"
     ],
     "answer": 2,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nChương trình kết hợp giữa truyền tham chiếu mảng vào phương thức và hiện tượng đoản mạch trong biểu thức logic phức tạp.\n1. Khởi tạo đối tượng:\n   • Mảng `b` được tạo với 3 phần tử boolean mặc định: `{false, false, false}`.\n   • Biến `count = 0`.\n2. Thực thi dòng 12: `ba.set(ba.b, 0);`\n   • Phương thức `set` nhận tham chiếu mảng `ba.b`, đổi `b[0] = true`, và tăng `count` lên 1 (`count = 1`).\n3. Thực thi dòng 13: `ba.set(ba.b, 2);`\n   • Đổi `b[2] = true`, và tăng `count` lên 1 (`count = 2`).\n   • Trạng thái mảng `b` hiện tại: `{true, false, true}`.\n4. Gọi phương thức `ba.test()` tại dòng 14:\n   • Dòng 18: `if ( b[0] && b[1] | b[2] )`\n     - Độ ưu tiên: Toán tử `|` (OR bit/logic) có độ ưu tiên cao hơn `&&` (đoản mạch AND).\n     - Do đó biểu thức được đánh giá là: `b[0] && (b[1] | b[2])`.\n     - `b[1] | b[2]` = `false | true` = `true`.\n     - `b[0] && true` = `true && true` = `true`.\n     - Điều kiện đúng, thực thi dòng 19: `count++` -> `count` tăng từ 2 lên 3.\n   • Dòng 20: `if ( b[1] && b[(++count - 2)] )`\n     - Xét biểu thức bên trái của toán tử đoản mạch `&&`: `b[1]`.\n     - Giá trị của `b[1]` là `false`.\n     - VÌ ĐOẢN MẠCH: Biểu thức bên phải `b[(++count - 2)]` KHÔNG BAO GIỜ ĐƯỢC THỰC THI!\n     - Do đó, biểu thức `++count` bị bỏ qua, `count` KHÔNG hề bị tăng! Giá trị `count` vẫn giữ nguyên là 3.\n     - Dòng 21 (`count += 7`) bị bỏ qua.\n5. Dòng 22: `System.out.println(\"count = \" + count);` in ra `\"count = 3\"`.\n\n✅ Vì sao đáp án \"count = 3\" đúng:\nSau hai lần gọi hàm `set()`, `count` bằng 2. Câu lệnh `if` thứ nhất thỏa mãn điều kiện nên tăng `count` lên 3. Ở câu lệnh `if` thứ hai, vì `b[1]` bằng `false` nên toán tử `&&` đoản mạch bỏ qua toàn bộ vế sau, khiến `++count` không được thực thi. Kết quả in ra `count = 3`.\n\n❌ Vì sao các đáp án khác sai:\n• \"count = 0\" / \"count = 2\": Sai vì bỏ qua lần tăng `count++` ở câu lệnh `if` thứ nhất.\n• \"count = 4\": Sai do nhầm lẫn rằng biểu thức `++count` ở câu lệnh `if` thứ hai vẫn được chạy, quên mất hiệu ứng đoản mạch của toán tử `&&`.\n• \"count = 10\" / \"count = 11\": Sai vì cho rằng câu lệnh `if` thứ hai thỏa mãn và thực thi cả `count += 7`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Bẫy đoản mạch với biểu thức có tác dụng phụ (side-effect): Khi thấy các toán tử tăng giảm (`++`, `--`) đặt bên trong vế phải của `&&` hoặc `||`, hãy kiểm tra vế trái đầu tiên! Nếu vế trái làm dừng biểu thức, vế phải sẽ hoàn toàn bị \"đóng băng\".",
@@ -1628,7 +1628,7 @@
       "streamslipstream",
       "slipstreamslipstream",
       "Compilation fails",
-      "An exception is thrown at runtime;"
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
       "slipstream",
@@ -1636,7 +1636,7 @@
       "streamslipstream",
       "slipstreamslipstream",
       "Compilation fails",
-      "An exception is thrown at runtime;"
+      "An exception is thrown at runtime"
     ],
     "answer": 3,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kết hợp giữa tính bất biến của String (String Immutability) và cơ chế truyền tham số biến tham chiếu (Pass-by-value of Object Reference):\n1. Phương thức `start()` bắt đầu:\n   • Dòng 8: Khai báo `String s1 = \"slip\";`. Biến `s1` trỏ đến đối tượng chuỗi `\"slip\"` trong String Constant Pool.\n   • Dòng 9: Gọi `fix(s1)`. Giá trị tham chiếu của `s1` được sao chép và gán cho tham số `s1` của phương thức `fix()`. Lúc này cả 2 biến cùng trỏ vào đối tượng `\"slip\"`.\n2. Trong phương thức `fix(String s1)`:\n   • Dòng 14: `s1 = s1 + \"stream\";`\n     - Trong Java, đối tượng `String` là bất biến (immutable - không thể sửa đổi nội dung).\n     - Phép nối chuỗi `+` sẽ TẠO RA MỘT ĐỐI TƯỢNG STRING MỚI mang giá trị `\"slipstream\"`.\n     - Sau đó, tham chiếu của đối tượng mới này được gán lại cho biến cục bộ `s1` của hàm `fix()`.\n     - Biến `s1` của hàm `start()` vẫn giữ nguyên tham chiếu cũ trỏ tới `\"slip\"`.\n   • Dòng 15: `System.out.print(s1 + \" \");` in ra giá trị của biến cục bộ: `\"slipstream \"`.\n   • Dòng 16: `return \"stream\";` trả về chuỗi `\"stream\"`.\n3. Trở lại phương thức `start()`:\n   • Chuỗi `\"stream\"` trả về được gán cho `s2`.\n   • Biến `s1` trong `start()` vẫn có giá trị là `\"slip\"`.\n   • Dòng 10: `System.out.println(s1 + \" \" + s2);` in tiếp: `\"slip stream\"`.\n4. Tổng hợp toàn bộ những gì đã in ra màn hình:\n   - Dòng 15 in: `slipstream `\n   - Dòng 10 in: `slip stream`\n   - Ghép liên tiếp các ký tự in ra: `slipstream slip stream` (trong các lựa chọn trắc nghiệm được viết liền là `slipstreamslipstream`).\n\n✅ Vì sao đáp án \"slipstreamslipstream\" đúng:\nVì phương thức `fix()` in ra `\"slipstream \"` trước, sau đó phương thức `start()` in ra `s1` (vẫn là `\"slip\"`) kèm `s2` (`\"stream\"`). Ghép lại toàn bộ luồng in chính là `slipstream slip stream`.\n\n❌ Vì sao các đáp án khác sai:\n• \"slipstream\": Sai vì thiếu kết quả in của dòng 10 trong phương thức `start()`.\n• \"slipstreamstream\": Sai do bỏ sót biến `s1` (\"slip\") trong lệnh in ở dòng 10.\n• \"streamslipstream\": Sai thứ tự in giữa hàm `fix()` và hàm `start()`.\n• \"Lỗi biên dịch (Compilation fails)\" / \"Ném ngoại lệ tại thời điểm chạy\": Sai vì code hoàn toàn hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối tượng `String` là BẤT BIẾN (Immutable). Mọi thao tác nối chuỗi (`+`, `concat()`), thay thế (`replace()`) hay cắt chuỗi (`substring()`) đều tạo ra một đối tượng String hoàn toàn mới chứ không bao giờ sửa đổi trên đối tượng cũ.",
@@ -1818,7 +1818,7 @@
       "50",
       "51",
       "Compiler fails at line 5.",
-      "Compiler fails at line 6.;"
+      "Compiler fails at line 6."
     ],
     "optionsVi": [
       "41",
@@ -1826,7 +1826,7 @@
       "50",
       "51",
       "Compiler fails at line 5.",
-      "Compiler fails at line 6.;"
+      "Compiler fails at line 6."
     ],
     "answer": 3,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra giá trị mặc định của biến tĩnh boolean, toán tử logic `&`, và bẫy câu lệnh rỗng (empty statement) với dấu chấm phẩy `;` sau `if`:\n1. Dòng 2: `static boolean b;`\n   • Biến `b` là biến tĩnh (static field), tự động được JVM khởi tạo giá trị mặc định là `false`.\n   • Do đó `!b` sẽ mang giá trị `true`.\n2. Dòng 4: `short hand = 42;`\n3. Dòng 5: `if ( hand < 50 & !b ) hand++;`\n   • `hand < 50` là `42 < 50` (`true`).\n   • `!b` là `true`.\n   • `true & true = true` -> Điều kiện đúng!\n   • `hand++` được thực thi -> `hand` tăng từ 42 lên 43.\n4. Dòng 6: `if ( hand > 50 ) ;`\n   • ĐÂY LÀ ĐIỂM BẪY ĐỀ BÀI: Dấu chấm phẩy `;` ngay sau `if` là một câu lệnh rỗng (empty statement). Nó hoàn toàn hợp lệ về mặt cú pháp trong Java!\n   • Kiểm tra điều kiện `hand > 50`: `43 > 50` là `false`.\n   • Vì điều kiện dòng 6 là `false`, luồng chạy chuyển sang nhánh `else if` ở dòng 7.\n5. Dòng 7 - 9: `else if ( hand > 40 ) { hand += 7; hand++; }`\n   • Kiểm tra điều kiện `hand > 40`: `43 > 40` là `true`!\n   • Khối lệnh được thực thi:\n     - `hand += 7;` -> `hand = 43 + 7 = 50`.\n     - `hand++;` -> `hand` tăng từ 50 lên 51.\n6. Dòng 10 - 11: Nhánh `else` bị bỏ qua.\n7. Dòng 12: `System.out.println(hand);` in ra giá trị cuối cùng là 51.\n\n✅ Vì sao đáp án \"51\" đúng:\nSau dòng 5, `hand` tăng lên 43. Dòng 6 kiểm tra sai nên nhánh `else if` ở dòng 7 được chạy, cộng thêm 7 thành 50 và tăng 1 thành 51.\n\n❌ Vì sao các đáp án khác sai:\n• \"41\": Sai vì rơi vào nhánh `else` (`--hand`) do nghĩ rằng các điều kiện trên đều sai.\n• \"42\": Sai vì tưởng rằng không có câu lệnh tăng giá trị nào được chạy.\n• \"50\": Sai vì quên dòng lệnh `hand++` ở dòng 9.\n• \"Lỗi biên dịch tại dòng 5\": Sai vì toán tử `&` hoàn toàn hợp lệ với kiểu boolean.\n• \"Lỗi biên dịch tại dòng 6\": Sai vì dấu chấm phẩy đứng một mình tạo thành câu lệnh rỗng (null statement) hoàn toàn đúng chuẩn cú pháp Java.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Dấu chấm phẩy `;` đặt ngay sau `if (condition);` không gây lỗi biên dịch, nó chỉ kết thúc câu lệnh `if` ngay lập tức với thân hàm rỗng. Hãy cẩn thận khi đọc code có dấu chấm phẩy bất thường!",
@@ -1882,7 +1882,7 @@
       "101",
       "111",
       "1001",
-      "1101 Flow Control (loops) (;"
+      "1101"
     ],
     "optionsVi": [
       "0",
@@ -1890,7 +1890,7 @@
       "101",
       "111",
       "1001",
-      "1101 Flow Control (loops) (;"
+      "1101"
     ],
     "answer": 2,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kết hợp cấu trúc `if` lồng nhau và bẫy phép gán `=` bên trong điều kiện `if`:\n1. Khởi tạo:\n   • `b1` và `b2` là static boolean nên mặc định là `false`.\n   • `int x = 0;`.\n2. Lần lượt theo dõi luồng thực thi:\n   • Dòng 5: `if (!b1)` -> `!false` là `true` -> vào thân if.\n   • Dòng 6: `if (!b2)` -> `!false` là `true` -> vào thân if.\n   • Dòng 7: `b1 = true;` -> lúc này giá trị của `b1` đã trở thành `true`!\n   • Dòng 8: `x++;` -> `x` tăng từ 0 lên 1.\n   • Dòng 9: `if (5 > 6)` -> `false` -> bỏ qua dòng 10.\n   • Dòng 12: `if (!b1)`\n     - Vì `b1` đã thành `true` ở dòng 7, nên `!b1` là `false`.\n     - Nhánh `x = x + 10` bị bỏ qua, chuyển sang kiểm tra `else if` ở dòng 13.\n   • Dòng 13: `else if ( b2 = true )`\n     - ĐÂY LÀ ĐIỂM BẪY LỚN NHẤT: Trong dấu ngoặc là `b2 = true` (toán tử GÁN `=`), KHÔNG PHẢI so sánh bằng `==`!\n     - Biểu thức gán `b2 = true` gán giá trị `true` cho `b2` và trả về kết quả là `true`.\n     - Vì điều kiện trả về `true`, khối `else if` này ĐƯỢC THỰC THI:\n       `x = x + 100;` -> `x = 1 + 100 = 101`.\n   • Dòng 14: `else if ( b1 | b2 )`\n     - Trong chuỗi `if - else if`, khi một nhánh phía trước đã thỏa mãn và chạy xong, TOÀN BỘ các nhánh `else if` và `else` phía sau BỊ BỎ QUA HOÀN TOÀN!\n     - Dòng 14 không được kiểm tra và không được chạy.\n3. Dòng 17: `System.out.println(x);` in ra giá trị của `x` là 101.\n\n✅ Vì sao đáp án \"101\" đúng:\n`x` được tăng lên 1 ở dòng 8. Tại dòng 13, phép gán `b2 = true` trả về giá trị `true`, khiến nhánh `x = x + 100` được chạy, đưa `x` lên 101. Nhánh dòng 14 bị bỏ qua vì nhánh trước đã khớp.\n\n❌ Vì sao các đáp án khác sai:\n• \"0\": Sai vì `x` đã được tăng ở dòng 8 và dòng 13.\n• \"1\": Sai vì tưởng rằng `b2 = true` là phép so sánh `==` (nếu so sánh thì `b2 == true` là false và x giữ nguyên 1).\n• \"111\": Sai vì nghĩ rằng nhánh dòng 12 cũng được chạy.\n• \"1001\" / \"1101\": Sai vì cho rằng nhánh dòng 14 (`b1 | b2`) cũng được chạy, quên mất quy tắc loại trừ của chuỗi `else if`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cực kỳ cảnh giác với `if (b = true)`: Đây là phép gán và luôn luôn đánh giá ra `true`! Muốn so sánh giá trị phải dùng hai dấu bằng `if (b == true)` hoặc viết gọn là `if (b)`.",
@@ -2036,13 +2036,13 @@
       "I is 0",
       "I is 0 I is 1",
       "Compilation fails.",
-      "None of the above Exceptions (;"
+      "None of the above"
     ],
     "optionsVi": [
       "I is 0",
       "I is 0 I is 1",
       "Compilation fails.",
-      "None of the above Exceptions (;"
+      "None of the above"
     ],
     "answer": 2,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra phạm vi sử dụng hợp lệ của từ khóa `continue` trong Java:\n1. Quy tắc cốt lõi của `continue`:\n   • Câu lệnh `continue` (dù là không có nhãn hay có gắn nhãn) CHỈ ĐƯỢC PHÉP xuất hiện bên trong một cấu trúc vòng lặp (`for`, `while`, `do-while`).\n   • Mục đích của `continue` là bỏ qua phần còn lại của lần lặp hiện tại và nhảy tới lần lặp tiếp theo của vòng lặp đó.\n2. Phân tích đoạn mã:\n   • Tại dòng 2, nhãn `label:` được đặt ngay trước câu lệnh rẽ nhánh `if` (`if (I < 2)`).\n   • Câu lệnh `if` là cấu trúc rẽ nhánh điều kiện (conditional branch), TUYỆT ĐỐI KHÔNG PHẢI là một vòng lặp (loop construct).\n   • Tại dòng 6, lệnh `continue label;` cố gắng quay ngược lại nhãn của một khối lệnh `if`.\n3. Phản ứng của trình biên dịch:\n   • Trình biên dịch Java sẽ phát hiện lỗi ngay tại dòng 6 và từ chối biên dịch: \"continue cannot be used outside of a loop\" hoặc \"not a loop label\".\n\n✅ Vì sao đáp án \"Lỗi biên dịch (Compilation fails)\" đúng:\nVì câu lệnh `continue` chỉ hợp lệ khi nằm trong và trỏ tới một cấu trúc vòng lặp (`for`, `while`, `do-while`). Không thể dùng `continue` với câu lệnh `if`.\n\n❌ Vì sao các đáp án khác sai:\n• \"I is 0\": Sai vì code không thể biên dịch thành công.\n• \"I is 0 I is 1\": Sai vì tưởng rằng `continue` kết hợp với `if` sẽ tạo ra một vòng lặp thủ công. Java cấm triệt để việc dùng `continue` để tạo vòng lặp giả như lệnh `goto`.\n• \"Không có đáp án nào đúng (None of the above)\": Sai vì đã có đáp án chính xác là Lỗi biên dịch.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `break` có thể dùng cho vòng lặp, `switch`, hoặc bất kỳ khối lệnh gắn nhãn nào `{}`.\n• Nhưng `continue` THÌ CHỈ DÀNH RIÊNG CHO VÒNG LẶP (`for`, `while`, `do-while`). Gặp `continue` ngoài vòng lặp -> Chắc chắn Lỗi biên dịch!",
@@ -2147,13 +2147,13 @@
     "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy? (Chọn 1 đáp án)",
     "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
     "options": [
-      "The program will not compile.;",
+      "The program will not compile.",
       "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
       "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
       "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
     ],
     "optionsVi": [
-      "The program will not compile.;",
+      "The program will not compile.",
       "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
       "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
       "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
@@ -2209,13 +2209,13 @@
     "options": [
       "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
       "If a switch block has no default, adding an assert default is considered appropriate.",
-      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
       "It is appropriate to handle assertion failures using acatch clause."
     ],
     "optionsVi": [
       "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
       "If a switch block has no default, adding an assert default is considered appropriate.",
-      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
       "It is appropriate to handle assertion failures using acatch clause."
     ],
     "answer": 1,
@@ -2301,14 +2301,14 @@
     "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+      "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
       "As of Java version 1.4, assertion statements are compiled by default.",
       "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
       "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
       "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
     ],
     "optionsVi": [
-      "If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default.",
+      "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
       "As of Java version 1.4, assertion statements are compiled by default.",
       "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
       "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
@@ -2616,16 +2616,16 @@
     "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
     "options": [
       "public int doStuff(int x, float y) { return 4; }",
-      "protected int doStuff(int x, float y) {return 4; }",
-      "private int doStuff(int x, float y) {return 4; }",
+      "protected int doStuff(int x, float y) { return 4; }",
+      "private int doStuff(int x, float y) { return 4; }",
       "private int doStuff(int x, double y) { return 4; }",
       "long doStuff(int x, float y) { return 4; }",
       "int doStuff(float x, int y) { return 4; };"
     ],
     "optionsVi": [
       "public int doStuff(int x, float y) { return 4; }",
-      "protected int doStuff(int x, float y) {return 4; }",
-      "private int doStuff(int x, float y) {return 4; }",
+      "protected int doStuff(int x, float y) { return 4; }",
+      "private int doStuff(int x, float y) { return 4; }",
       "private int doStuff(int x, double y) { return 4; }",
       "long doStuff(int x, float y) { return 4; }",
       "int doStuff(float x, int y) { return 4; };"
@@ -2842,13 +2842,13 @@
       "Constructors must not have arguments if the superclass constructor does not have arguments.",
       "Constructors are not inherited.",
       "Constructors cannot be overloaded.",
-      "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
+      "The first statement of every constructor is a legal call to the super() or this() method."
     ],
     "optionsVi": [
       "Constructors must not have arguments if the superclass constructor does not have arguments.",
       "Constructors are not inherited.",
       "Constructors cannot be overloaded.",
-      "The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (;"
+      "The first statement of every constructor is a legal call to the super() or this() method."
     ],
     "answer": [
       1,
@@ -2906,7 +2906,7 @@
       "return (long) y;",
       "return (int) 3.14d;",
       "return ( y / x );",
-      "return  x / 7;"
+      "return x / 7;"
     ],
     "optionsVi": [
       "return x;",
@@ -2914,7 +2914,7 @@
       "return (long) y;",
       "return (int) 3.14d;",
       "return ( y / x );",
-      "return  x / 7;"
+      "return x / 7;"
     ],
     "answer": [
       1,
@@ -2975,7 +2975,7 @@
     "options": [
       "char [] [] c = new char [2][2]; return c;",
       "return (Object) 7;",
-      "return (Object) (new int [] {1,2,3} );",
+      "return (Object) (new int [] { 1, 2, 3 } );",
       "ArrayList a = new ArrayList(); return a;",
       "return (Object) \"test\";",
       "return (Float) 4.3;"
@@ -2983,7 +2983,7 @@
     "optionsVi": [
       "char [] [] c = new char [2][2]; return c;",
       "return (Object) 7;",
-      "return (Object) (new int [] {1,2,3} );",
+      "return (Object) (new int [] { 1, 2, 3 } );",
       "ArrayList a = new ArrayList(); return a;",
       "return (Object) \"test\";",
       "return (Float) 4.3;"
@@ -3168,7 +3168,7 @@
       "wbookkeewoo",
       "wbookkeeperwoo",
       "Compilation fails.",
-      "An exception is thrown at runtime. Using the java.lang.Math Class (;"
+      "An exception is thrown at runtime."
     ],
     "optionsVi": [
       "wookkeewoo",
@@ -3176,7 +3176,7 @@
       "wbookkeewoo",
       "wbookkeeperwoo",
       "Compilation fails.",
-      "An exception is thrown at runtime. Using the java.lang.Math Class (;"
+      "An exception is thrown at runtime."
     ],
     "answer": 4,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy quan sát kỹ từng dòng mã:\n```java\n4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);\n```\n1. Dòng 4: `d` được khai báo là một biến tham chiếu có kiểu dữ liệu là `java.lang.String`.\n2. Dòng 5: `d.substring(1, 7);` không gán lại nên không làm đổi `d`.\n3. Dòng 6: `d = \"w\" + d;` nối chuỗi, `d` trở thành `\"wbookkeeper\"`.\n4. Dòng 7: `d.append(\"woo\");`:\n   • BẪY THI: Phương thức `append()` là phương thức của các lớp có khả năng thay đổi nội dung như `StringBuffer` hoặc `StringBuilder`.\n   • Lớp `String` là lớp bất biến (immutable), nó HOÀN TOÀN KHÔNG CÓ phương thức nào tên là `append()`! (Lớp `String` chỉ có phương thức `concat()` hoặc toán tử `+`).\n   • Trình biên dịch sẽ báo lỗi ngay tại dòng 7: \"cannot find symbol: method append(String)\".\n\n✅ Vì sao đáp án \"Compilation fails\" đúng:\nVì biến `d` thuộc kiểu `String`, mà lớp `String` trong Java không hề tồn tại phương thức `append()`.\n\n❌ Vì sao các đáp án khác sai:\n• \"wbookkeeperwoo\", \"wookkeewoo\", \"wbookkeewoo\", \"wbookkeeper\": Đều sai vì tưởng rằng `append()` hợp lệ trên String và cố gắng tính toán chuỗi kết quả.\n• \"Runtime Exception\": Sai vì lỗi được phát hiện ngay khi biên dịch (compile-time error), chương trình không thể chạy được.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ bảng phương thức:\n  • `String`: dùng `concat()`, `replace()`, `substring()`, `toUpperCase()`. KHÔNG CÓ `append()`, `insert()`, `reverse()`.\n  • `StringBuffer` / `StringBuilder`: dùng `append()`, `insert()`, `reverse()`, `delete()`.",
@@ -3225,15 +3225,15 @@
     "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng) (Chọn 3 đáp án)",
     "code": "",
     "options": [
-      "Math.max(1,4)",
-      "Math.max(2.3,5)",
-      "Math.max(1,3,5,7)",
+      "Math.max(1, 4)",
+      "Math.max(2.3, 5)",
+      "Math.max(1, 3, 5, 7)",
       "Math.max(-1.5,-2.8f)"
     ],
     "optionsVi": [
-      "Math.max(1,4)",
-      "Math.max(2.3,5)",
-      "Math.max(1,3,5,7)",
+      "Math.max(1, 4)",
+      "Math.max(2.3, 5)",
+      "Math.max(1, 3, 5, 7)",
       "Math.max(-1.5,-2.8f)"
     ],
     "answer": [
@@ -3330,7 +3330,7 @@
       "Line 5",
       "Line 6",
       "Line 3 and either line 4, 5, or 6",
-      "None of the above Using Wrapper Classes (;"
+      "None of the above"
     ],
     "optionsVi": [
       "Line 3",
@@ -3338,7 +3338,7 @@
       "Line 5",
       "Line 6",
       "Line 3 and either line 4, 5, or 6",
-      "None of the above Using Wrapper Classes (;"
+      "None of the above"
     ],
     "answer": 2,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã kiểm tra cách sử dụng các hàm lượng giác trong lớp `java.lang.Math`:\n```java\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n```\nQuy tắc đặc tả của Java cho các hàm lượng giác (`Math.sin`, `Math.cos`, `Math.tan`):\n• Tất cả các hàm này đều nhận tham số đầu vào là góc đo bằng đơn vị **RADIAN (radians)**, KHÔNG PHẢI ĐỘ (degrees)!\n• Nếu bạn truyền trực tiếp `Math.sin(75)` như ở dòng 3: Java sẽ tính sin của góc 75 radian (tương đương hơn 4297 độ), hoàn toàn sai lệch với yêu cầu tính sin của 75 độ.\n• Để tính sin của 75 độ, ta phải thực hiện 2 bước theo đúng thứ tự:\n  1. Bước 1: Chuyển đổi 75 độ sang đơn vị radian bằng hàm: `Math.toRadians(75)`.\n  2. Bước 2: Truyền kết quả radian đó vào hàm tính sin: `Math.sin(Math.toRadians(75))`.\n• Nhìn vào Dòng 5: Cú pháp `Math.sin(Math.toRadians(75))` thực hiện chính xác trình tự 2 bước này!\n\n✅ Vì sao đáp án \"Line 5\" đúng:\nVì dòng 5 đã dùng `Math.toRadians(75)` để đổi 75 độ sang radian trước khi truyền vào hàm `Math.sin()`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Line 3\": Sai vì tính sin của 75 radian.\n• \"Line 4\": Sai vì tính sin của 75 radian rồi lại đổi kết quả sin đó sang độ.\n• \"Line 6\": Sai vì tính sin của 75 radian rồi đổi kết quả sin sang radian.\n• \"Line 3 and either line 4, 5, or 6\" và \"None of the above\": Sai vì chỉ duy nhất dòng 5 tính đúng.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Hàm lượng giác của Java chỉ ăn Radian\": Muốn tính sin/cos/tan của độ, luôn luôn phải bọc `Math.toRadians(deg)` ở bên trong đối số của hàm: `Math.sin(Math.toRadians(deg))`.",
@@ -3459,7 +3459,7 @@
     "options": [
       "float f1 = Float.floatValue(s);",
       "float f2 = Float.valueOf(s);",
-      "float f3 = newFloat(3.14f).floatValue();",
+      "float f3 = new Float(3.14f).floatValue();",
       "float f4 = Float.parseFloat(1.23f);",
       "float f5 = Float.valueOf(s).floatValue();",
       "float f6 = (float)Double.parseDouble(\"3.14\");"
@@ -3467,7 +3467,7 @@
     "optionsVi": [
       "float f1 = Float.floatValue(s);",
       "float f2 = Float.valueOf(s);",
-      "float f3 = newFloat(3.14f).floatValue();",
+      "float f3 = new Float(3.14f).floatValue();",
       "float f4 = Float.parseFloat(1.23f);",
       "float f5 = Float.valueOf(s).floatValue();",
       "float f6 = (float)Double.parseDouble(\"3.14\");"
@@ -3500,7 +3500,7 @@
       "Compilation fails on line 13.",
       "Compilation fails on line 14.",
       "Compilation fails on lines 13 and 14.",
-      "An uncaught exception is thrown at runtime.;"
+      "An uncaught exception is thrown at runtime."
     ],
     "optionsVi": [
       "9.0",
@@ -3508,7 +3508,7 @@
       "Compilation fails on line 13.",
       "Compilation fails on line 14.",
       "Compilation fails on lines 13 and 14.",
-      "An uncaught exception is thrown at runtime.;"
+      "An uncaught exception is thrown at runtime."
     ],
     "answer": 0,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã kiểm tra các phương thức chuyển đổi dữ liệu kế thừa từ lớp trừu tượng `java.lang.Number`:\n```java\n11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) { ... }\n```\n1. Lớp `Float` kế thừa từ lớp cha `java.lang.Number`. Lớp `Number` định nghĩa sẵn 6 phương thức chuyển đổi kiểu số cho mọi lớp bao bọc số:\n   • `byteValue()`\n   • `shortValue()`\n   • `intValue()`\n   • `longValue()`\n   • `floatValue()`\n   • `doubleValue()`\n   Do đó, TẤT CẢ các dòng 13, 14, 15 đều HOÀN TOÀN HỢP LỆ và biên dịch thành công! (Nhiều người lầm tưởng `Float` không thể gọi `byteValue()` hay `intValue()`, đó là bẫy thi).\n2. Tính toán giá trị:\n   • Dòng 12: `f1` chứa giá trị `3.0f`.\n   • Dòng 13: `x = f1.intValue();` -> lấy phần nguyên -> `x = 3`.\n   • Dòng 14: `b = f1.byteValue();` -> chuyển sang byte -> `b = 3`.\n   • Dòng 15: `d = f1.doubleValue();` -> chuyển sang double -> `d = 3.0`.\n3. Dòng 16: Phép cộng `x + b + d`:\n   • `x + b` = `3 + 3` = `6` (kiểu int).\n   • `6 + d` = `6 + 3.0` = `9.0` (số nguyên cộng với số thực `double` sẽ tự động thăng cấp thành `double`).\n4. In ra màn hình: `\"9.0\"`.\n\n✅ Vì sao đáp án \"9.0\" đúng:\nVì các phương thức `intValue()`, `byteValue()`, `doubleValue()` đều tồn tại hợp lệ trên đối tượng `Float`, và phép tính `3 + 3 + 3.0` cho ra kết quả `9.0`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Compilation fails on line 13 / 14 / both\": Sai vì mọi wrapper số đều kế thừa các hàm chuyển đổi này từ `java.lang.Number`.\n• \"bad number\": Sai vì chuỗi `\"3.0\"` được parse hoàn toàn hợp lệ thành Float, không phát sinh `NumberFormatException`.\n• \"Uncaught exception\": Sai vì không có bất kỳ ngoại lệ nào phát sinh.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Bất kỳ Number wrapper nào (`Byte`, `Short`, `Integer`, `Long`, `Float`, `Double`) đều có thể ép ra bất kỳ kiểu số nguyên thủy nào\" thông qua họ hàm `xxxValue()`.",
@@ -3527,20 +3527,20 @@
     "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì? (Chọn 1 đáp án)",
     "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
     "options": [
-      "result= 1",
-      "result= 10",
-      "result= 11",
-      "result= 11010",
-      "result= 11011",
-      "result= 11111"
+      "result = 1",
+      "result = 10",
+      "result = 11",
+      "result = 11010",
+      "result = 11011",
+      "result = 11111"
     ],
     "optionsVi": [
-      "result= 1",
-      "result= 10",
-      "result= 11",
-      "result= 11010",
-      "result= 11011",
-      "result= 11111"
+      "result = 1",
+      "result = 10",
+      "result = 11",
+      "result = 11010",
+      "result = 11011",
+      "result = 11111"
     ],
     "answer": 1,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã này là bài kiểm tra đỉnh cao về sự khác biệt giữa toán tử `==` và phương thức `.equals()` trên các Wrapper Class:\n```java\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n```\nHãy đánh giá từng câu lệnh điều kiện:\n1. Dòng 12: `if (x == y) result = 1;`\n   • Toán tử `==` trên hai biến tham chiếu đối tượng so sánh **ĐỊA CHỈ Ô NHỚ (tham chiếu)**, chứ không so sánh giá trị bên trong.\n   • Vì `x` và `y` được tạo ra bằng 2 toán tử `new Long(...)` riêng biệt, chúng nằm ở 2 ô nhớ độc lập trên Heap.\n   • Do đó `x == y` là `false`. `result` vẫn giữ nguyên giá trị `0`.\n2. Dòng 13: `if (x.equals(y)) result = result + 10;`\n   • Phương thức `.equals()` của các lớp Wrapper so sánh GIÁ TRỊ bên trong.\n   • `x` có kiểu `Long` mang giá trị 42L. `y` cũng có kiểu `Long` mang giá trị 42L.\n   • Vì CÙNG KIỂU CLASS (`Long`) và CÙNG GIÁ TRỊ (`42L`), nên `x.equals(y)` trả về `true`!\n   • `result = 0 + 10 = 10`.\n3. Dòng 14: `if (x.equals(z)) result = result + 100;`\n   • QUY TẮC VÀNG CỦA EQUALS TRONG WRAPPER CLASS:\n     Hàm `equals()` trong bất kỳ lớp Wrapper nào luôn kiểm tra kiểu dữ liệu đầu tiên:\n     `if (!(obj instanceof Long)) return false;`\n   • Nếu đối tượng truyền vào KHÁC KIỂU CLASS, nó lập tức trả về `false` mà KHÔNG BAO GIỜ ép kiểu hay so sánh giá trị số!\n   • Ở đây `x` là `Long`, còn `z` là `Short`. Khác kiểu class -> Trả về `false` ngay! (Không cộng 100).\n4. Dòng 15: `if (x.equals(x2))` -> `x` (`Long`) khác kiểu với `x2` (`Short`) -> `false`! (Không cộng 1000).\n5. Dòng 16: `if (x.equals(z2))` -> `x` (`Long`) khác kiểu với `z2` (`Integer`) -> `false`! (Không cộng 10000).\nCuối cùng in ra: `result = 10`.\n\n✅ Vì sao đáp án \"result = 10\" đúng:\nVì `x == y` sai do khác đối tượng ô nhớ, các phép `equals` với `Short` và `Integer` đều sai do khác kiểu Wrapper, chỉ duy nhất `x.equals(y)` là đúng (cùng kiểu `Long` và cùng giá trị 42L).\n\n❌ Vì sao các đáp án khác sai:\n• \"result = 1\": Sai vì nhầm tưởng `==` so sánh giá trị đối tượng.\n• \"result = 11\": Sai vì tưởng `x == y` đúng.\n• \"result = 11010\", \"11011\", \"11111\": Đều sai vì ngộ nhận rằng phương thức `equals()` sẽ tự động ép kiểu các số bằng 42 của `Short` hay `Integer` để so sánh với `Long`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Hai Wrapper khác kiểu đem so `equals()` LUÔN LUÔN LÀ FALSE!\" Ví dụ: `new Integer(42).equals(new Long(42))` CHẮC CHẮN LÀ `false`, không cần tính toán giá trị!",
@@ -3622,17 +3622,17 @@
     "code": "",
     "options": [
       "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-      "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
-      "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
-      "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-      "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
+      "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
+      "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
+      "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
+      "If x and y are String references and x == y is true, theny.equals(x) will be true."
     ],
     "optionsVi": [
       "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-      "If x and y refer to instances of different wrapper classes, then x= = y can sometimes be true.",
-      "If x and y are String references and ifx.equals(y) istrue, then x= = y istrue.",
-      "If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.",
-      "If x and y are String references and x= = y istrue, theny.equals(x) will betrue."
+      "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
+      "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
+      "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
+      "If x and y are String references and x == y is true, theny.equals(x) will be true."
     ],
     "answer": [
       3,
@@ -3656,13 +3656,13 @@
     "code": "12.  if (x1.hashCode() != x2.hashCode())  x = x + 1;\n13.  if (x3.equals(x4))                  x = x + 10;\n14.  if (!x5.equals(x6))                 x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode())  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
     "options": [
       "x2.equals(x1)",
-      "x3.hashCode() = = x4.hashCode()",
+      "x3.hashCode() == x4.hashCode()",
       "x5.hashCode() != x6.hashCode()",
       "x8.equals(x7)"
     ],
     "optionsVi": [
       "x2.equals(x1)",
-      "x3.hashCode() = = x4.hashCode()",
+      "x3.hashCode() == x4.hashCode()",
       "x5.hashCode() != x6.hashCode()",
       "x8.equals(x7)"
     ],
@@ -3713,18 +3713,18 @@
     "textVi": "Hai phát biểu nào sau đây là ĐÚNG khi so sánh hai đối tượng cùng một lớp, với điều kiện các phương thức equals() và hashCode() đã được ghi đè đúng chuẩn hợp đồng? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
-      "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-      "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
-      "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
-      "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+      "If the equals() method return s true, the hashCode() comparison == must return true.",
+      "If the equals() method return s false, the hashCode() comparison != must return true.",
+      "If the hashCode() comparison == return s true, the equals() method must return true.",
+      "If the hashCode() comparison == return s true, the equals() method might return true.",
+      "If the hashCode() comparison != return s true, the equals() method might return true."
     ],
     "optionsVi": [
-      "If theequals() method returnstrue, thehashCode() comparison = = must returntrue.",
-      "If theequals() method returnsfalse, thehashCode() comparison != must return true.",
-      "If thehashCode() comparison = = returnstrue, theequals() method must return true.",
-      "If thehashCode() comparison = = returnstrue, theequals() method might returntrue.",
-      "If thehashCode() comparison != returnstrue, theequals() method might returntrue."
+      "If the equals() method return s true, the hashCode() comparison == must return true.",
+      "If the equals() method return s false, the hashCode() comparison != must return true.",
+      "If the hashCode() comparison == return s true, the equals() method must return true.",
+      "If the hashCode() comparison == return s true, the equals() method might return true.",
+      "If the hashCode() comparison != return s true, the equals() method might return true."
     ],
     "answer": [
       0,
@@ -3777,18 +3777,18 @@
     "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "hashCode() doesn’t have to be overridden ifequals() is.",
-      "equals() doesn’t have to be overridden ifhashCode() is.",
+      "hashCode() doesn't have to be overridden ifequals() is.",
+      "equals() doesn't have to be overridden ifhashCode() is.",
       "hashCode() can always return the same value, regardless of the object that invoked it.",
-      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-      "equals() can be true even if it’s comparing different objects.;"
+      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+      "equals() can be true even if it's comparing different objects."
     ],
     "optionsVi": [
-      "hashCode() doesn’t have to be overridden ifequals() is.",
-      "equals() doesn’t have to be overridden ifhashCode() is.",
+      "hashCode() doesn't have to be overridden ifequals() is.",
+      "equals() doesn't have to be overridden ifhashCode() is.",
       "hashCode() can always return the same value, regardless of the object that invoked it.",
-      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations.",
-      "equals() can be true even if it’s comparing different objects.;"
+      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+      "equals() can be true even if it's comparing different objects."
     ],
     "answer": [
       2,
@@ -3876,7 +3876,7 @@
       "four one three two",
       "one two three four one",
       "one four three two one",
-      "The print order is not guaranteed.;"
+      "The print order is not guaranteed."
     ],
     "optionsVi": [
       "one two three four",
@@ -3884,7 +3884,7 @@
       "four one three two",
       "one two three four one",
       "one four three two one",
-      "The print order is not guaranteed.;"
+      "The print order is not guaranteed."
     ],
     "answer": 2,
     "correctLetters": [
@@ -3908,7 +3908,7 @@
       "java.util.HashMap",
       "java.util.TreeMap",
       "java.util.LinkedHashSet",
-      "java.util.TreeSet Garbage Collection (;"
+      "java.util.TreeSet"
     ],
     "optionsVi": [
       "java.util.ArrayList",
@@ -3916,7 +3916,7 @@
       "java.util.HashMap",
       "java.util.TreeMap",
       "java.util.LinkedHashSet",
-      "java.util.TreeSet Garbage Collection (;"
+      "java.util.TreeSet"
     ],
     "answer": 1,
     "correctLetters": [
@@ -4027,14 +4027,14 @@
     "options": [
       "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
       "The garbage collector uses a mark and sweep algorithm.",
-      "If an object can be accessed from a live thread, it can’t be garbage collected.",
-      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+      "If an object can be accessed from a live thread, it can't be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can't be garbage collected."
     ],
     "optionsVi": [
       "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
       "The garbage collector uses a mark and sweep algorithm.",
-      "If an object can be accessed from a live thread, it can’t be garbage collected.",
-      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+      "If an object can be accessed from a live thread, it can't be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can't be garbage collected."
     ],
     "answer": 2,
     "correctLetters": [
@@ -4117,16 +4117,16 @@
     "textVi": "Cho đoạn mã sau:\npublic class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}\nCâu lệnh nào sau đây, khi được đặt trong một lớp khác (ngoài MyOuter và MyInner), sẽ khởi tạo một đối tượng (instance) của lớp lồng tĩnh (nested class)? (Chọn 1 đáp án)",
     "code": "public class MyOuter {\n  public static class MyInner {\n    public static void foo() { }\n  }\n}",
     "options": [
-      "MyOuter.MyInnerm= newMyOuter.MyInner();",
-      "MyOuter.MyInnermi= newMyInner();",
-      "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-      "MyInnermi= newMyOuter.MyInner();"
+      "MyOuter.MyInner m = new MyOuter.MyInner();",
+      "MyOuter.MyInner mi = new MyInner();",
+      "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+      "MyInner mi = new MyOuter.MyInner();"
     ],
     "optionsVi": [
-      "MyOuter.MyInnerm= newMyOuter.MyInner();",
-      "MyOuter.MyInnermi= newMyInner();",
-      "MyOuterm= newMyOuter(); MyOuter.MyInnermi= m.newMyOuter.MyInner();",
-      "MyInnermi= newMyOuter.MyInner();"
+      "MyOuter.MyInner m = new MyOuter.MyInner();",
+      "MyOuter.MyInner mi = new MyInner();",
+      "MyOuter m = new MyOuter(); MyOuter.MyInner mi = m.new MyOuter.MyInner();",
+      "MyInner mi = new MyOuter.MyInner();"
     ],
     "answer": 0,
     "correctLetters": [
@@ -4148,14 +4148,14 @@
       "You must have a reference to an instance of the enclosing class in order to instantiate it.",
       "It does not have access to nonstatic members of the enclosing class.",
       "Its variables and methods must be static.",
-      "It can be instantiated usingnewMyOuter.MyInner(); .",
+      "It can be instantiated using new MyOuter.MyInner(); .",
       "It must extend the enclosing class."
     ],
     "optionsVi": [
       "You must have a reference to an instance of the enclosing class in order to instantiate it.",
       "It does not have access to nonstatic members of the enclosing class.",
       "Its variables and methods must be static.",
-      "It can be instantiated usingnewMyOuter.MyInner(); .",
+      "It can be instantiated using new MyOuter.MyInner(); .",
       "It must extend the enclosing class."
     ],
     "answer": [
@@ -4179,20 +4179,20 @@
     "textVi": "Cú pháp nào sau đây khởi tạo hợp lệ một đối tượng của lớp nội danh ẩn danh (anonymous inner class)? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "Runnabler= newRunnable(){};",
-      "Runnabler= newRunnable(publicvoidrun(){});",
-      "Runnabler= newRunnable{publicvoidrun(){}};",
-      "Runnabler= newRunnable(){publicvoidrun{}};",
-      "System.out.println(newRunnable() {publicvoidrun(){}});",
-      "System.out.println(newRunnable(publicvoidrun(){}));"
+      "Runnable r = new Runnable() {};",
+      "Runnable r = new Runnable(public void run() {});",
+      "Runnable r = new Runnable { public void run() {} };",
+      "Runnable r = new Runnable() { public void run {} };",
+      "System.out.println(new Runnable() { public void run() {} });",
+      "System.out.println(new Runnable(public void run() {}));"
     ],
     "optionsVi": [
-      "Runnabler= newRunnable(){};",
-      "Runnabler= newRunnable(publicvoidrun(){});",
-      "Runnabler= newRunnable{publicvoidrun(){}};",
-      "Runnabler= newRunnable(){publicvoidrun{}};",
-      "System.out.println(newRunnable() {publicvoidrun(){}});",
-      "System.out.println(newRunnable(publicvoidrun(){}));"
+      "Runnable r = new Runnable() {};",
+      "Runnable r = new Runnable(public void run() {});",
+      "Runnable r = new Runnable { public void run() {} };",
+      "Runnable r = new Runnable() { public void run {} };",
+      "System.out.println(new Runnable() { public void run() {} });",
+      "System.out.println(new Runnable(public void run() {}));"
     ],
     "answer": 4,
     "correctLetters": [
@@ -4211,18 +4211,18 @@
     "textVi": "Cho đoạn mã sau:\nclass Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // chèn mã tại đây\n  }\n}\nHai câu lệnh nào dưới đây sẽ tạo một lớp nội danh ẩn danh (anonymous inner class) hợp lệ từ bên trong lớp Bar? (Chọn 2 đáp án)",
     "code": "class Boo {\n  Boo(String s) { }\n  Boo() { }\n}\nclass Bar extends Boo {\n  Bar() { }\n  Bar(String s) { super(s); }\n  void zoo() {\n    // insert code here\n  }\n}",
     "options": [
-      "Boof= newBoo(24){};",
-      "Boof= newBar(){};",
-      "Boof= newBoo(){Strings;};",
-      "Barf= newBoo(Strings){};",
-      "Boof= newBoo.Bar(Strings){};"
+      "Boo f = new Boo(24) {};",
+      "Boo f = new Bar() {};",
+      "Boo f = new Boo() { String s; };",
+      "Bar f = new Boo(String s) {};",
+      "Boo f = new Boo.Bar(String s) {};"
     ],
     "optionsVi": [
-      "Boof= newBoo(24){};",
-      "Boof= newBar(){};",
-      "Boof= newBoo(){Strings;};",
-      "Barf= newBoo(Strings){};",
-      "Boof= newBoo.Bar(Strings){};"
+      "Boo f = new Boo(24) {};",
+      "Boo f = new Bar() {};",
+      "Boo f = new Boo() { String s; };",
+      "Bar f = new Boo(String s) {};",
+      "Boo f = new Boo.Bar(String s) {};"
     ],
     "answer": [
       1,
@@ -4245,18 +4245,18 @@
     "textVi": "Cho đoạn mã sau:\n1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Chèn mã tại đây\n8.   }\n9. }\nCâu lệnh nào sau đây, khi được chèn vào dòng 7, sẽ tạo một đối tượng thực thể của Bar? (Chọn 1 đáp án)",
     "code": "1. class Foo {\n2.   class Bar{ }\n3. }\n4. class Test {\n5.   public static void main (String [] args) {\n6.     Foo f = new Foo();\n7.     // Insert code here\n8.   }\n9. }",
     "options": [
-      "Foo.Barb= newFoo.Bar();",
-      "Foo.Barb= f.newBar();",
-      "Barb= newf.Bar();",
-      "Barb= f.newBar();",
-      "Foo.Barb= newf.Bar();"
+      "Foo.Bar b = new Foo.Bar();",
+      "Foo.Bar b = f.new Bar();",
+      "Bar b = new f.Bar();",
+      "Bar b = f.new Bar();",
+      "Foo.Bar b = new f.Bar();"
     ],
     "optionsVi": [
-      "Foo.Barb= newFoo.Bar();",
-      "Foo.Barb= f.newBar();",
-      "Barb= newf.Bar();",
-      "Barb= f.newBar();",
-      "Foo.Barb= newf.Bar();"
+      "Foo.Bar b = new Foo.Bar();",
+      "Foo.Bar b = f.new Bar();",
+      "Bar b = new f.Bar();",
+      "Bar b = f.new Bar();",
+      "Foo.Bar b = new f.Bar();"
     ],
     "answer": 1,
     "correctLetters": [
@@ -4469,14 +4469,14 @@
       "4538",
       "4557",
       "An exception occurs at runtime.",
-      "Compilation fails.;"
+      "Compilation fails."
     ],
     "optionsVi": [
       "5722",
       "4538",
       "4557",
       "An exception occurs at runtime.",
-      "Compilation fails.;"
+      "Compilation fails."
     ],
     "answer": 0,
     "correctLetters": [
@@ -4559,18 +4559,18 @@
     "textVi": "Đoạn mã sau tạo một Thread sử dụng một mục tiêu (target) kiểu Runnable:\nRunnable target = new MyRunnable();\nThread myThread = new Thread(target);\nLớp nào dưới đây có thể dùng để tạo target trên, giúp đoạn mã biên dịch thành công? (Chọn 1 đáp án)",
     "code": "Runnable target = new MyRunnable();\nThread myThread = new Thread(target);",
     "options": [
-      "public class MyRunnable extends Runnable{public void run(){}}",
-      "public class MyRunnable extends Object{public void run(){}}",
-      "public class MyRunnable implements Runnable{public void run(){}}",
-      "public class MyRunnable implements Runnable{void run(){}}",
-      "public class MyRunnable implements Runnable{public void start(){}}"
+      "public class MyRunnable extends Runnable { public void run() {} }",
+      "public class MyRunnable extends Object { public void run() {} }",
+      "public class MyRunnable implements Runnable { public void run() {} }",
+      "public class MyRunnable implements Runnable { void run() {} }",
+      "public class MyRunnable implements Runnable { public void start() {} }"
     ],
     "optionsVi": [
-      "public class MyRunnable extends Runnable{public void run(){}}",
-      "public class MyRunnable extends Object{public void run(){}}",
-      "public class MyRunnable implements Runnable{public void run(){}}",
-      "public class MyRunnable implements Runnable{void run(){}}",
-      "public class MyRunnable implements Runnable{public void start(){}}"
+      "public class MyRunnable extends Runnable { public void run() {} }",
+      "public class MyRunnable extends Object { public void run() {} }",
+      "public class MyRunnable implements Runnable { public void run() {} }",
+      "public class MyRunnable implements Runnable { void run() {} }",
+      "public class MyRunnable implements Runnable { public void start() {} }"
     ],
     "answer": 2,
     "correctLetters": [
@@ -4703,20 +4703,20 @@
     "textVi": "Giả sử bạn có một lớp lưu trữ hai biến thành viên private: a và b. Cặp phương thức nào dưới đây có thể ngăn chặn sự cố tranh chấp truy cập đồng thời (concurrent access / race condition) trong lớp đó? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
-      "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
-      "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
-      "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
+      "public int read(int a, int b) { return a + b; } public void set(int a, int b) { this.a = a; this.b = b; }",
+      "public synchronized int read(int a, int b) { return a + b; } public synchronized void set(int a, int b) { this.a = a; this.b = b; }",
+      "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(a) { this.a = a; this.b = b; } }",
+      "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(b) { this.a = a; this.b = b; } }",
+      "public synchronized(this) int read(int a, int b) { return a + b; } public synchronized(this) void set(int a, int b) { this.a = a; this.b = b; }",
+      "public int read(int a, int b) { synchronized(this) { return a + b; } } public void set(int a, int b) { synchronized(this) { this.a = a; this.b = b; } }"
     ],
     "optionsVi": [
-      "public int read(int a, int b){return a+b;} public void set(int a, int b){this.a= a;this.b= b;}",
-      "public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a= a;this.b= b;}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a= a;this.b= b;}}",
-      "public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(b){this.a= a;this.b= b;}}",
-      "public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a= a;this.b= b;}",
-      "public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a= a;this.b= b;}}"
+      "public int read(int a, int b) { return a + b; } public void set(int a, int b) { this.a = a; this.b = b; }",
+      "public synchronized int read(int a, int b) { return a + b; } public synchronized void set(int a, int b) { this.a = a; this.b = b; }",
+      "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(a) { this.a = a; this.b = b; } }",
+      "public int read(int a, int b) { synchronized(a) { return a + b; } } public void set(int a, int b) { synchronized(b) { this.a = a; this.b = b; } }",
+      "public synchronized(this) int read(int a, int b) { return a + b; } public synchronized(this) void set(int a, int b) { this.a = a; this.b = b; }",
+      "public int read(int a, int b) { synchronized(this) { return a + b; } } public void set(int a, int b) { synchronized(this) { this.a = a; this.b = b; } }"
     ],
     "answer": [
       1,
@@ -4768,14 +4768,14 @@
     "code": "",
     "options": [
       "A static method cannot be synchronized.",
-      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
+      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
       "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
       "When a thread sleeps, it releases its locks.",
       "When a thread invokeswait(), it releases its locks."
     ],
     "optionsVi": [
       "A static method cannot be synchronized.",
-      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.;",
+      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
       "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
       "When a thread sleeps, it releases its locks.",
       "When a thread invokeswait(), it releases its locks."
@@ -4908,7 +4908,7 @@
       "Thenotify() method is defined in class java.lang.Thread.",
       "When a thread is waiting as a result ofwait(), it release its locks.",
       "Thenotify() method causes a thread to immediately release its locks.",
-      "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+      "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
     ],
     "optionsVi": [
       "ThenotifyAll() method must be called from a synchronized context.",
@@ -4916,7 +4916,7 @@
       "Thenotify() method is defined in class java.lang.Thread.",
       "When a thread is waiting as a result ofwait(), it release its locks.",
       "Thenotify() method causes a thread to immediately release its locks.",
-      "The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on."
+      "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
     ],
     "answer": [
       0,
@@ -5126,7 +5126,7 @@
     "code": "public class SyncTest {\n  public static void main (String [] args) {\n    Thread t = new Thread() {\n      Foo f = new Foo();\n      public void run() {\n        f.increase(20);\n      }\n    };\n    t.start();\n  }\n}\nclass Foo {\n  private int data = 23;\n  public void increase(int amt) {\n    int x = data;\n    data = x + amt;\n  }\n}",
     "options": [
       "Synchronize the run method.",
-      "Wrap a synchronize(this) around the call tof.increase().;",
+      "Wrap a synchronize(this) around the call to f.increase().",
       "The existing code will not compile.",
       "The existing code will cause a runtime exception.",
       "Put in await() call prior to invoking theincrease() method.",
@@ -5134,7 +5134,7 @@
     ],
     "optionsVi": [
       "Synchronize the run method.",
-      "Wrap a synchronize(this) around the call tof.increase().;",
+      "Wrap a synchronize(this) around the call to f.increase().",
       "The existing code will not compile.",
       "The existing code will cause a runtime exception.",
       "Put in await() call prior to invoking theincrease() method.",
