@@ -201,3 +201,4 @@ for (const q of list) {
 
 fs.writeFileSync(processedPath, JSON.stringify(list, null, 2), "utf8");
 console.log(`Successfully updated ${qModified} questions in scjp_processed.json!`);
+

@@ -57,3 +57,4 @@ export default function OptionFormattedText({ text, style }) {
 
   return <span style={style}>{text}</span>;
 }
+
