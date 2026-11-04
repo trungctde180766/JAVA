@@ -1,10 +1,10 @@
 // Tô màu cú pháp Java siêu nhẹ (không cần thư viện).
 const KEYWORDS = new Set(
-  "abstract class extends implements interface public private protected static final void int long double float boolean char byte short new return null true false this super throws throw try catch finally if else for while do switch case break continue import package instanceof".split(
+  "abstract assert boolean break byte case catch char class const continue default do double else enum extends final finally float for goto if implements import instanceof int interface long native new package private protected public return short static strictfp super switch synchronized this throw throws transient try void volatile while true false null".split(
     " "
   )
 );
-const TYPES = new Set("String StringBuffer StringBuilder Object Integer System".split(" "));
+const TYPES = new Set("String StringBuffer StringBuilder Object Integer Long Double Float Boolean Character Byte Short Thread Runnable Exception RuntimeException Throwable Error Math System List Map Set Collection ArrayList HashMap HashSet".split(" "));
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 

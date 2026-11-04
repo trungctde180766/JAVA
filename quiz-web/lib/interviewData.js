@@ -400,7 +400,7 @@ export const interviewJavaCore = {
     {
       "id": "ijc01",
       "topic": "javacore",
-      "text": "Cho đoạn mã sau trong Java:\nInteger a = 100, b = 100;\nInteger c = 200, d = 200;\nSystem.out.println((a == b) + \" \" + (c == d));\nKết quả in ra màn hình là gì và giải thích tại sao?",
+      "text": "Cho đoạn mã sau trong Java, kết quả in ra màn hình là gì và giải thích tại sao?",
       "code": "Integer a = 100, b = 100;\nInteger c = 200, d = 200;\nSystem.out.println((a == b) + \" \" + (c == d));",
       "options": [
         "true true",
@@ -410,7 +410,7 @@ export const interviewJavaCore = {
       ],
       "answer": 2,
       "explanation": "🎯 Bản chất dễ hiểu:\nCâu hỏi bẫy kinh điển số 1 trong các buổi phỏng vấn Java!\n• Java có cơ chế \"Integer Cache\": JVM tự động tạo sẵn một hồ chứa các đối tượng Integer có giá trị từ **-128 đến 127** (theo quy chuẩn Java Language Specification khi Autoboxing).\n• Với giá trị 100: Nằm trong vùng Cache [-128, 127], nên cả biến `a` và `b` cùng trỏ tới 1 ô nhớ đối tượng duy nhất -> So sánh tham chiếu địa chỉ `a == b` cho kết quả `true`.\n• Với giá trị 200: Vượt ra ngoài vùng Cache, JVM bắt buộc phải gọi `new Integer(200)` tạo ra 2 đối tượng độc lập nằm ở 2 ô nhớ khác nhau trên Heap -> So sánh tham chiếu `c == d` trả về `false`!\n\n💡 Mẹo phỏng vấn:\nĐể so sánh giá trị của các Wrapper Class (Integer, Long, Double...), LUÔN LUÔN dùng phương thức `.equals()` (`c.equals(d)` sẽ là `true`), tuyệt đối không dùng toán tử `==`.",
-      "textEn": "Given the following Java snippet:\nInteger a = 100, b = 100;\nInteger c = 200, d = 200;\nSystem.out.println((a == b) + \" \" + (c == d));\nWhat is printed to the console?",
+      "textEn": "Given the following Java snippet, what is printed to the console?",
       "optionsEn": [
         "true true",
         "true false",
@@ -461,7 +461,7 @@ export const interviewJavaCore = {
     {
       "id": "ijc04",
       "topic": "javacore",
-      "text": "Trong Java, cho hàm sau:\npublic static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}\nKhi thực thi test(), giá trị trả về là bao nhiêu?",
+      "text": "Trong Java, cho phương thức sau. Khi thực thi test(), giá trị trả về là bao nhiêu?",
       "code": "public static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}",
       "options": [
         "1",
@@ -471,7 +471,7 @@ export const interviewJavaCore = {
       ],
       "answer": 1,
       "explanation": "🎯 Bản chất dễ hiểu:\nKết quả trả về chắc chắn bằng 2!\n\nTại sao?\nTrong cấu trúc `try-catch-finally`, quy tắc bất di bất dịch của Java là: **Khối finally LUÔN LUÔN được thực thi trước khi hàm thực sự trả quyền điều khiển về cho nơi gọi**.\nKhi gặp `return 1;` trong khối try, JVM đã chuẩn bị sẵn giá trị 1 để trả về. Nhưng trước khi thoát hàm, nó bắt buộc phải chạy qua khối `finally`. Tại đây nó gặp lệnh `return 2;` -> Lệnh return trong finally ghi đè hoàn toàn (override) giá trị trả về trước đó!\n\n💡 Cảnh báo thực tế:\nViết lệnh `return` trong khối `finally` là một \"Anti-pattern\" (viết code tối kỵ) vì nó sẽ nuốt chửng luôn cả các Exception văng ra từ khối try, khiến việc bắt lỗi trở nên bất khả thi. Các công cụ quét code như SonarQube sẽ cảnh báo đỏ lỗi này.",
-      "textEn": "In Java, given the following method:\npublic static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}\nWhat does test() return when executed?",
+      "textEn": "In Java, given the following method, what does test() return when executed?",
       "optionsEn": [
         "Returns 1",
         "Returns 2",
@@ -2182,7 +2182,7 @@ export const interviewAll = {
     {
       "id": "ijc01",
       "topic": "javacore",
-      "text": "Cho đoạn mã sau trong Java:\nInteger a = 100, b = 100;\nInteger c = 200, d = 200;\nSystem.out.println((a == b) + \" \" + (c == d));\nKết quả in ra màn hình là gì và giải thích tại sao?",
+      "text": "Cho đoạn mã sau trong Java, kết quả in ra màn hình là gì và giải thích tại sao?",
       "code": "Integer a = 100, b = 100;\nInteger c = 200, d = 200;\nSystem.out.println((a == b) + \" \" + (c == d));",
       "options": [
         "true true",
@@ -2192,7 +2192,7 @@ export const interviewAll = {
       ],
       "answer": 2,
       "explanation": "🎯 Bản chất dễ hiểu:\nCâu hỏi bẫy kinh điển số 1 trong các buổi phỏng vấn Java!\n• Java có cơ chế \"Integer Cache\": JVM tự động tạo sẵn một hồ chứa các đối tượng Integer có giá trị từ **-128 đến 127** (theo quy chuẩn Java Language Specification khi Autoboxing).\n• Với giá trị 100: Nằm trong vùng Cache [-128, 127], nên cả biến `a` và `b` cùng trỏ tới 1 ô nhớ đối tượng duy nhất -> So sánh tham chiếu địa chỉ `a == b` cho kết quả `true`.\n• Với giá trị 200: Vượt ra ngoài vùng Cache, JVM bắt buộc phải gọi `new Integer(200)` tạo ra 2 đối tượng độc lập nằm ở 2 ô nhớ khác nhau trên Heap -> So sánh tham chiếu `c == d` trả về `false`!\n\n💡 Mẹo phỏng vấn:\nĐể so sánh giá trị của các Wrapper Class (Integer, Long, Double...), LUÔN LUÔN dùng phương thức `.equals()` (`c.equals(d)` sẽ là `true`), tuyệt đối không dùng toán tử `==`.",
-      "textEn": "Given the following Java snippet:\nInteger a = 100, b = 100;\nInteger c = 200, d = 200;\nSystem.out.println((a == b) + \" \" + (c == d));\nWhat is printed to the console?",
+      "textEn": "Given the following Java snippet, what is printed to the console?",
       "optionsEn": [
         "true true",
         "true false",
@@ -2243,7 +2243,7 @@ export const interviewAll = {
     {
       "id": "ijc04",
       "topic": "javacore",
-      "text": "Trong Java, cho hàm sau:\npublic static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}\nKhi thực thi test(), giá trị trả về là bao nhiêu?",
+      "text": "Trong Java, cho phương thức sau. Khi thực thi test(), giá trị trả về là bao nhiêu?",
       "code": "public static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}",
       "options": [
         "1",
@@ -2253,7 +2253,7 @@ export const interviewAll = {
       ],
       "answer": 1,
       "explanation": "🎯 Bản chất dễ hiểu:\nKết quả trả về chắc chắn bằng 2!\n\nTại sao?\nTrong cấu trúc `try-catch-finally`, quy tắc bất di bất dịch của Java là: **Khối finally LUÔN LUÔN được thực thi trước khi hàm thực sự trả quyền điều khiển về cho nơi gọi**.\nKhi gặp `return 1;` trong khối try, JVM đã chuẩn bị sẵn giá trị 1 để trả về. Nhưng trước khi thoát hàm, nó bắt buộc phải chạy qua khối `finally`. Tại đây nó gặp lệnh `return 2;` -> Lệnh return trong finally ghi đè hoàn toàn (override) giá trị trả về trước đó!\n\n💡 Cảnh báo thực tế:\nViết lệnh `return` trong khối `finally` là một \"Anti-pattern\" (viết code tối kỵ) vì nó sẽ nuốt chửng luôn cả các Exception văng ra từ khối try, khiến việc bắt lỗi trở nên bất khả thi. Các công cụ quét code như SonarQube sẽ cảnh báo đỏ lỗi này.",
-      "textEn": "In Java, given the following method:\npublic static int test() {\n    try {\n        return 1;\n    } finally {\n        return 2;\n    }\n}\nWhat does test() return when executed?",
+      "textEn": "In Java, given the following method, what does test() return when executed?",
       "optionsEn": [
         "Returns 1",
         "Returns 2",
