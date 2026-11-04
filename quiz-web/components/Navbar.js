@@ -64,6 +64,10 @@ export default function Navbar({ user }) {
             <span>⭐</span>
             <span>Đã lưu</span>
           </Link>
+          <Link href="/leaderboard" className={`nav-link ${pathname === "/leaderboard" ? "active" : ""}`}>
+            <span>🏆</span>
+            <span>Xếp hạng</span>
+          </Link>
 
           {user?.role === "admin" && (
             <Link href="/admin" className={`nav-link ${pathname.startsWith("/admin") ? "active" : ""}`}>

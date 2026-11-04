@@ -82,6 +82,9 @@ export default async function HomePage() {
           <Link href="/exam/mix" className="btn btn-ghost btn-lg" style={{ border: "1px solid var(--border)" }}>
             <span>⏱️</span> Thi Thử Bấm Giờ (SEB)
           </Link>
+          <Link href="/leaderboard" className="btn btn-warning btn-lg" style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)", color: "#fff", border: "none" }}>
+            <span>🏆</span> Bảng Xếp Hạng
+          </Link>
         </div>
 
         {/* User stats summary badge if logged in */}
@@ -188,7 +191,7 @@ export default async function HomePage() {
                   {q.description}
                 </p>
 
-                <div style={{ display: "flex", gap: "0.6rem" }}>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
                   <Link
                     href={`/quiz/${q.slug}`}
                     className="btn btn-secondary btn-sm"
@@ -203,6 +206,14 @@ export default async function HomePage() {
                     title="Vào phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo câu hỏi & đáp án, toàn màn hình)"
                   >
                     ⏱️ Thi thử (SEB)
+                  </Link>
+                  <Link
+                    href={`/leaderboard?quiz=${q.slug}`}
+                    className="btn btn-ghost btn-sm"
+                    style={{ border: "1px solid var(--border)", padding: "0.35rem 0.65rem" }}
+                    title="Xem bảng xếp hạng bộ đề này"
+                  >
+                    🏆
                   </Link>
                 </div>
               </div>
@@ -321,7 +332,7 @@ export default async function HomePage() {
                   {q.description}
                 </p>
 
-                <div style={{ display: "flex", gap: "0.6rem" }}>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
                   <Link
                     href={`/quiz/${q.slug}`}
                     className="btn btn-secondary btn-sm"
@@ -336,6 +347,14 @@ export default async function HomePage() {
                     title="Vào phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo câu hỏi & đáp án, toàn màn hình)"
                   >
                     ⏱️ Thi thử (SEB)
+                  </Link>
+                  <Link
+                    href={`/leaderboard?quiz=${q.slug}`}
+                    className="btn btn-ghost btn-sm"
+                    style={{ border: "1px solid var(--border)", padding: "0.35rem 0.65rem" }}
+                    title="Xem bảng xếp hạng bộ đề này"
+                  >
+                    🏆
                   </Link>
                 </div>
               </div>

@@ -1023,6 +1023,13 @@ export default function ExamClient({ session, user }) {
                 🩹 Ôn lại {result.total - result.correct} câu sai của đề này
               </Link>
             )}
+            <Link
+              href={`/leaderboard?quiz=${session.slug}`}
+              className="btn btn-warning"
+              style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)", color: "#fff", borderColor: "#f59e0b" }}
+            >
+              🏆 Xem Bảng Xếp Hạng Đề Này
+            </Link>
             <Link href="/mistakes" className="btn btn-secondary">
               📋 Sổ tay câu sai
             </Link>
