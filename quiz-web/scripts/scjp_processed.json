@@ -450,7 +450,7 @@
       "intmyList[][]= {4,9,7,0};",
       "intmyList[]= {4,3,7};",
       "int[]myList= [3,5,6];",
-      "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+      "int myList[] = {4; 6; 5};"
     ],
     "optionsVi": [
       "int[]myList= {“1”,“2”,“3”};",
@@ -458,7 +458,7 @@
       "intmyList[][]= {4,9,7,0};",
       "intmyList[]= {4,3,7};",
       "int[]myList= [3,5,6];",
-      "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+      "int myList[] = {4; 6; 5};"
     ],
     "answer": 3,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐể khai báo và khởi tạo nhanh một mảng bằng giá trị cố định, Java yêu cầu tuân thủ đúng các quy tắc cú pháp sau:\n1. Dấu ngoặc vuông `[]` đặt trước hoặc sau tên biến để chỉ định mảng.\n2. Danh sách phần tử khởi tạo BẮT BUỘC phải đặt trong cặp dấu ngoặc nhọn `{}`.\n3. Các phần tử phân tách nhau bằng dấu phẩy `,`.\n4. Kiểu của các giá trị trong ngoặc nhọn phải tương thích với kiểu của mảng đã khai báo.\n\nĐánh giá từng phương án:\n- A: `int[] myList = {\"1\", \"2\", \"3\"};`: Sai vì `\"1\"`, `\"2\"`, `\"3\"` là kiểu `String`, không thể gán vào mảng số nguyên `int[]`.\n- B: `int[] myList = (5, 8, 2);`: Sai vì Java không dùng ngoặc tròn `()` để khởi tạo danh sách mảng.\n- C: `int myList[][] = {4, 9, 7, 0};`: Sai vì khai báo mảng 2 chiều (`int[][]`) nhưng danh sách khởi tạo chỉ có 1 chiều (thiếu cặp ngoặc nhọn lồng nhau).\n- D: `int myList[] = {4, 3, 7};`: Hoàn toàn hợp lệ, khai báo mảng 1 chiều và khởi tạo với 3 số nguyên trong cặp ngoặc nhọn.\n- E: `int[] myList = [3, 5, 6];`: Sai vì Java không dùng ngoặc vuông `[]` làm literal cho mảng (đây là cú pháp của JavaScript/Python).\n- F: `int myList[] = {4; 6; 5};`: Sai vì phân tách các phần tử bằng dấu chấm phẩy `;` thay vì dấu phẩy `,`.\n\n✅ Vì sao đáp án \"int myList[] = {4, 3, 7};\" đúng:\nĐúng chuẩn 100% cú pháp Java: dấu ngoặc nhọn `{}`, phân tách bằng dấu phẩy `,`, và các phần tử khớp kiểu `int`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A\": Sai vì truyền chuỗi String vào mảng int.\n• \"B\": Sai cú pháp vì dùng ngoặc tròn `()`.\n• \"C\": Sai vì lệch số chiều (mảng 2 chiều nhưng khởi tạo kiểu 1 chiều).\n• \"E\": Sai vì dùng ngoặc vuông `[]`.\n• \"F\": Sai vì dùng dấu chấm phẩy `;`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mảng trong Java: Khởi tạo danh sách luôn luôn dùng `{}` và ngăn cách bằng dấu phẩy `,`! Ngoặc vuông `[]` chỉ dùng để khai báo kiểu hoặc chỉ số truy cập.",
@@ -548,13 +548,13 @@
       "names",
       "null",
       "Compilation fails",
-      "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
       "names",
       "null",
       "Compilation fails",
-      "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
     ],
     "answer": 1,
     "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy theo dõi luồng chạy của chương trình khi gọi lệnh: `java X a b`:\n1. Mảng tham số dòng lệnh `args` nhận 2 đối số:\n   - `args[0] = \"a\"`\n   - `args[1] = \"b\"`\n   - `args.length = 2`\n2. Dòng 3: `String names [] = new String[5];`\n   Tạo mảng `names` có 5 phần tử. Tất cả phần tử ban đầu đều nhận giá trị mặc định là `null`:\n   `names = [null, null, null, null, null]`\n3. Dòng 4 - 5: Vòng lặp `for (int x=0; x < args.length; x++)`:\n   - Vòng 1 (`x = 0`): `names[0] = args[0] = \"a\"`\n   - Vòng 2 (`x = 1`): `names[1] = args[1] = \"b\"`\n   - Khi `x = 2`: Điều kiện `2 < 2` là sai, vòng lặp dừng lại.\n   Lúc này, mảng `names` có trạng thái: `[\"a\", \"b\", null, null, null]`.\n4. Dòng 6: `System.out.println(names[2]);`\n   Phần tử tại chỉ số `2` chưa từng được gán giá trị mới, nên nó vẫn giữ nguyên giá trị mặc định ban đầu là `null`.\n   Hàm `println` in ra màn hình chữ `null`.\n\n✅ Vì sao đáp án \"B. null\" đúng:\nPhần tử `names[2]` không được gán qua vòng lặp (vòng lặp chỉ chạy đến `x = 1`), nên nó vẫn giữ nguyên giá trị mặc định là `null`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. names\": Sai vì `names` là tên biến mảng, không phải giá trị phần tử.\n• \"C. Lỗi biên dịch\": Sai vì mã nguồn hoàn toàn đúng cú pháp.\n• \"D. Ném ngoại lệ tại thời điểm chạy\": Sai vì mảng `names` có 5 phần tử (chỉ số hợp lệ từ 0 đến 4), truy xuất `names[2]` hoàn toàn nằm trong phạm vi hợp lệ, không bị lỗi `ArrayIndexOutOfBoundsException`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phần tử chưa được gán trong mảng đối tượng luôn giữ giá trị mặc định là `null`. In một biến mang giá trị `null` bằng `println` sẽ xuất ra chuỗi \"null\" bình thường mà không gây lỗi!",
@@ -4086,9 +4086,21 @@
     "text": "Given the following:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nat what point is the object created in line 13 eligible for garbage collection?",
     "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
     "code": "12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }",
-    "options": [],
-    "optionsVi": [],
-    "answer": 0,
+    "options": [
+      "After line 15 runs",
+      "After line 16 runs",
+      "After line 17 runs",
+      "The object is not eligible.",
+      "It is not possible to know for sure."
+    ],
+    "optionsVi": [
+      "Sau khi dòng 15 chạy xong",
+      "Sau khi dòng 16 chạy xong",
+      "Sau khi dòng 17 chạy xong",
+      "Đối tượng không đủ điều kiện bị thu gom rác.",
+      "Không thể biết chắc chắn được."
+    ],
+    "answer": 4,
     "correctLetters": [
       "E"
     ],

@@ -453,7 +453,7 @@ export const scjpChapterQuestions = [
       "intmyList[][]= {4,9,7,0};",
       "intmyList[]= {4,3,7};",
       "int[]myList= [3,5,6];",
-      "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+      "int myList[] = {4; 6; 5};"
     ],
     "optionsVi": [
       "int[]myList= {“1”,“2”,“3”};",
@@ -461,7 +461,7 @@ export const scjpChapterQuestions = [
       "intmyList[][]= {4,9,7,0};",
       "intmyList[]= {4,3,7};",
       "int[]myList= [3,5,6];",
-      "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+      "int myList[] = {4; 6; 5};"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -551,13 +551,13 @@ export const scjpChapterQuestions = [
       "names",
       "null",
       "Compilation fails",
-      "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+      "An exception is thrown at runtime"
     ],
     "optionsVi": [
       "names",
       "null",
       "Compilation fails",
-      "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -4089,9 +4089,21 @@ export const scjpChapterQuestions = [
     "text": "Given the following:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nat what point is the object created in line 13 eligible for garbage collection?",
     "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
     "code": "12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }",
-    "options": [],
-    "optionsVi": [],
-    "answer": 0,
+    "options": [
+      "After line 15 runs",
+      "After line 16 runs",
+      "After line 17 runs",
+      "The object is not eligible.",
+      "It is not possible to know for sure."
+    ],
+    "optionsVi": [
+      "Sau khi dòng 15 chạy xong",
+      "Sau khi dòng 16 chạy xong",
+      "Sau khi dòng 17 chạy xong",
+      "Đối tượng không đủ điều kiện bị thu gom rác.",
+      "Không thể biết chắc chắn được."
+    ],
+    "answer": 4,
     "isMultiple": false,
     "correctLetters": [
       "E"
@@ -6271,7 +6283,7 @@ export const scjpChapterAllQuiz = {
         "intmyList[][]= {4,9,7,0};",
         "intmyList[]= {4,3,7};",
         "int[]myList= [3,5,6];",
-        "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+        "int myList[] = {4; 6; 5};"
       ],
       "optionsVi": [
         "int[]myList= {“1”,“2”,“3”};",
@@ -6279,7 +6291,7 @@ export const scjpChapterAllQuiz = {
         "intmyList[][]= {4,9,7,0};",
         "intmyList[]= {4,3,7};",
         "int[]myList= [3,5,6];",
-        "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+        "int myList[] = {4; 6; 5};"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -6369,13 +6381,13 @@ export const scjpChapterAllQuiz = {
         "names",
         "null",
         "Compilation fails",
-        "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+        "An exception is thrown at runtime"
       ],
       "optionsVi": [
         "names",
         "null",
         "Compilation fails",
-        "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -9907,9 +9919,21 @@ export const scjpChapterAllQuiz = {
       "text": "Given the following:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nat what point is the object created in line 13 eligible for garbage collection?",
       "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
       "code": "12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }",
-      "options": [],
-      "optionsVi": [],
-      "answer": 0,
+      "options": [
+        "After line 15 runs",
+        "After line 16 runs",
+        "After line 17 runs",
+        "The object is not eligible.",
+        "It is not possible to know for sure."
+      ],
+      "optionsVi": [
+        "Sau khi dòng 15 chạy xong",
+        "Sau khi dòng 16 chạy xong",
+        "Sau khi dòng 17 chạy xong",
+        "Đối tượng không đủ điều kiện bị thu gom rác.",
+        "Không thể biết chắc chắn được."
+      ],
+      "answer": 4,
       "isMultiple": false,
       "correctLetters": [
         "E"
@@ -11454,7 +11478,7 @@ export const scjpChapterQuizzes = [
           "intmyList[][]= {4,9,7,0};",
           "intmyList[]= {4,3,7};",
           "int[]myList= [3,5,6];",
-          "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+          "int myList[] = {4; 6; 5};"
         ],
         "optionsVi": [
           "int[]myList= {“1”,“2”,“3”};",
@@ -11462,7 +11486,7 @@ export const scjpChapterQuizzes = [
           "intmyList[][]= {4,9,7,0};",
           "intmyList[]= {4,3,7};",
           "int[]myList= [3,5,6];",
-          "intmyList[]= {4;6;5}; Using a Variable or Array Element That Is Uninitialized and Unassigned (Objective 4.5)"
+          "int myList[] = {4; 6; 5};"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -11552,13 +11576,13 @@ export const scjpChapterQuizzes = [
           "names",
           "null",
           "Compilation fails",
-          "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+          "An exception is thrown at runtime"
         ],
         "optionsVi": [
           "names",
           "null",
           "Compilation fails",
-          "An exception is thrown at runtime Command-Line Arguments to Main (Objective 4.3)"
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -15168,9 +15192,21 @@ export const scjpChapterQuizzes = [
         "text": "Given the following:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nat what point is the object created in line 13 eligible for garbage collection?",
         "textVi": "Cho đoạn mã sau:\n12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }\nTại thời điểm nào đối tượng được tạo ra ở dòng 13 đủ điều kiện để bộ gom rác (Garbage Collector) thu dọn? (Chọn 1 đáp án)",
         "code": "12.  void doStuff3() {\n13.    X x = new X();\n14.    X y = doStuff(x);\n15.    y = null;\n16.    x = null;\n17.  }\n18.  X doStuff(X mx) {\n19.     return doStuff2(mx);\n20.  }",
-        "options": [],
-        "optionsVi": [],
-        "answer": 0,
+        "options": [
+          "After line 15 runs",
+          "After line 16 runs",
+          "After line 17 runs",
+          "The object is not eligible.",
+          "It is not possible to know for sure."
+        ],
+        "optionsVi": [
+          "Sau khi dòng 15 chạy xong",
+          "Sau khi dòng 16 chạy xong",
+          "Sau khi dòng 17 chạy xong",
+          "Đối tượng không đủ điều kiện bị thu gom rác.",
+          "Không thể biết chắc chắn được."
+        ],
+        "answer": 4,
         "isMultiple": false,
         "correctLetters": [
           "E"
