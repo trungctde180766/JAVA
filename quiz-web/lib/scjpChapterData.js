@@ -20,8 +20,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "1 09876",
       "98765",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -243,11 +243,11 @@ export const scjpChapterQuestions = [
       "0 to 65535"
     ],
     "optionsVi": [
-      "–128 to 127",
-      "–(2 ^ 15) to (2 ^ 15) - 1",
-      "0 to 32767",
-      "Platform dependent",
-      "0 to 65535"
+      "-128 đến 127",
+      "-(2 ^ 15) đến (2 ^ 15) - 1",
+      "0 đến 32767",
+      "Phụ thuộc vào nền tảng hệ điều hành.",
+      "0 đến 65535"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -352,8 +352,8 @@ export const scjpChapterQuestions = [
       "9",
       "11",
       "13",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -528,8 +528,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "null",
       "theDogs",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -556,8 +556,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "names",
       "null",
-      "Compilation fails",
-      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -588,8 +588,8 @@ export const scjpChapterQuestions = [
       "args[2] = 3",
       "args[2] = null",
       "args[2] = 1",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 5,
     "isMultiple": false,
@@ -620,8 +620,8 @@ export const scjpChapterQuestions = [
       "123",
       "000",
       "nullnullnull",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 5,
     "isMultiple": false,
@@ -652,8 +652,8 @@ export const scjpChapterQuestions = [
       "12",
       "000",
       "123",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -683,7 +683,7 @@ export const scjpChapterQuestions = [
       "abstract",
       "protected",
       "synchronized",
-      "default access"
+      "default access (truy cập mặc định / package-private)"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -715,7 +715,7 @@ export const scjpChapterQuestions = [
       "private",
       "protected",
       "volatile",
-      "default access"
+      "default access (truy cập mặc định)"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -742,12 +742,12 @@ export const scjpChapterQuestions = [
       "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
     ],
     "optionsVi": [
-      "The code will compile with no changes.",
-      "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
-      "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
-      "As long as line 8 exists, class A must declare methodm1() in some way.",
-      "If line 6 were replaced with'class B extends A{ ' the code would compile.",
-      "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
+      "Mã nguồn biên dịch thành công mà không cần thay đổi gì.",
+      "Lớp B bắt buộc phải khai báo abstract cho phương thức m2() hoặc cài đặt (implement) phương thức m2() để mã nguồn có thể biên dịch.",
+      "Lớp B có thể khai báo abstract cho phương thức m2() hoặc cài đặt (implement) phương thức m2(), điều này là hợp lệ nhưng không bắt buộc để mã nguồn biên dịch.",
+      "Miễn là dòng 8 còn tồn tại, lớp A bắt buộc phải khai báo phương thức m1() theo một cách nào đó.",
+      "Nếu dòng 6 được thay thế bằng 'class B extends A { ', mã nguồn sẽ biên dịch thành công.",
+      "Nếu lớp A không phải là abstract và phương thức m1() ở dòng 2 được cài đặt, mã nguồn sẽ không thể biên dịch."
     ],
     "answer": [
       0,
@@ -821,7 +821,7 @@ export const scjpChapterQuestions = [
       "3",
       "4",
       "5",
-      "All of them"
+      "Tất cả các phương án trên."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -847,11 +847,11 @@ export const scjpChapterQuestions = [
       "An exception is thrown at runtime."
     ],
     "optionsVi": [
-      "The code compiles and runs, with outputthis420parent420 .",
-      "If line 8 is removed, the code will compile and run.",
-      "If line 10 is removed, the code will compile and run.",
-      "Both lines 8 and 10 must be removed for the code to compile.",
-      "An exception is thrown at runtime."
+      "Mã nguồn biên dịch và chạy bình thường, in ra: \"this 420 parent 420\".",
+      "Nếu xóa dòng 8, mã nguồn sẽ biên dịch và chạy được.",
+      "Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được.",
+      "Cả dòng 8 và dòng 10 đều phải bị xóa thì mã nguồn mới biên dịch được.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -882,8 +882,8 @@ export const scjpChapterQuestions = [
       "123",
       "0123",
       "1234",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -912,10 +912,10 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "024",
       "0246",
-      "Compilation fails at line 4",
-      "Compilation fails at line 5",
-      "Compilation fails at line 8",
-      "Compilation fails at line 10"
+      "Lỗi biên dịch tại dòng 4.",
+      "Lỗi biên dịch tại dòng 5.",
+      "Lỗi biên dịch tại dòng 8.",
+      "Lỗi biên dịch tại dòng 10."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -941,7 +941,7 @@ export const scjpChapterQuestions = [
       "import java.util.TreeMap;"
     ],
     "optionsVi": [
-      "No statement is required",
+      "Không cần câu lệnh nào.",
       "import java.util.*;",
       "import.java.util.Tree*;",
       "import java.util.TreeSet;",
@@ -1112,12 +1112,12 @@ export const scjpChapterQuestions = [
       "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
     ],
     "optionsVi": [
-      "You can extend the Runnable interface as long as you override the public run() method.",
-      "The class must contain a method calledrun() from which all code for that thread will be initiated.",
-      "The class must contain an emptypublicvoid method namedrun().",
-      "The class must contain apublicvoid method namedrunnable().",
-      "The class definition must include the words implements Threads and contain a method calledrun().",
-      "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
+      "Bạn có thể extend interface Runnable miễn là override phương thức public run().",
+      "Lớp phải chứa một phương thức tên là run() để từ đó toàn bộ mã lệnh cho thread sẽ được khởi chạy.",
+      "Lớp phải chứa một phương thức rỗng public void tên là run().",
+      "Lớp phải chứa một phương thức public void tên là runnable().",
+      "Định nghĩa lớp phải bao gồm các từ 'implements Threads' và chứa một phương thức tên là run().",
+      "Phương thức bắt buộc phải là public, có kiểu trả về là void, phải có tên là run() và không nhận bất kỳ tham số nào."
     ],
     "answer": [
       1,
@@ -1254,8 +1254,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "true",
       "false",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1321,7 +1321,7 @@ export const scjpChapterQuestions = [
       "0x80000000and0x00000001",
       "-2147483648and-1",
       "1and-2147483648",
-      "None of the above"
+      "Không có đáp án nào ở trên."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -1376,10 +1376,10 @@ export const scjpChapterQuestions = [
       "byte z = (byte)100L;"
     ],
     "optionsVi": [
-      "int w = (int)888.8;",
-      "byte x = (byte)1000L;",
+      "A và B và C (A: int w = (int) 888.8; & B: byte x = (byte) 1000L; & C: long y = (byte) 100;)",
+      "A và D (A: int w = (int) 888.8; & D: byte z = (byte) 100L;)",
       "long y = (byte)100;",
-      "byte z = (byte)100L;"
+      "B và D (B: byte x = (byte) 1000L; & D: byte z = (byte) 100L;)"
     ],
     "answer": [
       0,
@@ -1481,9 +1481,9 @@ export const scjpChapterQuestions = [
       "ok",
       "dokey",
       "okdokey",
-      "No output is produced",
-      "Compilation error",
-      "An exception is thrown at runtime"
+      "Không in gì ra màn hình (No output is produced)",
+      "Lỗi biên dịch (Compilation error)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1511,7 +1511,7 @@ export const scjpChapterQuestions = [
       "small",
       "tiny",
       "huge",
-      "Compilation fails"
+      "Lỗi biên dịch (Compilation fails)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1574,8 +1574,8 @@ export const scjpChapterQuestions = [
       "714",
       "140",
       "1414",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1606,8 +1606,8 @@ export const scjpChapterQuestions = [
       "falsetrue",
       "truefalse",
       "falsefalse",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1638,8 +1638,8 @@ export const scjpChapterQuestions = [
       "slipstreamstream",
       "streamslipstream",
       "slipstreamslipstream",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1700,8 +1700,8 @@ export const scjpChapterQuestions = [
       "1515",
       "345375",
       "375375",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -1732,8 +1732,8 @@ export const scjpChapterQuestions = [
       "0042",
       "04242",
       "000",
-      "Compilation fails",
-      "An exception is thrown at runtime"
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1762,10 +1762,10 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "0 1 2",
       "0 1 2 1 2 2",
-      "Compilation fails at line 7.",
-      "Compilation fails at line 8.",
-      "Compilation fails at line 9.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
+      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -1796,8 +1796,8 @@ export const scjpChapterQuestions = [
       "0 1 2 1 2 2",
       "2 1 0 1 0 0",
       "2 1 2 0 1 2",
-      "Compilation fails at line 8.",
-      "Compilation fails at line 9."
+      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1828,8 +1828,8 @@ export const scjpChapterQuestions = [
       "42",
       "50",
       "51",
-      "Compiler fails at line 5.",
-      "Compiler fails at line 6."
+      "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
+      "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1920,12 +1920,12 @@ export const scjpChapterQuestions = [
       "There is a syntax error on line 5."
     ],
     "optionsVi": [
-      "There is a syntax error on line 1.",
-      "There are syntax errors on lines 1 and 4.",
-      "There are syntax errors on lines 1, 4, and 5.",
-      "There is a syntax error on line 4.",
-      "There are syntax errors on lines 4 and 5.",
-      "There is a syntax error on line 5."
+      "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
+      "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
+      "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
+      "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
+      "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
+      "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -1987,9 +1987,9 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "I is 1",
       "I is 1 I is 1",
-      "No output is produced.",
-      "Compilation error",
-      "I is 1 I is 1 I is 1 in an infinite loop."
+      "Không in gì ra màn hình (No output is produced)",
+      "Lỗi biên dịch (Compilation error)",
+      "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -2044,8 +2044,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "I is 0",
       "I is 0 I is 1",
-      "Compilation fails.",
-      "None of the above"
+      "Lỗi biên dịch (Compilation fails).",
+      "Không có đáp án nào ở trên."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -2070,10 +2070,10 @@ export const scjpChapterQuestions = [
       "Code output:Start Hello world Catch Here File not found."
     ],
     "optionsVi": [
-      "The code will not compile.",
-      "Code output:Start Hello world File Not Found.",
-      "Code output:Start Hello world End of file exception.",
-      "Code output:Start Hello world Catch Here File not found."
+      "Mã nguồn không thể biên dịch (The code will not compile)",
+      "Đầu ra: Start Hello world File Not Found.",
+      "Đầu ra: Start Hello world End of file exception.",
+      "Đầu ra: Start Hello world Catch Here File not found."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -2098,8 +2098,8 @@ export const scjpChapterQuestions = [
       "Hello world Finally executing"
     ],
     "optionsVi": [
-      "Nothing. The program will not compile because no exceptions are specified.",
-      "Nothing. The program will not compile because nocatch clauses are specified.",
+      "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
+      "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
       "Hello world.",
       "Hello world Finally executing"
     ],
@@ -2127,11 +2127,11 @@ export const scjpChapterQuestions = [
       "This program fails to compile due to an error at line 13."
     ],
     "optionsVi": [
-      "This program will compile successfully.",
-      "This program fails to compile due to an error at line 4.",
-      "This program fails to compile due to an error at line 6.",
-      "This program fails to compile due to an error at line 9.",
-      "This program fails to compile due to an error at line 13."
+      "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2156,10 +2156,10 @@ export const scjpChapterQuestions = [
       "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
     ],
     "optionsVi": [
-      "The program will not compile.",
-      "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
-      "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
-      "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+      "Chương trình sẽ không biên dịch (The program will not compile)",
+      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
+      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
+      "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
     ],
     "answer": 3,
     "isMultiple": false,
@@ -2187,7 +2187,7 @@ export const scjpChapterQuestions = [
     ],
     "optionsVi": [
       "hello throwit caught",
-      "Compilation fails",
+      "Lỗi biên dịch (Compilation fails).",
       "hello throwit RuntimeException caught after",
       "hello throwit RuntimeException",
       "hello throwit caught finally after",
@@ -2216,10 +2216,10 @@ export const scjpChapterQuestions = [
       "It is appropriate to handle assertion failures using acatch clause."
     ],
     "optionsVi": [
-      "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
-      "If a switch block has no default, adding an assert default is considered appropriate.",
-      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
-      "It is appropriate to handle assertion failures using acatch clause."
+      "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
+      "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
+      "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
+      "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
     ],
     "answer": 1,
     "isMultiple": false,
@@ -2245,11 +2245,11 @@ export const scjpChapterQuestions = [
       "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
     ],
     "optionsVi": [
-      "It is sometimes good practice to throw an AssertionError explicitly.",
-      "It is good practice to place assertions where you think execution should never reach.",
-      "Privategetter() andsetter() methods should not use assertions to verify arguments.",
-      "If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.",
-      "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
+      "Đôi khi việc chủ động ném một `AssertionError` một cách tường minh là một thực hành tốt.",
+      "Đặt assertion ở những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới là một thực hành tốt.",
+      "Các phương thức getter() và setter() private không nên sử dụng assertion để kiểm tra tính hợp lệ của đối số.",
+      "Nếu một `AssertionError` bị ném ra trong khối try-catch, khối `finally` sẽ bị bỏ qua.",
+      "Việc xử lý lỗi assertion thất bại bằng khối `catch (AssertionException ae)` là phù hợp."
     ],
     "answer": [
       0,
@@ -2284,8 +2284,8 @@ export const scjpChapterQuestions = [
       "bar done",
       "foo done",
       "bar foo done",
-      "Compilation fails",
-      "An error is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2311,11 +2311,11 @@ export const scjpChapterQuestions = [
       "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
     ],
     "optionsVi": [
-      "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
-      "As of Java version 1.4, assertion statements are compiled by default.",
-      "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
-      "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
-      "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
+      "Nếu assertion được biên dịch vào file mã nguồn và không có cờ nào được chỉ định lúc runtime, assertion sẽ được thực thi theo mặc định.",
+      "Kể từ Java phiên bản 1.4, các câu lệnh assertion được biên dịch theo mặc định.",
+      "Khi sử dụng các tham số runtime phù hợp, ta có thể yêu cầu máy ảo VM tắt assertion cho một lớp cụ thể và đồng thời bật assertion cho một package cụ thể.",
+      "Tất cả các cờ sau đều là cờ assertion hợp lệ lúc runtime: `-ea`, `-esa`, `-dsa`, `-enableassertions`, `-disablesystemassertions`.",
+      "Khi đánh giá các đối số dòng lệnh, máy ảo VM ưu tiên cờ `-ea` hơn cờ `-da`."
     ],
     "answer": [
       2,
@@ -2345,11 +2345,11 @@ export const scjpChapterQuestions = [
       "Line 18;"
     ],
     "optionsVi": [
-      "Line 8",
-      "Line 9",
-      "Line 11",
-      "Line 15",
-      "Line 18;"
+      "Dòng 8 (Line 8)",
+      "Dòng 9 (Line 9)",
+      "Dòng 11 (Line 11)",
+      "Dòng 15 (Line 15)",
+      "Dòng 18 (Line 18)"
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2376,12 +2376,12 @@ export const scjpChapterQuestions = [
       "Lines 2, 5, and 8 are in conflict with encapsulation."
     ],
     "optionsVi": [
-      "Class Barbell is tightly encapsulated.",
-      "Line 2 is in conflict with encapsulation.",
-      "Line 5 is in conflict with encapsulation.",
-      "Line 8 is in conflict with encapsulation.",
-      "Lines 5 and 8 are in conflict with encapsulation.",
-      "Lines 2, 5, and 8 are in conflict with encapsulation."
+      "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
+      "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
+      "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
+      "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
+      "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
+      "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -2406,10 +2406,10 @@ export const scjpChapterQuestions = [
       "Neither class A nor class B is tightly encapsulated."
     ],
     "optionsVi": [
-      "Class A is tightly encapsulated.",
-      "Class B is tightly encapsulated.",
-      "Classes A and B are both tightly encapsulated.",
-      "Neither class A nor class B is tightly encapsulated."
+      "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
+      "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
+      "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
+      "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -2435,11 +2435,11 @@ export const scjpChapterQuestions = [
       "Tightly encapsulated classes typically do not use HAS-A relationships."
     ],
     "optionsVi": [
-      "Tightly encapsulated classes are typically easier to reuse.",
-      "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
-      "Methods in tightly encapsulated classes cannot be overridden.",
-      "Methods in tightly encapsulated classes cannot be overloaded.",
-      "Tightly encapsulated classes typically do not use HAS-A relationships."
+      "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
+      "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
+      "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
+      "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
+      "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -2465,11 +2465,11 @@ export const scjpChapterQuestions = [
       "Access modifiers become optional"
     ],
     "optionsVi": [
-      "Clarity of code",
-      "Code efficiency",
-      "The ability to add functionality later on",
-      "Modifications require fewer coding changes",
-      "Access modifiers become optional"
+      "Mã nguồn rõ ràng, minh bạch",
+      "Hiệu năng thực thi của mã nguồn",
+      "Khả năng bổ sung tính năng về sau",
+      "Việc sửa đổi đòi hỏi ít thay đổi mã nguồn hơn",
+      "Các từ khóa chỉ phạm vi truy cập (access modifier) trở thành tùy chọn"
     ],
     "answer": [
       1,
@@ -2499,10 +2499,10 @@ export const scjpChapterQuestions = [
       "B has-a C;"
     ],
     "optionsVi": [
-      "A is-a B",
-      "C is-a A",
-      "A has-a C",
-      "B has-a A",
+      "A có quan hệ IS-A với B",
+      "C có quan hệ IS-A với A",
+      "A có quan hệ HAS-A với C",
+      "B có quan hệ HAS-A với A",
       "B has-a C;"
     ],
     "answer": [
@@ -2534,8 +2534,8 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "A",
       "B",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -2596,10 +2596,10 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "x = 14",
       "x = 21",
-      "Compilation fails at line 2.",
-      "Compilation fails at line 11.",
-      "Compilation fails at line 14.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch tại dòng 2.",
+      "Lỗi biên dịch tại dòng 11.",
+      "Lỗi biên dịch tại dòng 14.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2666,8 +2666,8 @@ export const scjpChapterQuestions = [
       "instantiate a parent",
       "instantiate a child instantiate a parent",
       "instantiate a parent instantiate a child",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -2698,8 +2698,8 @@ export const scjpChapterQuestions = [
       "instantiate a parent",
       "instantiate a child instantiate a parent",
       "instantiate a parent instantiate a child",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2728,10 +2728,10 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "sub super 2;",
       "super 2 sub",
-      "Compilation fails at line 2.",
-      "Compilation fails at line 8.",
-      "Compilation fails at line 9.",
-      "Compilation fails at line 14."
+      "Lỗi biên dịch tại dòng 2.",
+      "Lỗi biên dịch tại dòng 8.",
+      "Lỗi biên dịch tại dòng 9.",
+      "Lỗi biên dịch tại dòng 14."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -2763,7 +2763,7 @@ export const scjpChapterQuestions = [
       "8 4",
       "8 4 no-arg",
       "no-arg 8 4",
-      "Compilation fails."
+      "Lỗi biên dịch (Compilation fails)."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2793,9 +2793,9 @@ export const scjpChapterQuestions = [
       "no-arg",
       "8 4 no-arg",
       "no-arg 8 4",
-      "Compilation fails.",
-      "No output is produced.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Không có kết quả nào được in ra (No output is produced)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -2823,7 +2823,7 @@ export const scjpChapterQuestions = [
       "Beagle() { }",
       "Beagle() { super(); }",
       "Beagle() { super(\"fido\"); }",
-      "No constructor, allow the default constructor"
+      "Không khai báo constructor, để Java dùng constructor mặc định (default constructor)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -2848,10 +2848,10 @@ export const scjpChapterQuestions = [
       "The first statement of every constructor is a legal call to the super() or this() method."
     ],
     "optionsVi": [
-      "Constructors must not have arguments if the superclass constructor does not have arguments.",
-      "Constructors are not inherited.",
-      "Constructors cannot be overloaded.",
-      "The first statement of every constructor is a legal call to the super() or this() method."
+      "B và D (B: Constructor không được kế thừa & D: Câu lệnh đầu tiên của mọi constructor luôn là một lời gọi hợp lệ tới super() hoặc this())",
+      "A và B (A: Constructor không được có tham số nếu constructor của lớp cha không có tham số & B: Constructor không được kế thừa)",
+      "A và C (A: Constructor không được có tham số nếu constructor của lớp cha không có tham số & C: Constructor không thể bị nạp chồng)",
+      "C và D (C: Constructor không thể bị nạp chồng & D: Câu lệnh đầu tiên của mọi constructor luôn là một lời gọi hợp lệ tới super() hoặc this())"
     ],
     "answer": [
       1,
@@ -3022,8 +3022,8 @@ export const scjpChapterQuestions = [
       "Bar Bar Bar Bar Bar Bar",
       "Foo Bar Foo Bar Foo Bar",
       "Foo Foo Foo Foo Foo Foo",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -3054,8 +3054,8 @@ export const scjpChapterQuestions = [
       "abcdefdef",
       "abcghidef",
       "abcghighi",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3086,8 +3086,8 @@ export const scjpChapterQuestions = [
       "abcxyz",
       "xyzabc;",
       "XyZabc",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3178,8 +3178,8 @@ export const scjpChapterQuestions = [
       "wbookkeeper",
       "wbookkeewoo",
       "wbookkeeperwoo",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -3208,8 +3208,8 @@ export const scjpChapterQuestions = [
       "same results 0 time(s)",
       "same results 2 time(s)",
       "same results 4 time(s)",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -3234,10 +3234,10 @@ export const scjpChapterQuestions = [
       "Math.max(-1.5,-2.8f)"
     ],
     "optionsVi": [
-      "Math.max(1, 4)",
-      "Math.max(2.3, 5)",
-      "Math.max(1, 3, 5, 7)",
-      "Math.max(-1.5,-2.8f)"
+      "A và B (A: Math.max(1, 4) & B: Math.max(2.3, 5))",
+      "A và C (A: Math.max(1, 4) & C: Math.max(1, 3, 5, 7))",
+      "C và D (C: Math.max(1, 3, 5, 7) & D: Math.max(-1.5, -2.8f))",
+      "B và D (B: Math.max(2.3, 5) & D: Math.max(-1.5, -2.8f))"
     ],
     "answer": [
       0,
@@ -3270,12 +3270,12 @@ export const scjpChapterQuestions = [
       "The result is less than or equal to 1.0."
     ],
     "optionsVi": [
-      "The result is less than 0.0.",
-      "The result is greater than or equal to 0.0..",
-      "The result is less than 1.0.",
-      "The result is greater than 1.0.",
-      "The result is greater than or equal to 1.0.",
-      "The result is less than or equal to 1.0."
+      "Kết quả nhỏ hơn 0.0.",
+      "Kết quả lớn hơn hoặc bằng 0.0.",
+      "Kết quả nhỏ hơn 1.0.",
+      "Kết quả lớn hơn 1.0.",
+      "Kết quả lớn hơn hoặc bằng 1.0.",
+      "Kết quả nhỏ hơn hoặc bằng 1.0."
     ],
     "answer": [
       1,
@@ -3308,8 +3308,8 @@ export const scjpChapterQuestions = [
       "3.0",
       "–3.0",
       "NaN",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3336,12 +3336,12 @@ export const scjpChapterQuestions = [
       "None of the above"
     ],
     "optionsVi": [
-      "Line 3",
-      "Line 4",
-      "Line 5",
-      "Line 6",
-      "Line 3 and either line 4, 5, or 6",
-      "None of the above"
+      "Dòng 3",
+      "Dòng 4",
+      "Dòng 5",
+      "Dòng 6",
+      "Dòng 3 và một trong các dòng 4, 5, hoặc 6",
+      "Không có đáp án nào ở trên."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3368,12 +3368,12 @@ export const scjpChapterQuestions = [
       "Line 8"
     ],
     "optionsVi": [
-      "Line 3",
-      "Line 4",
-      "Line 5",
-      "Line 6",
-      "Line 7",
-      "Line 8"
+      "Dòng 3",
+      "Dòng 4",
+      "Dòng 5",
+      "Dòng 6",
+      "Dòng 7",
+      "Dòng 8"
     ],
     "answer": [
       1,
@@ -3408,8 +3408,8 @@ export const scjpChapterQuestions = [
       "42.5",
       "43",
       "badnumber",
-      "Compilation fails.",
-      "An uncaught exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3440,8 +3440,8 @@ export const scjpChapterQuestions = [
       "xz",
       "yz",
       "xyz",
-      "Compilation fails.",
-      "An exception is thrown at runtime."
+      "Lỗi biên dịch (Compilation fails).",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -3508,10 +3508,10 @@ export const scjpChapterQuestions = [
     "optionsVi": [
       "9.0",
       "badnumber",
-      "Compilation fails on line 13.",
-      "Compilation fails on line 14.",
-      "Compilation fails on lines 13 and 14.",
-      "An uncaught exception is thrown at runtime."
+      "Lỗi biên dịch tại dòng 13.",
+      "Lỗi biên dịch tại dòng 14.",
+      "Lỗi biên dịch tại cả dòng 13 và 14.",
+      "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
     ],
     "answer": 0,
     "isMultiple": false,
@@ -3631,11 +3631,11 @@ export const scjpChapterQuestions = [
       "If x and y are String references and x == y is true, theny.equals(x) will be true."
     ],
     "optionsVi": [
-      "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-      "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
-      "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
-      "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
-      "If x and y are String references and x == y is true, theny.equals(x) will be true."
+      "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì đoạn mã x.equals(y) sẽ gây ra lỗi biên dịch.",
+      "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì x == y đôi khi có thể là true.",
+      "Nếu x và y là các tham chiếu String và x.equals(y) là true, thì x == y là true.",
+      "Nếu x, y và z tham chiếu đến các thể hiện của các lớp wrapper và x.equals(y) là true, y.equals(z) là true, thì z.equals(x) sẽ luôn luôn là true.",
+      "Nếu x và y là các tham chiếu String và x == y là true, thì y.equals(x) sẽ là true."
     ],
     "answer": [
       3,
@@ -3693,11 +3693,11 @@ export const scjpChapterQuestions = [
       "The twohashcode() methods will have the same efficiency."
     ],
     "optionsVi": [
-      "class Test1 will not compile.",
-      "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
-      "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
-      "class Test2 will not compile.",
-      "The twohashcode() methods will have the same efficiency."
+      "Lớp Test1 sẽ không biên dịch được.",
+      "Phương thức hashCode() của Test1 hiệu quả hơn phương thức của Test2.",
+      "Phương thức hashCode() của Test1 kém hiệu quả hơn phương thức của Test2.",
+      "Lớp Test2 sẽ không biên dịch được.",
+      "Hai phương thức hashCode() có hiệu quả như nhau."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3723,11 +3723,11 @@ export const scjpChapterQuestions = [
       "If the hashCode() comparison != return s true, the equals() method might return true."
     ],
     "optionsVi": [
-      "If the equals() method return s true, the hashCode() comparison == must return true.",
-      "If the equals() method return s false, the hashCode() comparison != must return true.",
-      "If the hashCode() comparison == return s true, the equals() method must return true.",
-      "If the hashCode() comparison == return s true, the equals() method might return true.",
-      "If the hashCode() comparison != return s true, the equals() method might return true."
+      "Nếu phương thức equals() trả về true, phép so sánh hashCode() == bắt buộc phải trả về true.",
+      "Nếu phương thức equals() trả về false, phép so sánh hashCode() != bắt buộc phải trả về true.",
+      "Nếu phép so sánh hashCode() == trả về true, phương thức equals() bắt buộc phải trả về true.",
+      "Nếu phép so sánh hashCode() == trả về true, phương thức equals() có thể trả về true.",
+      "Nếu phép so sánh hashCode() != trả về true, phương thức equals() có thể trả về true."
     ],
     "answer": [
       0,
@@ -3787,11 +3787,11 @@ export const scjpChapterQuestions = [
       "equals() can be true even if it's comparing different objects."
     ],
     "optionsVi": [
-      "hashCode() doesn't have to be overridden ifequals() is.",
-      "equals() doesn't have to be overridden ifhashCode() is.",
-      "hashCode() can always return the same value, regardless of the object that invoked it.",
-      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
-      "equals() can be true even if it's comparing different objects."
+      "Không bắt buộc phải ghi đè hashCode() nếu equals() đã được ghi đè.",
+      "Không bắt buộc phải ghi đè equals() nếu hashCode() đã được ghi đè.",
+      "hashCode() có thể luôn trả về cùng một giá trị cố định, bất kể đối tượng nào gọi nó.",
+      "Nếu hai đối tượng khác nhau và không tương đương về nội dung cùng gọi hashCode(), thì hashCode() không được phép trả về cùng một giá trị cho cả hai lần gọi.",
+      "equals() có thể trả về true ngay cả khi đang so sánh hai đối tượng khác nhau trên Heap."
     ],
     "answer": [
       2,
@@ -3887,7 +3887,7 @@ export const scjpChapterQuestions = [
       "four one three two",
       "one two three four one",
       "one four three two one",
-      "The print order is not guaranteed."
+      "Thứ tự in ra không được đảm bảo cố định."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -3975,11 +3975,11 @@ export const scjpChapterQuestions = [
       "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
     ],
     "optionsVi": [
-      "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
-      "Objects with at least one reference will never be garbage collected.",
-      "Objects from a class with thefinalize() method overridden will never be garbage collected.",
-      "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
-      "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+      "Mọi đối tượng đủ điều kiện thu gom rác đều chắc chắn sẽ được bộ gom rác thu dọn.",
+      "Đối tượng có ít nhất một tham chiếu trỏ tới sẽ không bao giờ bị thu gom rác.",
+      "Đối tượng thuộc lớp có ghi đè phương thức finalize() sẽ không bao giờ bị thu gom rác.",
+      "Các đối tượng được khởi tạo bên trong anonymous inner class đều được đặt trên vùng nhớ Heap chịu sự quản lý của bộ gom rác.",
+      "Một khi phương thức finalize() được gọi, không có cách nào để cứu đối tượng đó thoát khỏi việc bị thu gom rác."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -4034,10 +4034,10 @@ export const scjpChapterQuestions = [
       "If object 1 refers to object 2, then object 2 can't be garbage collected."
     ],
     "optionsVi": [
-      "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
-      "The garbage collector uses a mark and sweep algorithm.",
-      "If an object can be accessed from a live thread, it can't be garbage collected.",
-      "If object 1 refers to object 2, then object 2 can't be garbage collected."
+      "Gọi Runtime.gc() sẽ đảm bảo các đối tượng đủ điều kiện sẽ được thu gom rác.",
+      "Bộ gom rác bắt buộc phải sử dụng thuật toán mark and sweep.",
+      "Nếu một đối tượng có thể được truy cập từ một luồng (thread) đang chạy, nó không thể bị thu gom rác.",
+      "Nếu đối tượng 1 đang tham chiếu tới đối tượng 2, thì đối tượng 2 không thể bị thu gom rác."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -4100,7 +4100,7 @@ export const scjpChapterQuestions = [
       "Sau khi dòng 15 chạy xong",
       "Sau khi dòng 16 chạy xong",
       "Sau khi dòng 17 chạy xong",
-      "Đối tượng không đủ điều kiện bị thu gom rác.",
+      "Đối tượng này không bao giờ đủ điều kiện thu gom rác.",
       "Không thể biết chắc chắn được."
     ],
     "answer": 4,
@@ -4155,11 +4155,11 @@ export const scjpChapterQuestions = [
       "It must extend the enclosing class."
     ],
     "optionsVi": [
-      "You must have a reference to an instance of the enclosing class in order to instantiate it.",
-      "It does not have access to nonstatic members of the enclosing class.",
-      "Its variables and methods must be static.",
-      "It can be instantiated using new MyOuter.MyInner(); .",
-      "It must extend the enclosing class."
+      "Bạn bắt buộc phải có một tham chiếu tới đối tượng của lớp bao bọc ngoài thì mới khởi tạo được nó.",
+      "Nó không có quyền truy cập trực tiếp tới các thành viên phi tĩnh (non-static) của lớp bao bọc ngoài.",
+      "Tất cả các biến và phương thức bên trong nó bắt buộc phải là static.",
+      "Nó có thể được khởi tạo bằng cú pháp new MyOuter.MyInner();.",
+      "Nó bắt buộc phải kế thừa (extend) lớp bao bọc ngoài."
     ],
     "answer": [
       1,
@@ -4285,11 +4285,11 @@ export const scjpChapterQuestions = [
       "It can access private members of the enclosing class."
     ],
     "optionsVi": [
-      "It must be markedfinal.",
-      "It can be markedabstract.",
-      "It can be markedpublic.",
-      "It can be markedstatic.",
-      "It can access private members of the enclosing class."
+      "Nó bắt buộc phải được khai báo với từ khóa final.",
+      "Nó có thể được khai báo với từ khóa abstract.",
+      "Nó có thể được khai báo với từ khóa public.",
+      "Nó có thể được khai báo với từ khóa static.",
+      "Nó có thể truy cập các thành viên private của lớp bao bọc ngoài."
     ],
     "answer": [
       1,
@@ -4319,11 +4319,11 @@ export const scjpChapterQuestions = [
       "java.util.Hashtable"
     ],
     "optionsVi": [
-      "java.util.SortedMap",
-      "java.util.TreeMap",
-      "java.util.TreeSet",
-      "java.util.HashMap",
-      "java.util.Hashtable"
+      "Nó có thể vừa kế thừa chính xác một lớp, vừa cài đặt chính xác một interface.",
+      "Nó có thể kế thừa chính xác một lớp và có thể cài đặt nhiều interface.",
+      "Nó có thể kế thừa chính xác một lớp HOẶC cài đặt chính xác một interface.",
+      "Nó có thể cài đặt nhiều interface bất kể nó có kế thừa một lớp hay không.",
+      "Nó có thể cài đặt nhiều interface nếu nó không kế thừa lớp nào."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -4349,8 +4349,8 @@ export const scjpChapterQuestions = [
       "hi;"
     ],
     "optionsVi": [
-      "Compilation fails.",
-      "An error occurs at runtime.",
+      "Lỗi biên dịch (Compilation fails).",
+      "Xảy ra lỗi tại thời điểm chạy (Runtime Error).",
       "foobarhi",
       "barhi",
       "hi;"
@@ -4381,13 +4381,13 @@ export const scjpChapterQuestions = [
       "Compilation fails because of an error on a line other than 3, 4, or 8."
     ],
     "optionsVi": [
-      "An exception occurs at runtime.",
+      "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
       "true",
       "fred",
-      "Compilation fails because of an error on line 3.",
-      "Compilation fails because of an error on line 4.",
-      "Compilation fails because of an error on line 8.",
-      "Compilation fails because of an error on a line other than 3, 4, or 8."
+      "Lỗi biên dịch do lỗi ở dòng 3.",
+      "Lỗi biên dịch do lỗi ở dòng 4.",
+      "Lỗi biên dịch do lỗi ở dòng 8.",
+      "Lỗi biên dịch do lỗi ở một dòng khác ngoài 3, 4 hoặc 8."
     ],
     "answer": 6,
     "isMultiple": false,
@@ -4414,12 +4414,12 @@ export const scjpChapterQuestions = [
       "Compilation fails because of an error on line 11."
     ],
     "optionsVi": [
-      "An exception occurs at runtime at line 10.",
+      "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
       "Zippo",
-      "Compilation fails because of an error on line 3.",
-      "Compilation fails because of an error on line 9.",
-      "Compilation fails because of an error on line 10.",
-      "Compilation fails because of an error on line 11."
+      "Lỗi biên dịch do lỗi ở dòng 3.",
+      "Lỗi biên dịch do lỗi ở dòng 9.",
+      "Lỗi biên dịch do lỗi ở dòng 10.",
+      "Lỗi biên dịch do lỗi ở dòng 11."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -4445,11 +4445,11 @@ export const scjpChapterQuestions = [
       "Compilation fails because of an error on line 10."
     ],
     "optionsVi": [
-      "An exception occurs at runtime at line 10.",
+      "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
       "Zippo",
-      "Compilation fails because of an error on line 3.",
-      "Compilation fails because of an error on line 9.",
-      "Compilation fails because of an error on line 10."
+      "Lỗi biên dịch do lỗi ở dòng 3.",
+      "Lỗi biên dịch do lỗi ở dòng 9.",
+      "Lỗi biên dịch do lỗi ở dòng 10."
     ],
     "answer": 4,
     "isMultiple": false,
@@ -4478,8 +4478,8 @@ export const scjpChapterQuestions = [
       "5722",
       "4538",
       "4557",
-      "An exception occurs at runtime.",
-      "Compilation fails."
+      "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
+      "Lỗi biên dịch (Compilation fails)."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -4505,11 +4505,11 @@ export const scjpChapterQuestions = [
       "An exception is thrown at runtime."
     ],
     "optionsVi": [
-      "This code will not compile due to line 4.",
-      "This code will not compile due to line 5.",
+      "Đoạn mã không biên dịch được do lỗi ở dòng 4.",
+      "Đoạn mã không biên dịch được do lỗi ở dòng 5.",
       "1..2..",
       "1..2..3..",
-      "An exception is thrown at runtime."
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 2,
     "isMultiple": false,
@@ -4598,10 +4598,10 @@ export const scjpChapterQuestions = [
       "The output cannot be determined."
     ],
     "optionsVi": [
-      "Compilation fails",
-      "An exception occurs at runtime.",
+      "Lỗi biên dịch (Compilation fails).",
+      "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
       "Thread one. Thread two.",
-      "The output cannot be determined."
+      "Không thể xác định trước kết quả in ra."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -4655,11 +4655,11 @@ export const scjpChapterQuestions = [
       "An exception occurs at runtime."
     ],
     "optionsVi": [
-      "Compilation fails.",
+      "Lỗi biên dịch (Compilation fails).",
       "1..2..3..",
       "0..1..2..3..",
       "0..1..2..",
-      "An exception occurs at runtime."
+      "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception)."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -4684,10 +4684,10 @@ export const scjpChapterQuestions = [
       "This code will not compile."
     ],
     "optionsVi": [
-      "Each String in the array lines will output, with a 1-second pause.",
-      "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-      "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
-      "This code will not compile."
+      "Mỗi phần tử String trong mảng lines sẽ được in ra, cách nhau 1 giây tạm dừng.",
+      "Mỗi phần tử String trong mảng lines sẽ được in ra không có khoảng dừng, vì phương thức này không chạy trong một Thread.",
+      "Mỗi phần tử String trong mảng lines sẽ được in ra, và không chắc chắn có khoảng dừng vì currentThread() có thể không lấy được luồng này.",
+      "Đoạn mã này sẽ không biên dịch được (This code will not compile)."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -4777,11 +4777,11 @@ export const scjpChapterQuestions = [
       "When a thread invokeswait(), it releases its locks."
     ],
     "optionsVi": [
-      "A static method cannot be synchronized.",
-      "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
-      "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
-      "When a thread sleeps, it releases its locks.",
-      "When a thread invokeswait(), it releases its locks."
+      "Phương thức static không thể dùng từ khóa synchronized.",
+      "Nếu một lớp có chứa code synchronized, các luồng khác vẫn có thể truy cập vào phần code không synchronized.",
+      "Các biến có thể được bảo vệ khỏi sự cố tranh chấp đồng thời bằng cách đánh dấu chúng với từ khóa synchronized.",
+      "Khi một luồng sleep(), nó giải phóng các khóa lock mà nó đang giữ.",
+      "Khi một luồng gọi wait(), nó giải phóng các khóa lock mà nó đang giữ."
     ],
     "answer": [
       1,
@@ -4854,12 +4854,12 @@ export const scjpChapterQuestions = [
       "It will fail to compile because it has to be synchronized on the this object."
     ],
     "optionsVi": [
-      "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+      "Lỗi biên dịch do ngoại lệ IllegalMonitorStateException của wait() không được xử lý ở dòng 7.",
       "1 2 3",
       "1 3",
       "1 2",
-      "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
-      "It will fail to compile because it has to be synchronized on the this object."
+      "Ném ngoại lệ IllegalMonitorStateException tại thời điểm chạy khi cố gắng gọi wait().",
+      "Lỗi biên dịch vì bắt buộc phải đồng bộ hóa trên đối tượng this."
     ],
     "answer": 3,
     "isMultiple": false,
@@ -4884,10 +4884,10 @@ export const scjpChapterQuestions = [
       "Two seconds after lock B is released."
     ],
     "optionsVi": [
-      "After thread A is notified, or after two seconds.",
-      "After the lock on B is released, or after two seconds.",
-      "Two seconds after thread A is notified.",
-      "Two seconds after lock B is released."
+      "Sau khi luồng A được thông báo (notified), HOẶC sau khi hết thời gian 2 giây.",
+      "Sau khi khóa trên B được giải phóng, HOẶC sau khi hết 2 giây.",
+      "Hai giây sau khi luồng A được thông báo.",
+      "Hai giây sau khi khóa trên B được giải phóng."
     ],
     "answer": 0,
     "isMultiple": false,
@@ -4914,12 +4914,12 @@ export const scjpChapterQuestions = [
       "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
     ],
     "optionsVi": [
-      "ThenotifyAll() method must be called from a synchronized context.",
-      "To callwait(), an object must own the lock on the thread.",
-      "Thenotify() method is defined in class java.lang.Thread.",
-      "When a thread is waiting as a result ofwait(), it release its locks.",
-      "Thenotify() method causes a thread to immediately release its locks.",
-      "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
+      "Phương thức notifyAll() bắt buộc phải được gọi từ một ngữ cảnh synchronized.",
+      "Để gọi wait(), đối tượng phải sở hữu khóa trên luồng.",
+      "Phương thức notify() được định nghĩa trong lớp java.lang.Thread.",
+      "Khi một luồng đang chờ do gọi wait(), nó giải phóng các khóa lock mà nó đang giữ.",
+      "Phương thức notify() làm cho luồng lập tức giải phóng các khóa lock mà nó đang giữ.",
+      "Điểm khác biệt giữa notify() và notifyAll() là notifyAll() thông báo cho tất cả các luồng đang chờ, bất kể chúng đang chờ trên đối tượng nào."
     ],
     "answer": [
       0,
@@ -5030,14 +5030,14 @@ export const scjpChapterQuestions = [
       "sleep() can throw a runtime exception."
     ],
     "optionsVi": [
-      "Deadlock will not occur ifwait()/notify() is used.",
-      "A thread will resume execution as soon as its sleep duration expires.",
-      "Synchronization can prevent two objects from being accessed by the same thread.",
-      "Thewait() method is overloaded to accept a duration.",
-      "Thenotify() method is overloaded to accept a duration.",
-      "Bothwait() andnotify() must be called from a synchronized context.",
-      "wait() can throw a runtime exception",
-      "sleep() can throw a runtime exception."
+      "Deadlock sẽ không xảy ra nếu sử dụng wait()/notify().",
+      "Một luồng sẽ lập tức tiếp tục thực thi ngay khi khoảng thời gian sleep kết thúc.",
+      "Đồng bộ hóa có thể ngăn hai đối tượng bị truy cập bởi cùng một luồng.",
+      "Phương thức wait() có các phiên bản nạp chồng chấp nhận tham số thời gian chờ.",
+      "Phương thức notify() có các phiên bản nạp chồng chấp nhận tham số thời gian chờ.",
+      "Cả wait() và notify() đều bắt buộc phải được gọi từ trong một ngữ cảnh synchronized.",
+      "wait() có thể ném ra một ngoại lệ thời điểm chạy (runtime exception).",
+      "sleep() có thể ném ra một ngoại lệ thời điểm chạy (runtime exception)."
     ],
     "answer": [
       3,
@@ -5109,7 +5109,7 @@ export const scjpChapterQuestions = [
       "foo bar",
       "foo bar baz",
       "bar foo",
-      "Compilation fails."
+      "Lỗi biên dịch (Compilation fails)."
     ],
     "answer": 1,
     "isMultiple": false,
@@ -5136,12 +5136,12 @@ export const scjpChapterQuestions = [
       "Synchronize theincrease() method"
     ],
     "optionsVi": [
-      "Synchronize the run method.",
-      "Wrap a synchronize(this) around the call to f.increase().",
-      "The existing code will not compile.",
-      "The existing code will cause a runtime exception.",
-      "Put in await() call prior to invoking theincrease() method.",
-      "Synchronize theincrease() method"
+      "Đồng bộ hóa phương thức run() (Synchronize the run method).",
+      "Bọc một khối synchronize(this) xung quanh lời gọi f.increase().",
+      "Mã hiện tại không thể biên dịch.",
+      "Mã hiện tại sẽ gây ra ngoại lệ thời điểm chạy.",
+      "Đặt một lời gọi wait() trước khi gọi phương thức increase().",
+      "Đồng bộ hóa phương thức increase() (Synchronize the increase() method)."
     ],
     "answer": 5,
     "isMultiple": false,
@@ -5168,11 +5168,11 @@ export const scjpChapterQuestions = [
       "x is 5 x is 6"
     ],
     "optionsVi": [
-      "The code will not compile because of an error on line 12 of class Foo.",
-      "The code will not compile because of an error on line 7 of class Foo.",
-      "The code will not compile because of an error on line 4 of class Test.",
-      "The code will not compile because of some other error in class Test.",
-      "An exception occurs at runtime.",
+      "Đoạn mã không biên dịch được do lỗi ở dòng 12 của lớp Foo.",
+      "Đoạn mã không biên dịch được do lỗi ở dòng 7 của lớp Foo.",
+      "Đoạn mã không biên dịch được do lỗi ở dòng 4 của lớp Test.",
+      "Đoạn mã không biên dịch được do một lỗi khác trong lớp Test.",
+      "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
       "x is 5 x is 6"
     ],
     "answer": 4,
@@ -5213,8 +5213,8 @@ export const scjpRandom20Quiz = {
       "optionsVi": [
         "1 09876",
         "98765",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5304,7 +5304,7 @@ export const scjpRandom20Quiz = {
         "abstract",
         "protected",
         "synchronized",
-        "default access"
+        "default access (truy cập mặc định / package-private)"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -5336,7 +5336,7 @@ export const scjpRandom20Quiz = {
         "private",
         "protected",
         "volatile",
-        "default access"
+        "default access (truy cập mặc định)"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5437,10 +5437,10 @@ export const scjpRandom20Quiz = {
       "optionsVi": [
         "0 1 2",
         "0 1 2 1 2 2",
-        "Compilation fails at line 7.",
-        "Compilation fails at line 8.",
-        "Compilation fails at line 9.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
+        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5471,8 +5471,8 @@ export const scjpRandom20Quiz = {
         "0 1 2 1 2 2",
         "2 1 0 1 0 0",
         "2 1 2 0 1 2",
-        "Compilation fails at line 8.",
-        "Compilation fails at line 9."
+        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -5499,12 +5499,12 @@ export const scjpRandom20Quiz = {
         "Lines 2, 5, and 8 are in conflict with encapsulation."
       ],
       "optionsVi": [
-        "Class Barbell is tightly encapsulated.",
-        "Line 2 is in conflict with encapsulation.",
-        "Line 5 is in conflict with encapsulation.",
-        "Line 8 is in conflict with encapsulation.",
-        "Lines 5 and 8 are in conflict with encapsulation.",
-        "Lines 2, 5, and 8 are in conflict with encapsulation."
+        "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
+        "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
+        "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
+        "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
+        "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
+        "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -5529,10 +5529,10 @@ export const scjpRandom20Quiz = {
         "Neither class A nor class B is tightly encapsulated."
       ],
       "optionsVi": [
-        "Class A is tightly encapsulated.",
-        "Class B is tightly encapsulated.",
-        "Classes A and B are both tightly encapsulated.",
-        "Neither class A nor class B is tightly encapsulated."
+        "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
+        "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
+        "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
+        "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -5558,11 +5558,11 @@ export const scjpRandom20Quiz = {
         "Tightly encapsulated classes typically do not use HAS-A relationships."
       ],
       "optionsVi": [
-        "Tightly encapsulated classes are typically easier to reuse.",
-        "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
-        "Methods in tightly encapsulated classes cannot be overridden.",
-        "Methods in tightly encapsulated classes cannot be overloaded.",
-        "Tightly encapsulated classes typically do not use HAS-A relationships."
+        "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
+        "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
+        "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
+        "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
+        "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -5593,8 +5593,8 @@ export const scjpRandom20Quiz = {
         "abcdefdef",
         "abcghidef",
         "abcghighi",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5625,8 +5625,8 @@ export const scjpRandom20Quiz = {
         "abcxyz",
         "xyzabc;",
         "XyZabc",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5680,11 +5680,11 @@ export const scjpRandom20Quiz = {
         "The twohashcode() methods will have the same efficiency."
       ],
       "optionsVi": [
-        "class Test1 will not compile.",
-        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
-        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
-        "class Test2 will not compile.",
-        "The twohashcode() methods will have the same efficiency."
+        "Lớp Test1 sẽ không biên dịch được.",
+        "Phương thức hashCode() của Test1 hiệu quả hơn phương thức của Test2.",
+        "Phương thức hashCode() của Test1 kém hiệu quả hơn phương thức của Test2.",
+        "Lớp Test2 sẽ không biên dịch được.",
+        "Hai phương thức hashCode() có hiệu quả như nhau."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5738,11 +5738,11 @@ export const scjpRandom20Quiz = {
         "It must extend the enclosing class."
       ],
       "optionsVi": [
-        "You must have a reference to an instance of the enclosing class in order to instantiate it.",
-        "It does not have access to nonstatic members of the enclosing class.",
-        "Its variables and methods must be static.",
-        "It can be instantiated using new MyOuter.MyInner(); .",
-        "It must extend the enclosing class."
+        "Bạn bắt buộc phải có một tham chiếu tới đối tượng của lớp bao bọc ngoài thì mới khởi tạo được nó.",
+        "Nó không có quyền truy cập trực tiếp tới các thành viên phi tĩnh (non-static) của lớp bao bọc ngoài.",
+        "Tất cả các biến và phương thức bên trong nó bắt buộc phải là static.",
+        "Nó có thể được khởi tạo bằng cú pháp new MyOuter.MyInner();.",
+        "Nó bắt buộc phải kế thừa (extend) lớp bao bọc ngoài."
       ],
       "answer": [
         1,
@@ -5772,11 +5772,11 @@ export const scjpRandom20Quiz = {
         "An exception is thrown at runtime."
       ],
       "optionsVi": [
-        "This code will not compile due to line 4.",
-        "This code will not compile due to line 5.",
+        "Đoạn mã không biên dịch được do lỗi ở dòng 4.",
+        "Đoạn mã không biên dịch được do lỗi ở dòng 5.",
         "1..2..",
         "1..2..3..",
-        "An exception is thrown at runtime."
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -5850,8 +5850,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "1 09876",
         "98765",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -6073,11 +6073,11 @@ export const scjpChapterAllQuiz = {
         "0 to 65535"
       ],
       "optionsVi": [
-        "–128 to 127",
-        "–(2 ^ 15) to (2 ^ 15) - 1",
-        "0 to 32767",
-        "Platform dependent",
-        "0 to 65535"
+        "-128 đến 127",
+        "-(2 ^ 15) đến (2 ^ 15) - 1",
+        "0 đến 32767",
+        "Phụ thuộc vào nền tảng hệ điều hành.",
+        "0 đến 65535"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6182,8 +6182,8 @@ export const scjpChapterAllQuiz = {
         "9",
         "11",
         "13",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -6358,8 +6358,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "null",
         "theDogs",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -6386,8 +6386,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "names",
         "null",
-        "Compilation fails",
-        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -6418,8 +6418,8 @@ export const scjpChapterAllQuiz = {
         "args[2] = 3",
         "args[2] = null",
         "args[2] = 1",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 5,
       "isMultiple": false,
@@ -6450,8 +6450,8 @@ export const scjpChapterAllQuiz = {
         "123",
         "000",
         "nullnullnull",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 5,
       "isMultiple": false,
@@ -6482,8 +6482,8 @@ export const scjpChapterAllQuiz = {
         "12",
         "000",
         "123",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -6513,7 +6513,7 @@ export const scjpChapterAllQuiz = {
         "abstract",
         "protected",
         "synchronized",
-        "default access"
+        "default access (truy cập mặc định / package-private)"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6545,7 +6545,7 @@ export const scjpChapterAllQuiz = {
         "private",
         "protected",
         "volatile",
-        "default access"
+        "default access (truy cập mặc định)"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -6572,12 +6572,12 @@ export const scjpChapterAllQuiz = {
         "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
       ],
       "optionsVi": [
-        "The code will compile with no changes.",
-        "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
-        "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
-        "As long as line 8 exists, class A must declare methodm1() in some way.",
-        "If line 6 were replaced with'class B extends A{ ' the code would compile.",
-        "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
+        "Mã nguồn biên dịch thành công mà không cần thay đổi gì.",
+        "Lớp B bắt buộc phải khai báo abstract cho phương thức m2() hoặc cài đặt (implement) phương thức m2() để mã nguồn có thể biên dịch.",
+        "Lớp B có thể khai báo abstract cho phương thức m2() hoặc cài đặt (implement) phương thức m2(), điều này là hợp lệ nhưng không bắt buộc để mã nguồn biên dịch.",
+        "Miễn là dòng 8 còn tồn tại, lớp A bắt buộc phải khai báo phương thức m1() theo một cách nào đó.",
+        "Nếu dòng 6 được thay thế bằng 'class B extends A { ', mã nguồn sẽ biên dịch thành công.",
+        "Nếu lớp A không phải là abstract và phương thức m1() ở dòng 2 được cài đặt, mã nguồn sẽ không thể biên dịch."
       ],
       "answer": [
         0,
@@ -6651,7 +6651,7 @@ export const scjpChapterAllQuiz = {
         "3",
         "4",
         "5",
-        "All of them"
+        "Tất cả các phương án trên."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6677,11 +6677,11 @@ export const scjpChapterAllQuiz = {
         "An exception is thrown at runtime."
       ],
       "optionsVi": [
-        "The code compiles and runs, with outputthis420parent420 .",
-        "If line 8 is removed, the code will compile and run.",
-        "If line 10 is removed, the code will compile and run.",
-        "Both lines 8 and 10 must be removed for the code to compile.",
-        "An exception is thrown at runtime."
+        "Mã nguồn biên dịch và chạy bình thường, in ra: \"this 420 parent 420\".",
+        "Nếu xóa dòng 8, mã nguồn sẽ biên dịch và chạy được.",
+        "Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được.",
+        "Cả dòng 8 và dòng 10 đều phải bị xóa thì mã nguồn mới biên dịch được.",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -6712,8 +6712,8 @@ export const scjpChapterAllQuiz = {
         "123",
         "0123",
         "1234",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6742,10 +6742,10 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "024",
         "0246",
-        "Compilation fails at line 4",
-        "Compilation fails at line 5",
-        "Compilation fails at line 8",
-        "Compilation fails at line 10"
+        "Lỗi biên dịch tại dòng 4.",
+        "Lỗi biên dịch tại dòng 5.",
+        "Lỗi biên dịch tại dòng 8.",
+        "Lỗi biên dịch tại dòng 10."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -6771,7 +6771,7 @@ export const scjpChapterAllQuiz = {
         "import java.util.TreeMap;"
       ],
       "optionsVi": [
-        "No statement is required",
+        "Không cần câu lệnh nào.",
         "import java.util.*;",
         "import.java.util.Tree*;",
         "import java.util.TreeSet;",
@@ -6942,12 +6942,12 @@ export const scjpChapterAllQuiz = {
         "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
       ],
       "optionsVi": [
-        "You can extend the Runnable interface as long as you override the public run() method.",
-        "The class must contain a method calledrun() from which all code for that thread will be initiated.",
-        "The class must contain an emptypublicvoid method namedrun().",
-        "The class must contain apublicvoid method namedrunnable().",
-        "The class definition must include the words implements Threads and contain a method calledrun().",
-        "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
+        "Bạn có thể extend interface Runnable miễn là override phương thức public run().",
+        "Lớp phải chứa một phương thức tên là run() để từ đó toàn bộ mã lệnh cho thread sẽ được khởi chạy.",
+        "Lớp phải chứa một phương thức rỗng public void tên là run().",
+        "Lớp phải chứa một phương thức public void tên là runnable().",
+        "Định nghĩa lớp phải bao gồm các từ 'implements Threads' và chứa một phương thức tên là run().",
+        "Phương thức bắt buộc phải là public, có kiểu trả về là void, phải có tên là run() và không nhận bất kỳ tham số nào."
       ],
       "answer": [
         1,
@@ -7084,8 +7084,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "true",
         "false",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7151,7 +7151,7 @@ export const scjpChapterAllQuiz = {
         "0x80000000and0x00000001",
         "-2147483648and-1",
         "1and-2147483648",
-        "None of the above"
+        "Không có đáp án nào ở trên."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -7206,10 +7206,10 @@ export const scjpChapterAllQuiz = {
         "byte z = (byte)100L;"
       ],
       "optionsVi": [
-        "int w = (int)888.8;",
-        "byte x = (byte)1000L;",
+        "A và B và C (A: int w = (int) 888.8; & B: byte x = (byte) 1000L; & C: long y = (byte) 100;)",
+        "A và D (A: int w = (int) 888.8; & D: byte z = (byte) 100L;)",
         "long y = (byte)100;",
-        "byte z = (byte)100L;"
+        "B và D (B: byte x = (byte) 1000L; & D: byte z = (byte) 100L;)"
       ],
       "answer": [
         0,
@@ -7311,9 +7311,9 @@ export const scjpChapterAllQuiz = {
         "ok",
         "dokey",
         "okdokey",
-        "No output is produced",
-        "Compilation error",
-        "An exception is thrown at runtime"
+        "Không in gì ra màn hình (No output is produced)",
+        "Lỗi biên dịch (Compilation error)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7341,7 +7341,7 @@ export const scjpChapterAllQuiz = {
         "small",
         "tiny",
         "huge",
-        "Compilation fails"
+        "Lỗi biên dịch (Compilation fails)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7404,8 +7404,8 @@ export const scjpChapterAllQuiz = {
         "714",
         "140",
         "1414",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7436,8 +7436,8 @@ export const scjpChapterAllQuiz = {
         "falsetrue",
         "truefalse",
         "falsefalse",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7468,8 +7468,8 @@ export const scjpChapterAllQuiz = {
         "slipstreamstream",
         "streamslipstream",
         "slipstreamslipstream",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7530,8 +7530,8 @@ export const scjpChapterAllQuiz = {
         "1515",
         "345375",
         "375375",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -7562,8 +7562,8 @@ export const scjpChapterAllQuiz = {
         "0042",
         "04242",
         "000",
-        "Compilation fails",
-        "An exception is thrown at runtime"
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7592,10 +7592,10 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "0 1 2",
         "0 1 2 1 2 2",
-        "Compilation fails at line 7.",
-        "Compilation fails at line 8.",
-        "Compilation fails at line 9.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
+        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7626,8 +7626,8 @@ export const scjpChapterAllQuiz = {
         "0 1 2 1 2 2",
         "2 1 0 1 0 0",
         "2 1 2 0 1 2",
-        "Compilation fails at line 8.",
-        "Compilation fails at line 9."
+        "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+        "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7658,8 +7658,8 @@ export const scjpChapterAllQuiz = {
         "42",
         "50",
         "51",
-        "Compiler fails at line 5.",
-        "Compiler fails at line 6."
+        "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
+        "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7750,12 +7750,12 @@ export const scjpChapterAllQuiz = {
         "There is a syntax error on line 5."
       ],
       "optionsVi": [
-        "There is a syntax error on line 1.",
-        "There are syntax errors on lines 1 and 4.",
-        "There are syntax errors on lines 1, 4, and 5.",
-        "There is a syntax error on line 4.",
-        "There are syntax errors on lines 4 and 5.",
-        "There is a syntax error on line 5."
+        "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
+        "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
+        "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
+        "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
+        "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
+        "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -7817,9 +7817,9 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "I is 1",
         "I is 1 I is 1",
-        "No output is produced.",
-        "Compilation error",
-        "I is 1 I is 1 I is 1 in an infinite loop."
+        "Không in gì ra màn hình (No output is produced)",
+        "Lỗi biên dịch (Compilation error)",
+        "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7874,8 +7874,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "I is 0",
         "I is 0 I is 1",
-        "Compilation fails.",
-        "None of the above"
+        "Lỗi biên dịch (Compilation fails).",
+        "Không có đáp án nào ở trên."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -7900,10 +7900,10 @@ export const scjpChapterAllQuiz = {
         "Code output:Start Hello world Catch Here File not found."
       ],
       "optionsVi": [
-        "The code will not compile.",
-        "Code output:Start Hello world File Not Found.",
-        "Code output:Start Hello world End of file exception.",
-        "Code output:Start Hello world Catch Here File not found."
+        "Mã nguồn không thể biên dịch (The code will not compile)",
+        "Đầu ra: Start Hello world File Not Found.",
+        "Đầu ra: Start Hello world End of file exception.",
+        "Đầu ra: Start Hello world Catch Here File not found."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -7928,8 +7928,8 @@ export const scjpChapterAllQuiz = {
         "Hello world Finally executing"
       ],
       "optionsVi": [
-        "Nothing. The program will not compile because no exceptions are specified.",
-        "Nothing. The program will not compile because nocatch clauses are specified.",
+        "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
+        "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
         "Hello world.",
         "Hello world Finally executing"
       ],
@@ -7957,11 +7957,11 @@ export const scjpChapterAllQuiz = {
         "This program fails to compile due to an error at line 13."
       ],
       "optionsVi": [
-        "This program will compile successfully.",
-        "This program fails to compile due to an error at line 4.",
-        "This program fails to compile due to an error at line 6.",
-        "This program fails to compile due to an error at line 9.",
-        "This program fails to compile due to an error at line 13."
+        "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
+        "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
+        "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
+        "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
+        "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -7986,10 +7986,10 @@ export const scjpChapterAllQuiz = {
         "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
       ],
       "optionsVi": [
-        "The program will not compile.",
-        "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
-        "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
-        "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+        "Chương trình sẽ không biên dịch (The program will not compile)",
+        "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
+        "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
+        "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
       ],
       "answer": 3,
       "isMultiple": false,
@@ -8017,7 +8017,7 @@ export const scjpChapterAllQuiz = {
       ],
       "optionsVi": [
         "hello throwit caught",
-        "Compilation fails",
+        "Lỗi biên dịch (Compilation fails).",
         "hello throwit RuntimeException caught after",
         "hello throwit RuntimeException",
         "hello throwit caught finally after",
@@ -8046,10 +8046,10 @@ export const scjpChapterAllQuiz = {
         "It is appropriate to handle assertion failures using acatch clause."
       ],
       "optionsVi": [
-        "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
-        "If a switch block has no default, adding an assert default is considered appropriate.",
-        "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
-        "It is appropriate to handle assertion failures using acatch clause."
+        "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
+        "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
+        "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
+        "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
       ],
       "answer": 1,
       "isMultiple": false,
@@ -8075,11 +8075,11 @@ export const scjpChapterAllQuiz = {
         "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
       ],
       "optionsVi": [
-        "It is sometimes good practice to throw an AssertionError explicitly.",
-        "It is good practice to place assertions where you think execution should never reach.",
-        "Privategetter() andsetter() methods should not use assertions to verify arguments.",
-        "If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.",
-        "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
+        "Đôi khi việc chủ động ném một `AssertionError` một cách tường minh là một thực hành tốt.",
+        "Đặt assertion ở những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới là một thực hành tốt.",
+        "Các phương thức getter() và setter() private không nên sử dụng assertion để kiểm tra tính hợp lệ của đối số.",
+        "Nếu một `AssertionError` bị ném ra trong khối try-catch, khối `finally` sẽ bị bỏ qua.",
+        "Việc xử lý lỗi assertion thất bại bằng khối `catch (AssertionException ae)` là phù hợp."
       ],
       "answer": [
         0,
@@ -8114,8 +8114,8 @@ export const scjpChapterAllQuiz = {
         "bar done",
         "foo done",
         "bar foo done",
-        "Compilation fails",
-        "An error is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8141,11 +8141,11 @@ export const scjpChapterAllQuiz = {
         "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
       ],
       "optionsVi": [
-        "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
-        "As of Java version 1.4, assertion statements are compiled by default.",
-        "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
-        "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
-        "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
+        "Nếu assertion được biên dịch vào file mã nguồn và không có cờ nào được chỉ định lúc runtime, assertion sẽ được thực thi theo mặc định.",
+        "Kể từ Java phiên bản 1.4, các câu lệnh assertion được biên dịch theo mặc định.",
+        "Khi sử dụng các tham số runtime phù hợp, ta có thể yêu cầu máy ảo VM tắt assertion cho một lớp cụ thể và đồng thời bật assertion cho một package cụ thể.",
+        "Tất cả các cờ sau đều là cờ assertion hợp lệ lúc runtime: `-ea`, `-esa`, `-dsa`, `-enableassertions`, `-disablesystemassertions`.",
+        "Khi đánh giá các đối số dòng lệnh, máy ảo VM ưu tiên cờ `-ea` hơn cờ `-da`."
       ],
       "answer": [
         2,
@@ -8175,11 +8175,11 @@ export const scjpChapterAllQuiz = {
         "Line 18;"
       ],
       "optionsVi": [
-        "Line 8",
-        "Line 9",
-        "Line 11",
-        "Line 15",
-        "Line 18;"
+        "Dòng 8 (Line 8)",
+        "Dòng 9 (Line 9)",
+        "Dòng 11 (Line 11)",
+        "Dòng 15 (Line 15)",
+        "Dòng 18 (Line 18)"
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8206,12 +8206,12 @@ export const scjpChapterAllQuiz = {
         "Lines 2, 5, and 8 are in conflict with encapsulation."
       ],
       "optionsVi": [
-        "Class Barbell is tightly encapsulated.",
-        "Line 2 is in conflict with encapsulation.",
-        "Line 5 is in conflict with encapsulation.",
-        "Line 8 is in conflict with encapsulation.",
-        "Lines 5 and 8 are in conflict with encapsulation.",
-        "Lines 2, 5, and 8 are in conflict with encapsulation."
+        "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
+        "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
+        "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
+        "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
+        "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
+        "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -8236,10 +8236,10 @@ export const scjpChapterAllQuiz = {
         "Neither class A nor class B is tightly encapsulated."
       ],
       "optionsVi": [
-        "Class A is tightly encapsulated.",
-        "Class B is tightly encapsulated.",
-        "Classes A and B are both tightly encapsulated.",
-        "Neither class A nor class B is tightly encapsulated."
+        "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
+        "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
+        "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
+        "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -8265,11 +8265,11 @@ export const scjpChapterAllQuiz = {
         "Tightly encapsulated classes typically do not use HAS-A relationships."
       ],
       "optionsVi": [
-        "Tightly encapsulated classes are typically easier to reuse.",
-        "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
-        "Methods in tightly encapsulated classes cannot be overridden.",
-        "Methods in tightly encapsulated classes cannot be overloaded.",
-        "Tightly encapsulated classes typically do not use HAS-A relationships."
+        "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
+        "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
+        "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
+        "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
+        "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -8295,11 +8295,11 @@ export const scjpChapterAllQuiz = {
         "Access modifiers become optional"
       ],
       "optionsVi": [
-        "Clarity of code",
-        "Code efficiency",
-        "The ability to add functionality later on",
-        "Modifications require fewer coding changes",
-        "Access modifiers become optional"
+        "Mã nguồn rõ ràng, minh bạch",
+        "Hiệu năng thực thi của mã nguồn",
+        "Khả năng bổ sung tính năng về sau",
+        "Việc sửa đổi đòi hỏi ít thay đổi mã nguồn hơn",
+        "Các từ khóa chỉ phạm vi truy cập (access modifier) trở thành tùy chọn"
       ],
       "answer": [
         1,
@@ -8329,10 +8329,10 @@ export const scjpChapterAllQuiz = {
         "B has-a C;"
       ],
       "optionsVi": [
-        "A is-a B",
-        "C is-a A",
-        "A has-a C",
-        "B has-a A",
+        "A có quan hệ IS-A với B",
+        "C có quan hệ IS-A với A",
+        "A có quan hệ HAS-A với C",
+        "B có quan hệ HAS-A với A",
         "B has-a C;"
       ],
       "answer": [
@@ -8364,8 +8364,8 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "A",
         "B",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -8426,10 +8426,10 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "x = 14",
         "x = 21",
-        "Compilation fails at line 2.",
-        "Compilation fails at line 11.",
-        "Compilation fails at line 14.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch tại dòng 2.",
+        "Lỗi biên dịch tại dòng 11.",
+        "Lỗi biên dịch tại dòng 14.",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8496,8 +8496,8 @@ export const scjpChapterAllQuiz = {
         "instantiate a parent",
         "instantiate a child instantiate a parent",
         "instantiate a parent instantiate a child",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -8528,8 +8528,8 @@ export const scjpChapterAllQuiz = {
         "instantiate a parent",
         "instantiate a child instantiate a parent",
         "instantiate a parent instantiate a child",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8558,10 +8558,10 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "sub super 2;",
         "super 2 sub",
-        "Compilation fails at line 2.",
-        "Compilation fails at line 8.",
-        "Compilation fails at line 9.",
-        "Compilation fails at line 14."
+        "Lỗi biên dịch tại dòng 2.",
+        "Lỗi biên dịch tại dòng 8.",
+        "Lỗi biên dịch tại dòng 9.",
+        "Lỗi biên dịch tại dòng 14."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -8593,7 +8593,7 @@ export const scjpChapterAllQuiz = {
         "8 4",
         "8 4 no-arg",
         "no-arg 8 4",
-        "Compilation fails."
+        "Lỗi biên dịch (Compilation fails)."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8623,9 +8623,9 @@ export const scjpChapterAllQuiz = {
         "no-arg",
         "8 4 no-arg",
         "no-arg 8 4",
-        "Compilation fails.",
-        "No output is produced.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Không có kết quả nào được in ra (No output is produced)",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -8653,7 +8653,7 @@ export const scjpChapterAllQuiz = {
         "Beagle() { }",
         "Beagle() { super(); }",
         "Beagle() { super(\"fido\"); }",
-        "No constructor, allow the default constructor"
+        "Không khai báo constructor, để Java dùng constructor mặc định (default constructor)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -8678,10 +8678,10 @@ export const scjpChapterAllQuiz = {
         "The first statement of every constructor is a legal call to the super() or this() method."
       ],
       "optionsVi": [
-        "Constructors must not have arguments if the superclass constructor does not have arguments.",
-        "Constructors are not inherited.",
-        "Constructors cannot be overloaded.",
-        "The first statement of every constructor is a legal call to the super() or this() method."
+        "B và D (B: Constructor không được kế thừa & D: Câu lệnh đầu tiên của mọi constructor luôn là một lời gọi hợp lệ tới super() hoặc this())",
+        "A và B (A: Constructor không được có tham số nếu constructor của lớp cha không có tham số & B: Constructor không được kế thừa)",
+        "A và C (A: Constructor không được có tham số nếu constructor của lớp cha không có tham số & C: Constructor không thể bị nạp chồng)",
+        "C và D (C: Constructor không thể bị nạp chồng & D: Câu lệnh đầu tiên của mọi constructor luôn là một lời gọi hợp lệ tới super() hoặc this())"
       ],
       "answer": [
         1,
@@ -8852,8 +8852,8 @@ export const scjpChapterAllQuiz = {
         "Bar Bar Bar Bar Bar Bar",
         "Foo Bar Foo Bar Foo Bar",
         "Foo Foo Foo Foo Foo Foo",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -8884,8 +8884,8 @@ export const scjpChapterAllQuiz = {
         "abcdefdef",
         "abcghidef",
         "abcghighi",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -8916,8 +8916,8 @@ export const scjpChapterAllQuiz = {
         "abcxyz",
         "xyzabc;",
         "XyZabc",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9008,8 +9008,8 @@ export const scjpChapterAllQuiz = {
         "wbookkeeper",
         "wbookkeewoo",
         "wbookkeeperwoo",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -9038,8 +9038,8 @@ export const scjpChapterAllQuiz = {
         "same results 0 time(s)",
         "same results 2 time(s)",
         "same results 4 time(s)",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -9064,10 +9064,10 @@ export const scjpChapterAllQuiz = {
         "Math.max(-1.5,-2.8f)"
       ],
       "optionsVi": [
-        "Math.max(1, 4)",
-        "Math.max(2.3, 5)",
-        "Math.max(1, 3, 5, 7)",
-        "Math.max(-1.5,-2.8f)"
+        "A và B (A: Math.max(1, 4) & B: Math.max(2.3, 5))",
+        "A và C (A: Math.max(1, 4) & C: Math.max(1, 3, 5, 7))",
+        "C và D (C: Math.max(1, 3, 5, 7) & D: Math.max(-1.5, -2.8f))",
+        "B và D (B: Math.max(2.3, 5) & D: Math.max(-1.5, -2.8f))"
       ],
       "answer": [
         0,
@@ -9100,12 +9100,12 @@ export const scjpChapterAllQuiz = {
         "The result is less than or equal to 1.0."
       ],
       "optionsVi": [
-        "The result is less than 0.0.",
-        "The result is greater than or equal to 0.0..",
-        "The result is less than 1.0.",
-        "The result is greater than 1.0.",
-        "The result is greater than or equal to 1.0.",
-        "The result is less than or equal to 1.0."
+        "Kết quả nhỏ hơn 0.0.",
+        "Kết quả lớn hơn hoặc bằng 0.0.",
+        "Kết quả nhỏ hơn 1.0.",
+        "Kết quả lớn hơn 1.0.",
+        "Kết quả lớn hơn hoặc bằng 1.0.",
+        "Kết quả nhỏ hơn hoặc bằng 1.0."
       ],
       "answer": [
         1,
@@ -9138,8 +9138,8 @@ export const scjpChapterAllQuiz = {
         "3.0",
         "–3.0",
         "NaN",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9166,12 +9166,12 @@ export const scjpChapterAllQuiz = {
         "None of the above"
       ],
       "optionsVi": [
-        "Line 3",
-        "Line 4",
-        "Line 5",
-        "Line 6",
-        "Line 3 and either line 4, 5, or 6",
-        "None of the above"
+        "Dòng 3",
+        "Dòng 4",
+        "Dòng 5",
+        "Dòng 6",
+        "Dòng 3 và một trong các dòng 4, 5, hoặc 6",
+        "Không có đáp án nào ở trên."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9198,12 +9198,12 @@ export const scjpChapterAllQuiz = {
         "Line 8"
       ],
       "optionsVi": [
-        "Line 3",
-        "Line 4",
-        "Line 5",
-        "Line 6",
-        "Line 7",
-        "Line 8"
+        "Dòng 3",
+        "Dòng 4",
+        "Dòng 5",
+        "Dòng 6",
+        "Dòng 7",
+        "Dòng 8"
       ],
       "answer": [
         1,
@@ -9238,8 +9238,8 @@ export const scjpChapterAllQuiz = {
         "42.5",
         "43",
         "badnumber",
-        "Compilation fails.",
-        "An uncaught exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9270,8 +9270,8 @@ export const scjpChapterAllQuiz = {
         "xz",
         "yz",
         "xyz",
-        "Compilation fails.",
-        "An exception is thrown at runtime."
+        "Lỗi biên dịch (Compilation fails).",
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -9338,10 +9338,10 @@ export const scjpChapterAllQuiz = {
       "optionsVi": [
         "9.0",
         "badnumber",
-        "Compilation fails on line 13.",
-        "Compilation fails on line 14.",
-        "Compilation fails on lines 13 and 14.",
-        "An uncaught exception is thrown at runtime."
+        "Lỗi biên dịch tại dòng 13.",
+        "Lỗi biên dịch tại dòng 14.",
+        "Lỗi biên dịch tại cả dòng 13 và 14.",
+        "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
       ],
       "answer": 0,
       "isMultiple": false,
@@ -9461,11 +9461,11 @@ export const scjpChapterAllQuiz = {
         "If x and y are String references and x == y is true, theny.equals(x) will be true."
       ],
       "optionsVi": [
-        "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-        "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
-        "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
-        "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
-        "If x and y are String references and x == y is true, theny.equals(x) will be true."
+        "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì đoạn mã x.equals(y) sẽ gây ra lỗi biên dịch.",
+        "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì x == y đôi khi có thể là true.",
+        "Nếu x và y là các tham chiếu String và x.equals(y) là true, thì x == y là true.",
+        "Nếu x, y và z tham chiếu đến các thể hiện của các lớp wrapper và x.equals(y) là true, y.equals(z) là true, thì z.equals(x) sẽ luôn luôn là true.",
+        "Nếu x và y là các tham chiếu String và x == y là true, thì y.equals(x) sẽ là true."
       ],
       "answer": [
         3,
@@ -9523,11 +9523,11 @@ export const scjpChapterAllQuiz = {
         "The twohashcode() methods will have the same efficiency."
       ],
       "optionsVi": [
-        "class Test1 will not compile.",
-        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
-        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
-        "class Test2 will not compile.",
-        "The twohashcode() methods will have the same efficiency."
+        "Lớp Test1 sẽ không biên dịch được.",
+        "Phương thức hashCode() của Test1 hiệu quả hơn phương thức của Test2.",
+        "Phương thức hashCode() của Test1 kém hiệu quả hơn phương thức của Test2.",
+        "Lớp Test2 sẽ không biên dịch được.",
+        "Hai phương thức hashCode() có hiệu quả như nhau."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9553,11 +9553,11 @@ export const scjpChapterAllQuiz = {
         "If the hashCode() comparison != return s true, the equals() method might return true."
       ],
       "optionsVi": [
-        "If the equals() method return s true, the hashCode() comparison == must return true.",
-        "If the equals() method return s false, the hashCode() comparison != must return true.",
-        "If the hashCode() comparison == return s true, the equals() method must return true.",
-        "If the hashCode() comparison == return s true, the equals() method might return true.",
-        "If the hashCode() comparison != return s true, the equals() method might return true."
+        "Nếu phương thức equals() trả về true, phép so sánh hashCode() == bắt buộc phải trả về true.",
+        "Nếu phương thức equals() trả về false, phép so sánh hashCode() != bắt buộc phải trả về true.",
+        "Nếu phép so sánh hashCode() == trả về true, phương thức equals() bắt buộc phải trả về true.",
+        "Nếu phép so sánh hashCode() == trả về true, phương thức equals() có thể trả về true.",
+        "Nếu phép so sánh hashCode() != trả về true, phương thức equals() có thể trả về true."
       ],
       "answer": [
         0,
@@ -9617,11 +9617,11 @@ export const scjpChapterAllQuiz = {
         "equals() can be true even if it's comparing different objects."
       ],
       "optionsVi": [
-        "hashCode() doesn't have to be overridden ifequals() is.",
-        "equals() doesn't have to be overridden ifhashCode() is.",
-        "hashCode() can always return the same value, regardless of the object that invoked it.",
-        "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
-        "equals() can be true even if it's comparing different objects."
+        "Không bắt buộc phải ghi đè hashCode() nếu equals() đã được ghi đè.",
+        "Không bắt buộc phải ghi đè equals() nếu hashCode() đã được ghi đè.",
+        "hashCode() có thể luôn trả về cùng một giá trị cố định, bất kể đối tượng nào gọi nó.",
+        "Nếu hai đối tượng khác nhau và không tương đương về nội dung cùng gọi hashCode(), thì hashCode() không được phép trả về cùng một giá trị cho cả hai lần gọi.",
+        "equals() có thể trả về true ngay cả khi đang so sánh hai đối tượng khác nhau trên Heap."
       ],
       "answer": [
         2,
@@ -9717,7 +9717,7 @@ export const scjpChapterAllQuiz = {
         "four one three two",
         "one two three four one",
         "one four three two one",
-        "The print order is not guaranteed."
+        "Thứ tự in ra không được đảm bảo cố định."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9805,11 +9805,11 @@ export const scjpChapterAllQuiz = {
         "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
       ],
       "optionsVi": [
-        "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
-        "Objects with at least one reference will never be garbage collected.",
-        "Objects from a class with thefinalize() method overridden will never be garbage collected.",
-        "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
-        "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+        "Mọi đối tượng đủ điều kiện thu gom rác đều chắc chắn sẽ được bộ gom rác thu dọn.",
+        "Đối tượng có ít nhất một tham chiếu trỏ tới sẽ không bao giờ bị thu gom rác.",
+        "Đối tượng thuộc lớp có ghi đè phương thức finalize() sẽ không bao giờ bị thu gom rác.",
+        "Các đối tượng được khởi tạo bên trong anonymous inner class đều được đặt trên vùng nhớ Heap chịu sự quản lý của bộ gom rác.",
+        "Một khi phương thức finalize() được gọi, không có cách nào để cứu đối tượng đó thoát khỏi việc bị thu gom rác."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -9864,10 +9864,10 @@ export const scjpChapterAllQuiz = {
         "If object 1 refers to object 2, then object 2 can't be garbage collected."
       ],
       "optionsVi": [
-        "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
-        "The garbage collector uses a mark and sweep algorithm.",
-        "If an object can be accessed from a live thread, it can't be garbage collected.",
-        "If object 1 refers to object 2, then object 2 can't be garbage collected."
+        "Gọi Runtime.gc() sẽ đảm bảo các đối tượng đủ điều kiện sẽ được thu gom rác.",
+        "Bộ gom rác bắt buộc phải sử dụng thuật toán mark and sweep.",
+        "Nếu một đối tượng có thể được truy cập từ một luồng (thread) đang chạy, nó không thể bị thu gom rác.",
+        "Nếu đối tượng 1 đang tham chiếu tới đối tượng 2, thì đối tượng 2 không thể bị thu gom rác."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -9930,7 +9930,7 @@ export const scjpChapterAllQuiz = {
         "Sau khi dòng 15 chạy xong",
         "Sau khi dòng 16 chạy xong",
         "Sau khi dòng 17 chạy xong",
-        "Đối tượng không đủ điều kiện bị thu gom rác.",
+        "Đối tượng này không bao giờ đủ điều kiện thu gom rác.",
         "Không thể biết chắc chắn được."
       ],
       "answer": 4,
@@ -9985,11 +9985,11 @@ export const scjpChapterAllQuiz = {
         "It must extend the enclosing class."
       ],
       "optionsVi": [
-        "You must have a reference to an instance of the enclosing class in order to instantiate it.",
-        "It does not have access to nonstatic members of the enclosing class.",
-        "Its variables and methods must be static.",
-        "It can be instantiated using new MyOuter.MyInner(); .",
-        "It must extend the enclosing class."
+        "Bạn bắt buộc phải có một tham chiếu tới đối tượng của lớp bao bọc ngoài thì mới khởi tạo được nó.",
+        "Nó không có quyền truy cập trực tiếp tới các thành viên phi tĩnh (non-static) của lớp bao bọc ngoài.",
+        "Tất cả các biến và phương thức bên trong nó bắt buộc phải là static.",
+        "Nó có thể được khởi tạo bằng cú pháp new MyOuter.MyInner();.",
+        "Nó bắt buộc phải kế thừa (extend) lớp bao bọc ngoài."
       ],
       "answer": [
         1,
@@ -10115,11 +10115,11 @@ export const scjpChapterAllQuiz = {
         "It can access private members of the enclosing class."
       ],
       "optionsVi": [
-        "It must be markedfinal.",
-        "It can be markedabstract.",
-        "It can be markedpublic.",
-        "It can be markedstatic.",
-        "It can access private members of the enclosing class."
+        "Nó bắt buộc phải được khai báo với từ khóa final.",
+        "Nó có thể được khai báo với từ khóa abstract.",
+        "Nó có thể được khai báo với từ khóa public.",
+        "Nó có thể được khai báo với từ khóa static.",
+        "Nó có thể truy cập các thành viên private của lớp bao bọc ngoài."
       ],
       "answer": [
         1,
@@ -10149,11 +10149,11 @@ export const scjpChapterAllQuiz = {
         "java.util.Hashtable"
       ],
       "optionsVi": [
-        "java.util.SortedMap",
-        "java.util.TreeMap",
-        "java.util.TreeSet",
-        "java.util.HashMap",
-        "java.util.Hashtable"
+        "Nó có thể vừa kế thừa chính xác một lớp, vừa cài đặt chính xác một interface.",
+        "Nó có thể kế thừa chính xác một lớp và có thể cài đặt nhiều interface.",
+        "Nó có thể kế thừa chính xác một lớp HOẶC cài đặt chính xác một interface.",
+        "Nó có thể cài đặt nhiều interface bất kể nó có kế thừa một lớp hay không.",
+        "Nó có thể cài đặt nhiều interface nếu nó không kế thừa lớp nào."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -10179,8 +10179,8 @@ export const scjpChapterAllQuiz = {
         "hi;"
       ],
       "optionsVi": [
-        "Compilation fails.",
-        "An error occurs at runtime.",
+        "Lỗi biên dịch (Compilation fails).",
+        "Xảy ra lỗi tại thời điểm chạy (Runtime Error).",
         "foobarhi",
         "barhi",
         "hi;"
@@ -10211,13 +10211,13 @@ export const scjpChapterAllQuiz = {
         "Compilation fails because of an error on a line other than 3, 4, or 8."
       ],
       "optionsVi": [
-        "An exception occurs at runtime.",
+        "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
         "true",
         "fred",
-        "Compilation fails because of an error on line 3.",
-        "Compilation fails because of an error on line 4.",
-        "Compilation fails because of an error on line 8.",
-        "Compilation fails because of an error on a line other than 3, 4, or 8."
+        "Lỗi biên dịch do lỗi ở dòng 3.",
+        "Lỗi biên dịch do lỗi ở dòng 4.",
+        "Lỗi biên dịch do lỗi ở dòng 8.",
+        "Lỗi biên dịch do lỗi ở một dòng khác ngoài 3, 4 hoặc 8."
       ],
       "answer": 6,
       "isMultiple": false,
@@ -10244,12 +10244,12 @@ export const scjpChapterAllQuiz = {
         "Compilation fails because of an error on line 11."
       ],
       "optionsVi": [
-        "An exception occurs at runtime at line 10.",
+        "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
         "Zippo",
-        "Compilation fails because of an error on line 3.",
-        "Compilation fails because of an error on line 9.",
-        "Compilation fails because of an error on line 10.",
-        "Compilation fails because of an error on line 11."
+        "Lỗi biên dịch do lỗi ở dòng 3.",
+        "Lỗi biên dịch do lỗi ở dòng 9.",
+        "Lỗi biên dịch do lỗi ở dòng 10.",
+        "Lỗi biên dịch do lỗi ở dòng 11."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -10275,11 +10275,11 @@ export const scjpChapterAllQuiz = {
         "Compilation fails because of an error on line 10."
       ],
       "optionsVi": [
-        "An exception occurs at runtime at line 10.",
+        "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
         "Zippo",
-        "Compilation fails because of an error on line 3.",
-        "Compilation fails because of an error on line 9.",
-        "Compilation fails because of an error on line 10."
+        "Lỗi biên dịch do lỗi ở dòng 3.",
+        "Lỗi biên dịch do lỗi ở dòng 9.",
+        "Lỗi biên dịch do lỗi ở dòng 10."
       ],
       "answer": 4,
       "isMultiple": false,
@@ -10308,8 +10308,8 @@ export const scjpChapterAllQuiz = {
         "5722",
         "4538",
         "4557",
-        "An exception occurs at runtime.",
-        "Compilation fails."
+        "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
+        "Lỗi biên dịch (Compilation fails)."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -10335,11 +10335,11 @@ export const scjpChapterAllQuiz = {
         "An exception is thrown at runtime."
       ],
       "optionsVi": [
-        "This code will not compile due to line 4.",
-        "This code will not compile due to line 5.",
+        "Đoạn mã không biên dịch được do lỗi ở dòng 4.",
+        "Đoạn mã không biên dịch được do lỗi ở dòng 5.",
         "1..2..",
         "1..2..3..",
-        "An exception is thrown at runtime."
+        "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 2,
       "isMultiple": false,
@@ -10428,10 +10428,10 @@ export const scjpChapterAllQuiz = {
         "The output cannot be determined."
       ],
       "optionsVi": [
-        "Compilation fails",
-        "An exception occurs at runtime.",
+        "Lỗi biên dịch (Compilation fails).",
+        "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
         "Thread one. Thread two.",
-        "The output cannot be determined."
+        "Không thể xác định trước kết quả in ra."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -10485,11 +10485,11 @@ export const scjpChapterAllQuiz = {
         "An exception occurs at runtime."
       ],
       "optionsVi": [
-        "Compilation fails.",
+        "Lỗi biên dịch (Compilation fails).",
         "1..2..3..",
         "0..1..2..3..",
         "0..1..2..",
-        "An exception occurs at runtime."
+        "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception)."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -10514,10 +10514,10 @@ export const scjpChapterAllQuiz = {
         "This code will not compile."
       ],
       "optionsVi": [
-        "Each String in the array lines will output, with a 1-second pause.",
-        "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-        "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
-        "This code will not compile."
+        "Mỗi phần tử String trong mảng lines sẽ được in ra, cách nhau 1 giây tạm dừng.",
+        "Mỗi phần tử String trong mảng lines sẽ được in ra không có khoảng dừng, vì phương thức này không chạy trong một Thread.",
+        "Mỗi phần tử String trong mảng lines sẽ được in ra, và không chắc chắn có khoảng dừng vì currentThread() có thể không lấy được luồng này.",
+        "Đoạn mã này sẽ không biên dịch được (This code will not compile)."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -10607,11 +10607,11 @@ export const scjpChapterAllQuiz = {
         "When a thread invokeswait(), it releases its locks."
       ],
       "optionsVi": [
-        "A static method cannot be synchronized.",
-        "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
-        "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
-        "When a thread sleeps, it releases its locks.",
-        "When a thread invokeswait(), it releases its locks."
+        "Phương thức static không thể dùng từ khóa synchronized.",
+        "Nếu một lớp có chứa code synchronized, các luồng khác vẫn có thể truy cập vào phần code không synchronized.",
+        "Các biến có thể được bảo vệ khỏi sự cố tranh chấp đồng thời bằng cách đánh dấu chúng với từ khóa synchronized.",
+        "Khi một luồng sleep(), nó giải phóng các khóa lock mà nó đang giữ.",
+        "Khi một luồng gọi wait(), nó giải phóng các khóa lock mà nó đang giữ."
       ],
       "answer": [
         1,
@@ -10684,12 +10684,12 @@ export const scjpChapterAllQuiz = {
         "It will fail to compile because it has to be synchronized on the this object."
       ],
       "optionsVi": [
-        "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+        "Lỗi biên dịch do ngoại lệ IllegalMonitorStateException của wait() không được xử lý ở dòng 7.",
         "1 2 3",
         "1 3",
         "1 2",
-        "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
-        "It will fail to compile because it has to be synchronized on the this object."
+        "Ném ngoại lệ IllegalMonitorStateException tại thời điểm chạy khi cố gắng gọi wait().",
+        "Lỗi biên dịch vì bắt buộc phải đồng bộ hóa trên đối tượng this."
       ],
       "answer": 3,
       "isMultiple": false,
@@ -10714,10 +10714,10 @@ export const scjpChapterAllQuiz = {
         "Two seconds after lock B is released."
       ],
       "optionsVi": [
-        "After thread A is notified, or after two seconds.",
-        "After the lock on B is released, or after two seconds.",
-        "Two seconds after thread A is notified.",
-        "Two seconds after lock B is released."
+        "Sau khi luồng A được thông báo (notified), HOẶC sau khi hết thời gian 2 giây.",
+        "Sau khi khóa trên B được giải phóng, HOẶC sau khi hết 2 giây.",
+        "Hai giây sau khi luồng A được thông báo.",
+        "Hai giây sau khi khóa trên B được giải phóng."
       ],
       "answer": 0,
       "isMultiple": false,
@@ -10744,12 +10744,12 @@ export const scjpChapterAllQuiz = {
         "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
       ],
       "optionsVi": [
-        "ThenotifyAll() method must be called from a synchronized context.",
-        "To callwait(), an object must own the lock on the thread.",
-        "Thenotify() method is defined in class java.lang.Thread.",
-        "When a thread is waiting as a result ofwait(), it release its locks.",
-        "Thenotify() method causes a thread to immediately release its locks.",
-        "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
+        "Phương thức notifyAll() bắt buộc phải được gọi từ một ngữ cảnh synchronized.",
+        "Để gọi wait(), đối tượng phải sở hữu khóa trên luồng.",
+        "Phương thức notify() được định nghĩa trong lớp java.lang.Thread.",
+        "Khi một luồng đang chờ do gọi wait(), nó giải phóng các khóa lock mà nó đang giữ.",
+        "Phương thức notify() làm cho luồng lập tức giải phóng các khóa lock mà nó đang giữ.",
+        "Điểm khác biệt giữa notify() và notifyAll() là notifyAll() thông báo cho tất cả các luồng đang chờ, bất kể chúng đang chờ trên đối tượng nào."
       ],
       "answer": [
         0,
@@ -10860,14 +10860,14 @@ export const scjpChapterAllQuiz = {
         "sleep() can throw a runtime exception."
       ],
       "optionsVi": [
-        "Deadlock will not occur ifwait()/notify() is used.",
-        "A thread will resume execution as soon as its sleep duration expires.",
-        "Synchronization can prevent two objects from being accessed by the same thread.",
-        "Thewait() method is overloaded to accept a duration.",
-        "Thenotify() method is overloaded to accept a duration.",
-        "Bothwait() andnotify() must be called from a synchronized context.",
-        "wait() can throw a runtime exception",
-        "sleep() can throw a runtime exception."
+        "Deadlock sẽ không xảy ra nếu sử dụng wait()/notify().",
+        "Một luồng sẽ lập tức tiếp tục thực thi ngay khi khoảng thời gian sleep kết thúc.",
+        "Đồng bộ hóa có thể ngăn hai đối tượng bị truy cập bởi cùng một luồng.",
+        "Phương thức wait() có các phiên bản nạp chồng chấp nhận tham số thời gian chờ.",
+        "Phương thức notify() có các phiên bản nạp chồng chấp nhận tham số thời gian chờ.",
+        "Cả wait() và notify() đều bắt buộc phải được gọi từ trong một ngữ cảnh synchronized.",
+        "wait() có thể ném ra một ngoại lệ thời điểm chạy (runtime exception).",
+        "sleep() có thể ném ra một ngoại lệ thời điểm chạy (runtime exception)."
       ],
       "answer": [
         3,
@@ -10939,7 +10939,7 @@ export const scjpChapterAllQuiz = {
         "foo bar",
         "foo bar baz",
         "bar foo",
-        "Compilation fails."
+        "Lỗi biên dịch (Compilation fails)."
       ],
       "answer": 1,
       "isMultiple": false,
@@ -10966,12 +10966,12 @@ export const scjpChapterAllQuiz = {
         "Synchronize theincrease() method"
       ],
       "optionsVi": [
-        "Synchronize the run method.",
-        "Wrap a synchronize(this) around the call to f.increase().",
-        "The existing code will not compile.",
-        "The existing code will cause a runtime exception.",
-        "Put in await() call prior to invoking theincrease() method.",
-        "Synchronize theincrease() method"
+        "Đồng bộ hóa phương thức run() (Synchronize the run method).",
+        "Bọc một khối synchronize(this) xung quanh lời gọi f.increase().",
+        "Mã hiện tại không thể biên dịch.",
+        "Mã hiện tại sẽ gây ra ngoại lệ thời điểm chạy.",
+        "Đặt một lời gọi wait() trước khi gọi phương thức increase().",
+        "Đồng bộ hóa phương thức increase() (Synchronize the increase() method)."
       ],
       "answer": 5,
       "isMultiple": false,
@@ -10998,11 +10998,11 @@ export const scjpChapterAllQuiz = {
         "x is 5 x is 6"
       ],
       "optionsVi": [
-        "The code will not compile because of an error on line 12 of class Foo.",
-        "The code will not compile because of an error on line 7 of class Foo.",
-        "The code will not compile because of an error on line 4 of class Test.",
-        "The code will not compile because of some other error in class Test.",
-        "An exception occurs at runtime.",
+        "Đoạn mã không biên dịch được do lỗi ở dòng 12 của lớp Foo.",
+        "Đoạn mã không biên dịch được do lỗi ở dòng 7 của lớp Foo.",
+        "Đoạn mã không biên dịch được do lỗi ở dòng 4 của lớp Test.",
+        "Đoạn mã không biên dịch được do một lỗi khác trong lớp Test.",
+        "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
         "x is 5 x is 6"
       ],
       "answer": 4,
@@ -11045,8 +11045,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "1 09876",
           "98765",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11268,11 +11268,11 @@ export const scjpChapterQuizzes = [
           "0 to 65535"
         ],
         "optionsVi": [
-          "–128 to 127",
-          "–(2 ^ 15) to (2 ^ 15) - 1",
-          "0 to 32767",
-          "Platform dependent",
-          "0 to 65535"
+          "-128 đến 127",
+          "-(2 ^ 15) đến (2 ^ 15) - 1",
+          "0 đến 32767",
+          "Phụ thuộc vào nền tảng hệ điều hành.",
+          "0 đến 65535"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -11377,8 +11377,8 @@ export const scjpChapterQuizzes = [
           "9",
           "11",
           "13",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11553,8 +11553,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "null",
           "theDogs",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -11581,8 +11581,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "names",
           "null",
-          "Compilation fails",
-          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -11613,8 +11613,8 @@ export const scjpChapterQuizzes = [
           "args[2] = 3",
           "args[2] = null",
           "args[2] = 1",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 5,
         "isMultiple": false,
@@ -11645,8 +11645,8 @@ export const scjpChapterQuizzes = [
           "123",
           "000",
           "nullnullnull",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 5,
         "isMultiple": false,
@@ -11677,8 +11677,8 @@ export const scjpChapterQuizzes = [
           "12",
           "000",
           "123",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -11721,7 +11721,7 @@ export const scjpChapterQuizzes = [
           "abstract",
           "protected",
           "synchronized",
-          "default access"
+          "default access (truy cập mặc định / package-private)"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -11753,7 +11753,7 @@ export const scjpChapterQuizzes = [
           "private",
           "protected",
           "volatile",
-          "default access"
+          "default access (truy cập mặc định)"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11780,12 +11780,12 @@ export const scjpChapterQuizzes = [
           "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
         ],
         "optionsVi": [
-          "The code will compile with no changes.",
-          "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
-          "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
-          "As long as line 8 exists, class A must declare methodm1() in some way.",
-          "If line 6 were replaced with'class B extends A{ ' the code would compile.",
-          "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
+          "Mã nguồn biên dịch thành công mà không cần thay đổi gì.",
+          "Lớp B bắt buộc phải khai báo abstract cho phương thức m2() hoặc cài đặt (implement) phương thức m2() để mã nguồn có thể biên dịch.",
+          "Lớp B có thể khai báo abstract cho phương thức m2() hoặc cài đặt (implement) phương thức m2(), điều này là hợp lệ nhưng không bắt buộc để mã nguồn biên dịch.",
+          "Miễn là dòng 8 còn tồn tại, lớp A bắt buộc phải khai báo phương thức m1() theo một cách nào đó.",
+          "Nếu dòng 6 được thay thế bằng 'class B extends A { ', mã nguồn sẽ biên dịch thành công.",
+          "Nếu lớp A không phải là abstract và phương thức m1() ở dòng 2 được cài đặt, mã nguồn sẽ không thể biên dịch."
         ],
         "answer": [
           0,
@@ -11859,7 +11859,7 @@ export const scjpChapterQuizzes = [
           "3",
           "4",
           "5",
-          "All of them"
+          "Tất cả các phương án trên."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -11885,11 +11885,11 @@ export const scjpChapterQuizzes = [
           "An exception is thrown at runtime."
         ],
         "optionsVi": [
-          "The code compiles and runs, with outputthis420parent420 .",
-          "If line 8 is removed, the code will compile and run.",
-          "If line 10 is removed, the code will compile and run.",
-          "Both lines 8 and 10 must be removed for the code to compile.",
-          "An exception is thrown at runtime."
+          "Mã nguồn biên dịch và chạy bình thường, in ra: \"this 420 parent 420\".",
+          "Nếu xóa dòng 8, mã nguồn sẽ biên dịch và chạy được.",
+          "Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được.",
+          "Cả dòng 8 và dòng 10 đều phải bị xóa thì mã nguồn mới biên dịch được.",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -11920,8 +11920,8 @@ export const scjpChapterQuizzes = [
           "123",
           "0123",
           "1234",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -11950,10 +11950,10 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "024",
           "0246",
-          "Compilation fails at line 4",
-          "Compilation fails at line 5",
-          "Compilation fails at line 8",
-          "Compilation fails at line 10"
+          "Lỗi biên dịch tại dòng 4.",
+          "Lỗi biên dịch tại dòng 5.",
+          "Lỗi biên dịch tại dòng 8.",
+          "Lỗi biên dịch tại dòng 10."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -11979,7 +11979,7 @@ export const scjpChapterQuizzes = [
           "import java.util.TreeMap;"
         ],
         "optionsVi": [
-          "No statement is required",
+          "Không cần câu lệnh nào.",
           "import java.util.*;",
           "import.java.util.Tree*;",
           "import java.util.TreeSet;",
@@ -12150,12 +12150,12 @@ export const scjpChapterQuizzes = [
           "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
         ],
         "optionsVi": [
-          "You can extend the Runnable interface as long as you override the public run() method.",
-          "The class must contain a method calledrun() from which all code for that thread will be initiated.",
-          "The class must contain an emptypublicvoid method namedrun().",
-          "The class must contain apublicvoid method namedrunnable().",
-          "The class definition must include the words implements Threads and contain a method calledrun().",
-          "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
+          "Bạn có thể extend interface Runnable miễn là override phương thức public run().",
+          "Lớp phải chứa một phương thức tên là run() để từ đó toàn bộ mã lệnh cho thread sẽ được khởi chạy.",
+          "Lớp phải chứa một phương thức rỗng public void tên là run().",
+          "Lớp phải chứa một phương thức public void tên là runnable().",
+          "Định nghĩa lớp phải bao gồm các từ 'implements Threads' và chứa một phương thức tên là run().",
+          "Phương thức bắt buộc phải là public, có kiểu trả về là void, phải có tên là run() và không nhận bất kỳ tham số nào."
         ],
         "answer": [
           1,
@@ -12305,8 +12305,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "true",
           "false",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12372,7 +12372,7 @@ export const scjpChapterQuizzes = [
           "0x80000000and0x00000001",
           "-2147483648and-1",
           "1and-2147483648",
-          "None of the above"
+          "Không có đáp án nào ở trên."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -12427,10 +12427,10 @@ export const scjpChapterQuizzes = [
           "byte z = (byte)100L;"
         ],
         "optionsVi": [
-          "int w = (int)888.8;",
-          "byte x = (byte)1000L;",
+          "A và B và C (A: int w = (int) 888.8; & B: byte x = (byte) 1000L; & C: long y = (byte) 100;)",
+          "A và D (A: int w = (int) 888.8; & D: byte z = (byte) 100L;)",
           "long y = (byte)100;",
-          "byte z = (byte)100L;"
+          "B và D (B: byte x = (byte) 1000L; & D: byte z = (byte) 100L;)"
         ],
         "answer": [
           0,
@@ -12532,9 +12532,9 @@ export const scjpChapterQuizzes = [
           "ok",
           "dokey",
           "okdokey",
-          "No output is produced",
-          "Compilation error",
-          "An exception is thrown at runtime"
+          "Không in gì ra màn hình (No output is produced)",
+          "Lỗi biên dịch (Compilation error)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12562,7 +12562,7 @@ export const scjpChapterQuizzes = [
           "small",
           "tiny",
           "huge",
-          "Compilation fails"
+          "Lỗi biên dịch (Compilation fails)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12625,8 +12625,8 @@ export const scjpChapterQuizzes = [
           "714",
           "140",
           "1414",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12657,8 +12657,8 @@ export const scjpChapterQuizzes = [
           "falsetrue",
           "truefalse",
           "falsefalse",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12689,8 +12689,8 @@ export const scjpChapterQuizzes = [
           "slipstreamstream",
           "streamslipstream",
           "slipstreamslipstream",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12751,8 +12751,8 @@ export const scjpChapterQuizzes = [
           "1515",
           "345375",
           "375375",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -12783,8 +12783,8 @@ export const scjpChapterQuizzes = [
           "0042",
           "04242",
           "000",
-          "Compilation fails",
-          "An exception is thrown at runtime"
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12826,10 +12826,10 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "0 1 2",
           "0 1 2 1 2 2",
-          "Compilation fails at line 7.",
-          "Compilation fails at line 8.",
-          "Compilation fails at line 9.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
+          "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+          "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -12860,8 +12860,8 @@ export const scjpChapterQuizzes = [
           "0 1 2 1 2 2",
           "2 1 0 1 0 0",
           "2 1 2 0 1 2",
-          "Compilation fails at line 8.",
-          "Compilation fails at line 9."
+          "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+          "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12892,8 +12892,8 @@ export const scjpChapterQuizzes = [
           "42",
           "50",
           "51",
-          "Compiler fails at line 5.",
-          "Compiler fails at line 6."
+          "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
+          "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -12984,12 +12984,12 @@ export const scjpChapterQuizzes = [
           "There is a syntax error on line 5."
         ],
         "optionsVi": [
-          "There is a syntax error on line 1.",
-          "There are syntax errors on lines 1 and 4.",
-          "There are syntax errors on lines 1, 4, and 5.",
-          "There is a syntax error on line 4.",
-          "There are syntax errors on lines 4 and 5.",
-          "There is a syntax error on line 5."
+          "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
+          "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
+          "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
+          "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
+          "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
+          "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13051,9 +13051,9 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "I is 1",
           "I is 1 I is 1",
-          "No output is produced.",
-          "Compilation error",
-          "I is 1 I is 1 I is 1 in an infinite loop."
+          "Không in gì ra màn hình (No output is produced)",
+          "Lỗi biên dịch (Compilation error)",
+          "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -13108,8 +13108,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "I is 0",
           "I is 0 I is 1",
-          "Compilation fails.",
-          "None of the above"
+          "Lỗi biên dịch (Compilation fails).",
+          "Không có đáp án nào ở trên."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -13134,10 +13134,10 @@ export const scjpChapterQuizzes = [
           "Code output:Start Hello world Catch Here File not found."
         ],
         "optionsVi": [
-          "The code will not compile.",
-          "Code output:Start Hello world File Not Found.",
-          "Code output:Start Hello world End of file exception.",
-          "Code output:Start Hello world Catch Here File not found."
+          "Mã nguồn không thể biên dịch (The code will not compile)",
+          "Đầu ra: Start Hello world File Not Found.",
+          "Đầu ra: Start Hello world End of file exception.",
+          "Đầu ra: Start Hello world Catch Here File not found."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -13162,8 +13162,8 @@ export const scjpChapterQuizzes = [
           "Hello world Finally executing"
         ],
         "optionsVi": [
-          "Nothing. The program will not compile because no exceptions are specified.",
-          "Nothing. The program will not compile because nocatch clauses are specified.",
+          "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
+          "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
           "Hello world.",
           "Hello world Finally executing"
         ],
@@ -13191,11 +13191,11 @@ export const scjpChapterQuizzes = [
           "This program fails to compile due to an error at line 13."
         ],
         "optionsVi": [
-          "This program will compile successfully.",
-          "This program fails to compile due to an error at line 4.",
-          "This program fails to compile due to an error at line 6.",
-          "This program fails to compile due to an error at line 9.",
-          "This program fails to compile due to an error at line 13."
+          "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
+          "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
+          "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
+          "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
+          "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13220,10 +13220,10 @@ export const scjpChapterQuizzes = [
           "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
         ],
         "optionsVi": [
-          "The program will not compile.",
-          "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
-          "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
-          "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+          "Chương trình sẽ không biên dịch (The program will not compile)",
+          "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
+          "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
+          "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13251,7 +13251,7 @@ export const scjpChapterQuizzes = [
         ],
         "optionsVi": [
           "hello throwit caught",
-          "Compilation fails",
+          "Lỗi biên dịch (Compilation fails).",
           "hello throwit RuntimeException caught after",
           "hello throwit RuntimeException",
           "hello throwit caught finally after",
@@ -13280,10 +13280,10 @@ export const scjpChapterQuizzes = [
           "It is appropriate to handle assertion failures using acatch clause."
         ],
         "optionsVi": [
-          "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
-          "If a switch block has no default, adding an assert default is considered appropriate.",
-          "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
-          "It is appropriate to handle assertion failures using acatch clause."
+          "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
+          "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
+          "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
+          "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
         ],
         "answer": 1,
         "isMultiple": false,
@@ -13309,11 +13309,11 @@ export const scjpChapterQuizzes = [
           "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
         ],
         "optionsVi": [
-          "It is sometimes good practice to throw an AssertionError explicitly.",
-          "It is good practice to place assertions where you think execution should never reach.",
-          "Privategetter() andsetter() methods should not use assertions to verify arguments.",
-          "If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.",
-          "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
+          "Đôi khi việc chủ động ném một `AssertionError` một cách tường minh là một thực hành tốt.",
+          "Đặt assertion ở những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới là một thực hành tốt.",
+          "Các phương thức getter() và setter() private không nên sử dụng assertion để kiểm tra tính hợp lệ của đối số.",
+          "Nếu một `AssertionError` bị ném ra trong khối try-catch, khối `finally` sẽ bị bỏ qua.",
+          "Việc xử lý lỗi assertion thất bại bằng khối `catch (AssertionException ae)` là phù hợp."
         ],
         "answer": [
           0,
@@ -13348,8 +13348,8 @@ export const scjpChapterQuizzes = [
           "bar done",
           "foo done",
           "bar foo done",
-          "Compilation fails",
-          "An error is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13375,11 +13375,11 @@ export const scjpChapterQuizzes = [
           "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
         ],
         "optionsVi": [
-          "If assertions are compiled int o a source file, and if no flags are included at runtime, assertions will execute by default.",
-          "As of Java version 1.4, assertion statements are compiled by default.",
-          "With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.",
-          "The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions",
-          "When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags."
+          "Nếu assertion được biên dịch vào file mã nguồn và không có cờ nào được chỉ định lúc runtime, assertion sẽ được thực thi theo mặc định.",
+          "Kể từ Java phiên bản 1.4, các câu lệnh assertion được biên dịch theo mặc định.",
+          "Khi sử dụng các tham số runtime phù hợp, ta có thể yêu cầu máy ảo VM tắt assertion cho một lớp cụ thể và đồng thời bật assertion cho một package cụ thể.",
+          "Tất cả các cờ sau đều là cờ assertion hợp lệ lúc runtime: `-ea`, `-esa`, `-dsa`, `-enableassertions`, `-disablesystemassertions`.",
+          "Khi đánh giá các đối số dòng lệnh, máy ảo VM ưu tiên cờ `-ea` hơn cờ `-da`."
         ],
         "answer": [
           2,
@@ -13409,11 +13409,11 @@ export const scjpChapterQuizzes = [
           "Line 18;"
         ],
         "optionsVi": [
-          "Line 8",
-          "Line 9",
-          "Line 11",
-          "Line 15",
-          "Line 18;"
+          "Dòng 8 (Line 8)",
+          "Dòng 9 (Line 9)",
+          "Dòng 11 (Line 11)",
+          "Dòng 15 (Line 15)",
+          "Dòng 18 (Line 18)"
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13453,12 +13453,12 @@ export const scjpChapterQuizzes = [
           "Lines 2, 5, and 8 are in conflict with encapsulation."
         ],
         "optionsVi": [
-          "Class Barbell is tightly encapsulated.",
-          "Line 2 is in conflict with encapsulation.",
-          "Line 5 is in conflict with encapsulation.",
-          "Line 8 is in conflict with encapsulation.",
-          "Lines 5 and 8 are in conflict with encapsulation.",
-          "Lines 2, 5, and 8 are in conflict with encapsulation."
+          "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
+          "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
+          "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
+          "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
+          "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
+          "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13483,10 +13483,10 @@ export const scjpChapterQuizzes = [
           "Neither class A nor class B is tightly encapsulated."
         ],
         "optionsVi": [
-          "Class A is tightly encapsulated.",
-          "Class B is tightly encapsulated.",
-          "Classes A and B are both tightly encapsulated.",
-          "Neither class A nor class B is tightly encapsulated."
+          "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
+          "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
+          "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
+          "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13512,11 +13512,11 @@ export const scjpChapterQuizzes = [
           "Tightly encapsulated classes typically do not use HAS-A relationships."
         ],
         "optionsVi": [
-          "Tightly encapsulated classes are typically easier to reuse.",
-          "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
-          "Methods in tightly encapsulated classes cannot be overridden.",
-          "Methods in tightly encapsulated classes cannot be overloaded.",
-          "Tightly encapsulated classes typically do not use HAS-A relationships."
+          "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
+          "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
+          "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
+          "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
+          "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -13542,11 +13542,11 @@ export const scjpChapterQuizzes = [
           "Access modifiers become optional"
         ],
         "optionsVi": [
-          "Clarity of code",
-          "Code efficiency",
-          "The ability to add functionality later on",
-          "Modifications require fewer coding changes",
-          "Access modifiers become optional"
+          "Mã nguồn rõ ràng, minh bạch",
+          "Hiệu năng thực thi của mã nguồn",
+          "Khả năng bổ sung tính năng về sau",
+          "Việc sửa đổi đòi hỏi ít thay đổi mã nguồn hơn",
+          "Các từ khóa chỉ phạm vi truy cập (access modifier) trở thành tùy chọn"
         ],
         "answer": [
           1,
@@ -13576,10 +13576,10 @@ export const scjpChapterQuizzes = [
           "B has-a C;"
         ],
         "optionsVi": [
-          "A is-a B",
-          "C is-a A",
-          "A has-a C",
-          "B has-a A",
+          "A có quan hệ IS-A với B",
+          "C có quan hệ IS-A với A",
+          "A có quan hệ HAS-A với C",
+          "B có quan hệ HAS-A với A",
           "B has-a C;"
         ],
         "answer": [
@@ -13611,8 +13611,8 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "A",
           "B",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -13673,10 +13673,10 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "x = 14",
           "x = 21",
-          "Compilation fails at line 2.",
-          "Compilation fails at line 11.",
-          "Compilation fails at line 14.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch tại dòng 2.",
+          "Lỗi biên dịch tại dòng 11.",
+          "Lỗi biên dịch tại dòng 14.",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13743,8 +13743,8 @@ export const scjpChapterQuizzes = [
           "instantiate a parent",
           "instantiate a child instantiate a parent",
           "instantiate a parent instantiate a child",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -13775,8 +13775,8 @@ export const scjpChapterQuizzes = [
           "instantiate a parent",
           "instantiate a child instantiate a parent",
           "instantiate a parent instantiate a child",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13805,10 +13805,10 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "sub super 2;",
           "super 2 sub",
-          "Compilation fails at line 2.",
-          "Compilation fails at line 8.",
-          "Compilation fails at line 9.",
-          "Compilation fails at line 14."
+          "Lỗi biên dịch tại dòng 2.",
+          "Lỗi biên dịch tại dòng 8.",
+          "Lỗi biên dịch tại dòng 9.",
+          "Lỗi biên dịch tại dòng 14."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -13840,7 +13840,7 @@ export const scjpChapterQuizzes = [
           "8 4",
           "8 4 no-arg",
           "no-arg 8 4",
-          "Compilation fails."
+          "Lỗi biên dịch (Compilation fails)."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13870,9 +13870,9 @@ export const scjpChapterQuizzes = [
           "no-arg",
           "8 4 no-arg",
           "no-arg 8 4",
-          "Compilation fails.",
-          "No output is produced.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Không có kết quả nào được in ra (No output is produced)",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -13900,7 +13900,7 @@ export const scjpChapterQuizzes = [
           "Beagle() { }",
           "Beagle() { super(); }",
           "Beagle() { super(\"fido\"); }",
-          "No constructor, allow the default constructor"
+          "Không khai báo constructor, để Java dùng constructor mặc định (default constructor)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -13925,10 +13925,10 @@ export const scjpChapterQuizzes = [
           "The first statement of every constructor is a legal call to the super() or this() method."
         ],
         "optionsVi": [
-          "Constructors must not have arguments if the superclass constructor does not have arguments.",
-          "Constructors are not inherited.",
-          "Constructors cannot be overloaded.",
-          "The first statement of every constructor is a legal call to the super() or this() method."
+          "B và D (B: Constructor không được kế thừa & D: Câu lệnh đầu tiên của mọi constructor luôn là một lời gọi hợp lệ tới super() hoặc this())",
+          "A và B (A: Constructor không được có tham số nếu constructor của lớp cha không có tham số & B: Constructor không được kế thừa)",
+          "A và C (A: Constructor không được có tham số nếu constructor của lớp cha không có tham số & C: Constructor không thể bị nạp chồng)",
+          "C và D (C: Constructor không thể bị nạp chồng & D: Câu lệnh đầu tiên của mọi constructor luôn là một lời gọi hợp lệ tới super() hoặc this())"
         ],
         "answer": [
           1,
@@ -14099,8 +14099,8 @@ export const scjpChapterQuizzes = [
           "Bar Bar Bar Bar Bar Bar",
           "Foo Bar Foo Bar Foo Bar",
           "Foo Foo Foo Foo Foo Foo",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -14144,8 +14144,8 @@ export const scjpChapterQuizzes = [
           "abcdefdef",
           "abcghidef",
           "abcghighi",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14176,8 +14176,8 @@ export const scjpChapterQuizzes = [
           "abcxyz",
           "xyzabc;",
           "XyZabc",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14268,8 +14268,8 @@ export const scjpChapterQuizzes = [
           "wbookkeeper",
           "wbookkeewoo",
           "wbookkeeperwoo",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -14298,8 +14298,8 @@ export const scjpChapterQuizzes = [
           "same results 0 time(s)",
           "same results 2 time(s)",
           "same results 4 time(s)",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -14324,10 +14324,10 @@ export const scjpChapterQuizzes = [
           "Math.max(-1.5,-2.8f)"
         ],
         "optionsVi": [
-          "Math.max(1, 4)",
-          "Math.max(2.3, 5)",
-          "Math.max(1, 3, 5, 7)",
-          "Math.max(-1.5,-2.8f)"
+          "A và B (A: Math.max(1, 4) & B: Math.max(2.3, 5))",
+          "A và C (A: Math.max(1, 4) & C: Math.max(1, 3, 5, 7))",
+          "C và D (C: Math.max(1, 3, 5, 7) & D: Math.max(-1.5, -2.8f))",
+          "B và D (B: Math.max(2.3, 5) & D: Math.max(-1.5, -2.8f))"
         ],
         "answer": [
           0,
@@ -14360,12 +14360,12 @@ export const scjpChapterQuizzes = [
           "The result is less than or equal to 1.0."
         ],
         "optionsVi": [
-          "The result is less than 0.0.",
-          "The result is greater than or equal to 0.0..",
-          "The result is less than 1.0.",
-          "The result is greater than 1.0.",
-          "The result is greater than or equal to 1.0.",
-          "The result is less than or equal to 1.0."
+          "Kết quả nhỏ hơn 0.0.",
+          "Kết quả lớn hơn hoặc bằng 0.0.",
+          "Kết quả nhỏ hơn 1.0.",
+          "Kết quả lớn hơn 1.0.",
+          "Kết quả lớn hơn hoặc bằng 1.0.",
+          "Kết quả nhỏ hơn hoặc bằng 1.0."
         ],
         "answer": [
           1,
@@ -14398,8 +14398,8 @@ export const scjpChapterQuizzes = [
           "3.0",
           "–3.0",
           "NaN",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14426,12 +14426,12 @@ export const scjpChapterQuizzes = [
           "None of the above"
         ],
         "optionsVi": [
-          "Line 3",
-          "Line 4",
-          "Line 5",
-          "Line 6",
-          "Line 3 and either line 4, 5, or 6",
-          "None of the above"
+          "Dòng 3",
+          "Dòng 4",
+          "Dòng 5",
+          "Dòng 6",
+          "Dòng 3 và một trong các dòng 4, 5, hoặc 6",
+          "Không có đáp án nào ở trên."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14458,12 +14458,12 @@ export const scjpChapterQuizzes = [
           "Line 8"
         ],
         "optionsVi": [
-          "Line 3",
-          "Line 4",
-          "Line 5",
-          "Line 6",
-          "Line 7",
-          "Line 8"
+          "Dòng 3",
+          "Dòng 4",
+          "Dòng 5",
+          "Dòng 6",
+          "Dòng 7",
+          "Dòng 8"
         ],
         "answer": [
           1,
@@ -14498,8 +14498,8 @@ export const scjpChapterQuizzes = [
           "42.5",
           "43",
           "badnumber",
-          "Compilation fails.",
-          "An uncaught exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14530,8 +14530,8 @@ export const scjpChapterQuizzes = [
           "xz",
           "yz",
           "xyz",
-          "Compilation fails.",
-          "An exception is thrown at runtime."
+          "Lỗi biên dịch (Compilation fails).",
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -14598,10 +14598,10 @@ export const scjpChapterQuizzes = [
         "optionsVi": [
           "9.0",
           "badnumber",
-          "Compilation fails on line 13.",
-          "Compilation fails on line 14.",
-          "Compilation fails on lines 13 and 14.",
-          "An uncaught exception is thrown at runtime."
+          "Lỗi biên dịch tại dòng 13.",
+          "Lỗi biên dịch tại dòng 14.",
+          "Lỗi biên dịch tại cả dòng 13 và 14.",
+          "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
         ],
         "answer": 0,
         "isMultiple": false,
@@ -14721,11 +14721,11 @@ export const scjpChapterQuizzes = [
           "If x and y are String references and x == y is true, theny.equals(x) will be true."
         ],
         "optionsVi": [
-          "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
-          "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
-          "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
-          "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
-          "If x and y are String references and x == y is true, theny.equals(x) will be true."
+          "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì đoạn mã x.equals(y) sẽ gây ra lỗi biên dịch.",
+          "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì x == y đôi khi có thể là true.",
+          "Nếu x và y là các tham chiếu String và x.equals(y) là true, thì x == y là true.",
+          "Nếu x, y và z tham chiếu đến các thể hiện của các lớp wrapper và x.equals(y) là true, y.equals(z) là true, thì z.equals(x) sẽ luôn luôn là true.",
+          "Nếu x và y là các tham chiếu String và x == y là true, thì y.equals(x) sẽ là true."
         ],
         "answer": [
           3,
@@ -14796,11 +14796,11 @@ export const scjpChapterQuizzes = [
           "The twohashcode() methods will have the same efficiency."
         ],
         "optionsVi": [
-          "class Test1 will not compile.",
-          "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
-          "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
-          "class Test2 will not compile.",
-          "The twohashcode() methods will have the same efficiency."
+          "Lớp Test1 sẽ không biên dịch được.",
+          "Phương thức hashCode() của Test1 hiệu quả hơn phương thức của Test2.",
+          "Phương thức hashCode() của Test1 kém hiệu quả hơn phương thức của Test2.",
+          "Lớp Test2 sẽ không biên dịch được.",
+          "Hai phương thức hashCode() có hiệu quả như nhau."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -14826,11 +14826,11 @@ export const scjpChapterQuizzes = [
           "If the hashCode() comparison != return s true, the equals() method might return true."
         ],
         "optionsVi": [
-          "If the equals() method return s true, the hashCode() comparison == must return true.",
-          "If the equals() method return s false, the hashCode() comparison != must return true.",
-          "If the hashCode() comparison == return s true, the equals() method must return true.",
-          "If the hashCode() comparison == return s true, the equals() method might return true.",
-          "If the hashCode() comparison != return s true, the equals() method might return true."
+          "Nếu phương thức equals() trả về true, phép so sánh hashCode() == bắt buộc phải trả về true.",
+          "Nếu phương thức equals() trả về false, phép so sánh hashCode() != bắt buộc phải trả về true.",
+          "Nếu phép so sánh hashCode() == trả về true, phương thức equals() bắt buộc phải trả về true.",
+          "Nếu phép so sánh hashCode() == trả về true, phương thức equals() có thể trả về true.",
+          "Nếu phép so sánh hashCode() != trả về true, phương thức equals() có thể trả về true."
         ],
         "answer": [
           0,
@@ -14890,11 +14890,11 @@ export const scjpChapterQuizzes = [
           "equals() can be true even if it's comparing different objects."
         ],
         "optionsVi": [
-          "hashCode() doesn't have to be overridden ifequals() is.",
-          "equals() doesn't have to be overridden ifhashCode() is.",
-          "hashCode() can always return the same value, regardless of the object that invoked it.",
-          "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
-          "equals() can be true even if it's comparing different objects."
+          "Không bắt buộc phải ghi đè hashCode() nếu equals() đã được ghi đè.",
+          "Không bắt buộc phải ghi đè equals() nếu hashCode() đã được ghi đè.",
+          "hashCode() có thể luôn trả về cùng một giá trị cố định, bất kể đối tượng nào gọi nó.",
+          "Nếu hai đối tượng khác nhau và không tương đương về nội dung cùng gọi hashCode(), thì hashCode() không được phép trả về cùng một giá trị cho cả hai lần gọi.",
+          "equals() có thể trả về true ngay cả khi đang so sánh hai đối tượng khác nhau trên Heap."
         ],
         "answer": [
           2,
@@ -14990,7 +14990,7 @@ export const scjpChapterQuizzes = [
           "four one three two",
           "one two three four one",
           "one four three two one",
-          "The print order is not guaranteed."
+          "Thứ tự in ra không được đảm bảo cố định."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15078,11 +15078,11 @@ export const scjpChapterQuizzes = [
           "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
         ],
         "optionsVi": [
-          "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
-          "Objects with at least one reference will never be garbage collected.",
-          "Objects from a class with thefinalize() method overridden will never be garbage collected.",
-          "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
-          "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+          "Mọi đối tượng đủ điều kiện thu gom rác đều chắc chắn sẽ được bộ gom rác thu dọn.",
+          "Đối tượng có ít nhất một tham chiếu trỏ tới sẽ không bao giờ bị thu gom rác.",
+          "Đối tượng thuộc lớp có ghi đè phương thức finalize() sẽ không bao giờ bị thu gom rác.",
+          "Các đối tượng được khởi tạo bên trong anonymous inner class đều được đặt trên vùng nhớ Heap chịu sự quản lý của bộ gom rác.",
+          "Một khi phương thức finalize() được gọi, không có cách nào để cứu đối tượng đó thoát khỏi việc bị thu gom rác."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -15137,10 +15137,10 @@ export const scjpChapterQuizzes = [
           "If object 1 refers to object 2, then object 2 can't be garbage collected."
         ],
         "optionsVi": [
-          "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
-          "The garbage collector uses a mark and sweep algorithm.",
-          "If an object can be accessed from a live thread, it can't be garbage collected.",
-          "If object 1 refers to object 2, then object 2 can't be garbage collected."
+          "Gọi Runtime.gc() sẽ đảm bảo các đối tượng đủ điều kiện sẽ được thu gom rác.",
+          "Bộ gom rác bắt buộc phải sử dụng thuật toán mark and sweep.",
+          "Nếu một đối tượng có thể được truy cập từ một luồng (thread) đang chạy, nó không thể bị thu gom rác.",
+          "Nếu đối tượng 1 đang tham chiếu tới đối tượng 2, thì đối tượng 2 không thể bị thu gom rác."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15203,7 +15203,7 @@ export const scjpChapterQuizzes = [
           "Sau khi dòng 15 chạy xong",
           "Sau khi dòng 16 chạy xong",
           "Sau khi dòng 17 chạy xong",
-          "Đối tượng không đủ điều kiện bị thu gom rác.",
+          "Đối tượng này không bao giờ đủ điều kiện thu gom rác.",
           "Không thể biết chắc chắn được."
         ],
         "answer": 4,
@@ -15230,11 +15230,11 @@ export const scjpChapterQuizzes = [
           "java.util.Hashtable"
         ],
         "optionsVi": [
-          "java.util.SortedMap",
-          "java.util.TreeMap",
-          "java.util.TreeSet",
-          "java.util.HashMap",
-          "java.util.Hashtable"
+          "Nó có thể vừa kế thừa chính xác một lớp, vừa cài đặt chính xác một interface.",
+          "Nó có thể kế thừa chính xác một lớp và có thể cài đặt nhiều interface.",
+          "Nó có thể kế thừa chính xác một lớp HOẶC cài đặt chính xác một interface.",
+          "Nó có thể cài đặt nhiều interface bất kể nó có kế thừa một lớp hay không.",
+          "Nó có thể cài đặt nhiều interface nếu nó không kế thừa lớp nào."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -15301,11 +15301,11 @@ export const scjpChapterQuizzes = [
           "It must extend the enclosing class."
         ],
         "optionsVi": [
-          "You must have a reference to an instance of the enclosing class in order to instantiate it.",
-          "It does not have access to nonstatic members of the enclosing class.",
-          "Its variables and methods must be static.",
-          "It can be instantiated using new MyOuter.MyInner(); .",
-          "It must extend the enclosing class."
+          "Bạn bắt buộc phải có một tham chiếu tới đối tượng của lớp bao bọc ngoài thì mới khởi tạo được nó.",
+          "Nó không có quyền truy cập trực tiếp tới các thành viên phi tĩnh (non-static) của lớp bao bọc ngoài.",
+          "Tất cả các biến và phương thức bên trong nó bắt buộc phải là static.",
+          "Nó có thể được khởi tạo bằng cú pháp new MyOuter.MyInner();.",
+          "Nó bắt buộc phải kế thừa (extend) lớp bao bọc ngoài."
         ],
         "answer": [
           1,
@@ -15431,11 +15431,11 @@ export const scjpChapterQuizzes = [
           "It can access private members of the enclosing class."
         ],
         "optionsVi": [
-          "It must be markedfinal.",
-          "It can be markedabstract.",
-          "It can be markedpublic.",
-          "It can be markedstatic.",
-          "It can access private members of the enclosing class."
+          "Nó bắt buộc phải được khai báo với từ khóa final.",
+          "Nó có thể được khai báo với từ khóa abstract.",
+          "Nó có thể được khai báo với từ khóa public.",
+          "Nó có thể được khai báo với từ khóa static.",
+          "Nó có thể truy cập các thành viên private của lớp bao bọc ngoài."
         ],
         "answer": [
           1,
@@ -15465,8 +15465,8 @@ export const scjpChapterQuizzes = [
           "hi;"
         ],
         "optionsVi": [
-          "Compilation fails.",
-          "An error occurs at runtime.",
+          "Lỗi biên dịch (Compilation fails).",
+          "Xảy ra lỗi tại thời điểm chạy (Runtime Error).",
           "foobarhi",
           "barhi",
           "hi;"
@@ -15497,13 +15497,13 @@ export const scjpChapterQuizzes = [
           "Compilation fails because of an error on a line other than 3, 4, or 8."
         ],
         "optionsVi": [
-          "An exception occurs at runtime.",
+          "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
           "true",
           "fred",
-          "Compilation fails because of an error on line 3.",
-          "Compilation fails because of an error on line 4.",
-          "Compilation fails because of an error on line 8.",
-          "Compilation fails because of an error on a line other than 3, 4, or 8."
+          "Lỗi biên dịch do lỗi ở dòng 3.",
+          "Lỗi biên dịch do lỗi ở dòng 4.",
+          "Lỗi biên dịch do lỗi ở dòng 8.",
+          "Lỗi biên dịch do lỗi ở một dòng khác ngoài 3, 4 hoặc 8."
         ],
         "answer": 6,
         "isMultiple": false,
@@ -15530,12 +15530,12 @@ export const scjpChapterQuizzes = [
           "Compilation fails because of an error on line 11."
         ],
         "optionsVi": [
-          "An exception occurs at runtime at line 10.",
+          "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
           "Zippo",
-          "Compilation fails because of an error on line 3.",
-          "Compilation fails because of an error on line 9.",
-          "Compilation fails because of an error on line 10.",
-          "Compilation fails because of an error on line 11."
+          "Lỗi biên dịch do lỗi ở dòng 3.",
+          "Lỗi biên dịch do lỗi ở dòng 9.",
+          "Lỗi biên dịch do lỗi ở dòng 10.",
+          "Lỗi biên dịch do lỗi ở dòng 11."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -15561,11 +15561,11 @@ export const scjpChapterQuizzes = [
           "Compilation fails because of an error on line 10."
         ],
         "optionsVi": [
-          "An exception occurs at runtime at line 10.",
+          "Ném ngoại lệ tại thời điểm chạy ở dòng 10.",
           "Zippo",
-          "Compilation fails because of an error on line 3.",
-          "Compilation fails because of an error on line 9.",
-          "Compilation fails because of an error on line 10."
+          "Lỗi biên dịch do lỗi ở dòng 3.",
+          "Lỗi biên dịch do lỗi ở dòng 9.",
+          "Lỗi biên dịch do lỗi ở dòng 10."
         ],
         "answer": 4,
         "isMultiple": false,
@@ -15594,8 +15594,8 @@ export const scjpChapterQuizzes = [
           "5722",
           "4538",
           "4557",
-          "An exception occurs at runtime.",
-          "Compilation fails."
+          "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
+          "Lỗi biên dịch (Compilation fails)."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -15634,11 +15634,11 @@ export const scjpChapterQuizzes = [
           "An exception is thrown at runtime."
         ],
         "optionsVi": [
-          "This code will not compile due to line 4.",
-          "This code will not compile due to line 5.",
+          "Đoạn mã không biên dịch được do lỗi ở dòng 4.",
+          "Đoạn mã không biên dịch được do lỗi ở dòng 5.",
           "1..2..",
           "1..2..3..",
-          "An exception is thrown at runtime."
+          "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 2,
         "isMultiple": false,
@@ -15727,10 +15727,10 @@ export const scjpChapterQuizzes = [
           "The output cannot be determined."
         ],
         "optionsVi": [
-          "Compilation fails",
-          "An exception occurs at runtime.",
+          "Lỗi biên dịch (Compilation fails).",
+          "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
           "Thread one. Thread two.",
-          "The output cannot be determined."
+          "Không thể xác định trước kết quả in ra."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -15784,11 +15784,11 @@ export const scjpChapterQuizzes = [
           "An exception occurs at runtime."
         ],
         "optionsVi": [
-          "Compilation fails.",
+          "Lỗi biên dịch (Compilation fails).",
           "1..2..3..",
           "0..1..2..3..",
           "0..1..2..",
-          "An exception occurs at runtime."
+          "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception)."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -15813,10 +15813,10 @@ export const scjpChapterQuizzes = [
           "This code will not compile."
         ],
         "optionsVi": [
-          "Each String in the array lines will output, with a 1-second pause.",
-          "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-          "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
-          "This code will not compile."
+          "Mỗi phần tử String trong mảng lines sẽ được in ra, cách nhau 1 giây tạm dừng.",
+          "Mỗi phần tử String trong mảng lines sẽ được in ra không có khoảng dừng, vì phương thức này không chạy trong một Thread.",
+          "Mỗi phần tử String trong mảng lines sẽ được in ra, và không chắc chắn có khoảng dừng vì currentThread() có thể không lấy được luồng này.",
+          "Đoạn mã này sẽ không biên dịch được (This code will not compile)."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -15906,11 +15906,11 @@ export const scjpChapterQuizzes = [
           "When a thread invokeswait(), it releases its locks."
         ],
         "optionsVi": [
-          "A static method cannot be synchronized.",
-          "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
-          "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
-          "When a thread sleeps, it releases its locks.",
-          "When a thread invokeswait(), it releases its locks."
+          "Phương thức static không thể dùng từ khóa synchronized.",
+          "Nếu một lớp có chứa code synchronized, các luồng khác vẫn có thể truy cập vào phần code không synchronized.",
+          "Các biến có thể được bảo vệ khỏi sự cố tranh chấp đồng thời bằng cách đánh dấu chúng với từ khóa synchronized.",
+          "Khi một luồng sleep(), nó giải phóng các khóa lock mà nó đang giữ.",
+          "Khi một luồng gọi wait(), nó giải phóng các khóa lock mà nó đang giữ."
         ],
         "answer": [
           1,
@@ -15983,12 +15983,12 @@ export const scjpChapterQuizzes = [
           "It will fail to compile because it has to be synchronized on the this object."
         ],
         "optionsVi": [
-          "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+          "Lỗi biên dịch do ngoại lệ IllegalMonitorStateException của wait() không được xử lý ở dòng 7.",
           "1 2 3",
           "1 3",
           "1 2",
-          "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
-          "It will fail to compile because it has to be synchronized on the this object."
+          "Ném ngoại lệ IllegalMonitorStateException tại thời điểm chạy khi cố gắng gọi wait().",
+          "Lỗi biên dịch vì bắt buộc phải đồng bộ hóa trên đối tượng this."
         ],
         "answer": 3,
         "isMultiple": false,
@@ -16013,10 +16013,10 @@ export const scjpChapterQuizzes = [
           "Two seconds after lock B is released."
         ],
         "optionsVi": [
-          "After thread A is notified, or after two seconds.",
-          "After the lock on B is released, or after two seconds.",
-          "Two seconds after thread A is notified.",
-          "Two seconds after lock B is released."
+          "Sau khi luồng A được thông báo (notified), HOẶC sau khi hết thời gian 2 giây.",
+          "Sau khi khóa trên B được giải phóng, HOẶC sau khi hết 2 giây.",
+          "Hai giây sau khi luồng A được thông báo.",
+          "Hai giây sau khi khóa trên B được giải phóng."
         ],
         "answer": 0,
         "isMultiple": false,
@@ -16043,12 +16043,12 @@ export const scjpChapterQuizzes = [
           "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
         ],
         "optionsVi": [
-          "ThenotifyAll() method must be called from a synchronized context.",
-          "To callwait(), an object must own the lock on the thread.",
-          "Thenotify() method is defined in class java.lang.Thread.",
-          "When a thread is waiting as a result ofwait(), it release its locks.",
-          "Thenotify() method causes a thread to immediately release its locks.",
-          "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
+          "Phương thức notifyAll() bắt buộc phải được gọi từ một ngữ cảnh synchronized.",
+          "Để gọi wait(), đối tượng phải sở hữu khóa trên luồng.",
+          "Phương thức notify() được định nghĩa trong lớp java.lang.Thread.",
+          "Khi một luồng đang chờ do gọi wait(), nó giải phóng các khóa lock mà nó đang giữ.",
+          "Phương thức notify() làm cho luồng lập tức giải phóng các khóa lock mà nó đang giữ.",
+          "Điểm khác biệt giữa notify() và notifyAll() là notifyAll() thông báo cho tất cả các luồng đang chờ, bất kể chúng đang chờ trên đối tượng nào."
         ],
         "answer": [
           0,
@@ -16159,14 +16159,14 @@ export const scjpChapterQuizzes = [
           "sleep() can throw a runtime exception."
         ],
         "optionsVi": [
-          "Deadlock will not occur ifwait()/notify() is used.",
-          "A thread will resume execution as soon as its sleep duration expires.",
-          "Synchronization can prevent two objects from being accessed by the same thread.",
-          "Thewait() method is overloaded to accept a duration.",
-          "Thenotify() method is overloaded to accept a duration.",
-          "Bothwait() andnotify() must be called from a synchronized context.",
-          "wait() can throw a runtime exception",
-          "sleep() can throw a runtime exception."
+          "Deadlock sẽ không xảy ra nếu sử dụng wait()/notify().",
+          "Một luồng sẽ lập tức tiếp tục thực thi ngay khi khoảng thời gian sleep kết thúc.",
+          "Đồng bộ hóa có thể ngăn hai đối tượng bị truy cập bởi cùng một luồng.",
+          "Phương thức wait() có các phiên bản nạp chồng chấp nhận tham số thời gian chờ.",
+          "Phương thức notify() có các phiên bản nạp chồng chấp nhận tham số thời gian chờ.",
+          "Cả wait() và notify() đều bắt buộc phải được gọi từ trong một ngữ cảnh synchronized.",
+          "wait() có thể ném ra một ngoại lệ thời điểm chạy (runtime exception).",
+          "sleep() có thể ném ra một ngoại lệ thời điểm chạy (runtime exception)."
         ],
         "answer": [
           3,
@@ -16238,7 +16238,7 @@ export const scjpChapterQuizzes = [
           "foo bar",
           "foo bar baz",
           "bar foo",
-          "Compilation fails."
+          "Lỗi biên dịch (Compilation fails)."
         ],
         "answer": 1,
         "isMultiple": false,
@@ -16265,12 +16265,12 @@ export const scjpChapterQuizzes = [
           "Synchronize theincrease() method"
         ],
         "optionsVi": [
-          "Synchronize the run method.",
-          "Wrap a synchronize(this) around the call to f.increase().",
-          "The existing code will not compile.",
-          "The existing code will cause a runtime exception.",
-          "Put in await() call prior to invoking theincrease() method.",
-          "Synchronize theincrease() method"
+          "Đồng bộ hóa phương thức run() (Synchronize the run method).",
+          "Bọc một khối synchronize(this) xung quanh lời gọi f.increase().",
+          "Mã hiện tại không thể biên dịch.",
+          "Mã hiện tại sẽ gây ra ngoại lệ thời điểm chạy.",
+          "Đặt một lời gọi wait() trước khi gọi phương thức increase().",
+          "Đồng bộ hóa phương thức increase() (Synchronize the increase() method)."
         ],
         "answer": 5,
         "isMultiple": false,
@@ -16297,11 +16297,11 @@ export const scjpChapterQuizzes = [
           "x is 5 x is 6"
         ],
         "optionsVi": [
-          "The code will not compile because of an error on line 12 of class Foo.",
-          "The code will not compile because of an error on line 7 of class Foo.",
-          "The code will not compile because of an error on line 4 of class Test.",
-          "The code will not compile because of some other error in class Test.",
-          "An exception occurs at runtime.",
+          "Đoạn mã không biên dịch được do lỗi ở dòng 12 của lớp Foo.",
+          "Đoạn mã không biên dịch được do lỗi ở dòng 7 của lớp Foo.",
+          "Đoạn mã không biên dịch được do lỗi ở dòng 4 của lớp Test.",
+          "Đoạn mã không biên dịch được do một lỗi khác trong lớp Test.",
+          "Xảy ra ngoại lệ tại thời điểm chạy (Runtime Exception).",
           "x is 5 x is 6"
         ],
         "answer": 4,

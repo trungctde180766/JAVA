@@ -782,7 +782,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                             <div style={{ fontSize: "0.92rem" }}>
                               <OptionFormattedText text={opt} />
                             </div>
-                            {showTranslation && item.optionsVi && item.optionsVi[oIdx] && (
+                            {showTranslation && item.optionsVi && item.optionsVi[oIdx] && item.optionsVi[oIdx].trim() !== opt.trim() && /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(item.optionsVi[oIdx]) && (
                               <div className="option-translation-text">
                                 ↳ <OptionFormattedText text={item.optionsVi[oIdx]} />
                               </div>
@@ -1217,7 +1217,7 @@ export default function QuizClient({ session, initialUser, defaultMode = "practi
                       <div>
                         <OptionFormattedText text={opt} />
                       </div>
-                      {showTranslation && q.optionsVi && q.optionsVi[idx] && (
+                      {showTranslation && q.optionsVi && q.optionsVi[idx] && q.optionsVi[idx].trim() !== opt.trim() && /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(q.optionsVi[idx]) && (
                         <div className="option-translation-text">
                           ↳ <OptionFormattedText text={q.optionsVi[idx]} />
                         </div>

@@ -1224,7 +1224,7 @@ export default function ExamClient({ session, user }) {
                             <div style={{ fontSize: "0.92rem" }}>
                               <OptionFormattedText text={opt} />
                             </div>
-                            {showTranslation && item.optionsVi && item.optionsVi[oIdx] && (
+                            {showTranslation && item.optionsVi && item.optionsVi[oIdx] && item.optionsVi[oIdx].trim() !== opt.trim() && /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(item.optionsVi[oIdx]) && (
                               <div className="option-translation-text">
                                 ↳ <OptionFormattedText text={item.optionsVi[oIdx]} />
                               </div>
