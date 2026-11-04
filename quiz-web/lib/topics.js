@@ -8,6 +8,7 @@ export const TOPICS = {
   string: "String & StringBuffer",
   jdbc: "JDBC",
   exception: "Exception & Runtime",
+  threads: "Đa luồng (Threads & Concurrency)",
   sql: "SQL & Cơ sở dữ liệu",
   javacore: "Java Core & Bộ nhớ",
   spring: "Spring Boot & REST API",
