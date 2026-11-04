@@ -735,11 +735,11 @@ export const scjpChapterQuestions = [
     "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
     "options": [
       "The code will compile with no changes.",
-      "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
-      "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
-      "As long as line 8 exists, class A must declare methodm1() in some way.",
-      "If line 6 were replaced with'class B extends A{ ' the code would compile.",
-      "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
+      "Class B must either make an abstract declaration of method m2() or implement method m2() to allow the code to compile.",
+      "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement method m2() for the code to compile.",
+      "As long as line 8 exists, class A must declare method m1() in some way.",
+      "If line 6 were replaced with 'class B extends A {' the code would compile.",
+      "If class A was not abstract and method m1() on line 2 was implemented, the code would not compile."
     ],
     "optionsVi": [
       "Mã nguồn biên dịch thành công mà không cần thay đổi gì.",
@@ -760,7 +760,7 @@ export const scjpChapterQuestions = [
       "C",
       "E"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhân tích cấu trúc đoạn mã:\n- `abstract class A`: Có phương thức trừu tượng `abstract short m1();` và phương thức cụ thể `short m2() { return (short) 420; }`.\n- `abstract class B extends A`: Là một lớp trừu tượng kế thừa từ `A`, và đã cung cấp phần cài đặt cho `short m1() { return (short) 42; }`.\n\nQuy tắc kế thừa của Abstract Class trong Java:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào của cha, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động thừa hưởng phương thức này.\n   - `B` hoàn toàn có quyền override lại nếu muốn, hoặc thậm chí có thể tái trừu tượng hóa bằng cách khai báo lại `abstract short m2();` (để bắt buộc các lớp con cháu sau này phải tự implement lại). Tuy nhiên, việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Nếu biến `B` thành concrete class (`class B extends A`): Vì `A` chỉ có duy nhất một phương thức abstract là `m1()`, mà `B` đã cài đặt hoàn chỉnh `m1()`, đồng thời kế thừa `m2()` từ `A`, nên `B` có đầy đủ thân hàm cho tất cả phương thức và sẽ biên dịch thành công 100%!\n\nĐánh giá từng phát biểu:\n- A (`The code will compile with no changes.`): Đúng, mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không có bất kỳ lỗi nào.\n- B (`Class B must either make anabstract declaration...`): Sai vì dùng từ \"must\" (bắt buộc). `B` không bắt buộc phải làm gì với `m2()` cả.\n- C (`It is legal, but not required, for class B to either make an abstract declaration...`): Đúng, việc override hay tái trừu tượng hóa `m2()` là hợp pháp nhưng không bắt buộc.\n- D (`As long as line 8 exists, class A must declare methodm1() in some way.`): Sai vì lớp con hoàn toàn có quyền tự khai báo thêm các phương thức mới mà lớp cha không hề có.\n- E (`If line 6 were replaced with'class B extends A{ ' the code would compile.`): Đúng, vì `B` đã cài đặt đầy đủ phương thức abstract `m1()` nên `B` hoàn toàn đủ điều kiện trở thành concrete class.\n- F (`If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.`): Sai vì trong Java, một abstract class con hoàn toàn có thể kế thừa từ một concrete class cha bình thường.\n\n✅ Vì sao đáp án A, C và E đúng:\n• A (`The code will compile with no changes.`): Đúng vì đoạn mã hiện tại hoàn toàn đúng chuẩn cú pháp và biên dịch thành công mà không cần sửa đổi.\n• C (`It is legal, but not required, for class B...`): Đúng vì lớp con `B` có quyền override hoặc tái trừu tượng hóa phương thức cụ thể `m2()` nhưng không bắt buộc.\n• E (`If line 6 were replaced with'class B extends A{ '...`): Đúng vì `B` đã cài đặt phương thức trừu tượng duy nhất `m1()`, nên nếu bỏ từ khóa `abstract` ở dòng 6 thì `B` vẫn biên dịch bình thường dưới dạng một concrete class.\n\n❌ Vì sao các đáp án khác sai:\n• B (`Class B must either...`): Sai vì khẳng định `B` \"bắt buộc\" phải khai báo hoặc implement `m2()`. Thực tế `B` tự động thừa hưởng implementation của `m2()` từ `A`.\n• D (`As long as line 8 exists, class A must declare...`): Sai vì lớp con có quyền thêm phương thức mới độc lập mà không yêu cầu lớp cha phải có phương thức đó.\n• F (`If class A was not abstract...`): Sai vì Java hoàn toàn cho phép một abstract class kế thừa từ một concrete class thông thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất linh hoạt: Phương thức abstract của cha thích implement lúc này hay để lớp con cháu sau này implement đều được. Phương thức cụ thể của cha thì thích override cũng được mà để nguyên dùng cũng được!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhân tích cấu trúc đoạn mã:\n- `abstract class A`: Có phương thức trừu tượng `abstract short m1();` và phương thức cụ thể `short m2() { return (short) 420; }`.\n- `abstract class B extends A`: Là một lớp trừu tượng kế thừa từ `A`, và đã cung cấp phần cài đặt cho `short m1() { return (short) 42; }`.\n\nQuy tắc kế thừa của Abstract Class trong Java:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào của cha, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động thừa hưởng phương thức này.\n   - `B` hoàn toàn có quyền override lại nếu muốn, hoặc thậm chí có thể tái trừu tượng hóa bằng cách khai báo lại `abstract short m2();` (để bắt buộc các lớp con cháu sau này phải tự implement lại). Tuy nhiên, việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Nếu biến `B` thành concrete class (`class B extends A`): Vì `A` chỉ có duy nhất một phương thức abstract là `m1()`, mà `B` đã cài đặt hoàn chỉnh `m1()`, đồng thời kế thừa `m2()` từ `A`, nên `B` có đầy đủ thân hàm cho tất cả phương thức và sẽ biên dịch thành công 100%!\n\nĐánh giá từng phát biểu:\n- A (`The code will compile with no changes.`): Đúng, mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không có bất kỳ lỗi nào.\n- B (`Class B must either make an abstract declaration...`): Sai vì dùng từ \"must\" (bắt buộc). `B` không bắt buộc phải làm gì với `m2()` cả.\n- C (`It is legal, but not required, for class B to either make an abstract declaration...`): Đúng, việc override hay tái trừu tượng hóa `m2()` là hợp pháp nhưng không bắt buộc.\n- D (`As long as line 8 exists, class A must declare method m1() in some way.`): Sai vì lớp con hoàn toàn có quyền tự khai báo thêm các phương thức mới mà lớp cha không hề có.\n- E (`If line 6 were replaced with 'class B extends A {' the code would compile.`): Đúng, vì `B` đã cài đặt đầy đủ phương thức abstract `m1()` nên `B` hoàn toàn đủ điều kiện trở thành concrete class.\n- F (`If class A was not abstract and method m1() on line 2 was implemented, the code would not compile.`): Sai vì trong Java, một abstract class con hoàn toàn có thể kế thừa từ một concrete class cha bình thường.\n\n✅ Vì sao đáp án A, C và E đúng:\n• A (`The code will compile with no changes.`): Đúng vì đoạn mã hiện tại hoàn toàn đúng chuẩn cú pháp và biên dịch thành công mà không cần sửa đổi.\n• C (`It is legal, but not required, for class B...`): Đúng vì lớp con `B` có quyền override hoặc tái trừu tượng hóa phương thức cụ thể `m2()` nhưng không bắt buộc.\n• E (`If line 6 were replaced with 'class B extends A {' ...`): Đúng vì `B` đã cài đặt phương thức trừu tượng duy nhất `m1()`, nên nếu bỏ từ khóa `abstract` ở dòng 6 thì `B` vẫn biên dịch bình thường dưới dạng một concrete class.\n\n❌ Vì sao các đáp án khác sai:\n• B (`Class B must either...`): Sai vì khẳng định `B` \"bắt buộc\" phải khai báo hoặc implement `m2()`. Thực tế `B` tự động thừa hưởng implementation của `m2()` từ `A`.\n• D (`As long as line 8 exists, class A must declare...`): Sai vì lớp con có quyền thêm phương thức mới độc lập mà không yêu cầu lớp cha phải có phương thức đó.\n• F (`If class A was not abstract...`): Sai vì Java hoàn toàn cho phép một abstract class kế thừa từ một concrete class thông thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất linh hoạt: Phương thức abstract của cha thích implement lúc này hay để lớp con cháu sau này implement đều được. Phương thức cụ thể của cha thì thích override cũng được mà để nguyên dùng cũng được!"
   },
   {
     "id": "scjp-ch02-004",
@@ -840,7 +840,7 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau gồm hai file ở hai package khác nhau. Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
     "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
     "options": [
-      "The code compiles and runs, with outputthis420parent420 .",
+      "The code compiles and runs, with output this 420 parent 420.",
       "If line 8 is removed, the code will compile and run.",
       "If line 10 is removed, the code will compile and run.",
       "Both lines 8 and 10 must be removed for the code to compile.",
@@ -1105,11 +1105,11 @@ export const scjpChapterQuestions = [
     "code": "",
     "options": [
       "You can extend the Runnable interface as long as you override the public run() method.",
-      "The class must contain a method calledrun() from which all code for that thread will be initiated.",
-      "The class must contain an emptypublicvoid method namedrun().",
-      "The class must contain apublicvoid method namedrunnable().",
-      "The class definition must include the words implements Threads and contain a method calledrun().",
-      "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
+      "The class must contain a method called run() from which all code for that thread will be initiated.",
+      "The class must contain an empty public void method named run().",
+      "The class must contain a public void method named runnable().",
+      "The class definition must include the words implements Threads and contain a method called run().",
+      "The mandatory method must be public, with a return type of void, must be called run(), and cannot take any arguments."
     ],
     "optionsVi": [
       "Bạn có thể extend interface Runnable miễn là override phương thức public run().",
@@ -1128,7 +1128,7 @@ export const scjpChapterQuestions = [
       "B",
       "F"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nInterface `java.lang.Runnable` trong thư viện chuẩn của Java là một functional interface được thiết kế cho lập trình đa luồng. Nó chỉ định nghĩa duy nhất một phương thức trừu tượng:\n```java\npublic abstract void run();\n```\nKhi một lớp cụ thể (concrete class - không phải abstract class) thực hiện `implements Runnable`:\n1. Về mặt cú pháp (Phát biểu F): Lớp đó BẮT BUỘC phải override phương thức `run()` với đúng các tiêu chuẩn:\n   - Tên phương thức: `run`\n   - Access modifier: Bắt buộc phải là `public` (vì phương thức trong interface mặc định là `public`, khi override không được phép thu hẹp quyền truy cập).\n   - Kiểu trả về: `void`.\n   - Danh sách tham số: Rỗng (không nhận bất kỳ đối số nào).\n2. Về mặt hoạt động đa luồng (Phát biểu B): Phương thức `run()` đóng vai trò là \"trái tim\" của luồng. Khi đối tượng `Thread` được kích hoạt bằng lệnh `start()`, máy ảo JVM sẽ bắt đầu thực thi mã lệnh của luồng từ chính phương thức `run()` này. Khi `run()` kết thúc, luồng sẽ chết.\n\nĐánh giá các phát biểu còn lại:\n- A (`You can extend the Runnable interface...`): Sai vì một class chỉ có thể `implements` interface, class không thể `extend` interface.\n- C (`The class must contain an emptypublicvoid method namedrun().`): Sai vì phương thức `run()` dùng để chứa mã lệnh xử lý của thread, không bắt buộc phải để rỗng (\"empty\"). Nếu để rỗng thì luồng tạo ra chẳng làm gì cả.\n- D (`The class must contain apublicvoid method namedrunnable().`): Sai vì tên phương thức bắt buộc phải là `run()`, không phải `runnable()`.\n- E (`The class definition must include the words implements Threads...`): Sai vì tên interface là `Runnable`, không có interface nào tên là `Threads`.\n\n✅ Vì sao đáp án B và F đúng:\n• B (`The class must contain a method calledrun()...`): Đúng vì phương thức `run()` là điểm bắt đầu thực thi toàn bộ mã lệnh của thread khi được kích hoạt.\n• F (`The mandatory method must bepublic, with a return type ofvoid...`): Đúng vì phương thức bắt buộc của `Runnable` có chữ ký chuẩn mực là `public void run()` không tham số.\n\n❌ Vì sao các đáp án khác sai:\n• A (`You can extend the Runnable interface...`): Sai vì class không thể dùng từ khóa `extend` với interface.\n• C (`The class must contain an emptypublicvoid...`): Sai vì phương thức `run()` không bắt buộc phải để trống thân hàm.\n• D (`The class must contain apublicvoid method namedrunnable().`): Sai vì phương thức của `Runnable` là `run()`, không phải `runnable()`.\n• E (`The class definition must include... implements Threads`): Sai vì từ khóa đúng phải là `implements Runnable`, Java không có interface `Threads`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Ghi nhớ chữ ký duy nhất của Runnable: `public void run()`. Không tham số, không trả về giá trị, bắt buộc phải là `public`, và là nơi bắt đầu chạy của luồng!"
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nInterface `java.lang.Runnable` trong thư viện chuẩn của Java là một functional interface được thiết kế cho lập trình đa luồng. Nó chỉ định nghĩa duy nhất một phương thức trừu tượng:\n```java\npublic abstract void run();\n```\nKhi một lớp cụ thể (concrete class - không phải abstract class) thực hiện `implements Runnable`:\n1. Về mặt cú pháp (Phát biểu F): Lớp đó BẮT BUỘC phải override phương thức `run()` với đúng các tiêu chuẩn:\n   - Tên phương thức: `run`\n   - Access modifier: Bắt buộc phải là `public` (vì phương thức trong interface mặc định là `public`, khi override không được phép thu hẹp quyền truy cập).\n   - Kiểu trả về: `void`.\n   - Danh sách tham số: Rỗng (không nhận bất kỳ đối số nào).\n2. Về mặt hoạt động đa luồng (Phát biểu B): Phương thức `run()` đóng vai trò là \"trái tim\" của luồng. Khi đối tượng `Thread` được kích hoạt bằng lệnh `start()`, máy ảo JVM sẽ bắt đầu thực thi mã lệnh của luồng từ chính phương thức `run()` này. Khi `run()` kết thúc, luồng sẽ chết.\n\nĐánh giá các phát biểu còn lại:\n- A (`You can extend the Runnable interface...`): Sai vì một class chỉ có thể `implements` interface, class không thể `extend` interface.\n- C (`The class must contain an empty public void method named run().`): Sai vì phương thức `run()` dùng để chứa mã lệnh xử lý của thread, không bắt buộc phải để rỗng (\"empty\"). Nếu để rỗng thì luồng tạo ra chẳng làm gì cả.\n- D (`The class must contain a public void method named runnable().`): Sai vì tên phương thức bắt buộc phải là `run()`, không phải `runnable()`.\n- E (`The class definition must include the words implements Threads...`): Sai vì tên interface là `Runnable`, không có interface nào tên là `Threads`.\n\n✅ Vì sao đáp án B và F đúng:\n• B (`The class must contain a method called run()...`): Đúng vì phương thức `run()` là điểm bắt đầu thực thi toàn bộ mã lệnh của thread khi được kích hoạt.\n• F (`The mandatory method must be public, with a return type of void...`): Đúng vì phương thức bắt buộc của `Runnable` có chữ ký chuẩn mực là `public void run()` không tham số.\n\n❌ Vì sao các đáp án khác sai:\n• A (`You can extend the Runnable interface...`): Sai vì class không thể dùng từ khóa `extend` với interface.\n• C (`The class must contain an empty public void...`): Sai vì phương thức `run()` không bắt buộc phải để trống thân hàm.\n• D (`The class must contain a public void method named runnable().`): Sai vì phương thức của `Runnable` là `run()`, không phải `runnable()`.\n• E (`The class definition must include... implements Threads`): Sai vì từ khóa đúng phải là `implements Runnable`, Java không có interface `Threads`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Ghi nhớ chữ ký duy nhất của Runnable: `public void run()`. Không tham số, không trả về giá trị, bắt buộc phải là `public`, và là nơi bắt đầu chạy của luồng!"
   },
   {
     "id": "scjp-ch02-015",
@@ -2093,7 +2093,7 @@ export const scjpChapterQuestions = [
     "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
     "options": [
       "Nothing. The program will not compile because no exceptions are specified.",
-      "Nothing. The program will not compile because nocatch clauses are specified.",
+      "Nothing. The program will not compile because no catch clauses are specified.",
       "Hello world.",
       "Hello world Finally executing"
     ],
@@ -2151,9 +2151,9 @@ export const scjpChapterQuestions = [
     "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
     "options": [
       "The program will not compile.",
-      "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
-      "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
-      "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+      "The program will print Hello world, then will print that a RuntimeException has occurred, then will print Done with try block, and then will print Finally executing.",
+      "The program will print Hello world, then will print that a RuntimeException has occurred, and then will print Finally executing.",
+      "The program will print Hello world, then will print Finally executing, then will print that a RuntimeException has occurred."
     ],
     "optionsVi": [
       "Chương trình sẽ không biên dịch (The program will not compile)",
@@ -2213,7 +2213,7 @@ export const scjpChapterQuestions = [
       "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
       "If a switch block has no default, adding an assert default is considered appropriate.",
       "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
-      "It is appropriate to handle assertion failures using acatch clause."
+      "It is appropriate to handle assertion failures using a catch clause."
     ],
     "optionsVi": [
       "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
@@ -2241,7 +2241,7 @@ export const scjpChapterQuestions = [
       "It is sometimes good practice to throw an AssertionError explicitly.",
       "It is good practice to place assertions where you think execution should never reach.",
       "Privategetter() andsetter() methods should not use assertions to verify arguments.",
-      "If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.",
+      "If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.",
       "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
     ],
     "optionsVi": [
@@ -2260,7 +2260,7 @@ export const scjpChapterQuestions = [
       "A",
       "B"
     ],
-    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra các nguyên tắc chuẩn mực (Best Practices) khi sử dụng Assertion trong Java:\n• A (\"It is sometimes good practice to throw an AssertionError explicitly.\"): Đúng. Trong những nhánh mã mà theo thiết kế không bao giờ được phép chạm tới (ví dụ: nhánh `default` của `switch` khi đã liệt kê đủ tất cả enum case), việc chủ động viết `throw new AssertionError();` là một thực hành tốt. Cách này đảm bảo lỗi luôn bị phát hiện ngay cả khi cờ bật assertion (`-ea`) bị tắt lúc chạy ứng dụng.\n• B (\"It is good practice to place assertions where you think execution should never reach.\"): Đúng. Đây là công dụng kinh điển nhất của assertion (unreachable code assertion). Đặt `assert false;` tại những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới giúp lập trình viên phát hiện sớm các lỗi logic nghiêm trọng khi chạy kiểm thử.\n• C (\"Privategetter() andsetter() methods should not use assertions to verify arguments.\"): Sai. Hoàn toàn ngược lại, trong các phương thức `private`, việc sử dụng assertion để kiểm tra tính hợp lệ của đối số đầu vào (arguments) là một Best Practice được khuyến khích mạnh mẽ trong tài liệu SCJP của Sun Microsystems, vì mã nguồn trong nội bộ class hoàn toàn do lập trình viên kiểm soát. Chỉ các phương thức `public` mới không nên dùng assertion (thay vào đó phải dùng Exception như `IllegalArgumentException`).\n• D (\"If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.\"): Sai. Khối `finally` LUÔN LUÔN được thực thi bất kể thứ bị ném ra là `Exception` hay `Error` (trừ khi hệ thống gọi lệnh thoát cưỡng bức `System.exit()`).\n• E (\"It is proper to handle assertion statement failures using a catch (AssertionException ae) block.\"): Sai. Thứ nhất, trong Java không hề tồn tại lớp nào tên là `AssertionException` (tên đúng là `AssertionError`). Thứ hai, `AssertionError` thuộc nhánh `Error`, đại diện cho lỗi logic nghiêm trọng trong mã nguồn, tuyệt đối không bao giờ được dùng `catch` để nuốt lỗi này.\n\n✅ Vì sao đáp án \"A và B\" đúng:\n• A (`It is sometimes good practice to throw an AssertionError explicitly.`): Đúng vì chủ động ném `AssertionError` tại các điểm mã không thể chạm tới là thực hành chuẩn giúp phát hiện bug ngay cả khi tắt cờ assertion.\n• B (`It is good practice to place assertions where you think execution should never reach.`): Đúng vì việc dùng assertion để xác nhận một đoạn mã không bao giờ được chạm tới là một trong những ứng dụng phổ biến và chuẩn mực nhất của assertion.\n\n❌ Vì sao các đáp án khác sai:\n• C (`Privategetter() andsetter() methods should not use assertions to verify arguments.`): Sai vì các phương thức `private` hoàn toàn nên dùng assertion để kiểm tra đối số đầu vào.\n• D (`If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.`): Sai vì khối `finally` không bao giờ bị bỏ qua khi có ngoại lệ hay lỗi xảy ra.\n• E (`It is proper to handle assertion statement failures using a catch (AssertionException ae) block.`): Sai vì trong Java không có lớp `AssertionException` và không bao giờ được bắt lỗi `AssertionError` bằng khối `catch`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phương thức `public`: Kiểm tra tham số bằng Ngoại lệ (`IllegalArgumentException`, `NullPointerException`).\n• Phương thức `private`: Kiểm tra tham số bằng `assert` (vì là mã nội bộ của class).\n• `AssertionError` là `Error`, không phải `Exception`. Không bao giờ được dùng `catch` để che giấu `AssertionError`."
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra các nguyên tắc chuẩn mực (Best Practices) khi sử dụng Assertion trong Java:\n• A (\"It is sometimes good practice to throw an AssertionError explicitly.\"): Đúng. Trong những nhánh mã mà theo thiết kế không bao giờ được phép chạm tới (ví dụ: nhánh `default` của `switch` khi đã liệt kê đủ tất cả enum case), việc chủ động viết `throw new AssertionError();` là một thực hành tốt. Cách này đảm bảo lỗi luôn bị phát hiện ngay cả khi cờ bật assertion (`-ea`) bị tắt lúc chạy ứng dụng.\n• B (\"It is good practice to place assertions where you think execution should never reach.\"): Đúng. Đây là công dụng kinh điển nhất của assertion (unreachable code assertion). Đặt `assert false;` tại những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới giúp lập trình viên phát hiện sớm các lỗi logic nghiêm trọng khi chạy kiểm thử.\n• C (\"Privategetter() andsetter() methods should not use assertions to verify arguments.\"): Sai. Hoàn toàn ngược lại, trong các phương thức `private`, việc sử dụng assertion để kiểm tra tính hợp lệ của đối số đầu vào (arguments) là một Best Practice được khuyến khích mạnh mẽ trong tài liệu SCJP của Sun Microsystems, vì mã nguồn trong nội bộ class hoàn toàn do lập trình viên kiểm soát. Chỉ các phương thức `public` mới không nên dùng assertion (thay vào đó phải dùng Exception như `IllegalArgumentException`).\n• D (\"If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.\"): Sai. Khối `finally` LUÔN LUÔN được thực thi bất kể thứ bị ném ra là `Exception` hay `Error` (trừ khi hệ thống gọi lệnh thoát cưỡng bức `System.exit()`).\n• E (\"It is proper to handle assertion statement failures using a catch (AssertionException ae) block.\"): Sai. Thứ nhất, trong Java không hề tồn tại lớp nào tên là `AssertionException` (tên đúng là `AssertionError`). Thứ hai, `AssertionError` thuộc nhánh `Error`, đại diện cho lỗi logic nghiêm trọng trong mã nguồn, tuyệt đối không bao giờ được dùng `catch` để nuốt lỗi này.\n\n✅ Vì sao đáp án \"A và B\" đúng:\n• A (`It is sometimes good practice to throw an AssertionError explicitly.`): Đúng vì chủ động ném `AssertionError` tại các điểm mã không thể chạm tới là thực hành chuẩn giúp phát hiện bug ngay cả khi tắt cờ assertion.\n• B (`It is good practice to place assertions where you think execution should never reach.`): Đúng vì việc dùng assertion để xác nhận một đoạn mã không bao giờ được chạm tới là một trong những ứng dụng phổ biến và chuẩn mực nhất của assertion.\n\n❌ Vì sao các đáp án khác sai:\n• C (`Privategetter() andsetter() methods should not use assertions to verify arguments.`): Sai vì các phương thức `private` hoàn toàn nên dùng assertion để kiểm tra đối số đầu vào.\n• D (`If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.`): Sai vì khối `finally` không bao giờ bị bỏ qua khi có ngoại lệ hay lỗi xảy ra.\n• E (`It is proper to handle assertion statement failures using a catch (AssertionException ae) block.`): Sai vì trong Java không có lớp `AssertionException` và không bao giờ được bắt lỗi `AssertionError` bằng khối `catch`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phương thức `public`: Kiểm tra tham số bằng Ngoại lệ (`IllegalArgumentException`, `NullPointerException`).\n• Phương thức `private`: Kiểm tra tham số bằng `assert` (vì là mã nội bộ của class).\n• `AssertionError` là `Error`, không phải `Exception`. Không bao giờ được dùng `catch` để che giấu `AssertionError`."
   },
   {
     "id": "scjp-ch04-018",
@@ -3624,11 +3624,11 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai) (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
+      "If x and y refer to instances of different wrapper classes, then the fragment x.equals(y) will cause a compiler failure.",
       "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
       "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
-      "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
-      "If x and y are String references and x == y is true, theny.equals(x) will be true."
+      "If x, y, and z refer to instances of wrapper classes and x.equals(y) is true, and y.equals(z) is true, then z.equals(x) will always be true.",
+      "If x and y are String references and x == y is true, then y.equals(x) will be true."
     ],
     "optionsVi": [
       "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì đoạn mã x.equals(y) sẽ gây ra lỗi biên dịch.",
@@ -3687,8 +3687,8 @@ export const scjpChapterQuestions = [
     "code": "class Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}",
     "options": [
       "class Test1 will not compile.",
-      "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
-      "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+      "The Test1 hashCode() method is more efficient than the Test2 hashCode() method.",
+      "The Test1 hashCode() method is less efficient than the Test2 hashCode() method.",
       "class Test2 will not compile.",
       "The twohashcode() methods will have the same efficiency."
     ],
@@ -3780,10 +3780,10 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "hashCode() doesn't have to be overridden ifequals() is.",
-      "equals() doesn't have to be overridden ifhashCode() is.",
+      "hashCode() doesn't have to be overridden if equals() is.",
+      "equals() doesn't have to be overridden if hashCode() is.",
       "hashCode() can always return the same value, regardless of the object that invoked it.",
-      "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+      "If two different objects that are not meaningfully equivalent both invoke hashCode(), then hashCode() can't return the same value for both invocations.",
       "equals() can be true even if it's comparing different objects."
     ],
     "optionsVi": [
@@ -4028,7 +4028,7 @@ export const scjpChapterQuestions = [
     "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
     "code": "",
     "options": [
-      "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+      "Calling Runtime.gc() will cause eligible objects to be garbage collected.",
       "The garbage collector uses a mark and sweep algorithm.",
       "If an object can be accessed from a live thread, it can't be garbage collected.",
       "If object 1 refers to object 2, then object 2 can't be garbage collected."
@@ -4680,7 +4680,7 @@ export const scjpChapterQuestions = [
     "options": [
       "Each String in the array lines will output, with a 1-second pause.",
       "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-      "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+      "Each String in the array lines will output, and there is no guarantee there will be a pause because currentThread() may not retrieve this thread.",
       "This code will not compile."
     ],
     "optionsVi": [
@@ -4774,7 +4774,7 @@ export const scjpChapterQuestions = [
       "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
       "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
       "When a thread sleeps, it releases its locks.",
-      "When a thread invokeswait(), it releases its locks."
+      "When a thread invokes wait(), it releases its locks."
     ],
     "optionsVi": [
       "Phương thức static không thể dùng từ khóa synchronized.",
@@ -4846,7 +4846,7 @@ export const scjpChapterQuestions = [
     "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì? (Chọn 1 đáp án)",
     "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.       }\n11.       System.out.print(\"3 \");\n12.    }\n13. }",
     "options": [
-      "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+      "It fails to compile because the IllegalMonitorStateException of wait() is not dealt with in line 7.",
       "1 2 3",
       "1 3",
       "1 2",
@@ -4906,11 +4906,11 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào sau đây là ĐÚNG? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "ThenotifyAll() method must be called from a synchronized context.",
-      "To callwait(), an object must own the lock on the thread.",
-      "Thenotify() method is defined in class java.lang.Thread.",
-      "When a thread is waiting as a result ofwait(), it release its locks.",
-      "Thenotify() method causes a thread to immediately release its locks.",
+      "The notifyAll() method must be called from a synchronized context.",
+      "To call wait(), an object must own the lock on the thread.",
+      "The notify() method is defined in class java.lang.Thread.",
+      "When a thread is waiting as a result of wait(), it release its locks.",
+      "The notify() method causes a thread to immediately release its locks.",
       "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
     ],
     "optionsVi": [
@@ -5020,12 +5020,12 @@ export const scjpChapterQuestions = [
     "textVi": "Hai phát biểu nào sau đây là ĐÚNG? (Chọn 2 đáp án)",
     "code": "",
     "options": [
-      "Deadlock will not occur ifwait()/notify() is used.",
+      "Deadlock will not occur if wait()/notify() is used.",
       "A thread will resume execution as soon as its sleep duration expires.",
       "Synchronization can prevent two objects from being accessed by the same thread.",
-      "Thewait() method is overloaded to accept a duration.",
-      "Thenotify() method is overloaded to accept a duration.",
-      "Bothwait() andnotify() must be called from a synchronized context.",
+      "The wait() method is overloaded to accept a duration.",
+      "The notify() method is overloaded to accept a duration.",
+      "Both wait() and notify() must be called from a synchronized context.",
       "wait() can throw a runtime exception",
       "sleep() can throw a runtime exception."
     ],
@@ -5132,8 +5132,8 @@ export const scjpChapterQuestions = [
       "Wrap a synchronize(this) around the call to f.increase().",
       "The existing code will not compile.",
       "The existing code will cause a runtime exception.",
-      "Put in await() call prior to invoking theincrease() method.",
-      "Synchronize theincrease() method"
+      "Put in a wait() call prior to invoking the increase() method.",
+      "Synchronize the increase() method"
     ],
     "optionsVi": [
       "Đồng bộ hóa phương thức run() (Synchronize the run method).",
@@ -5674,8 +5674,8 @@ export const scjpRandom20Quiz = {
       "code": "class Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}",
       "options": [
         "class Test1 will not compile.",
-        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
-        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+        "The Test1 hashCode() method is more efficient than the Test2 hashCode() method.",
+        "The Test1 hashCode() method is less efficient than the Test2 hashCode() method.",
         "class Test2 will not compile.",
         "The twohashcode() methods will have the same efficiency."
       ],
@@ -6565,11 +6565,11 @@ export const scjpChapterAllQuiz = {
       "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
       "options": [
         "The code will compile with no changes.",
-        "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
-        "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
-        "As long as line 8 exists, class A must declare methodm1() in some way.",
-        "If line 6 were replaced with'class B extends A{ ' the code would compile.",
-        "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
+        "Class B must either make an abstract declaration of method m2() or implement method m2() to allow the code to compile.",
+        "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement method m2() for the code to compile.",
+        "As long as line 8 exists, class A must declare method m1() in some way.",
+        "If line 6 were replaced with 'class B extends A {' the code would compile.",
+        "If class A was not abstract and method m1() on line 2 was implemented, the code would not compile."
       ],
       "optionsVi": [
         "Mã nguồn biên dịch thành công mà không cần thay đổi gì.",
@@ -6590,7 +6590,7 @@ export const scjpChapterAllQuiz = {
         "C",
         "E"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhân tích cấu trúc đoạn mã:\n- `abstract class A`: Có phương thức trừu tượng `abstract short m1();` và phương thức cụ thể `short m2() { return (short) 420; }`.\n- `abstract class B extends A`: Là một lớp trừu tượng kế thừa từ `A`, và đã cung cấp phần cài đặt cho `short m1() { return (short) 42; }`.\n\nQuy tắc kế thừa của Abstract Class trong Java:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào của cha, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động thừa hưởng phương thức này.\n   - `B` hoàn toàn có quyền override lại nếu muốn, hoặc thậm chí có thể tái trừu tượng hóa bằng cách khai báo lại `abstract short m2();` (để bắt buộc các lớp con cháu sau này phải tự implement lại). Tuy nhiên, việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Nếu biến `B` thành concrete class (`class B extends A`): Vì `A` chỉ có duy nhất một phương thức abstract là `m1()`, mà `B` đã cài đặt hoàn chỉnh `m1()`, đồng thời kế thừa `m2()` từ `A`, nên `B` có đầy đủ thân hàm cho tất cả phương thức và sẽ biên dịch thành công 100%!\n\nĐánh giá từng phát biểu:\n- A (`The code will compile with no changes.`): Đúng, mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không có bất kỳ lỗi nào.\n- B (`Class B must either make anabstract declaration...`): Sai vì dùng từ \"must\" (bắt buộc). `B` không bắt buộc phải làm gì với `m2()` cả.\n- C (`It is legal, but not required, for class B to either make an abstract declaration...`): Đúng, việc override hay tái trừu tượng hóa `m2()` là hợp pháp nhưng không bắt buộc.\n- D (`As long as line 8 exists, class A must declare methodm1() in some way.`): Sai vì lớp con hoàn toàn có quyền tự khai báo thêm các phương thức mới mà lớp cha không hề có.\n- E (`If line 6 were replaced with'class B extends A{ ' the code would compile.`): Đúng, vì `B` đã cài đặt đầy đủ phương thức abstract `m1()` nên `B` hoàn toàn đủ điều kiện trở thành concrete class.\n- F (`If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.`): Sai vì trong Java, một abstract class con hoàn toàn có thể kế thừa từ một concrete class cha bình thường.\n\n✅ Vì sao đáp án A, C và E đúng:\n• A (`The code will compile with no changes.`): Đúng vì đoạn mã hiện tại hoàn toàn đúng chuẩn cú pháp và biên dịch thành công mà không cần sửa đổi.\n• C (`It is legal, but not required, for class B...`): Đúng vì lớp con `B` có quyền override hoặc tái trừu tượng hóa phương thức cụ thể `m2()` nhưng không bắt buộc.\n• E (`If line 6 were replaced with'class B extends A{ '...`): Đúng vì `B` đã cài đặt phương thức trừu tượng duy nhất `m1()`, nên nếu bỏ từ khóa `abstract` ở dòng 6 thì `B` vẫn biên dịch bình thường dưới dạng một concrete class.\n\n❌ Vì sao các đáp án khác sai:\n• B (`Class B must either...`): Sai vì khẳng định `B` \"bắt buộc\" phải khai báo hoặc implement `m2()`. Thực tế `B` tự động thừa hưởng implementation của `m2()` từ `A`.\n• D (`As long as line 8 exists, class A must declare...`): Sai vì lớp con có quyền thêm phương thức mới độc lập mà không yêu cầu lớp cha phải có phương thức đó.\n• F (`If class A was not abstract...`): Sai vì Java hoàn toàn cho phép một abstract class kế thừa từ một concrete class thông thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất linh hoạt: Phương thức abstract của cha thích implement lúc này hay để lớp con cháu sau này implement đều được. Phương thức cụ thể của cha thì thích override cũng được mà để nguyên dùng cũng được!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhân tích cấu trúc đoạn mã:\n- `abstract class A`: Có phương thức trừu tượng `abstract short m1();` và phương thức cụ thể `short m2() { return (short) 420; }`.\n- `abstract class B extends A`: Là một lớp trừu tượng kế thừa từ `A`, và đã cung cấp phần cài đặt cho `short m1() { return (short) 42; }`.\n\nQuy tắc kế thừa của Abstract Class trong Java:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào của cha, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động thừa hưởng phương thức này.\n   - `B` hoàn toàn có quyền override lại nếu muốn, hoặc thậm chí có thể tái trừu tượng hóa bằng cách khai báo lại `abstract short m2();` (để bắt buộc các lớp con cháu sau này phải tự implement lại). Tuy nhiên, việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Nếu biến `B` thành concrete class (`class B extends A`): Vì `A` chỉ có duy nhất một phương thức abstract là `m1()`, mà `B` đã cài đặt hoàn chỉnh `m1()`, đồng thời kế thừa `m2()` từ `A`, nên `B` có đầy đủ thân hàm cho tất cả phương thức và sẽ biên dịch thành công 100%!\n\nĐánh giá từng phát biểu:\n- A (`The code will compile with no changes.`): Đúng, mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không có bất kỳ lỗi nào.\n- B (`Class B must either make an abstract declaration...`): Sai vì dùng từ \"must\" (bắt buộc). `B` không bắt buộc phải làm gì với `m2()` cả.\n- C (`It is legal, but not required, for class B to either make an abstract declaration...`): Đúng, việc override hay tái trừu tượng hóa `m2()` là hợp pháp nhưng không bắt buộc.\n- D (`As long as line 8 exists, class A must declare method m1() in some way.`): Sai vì lớp con hoàn toàn có quyền tự khai báo thêm các phương thức mới mà lớp cha không hề có.\n- E (`If line 6 were replaced with 'class B extends A {' the code would compile.`): Đúng, vì `B` đã cài đặt đầy đủ phương thức abstract `m1()` nên `B` hoàn toàn đủ điều kiện trở thành concrete class.\n- F (`If class A was not abstract and method m1() on line 2 was implemented, the code would not compile.`): Sai vì trong Java, một abstract class con hoàn toàn có thể kế thừa từ một concrete class cha bình thường.\n\n✅ Vì sao đáp án A, C và E đúng:\n• A (`The code will compile with no changes.`): Đúng vì đoạn mã hiện tại hoàn toàn đúng chuẩn cú pháp và biên dịch thành công mà không cần sửa đổi.\n• C (`It is legal, but not required, for class B...`): Đúng vì lớp con `B` có quyền override hoặc tái trừu tượng hóa phương thức cụ thể `m2()` nhưng không bắt buộc.\n• E (`If line 6 were replaced with 'class B extends A {' ...`): Đúng vì `B` đã cài đặt phương thức trừu tượng duy nhất `m1()`, nên nếu bỏ từ khóa `abstract` ở dòng 6 thì `B` vẫn biên dịch bình thường dưới dạng một concrete class.\n\n❌ Vì sao các đáp án khác sai:\n• B (`Class B must either...`): Sai vì khẳng định `B` \"bắt buộc\" phải khai báo hoặc implement `m2()`. Thực tế `B` tự động thừa hưởng implementation của `m2()` từ `A`.\n• D (`As long as line 8 exists, class A must declare...`): Sai vì lớp con có quyền thêm phương thức mới độc lập mà không yêu cầu lớp cha phải có phương thức đó.\n• F (`If class A was not abstract...`): Sai vì Java hoàn toàn cho phép một abstract class kế thừa từ một concrete class thông thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất linh hoạt: Phương thức abstract của cha thích implement lúc này hay để lớp con cháu sau này implement đều được. Phương thức cụ thể của cha thì thích override cũng được mà để nguyên dùng cũng được!"
     },
     {
       "id": "scjp-ch02-004",
@@ -6670,7 +6670,7 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau gồm hai file ở hai package khác nhau. Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
       "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
       "options": [
-        "The code compiles and runs, with outputthis420parent420 .",
+        "The code compiles and runs, with output this 420 parent 420.",
         "If line 8 is removed, the code will compile and run.",
         "If line 10 is removed, the code will compile and run.",
         "Both lines 8 and 10 must be removed for the code to compile.",
@@ -6935,11 +6935,11 @@ export const scjpChapterAllQuiz = {
       "code": "",
       "options": [
         "You can extend the Runnable interface as long as you override the public run() method.",
-        "The class must contain a method calledrun() from which all code for that thread will be initiated.",
-        "The class must contain an emptypublicvoid method namedrun().",
-        "The class must contain apublicvoid method namedrunnable().",
-        "The class definition must include the words implements Threads and contain a method calledrun().",
-        "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
+        "The class must contain a method called run() from which all code for that thread will be initiated.",
+        "The class must contain an empty public void method named run().",
+        "The class must contain a public void method named runnable().",
+        "The class definition must include the words implements Threads and contain a method called run().",
+        "The mandatory method must be public, with a return type of void, must be called run(), and cannot take any arguments."
       ],
       "optionsVi": [
         "Bạn có thể extend interface Runnable miễn là override phương thức public run().",
@@ -6958,7 +6958,7 @@ export const scjpChapterAllQuiz = {
         "B",
         "F"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nInterface `java.lang.Runnable` trong thư viện chuẩn của Java là một functional interface được thiết kế cho lập trình đa luồng. Nó chỉ định nghĩa duy nhất một phương thức trừu tượng:\n```java\npublic abstract void run();\n```\nKhi một lớp cụ thể (concrete class - không phải abstract class) thực hiện `implements Runnable`:\n1. Về mặt cú pháp (Phát biểu F): Lớp đó BẮT BUỘC phải override phương thức `run()` với đúng các tiêu chuẩn:\n   - Tên phương thức: `run`\n   - Access modifier: Bắt buộc phải là `public` (vì phương thức trong interface mặc định là `public`, khi override không được phép thu hẹp quyền truy cập).\n   - Kiểu trả về: `void`.\n   - Danh sách tham số: Rỗng (không nhận bất kỳ đối số nào).\n2. Về mặt hoạt động đa luồng (Phát biểu B): Phương thức `run()` đóng vai trò là \"trái tim\" của luồng. Khi đối tượng `Thread` được kích hoạt bằng lệnh `start()`, máy ảo JVM sẽ bắt đầu thực thi mã lệnh của luồng từ chính phương thức `run()` này. Khi `run()` kết thúc, luồng sẽ chết.\n\nĐánh giá các phát biểu còn lại:\n- A (`You can extend the Runnable interface...`): Sai vì một class chỉ có thể `implements` interface, class không thể `extend` interface.\n- C (`The class must contain an emptypublicvoid method namedrun().`): Sai vì phương thức `run()` dùng để chứa mã lệnh xử lý của thread, không bắt buộc phải để rỗng (\"empty\"). Nếu để rỗng thì luồng tạo ra chẳng làm gì cả.\n- D (`The class must contain apublicvoid method namedrunnable().`): Sai vì tên phương thức bắt buộc phải là `run()`, không phải `runnable()`.\n- E (`The class definition must include the words implements Threads...`): Sai vì tên interface là `Runnable`, không có interface nào tên là `Threads`.\n\n✅ Vì sao đáp án B và F đúng:\n• B (`The class must contain a method calledrun()...`): Đúng vì phương thức `run()` là điểm bắt đầu thực thi toàn bộ mã lệnh của thread khi được kích hoạt.\n• F (`The mandatory method must bepublic, with a return type ofvoid...`): Đúng vì phương thức bắt buộc của `Runnable` có chữ ký chuẩn mực là `public void run()` không tham số.\n\n❌ Vì sao các đáp án khác sai:\n• A (`You can extend the Runnable interface...`): Sai vì class không thể dùng từ khóa `extend` với interface.\n• C (`The class must contain an emptypublicvoid...`): Sai vì phương thức `run()` không bắt buộc phải để trống thân hàm.\n• D (`The class must contain apublicvoid method namedrunnable().`): Sai vì phương thức của `Runnable` là `run()`, không phải `runnable()`.\n• E (`The class definition must include... implements Threads`): Sai vì từ khóa đúng phải là `implements Runnable`, Java không có interface `Threads`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Ghi nhớ chữ ký duy nhất của Runnable: `public void run()`. Không tham số, không trả về giá trị, bắt buộc phải là `public`, và là nơi bắt đầu chạy của luồng!"
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nInterface `java.lang.Runnable` trong thư viện chuẩn của Java là một functional interface được thiết kế cho lập trình đa luồng. Nó chỉ định nghĩa duy nhất một phương thức trừu tượng:\n```java\npublic abstract void run();\n```\nKhi một lớp cụ thể (concrete class - không phải abstract class) thực hiện `implements Runnable`:\n1. Về mặt cú pháp (Phát biểu F): Lớp đó BẮT BUỘC phải override phương thức `run()` với đúng các tiêu chuẩn:\n   - Tên phương thức: `run`\n   - Access modifier: Bắt buộc phải là `public` (vì phương thức trong interface mặc định là `public`, khi override không được phép thu hẹp quyền truy cập).\n   - Kiểu trả về: `void`.\n   - Danh sách tham số: Rỗng (không nhận bất kỳ đối số nào).\n2. Về mặt hoạt động đa luồng (Phát biểu B): Phương thức `run()` đóng vai trò là \"trái tim\" của luồng. Khi đối tượng `Thread` được kích hoạt bằng lệnh `start()`, máy ảo JVM sẽ bắt đầu thực thi mã lệnh của luồng từ chính phương thức `run()` này. Khi `run()` kết thúc, luồng sẽ chết.\n\nĐánh giá các phát biểu còn lại:\n- A (`You can extend the Runnable interface...`): Sai vì một class chỉ có thể `implements` interface, class không thể `extend` interface.\n- C (`The class must contain an empty public void method named run().`): Sai vì phương thức `run()` dùng để chứa mã lệnh xử lý của thread, không bắt buộc phải để rỗng (\"empty\"). Nếu để rỗng thì luồng tạo ra chẳng làm gì cả.\n- D (`The class must contain a public void method named runnable().`): Sai vì tên phương thức bắt buộc phải là `run()`, không phải `runnable()`.\n- E (`The class definition must include the words implements Threads...`): Sai vì tên interface là `Runnable`, không có interface nào tên là `Threads`.\n\n✅ Vì sao đáp án B và F đúng:\n• B (`The class must contain a method called run()...`): Đúng vì phương thức `run()` là điểm bắt đầu thực thi toàn bộ mã lệnh của thread khi được kích hoạt.\n• F (`The mandatory method must be public, with a return type of void...`): Đúng vì phương thức bắt buộc của `Runnable` có chữ ký chuẩn mực là `public void run()` không tham số.\n\n❌ Vì sao các đáp án khác sai:\n• A (`You can extend the Runnable interface...`): Sai vì class không thể dùng từ khóa `extend` với interface.\n• C (`The class must contain an empty public void...`): Sai vì phương thức `run()` không bắt buộc phải để trống thân hàm.\n• D (`The class must contain a public void method named runnable().`): Sai vì phương thức của `Runnable` là `run()`, không phải `runnable()`.\n• E (`The class definition must include... implements Threads`): Sai vì từ khóa đúng phải là `implements Runnable`, Java không có interface `Threads`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Ghi nhớ chữ ký duy nhất của Runnable: `public void run()`. Không tham số, không trả về giá trị, bắt buộc phải là `public`, và là nơi bắt đầu chạy của luồng!"
     },
     {
       "id": "scjp-ch02-015",
@@ -7923,7 +7923,7 @@ export const scjpChapterAllQuiz = {
       "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
       "options": [
         "Nothing. The program will not compile because no exceptions are specified.",
-        "Nothing. The program will not compile because nocatch clauses are specified.",
+        "Nothing. The program will not compile because no catch clauses are specified.",
         "Hello world.",
         "Hello world Finally executing"
       ],
@@ -7981,9 +7981,9 @@ export const scjpChapterAllQuiz = {
       "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
       "options": [
         "The program will not compile.",
-        "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
-        "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
-        "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+        "The program will print Hello world, then will print that a RuntimeException has occurred, then will print Done with try block, and then will print Finally executing.",
+        "The program will print Hello world, then will print that a RuntimeException has occurred, and then will print Finally executing.",
+        "The program will print Hello world, then will print Finally executing, then will print that a RuntimeException has occurred."
       ],
       "optionsVi": [
         "Chương trình sẽ không biên dịch (The program will not compile)",
@@ -8043,7 +8043,7 @@ export const scjpChapterAllQuiz = {
         "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
         "If a switch block has no default, adding an assert default is considered appropriate.",
         "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
-        "It is appropriate to handle assertion failures using acatch clause."
+        "It is appropriate to handle assertion failures using a catch clause."
       ],
       "optionsVi": [
         "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
@@ -8071,7 +8071,7 @@ export const scjpChapterAllQuiz = {
         "It is sometimes good practice to throw an AssertionError explicitly.",
         "It is good practice to place assertions where you think execution should never reach.",
         "Privategetter() andsetter() methods should not use assertions to verify arguments.",
-        "If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.",
+        "If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.",
         "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
       ],
       "optionsVi": [
@@ -8090,7 +8090,7 @@ export const scjpChapterAllQuiz = {
         "A",
         "B"
       ],
-      "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra các nguyên tắc chuẩn mực (Best Practices) khi sử dụng Assertion trong Java:\n• A (\"It is sometimes good practice to throw an AssertionError explicitly.\"): Đúng. Trong những nhánh mã mà theo thiết kế không bao giờ được phép chạm tới (ví dụ: nhánh `default` của `switch` khi đã liệt kê đủ tất cả enum case), việc chủ động viết `throw new AssertionError();` là một thực hành tốt. Cách này đảm bảo lỗi luôn bị phát hiện ngay cả khi cờ bật assertion (`-ea`) bị tắt lúc chạy ứng dụng.\n• B (\"It is good practice to place assertions where you think execution should never reach.\"): Đúng. Đây là công dụng kinh điển nhất của assertion (unreachable code assertion). Đặt `assert false;` tại những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới giúp lập trình viên phát hiện sớm các lỗi logic nghiêm trọng khi chạy kiểm thử.\n• C (\"Privategetter() andsetter() methods should not use assertions to verify arguments.\"): Sai. Hoàn toàn ngược lại, trong các phương thức `private`, việc sử dụng assertion để kiểm tra tính hợp lệ của đối số đầu vào (arguments) là một Best Practice được khuyến khích mạnh mẽ trong tài liệu SCJP của Sun Microsystems, vì mã nguồn trong nội bộ class hoàn toàn do lập trình viên kiểm soát. Chỉ các phương thức `public` mới không nên dùng assertion (thay vào đó phải dùng Exception như `IllegalArgumentException`).\n• D (\"If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.\"): Sai. Khối `finally` LUÔN LUÔN được thực thi bất kể thứ bị ném ra là `Exception` hay `Error` (trừ khi hệ thống gọi lệnh thoát cưỡng bức `System.exit()`).\n• E (\"It is proper to handle assertion statement failures using a catch (AssertionException ae) block.\"): Sai. Thứ nhất, trong Java không hề tồn tại lớp nào tên là `AssertionException` (tên đúng là `AssertionError`). Thứ hai, `AssertionError` thuộc nhánh `Error`, đại diện cho lỗi logic nghiêm trọng trong mã nguồn, tuyệt đối không bao giờ được dùng `catch` để nuốt lỗi này.\n\n✅ Vì sao đáp án \"A và B\" đúng:\n• A (`It is sometimes good practice to throw an AssertionError explicitly.`): Đúng vì chủ động ném `AssertionError` tại các điểm mã không thể chạm tới là thực hành chuẩn giúp phát hiện bug ngay cả khi tắt cờ assertion.\n• B (`It is good practice to place assertions where you think execution should never reach.`): Đúng vì việc dùng assertion để xác nhận một đoạn mã không bao giờ được chạm tới là một trong những ứng dụng phổ biến và chuẩn mực nhất của assertion.\n\n❌ Vì sao các đáp án khác sai:\n• C (`Privategetter() andsetter() methods should not use assertions to verify arguments.`): Sai vì các phương thức `private` hoàn toàn nên dùng assertion để kiểm tra đối số đầu vào.\n• D (`If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.`): Sai vì khối `finally` không bao giờ bị bỏ qua khi có ngoại lệ hay lỗi xảy ra.\n• E (`It is proper to handle assertion statement failures using a catch (AssertionException ae) block.`): Sai vì trong Java không có lớp `AssertionException` và không bao giờ được bắt lỗi `AssertionError` bằng khối `catch`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phương thức `public`: Kiểm tra tham số bằng Ngoại lệ (`IllegalArgumentException`, `NullPointerException`).\n• Phương thức `private`: Kiểm tra tham số bằng `assert` (vì là mã nội bộ của class).\n• `AssertionError` là `Error`, không phải `Exception`. Không bao giờ được dùng `catch` để che giấu `AssertionError`."
+      "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra các nguyên tắc chuẩn mực (Best Practices) khi sử dụng Assertion trong Java:\n• A (\"It is sometimes good practice to throw an AssertionError explicitly.\"): Đúng. Trong những nhánh mã mà theo thiết kế không bao giờ được phép chạm tới (ví dụ: nhánh `default` của `switch` khi đã liệt kê đủ tất cả enum case), việc chủ động viết `throw new AssertionError();` là một thực hành tốt. Cách này đảm bảo lỗi luôn bị phát hiện ngay cả khi cờ bật assertion (`-ea`) bị tắt lúc chạy ứng dụng.\n• B (\"It is good practice to place assertions where you think execution should never reach.\"): Đúng. Đây là công dụng kinh điển nhất của assertion (unreachable code assertion). Đặt `assert false;` tại những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới giúp lập trình viên phát hiện sớm các lỗi logic nghiêm trọng khi chạy kiểm thử.\n• C (\"Privategetter() andsetter() methods should not use assertions to verify arguments.\"): Sai. Hoàn toàn ngược lại, trong các phương thức `private`, việc sử dụng assertion để kiểm tra tính hợp lệ của đối số đầu vào (arguments) là một Best Practice được khuyến khích mạnh mẽ trong tài liệu SCJP của Sun Microsystems, vì mã nguồn trong nội bộ class hoàn toàn do lập trình viên kiểm soát. Chỉ các phương thức `public` mới không nên dùng assertion (thay vào đó phải dùng Exception như `IllegalArgumentException`).\n• D (\"If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.\"): Sai. Khối `finally` LUÔN LUÔN được thực thi bất kể thứ bị ném ra là `Exception` hay `Error` (trừ khi hệ thống gọi lệnh thoát cưỡng bức `System.exit()`).\n• E (\"It is proper to handle assertion statement failures using a catch (AssertionException ae) block.\"): Sai. Thứ nhất, trong Java không hề tồn tại lớp nào tên là `AssertionException` (tên đúng là `AssertionError`). Thứ hai, `AssertionError` thuộc nhánh `Error`, đại diện cho lỗi logic nghiêm trọng trong mã nguồn, tuyệt đối không bao giờ được dùng `catch` để nuốt lỗi này.\n\n✅ Vì sao đáp án \"A và B\" đúng:\n• A (`It is sometimes good practice to throw an AssertionError explicitly.`): Đúng vì chủ động ném `AssertionError` tại các điểm mã không thể chạm tới là thực hành chuẩn giúp phát hiện bug ngay cả khi tắt cờ assertion.\n• B (`It is good practice to place assertions where you think execution should never reach.`): Đúng vì việc dùng assertion để xác nhận một đoạn mã không bao giờ được chạm tới là một trong những ứng dụng phổ biến và chuẩn mực nhất của assertion.\n\n❌ Vì sao các đáp án khác sai:\n• C (`Privategetter() andsetter() methods should not use assertions to verify arguments.`): Sai vì các phương thức `private` hoàn toàn nên dùng assertion để kiểm tra đối số đầu vào.\n• D (`If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.`): Sai vì khối `finally` không bao giờ bị bỏ qua khi có ngoại lệ hay lỗi xảy ra.\n• E (`It is proper to handle assertion statement failures using a catch (AssertionException ae) block.`): Sai vì trong Java không có lớp `AssertionException` và không bao giờ được bắt lỗi `AssertionError` bằng khối `catch`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phương thức `public`: Kiểm tra tham số bằng Ngoại lệ (`IllegalArgumentException`, `NullPointerException`).\n• Phương thức `private`: Kiểm tra tham số bằng `assert` (vì là mã nội bộ của class).\n• `AssertionError` là `Error`, không phải `Exception`. Không bao giờ được dùng `catch` để che giấu `AssertionError`."
     },
     {
       "id": "scjp-ch04-018",
@@ -9454,11 +9454,11 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai) (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
+        "If x and y refer to instances of different wrapper classes, then the fragment x.equals(y) will cause a compiler failure.",
         "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
         "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
-        "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
-        "If x and y are String references and x == y is true, theny.equals(x) will be true."
+        "If x, y, and z refer to instances of wrapper classes and x.equals(y) is true, and y.equals(z) is true, then z.equals(x) will always be true.",
+        "If x and y are String references and x == y is true, then y.equals(x) will be true."
       ],
       "optionsVi": [
         "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì đoạn mã x.equals(y) sẽ gây ra lỗi biên dịch.",
@@ -9517,8 +9517,8 @@ export const scjpChapterAllQuiz = {
       "code": "class Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}",
       "options": [
         "class Test1 will not compile.",
-        "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
-        "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+        "The Test1 hashCode() method is more efficient than the Test2 hashCode() method.",
+        "The Test1 hashCode() method is less efficient than the Test2 hashCode() method.",
         "class Test2 will not compile.",
         "The twohashcode() methods will have the same efficiency."
       ],
@@ -9610,10 +9610,10 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "hashCode() doesn't have to be overridden ifequals() is.",
-        "equals() doesn't have to be overridden ifhashCode() is.",
+        "hashCode() doesn't have to be overridden if equals() is.",
+        "equals() doesn't have to be overridden if hashCode() is.",
         "hashCode() can always return the same value, regardless of the object that invoked it.",
-        "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+        "If two different objects that are not meaningfully equivalent both invoke hashCode(), then hashCode() can't return the same value for both invocations.",
         "equals() can be true even if it's comparing different objects."
       ],
       "optionsVi": [
@@ -9858,7 +9858,7 @@ export const scjpChapterAllQuiz = {
       "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
       "code": "",
       "options": [
-        "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+        "Calling Runtime.gc() will cause eligible objects to be garbage collected.",
         "The garbage collector uses a mark and sweep algorithm.",
         "If an object can be accessed from a live thread, it can't be garbage collected.",
         "If object 1 refers to object 2, then object 2 can't be garbage collected."
@@ -10510,7 +10510,7 @@ export const scjpChapterAllQuiz = {
       "options": [
         "Each String in the array lines will output, with a 1-second pause.",
         "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-        "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+        "Each String in the array lines will output, and there is no guarantee there will be a pause because currentThread() may not retrieve this thread.",
         "This code will not compile."
       ],
       "optionsVi": [
@@ -10604,7 +10604,7 @@ export const scjpChapterAllQuiz = {
         "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
         "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
         "When a thread sleeps, it releases its locks.",
-        "When a thread invokeswait(), it releases its locks."
+        "When a thread invokes wait(), it releases its locks."
       ],
       "optionsVi": [
         "Phương thức static không thể dùng từ khóa synchronized.",
@@ -10676,7 +10676,7 @@ export const scjpChapterAllQuiz = {
       "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì? (Chọn 1 đáp án)",
       "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.       }\n11.       System.out.print(\"3 \");\n12.    }\n13. }",
       "options": [
-        "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+        "It fails to compile because the IllegalMonitorStateException of wait() is not dealt with in line 7.",
         "1 2 3",
         "1 3",
         "1 2",
@@ -10736,11 +10736,11 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào sau đây là ĐÚNG? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "ThenotifyAll() method must be called from a synchronized context.",
-        "To callwait(), an object must own the lock on the thread.",
-        "Thenotify() method is defined in class java.lang.Thread.",
-        "When a thread is waiting as a result ofwait(), it release its locks.",
-        "Thenotify() method causes a thread to immediately release its locks.",
+        "The notifyAll() method must be called from a synchronized context.",
+        "To call wait(), an object must own the lock on the thread.",
+        "The notify() method is defined in class java.lang.Thread.",
+        "When a thread is waiting as a result of wait(), it release its locks.",
+        "The notify() method causes a thread to immediately release its locks.",
         "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
       ],
       "optionsVi": [
@@ -10850,12 +10850,12 @@ export const scjpChapterAllQuiz = {
       "textVi": "Hai phát biểu nào sau đây là ĐÚNG? (Chọn 2 đáp án)",
       "code": "",
       "options": [
-        "Deadlock will not occur ifwait()/notify() is used.",
+        "Deadlock will not occur if wait()/notify() is used.",
         "A thread will resume execution as soon as its sleep duration expires.",
         "Synchronization can prevent two objects from being accessed by the same thread.",
-        "Thewait() method is overloaded to accept a duration.",
-        "Thenotify() method is overloaded to accept a duration.",
-        "Bothwait() andnotify() must be called from a synchronized context.",
+        "The wait() method is overloaded to accept a duration.",
+        "The notify() method is overloaded to accept a duration.",
+        "Both wait() and notify() must be called from a synchronized context.",
         "wait() can throw a runtime exception",
         "sleep() can throw a runtime exception."
       ],
@@ -10962,8 +10962,8 @@ export const scjpChapterAllQuiz = {
         "Wrap a synchronize(this) around the call to f.increase().",
         "The existing code will not compile.",
         "The existing code will cause a runtime exception.",
-        "Put in await() call prior to invoking theincrease() method.",
-        "Synchronize theincrease() method"
+        "Put in a wait() call prior to invoking the increase() method.",
+        "Synchronize the increase() method"
       ],
       "optionsVi": [
         "Đồng bộ hóa phương thức run() (Synchronize the run method).",
@@ -11773,11 +11773,11 @@ export const scjpChapterQuizzes = [
         "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
         "options": [
           "The code will compile with no changes.",
-          "Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.",
-          "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.",
-          "As long as line 8 exists, class A must declare methodm1() in some way.",
-          "If line 6 were replaced with'class B extends A{ ' the code would compile.",
-          "If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile."
+          "Class B must either make an abstract declaration of method m2() or implement method m2() to allow the code to compile.",
+          "It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement method m2() for the code to compile.",
+          "As long as line 8 exists, class A must declare method m1() in some way.",
+          "If line 6 were replaced with 'class B extends A {' the code would compile.",
+          "If class A was not abstract and method m1() on line 2 was implemented, the code would not compile."
         ],
         "optionsVi": [
           "Mã nguồn biên dịch thành công mà không cần thay đổi gì.",
@@ -11798,7 +11798,7 @@ export const scjpChapterQuizzes = [
           "C",
           "E"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhân tích cấu trúc đoạn mã:\n- `abstract class A`: Có phương thức trừu tượng `abstract short m1();` và phương thức cụ thể `short m2() { return (short) 420; }`.\n- `abstract class B extends A`: Là một lớp trừu tượng kế thừa từ `A`, và đã cung cấp phần cài đặt cho `short m1() { return (short) 42; }`.\n\nQuy tắc kế thừa của Abstract Class trong Java:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào của cha, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động thừa hưởng phương thức này.\n   - `B` hoàn toàn có quyền override lại nếu muốn, hoặc thậm chí có thể tái trừu tượng hóa bằng cách khai báo lại `abstract short m2();` (để bắt buộc các lớp con cháu sau này phải tự implement lại). Tuy nhiên, việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Nếu biến `B` thành concrete class (`class B extends A`): Vì `A` chỉ có duy nhất một phương thức abstract là `m1()`, mà `B` đã cài đặt hoàn chỉnh `m1()`, đồng thời kế thừa `m2()` từ `A`, nên `B` có đầy đủ thân hàm cho tất cả phương thức và sẽ biên dịch thành công 100%!\n\nĐánh giá từng phát biểu:\n- A (`The code will compile with no changes.`): Đúng, mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không có bất kỳ lỗi nào.\n- B (`Class B must either make anabstract declaration...`): Sai vì dùng từ \"must\" (bắt buộc). `B` không bắt buộc phải làm gì với `m2()` cả.\n- C (`It is legal, but not required, for class B to either make an abstract declaration...`): Đúng, việc override hay tái trừu tượng hóa `m2()` là hợp pháp nhưng không bắt buộc.\n- D (`As long as line 8 exists, class A must declare methodm1() in some way.`): Sai vì lớp con hoàn toàn có quyền tự khai báo thêm các phương thức mới mà lớp cha không hề có.\n- E (`If line 6 were replaced with'class B extends A{ ' the code would compile.`): Đúng, vì `B` đã cài đặt đầy đủ phương thức abstract `m1()` nên `B` hoàn toàn đủ điều kiện trở thành concrete class.\n- F (`If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.`): Sai vì trong Java, một abstract class con hoàn toàn có thể kế thừa từ một concrete class cha bình thường.\n\n✅ Vì sao đáp án A, C và E đúng:\n• A (`The code will compile with no changes.`): Đúng vì đoạn mã hiện tại hoàn toàn đúng chuẩn cú pháp và biên dịch thành công mà không cần sửa đổi.\n• C (`It is legal, but not required, for class B...`): Đúng vì lớp con `B` có quyền override hoặc tái trừu tượng hóa phương thức cụ thể `m2()` nhưng không bắt buộc.\n• E (`If line 6 were replaced with'class B extends A{ '...`): Đúng vì `B` đã cài đặt phương thức trừu tượng duy nhất `m1()`, nên nếu bỏ từ khóa `abstract` ở dòng 6 thì `B` vẫn biên dịch bình thường dưới dạng một concrete class.\n\n❌ Vì sao các đáp án khác sai:\n• B (`Class B must either...`): Sai vì khẳng định `B` \"bắt buộc\" phải khai báo hoặc implement `m2()`. Thực tế `B` tự động thừa hưởng implementation của `m2()` từ `A`.\n• D (`As long as line 8 exists, class A must declare...`): Sai vì lớp con có quyền thêm phương thức mới độc lập mà không yêu cầu lớp cha phải có phương thức đó.\n• F (`If class A was not abstract...`): Sai vì Java hoàn toàn cho phép một abstract class kế thừa từ một concrete class thông thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất linh hoạt: Phương thức abstract của cha thích implement lúc này hay để lớp con cháu sau này implement đều được. Phương thức cụ thể của cha thì thích override cũng được mà để nguyên dùng cũng được!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhân tích cấu trúc đoạn mã:\n- `abstract class A`: Có phương thức trừu tượng `abstract short m1();` và phương thức cụ thể `short m2() { return (short) 420; }`.\n- `abstract class B extends A`: Là một lớp trừu tượng kế thừa từ `A`, và đã cung cấp phần cài đặt cho `short m1() { return (short) 42; }`.\n\nQuy tắc kế thừa của Abstract Class trong Java:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào của cha, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động thừa hưởng phương thức này.\n   - `B` hoàn toàn có quyền override lại nếu muốn, hoặc thậm chí có thể tái trừu tượng hóa bằng cách khai báo lại `abstract short m2();` (để bắt buộc các lớp con cháu sau này phải tự implement lại). Tuy nhiên, việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Nếu biến `B` thành concrete class (`class B extends A`): Vì `A` chỉ có duy nhất một phương thức abstract là `m1()`, mà `B` đã cài đặt hoàn chỉnh `m1()`, đồng thời kế thừa `m2()` từ `A`, nên `B` có đầy đủ thân hàm cho tất cả phương thức và sẽ biên dịch thành công 100%!\n\nĐánh giá từng phát biểu:\n- A (`The code will compile with no changes.`): Đúng, mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không có bất kỳ lỗi nào.\n- B (`Class B must either make an abstract declaration...`): Sai vì dùng từ \"must\" (bắt buộc). `B` không bắt buộc phải làm gì với `m2()` cả.\n- C (`It is legal, but not required, for class B to either make an abstract declaration...`): Đúng, việc override hay tái trừu tượng hóa `m2()` là hợp pháp nhưng không bắt buộc.\n- D (`As long as line 8 exists, class A must declare method m1() in some way.`): Sai vì lớp con hoàn toàn có quyền tự khai báo thêm các phương thức mới mà lớp cha không hề có.\n- E (`If line 6 were replaced with 'class B extends A {' the code would compile.`): Đúng, vì `B` đã cài đặt đầy đủ phương thức abstract `m1()` nên `B` hoàn toàn đủ điều kiện trở thành concrete class.\n- F (`If class A was not abstract and method m1() on line 2 was implemented, the code would not compile.`): Sai vì trong Java, một abstract class con hoàn toàn có thể kế thừa từ một concrete class cha bình thường.\n\n✅ Vì sao đáp án A, C và E đúng:\n• A (`The code will compile with no changes.`): Đúng vì đoạn mã hiện tại hoàn toàn đúng chuẩn cú pháp và biên dịch thành công mà không cần sửa đổi.\n• C (`It is legal, but not required, for class B...`): Đúng vì lớp con `B` có quyền override hoặc tái trừu tượng hóa phương thức cụ thể `m2()` nhưng không bắt buộc.\n• E (`If line 6 were replaced with 'class B extends A {' ...`): Đúng vì `B` đã cài đặt phương thức trừu tượng duy nhất `m1()`, nên nếu bỏ từ khóa `abstract` ở dòng 6 thì `B` vẫn biên dịch bình thường dưới dạng một concrete class.\n\n❌ Vì sao các đáp án khác sai:\n• B (`Class B must either...`): Sai vì khẳng định `B` \"bắt buộc\" phải khai báo hoặc implement `m2()`. Thực tế `B` tự động thừa hưởng implementation của `m2()` từ `A`.\n• D (`As long as line 8 exists, class A must declare...`): Sai vì lớp con có quyền thêm phương thức mới độc lập mà không yêu cầu lớp cha phải có phương thức đó.\n• F (`If class A was not abstract...`): Sai vì Java hoàn toàn cho phép một abstract class kế thừa từ một concrete class thông thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất linh hoạt: Phương thức abstract của cha thích implement lúc này hay để lớp con cháu sau này implement đều được. Phương thức cụ thể của cha thì thích override cũng được mà để nguyên dùng cũng được!"
       },
       {
         "id": "scjp-ch02-004",
@@ -11878,7 +11878,7 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau gồm hai file ở hai package khác nhau. Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
         "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
         "options": [
-          "The code compiles and runs, with outputthis420parent420 .",
+          "The code compiles and runs, with output this 420 parent 420.",
           "If line 8 is removed, the code will compile and run.",
           "If line 10 is removed, the code will compile and run.",
           "Both lines 8 and 10 must be removed for the code to compile.",
@@ -12143,11 +12143,11 @@ export const scjpChapterQuizzes = [
         "code": "",
         "options": [
           "You can extend the Runnable interface as long as you override the public run() method.",
-          "The class must contain a method calledrun() from which all code for that thread will be initiated.",
-          "The class must contain an emptypublicvoid method namedrun().",
-          "The class must contain apublicvoid method namedrunnable().",
-          "The class definition must include the words implements Threads and contain a method calledrun().",
-          "The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments."
+          "The class must contain a method called run() from which all code for that thread will be initiated.",
+          "The class must contain an empty public void method named run().",
+          "The class must contain a public void method named runnable().",
+          "The class definition must include the words implements Threads and contain a method called run().",
+          "The mandatory method must be public, with a return type of void, must be called run(), and cannot take any arguments."
         ],
         "optionsVi": [
           "Bạn có thể extend interface Runnable miễn là override phương thức public run().",
@@ -12166,7 +12166,7 @@ export const scjpChapterQuizzes = [
           "B",
           "F"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nInterface `java.lang.Runnable` trong thư viện chuẩn của Java là một functional interface được thiết kế cho lập trình đa luồng. Nó chỉ định nghĩa duy nhất một phương thức trừu tượng:\n```java\npublic abstract void run();\n```\nKhi một lớp cụ thể (concrete class - không phải abstract class) thực hiện `implements Runnable`:\n1. Về mặt cú pháp (Phát biểu F): Lớp đó BẮT BUỘC phải override phương thức `run()` với đúng các tiêu chuẩn:\n   - Tên phương thức: `run`\n   - Access modifier: Bắt buộc phải là `public` (vì phương thức trong interface mặc định là `public`, khi override không được phép thu hẹp quyền truy cập).\n   - Kiểu trả về: `void`.\n   - Danh sách tham số: Rỗng (không nhận bất kỳ đối số nào).\n2. Về mặt hoạt động đa luồng (Phát biểu B): Phương thức `run()` đóng vai trò là \"trái tim\" của luồng. Khi đối tượng `Thread` được kích hoạt bằng lệnh `start()`, máy ảo JVM sẽ bắt đầu thực thi mã lệnh của luồng từ chính phương thức `run()` này. Khi `run()` kết thúc, luồng sẽ chết.\n\nĐánh giá các phát biểu còn lại:\n- A (`You can extend the Runnable interface...`): Sai vì một class chỉ có thể `implements` interface, class không thể `extend` interface.\n- C (`The class must contain an emptypublicvoid method namedrun().`): Sai vì phương thức `run()` dùng để chứa mã lệnh xử lý của thread, không bắt buộc phải để rỗng (\"empty\"). Nếu để rỗng thì luồng tạo ra chẳng làm gì cả.\n- D (`The class must contain apublicvoid method namedrunnable().`): Sai vì tên phương thức bắt buộc phải là `run()`, không phải `runnable()`.\n- E (`The class definition must include the words implements Threads...`): Sai vì tên interface là `Runnable`, không có interface nào tên là `Threads`.\n\n✅ Vì sao đáp án B và F đúng:\n• B (`The class must contain a method calledrun()...`): Đúng vì phương thức `run()` là điểm bắt đầu thực thi toàn bộ mã lệnh của thread khi được kích hoạt.\n• F (`The mandatory method must bepublic, with a return type ofvoid...`): Đúng vì phương thức bắt buộc của `Runnable` có chữ ký chuẩn mực là `public void run()` không tham số.\n\n❌ Vì sao các đáp án khác sai:\n• A (`You can extend the Runnable interface...`): Sai vì class không thể dùng từ khóa `extend` với interface.\n• C (`The class must contain an emptypublicvoid...`): Sai vì phương thức `run()` không bắt buộc phải để trống thân hàm.\n• D (`The class must contain apublicvoid method namedrunnable().`): Sai vì phương thức của `Runnable` là `run()`, không phải `runnable()`.\n• E (`The class definition must include... implements Threads`): Sai vì từ khóa đúng phải là `implements Runnable`, Java không có interface `Threads`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Ghi nhớ chữ ký duy nhất của Runnable: `public void run()`. Không tham số, không trả về giá trị, bắt buộc phải là `public`, và là nơi bắt đầu chạy của luồng!"
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nInterface `java.lang.Runnable` trong thư viện chuẩn của Java là một functional interface được thiết kế cho lập trình đa luồng. Nó chỉ định nghĩa duy nhất một phương thức trừu tượng:\n```java\npublic abstract void run();\n```\nKhi một lớp cụ thể (concrete class - không phải abstract class) thực hiện `implements Runnable`:\n1. Về mặt cú pháp (Phát biểu F): Lớp đó BẮT BUỘC phải override phương thức `run()` với đúng các tiêu chuẩn:\n   - Tên phương thức: `run`\n   - Access modifier: Bắt buộc phải là `public` (vì phương thức trong interface mặc định là `public`, khi override không được phép thu hẹp quyền truy cập).\n   - Kiểu trả về: `void`.\n   - Danh sách tham số: Rỗng (không nhận bất kỳ đối số nào).\n2. Về mặt hoạt động đa luồng (Phát biểu B): Phương thức `run()` đóng vai trò là \"trái tim\" của luồng. Khi đối tượng `Thread` được kích hoạt bằng lệnh `start()`, máy ảo JVM sẽ bắt đầu thực thi mã lệnh của luồng từ chính phương thức `run()` này. Khi `run()` kết thúc, luồng sẽ chết.\n\nĐánh giá các phát biểu còn lại:\n- A (`You can extend the Runnable interface...`): Sai vì một class chỉ có thể `implements` interface, class không thể `extend` interface.\n- C (`The class must contain an empty public void method named run().`): Sai vì phương thức `run()` dùng để chứa mã lệnh xử lý của thread, không bắt buộc phải để rỗng (\"empty\"). Nếu để rỗng thì luồng tạo ra chẳng làm gì cả.\n- D (`The class must contain a public void method named runnable().`): Sai vì tên phương thức bắt buộc phải là `run()`, không phải `runnable()`.\n- E (`The class definition must include the words implements Threads...`): Sai vì tên interface là `Runnable`, không có interface nào tên là `Threads`.\n\n✅ Vì sao đáp án B và F đúng:\n• B (`The class must contain a method called run()...`): Đúng vì phương thức `run()` là điểm bắt đầu thực thi toàn bộ mã lệnh của thread khi được kích hoạt.\n• F (`The mandatory method must be public, with a return type of void...`): Đúng vì phương thức bắt buộc của `Runnable` có chữ ký chuẩn mực là `public void run()` không tham số.\n\n❌ Vì sao các đáp án khác sai:\n• A (`You can extend the Runnable interface...`): Sai vì class không thể dùng từ khóa `extend` với interface.\n• C (`The class must contain an empty public void...`): Sai vì phương thức `run()` không bắt buộc phải để trống thân hàm.\n• D (`The class must contain a public void method named runnable().`): Sai vì phương thức của `Runnable` là `run()`, không phải `runnable()`.\n• E (`The class definition must include... implements Threads`): Sai vì từ khóa đúng phải là `implements Runnable`, Java không có interface `Threads`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Ghi nhớ chữ ký duy nhất của Runnable: `public void run()`. Không tham số, không trả về giá trị, bắt buộc phải là `public`, và là nơi bắt đầu chạy của luồng!"
       },
       {
         "id": "scjp-ch02-015",
@@ -13157,7 +13157,7 @@ export const scjpChapterQuizzes = [
         "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
         "options": [
           "Nothing. The program will not compile because no exceptions are specified.",
-          "Nothing. The program will not compile because nocatch clauses are specified.",
+          "Nothing. The program will not compile because no catch clauses are specified.",
           "Hello world.",
           "Hello world Finally executing"
         ],
@@ -13215,9 +13215,9 @@ export const scjpChapterQuizzes = [
         "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
         "options": [
           "The program will not compile.",
-          "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
-          "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
-          "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+          "The program will print Hello world, then will print that a RuntimeException has occurred, then will print Done with try block, and then will print Finally executing.",
+          "The program will print Hello world, then will print that a RuntimeException has occurred, and then will print Finally executing.",
+          "The program will print Hello world, then will print Finally executing, then will print that a RuntimeException has occurred."
         ],
         "optionsVi": [
           "Chương trình sẽ không biên dịch (The program will not compile)",
@@ -13277,7 +13277,7 @@ export const scjpChapterQuizzes = [
           "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
           "If a switch block has no default, adding an assert default is considered appropriate.",
           "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert's error message will be empty.",
-          "It is appropriate to handle assertion failures using acatch clause."
+          "It is appropriate to handle assertion failures using a catch clause."
         ],
         "optionsVi": [
           "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
@@ -13305,7 +13305,7 @@ export const scjpChapterQuizzes = [
           "It is sometimes good practice to throw an AssertionError explicitly.",
           "It is good practice to place assertions where you think execution should never reach.",
           "Privategetter() andsetter() methods should not use assertions to verify arguments.",
-          "If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.",
+          "If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.",
           "It is proper to handle assertion statement failures using a catch (AssertionException ae) block."
         ],
         "optionsVi": [
@@ -13324,7 +13324,7 @@ export const scjpChapterQuizzes = [
           "A",
           "B"
         ],
-        "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra các nguyên tắc chuẩn mực (Best Practices) khi sử dụng Assertion trong Java:\n• A (\"It is sometimes good practice to throw an AssertionError explicitly.\"): Đúng. Trong những nhánh mã mà theo thiết kế không bao giờ được phép chạm tới (ví dụ: nhánh `default` của `switch` khi đã liệt kê đủ tất cả enum case), việc chủ động viết `throw new AssertionError();` là một thực hành tốt. Cách này đảm bảo lỗi luôn bị phát hiện ngay cả khi cờ bật assertion (`-ea`) bị tắt lúc chạy ứng dụng.\n• B (\"It is good practice to place assertions where you think execution should never reach.\"): Đúng. Đây là công dụng kinh điển nhất của assertion (unreachable code assertion). Đặt `assert false;` tại những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới giúp lập trình viên phát hiện sớm các lỗi logic nghiêm trọng khi chạy kiểm thử.\n• C (\"Privategetter() andsetter() methods should not use assertions to verify arguments.\"): Sai. Hoàn toàn ngược lại, trong các phương thức `private`, việc sử dụng assertion để kiểm tra tính hợp lệ của đối số đầu vào (arguments) là một Best Practice được khuyến khích mạnh mẽ trong tài liệu SCJP của Sun Microsystems, vì mã nguồn trong nội bộ class hoàn toàn do lập trình viên kiểm soát. Chỉ các phương thức `public` mới không nên dùng assertion (thay vào đó phải dùng Exception như `IllegalArgumentException`).\n• D (\"If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.\"): Sai. Khối `finally` LUÔN LUÔN được thực thi bất kể thứ bị ném ra là `Exception` hay `Error` (trừ khi hệ thống gọi lệnh thoát cưỡng bức `System.exit()`).\n• E (\"It is proper to handle assertion statement failures using a catch (AssertionException ae) block.\"): Sai. Thứ nhất, trong Java không hề tồn tại lớp nào tên là `AssertionException` (tên đúng là `AssertionError`). Thứ hai, `AssertionError` thuộc nhánh `Error`, đại diện cho lỗi logic nghiêm trọng trong mã nguồn, tuyệt đối không bao giờ được dùng `catch` để nuốt lỗi này.\n\n✅ Vì sao đáp án \"A và B\" đúng:\n• A (`It is sometimes good practice to throw an AssertionError explicitly.`): Đúng vì chủ động ném `AssertionError` tại các điểm mã không thể chạm tới là thực hành chuẩn giúp phát hiện bug ngay cả khi tắt cờ assertion.\n• B (`It is good practice to place assertions where you think execution should never reach.`): Đúng vì việc dùng assertion để xác nhận một đoạn mã không bao giờ được chạm tới là một trong những ứng dụng phổ biến và chuẩn mực nhất của assertion.\n\n❌ Vì sao các đáp án khác sai:\n• C (`Privategetter() andsetter() methods should not use assertions to verify arguments.`): Sai vì các phương thức `private` hoàn toàn nên dùng assertion để kiểm tra đối số đầu vào.\n• D (`If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.`): Sai vì khối `finally` không bao giờ bị bỏ qua khi có ngoại lệ hay lỗi xảy ra.\n• E (`It is proper to handle assertion statement failures using a catch (AssertionException ae) block.`): Sai vì trong Java không có lớp `AssertionException` và không bao giờ được bắt lỗi `AssertionError` bằng khối `catch`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phương thức `public`: Kiểm tra tham số bằng Ngoại lệ (`IllegalArgumentException`, `NullPointerException`).\n• Phương thức `private`: Kiểm tra tham số bằng `assert` (vì là mã nội bộ của class).\n• `AssertionError` là `Error`, không phải `Exception`. Không bao giờ được dùng `catch` để che giấu `AssertionError`."
+        "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra các nguyên tắc chuẩn mực (Best Practices) khi sử dụng Assertion trong Java:\n• A (\"It is sometimes good practice to throw an AssertionError explicitly.\"): Đúng. Trong những nhánh mã mà theo thiết kế không bao giờ được phép chạm tới (ví dụ: nhánh `default` của `switch` khi đã liệt kê đủ tất cả enum case), việc chủ động viết `throw new AssertionError();` là một thực hành tốt. Cách này đảm bảo lỗi luôn bị phát hiện ngay cả khi cờ bật assertion (`-ea`) bị tắt lúc chạy ứng dụng.\n• B (\"It is good practice to place assertions where you think execution should never reach.\"): Đúng. Đây là công dụng kinh điển nhất của assertion (unreachable code assertion). Đặt `assert false;` tại những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới giúp lập trình viên phát hiện sớm các lỗi logic nghiêm trọng khi chạy kiểm thử.\n• C (\"Privategetter() andsetter() methods should not use assertions to verify arguments.\"): Sai. Hoàn toàn ngược lại, trong các phương thức `private`, việc sử dụng assertion để kiểm tra tính hợp lệ của đối số đầu vào (arguments) là một Best Practice được khuyến khích mạnh mẽ trong tài liệu SCJP của Sun Microsystems, vì mã nguồn trong nội bộ class hoàn toàn do lập trình viên kiểm soát. Chỉ các phương thức `public` mới không nên dùng assertion (thay vào đó phải dùng Exception như `IllegalArgumentException`).\n• D (\"If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.\"): Sai. Khối `finally` LUÔN LUÔN được thực thi bất kể thứ bị ném ra là `Exception` hay `Error` (trừ khi hệ thống gọi lệnh thoát cưỡng bức `System.exit()`).\n• E (\"It is proper to handle assertion statement failures using a catch (AssertionException ae) block.\"): Sai. Thứ nhất, trong Java không hề tồn tại lớp nào tên là `AssertionException` (tên đúng là `AssertionError`). Thứ hai, `AssertionError` thuộc nhánh `Error`, đại diện cho lỗi logic nghiêm trọng trong mã nguồn, tuyệt đối không bao giờ được dùng `catch` để nuốt lỗi này.\n\n✅ Vì sao đáp án \"A và B\" đúng:\n• A (`It is sometimes good practice to throw an AssertionError explicitly.`): Đúng vì chủ động ném `AssertionError` tại các điểm mã không thể chạm tới là thực hành chuẩn giúp phát hiện bug ngay cả khi tắt cờ assertion.\n• B (`It is good practice to place assertions where you think execution should never reach.`): Đúng vì việc dùng assertion để xác nhận một đoạn mã không bao giờ được chạm tới là một trong những ứng dụng phổ biến và chuẩn mực nhất của assertion.\n\n❌ Vì sao các đáp án khác sai:\n• C (`Privategetter() andsetter() methods should not use assertions to verify arguments.`): Sai vì các phương thức `private` hoàn toàn nên dùng assertion để kiểm tra đối số đầu vào.\n• D (`If an AssertionError is thrown in a try-catch block, the finally block will be bypassed.`): Sai vì khối `finally` không bao giờ bị bỏ qua khi có ngoại lệ hay lỗi xảy ra.\n• E (`It is proper to handle assertion statement failures using a catch (AssertionException ae) block.`): Sai vì trong Java không có lớp `AssertionException` và không bao giờ được bắt lỗi `AssertionError` bằng khối `catch`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phương thức `public`: Kiểm tra tham số bằng Ngoại lệ (`IllegalArgumentException`, `NullPointerException`).\n• Phương thức `private`: Kiểm tra tham số bằng `assert` (vì là mã nội bộ của class).\n• `AssertionError` là `Error`, không phải `Exception`. Không bao giờ được dùng `catch` để che giấu `AssertionError`."
       },
       {
         "id": "scjp-ch04-018",
@@ -14714,11 +14714,11 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai) (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure.",
+          "If x and y refer to instances of different wrapper classes, then the fragment x.equals(y) will cause a compiler failure.",
           "If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.",
           "If x and y are String references and ifx.equals(y) is true, then x == y is true.",
-          "If x, y, and z refer to instances of wrapper classes andx.equals(y) is true, and y.equals(z) is true, thenz.equals(x) will always be true.",
-          "If x and y are String references and x == y is true, theny.equals(x) will be true."
+          "If x, y, and z refer to instances of wrapper classes and x.equals(y) is true, and y.equals(z) is true, then z.equals(x) will always be true.",
+          "If x and y are String references and x == y is true, then y.equals(x) will be true."
         ],
         "optionsVi": [
           "Nếu x và y tham chiếu đến các thể hiện của các lớp wrapper khác nhau, thì đoạn mã x.equals(y) sẽ gây ra lỗi biên dịch.",
@@ -14790,8 +14790,8 @@ export const scjpChapterQuizzes = [
         "code": "class Test1 {\n  public int value;\n  public int hashCode() { return 42; }\n}\nclass Test2 {\n  public int value;\n  public int hashcode() { return (int)(value^5); }\n}",
         "options": [
           "class Test1 will not compile.",
-          "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
-          "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+          "The Test1 hashCode() method is more efficient than the Test2 hashCode() method.",
+          "The Test1 hashCode() method is less efficient than the Test2 hashCode() method.",
           "class Test2 will not compile.",
           "The twohashcode() methods will have the same efficiency."
         ],
@@ -14883,10 +14883,10 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào sau đây là ĐÚNG về các phương thức hashCode() và equals() khi được ghi đè đúng chuẩn? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "hashCode() doesn't have to be overridden ifequals() is.",
-          "equals() doesn't have to be overridden ifhashCode() is.",
+          "hashCode() doesn't have to be overridden if equals() is.",
+          "equals() doesn't have to be overridden if hashCode() is.",
           "hashCode() can always return the same value, regardless of the object that invoked it.",
-          "If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can't return the same value for both invocations.",
+          "If two different objects that are not meaningfully equivalent both invoke hashCode(), then hashCode() can't return the same value for both invocations.",
           "equals() can be true even if it's comparing different objects."
         ],
         "optionsVi": [
@@ -15131,7 +15131,7 @@ export const scjpChapterQuizzes = [
         "textVi": "Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
         "code": "",
         "options": [
-          "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+          "Calling Runtime.gc() will cause eligible objects to be garbage collected.",
           "The garbage collector uses a mark and sweep algorithm.",
           "If an object can be accessed from a live thread, it can't be garbage collected.",
           "If object 1 refers to object 2, then object 2 can't be garbage collected."
@@ -15809,7 +15809,7 @@ export const scjpChapterQuizzes = [
         "options": [
           "Each String in the array lines will output, with a 1-second pause.",
           "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
-          "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+          "Each String in the array lines will output, and there is no guarantee there will be a pause because currentThread() may not retrieve this thread.",
           "This code will not compile."
         ],
         "optionsVi": [
@@ -15903,7 +15903,7 @@ export const scjpChapterQuizzes = [
           "If a class has synchronized code, multiple threads can still access the nonsynchronized code.",
           "Variables can be protected from concurrent access problems by marking them with the synchronized keyword.",
           "When a thread sleeps, it releases its locks.",
-          "When a thread invokeswait(), it releases its locks."
+          "When a thread invokes wait(), it releases its locks."
         ],
         "optionsVi": [
           "Phương thức static không thể dùng từ khóa synchronized.",
@@ -15975,7 +15975,7 @@ export const scjpChapterQuizzes = [
         "textVi": "Cho đoạn mã sau, kết quả khi cố gắng biên dịch và chạy chương trình này là gì? (Chọn 1 đáp án)",
         "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.       }\n11.       System.out.print(\"3 \");\n12.    }\n13. }",
         "options": [
-          "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+          "It fails to compile because the IllegalMonitorStateException of wait() is not dealt with in line 7.",
           "1 2 3",
           "1 3",
           "1 2",
@@ -16035,11 +16035,11 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào sau đây là ĐÚNG? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "ThenotifyAll() method must be called from a synchronized context.",
-          "To callwait(), an object must own the lock on the thread.",
-          "Thenotify() method is defined in class java.lang.Thread.",
-          "When a thread is waiting as a result ofwait(), it release its locks.",
-          "Thenotify() method causes a thread to immediately release its locks.",
+          "The notifyAll() method must be called from a synchronized context.",
+          "To call wait(), an object must own the lock on the thread.",
+          "The notify() method is defined in class java.lang.Thread.",
+          "When a thread is waiting as a result of wait(), it release its locks.",
+          "The notify() method causes a thread to immediately release its locks.",
           "The difference between notify() and notifyAll() is that notifyAll() notifies all waiting threads, regardless of the object they're waiting on."
         ],
         "optionsVi": [
@@ -16149,12 +16149,12 @@ export const scjpChapterQuizzes = [
         "textVi": "Hai phát biểu nào sau đây là ĐÚNG? (Chọn 2 đáp án)",
         "code": "",
         "options": [
-          "Deadlock will not occur ifwait()/notify() is used.",
+          "Deadlock will not occur if wait()/notify() is used.",
           "A thread will resume execution as soon as its sleep duration expires.",
           "Synchronization can prevent two objects from being accessed by the same thread.",
-          "Thewait() method is overloaded to accept a duration.",
-          "Thenotify() method is overloaded to accept a duration.",
-          "Bothwait() andnotify() must be called from a synchronized context.",
+          "The wait() method is overloaded to accept a duration.",
+          "The notify() method is overloaded to accept a duration.",
+          "Both wait() and notify() must be called from a synchronized context.",
           "wait() can throw a runtime exception",
           "sleep() can throw a runtime exception."
         ],
@@ -16261,8 +16261,8 @@ export const scjpChapterQuizzes = [
           "Wrap a synchronize(this) around the call to f.increase().",
           "The existing code will not compile.",
           "The existing code will cause a runtime exception.",
-          "Put in await() call prior to invoking theincrease() method.",
-          "Synchronize theincrease() method"
+          "Put in a wait() call prior to invoking the increase() method.",
+          "Synchronize the increase() method"
         ],
         "optionsVi": [
           "Đồng bộ hóa phương thức run() (Synchronize the run method).",
