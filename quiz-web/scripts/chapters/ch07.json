@@ -1,0 +1,432 @@
+[
+  {
+    "id": "scjp-ch07-001",
+    "originalId": 1,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+    "textVi": "Cho đoạn mã sau, 11.  x = 0; and assuming that the equals () and hashCode() methods are property implemented, if the output is “x = 1111”, which of the following statements will always be true?",
+    "code": "12.  if (x1.hashCode() != x2.hashCode() )  x = x + 1;\n13.  if (x3.equals(x4) )  x = x + 10;\n14.  if (!x5.equals(x6) ) x = x + 100;\n15.  if (x7.hashCode() == x8.hashCode() )  x = x + 1000;\n16.  System.out.println(\"x = \" + x);",
+    "options": [
+      "x2.equals(x1)",
+      "x3.hashCode() == x4.hashCode()",
+      "x5.hashCode() != x6.hashCode()",
+      "x8.equals(x7)"
+    ],
+    "optionsVi": [
+      "x2.equals(x1)",
+      "x3.hashCode() == x4.hashCode()",
+      "x5.hashCode() != x6.hashCode()",
+      "x8.equals(x7)"
+    ],
+    "answer": 1,
+    "explanation": "B. By contract, if two objects are equivalent according to the equals() method, then thehashCode() method must evaluate them to be ==. ✗ A is incorrect because if the hashCode() values are not equal, the two objects must not be equal. C is incorrect because if equals() is not true there is no guarantee of any result fromhashCode(). D is incorrect because hashCode() will often return == even if the two objects do not evaluate to equals() being true.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch07-002",
+    "originalId": 2,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } which statement is true?",
+    "textVi": "Cho đoạn mã sau, class Test1 { public int value; public int hashCode() { return 42; } } class Test2 { public int value; public int hashcode() { return (int)(value^5); } } Phát biểu nào sau đây là ĐÚNG?",
+    "code": "",
+    "options": [
+      "class Test1 will not compile.",
+      "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+      "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+      "class Test2 will not compile.",
+      "The twohashcode() methods will have the same efficiency."
+    ],
+    "optionsVi": [
+      "class Test1 will not compile.",
+      "The Test1hashCode() method is more efficient than the Test2hashCode() method.",
+      "The Test1hashCode() method is less efficient than the Test2hashCode() method.",
+      "class Test2 will not compile.",
+      "The twohashcode() methods will have the same efficiency."
+    ],
+    "answer": 2,
+    "explanation": "C. The so-called “hashing algorithm” implemented by class Test1 will always return the same value, 42, which is legal but which will place all of the hash table entries into a single bucket, the most inefficient setup possible. ✗ A and D are incorrect because these classes are legal. B and E are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch07-003",
+    "originalId": 3,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+    "textVi": "Which two statements are true about comparing two instances of the same class, given that the equals() andhashCode() methods have been properly overridden? (Choose two.)",
+    "code": "",
+    "options": [
+      "A và D (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & D: If thehashCode() comparison == returnstrue, theequals() method might returntrue.)",
+      "A và B (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & B: If theequals() method returnsfalse, thehashCode() comparison != must return true.)",
+      "B và C (B: If theequals() method returnsfalse, thehashCode() comparison != must return true. & C: If thehashCode() comparison == returnstrue, theequals() method must return true.)",
+      "D và E (D: If thehashCode() comparison == returnstrue, theequals() method might returntrue. & E: If thehashCode() comparison != returnstrue, theequals() method might returntrue.)"
+    ],
+    "optionsVi": [
+      "A và D (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & D: If thehashCode() comparison == returnstrue, theequals() method might returntrue.)",
+      "A và B (A: If theequals() method returnstrue, thehashCode() comparison == must returntrue. & B: If theequals() method returnsfalse, thehashCode() comparison != must return true.)",
+      "B và C (B: If theequals() method returnsfalse, thehashCode() comparison != must return true. & C: If thehashCode() comparison == returnstrue, theequals() method must return true.)",
+      "D và E (D: If thehashCode() comparison == returnstrue, theequals() method might returntrue. & E: If thehashCode() comparison != returnstrue, theequals() method might returntrue.)"
+    ],
+    "answer": 0,
+    "explanation": "A and D. A is a restatement of the equals() andhashCode() contract. D is true because if thehashCode() comparison returns ==, the two objects might or might not be equal. ✗ B, C, and E are incorrect. B and C are incorrect because the hashCode() method is very flexible in its return values, and often two dissimilar objects can return the same hash code value. E is a negation of the hashCode() andequals() contract.",
+    "correctLetters": [
+      "A",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch07-004",
+    "originalId": 4,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+    "textVi": "Which class does not override the equals() andhashCode() methods, inheriting them directly from class Object?",
+    "code": "",
+    "options": [
+      "java.lang.String",
+      "java.lang.Double",
+      "java.lang.StringBuffer",
+      "java.lang.Character",
+      "java.util.ArrayList"
+    ],
+    "optionsVi": [
+      "java.lang.String",
+      "java.lang.Double",
+      "java.lang.StringBuffer",
+      "java.lang.Character",
+      "java.util.ArrayList"
+    ],
+    "answer": 2,
+    "explanation": "C. java.lang.StringBuffer is the only class in the list that uses the default methods provided by class Object. ✗ A, C, D, E, and F are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch07-005",
+    "originalId": 5,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "What two statements are true about properly overridden hashCode() andequals() methods?",
+    "textVi": "What two statements are true about properly overridden hashCode() andequals() methods?",
+    "code": "",
+    "options": [
+      "C và E (C: hashCode() can always return the same value, regardless of the object that invoked it. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))",
+      "A và C (A: hashCode() doesn’t have to be overridden ifequals() is. & C: hashCode() can always return the same value, regardless of the object that invoked it.)",
+      "A và B (A: hashCode() doesn’t have to be overridden ifequals() is. & B: equals() doesn’t have to be overridden ifhashCode() is.)",
+      "D và E (D: If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))"
+    ],
+    "optionsVi": [
+      "C và E (C: hashCode() can always return the same value, regardless of the object that invoked it. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))",
+      "A và C (A: hashCode() doesn’t have to be overridden ifequals() is. & C: hashCode() can always return the same value, regardless of the object that invoked it.)",
+      "A và B (A: hashCode() doesn’t have to be overridden ifequals() is. & B: equals() doesn’t have to be overridden ifhashCode() is.)",
+      "D và E (D: If two different objects that are not meaningfully equivalent both invokehashCode(), thenhashCode() can’t return the same value for both invocations. & E: equals() can be true even if it’s comparing different objects. 44 Chapter 7: Objects and Collections Using Collections (Exam Objective 9.1))"
+    ],
+    "answer": 0,
+    "explanation": "C and E are correct. ✗ A, B, and D are incorrect. A and B are incorrect because by contract hashCode() and equals() can’t be overridden unless both are overridden.D is incorrect;hashCode() will often return the same value when hashing dissimilar objects. Using Collections (Exam Objective 9.1)",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch07-006",
+    "originalId": 6,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+    "textVi": "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+    "code": "",
+    "options": [
+      "java.util.HashSet",
+      "java.util.LinkedHashSet",
+      "java.util.List",
+      "java.util.ArrayList",
+      "java.util.Vector"
+    ],
+    "optionsVi": [
+      "java.util.HashSet",
+      "java.util.LinkedHashSet",
+      "java.util.List",
+      "java.util.ArrayList",
+      "java.util.Vector"
+    ],
+    "answer": 3,
+    "explanation": "D. All of the collection classes allow you to grow or shrink the size of your collection. ArrayList provides an index to its elements. The newer collection classes tend not to have synchronized methods. Vector is an older implementation of ArrayList functionality and has synchronized methods; it is slower than ArrayList. ✗ A, B, C, and E are incorrect based on the logic described above; C, List is an interface.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch07-007",
+    "originalId": 7,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+    "textVi": "Which collection class allows you to access its elements by associating a key with an element’s value, and provides synchronization?",
+    "code": "",
+    "options": [
+      "java.util.SortedMap",
+      "java.util.TreeMap",
+      "java.util.TreeSet",
+      "java.util.HashMap",
+      "java.util.Hashtable"
+    ],
+    "optionsVi": [
+      "java.util.SortedMap",
+      "java.util.TreeMap",
+      "java.util.TreeSet",
+      "java.util.HashMap",
+      "java.util.Hashtable"
+    ],
+    "answer": 4,
+    "explanation": "E. Hashtable is the only class listed that provides synchronized methods. If you need synchronization great; otherwise, use HashMap, it’s faster. ✗ A, B, C, and D are incorrect based on the logic described above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch07-008",
+    "originalId": 8,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "12.    TreeSet map = new TreeSet();\n13.    map.add(\"one\");\n14.    map.add(\"two\");\n15.    map.add(\"three\");\n16.    map.add(\"four\");\n17.    map.add(\"one\");\n18.    Iterator it = map.iterator();\n19.    while (it.hasNext() ) {\n20.        System.out.print( it.next() + \" \" );\n21.     }",
+    "options": [
+      "one two three four",
+      "four three two one",
+      "four one three two",
+      "one two three four one",
+      "one four three two one",
+      "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+    ],
+    "optionsVi": [
+      "one two three four",
+      "four three two one",
+      "four one three two",
+      "one two three four one",
+      "one four three two one",
+      "The print order is not guaranteed. 46 Chapter 7: Objects and Collections"
+    ],
+    "answer": 2,
+    "explanation": "C. TreeSet assures no duplicate entries; also, when it is accessed it will return elements in natural order, which typically means alphabetical. ✗ A, B, D, E, and F are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch07-009",
+    "originalId": 9,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+    "textVi": "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+    "code": "",
+    "options": [
+      "java.util.ArrayList",
+      "java.util.LinkedHashMap",
+      "java.util.HashMap",
+      "java.util.TreeMap",
+      "java.util.LinkedHashSet",
+      "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+    ],
+    "optionsVi": [
+      "java.util.ArrayList",
+      "java.util.LinkedHashMap",
+      "java.util.HashMap",
+      "java.util.TreeMap",
+      "java.util.LinkedHashSet",
+      "java.util.TreeSet Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)"
+    ],
+    "answer": 1,
+    "explanation": "B. LinkedHashMap is the collection class used for caching purposes. FIFO is another way to indicate caching behavior. To retrieve LinkedHashMap elements in cached order, use the values() method and iterate over the resultant collection. ✗ A, C, D, E, and E are incorrect based on the logic described above. Garbage Collection (Exam Objectives 3.1, 3.2, 3.3)",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch07-010",
+    "originalId": 10,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "1.  public class X {\n2.    public static void main(String [] args) {\n3.      X x = new X();\n4.      X x2 = m1(x);\n5.      X x4 = new X();\n6.      x2 = x4;\n7.      doComplexStuff();\n8.    }\n9.    static X m1(X mx) {\n10.     mx = new X();\n11.     return mx;\n12.   }\n13. }\nAfter line 6 runs. how many objects are eligible for garbage collection?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 1,
+    "explanation": "B. By the time line 6 has run, the only object without a reference is the one generated as a result of line 4. Remember that “Java is pass by value,” so the reference variablex is not affected by them1() method. ✗ A, C, D, and E are incorrect based on the logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch07-011",
+    "originalId": 11,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which statement is true?",
+    "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+    "code": "",
+    "options": [
+      "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+      "Objects with at least one reference will never be garbage collected.",
+      "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+      "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+      "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+    ],
+    "optionsVi": [
+      "All objects that are eligible for garbage collection will be garbage collected by the garbage collector.",
+      "Objects with at least one reference will never be garbage collected.",
+      "Objects from a class with thefinalize() method overridden will never be garbage collected.",
+      "Objects instantiated within anonymous inner classes are placed in the garbage collectible heap.",
+      "Once an overriddenfinalize() method is invoked, there is no way to make that object ineligible for garbage collection."
+    ],
+    "answer": 3,
+    "explanation": "D. All objects are placed in the garbage collectible heap. ✗ A is incorrect because the garbage collector makes no guarantees. B is incorrect because islands of isolated objects can exist. C is incorrect because finalize() has no such mystical powers. E is incorrect because within a finalize() method, an object’s reference can be passed back to a live thread.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch07-012",
+    "originalId": 12,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "1.   class X2 {\n2.     public X2 x;\n3.     public static void main(String [] args) {\n4.       X2 x2 = new X2();\n5.       X2 x3 = new X2();\n6.       x2.x = x3;\n7.       x3.x = x2;\n8.       x2 = new X2();\n9.       x3 = x2;\n10.      doComplexStuff();\n11.    }\n12.  }\nafter line 9 runs, how many objects are eligible for garbage collection?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 2,
+    "explanation": "C. This is an example of the islands of isolated objects . By the time line 9 has run, the objects instantiated in lines 4 and 5 are referring to each other, but no live thread can reach either of them. ✗ A, B, D, and E are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch07-013",
+    "originalId": 13,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Which statement is true?",
+    "textVi": "Phát biểu nào sau đây là ĐÚNG?",
+    "code": "",
+    "options": [
+      "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+      "The garbage collector uses a mark and sweep algorithm.",
+      "If an object can be accessed from a live thread, it can’t be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+    ],
+    "optionsVi": [
+      "CallingRuntime.gc() will cause eligible objects to be garbage collected.",
+      "The garbage collector uses a mark and sweep algorithm.",
+      "If an object can be accessed from a live thread, it can’t be garbage collected.",
+      "If object 1 refers to object 2, then object 2 can’t be garbage collected."
+    ],
+    "answer": 2,
+    "explanation": "C. This is a great way to think about when objects can be garbage collected. ✗ A and B assume guarantees that the garbage collector never makes. D is wrong because of the now famous islands of isolation scenario.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch07-014",
+    "originalId": 14,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "12.  X3 x2 = new X3();\n13.  X3 x3 = new X3();\n14.  X3 x5 = x3;\n15.  x3 = x2;\n16.  X3 x4 = x3;",
+    "options": [
+      "C và E (C:  & E: )",
+      "A và C (A:  & C: )",
+      "A và B (A:  & B: )",
+      "E và F (E:  & F: )"
+    ],
+    "optionsVi": [
+      "C và E (C:  & E: )",
+      "A và C (A:  & C: )",
+      "A và B (A:  & B: )",
+      "E và F (E:  & F: )"
+    ],
+    "answer": 0,
+    "explanation": "C and E. By the time line 18 is reached, x2 is null,x3 andx4 refer to the object created in line 12, andx5 refers to the object created in line 13. Any kind of redirection of x5 will leave the second object without a reference. ✗ A, B, and D are incorrect because the first object has two references; changing one of the references will not cause the first object to become unreachable.",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch07-015",
+    "originalId": 15,
+    "chapterNum": 7,
+    "chapterTitle": "Objects and Collections",
+    "topic": "collection",
+    "text": "",
+    "textVi": "",
+    "code": "",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "optionsVi": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": 0,
+    "explanation": "E is correct. A copy of a reference to the line 13 object is passed to the doStuff2() method. We don’t know what goes on in that method; it’s possible that the reference is passed to other live objects. ✗ A, B, C, and D are incorrect based on the logic described above. 50 Chapter 7: Objects and Collections",
+    "correctLetters": [
+      "E"
+    ]
+  }
+]

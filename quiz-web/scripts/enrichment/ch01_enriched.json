@@ -1,0 +1,580 @@
+[
+  {
+    "id": "scjp-ch01-001",
+    "originalId": 1,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, what is the result? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và chạy chương trình là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        signed int x = 10;\n4.           for (int y=0; y<5; y++, x--)\n5.              System.out.print(\" \" + x);\n6.     }\n7.  }",
+    "options": [
+      "1 09876",
+      "98765",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "1 09876",
+      "98765",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quan sát dòng 3: `signed int x = 10;`.\n2. Trong ngôn ngữ lập trình Java, tất cả các kiểu dữ liệu số nguyên nguyên thủy (`byte`, `short`, `int`, `long`) đều MẶC ĐỊNH là số có dấu (signed - biểu diễn theo phương pháp bù 2). \n3. Khác với ngôn ngữ C hay C++, Java KHÔNG HỀ có từ khóa `signed` hoặc `unsigned`. Do đó, khi trình biên dịch (compiler) quét qua từ `signed`, nó không thể hiểu được đây là từ khóa hay một kiểu dữ liệu nào hợp lệ, dẫn đến lỗi cú pháp ngay lập tức.\n4. Vì đã bị chặn ngay ở khâu biên dịch (compile-time error), chương trình hoàn toàn không thể sinh ra file `.class` và không thể chạy được.\n\n✅ Vì sao đáp án \"C. Lỗi biên dịch (Compilation fails)\" đúng:\nTừ khóa `signed` không tồn tại trong từ điển từ khóa của Java. Trình biên dịch sẽ báo lỗi tại dòng 3 (`cannot find symbol` hoặc cú pháp không hợp lệ).\n\n❌ Vì sao các đáp án khác sai:\n• \"A. 1 09876\": Sai vì chương trình không thể biên dịch thành công thì không thể thực thi để in ra chuỗi số này.\n• \"B. 98765\": Sai vì tương tự, đây là kết quả giả định nếu vòng lặp chạy mà bỏ qua lỗi biên dịch tại dòng 3.\n• \"D. Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\": Sai vì lỗi xảy ra ở giai đoạn biên dịch (compile-time), chương trình chưa từng được khởi chạy nên không thể phát sinh ngoại lệ lúc runtime.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Java không có từ khóa `signed` hay `unsigned` như C/C++. Mọi kiểu số nguyên (`byte`, `short`, `int`, `long`) trong Java luôn luôn là signed (có dấu). Ngoại lệ duy nhất là kiểu `char` là số nguyên không dấu 16-bit (0 đến 65535).",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch01-002",
+    "originalId": 2,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which is a reserved word in the Java programming language? (Choose one.)",
+    "textVi": "Từ nào dưới đây là một từ khóa bảo lưu (reserved word / keyword) trong ngôn ngữ lập trình Java? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "method",
+      "native",
+      "subclasses",
+      "reference",
+      "array"
+    ],
+    "optionsVi": [
+      "method",
+      "native",
+      "subclasses",
+      "reference",
+      "array"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Java có một danh sách các từ khóa bảo lưu (keywords/reserved words) có ý nghĩa đặc biệt đối với trình biên dịch và lập trình viên không được dùng chúng làm tên biến, tên lớp hay tên phương thức.\n2. Từ `native` là một modifier chính thức trong Java. Nó được dùng để khai báo các phương thức mà phần cài đặt thân hàm được viết bằng một ngôn ngữ lập trình khác (thường là C hoặc C++) và được gọi thông qua JNI (Java Native Interface). Ví dụ: `public native int hashCode();`.\n3. Các từ còn lại trong câu hỏi chỉ là những thuật ngữ thông dụng trong lập trình hướng đối tượng hoặc cấu trúc dữ liệu, không phải từ khóa Java.\n\n✅ Vì sao đáp án \"B. native\" đúng:\n`native` là từ khóa chuẩn trong Java, dùng để định nghĩa phương thức được cài đặt bằng mã nguồn gốc (C/C++).\n\n❌ Vì sao các đáp án khác sai:\n• \"A. method\": Sai vì đây chỉ là danh từ chỉ phương thức (hàm trong lớp), không phải từ khóa.\n• \"C. subclasses\": Sai vì trong Java, từ khóa dùng để kế thừa tạo lớp con là `extends`, từ `subclasses` không phải từ khóa.\n• \"D. reference\": Sai vì đây chỉ là thuật ngữ chỉ kiểu tham chiếu (reference type), không phải từ khóa.\n• \"E. array\": Sai vì mảng trong Java sử dụng ký hiệu cặp ngoặc vuông `[]`, Java không dùng từ khóa `array`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các từ quen thuộc như `method`, `reference`, `array`, `subclasses` chỉ là thuật ngữ đời thường. Java dùng `native` để giao tiếp với code C/C++ ở tầng hệ điều hành!",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch01-003",
+    "originalId": 3,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which one of these lists contains only Java programming language keywords? (Choose one.)",
+    "textVi": "Danh sách nào dưới đây CHỈ chứa toàn bộ các từ khóa hợp lệ trong ngôn ngữ Java? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "class,if,void,long,Int,continue",
+      "goto,instanceof,native,finally,default,throws",
+      "try,virtual,throw,final,volatile,transient",
+      "strictfp,constant,super,implements,do",
+      "byte,break,assert,switch,include"
+    ],
+    "optionsVi": [
+      "class,if,void,long,Int,continue",
+      "goto,instanceof,native,finally,default,throws",
+      "try,virtual,throw,final,volatile,transient",
+      "strictfp,constant,super,implements,do",
+      "byte,break,assert,switch,include"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Trong Java, tất cả các từ khóa đều được viết thường toàn bộ (lowercase) và ngôn ngữ phân biệt hoa thường (case-sensitive) rất khắt khe.\n2. Hãy phân tích từng từ trong danh sách B:\n   - `goto`: Là một từ khóa bảo lưu trong Java (reserved keyword) dù hiện tại chưa được sử dụng.\n   - `instanceof`: Toán tử kiểm tra kiểu đối tượng.\n   - `native`: Modifier cho phương thức gọi mã C/C++.\n   - `finally`: Khối lệnh dọn dẹp tài nguyên trong cấu trúc `try-catch-finally`.\n   - `default`: Dùng trong cấu trúc `switch-case` hoặc khai báo method mặc định trong interface.\n   - `throws`: Dùng ở phần khai báo phương thức để báo hiệu ngoại lệ có thể ném ra.\n   Tất cả 6 từ trong B đều là từ khóa 100%.\n\n✅ Vì sao đáp án \"B. goto, instanceof, native, finally, default, throws\" đúng:\nCả 6 từ này đều là từ khóa bảo lưu chính thức của Java (viết thường toàn bộ).\n\n❌ Vì sao các đáp án khác sai:\n• \"A. class, if, void, long, Int, continue\": Sai vì có từ `Int` (chữ I viết hoa). Từ khóa của kiểu nguyên thủy trong Java phải là `int` (viết thường). `Int` không phải từ khóa.\n• \"C. try, virtual, throw, final, volatile, transient\": Sai vì `virtual` là từ khóa của C++, Java không có từ khóa `virtual` (mọi phương thức không phải `final`/`private`/`static` trong Java mặc định đã là ảo/virtual).\n• \"D. strictfp, constant, super, implements, do\": Sai vì `constant` không phải từ khóa Java. Hằng số trong Java được khai báo bằng `static final`. (Java chỉ giữ chỗ từ `const`, không có từ `constant`).\n• \"E. byte, break, assert, switch, include\": Sai vì `include` là chỉ thị tiền xử lý của C/C++, Java dùng từ khóa `import`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Tất cả từ khóa Java đều viết chữ thường toàn bộ! `goto` và `const` tuy không dùng nhưng vẫn là từ khóa bảo lưu (reserved). Các từ của C/C++ như `virtual`, `include` không tồn tại trong Java!",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch01-004",
+    "originalId": 4,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which two are keywords? (Choose two.)",
+    "textVi": "Trong các từ dưới đây, hai từ nào là từ khóa (keywords) của ngôn ngữ Java? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "A và D (A: interface & D: this)",
+      "A và B (A: interface & B: unsigned)",
+      "B và C (B: unsigned & C: Float)",
+      "D và E (D: this & E: string)"
+    ],
+    "optionsVi": [
+      "A và D (A: interface & D: this)",
+      "A và B (A: interface & B: unsigned)",
+      "B và C (B: unsigned & C: Float)",
+      "D và E (D: this & E: string)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy kiểm tra từng từ được đưa ra:\n- `interface`: Là từ khóa dùng để khai báo một giao diện (interface).\n- `unsigned`: Không phải từ khóa trong Java (đây là từ khóa của ngôn ngữ C/C++).\n- `Float`: Không phải từ khóa. Đây là tên một lớp bao đóng (Wrapper Class) trong gói `java.lang`. Từ khóa của kiểu số thực nguyên thủy là `float` (chữ f viết thường).\n- `this`: Là từ khóa tham chiếu đến chính đối tượng hiện tại của lớp.\n- `string`: Không phải từ khóa. Trong Java, chuỗi được quản lý bởi lớp `String` (chữ S viết hoa), còn chữ `string` viết thường không có ý nghĩa cú pháp nào.\n\n✅ Vì sao đáp án \"A và D (A: interface & D: this)\" đúng:\nCả `interface` và `this` đều là các từ khóa chính thức và hợp lệ trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B\": Sai vì `unsigned` là từ khóa trong C/C++, Java không hỗ trợ `unsigned`.\n• \"B và C\": Sai vì `unsigned` không tồn tại trong Java và `Float` là tên Class (`java.lang.Float`), không phải keyword.\n• \"D và E\": Sai vì `string` không phải là từ khóa (Java dùng class `String` viết hoa).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phân biệt rõ giữa *tên Class* (`String`, `Float`, `Integer`) và *từ khóa/kiểu nguyên thủy* (`float`, `int`). Mọi từ khóa Java luôn viết thường toàn bộ!",
+    "correctLetters": [
+      "A",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch01-005",
+    "originalId": 5,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which three are valid declarations of a char? (Choose three.)",
+    "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu dữ liệu char? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "A và C (A: charc1=064770 ; & C: charc3=0xbeef ;)",
+      "A và B (A: charc1=064770 ; & B: charc2=‘face’ ;)",
+      "B và D (B: charc2=‘face’ ; & D: charc4=\\u0022 ;)",
+      "C và F (C: charc3=0xbeef ; & F: charc6=‘\\uface’ ;)"
+    ],
+    "optionsVi": [
+      "A và C (A: charc1=064770 ; & C: charc3=0xbeef ;)",
+      "A và B (A: charc1=064770 ; & B: charc2=‘face’ ;)",
+      "B và D (B: charc2=‘face’ ; & D: charc4=\\u0022 ;)",
+      "C và F (C: charc3=0xbeef ; & F: charc6=‘\\uface’ ;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Kiểu `char` trong Java là một kiểu số nguyên không dấu 16-bit (unsigned 16-bit), lưu trữ mã ký tự Unicode từ `0` đến `65535` (hoặc từ `\\u0000` đến `\\uffff`).\n2. Do đó, một biến `char` có thể được gán bằng:\n   - Ký tự đặt trong cặp dấu nháy đơn `'a'`.\n   - Mã Unicode đặt trong nháy đơn `'\\uxxxx'` (x là chữ số hexa).\n   - Số nguyên không dấu nằm trong khoảng từ 0 đến 65535 (biểu diễn dưới dạng thập phân, bát phân octal `0...`, hoặc thập lục phân hex `0x...`).\n3. Đánh giá từng khai báo:\n   - A: `char c1 = 064770;`: Số bắt đầu bằng số `0` là hệ bát phân (octal). $064770_8 = 27128_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - B: `char c2 = 'face';`: Sai vì dấu nháy đơn `' '` chỉ được chứa đúng 1 ký tự duy nhất, ở đây có 4 ký tự.\n   - C: `char c3 = 0xbeef;`: Bắt đầu bằng `0x` là hệ thập lục phân (hex). $0xbeef = 48879_{10}$, nằm trong phạm vi 0..65535 -> Hợp lệ!\n   - D: `char c4 = \\u0022;`: Sai vì thiếu dấu nháy đơn `' '`.\n   - E: `char c5 = '\\iface';`: Sai vì Unicode literal phải bắt đầu bằng `\\u`, không phải `\\i`.\n   - F: `char c6 = '\\uface';`: Hợp lệ vì đúng định dạng Unicode literal 4 chữ số hex trong nháy đơn.\n\n✅ Vì sao đáp án \"A và C\" đúng:\nCả `064770` (hệ 8) và `0xbeef` (hệ 16) đều là các giá trị số nguyên hợp lệ nằm trọn trong dải giá trị từ 0 đến 65535 của kiểu `char`.\n\n❌ Vì sao các đáp án khác sai:\n• Các phương án chứa B (`'face'`): Sai vì nháy đơn không được chứa chuỗi nhiều ký tự.\n• Các phương án chứa D (`\\u0022`): Sai vì thiếu dấu nháy đơn bao bọc ký tự Unicode.\n• Các phương án chứa E: Sai vì tiền tố escape Unicode phải là `\\u`, không phải `\\i`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `char` bản chất là số nguyên không dấu 16-bit (0 đến 65535). Vì vậy ta hoàn toàn có thể gán số nguyên trực tiếp cho `char` miễn là không vượt quá 65535!",
+    "correctLetters": [
+      "A",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch01-006",
+    "originalId": 6,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which two are valid declarations of a String? (Choose two.)",
+    "textVi": "Hai khai báo nào dưới đây là hợp lệ cho kiểu String? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "A và E (A: String s1 = null; & E: String s5 = \"stringsrule\";)",
+      "A và B (A: String s1 = null; & B: String s2 = 'null';)",
+      "B và C (B: String s2 = 'null'; & C: String s3 = (String)'abc';)",
+      "D và E (D: String s4 = (String)'\\ufeed'; & E: String s5 = \"stringsrule\";)"
+    ],
+    "optionsVi": [
+      "A và E (A: String s1 = null; & E: String s5 = \"stringsrule\";)",
+      "A và B (A: String s1 = null; & B: String s2 = 'null';)",
+      "B và C (B: String s2 = 'null'; & C: String s3 = (String)'abc';)",
+      "D và E (D: String s4 = (String)'\\ufeed'; & E: String s5 = \"stringsrule\";)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. `String` trong Java là một kiểu đối tượng tham chiếu (reference type), không phải kiểu nguyên thủy.\n2. Đánh giá từng phát biểu:\n   - A: `String s1 = null;`: Hoàn toàn hợp lệ, bất kỳ biến tham chiếu đối tượng nào trong Java cũng có thể nhận giá trị `null` (chưa trỏ tới đối tượng nào).\n   - B: `String s2 = 'null';`: Sai vì dấu nháy đơn `' '` chỉ dùng cho ký tự đơn `char`, không thể chứa chuỗi gồm 4 ký tự `null`. Hơn nữa, `char` không thể tự gán cho `String`.\n   - C: `String s3 = (String)'abc';`: Sai vì `'abc'` là ký tự không hợp lệ (nhiều hơn 1 ký tự trong nháy đơn), và không thể ép kiểu (cast) từ kiểu nguyên thủy `char` sang kiểu đối tượng `String`.\n   - D: `String s4 = (String)'\\ufeed';`: Sai vì `'\\ufeed'` là kiểu nguyên thủy `char`, trong Java không cho phép ép kiểu trực tiếp giữa kiểu nguyên thủy (`char`) và đối tượng (`String`).\n   - E: `String s5 = \"stringsrule\";`: Hoàn toàn hợp lệ, đây là cú pháp khởi tạo String thông qua String Literal trong dấu nháy kép `\"\"`.\n\n✅ Vì sao đáp án \"A và E (A: String s1 = null; & E: String s5 = \"stringsrule\";)\" đúng:\nCả hai đều là cú pháp gán hợp lệ cho biến tham chiếu `String`: gán tham chiếu `null` (A) và gán một chuỗi ký tự trong dấu nháy kép (E).\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Sai vì `'null'` đặt trong nháy đơn là sai cú pháp ký tự và sai kiểu dữ liệu.\n• Phương án chứa C: Sai vì `'abc'` không hợp lệ và không thể ép kiểu từ `char` sang `String`.\n• Phương án chứa D: Sai vì không thể ép kiểu trực tiếp từ kiểu nguyên thủy `char` (`'\\ufeed'`) sang đối tượng `String`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chuỗi trong Java LUÔN đặt trong nháy kép `\"...\"`. Nháy đơn `'...'` chỉ dành cho đúng 1 ký tự `char`. Tuyệt đối không thể ép kiểu trực tiếp `(String)'a'`!",
+    "correctLetters": [
+      "A",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch01-007",
+    "originalId": 7,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which one is a valid declaration of a boolean? (Choose one.)",
+    "textVi": "Khai báo nào dưới đây là một khai báo hợp lệ cho kiểu boolean? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "boolean b1 = 0;",
+      "boolean b2 = 'false';",
+      "boolean b3 = false;",
+      "boolean b4 = Boolean.false();",
+      "boolean b5 = no;"
+    ],
+    "optionsVi": [
+      "boolean b1 = 0;",
+      "boolean b2 = 'false';",
+      "boolean b3 = false;",
+      "boolean b4 = Boolean.false();",
+      "boolean b5 = no;"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Trong Java, kiểu nguyên thủy `boolean` là một kiểu dữ liệu độc lập hoàn toàn, chỉ chấp nhận duy nhất hai giá trị literal: `true` hoặc `false` (viết thường toàn bộ).\n2. Khác hoàn toàn với ngôn ngữ C/C++: Java KHÔNG coi số `0` là `false` hay số khác 0 (`1`) là `true`. Java không hỗ trợ việc chuyển đổi tự động giữa số nguyên và boolean.\n\n✅ Vì sao đáp án \"C. boolean b3 = false;\" đúng:\n`false` là giá trị literal chuẩn và hợp lệ của kiểu nguyên thủy `boolean`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. boolean b1 = 0;\": Sai vì Java không cho phép gán số nguyên cho biến kiểu boolean (không tự động cast `int` sang `boolean`).\n• \"B. boolean b2 = 'false';\": Sai vì `'false'` là cú pháp ký tự không hợp lệ (nháy đơn chứa nhiều ký tự), đồng thời ký tự không thể gán cho boolean.\n• \"D. boolean b4 = Boolean.false();\": Sai vì lớp `java.lang.Boolean` không hề có phương thức nào tên là `false()`.\n• \"E. boolean b5 = no;\": Sai vì `no` không phải là từ khóa, và nếu là biến thì biến này chưa được định nghĩa.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `boolean` trong Java chỉ có đúng 2 giá trị duy nhất: `true` hoặc `false`. Không có số 0, số 1, không có nháy đơn hay nháy kép!",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch01-008",
+    "originalId": 8,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "What is the numerical range of a char? (Choose one.)",
+    "textVi": "Phạm vi giá trị số (numerical range) của kiểu char trong Java là gì? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "–128 to 127",
+      "–(2 ^ 15) to (2 ^ 15) - 1",
+      "0 to 32767",
+      "Platform dependent",
+      "0 to 65535"
+    ],
+    "optionsVi": [
+      "–128 to 127",
+      "–(2 ^ 15) to (2 ^ 15) - 1",
+      "0 to 32767",
+      "Platform dependent",
+      "0 to 65535"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Kiểu `char` trong Java có kích thước 16-bit và là kiểu số nguyên KHÔNG DẤU (unsigned) duy nhất trong Java.\n2. Được thiết kế để biểu diễn các ký tự trong bảng mã Unicode (UTF-16 code units):\n   - Giá trị nhỏ nhất: 0 (tương ứng với ký tự `\\u0000`).\n   - Giá trị lớn nhất: $2^{16} - 1 = 65,535$ (tương ứng với ký tự `\\uffff`).\n3. Mọi kiểu số nguyên khác của Java (`byte`, `short`, `int`, `long`) đều là số có dấu (signed), nhưng riêng `char` chỉ lưu các giá trị không âm.\n\n✅ Vì sao đáp án \"E. 0 to 65535\" đúng:\nKiểu `char` chiếm 16 bit không dấu, do đó dải giá trị số chính xác là từ 0 đến $2^{16} - 1 = 65,535$.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. –128 to 127\": Sai vì đây là phạm vi của kiểu `byte` (8-bit có dấu).\n• \"B. –(2 ^ 15) to (2 ^ 15) - 1\": Sai vì đây là phạm vi của kiểu `short` (–32,768 đến 32,767, là 16-bit có dấu).\n• \"C. 0 to 32767\": Sai vì `char` không dùng bit dấu nên tận dụng toàn bộ 16 bit cho số dương, đạt tới 65535 chứ không dừng ở 32767.\n• \"D. Platform dependent\": Sai vì trong Java, kích thước và dải giá trị của tất cả kiểu dữ liệu nguyên thủy đều cố định trên mọi nền tảng hệ điều hành (Write Once, Run Anywhere).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `char` = unsigned 16-bit = 0 đến 65,535.\n• `short` = signed 16-bit = –32,768 đến 32,767.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch01-009",
+    "originalId": 9,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which three are valid declarations of a float? (Choose three.)",
+    "textVi": "Ba khai báo nào dưới đây là hợp lệ cho kiểu float? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "A và C (A: float f1 = -343; & C: float f3 = 0x12345;)",
+      "A và B (A: float f1 = -343; & B: float f2 = 3.14;)",
+      "B và D (B: float f2 = 3.14; & D: float f4 = 42e7;)",
+      "C và F (C: float f3 = 0x12345; & F: float f6 = 2.81F;)"
+    ],
+    "optionsVi": [
+      "A và C (A: float f1 = -343; & C: float f3 = 0x12345;)",
+      "A và B (A: float f1 = -343; & B: float f2 = 3.14;)",
+      "B và D (B: float f2 = 3.14; & D: float f4 = 42e7;)",
+      "C và F (C: float f3 = 0x12345; & F: float f6 = 2.81F;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc số thực trong Java: Mọi literal số thực có dấu chấm động (như `3.14`) hoặc dạng số mũ (`42e7`) mặc định đều có kiểu là `double` (64-bit).\n2. Kiểu `float` chỉ có 32-bit. Bạn không thể gán trực tiếp một giá trị `double` (64-bit) vào biến `float` (32-bit) vì có nguy cơ mất độ chính xác (loss of precision), trừ khi có chữ `f` hoặc `F` đi kèm ở cuối.\n3. Số nguyên (`int` - 32 bit) hoàn toàn có thể gán tự động cho `float` (32 bit) thông qua cơ chế nới rộng kiểu (widening conversion).\n4. Đánh giá từng trường hợp:\n   - A: `float f1 = -343;`: `-343` là số nguyên `int`, tự động chuyển đổi sang `float` -> Hợp lệ!\n   - B: `float f2 = 3.14;`: `3.14` mặc định là `double`, không thể gán trực tiếp cho `float` -> Lỗi biên dịch.\n   - C: `float f3 = 0x12345;`: `0x12345` là số nguyên hệ hex (kiểu `int`), tự động chuyển đổi sang `float` -> Hợp lệ!\n   - D: `float f4 = 42e7;`: `42e7` mặc định là `double` -> Lỗi biên dịch.\n   - F: `float f6 = 2.81F;`: Có hậu tố `F` chỉ định rõ kiểu `float` -> Hợp lệ!\n\n✅ Vì sao đáp án \"A và C (A: float f1 = -343; & C: float f3 = 0x12345;)\" đúng:\nCả hai giá trị này đều là các số nguyên nguyên thủy (`int`), Java cho phép tự động chuyển đổi từ `int` sang `float` mà không cần ép kiểu.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B (`float f2 = 3.14;`): Sai vì `3.14` là kiểu `double`, trình biên dịch sẽ báo lỗi \"possible loss of precision\".\n• Phương án chứa D (`float f4 = 42e7;`): Sai vì dạng số mũ mặc định là `double`, không thể gán cho `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cứ thấy số có dấu chấm (`3.14`) hay số mũ (`e`) mà không có đuôi `f` hoặc `F` thì nó là `double`. Gán `double` vào `float` là lỗi biên dịch ngay!",
+    "correctLetters": [
+      "A",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch01-010",
+    "originalId": 10,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which three are legal array declarations? (Choose three.)",
+    "textVi": "Ba khai báo mảng nào dưới đây là hợp lệ trong Java? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "A và B (A: int[] myScores[]; & B: char[] myChars;)",
+      "A và C (A: int[] myScores[]; & C: int[6] myScores;)",
+      "C và D (C: int[6] myScores; & D: Dog myDogs[];)",
+      "B và E (B: char[] myChars; & E: Dog myDogs[7];)"
+    ],
+    "optionsVi": [
+      "A và B (A: int[] myScores[]; & B: char[] myChars;)",
+      "A và C (A: int[] myScores[]; & C: int[6] myScores;)",
+      "C và D (C: int[6] myScores; & D: Dog myDogs[];)",
+      "B và E (B: char[] myChars; & E: Dog myDogs[7];)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quy tắc khai báo mảng trong Java:\n   - Dấu ngoặc vuông `[]` có thể đứng sau kiểu dữ liệu (ví dụ `char[] myChars;`) HOẶC đứng sau tên biến (ví dụ `Dog myDogs[];`).\n   - Với mảng nhiều chiều, bạn thậm chí có thể chia cặp ngoặc ra hai bên tên biến (ví dụ `int[] myScores[];` là khai báo mảng 2 chiều hợp lệ).\n2. **Quy tắc vàng:** TUYỆT ĐỐI KHÔNG ĐƯỢC đặt số kích thước vào cặp ngoặc vuông khi KHAI BÁO biến mảng (ví dụ `int[6] a;` hay `Dog myDogs[7];` là sai cú pháp). Kích thước chỉ được chỉ định khi bạn CẤP PHÁT bộ nhớ bằng từ khóa `new` (ví dụ `new int[6]`).\n\n✅ Vì sao đáp án \"A và B (A: int[] myScores[]; & B: char[] myChars;)\" đúng:\n- `int[] myScores[];`: Khai báo hợp lệ cho mảng 2 chiều (một cặp ngoặc trước tên biến và một cặp ngoặc sau tên biến).\n- `char[] myChars;`: Cú pháp chuẩn mực và phổ biến nhất để khai báo mảng 1 chiều.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C (`int[6] myScores;`): Sai cú pháp vì điền kích thước `[6]` vào phần khai báo kiểu dữ liệu.\n• Phương án chứa E (`Dog myDogs[7];`): Sai cú pháp vì điền kích thước `[7]` sau tên biến khi khai báo.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi khai báo biến mảng: Cặp ngoặc `[]` BẮT BUỘC PHẢI RỖNG! Không bao giờ có số kích thước nằm trong ngoặc khi khai báo biến!",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch01-011",
+    "originalId": 11,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, how many lines of output will be produced? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, sẽ có bao nhiêu dòng kết quả được in ra màn hình? (Chọn 1 đáp án)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.     int [] [] [] x = new int [3] [] [];\n4.     int i,j;\n5.     x[0] = new int[4][];\n6.     x[1] = new int[2][];\n7.     x[2] = new int[5][];\n8.     for (i=0; i<x.length; i++)\n9.        for (j=0; j<x[i].length; j++) {\n10.           x[i][j] = new int [i + j + 1];\n11.           System.out.println(\"size = \" + x[i][j].length);\n12.        }\n13.     }\n14.  }",
+    "options": [
+      "7",
+      "9",
+      "11",
+      "13",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "7",
+      "9",
+      "11",
+      "13",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy theo dõi từng bước khởi tạo và cấp phát bộ nhớ của mảng 3 chiều `x`:\n1. Dòng 3: `int [][][] x = new int [3][][];` -> Mảng cấp 1 có 3 phần tử (`x.length = 3`).\n2. Dòng 5: `x[0] = new int[4][];` -> Phần tử `x[0]` là một mảng có 4 phần tử (`x[0].length = 4`).\n3. Dòng 6: `x[1] = new int[2][];` -> Phần tử `x[1]` là một mảng có 2 phần tử (`x[1].length = 2`).\n4. Dòng 7: `x[2] = new int[5][];` -> Phần tử `x[2]` là một mảng có 5 phần tử (`x[2].length = 5`).\n5. Vòng lặp lồng nhau duyệt qua mảng:\n   - Khi `i = 0`: Vòng lặp `j` chạy từ `0` đến `x[0].length - 1` (từ 0 đến 3) -> Chạy **4 lần**, in ra 4 dòng.\n   - Khi `i = 1`: Vòng lặp `j` chạy từ `0` đến `x[1].length - 1` (từ 0 đến 1) -> Chạy **2 lần**, in ra 2 dòng.\n   - Khi `i = 2`: Vòng lặp `j` chạy từ `0` đến `x[2].length - 1` (từ 0 đến 4) -> Chạy **5 lần**, in ra 5 dòng.\n6. Tổng số dòng in ra là: $4 + 2 + 5 = 11$ dòng.\n\n✅ Vì sao đáp án \"C. 11\" đúng:\nSố lần câu lệnh `System.out.println` được thực thi bằng đúng tổng độ dài của 3 mảng con: $4 + 2 + 5 = 11$.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. 7\": Sai do tính thiếu phần tử của `x[0]` ($2 + 5 = 7$).\n• \"B. 9\" và \"D. 13\": Sai do tính toán nhầm số vòng lặp.\n• \"E. Lỗi biên dịch\": Sai vì cú pháp khởi tạo mảng răng cưa (jagged array) nhiều chiều từng bước này hoàn toàn hợp lệ trong Java.\n• \"F. Ném ngoại lệ khi chạy\": Sai vì tất cả các mảng con `x[i]` đều đã được khởi tạo trước khi vòng lặp truy cập, không có lỗi `NullPointerException`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mảng nhiều chiều trong Java là \"mảng của các mảng\". Các mảng con có thể có độ dài khác nhau. Số lần chạy vòng lặp lồng nhau chính bằng tổng số phần tử của các mảng con được duyệt: $4 + 2 + 5 = 11$!",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch01-012",
+    "originalId": 12,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, which of the following lines of code could be inserted at line 7, and still allow the code to compile? (Choose four that would work.)",
+    "textVi": "Cho đoạn mã sau, dòng mã nào dưới đây khi chèn vào dòng 7 vẫn cho phép mã nguồn biên dịch thành công? (Chọn đáp án kết hợp đúng)",
+    "code": "1.  public class Test {\n2.     public static void main(String [] args) {\n3.        byte [][] big = new byte [7][7];\n4.        byte [][] b = new byte [2][1];\n5.        byte b3 = 5;\n6.        byte b2 [][][][] = new byte [2][3][1][2];\n7.\n8.     }\n9.  }",
+    "options": [
+      "A và B và E (A: b2[0][1] = b; & B: b[0][0] = b3; & E: b2[0][1][0][0] = b[0][0];)",
+      "A và C (A: b2[0][1] = b; & C: b2[1][1][0] = b[0][0];)",
+      "C và D và F (C: b2[1][1][0] = b[0][0]; & D: b2[1][2][0] = b; & F: b2[0][1] = big;)",
+      "B và F (B: b[0][0] = b3; & F: b2[0][1] = big;)"
+    ],
+    "optionsVi": [
+      "A và B và E (A: b2[0][1] = b; & B: b[0][0] = b3; & E: b2[0][1][0][0] = b[0][0];)",
+      "A và C (A: b2[0][1] = b; & C: b2[1][1][0] = b[0][0];)",
+      "C và D và F (C: b2[1][1][0] = b[0][0]; & D: b2[1][2][0] = b; & F: b2[0][1] = big;)",
+      "B và F (B: b[0][0] = b3; & F: b2[0][1] = big;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nNguyên tắc gán mảng trong Java: Hai vế của phép gán phải KHỚP NHAU VỀ KIỂU DỮ LIỆU VÀ SỐ CHIỀU.\nHãy phân tích kiểu dữ liệu và số chiều của các biến:\n- `b3`: là kiểu số nguyên thủy `byte` (0 chiều).\n- `b`: là mảng 2 chiều `byte[][]`. Truy xuất `b[0][0]` là kiểu `byte` (0 chiều).\n- `big`: là mảng 2 chiều `byte[][]`.\n- `b2`: là mảng 4 chiều `byte[][][][]`.\n  - `b2[0][1]`: đã chỉ định 2 chỉ số, nên còn lại **mảng 2 chiều** (`byte[][]`).\n  - `b2[1][1][0]` hoặc `b2[1][2][0]`: đã chỉ định 3 chỉ số, nên còn lại **mảng 1 chiều** (`byte[]`).\n  - `b2[0][1][0][0]`: đã chỉ định cả 4 chỉ số, nên là **kiểu nguyên thủy** (`byte`).\n\nBây giờ đối chiếu từng câu lệnh:\n- **A:** `b2[0][1] = b;` -> Vế trái là mảng 2 chiều (`byte[][]`), vế phải `b` cũng là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ**.\n- **B:** `b[0][0] = b3;` -> Vế trái là `byte`, vế phải `b3` là `byte` -> **HỢP LỆ**.\n- **C:** `b2[1][1][0] = b[0][0];` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải là kiểu `byte` nguyên thủy -> **LỖI BIÊN DỊCH** (không thể gán byte cho mảng byte).\n- **D:** `b2[1][2][0] = b;` -> Vế trái là mảng 1 chiều (`byte[]`), vế phải `b` là mảng 2 chiều (`byte[][]`) -> **LỖI BIÊN DỊCH** (lệch số chiều).\n- **E:** `b2[0][1][0][0] = b[0][0];` -> Cả hai vế đều là kiểu nguyên thủy `byte` -> **HỢP LỆ**.\n- **F:** `b2[0][1] = big;` -> Cả hai vế đều là mảng 2 chiều (`byte[][]`) -> **HỢP LỆ** (kích thước mảng không ảnh hưởng đến phép gán tham chiếu).\n\n✅ Vì sao đáp án \"A và B và E\" đúng:\nCả 3 câu lệnh A, B, E đều khớp hoàn toàn về kiểu dữ liệu và số chiều giữa hai vế của phép gán.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa C: Sai vì cố gán một giá trị nguyên thủy `byte` vào một biến tham chiếu mảng `byte[]`.\n• Phương án chứa D: Sai vì cố gán mảng 2 chiều `byte[][]` vào một biến mảng 1 chiều `byte[]`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mỗi cặp ngoặc vuông `[]` thêm vào sẽ làm giảm số chiều đi 1 bậc: Mảng 4 chiều mà dùng 2 cặp ngoặc `b2[0][1]` thì trở thành mảng 2 chiều! Hai bên dấu `=` phải có cùng số chiều và cùng kiểu cơ sở!",
+    "correctLetters": [
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch01-013",
+    "originalId": 13,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which two will declare an array and initialize it with five numbers? (Choose two.)",
+    "textVi": "Hai khai báo nào dưới đây sẽ khai báo một mảng và khởi tạo nó với 5 số? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "B và D (B: int[] a = {23, 22, 21, 20, 19}; & D: int array[] = new int[5];)",
+      "A và B (A: Array a = new Array(5); & B: int[] a = {23, 22, 21, 20, 19};)",
+      "A và C (A: Array a = new Array(5); & C: int[] array;)",
+      "D và F (D: int array[] = new int[5]; & F: int[5] array;)"
+    ],
+    "optionsVi": [
+      "B và D (B: int[] a = {23, 22, 21, 20, 19}; & D: int array[] = new int[5];)",
+      "A và B (A: Array a = new Array(5); & B: int[] a = {23, 22, 21, 20, 19};)",
+      "A và C (A: Array a = new Array(5); & C: int[] array;)",
+      "D và F (D: int array[] = new int[5]; & F: int[5] array;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài yêu cầu: vừa **khai báo** (declare) vừa **khởi tạo** (construct/initialize) một mảng có kích thước 5 phần tử số:\n- B: `int[] a = {23, 22, 21, 20, 19};`: Sử dụng cú pháp khởi tạo nhanh (array literal). Khai báo mảng `int[]` và lập tức khởi tạo chứa 5 số nguyên cụ thể.\n- D: `int array[] = new int[5];`: Cú pháp chuẩn dùng từ khóa `new`. Khai báo mảng `int` và cấp phát một mảng 5 phần tử (các phần tử tự động mang giá trị mặc định là 0).\n\nPhân tích các phương án còn lại:\n- A: `Array a = new Array(5);`: Sai vì đây là cú pháp khởi tạo đối tượng thông thường của một class tên là `Array`, hoàn toàn không phải cú pháp tạo mảng của Java.\n- C: `int[] array;`: Sai vì chỉ mới khai báo biến tham chiếu, chưa hề khởi tạo mảng (biến có giá trị null nếu là biến instance, hoặc uninitialized nếu là biến local).\n- F: `int[5] array;`: Sai cú pháp biên dịch vì Java cấm điền số kích thước `[5]` vào phần khai báo kiểu.\n\n✅ Vì sao đáp án \"B và D\" đúng:\nCả B và D đều là các cú pháp hợp lệ trong Java để khai báo đồng thời khởi tạo một mảng gồm 5 phần tử số nguyên.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Sai vì không có dấu ngoặc vuông `[]`, đó là khởi tạo object của một lớp nào đó chứ không phải mảng.\n• Phương án chứa C: Sai vì chỉ khai báo biến chứ chưa khởi tạo mảng.\n• Phương án chứa F: Sai cú pháp vì để kích thước `[5]` trong phần khai báo.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khởi tạo mảng có 2 cách: (1) Dùng `new int[kích_thước]` (các phần tử có giá trị mặc định); (2) Dùng ngoặc nhọn `{giá_trị_1, giá_trị_2, ...}` (liệt kê trực tiếp các giá trị ban đầu).",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch01-014",
+    "originalId": 14,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which will legally declare, construct, and initialize an array? (Choose one.)",
+    "textVi": "Cú pháp nào dưới đây khai báo, tạo mới (construct) và khởi tạo hợp lệ một mảng? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "int[] myList = {\"1\", \"2\", \"3\"};",
+      "int[] myList = (5, 8, 2);",
+      "int myList[][] = {4, 9, 7, 0};",
+      "int myList[] = {4, 3, 7};",
+      "int[] myList = [3, 5, 6];",
+      "int myList[] = {4; 6; 5};"
+    ],
+    "optionsVi": [
+      "int[] myList = {\"1\", \"2\", \"3\"};",
+      "int[] myList = (5, 8, 2);",
+      "int myList[][] = {4, 9, 7, 0};",
+      "int myList[] = {4, 3, 7};",
+      "int[] myList = [3, 5, 6];",
+      "int myList[] = {4; 6; 5};"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐể khai báo và khởi tạo nhanh một mảng bằng giá trị cố định, Java yêu cầu tuân thủ đúng các quy tắc cú pháp sau:\n1. Dấu ngoặc vuông `[]` đặt trước hoặc sau tên biến để chỉ định mảng.\n2. Danh sách phần tử khởi tạo BẮT BUỘC phải đặt trong cặp dấu ngoặc nhọn `{}`.\n3. Các phần tử phân tách nhau bằng dấu phẩy `,`.\n4. Kiểu của các giá trị trong ngoặc nhọn phải tương thích với kiểu của mảng đã khai báo.\n\nĐánh giá từng phương án:\n- A: `int[] myList = {\"1\", \"2\", \"3\"};`: Sai vì `\"1\"`, `\"2\"`, `\"3\"` là kiểu `String`, không thể gán vào mảng số nguyên `int[]`.\n- B: `int[] myList = (5, 8, 2);`: Sai vì Java không dùng ngoặc tròn `()` để khởi tạo danh sách mảng.\n- C: `int myList[][] = {4, 9, 7, 0};`: Sai vì khai báo mảng 2 chiều (`int[][]`) nhưng danh sách khởi tạo chỉ có 1 chiều (thiếu cặp ngoặc nhọn lồng nhau).\n- D: `int myList[] = {4, 3, 7};`: Hoàn toàn hợp lệ, khai báo mảng 1 chiều và khởi tạo với 3 số nguyên trong cặp ngoặc nhọn.\n- E: `int[] myList = [3, 5, 6];`: Sai vì Java không dùng ngoặc vuông `[]` làm literal cho mảng (đây là cú pháp của JavaScript/Python).\n- F: `int myList[] = {4; 6; 5};`: Sai vì phân tách các phần tử bằng dấu chấm phẩy `;` thay vì dấu phẩy `,`.\n\n✅ Vì sao đáp án \"int myList[] = {4, 3, 7};\" đúng:\nĐúng chuẩn 100% cú pháp Java: dấu ngoặc nhọn `{}`, phân tách bằng dấu phẩy `,`, và các phần tử khớp kiểu `int`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A\": Sai vì truyền chuỗi String vào mảng int.\n• \"B\": Sai cú pháp vì dùng ngoặc tròn `()`.\n• \"C\": Sai vì lệch số chiều (mảng 2 chiều nhưng khởi tạo kiểu 1 chiều).\n• \"E\": Sai vì dùng ngoặc vuông `[]`.\n• \"F\": Sai vì dùng dấu chấm phẩy `;`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mảng trong Java: Khởi tạo danh sách luôn luôn dùng `{}` và ngăn cách bằng dấu phẩy `,`! Ngoặc vuông `[]` chỉ dùng để khai báo kiểu hoặc chỉ số truy cập.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch01-015",
+    "originalId": 15,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Which four describe the correct default values for array elements of the types indicated? (Choose four.)",
+    "textVi": "Bốn mô tả nào dưới đây biểu diễn đúng giá trị mặc định cho các phần tử mảng của các kiểu dữ liệu tương ứng khi vừa được khởi tạo? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "A và C và D (A: int -> 0 & C: Dog -> null & D: char -> '\\u0000')",
+      "A và B (A: int -> 0 & B: String -> \"null\")",
+      "B và E và F (B: String -> \"null\" & E: float -> 0.0f & F: boolean -> true)",
+      "C và F (C: Dog -> null & F: boolean -> true)"
+    ],
+    "optionsVi": [
+      "A và C và D (A: int -> 0 & C: Dog -> null & D: char -> '\\u0000')",
+      "A và B (A: int -> 0 & B: String -> \"null\")",
+      "B và E và F (B: String -> \"null\" & E: float -> 0.0f & F: boolean -> true)",
+      "C và F (C: Dog -> null & F: boolean -> true)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nKhi một mảng được tạo ra bằng từ khóa `new` trong Java, tất cả các phần tử bên trong nó luôn được JVM tự động gán giá trị mặc định (default value) tùy theo kiểu dữ liệu của mảng:\n1. Kiểu số nguyên (`byte`, `short`, `int`, `long`): Mặc định là `0` (hoặc `0L`).\n2. Kiểu số thực (`float`, `double`): Mặc định là `0.0f` và `0.0d`.\n3. Kiểu ký tự (`char`): Mặc định là `\\u0000` (ký tự null, tương ứng với mã số 0).\n4. Kiểu logic (`boolean`): Mặc định là `false` (TUYỆT ĐỐI KHÔNG PHẢI `true`).\n5. Kiểu đối tượng tham chiếu (`String`, `Dog`, mảng, Object...): Mặc định là giá trị tham chiếu `null` (không trỏ đến đối tượng nào, KHÔNG PHẢI chuỗi có chữ `\"null\"`).\n\nĐối chiếu các mô tả:\n- A: `int -> 0` -> ĐÚNG.\n- B: `String -> \"null\"` -> SAI (giá trị mặc định là literal `null`, không phải chuỗi `\"null\"` có dấu nháy kép).\n- C: `Dog -> null` -> ĐÚNG (mọi kiểu đối tượng tham chiếu đều mặc định là `null`).\n- D: `char -> '\u0000'` -> ĐÚNG.\n- E: `float -> 0.0f` -> ĐÚNG.\n- F: `boolean -> true` -> SAI (mặc định là `false`).\n\n✅ Vì sao đáp án \"A và C và D (A: int -> 0 & C: Dog -> null & D: char -> '\\u0000')\" đúng:\nCả 3 mô tả A, C, D đều thể hiện chính xác 100% giá trị mặc định của các kiểu tương ứng trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Bẫy thi kinh điển! Mặc định của biến tham chiếu String là `null` (rỗng), chứ không phải chuỗi văn bản `\"null\"`.\n• Phương án chứa F: Sai vì giá trị mặc định của `boolean` là `false`, không bao giờ là `true`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Số = 0, char = '\u0000', boolean = false, mọi Object tham chiếu = null (không nháy kép)! Nhớ 4 quy tắc này là không bao giờ làm sai!",
+    "correctLetters": [
+      "A",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch01-016",
+    "originalId": 16,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, what is the result? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, kết quả khi thực thi chương trình là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class TestDogs {\n2.     public static void main(String [] args) {\n3.        Dog [][] theDogs = new Dog[3][];\n4.        System.out.println(theDogs[2][0].toString());\n5.     }\n6.  }\n7.\n8.  class Dog {}",
+    "options": [
+      "null",
+      "theDogs",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "null",
+      "theDogs",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy lần theo từng dòng code:\n1. Dòng 3: `Dog [][] theDogs = new Dog[3][];`\n   Câu lệnh này tạo một mảng 2 chiều, nhưng CHỈ MỚI KHỞI TẠO CHIỀU THỨ NHẤT với kích thước 3. Chiều thứ hai chưa hề được cấp phát!\n2. Do đó, mảng `theDogs` chứa 3 phần tử tham chiếu:\n   - `theDogs[0] = null`\n   - `theDogs[1] = null`\n   - `theDogs[2] = null`\n3. Dòng 4: `System.out.println(theDogs[2][0].toString());`\n   Biểu thức này cố gắng truy cập phần tử `theDogs[2][0]`.\n   Nhưng vì `theDogs[2]` đang có giá trị là `null`, nên khi máy ảo JVM cố gắng truy xuất chỉ số `[0]` trên một tham chiếu `null`, nó sẽ lập tức ném ra ngoại lệ `java.lang.NullPointerException` ngay tại thời điểm chạy (runtime)!\n\n✅ Vì sao đáp án \"D. Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\" đúng:\nChương trình biên dịch thành công nhưng khi chạy sẽ ném ra ngoại lệ `NullPointerException` tại dòng 4 vì mảng con `theDogs[2]` chưa được khởi tạo (đang là `null`).\n\n❌ Vì sao các đáp án khác sai:\n• \"A. null\": Sai vì chương trình bị sập ngay khi vừa chạm vào `theDogs[2][0]`, chưa kịp in ra bất kỳ thứ gì.\n• \"B. theDogs\": Sai vì `theDogs` là tên biến, không thể là kết quả xuất ra.\n• \"C. Lỗi biên dịch (Compilation fails)\": Sai vì cú pháp khởi tạo mảng nhiều chiều từng bước `new Dog[3][]` là hoàn toàn hợp lệ trong Java, compiler không phát hiện lỗi nào.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Tạo mảng nhiều chiều mà để trống chiều phía sau (như `new Type[3][]`) thì các mảng con mặc định đều là `null`. Truy cập vào `array[i][j]` khi `array[i]` là `null` thì chắc chắn dính `NullPointerException`!",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch01-017",
+    "originalId": 17,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, and the command line invocation is java X a b what is the result? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java X a b\", kết quả in ra là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class X {\n2.     public static void main(String [] args) {\n3.        String names [] = new String[5];\n4.           for (int x=0; x < args.length; x++)\n5.              names[x] = args[x];\n6.           System.out.println(names[2]);\n7.     }\n8.  }",
+    "options": [
+      "names",
+      "null",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "names",
+      "null",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy theo dõi luồng chạy của chương trình khi gọi lệnh: `java X a b`:\n1. Mảng tham số dòng lệnh `args` nhận 2 đối số:\n   - `args[0] = \"a\"`\n   - `args[1] = \"b\"`\n   - `args.length = 2`\n2. Dòng 3: `String names [] = new String[5];`\n   Tạo mảng `names` có 5 phần tử. Tất cả phần tử ban đầu đều nhận giá trị mặc định là `null`:\n   `names = [null, null, null, null, null]`\n3. Dòng 4 - 5: Vòng lặp `for (int x=0; x < args.length; x++)`:\n   - Vòng 1 (`x = 0`): `names[0] = args[0] = \"a\"`\n   - Vòng 2 (`x = 1`): `names[1] = args[1] = \"b\"`\n   - Khi `x = 2`: Điều kiện `2 < 2` là sai, vòng lặp dừng lại.\n   Lúc này, mảng `names` có trạng thái: `[\"a\", \"b\", null, null, null]`.\n4. Dòng 6: `System.out.println(names[2]);`\n   Phần tử tại chỉ số `2` chưa từng được gán giá trị mới, nên nó vẫn giữ nguyên giá trị mặc định ban đầu là `null`.\n   Hàm `println` in ra màn hình chữ `null`.\n\n✅ Vì sao đáp án \"B. null\" đúng:\nPhần tử `names[2]` không được gán qua vòng lặp (vòng lặp chỉ chạy đến `x = 1`), nên nó vẫn giữ nguyên giá trị mặc định là `null`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. names\": Sai vì `names` là tên biến mảng, không phải giá trị phần tử.\n• \"C. Lỗi biên dịch\": Sai vì mã nguồn hoàn toàn đúng cú pháp.\n• \"D. Ném ngoại lệ tại thời điểm chạy\": Sai vì mảng `names` có 5 phần tử (chỉ số hợp lệ từ 0 đến 4), truy xuất `names[2]` hoàn toàn nằm trong phạm vi hợp lệ, không bị lỗi `ArrayIndexOutOfBoundsException`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phần tử chưa được gán trong mảng đối tượng luôn giữ giá trị mặc định là `null`. In một biến mang giá trị `null` bằng `println` sẽ xuất ra chuỗi \"null\" bình thường mà không gây lỗi!",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch01-018",
+    "originalId": 18,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgs 1 2 3 4 what is the result?",
+    "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgs 1 2 3 4\", kết quả in ra là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class CommandArgs {\n2.     public static void main(String [] args) {\n3.        String s1 = args[1];\n4.        String s2 = args[2];\n5.        String s3 = args[3];\n6.        String s4 = args[4];\n7.        System.out.print(\" args[2] = \" + s2);\n8.     }\n9.  }",
+    "options": [
+      "args[2]=2",
+      "args[2]=3",
+      "args[2]=null",
+      "args[2]=1",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "args[2]=2",
+      "args[2]=3",
+      "args[2]=null",
+      "args[2]=1",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 5,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Khi chạy chương trình từ dòng lệnh: `java CommandArgs 1 2 3 4`:\n   JVM sẽ đưa 4 tham số này vào mảng `args`:\n   - `args[0] = \"1\"`\n   - `args[1] = \"2\"`\n   - `args[2] = \"3\"`\n   - `args[3] = \"4\"`\n   Độ dài mảng: `args.length = 4`.\n   Các chỉ số hợp lệ của mảng chỉ chạy từ `0` đến `3` ($length - 1$).\n2. Xem xét các dòng lệnh thực thi trong hàm `main`:\n   - Dòng 3: `String s1 = args[1];` -> lấy `\"2\"` (thành công).\n   - Dòng 4: `String s2 = args[2];` -> lấy `\"3\"` (thành công).\n   - Dòng 5: `String s3 = args[3];` -> lấy `\"4\"` (thành công).\n   - Dòng 6: `String s4 = args[4];` -> **CỐ TRUY XUẤT PHẦN TỬ THỨ 5 VỚI CHỈ SỐ LÀ 4**.\n3. Vì chỉ số lớn nhất của mảng chỉ là 3, việc truy cập `args[4]` sẽ ngay lập tức khiến JVM quăng ngoại lệ `java.lang.ArrayIndexOutOfBoundsException` và ngắt chương trình tại dòng 6. Dòng 7 không bao giờ được chạm tới!\n\n✅ Vì sao đáp án \"F. Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\" đúng:\nDòng 6 cố tình truy cập vào chỉ số `args[4]` vượt ngoài phạm vi của mảng 4 phần tử (chỉ số 0..3), gây ra ngoại lệ `ArrayIndexOutOfBoundsException`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. args[2] = 2\", \"B. args[2] = 3\", \"D. args[2] = 1\": Sai vì chương trình đã bị sụp đổ ở dòng 6 do ngoại lệ, lệnh in ở dòng 7 không bao giờ được thực hiện.\n• \"C. args[2] = null\": Sai vì truy xuất ngoài biên mảng trong Java không trả về `null` mà luôn ném ngoại lệ.\n• \"E. Lỗi biên dịch\": Sai vì cú pháp truy xuất mảng hoàn toàn hợp lệ ở thời điểm biên dịch, lỗi chỉ xảy ra khi chạy thực tế với dữ liệu cụ thể.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chỉ số mảng trong Java chạy từ `0` đến `length - 1`. Truy cập vào chỉ số bằng `length` hoặc lớn hơn thì 100% dính `ArrayIndexOutOfBoundsException`!",
+    "correctLetters": [
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch01-019",
+    "originalId": 19,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgsTwo 1 2 3 what is the result?",
+    "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgsTwo 1 2 3\", kết quả in ra là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class CommandArgsTwo {\n2.     public static void main(String [] argh) {\n3.        String [] args;\n4.        int x;\n5.        x = argh.length;\n6.        for (int y = 1; y <= x; y++) {\n7.           System.out.print(\" \" + argh[y]);\n8.        }\n9.     }\n10.  }",
+    "options": [
+      "012",
+      "123",
+      "000",
+      "nullnullnull",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "012",
+      "123",
+      "000",
+      "nullnullnull",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 5,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Quan sát khai báo hàm main: `public static void main(String [] argh)`\n   Tên tham số mảng ở đây được đặt là `argh` (không bắt buộc phải đặt là `args`, bất kỳ tên biến hợp lệ nào cũng được chấp nhận). Dòng 3 có khai báo biến cục bộ `String [] args;` nhưng không hề gây xung đột hay lỗi gì.\n2. Khi chạy lệnh `java CommandArgsTwo 1 2 3`:\n   Mảng `argh` có 3 phần tử:\n   - `argh[0] = \"1\"`\n   - `argh[1] = \"2\"`\n   - `argh[2] = \"3\"`\n   `x = argh.length = 3`. Các chỉ số hợp lệ là `0, 1, 2`.\n3. Nhìn kỹ điều kiện của vòng lặp `for` ở dòng 6:\n   `for (int y = 1; y <= x; y++)`\n   **ĐÂY LÀ BẪY THI CỰC KỲ NGUY HIỂM!** Vòng lặp sử dụng dấu `<=` thay vì dấu `<`:\n   - Vòng 1 (`y = 1`): In `argh[1]` -> In `\" 2\"`.\n   - Vòng 2 (`y = 2`): In `argh[2]` -> In `\" 3\"`.\n   - Vòng 3 (`y = 3`): Vì `y <= x` ($3 \\le 3$) vẫn thỏa mãn điều kiện `true`, chương trình thực hiện:\n     `System.out.print(\" \" + argh[3]);`\n4. Vì mảng chỉ có chỉ số cao nhất là 2, khi gọi `argh[3]`, JVM lập tức ném ra ngoại lệ `java.lang.ArrayIndexOutOfBoundsException`!\n\n✅ Vì sao đáp án \"F. Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\" đúng:\nĐiều kiện dừng `y <= x` (tương đương `y <= 3`) khiến vòng lặp cố truy xuất `argh[3]`, gây ra ngoại lệ `ArrayIndexOutOfBoundsException`.\n\n❌ Vì sao các đáp án khác sai:\n• \"B. 123\" và \"A. 012\": Sai vì bị đánh lừa bởi logic thông thường của vòng lặp mà không để ý dấu `<=` gây văng ngoại lệ.\n• \"C. 000\" và \"D. nullnullnull\": Đều là các suy đoán sai lầm.\n• \"E. Lỗi biên dịch\": Sai vì code hoàn toàn chuẩn cú pháp, tên tham số `argh` hoàn toàn hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Bẫy thi kinh điển của Java: Kiểm tra điều kiện vòng lặp với mảng! Thấy duyệt mảng mà dùng `<=` với `length` (`y <= length`) thì chắc chắn bước cuối sẽ bị `ArrayIndexOutOfBoundsException`!",
+    "correctLetters": [
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch01-020",
+    "originalId": 20,
+    "chapterNum": 1,
+    "chapterTitle": "Language Fundamentals",
+    "topic": "javacore",
+    "text": "Given the following, and the command-line invocation, java CommandArgsThree 1 2 3 what is the result?",
+    "textVi": "Cho đoạn mã sau, nếu thực thi từ dòng lệnh với lệnh: \"java CommandArgsThree 1 2 3\", kết quả in ra là gì? (Chọn 1 đáp án)",
+    "code": "1.  public class CommandArgsThree {\n2.     public static void main(String [] args) {\n3.        String [][] argCopy = new String[2][2];\n4.        int x;\n5.        argCopy[0] = args;\n6.        x = argCopy[0].length;\n7.        for (int y = 0; y < x; y++) {\n8.           System.out.print(\" \" + argCopy[0][y]);\n9.        }\n10.     }\n11.  }",
+    "options": [
+      "00",
+      "12",
+      "000",
+      "123",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "00",
+      "12",
+      "000",
+      "123",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích cơ chế gán tham chiếu mảng qua từng dòng code:\n1. Khi gọi lệnh: `java CommandArgsThree 1 2 3`:\n   Mảng `args` được JVM tạo ra với 3 phần tử chuỗi: `[\"1\", \"2\", \"3\"]`. Độ dài `args.length = 3`.\n2. Dòng 3: `String [][] argCopy = new String[2][2];`\n   Tạo mảng 2 chiều `argCopy` có 2 hàng và 2 cột. Ban đầu `argCopy[0]` trỏ tới một mảng gồm 2 chuỗi `null`.\n3. Dòng 5: `argCopy[0] = args;`\n   **ĐÂY LÀ ĐIỂM QUYẾT ĐỊNH:** Trong Java, mảng là đối tượng tham chiếu. Phép gán này làm cho tham chiếu `argCopy[0]` từ bỏ mảng 2 phần tử cũ và trỏ thẳng tới chính đối tượng mảng `args` (có 3 phần tử)!\n   Kích thước khai báo ban đầu của `argCopy[0]` không còn ý nghĩa gì nữa, bây giờ `argCopy[0]` chính là `args`.\n4. Dòng 6: `x = argCopy[0].length;`\n   Do `argCopy[0]` đang trỏ tới `args` (có 3 phần tử), nên `x = 3`.\n5. Dòng 7 - 9: Vòng lặp duyệt từ `y = 0` đến `y < 3`:\n   - `y = 0`: in `argCopy[0][0]` -> in `\" 1\"`\n   - `y = 1`: in `argCopy[0][1]` -> in `\" 2\"`\n   - `y = 2`: in `argCopy[0][2]` -> in `\" 3\"`\n   Kết quả hiển thị trên một dòng là: `\" 1 2 3\"` (khớp với đáp án `123`).\n\n✅ Vì sao đáp án \"D. 123\" đúng:\nSau phép gán `argCopy[0] = args;`, hàng `argCopy[0]` trỏ tới mảng `args` có 3 phần tử, vòng lặp in đầy đủ cả 3 đối số dòng lệnh là 1, 2, 3.\n\n❌ Vì sao các đáp án khác sai:\n• \"B. 12\": Sai vì ngộ nhận rằng `argCopy[0]` bị cố định kích thước là 2 theo khai báo ban đầu ở dòng 3. Trong Java, phép gán tham chiếu sẽ thay đổi hoàn toàn đối tượng được trỏ tới.\n• \"A. 00\" và \"C. 000\": Sai vì các phần tử là chuỗi lấy từ `args` chứ không phải số 0.\n• \"E. Lỗi biên dịch\" và \"F. Ném ngoại lệ\": Sai vì phép gán giữa các mảng cùng kiểu `String[]` là hoàn toàn hợp lệ và vòng lặp chạy hoàn hảo không lỗi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mảng trong Java là biến tham chiếu đối tượng. Gán mảng `a = b` là trỏ tham chiếu `a` sang đối tượng `b`. Độ dài của `a` lúc này hoàn toàn phụ thuộc vào đối tượng mới mà nó trỏ tới!",
+    "correctLetters": [
+      "D"
+    ]
+  }
+]

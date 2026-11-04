@@ -77,12 +77,12 @@ export default function ExamClient({ session, user }) {
   const isMix = session.kind === "mix";
 
   // Categorize quizzes for Mix mode selector
-  const { originalQuizzes, aiQuizzes, interviewQuizzes } = useMemo(() => {
+  const { originalQuizzes, interviewQuizzes, scjpQuizzes } = useMemo(() => {
     const list = session.quizList || [];
     return {
-      originalQuizzes: list.filter((q) => !q.slug.startsWith("ai-") && !q.slug.startsWith("interview-") && !q.slug.startsWith("scjp-")),
-      aiQuizzes: list.filter((q) => q.slug.startsWith("ai-")),
+      originalQuizzes: list.filter((q) => !q.slug.startsWith("interview-") && !q.slug.startsWith("scjp-")),
       interviewQuizzes: list.filter((q) => q.slug.startsWith("interview-") && q.slug !== "interview-all"),
+      scjpQuizzes: list.filter((q) => q.slug.startsWith("scjp-") && q.slug !== "scjp-random-20"),
     };
   }, [session.quizList]);
 
@@ -130,8 +130,8 @@ export default function ExamClient({ session, user }) {
       setSelectedQuizSlugs(new Set(all));
     } else if (type === "original") {
       setSelectedQuizSlugs(new Set(originalQuizzes.map((q) => q.slug)));
-    } else if (type === "ai") {
-      setSelectedQuizSlugs(new Set(aiQuizzes.map((q) => q.slug)));
+    } else if (type === "scjp") {
+      setSelectedQuizSlugs(new Set(scjpQuizzes.map((q) => q.slug)));
     } else if (type === "interview") {
       setSelectedQuizSlugs(new Set(interviewQuizzes.map((q) => q.slug)));
     } else if (type === "clear") {
@@ -485,11 +485,11 @@ export default function ExamClient({ session, user }) {
               </button>
               <button
                 type="button"
-                onClick={() => handleQuickSelect("ai")}
+                onClick={() => handleQuickSelect("scjp")}
                 className="btn btn-secondary btn-sm"
                 style={{ fontSize: "0.82rem" }}
               >
-                🤖 Chỉ 3 đề AI
+                ☕ Chỉ đề SCJP
               </button>
               <button
                 type="button"
@@ -605,15 +605,15 @@ export default function ExamClient({ session, user }) {
                 </div>
               )}
 
-              {/* Category 2: 3 Đề AI Mở Rộng */}
-              {aiQuizzes.length > 0 && (
+              {/* Category 2: Bộ Đề SCJP Chapters */}
+              {scjpQuizzes.length > 0 && (
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", marginBottom: "0.6rem" }}>
-                    <span className="badge badge-accent">🤖 Đề AI Mở Rộng</span>
-                    <span style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>Bẫy phòng thi &amp; biên dịch nâng cao</span>
+                    <span className="badge badge-primary" style={{ background: "#0284c7", color: "#fff" }}>☕ Bộ Đề SCJP Chapters</span>
+                    <span style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>Kathy Sierra &amp; Bert Bates (9 Chapters)</span>
                   </div>
                   <div className="grid-3">
-                    {aiQuizzes.map((q) => {
+                    {scjpQuizzes.map((q) => {
                       const isSelected = selectedQuizSlugs.has(q.slug);
                       return (
                         <div
@@ -623,9 +623,9 @@ export default function ExamClient({ session, user }) {
                           style={{
                             padding: "0.85rem 1rem",
                             cursor: "pointer",
-                            border: isSelected ? "2px solid var(--accent)" : "1px solid var(--border)",
-                            background: isSelected ? "rgba(6, 182, 212, 0.12)" : "var(--bg-card)",
-                            boxShadow: isSelected ? "0 0 15px rgba(6, 182, 212, 0.2)" : "none",
+                            border: isSelected ? "2px solid #0284c7" : "1px solid var(--border)",
+                            background: isSelected ? "rgba(2, 132, 199, 0.12)" : "var(--bg-card)",
+                            boxShadow: isSelected ? "0 0 15px rgba(2, 132, 199, 0.2)" : "none",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "space-between",
@@ -648,8 +648,8 @@ export default function ExamClient({ session, user }) {
                               width: 22,
                               height: 22,
                               borderRadius: 6,
-                              border: isSelected ? "2px solid var(--accent)" : "2px solid var(--border)",
-                              background: isSelected ? "var(--accent)" : "transparent",
+                              border: isSelected ? "2px solid #0284c7" : "2px solid var(--border)",
+                              background: isSelected ? "#0284c7" : "transparent",
                               color: "#fff",
                               display: "flex",
                               alignItems: "center",

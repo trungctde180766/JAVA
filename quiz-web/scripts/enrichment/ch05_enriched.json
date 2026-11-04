@@ -1,0 +1,614 @@
+[
+  {
+    "id": "scjp-ch05-001",
+    "originalId": 1,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which is true about the class described above?",
+    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về lớp Barbell?",
+    "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
+    "options": [
+      "Class Barbell is tightly encapsulated.",
+      "Line 2 is in conflict with encapsulation.",
+      "Line 5 is in conflict with encapsulation.",
+      "Line 8 is in conflict with encapsulation.",
+      "Lines 5 and 8 are in conflict with encapsulation.",
+      "Lines 2, 5, and 8 are in conflict with encapsulation."
+    ],
+    "optionsVi": [
+      "Lớp Barbell được bao đóng chặt chẽ (tightly encapsulated).",
+      "Dòng 2 mâu thuẫn với nguyên lý bao đóng (encapsulation).",
+      "Dòng 5 mâu thuẫn với nguyên lý bao đóng.",
+      "Dòng 8 mâu thuẫn với nguyên lý bao đóng.",
+      "Các dòng 5 và 8 mâu thuẫn với nguyên lý bao đóng.",
+      "Các dòng 2, 5 và 8 mâu thuẫn với nguyên lý bao đóng."
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nTính bao đóng (Encapsulation) là một trong những trụ cột cốt lõi của lập trình hướng đối tượng trong Java. Mục tiêu chính là che giấu dữ liệu (data hiding) và bảo vệ trạng thái nội bộ của đối tượng khỏi sự can thiệp trực tiếp từ bên ngoài.\n\nMột lớp được coi là bao đóng chặt chẽ (tightly encapsulated) khi và chỉ khi:\n1. Mọi biến thực thể (instance variables) đều phải được khai báo với phạm vi truy cập là `private`.\n2. Việc truy xuất hoặc chỉnh sửa các thuộc tính phải thông qua các phương thức công khai getter (`public int getWeight()`) và setter (`public void setWeight(int w)`). Các phương thức này giúp kiểm soát dữ liệu đầu vào (ví dụ kiểm tra `w >= 0`).\n\nPhân tích từng dòng trong lớp `Barbell`:\n• Dòng 8: `public int weight;` - Đây là một biến thực thể nhưng lại khai báo là `public`. Bất kỳ mã bên ngoài nào cũng có thể truy cập và thay đổi giá trị này trực tiếp (ví dụ: `b.weight = -500;`) mà không thông qua cơ chế kiểm soát nào. Điều này phá vỡ hoàn toàn nguyên lý bao đóng.\n• Dòng 2 (`getWeight`) và Dòng 5 (`setWeight`) là các getter/setter chuẩn, hoàn toàn tuân thủ và phục vụ cho tính bao đóng.\n\n✅ Vì sao đáp án \"Line 8 is in conflict with encapsulation\" đúng:\nVì dòng 8 khai báo biến thực thể `weight` với từ khóa `public`. Để đạt chuẩn bao đóng, biến này bắt buộc phải là `private`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Class Barbell is tightly encapsulated\": Sai vì biến thực thể `weight` là `public`, dữ liệu bị phơi bày trực tiếp ra ngoài.\n• \"Line 2 is in conflict with encapsulation\": Sai vì `getWeight()` là phương thức getter chuẩn, cung cấp quyền đọc dữ liệu có kiểm soát.\n• \"Line 5 is in conflict with encapsulation\": Sai vì `setWeight()` là phương thức setter chuẩn dùng để thiết lập giá trị.\n• \"Lines 5 and 8 are in conflict with encapsulation\": Sai vì dòng 5 hoàn toàn đúng chuẩn, chỉ có dòng 8 là vi phạm.\n• \"Lines 2, 5, and 8 are in conflict with encapsulation\": Sai vì getter (dòng 2) và setter (dòng 5) hoàn toàn phù hợp với tính bao đóng.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Quy tắc vàng về Encapsulation: \"Biến thực thể luôn là `private`, truy cập thông qua getter/setter `public`\".\n• Cứ thấy một class có biến thực thể `public`, `protected` hoặc `default` thì chắc chắn class đó KHÔNG được bao đóng chặt chẽ (not tightly encapsulated).",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch05-002",
+    "originalId": 2,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which is true about the classes described above?",
+    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là đúng về các lớp trên?",
+    "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
+    "options": [
+      "Class A is tightly encapsulated.",
+      "Class B is tightly encapsulated.",
+      "Classes A and B are both tightly encapsulated.",
+      "Neither class A nor class B is tightly encapsulated."
+    ],
+    "optionsVi": [
+      "Lớp A được bao đóng chặt chẽ (tightly encapsulated).",
+      "Lớp B được bao đóng chặt chẽ (tightly encapsulated).",
+      "Cả hai lớp A và B đều được bao đóng chặt chẽ.",
+      "Cả hai lớp A và B đều không được bao đóng chặt chẽ."
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy kiểm tra tính bao đóng (Encapsulation) của từng lớp:\n1. Xét lớp `A`:\n   • Lớp `A` khai báo trường: `public int foo;`.\n   • Vì `foo` là `public`, bất kỳ ai cũng có thể truy cập trực tiếp `a.foo`. Lớp `A` rõ ràng không được bao đóng.\n2. Xét lớp `B`:\n   • Nhìn thoáng qua phần thân của lớp `B`: có `private int bar;` và `public void setBar(int b)`. Thoạt nhìn `B` có vẻ được bao đóng rất tốt.\n   • BẪY NẰM Ở ĐÂY: `public class B extends A` (lớp `B` kế thừa từ lớp `A`).\n   • Do cơ chế kế thừa, lớp con `B` sẽ thừa hưởng toàn bộ các thành viên `public` của lớp cha `A`. Cụ thể, đối tượng của `B` sẽ sở hữu biến `public int foo`.\n   • Một đoạn mã bên ngoài có thể tạo đối tượng `B b = new B();` và gọi trực tiếp `b.foo = 42;`. Do đó, trạng thái của `B` cũng bị phơi bày ra ngoài mà không được bảo vệ.\n   • Kết luận: Cả hai lớp `A` và `B` đều KHÔNG được bao đóng chặt chẽ!\n\n✅ Vì sao đáp án \"Neither class A nor class B is tightly encapsulated\" đúng:\nVì lớp `A` chứa biến `public foo`, và lớp `B` kế thừa lớp `A` nên thừa hưởng luôn biến `public` này, khiến cả hai lớp đều không đạt chuẩn bao đóng chặt chẽ.\n\n❌ Vì sao các đáp án khác sai:\n• \"Class A is tightly encapsulated\": Sai vì lớp `A` chứa biến `public int foo`.\n• \"Class B is tightly encapsulated\": Sai do dính bẫy kế thừa; `B` kế thừa thuộc tính `public foo` chưa đóng gói từ `A`.\n• \"Classes A and B are both tightly encapsulated\": Sai vì cả hai lớp đều có trường `public` (trực tiếp hoặc gián tiếp qua kế thừa).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi kiểm tra tính bao đóng của một lớp con, ĐỪNG chỉ nhìn vào code của lớp con! Hãy nhìn lên toàn bộ cây kế thừa (`extends`). Nếu bất kỳ lớp cha nào có biến `public`/`protected`/`default`, thì lớp con cũng mất đi tính bao đóng chặt chẽ.\n• Đóng gói chặt chẽ đòi hỏi TẤT CẢ các biến từ trên xuống dưới cây kế thừa đều phải là `private`.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch05-003",
+    "originalId": 3,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which is true?",
+    "textVi": "Phát biểu nào sau đây là đúng về tính bao đóng?",
+    "code": "",
+    "options": [
+      "Tightly encapsulated classes are typically easier to reuse.",
+      "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+      "Methods in tightly encapsulated classes cannot be overridden.",
+      "Methods in tightly encapsulated classes cannot be overloaded.",
+      "Tightly encapsulated classes typically do not use HAS-A relationships."
+    ],
+    "optionsVi": [
+      "Các lớp được bao đóng chặt chẽ thường dễ tái sử dụng hơn.",
+      "Các lớp được bao đóng chặt chẽ thường sử dụng tính kế thừa nhiều hơn các lớp không bao đóng.",
+      "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị ghi đè (overridden).",
+      "Các phương thức trong lớp được bao đóng chặt chẽ không thể bị nạp chồng (overloaded).",
+      "Các lớp được bao đóng chặt chẽ thường không sử dụng quan hệ HAS-A."
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nMục tiêu hàng đầu của tính bao đóng (Encapsulation) trong thiết kế hướng đối tượng là giảm sự phụ thuộc (Loose Coupling) và tăng tính gắn kết (High Cohesion):\n1. Tính tái sử dụng (Reusability): Khi một lớp che giấu toàn bộ cấu trúc dữ liệu bên trong và chỉ giao tiếp với bên ngoài thông qua các API công khai (`public` methods/getters/setters), lớp đó trở thành một chiếc \"hộp đen\" (black box). Bạn có thể tái sử dụng lớp này ở nhiều module hoặc project khác nhau mà không sợ làm ảnh hưởng hay bị ảnh hưởng bởi code bên ngoài. Khi cần thay đổi chi tiết triển khai nội bộ, mã bên ngoài vẫn hoạt động bình thường.\n2. Các khái niệm khác trong OOP (kế thừa, nạp chồng, ghi đè, quan hệ HAS-A) hoàn toàn độc lập với bao đóng. Bao đóng không hạn chế cũng không ép buộc phải dùng kế thừa hay HAS-A.\n\n✅ Vì sao đáp án \"Tightly encapsulated classes are typically easier to reuse\" đúng:\nVì việc che giấu chi tiết cài đặt và tạo ra các giao diện độc lập giúp lớp dễ bảo trì, linh hoạt và cực kỳ thuận tiện để tái sử dụng ở nhiều nơi khác nhau.\n\n❌ Vì sao các đáp án khác sai:\n• \"Tightly encapsulated classes typically use inheritance more than unencapsulated classes\": Sai vì tính kế thừa và bao đóng là hai khái niệm độc lập; bao đóng không làm tăng hay giảm nhu cầu dùng kế thừa.\n• \"Methods in tightly encapsulated classes cannot be overridden\": Sai vì các phương thức `public` hoặc `protected` trong lớp bao đóng vẫn có thể bị lớp con ghi đè (`override`) bình thường (trừ khi đánh dấu `final`).\n• \"Methods in tightly encapsulated classes cannot be overloaded\": Sai vì việc nạp chồng (`overload`) chỉ phụ thuộc vào tên phương thức và danh sách tham số, không bị hạn chế bởi tính bao đóng.\n• \"Tightly encapsulated classes typically do not use HAS-A relationships\": Sai vì quan hệ HAS-A (chứa đối tượng khác làm thuộc tính) là mô hình thiết kế nền tảng và rất phổ biến trong các lớp bao đóng.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• 4 lợi ích lớn nhất của Encapsulation: \"Dễ bảo trì (Maintainable), Dễ mở rộng (Extensible), Dễ gỡ lỗi (Debuggable), và Dễ tái sử dụng (Reusable)\".",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch05-004",
+    "originalId": 4,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which two are not benefits of encapsulation? (Choose two.)",
+    "textVi": "Hai điều nào sau đây KHÔNG phải là lợi ích của tính bao đóng (encapsulation)? (Chọn hai)",
+    "code": "",
+    "options": [
+      "B và E (B: Code efficiency & E: Access modifiers become optional)",
+      "A và B (A: Clarity of code & B: Code efficiency)",
+      "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+      "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+    ],
+    "optionsVi": [
+      "B và E (B: Hiệu năng mã nguồn & E: Các từ khóa chỉ phạm vi truy cập trở thành tùy chọn)",
+      "A và B (A: Mã nguồn rõ ràng & B: Hiệu năng mã nguồn)",
+      "A và C (A: Mã nguồn rõ ràng & C: Khả năng bổ sung tính năng về sau)",
+      "D và E (D: Chỉnh sửa yêu cầu ít thay đổi mã nguồn hơn & E: Các từ khóa chỉ phạm vi truy cập trở thành tùy chọn)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhân biệt rõ ràng giữa \"Lợi ích thiết kế phần mềm\" và \"Hiệu năng phần cứng / Cú pháp ngôn ngữ\":\n1. Những lợi ích thực tế của Encapsulation:\n   • Mã nguồn rõ ràng, minh bạch (Clarity of code).\n   • Khả năng dễ dàng thêm tính năng hoặc thay đổi logic nội bộ về sau mà không làm ảnh hưởng mã bên ngoài (The ability to add functionality later on).\n   • Giảm thiểu tác động khi thay đổi: Khi cấu trúc dữ liệu thay đổi, chỉ cần cập nhật bên trong lớp mà không cần sửa hàng loạt mã nguồn ở nơi khác (Modifications require fewer coding changes).\n2. Những điều KHÔNG PHẢI là lợi ích của Encapsulation:\n   • B. Hiệu năng mã nguồn (Code efficiency): Việc truy xuất qua getter/setter thực tế tạo thêm lời gọi hàm trên ngăn xếp (stack frame). Mặc dù JIT Compiler có thể tối ưu bằng inlining, nhưng bao đóng không sinh ra để làm chương trình chạy nhanh hơn.\n   • E. Các từ khóa chỉ phạm vi truy cập trở thành tùy chọn (Access modifiers become optional): Hoàn toàn sai! Bao đóng phụ thuộc sống còn vào các access modifier (`private`, `public`, `protected`) để dựng rào chắn bảo vệ dữ liệu.\n\n✅ Vì sao đáp án \"B và E\" đúng:\nVì hiệu năng thực thi (B) không phải là lợi ích mà bao đóng mang lại, và các từ khóa truy cập (E) là bắt buộc chứ không hề trở thành tùy chọn khi thực hiện bao đóng.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa A, C, D đều sai vì tính rõ ràng của code (A), khả năng mở rộng chức năng (C), và việc sửa đổi ít làm ảnh hưởng code khác (D) đều là những lợi ích kinh điển của tính bao đóng.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Encapsulation giúp ích cho CON NGƯỜI (lập trình viên đọc hiểu, bảo trì, phát triển hệ thống lớn an toàn), KHÔNG PHẢI giúp cho CPU chạy nhanh hơn (không tăng Code efficiency).",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-005",
+    "originalId": 5,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai phát biểu nào sau đây là đúng về các thể hiện (instance) của các lớp trên? (Chọn hai)",
+    "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
+    "options": [
+      "C và E (C: A has-a C & E: B has-a C)",
+      "A và C (A: A is-a B & C: A has-a C)",
+      "A và B (A: A is-a B & B: C is-a A)",
+      "D và E (D: B has-a A & E: B has-a C)"
+    ],
+    "optionsVi": [
+      "C và E (C: A có quan hệ HAS-A với C & E: B có quan hệ HAS-A với C)",
+      "A và C (A: A có quan hệ IS-A với B & C: A có quan hệ HAS-A với C)",
+      "A và B (A: A có quan hệ IS-A với B & B: C có quan hệ IS-A với A)",
+      "D và E (D: B có quan hệ HAS-A với A & E: B có quan hệ HAS-A với C)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nTrong lập trình hướng đối tượng có 2 mối quan hệ cơ bản cần nắm vững:\n1. Quan hệ IS-A (Kế thừa - Inheritance): Thể hiện bằng từ khóa `extends` hoặc `implements`. Nếu `B extends A` thì ta nói \"B IS-A A\" (B là một A).\n2. Quan hệ HAS-A (Chứa / Thành phần - Composition/Aggregation): Thể hiện khi một lớp chứa một biến tham chiếu trỏ đến đối tượng của lớp khác.\n\nPhân tích đoạn mã:\n```java\nclass B extends A { int getID() { return id; } }\nclass C { public int name; }\nclass A { C c = new C(); public int id; }\n```\n• Trong lớp `A` có thuộc tính `C c = new C();`: Lớp `A` chứa một biến tham chiếu tới `C`. Do đó: **A HAS-A C** (Phát biểu C đúng).\n• Lớp `B` kế thừa `A` (`class B extends A`): **B IS-A A**.\n• Nhờ tính kế thừa, lớp con `B` thừa hưởng toàn bộ các thuộc tính của lớp cha `A`, bao gồm cả biến tham chiếu `c` (kiểu `C`). Do đó, một thể hiện của lớp `B` cũng chứa `C`. Nói cách khác: **B HAS-A C** (Phát biểu E đúng).\n\n✅ Vì sao đáp án \"C và E\" đúng:\nVì lớp `A` khai báo trực tiếp thuộc tính `c` kiểu `C` (A HAS-A C), và lớp `B` kế thừa `A` nên gián tiếp sở hữu thuộc tính `c` này (B HAS-A C).\n\n❌ Vì sao các đáp án khác sai:\n• Phát biểu A (\"A IS-A B\"): Sai vì `B` kế thừa `A`, tức \"B IS-A A\", không phải ngược lại.\n• Phát biểu B (\"C IS-A A\"): Sai vì `C` hoàn toàn không kế thừa `A`.\n• Phát biểu D (\"B HAS-A A\"): Sai vì quan hệ giữa `B` và `A` là quan hệ kế thừa (IS-A), không dùng HAS-A để mô tả kế thừa trực tiếp.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"IS-A\" = Kế thừa (`extends` / `implements`).\n• \"HAS-A\" = Sở hữu biến thành viên (`Field` / `new`).\n• Quy tắc bắc cầu kế thừa: Nếu A HAS-A C, mà B IS-A A thì hiển nhiên B cũng HAS-A C.",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-006",
+    "originalId": 6,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "A",
+      "B",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "A",
+      "B",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn code minh họa cơ chế Đa hình (Polymorphism) và Liên kết động (Dynamic Method Dispatch / Virtual Method Invocation) trong Java:\n```java\nclass A {\n  public void baz() { System.out.println(\"A\"); }\n}\npublic class B extends A {\n  public static void main(String [] args) {\n    A a = new B();\n    a.baz();\n  }\n  public void baz() { System.out.println(\"B\"); }\n}\n```\nPhân tích chi tiết:\n1. Xét khai báo `A a = new B();`:\n   • Biến tham chiếu `a` có kiểu khai báo lúc biên dịch (compile-time type) là `A`.\n   • Đối tượng thực tế được cấp phát trên vùng nhớ Heap lúc chạy (runtime object) là `new B()`.\n2. Khi gọi `a.baz()`:\n   • Tại thời điểm biên dịch (Compile-time): Trình biên dịch kiểm tra xem trong lớp `A` có phương thức `baz()` hay không. Vì lớp `A` có `baz()`, code biên dịch thành công.\n   • Tại thời điểm chạy (Runtime): JVM kiểm tra kiểu của ĐỐI TƯỢNG THỰC TẾ mà biến `a` đang trỏ tới trên Heap. Ở đây, đối tượng thực tế là một thể hiện của lớp `B`.\n   • Vì lớp con `B` đã ghi đè (`override`) phương thức `baz()`, JVM sẽ thực thi phương thức `baz()` của lớp `B`.\n3. Kết quả in ra màn hình là chữ `\"B\"`.\n\n✅ Vì sao đáp án \"B\" đúng:\nVì trong Java, tất cả các phương thức instance đều là virtual method theo mặc định. Khi gọi phương thức qua biến tham chiếu, JVM luôn dựa vào kiểu của đối tượng thực tế trên Heap tại runtime (`B`) để thực thi.\n\n❌ Vì sao các đáp án khác sai:\n• \"A\": Sai vì nhầm lẫn rằng kiểu khai báo của biến (`A a`) sẽ quyết định phương thức nào được gọi. Kiểu biến chỉ dùng ở bước biên dịch; khi chạy, đối tượng thực tế mới quyết định.\n• \"Compilation fails\": Sai vì phép gán đa hình `A a = new B()` là hoàn toàn hợp lệ trong Java.\n• \"Runtime Exception\": Sai vì chương trình thực thi trơn tru, không có ngoại lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Biến quyết định bạn ĐƯỢC GỌI CÁI GÌ (lúc biên dịch), nhưng Đối tượng trên Heap quyết định PHIÊN BẢN NÀO ĐƯỢC CHẠY (lúc runtime)\".",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch05-007",
+    "originalId": 7,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+    "textVi": "Cho đoạn mã sau: class Foo { String doStuff(int x) { return \"hello\"; } }. Phương thức nào dưới đây KHÔNG hợp lệ trong một lớp con của Foo?",
+    "code": "",
+    "options": [
+      "String doStuff(int x) { return \"hello\"; }",
+      "int doStuff(int x) { return 42; }",
+      "public String doStuff(int x) { return \"Hello\"; }",
+      "protected String doStuff(int x) { return \"Hello\"; }",
+      "String doStuff(String s) { return \"Hello\"; }",
+      "int doStuff(String s) { return 42; }"
+    ],
+    "optionsVi": [
+      "String doStuff(int x) { return \"hello\"; }",
+      "int doStuff(int x) { return 42; }",
+      "public String doStuff(int x) { return \"Hello\"; }",
+      "protected String doStuff(int x) { return \"Hello\"; }",
+      "String doStuff(String s) { return \"Hello\"; }",
+      "int doStuff(String s) { return 42; }"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhương thức gốc trong lớp `Foo`:\n`String doStuff(int x) { return \"hello\"; }` (phạm vi truy cập mặc định: default/package-private).\n\nKhi một lớp con kế thừa `Foo`, nó có thể định nghĩa phương thức `doStuff` theo hai cách:\n1. Ghi đè (Overriding): Cùng tên `doStuff` và CÙNG DANH SÁCH THAM SỐ `(int x)`.\n   • Quy tắc kiểu trả về: Phải giống hệt hoặc là kiểu con (covariant type). Với kiểu nguyên thủy, bắt buộc phải giống hệt.\n   • Quy tắc phạm vi truy cập: Không được phép thu hẹp quyền truy cập (không được đổi từ default xuống `private`), chỉ được giữ nguyên hoặc mở rộng (`protected`, `public`).\n2. Nạp chồng (Overloading): Cùng tên `doStuff` nhưng KHÁC DANH SÁCH THAM SỐ (ví dụ `(String s)` thay vì `(int x)`).\n   • Khi đã overload, kiểu trả về và phạm vi truy cập có thể tùy ý thay đổi!\n\nXét từng phương án trong lớp con:\n• A: `String doStuff(int x)` -> Giữ nguyên kiểu trả về và tham số -> Ghi đè hợp lệ.\n• B: `int doStuff(int x)` -> Danh sách tham số giống hệt `(int x)` (là overriding), nhưng kiểu trả về bị đổi từ `String` thành `int`. Java cấm thay đổi kiểu trả về khi ghi đè -> LỖI BIÊN DỊCH! (Nó cũng không phải overload vì tham số không đổi).\n• C: `public String doStuff(int x)` -> Mở rộng phạm vi lên `public` -> Ghi đè hợp lệ.\n• D: `protected String doStuff(int x)` -> Mở rộng phạm vi lên `protected` -> Ghi đè hợp lệ.\n• E: `String doStuff(String s)` -> Đổi tham số thành `String s` -> Nạp chồng hợp lệ.\n• F: `int doStuff(String s)` -> Đổi tham số thành `String s` -> Nạp chồng hợp lệ (kiểu trả về `int` hay gì cũng được).\n\n✅ Vì sao đáp án \"int doStuff(int x) { return 42; }\" đúng:\nVì phương thức này có cùng tham số `(int x)` nên là ghi đè, nhưng lại thay đổi kiểu trả về từ `String` thành `int`, vi phạm nghiêm trọng quy tắc ghi đè trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• \"String doStuff(int x)\": Ghi đè hoàn toàn hợp lệ.\n• \"public String doStuff(int x)\" và \"protected String doStuff(int x)\": Đều là ghi đè hợp lệ vì được phép mở rộng phạm vi truy cập.\n• \"String doStuff(String s)\" và \"int doStuff(String s)\": Đều là nạp chồng (overload) hợp lệ vì đã thay đổi kiểu của tham số đầu vào.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Override = Cùng tên + Cùng tham số + Kiểu trả về phải tương thích.\n• Đổi kiểu trả về mà giữ nguyên danh sách tham số = 100% LỖI BIÊN DỊCH!",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch05-008",
+    "originalId": 8,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, What is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
+    "options": [
+      "x = 14",
+      "x = 21",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 11.",
+      "Compilation fails at line 14.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "x = 14",
+      "x = 21",
+      "Lỗi biên dịch tại dòng 2.",
+      "Lỗi biên dịch tại dòng 11.",
+      "Lỗi biên dịch tại dòng 14.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuan sát khai báo phương thức `doStuff` ở hai lớp:\n1. Lớp cha `ParentClass`:\n   `public int doStuff(int x) { return x * 2; }`\n2. Lớp con `ChildClass extends ParentClass`:\n   `public long doStuff(int x) { return x * 3; }` (Dòng 14)\n\nPhân tích lỗi tại dòng 14:\n• Tên phương thức: `doStuff` (trùng tên).\n• Danh sách tham số: `(int x)` (cùng số lượng và cùng kiểu dữ liệu).\n• Vì danh sách tham số giống hệt nhau, trình biên dịch coi đây là một nỗ lực Ghi đè (Overriding), CHỨ KHÔNG PHẢI Nạp chồng (Overloading).\n• Quy tắc Overriding trong Java: Kiểu trả về đối với các kiểu nguyên thủy (`primitive`) BẮT BUỘC PHẢI GIỐNG HỆT NHAU.\n• Lớp cha trả về `int`, nhưng lớp con lại khai báo trả về `long`. Kiểu nguyên thủy không có tính chất đồng biến (covariance).\n• Do đó, trình biên dịch sẽ báo lỗi tại dòng 14: \"doStuff(int) in ChildClass cannot override doStuff(int) in ParentClass; attempting to use incompatible return type: long is not compatible with int\".\n\n✅ Vì sao đáp án \"Compilation fails at line 14\" đúng:\nVì dòng 14 trong `ChildClass` cố gắng ghi đè phương thức `doStuff(int)` của lớp cha nhưng lại đổi kiểu trả về từ `int` thành `long`, vi phạm quy tắc ghi đè kiểu dữ liệu nguyên thủy.\n\n❌ Vì sao các đáp án khác sai:\n• \"x = 14\" và \"x = 21\": Sai vì chương trình không thể biên dịch thành công file `.class` để chạy.\n• \"Compilation fails at line 2\": Sai vì khai báo phương thức trong `ParentClass` hoàn toàn hợp lệ.\n• \"Compilation fails at line 11\": Sai vì cú pháp in ở dòng 11 hoàn toàn bình thường.\n• \"Runtime Exception\": Sai vì đây là lỗi thời điểm biên dịch (compile-time), không phải lỗi lúc chạy.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi tham số giống hệt nhau -> Trình biên dịch hiểu là Override.\n• Với kiểu primitive: Kiểu trả về khi override phải GIỐNG HỆT 100%. Không thể đổi `int` thành `long`, `float` thành `double`!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-009",
+    "originalId": 9,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai phương thức nào sau đây nếu được chèn độc lập vào dòng 8 sẽ gây lỗi biên dịch? (Chọn hai)",
+    "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
+    "options": [
+      "C và E (C: private int doStuff(int x, float y) { return 4; } & E: long doStuff(int x, float y) { return 4; })",
+      "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) { return 4; })",
+      "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) { return 4; })",
+      "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; })"
+    ],
+    "optionsVi": [
+      "C và E (C: private int doStuff(int x, float y) { return 4; } & E: long doStuff(int x, float y) { return 4; })",
+      "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) { return 4; })",
+      "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) { return 4; })",
+      "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; })"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhương thức gốc ở lớp cha `Over`:\n`int doStuff(int a, float b) { return 7; }`\n• Phạm vi truy cập: default (package-private).\n• Danh sách tham số: `(int, float)`.\n• Kiểu trả về: `int`.\n\nXét các phương thức khi chèn vào lớp con `Over2`:\n1. Phương thức C: `private int doStuff(int x, float y) { return 4; }`\n   • Danh sách tham số giống hệt `(int, float)` -> Đây là ghi đè (overriding).\n   • Quy tắc phạm vi truy cập: Lớp con KHÔNG ĐƯỢC phép thu hẹp quyền truy cập (cannot reduce visibility) so với lớp cha.\n   • Lớp cha đang là `default`, lớp con lại đổi thành `private` (hẹp hơn `default`) -> LỖI BIÊN DỊCH!\n2. Phương thức E: `long doStuff(int x, float y) { return 4; }`\n   • Danh sách tham số giống hệt `(int, float)` -> Là ghi đè.\n   • Kiểu trả về bị đổi từ `int` thành `long`. Kiểu nguyên thủy khi ghi đè bắt buộc phải giống hệt -> LỖI BIÊN DỊCH!\n\nXét các phương thức còn lại để thấy tính hợp lệ:\n• A: `public int doStuff(int x, float y)`: Mở rộng quyền truy cập lên `public` -> Hợp lệ.\n• B: `protected int doStuff(int x, float y)`: Mở rộng quyền truy cập lên `protected` -> Hợp lệ.\n• F: `int doStuff(float x, int y)`: Danh sách tham số đổi thành `(float, int)`, khác với `(int, float)` -> Đây là nạp chồng (overloading) hợp lệ!\n\n✅ Vì sao đáp án \"C và E\" đúng:\nVì C vi phạm quy tắc không được thu hẹp phạm vi truy cập (thu hẹp xuống private), còn E vi phạm quy tắc giữ nguyên kiểu trả về nguyên thủy khi ghi đè (đổi int thành long).\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa A hoặc B đều sai vì việc mở rộng quyền truy cập (`protected`, `public`) khi ghi đè là hoàn toàn hợp lệ.\n• Các đáp án chứa F sai vì F thay đổi thứ tự kiểu dữ liệu tham số, tạo thành phương thức nạp chồng (overload) hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Thang đo phạm vi truy cập: `private` < `default` < `protected` < `public`.\n• Khi ghi đè (override): Quyền truy cập chỉ có thể BẰNG hoặc RỘNG HƠN lớp cha, tuyệt đối không được thu hẹp!",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-010",
+    "originalId": 10,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
+    "options": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã mô tả cơ chế khởi tạo đối tượng qua chuỗi Constructor (Constructor Chaining) trong kế thừa:\n```java\npublic class TestPoly {\n  public static void main(String [] args ){\n    Parent p = new Child();\n  }\n}\nclass Parent {\n  public Parent() {\n    super();\n    System.out.println(\"instantiate a parent\");\n  }\n}\nclass Child extends Parent {\n  public Child() {\n    System.out.println(\"instantiate a child\");\n  }\n}\n```\nLuồng thực thi chi tiết từng bước:\n1. `main` gọi `new Child()`: JVM bắt đầu quá trình tạo đối tượng `Child`.\n2. JVM bước vào constructor `Child()`.\n3. QUY TẮC CỐT LÕI CỦA JAVA: Dòng lệnh đầu tiên của mọi constructor luôn luôn là lời gọi tới constructor lớp cha `super(...)` hoặc constructor cùng lớp `this(...)`. Nếu lập trình viên không tự viết, trình biên dịch sẽ TỰ ĐỘNG CHÈN `super();` vào dòng đầu tiên.\n4. Do đó, dòng đầu tiên thực sự chạy trong `Child()` là `super();` (gọi constructor của `Parent`).\n5. JVM chuyển quyền điều khiển sang constructor `Parent()`.\n6. Trong `Parent()`, nó gọi `super();` (lớp `Object`), sau đó in ra dòng chữ:\n   `instantiate a parent`\n7. Constructor `Parent()` kết thúc, quyền điều khiển quay trở lại phần thân của constructor `Child()`.\n8. Lúc này, `Child()` mới thực thi lệnh in của mình:\n   `instantiate a child`\n9. Kết quả in ra lần lượt trên màn hình: `instantiate a parent` rồi đến `instantiate a child`.\n\n✅ Vì sao đáp án \"instantiate a parent instantiate a child\" đúng:\nVì constructor của lớp cha luôn luôn được gọi và hoàn thành trước khi các câu lệnh trong constructor của lớp con được thực thi.\n\n❌ Vì sao các đáp án khác sai:\n• \"instantiate a child\": Sai vì bỏ sót phần in của constructor lớp cha.\n• \"instantiate a parent\": Sai vì sau khi cha khởi tạo xong, constructor con vẫn chạy tiếp câu lệnh in của nó.\n• \"instantiate a child instantiate a parent\": Sai thứ tự; cha phải chạy trước con.\n• \"Compilation fails\" và \"Runtime Exception\": Sai vì cú pháp kế thừa và chuỗi constructor hoàn toàn chuẩn xác.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Cha trước, con sau\": Khi tạo đối tượng con, Constructor của Superclass luôn luôn chạy và hoàn thành XONG XUÔI thì Constructor của Subclass mới thực hiện phần thân của nó.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch05-011",
+    "originalId": 11,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
+    "options": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy quan sát kỹ constructor của lớp `Child`:\n```java\nclass Child extends Parent {\n  public Child() {\n    System.out.println(\"instantiate a child\"); // Dòng 16\n    super();                                  // Dòng 17\n  }\n}\n```\nPhân tích lỗi tại dòng 17:\n• Dòng 17 gọi `super();` nằm phía sau câu lệnh `System.out.println`.\n• QUY TẮC BẤT DI BẤT DỊCH CỦA JAVA: Lời gọi constructor lớp cha `super(...)` hoặc constructor cùng lớp `this(...)` BẮT BUỘC PHẢI LÀ CÂU LỆNH ĐẦU TIÊN trong thân constructor.\n• Lý do kỹ thuật: Một đối tượng lớp con không thể tồn tại một cách an toàn nếu các thuộc tính và trạng thái kế thừa từ lớp cha chưa được khởi tạo. Vì vậy Java nghiêm cấm thực hiện bất kỳ câu lệnh nào trước khi `super()` hoặc `this()` chạy xong.\n• Vì `super();` đứng ở dòng thứ 2, trình biên dịch sẽ chặn lại ngay lập tức và báo lỗi: \"call to super must be first statement in constructor\".\n\n✅ Vì sao đáp án \"Compilation fails\" đúng:\nVì lời gọi `super()` ở dòng 17 vi phạm quy tắc bắt buộc phải là câu lệnh đầu tiên trong thân constructor của Java.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án in kết quả đều sai vì chương trình không thể biên dịch thành công.\n• \"Runtime Exception\": Sai vì đây là lỗi phát hiện tại thời điểm biên dịch (compile-time error), không phải lỗi lúc chạy.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi gặp câu hỏi về constructor trong bài thi SCJP: Soi ngay dòng đầu tiên của constructor! Nếu thấy `super()` hoặc `this()` nằm từ dòng số 2 trở đi -> Khoanh ngay \"Compilation fails\" mà không cần đọc tiếp!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-012",
+    "originalId": 12,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
+    "options": [
+      "sub super 2",
+      "super 2 sub",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "Compilation fails at line 14."
+    ],
+    "optionsVi": [
+      "sub super 2",
+      "super 2 sub",
+      "Lỗi biên dịch tại dòng 2.",
+      "Lỗi biên dịch tại dòng 8.",
+      "Lỗi biên dịch tại dòng 9.",
+      "Lỗi biên dịch tại dòng 14."
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích cách hoạt động của constructor trong đoạn mã:\n1. Lớp cha `MySuper`:\n   `public MySuper(int i) { System.out.println(\"super \" + i); }`\n   Vì đã tự định nghĩa constructor nhận tham số `int`, Java KHÔNG tự sinh default no-arg constructor cho `MySuper` nữa.\n2. Lớp con `MySub extends MySuper`:\n   ```java\n   public MySub() {\n     super(2); // Dòng 9: Gọi tường minh constructor MySuper(int)\n     System.out.println(\"sub\");\n   }\n   ```\n   • Dòng 9 gọi tường minh `super(2);` ở ngay câu lệnh đầu tiên, truyền đối số `2` khớp hoàn toàn với `MySuper(int i)`.\n   • Vì đã có `super(2)` tường minh, trình biên dịch KHÔNG chèn `super();` mặc định nữa. Do đó không hề có lỗi thiếu no-arg constructor!\n3. Luồng thực thi trong `main`:\n   `MySuper sup = new MySub();`\n   • `new MySub()` kích hoạt constructor `MySub()`.\n   • Dòng đầu tiên `super(2)` được thực thi trước -> gọi `MySuper(2)` -> in ra `\"super 2\"`.\n   • Sau khi constructor cha chạy xong, quay lại phần thân của `MySub()` -> in tiếp `\"sub\"`.\n- Toàn bộ kết quả in ra: `\"super 2\"` rồi đến `\"sub\"`.\n\n✅ Vì sao đáp án \"super 2 sub\" đúng:\nVì `super(2)` được gọi và hoàn thành trước, in ra `\"super 2\"`, sau đó lệnh in trong `MySub` mới chạy và in tiếp `\"sub\"`.\n\n❌ Vì sao các đáp án khác sai:\n• \"sub super 2\": Sai vì constructor lớp cha luôn luôn chạy trước constructor lớp con.\n• Các đáp án báo lỗi biên dịch ở dòng 2, 8, 9, 14: Đều sai vì cú pháp gọi `super(2)` hoàn toàn chuẩn xác.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nếu lớp cha chỉ có constructor có tham số, thì lớp con BẮT BUỘC phải gọi tường minh constructor đó bằng `super(param)`. Ở bài này, dòng 9 đã làm hoàn toàn chính xác.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch05-013",
+    "originalId": 13,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
+    "options": [
+      "4",
+      "4 8",
+      "8 4",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Compilation fails."
+    ],
+    "optionsVi": [
+      "4",
+      "4 8",
+      "8 4",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã kiểm tra cơ chế Chaining Constructor trong cùng một lớp bằng từ khóa `this(...)`:\n```java\npublic class ThreeConst {\n  public static void main(String [] args) {\n    new ThreeConst(4L);\n  }\n  public ThreeConst(int x) {\n    this();\n    System.out.print(\" \" + (x * 2));\n  }\n  public ThreeConst(long x) {\n    this((int) x);\n    System.out.print(\" \" + x);\n  }\n  public ThreeConst() {\n    System.out.print(\"no-arg \");\n  }\n}\n```\nLần theo ngăn xếp thực thi (Call Stack) từng bước:\n1. `main` gọi `new ThreeConst(4L)`:\n   • Giá trị `4L` là kiểu `long`, nên nó kích hoạt constructor `ThreeConst(long x)` (với `x = 4L`).\n2. Trong `ThreeConst(long x)`:\n   • Dòng đầu tiên gọi `this((int) x);`: Ép kiểu `4L` thành `int 4` và chuyển tiếp sang constructor `ThreeConst(int x)`. Lệnh in `System.out.print(\" \" + x)` ở đây tạm dừng chờ hàm con chạy xong.\n3. Trong `ThreeConst(int x)`:\n   • Dòng đầu tiên gọi `this();`: Chuyển tiếp sang constructor không tham số `ThreeConst()`. Lệnh in `System.out.print(\" \" + (x * 2))` cũng tạm dừng.\n4. Trong `ThreeConst()`:\n   • Constructor này thực thi lệnh in:\n     In ra: `\"no-arg \"`\n   • Constructor này kết thúc và quay lại điểm gọi ở `ThreeConst(int x)`.\n5. Quay lại `ThreeConst(int x)` (với `x = 4`):\n   • Thực thi lệnh in: `System.out.print(\" \" + (4 * 2))` -> In ra: `\" 8\"`.\n   • Constructor này kết thúc và quay lại `ThreeConst(long x)`.\n6. Quay lại `ThreeConst(long x)` (với `x = 4L`):\n   • Thực thi lệnh in: `System.out.print(\" \" + 4L)` -> In ra: `\" 4\"`.\n7. Ghép toàn bộ chuỗi in lại: `\"no-arg 8 4\"`.\n\n✅ Vì sao đáp án \"no-arg 8 4\" đúng:\nVì theo nguyên lý ngăn xếp (stack), constructor được gọi sâu nhất (`no-arg`) sẽ hoàn thành và in trước, sau đó lần lượt tháo gỡ các lệnh in từ `int` (`8`) đến `long` (`4`).\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án \"4\", \"4 8\", \"8 4\", \"8 4 no-arg\": Đều sai thứ tự luồng chạy hoặc bỏ sót bước in của constructor.\n• \"Compilation fails\": Sai vì việc dùng `this(...)` để gọi constructor nạp chồng ở câu lệnh đầu tiên là hoàn toàn hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chuỗi constructor `this(...)` giống như búp bê Nga Matryoshka: Chui vào tầng sâu nhất (`no-arg`) trước rồi mới lần lượt đi ngược trở ra từ trong ra ngoài!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-014",
+    "originalId": 14,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
+    "options": [
+      "no-arg",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Compilation fails.",
+      "No output is produced.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "no-arg",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Lỗi biên dịch (Compilation fails)",
+      "Không có kết quả nào được in ra (No output is produced)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐây là câu hỏi bẫy cực kỳ kinh điển trong kỳ thi SCJP!\nQuan sát kỹ các khai báo trong lớp `ThreeConst`:\n```java\npublic class ThreeConst {\n  public static void main(String [] args) {\n    new ThreeConst();\n  }\n  public void ThreeConst(int x) { ... }\n  public void ThreeConst(long x) { ... }\n  public void ThreeConst() {\n    System.out.print(\"no-arg \");\n  }\n}\n```\nChú ý từ khóa `void` trước tên `ThreeConst`:\n• ĐỊNH NGHĨA CONSTRUCTOR: Constructor trong Java TUYỆT ĐỐI KHÔNG CÓ KIỂU TRẢ VỀ (không có cả `void`).\n• Khi bạn thêm `void` vào trước tên lớp (ví dụ: `public void ThreeConst()`), Java sẽ coi đó là một **PHƯƠNG THỨC THƯỜNG (Method)** có tên trùng với tên lớp, CHỨ KHÔNG PHẢI CONSTRUCTOR!\n• Vì tất cả các khai báo trên đều có `void`, nên lớp `ThreeConst` THỰC CHẤT KHÔNG CÓ BẤT KỲ CONSTRUCTOR NÀO được viết bởi lập trình viên.\n• Khi một lớp không có constructor nào, Java sẽ TỰ ĐỘNG SINH DEFAULT CONSTRUCTOR:\n  `public ThreeConst() { super(); }` (bên trong rỗng, không in gì cả).\n• Trong hàm `main`: Lệnh `new ThreeConst();` gọi default constructor rỗng này.\n• Không có dòng code nào gọi phương thức `public void ThreeConst()`, do đó không có bất kỳ lệnh in nào được thực thi!\n\n✅ Vì sao đáp án \"No output is produced\" đúng:\nVì các khai báo có từ khóa `void` chỉ là các phương thức thông thường. Lệnh `new ThreeConst()` gọi constructor mặc định rỗng của Java nên không có gì được in ra màn hình.\n\n❌ Vì sao các đáp án khác sai:\n• \"no-arg\" hoặc \"no-arg 8 4\": Mắc bẫy, tưởng rằng `public void ThreeConst()` là constructor và được gọi khi khởi tạo.\n• \"Compilation fails\": Sai vì Java cho phép đặt tên phương thức trùng với tên lớp (dù đây là bad practice), code biên dịch hoàn toàn hợp lệ.\n• \"Runtime Exception\": Sai vì chương trình chạy bình thường không phát sinh lỗi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Có `void` là METHOD, không có `void` mới là CONSTRUCTOR!\" Cứ thấy từ khóa kiểu trả về (`void`, `int`,...) đứng trước tên class thì 100% đó là phương thức bình thường.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-015",
+    "originalId": 15,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau: class Dog { Dog(String name) { } }. Nếu lớp Beagle kế thừa Dog, và lớp Beagle chỉ có duy nhất một constructor, thì khai báo constructor nào sau đây là hợp lệ cho lớp Beagle?",
+    "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
+    "options": [
+      "Beagle() { }",
+      "Beagle() { super(); }",
+      "Beagle() { super(\"fido\"); }",
+      "No constructor, allow the default constructor"
+    ],
+    "optionsVi": [
+      "Beagle() { }",
+      "Beagle() { super(); }",
+      "Beagle() { super(\"fido\"); }",
+      "Không khai báo constructor, để Java dùng constructor mặc định (default constructor)."
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy tắc cốt lõi về Constructor trong kế thừa:\n1. Lớp cha `Dog`: Đã tự khai báo constructor có tham số: `Dog(String name) { }`.\n   • Vì đã có constructor tự viết, Java KHÔNG tự sinh constructor mặc định không tham số `Dog()` nữa. Do đó, lớp `Dog` chỉ có duy nhất một constructor nhận tham số `String`.\n2. Lớp con `Beagle extends Dog`:\n   • Câu lệnh đầu tiên trong constructor của `Beagle` bắt buộc phải gọi đến một constructor hợp lệ của lớp cha `Dog`.\n   • Phương án A: `Beagle() { }` -> Trình biên dịch tự chèn `super();`. Nhưng `Dog` không có constructor không đối số -> LỖI BIÊN DỊCH!\n   • Phương án B: `Beagle() { super(); }` -> Gọi trực tiếp `super();` không tham số -> LỖI BIÊN DỊCH vì `Dog` không có constructor này.\n   • Phương án D: Không viết constructor -> Java tự sinh constructor mặc định `Beagle() { super(); }` -> Cũng cố gọi `super();` và LỖI BIÊN DỊCH!\n   • Phương án C: `Beagle() { super(\"fido\"); }` -> Gọi tường minh `super(\"fido\")` truyền vào chuỗi `String`, khớp hoàn hảo với `Dog(String name)`. Đây là constructor hợp lệ duy nhất!\n\n✅ Vì sao đáp án \"Beagle() { super(\"fido\"); }\" đúng:\nVì lớp cha `Dog` chỉ có constructor nhận tham số `String`, nên constructor của lớp con bắt buộc phải gọi tường minh `super(...)` truyền vào một giá trị `String`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Beagle() { }\": Sai vì trình biên dịch sẽ tự động chèn `super();`, gây lỗi do `Dog` không có constructor không đối số.\n• \"Beagle() { super(); }\": Sai vì gọi trực tiếp `super()` không tham số vốn không tồn tại ở lớp cha.\n• \"No constructor, allow the default constructor\": Sai vì default constructor cũng sẽ cố gọi `super();` và thất bại khi biên dịch.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Cha không có constructor không tham số (`no-arg`) -> Con BẮT BUỘC phải gọi `super(params)` tường minh!\" Nếu con không gọi, code sẽ gãy ngay lúc biên dịch.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch05-016",
+    "originalId": 16,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which two of these statements are true about constructors? (Choose two.)",
+    "textVi": "Hai phát biểu nào sau đây là đúng về constructor trong Java? (Chọn hai)",
+    "code": "",
+    "options": [
+      "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to the super() or this() method.)",
+      "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+      "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+      "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to the super() or this() method.)"
+    ],
+    "optionsVi": [
+      "B và D (B: Constructor không được kế thừa & D: Câu lệnh đầu tiên của mọi constructor luôn là một lời gọi hợp lệ tới super() hoặc this())",
+      "A và B (A: Constructor không được có tham số nếu constructor của lớp cha không có tham số & B: Constructor không được kế thừa)",
+      "A và C (A: Constructor không được có tham số nếu constructor của lớp cha không có tham số & C: Constructor không thể bị nạp chồng)",
+      "C và D (C: Constructor không thể bị nạp chồng & D: Câu lệnh đầu tiên của mọi constructor luôn là một lời gọi hợp lệ tới super() hoặc this())"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhân tích các đặc trưng cốt lõi của Constructor trong Java:\n1. Constructor có được kế thừa không?\n   • KHÔNG! Constructor thuộc về riêng lớp khai báo nó. Lớp con KHÔNG kế thừa constructor của lớp cha. Lớp con chỉ có thể GỌI constructor của cha thông qua `super(...)`. Do đó phát biểu B (\"Constructors are not inherited\") là ĐÚNG.\n2. Câu lệnh đầu tiên của constructor:\n   • Mọi constructor đều bắt đầu bằng lời gọi constructor: hoặc gọi cha `super(...)`, hoặc gọi constructor nạp chồng cùng lớp `this(...)`. Nếu lập trình viên không viết, trình biên dịch sẽ tự động chèn `super();` vào dòng đầu tiên. Do đó phát biểu D (\"The first statement of every constructor is a legal call to the super() or this() method\") là ĐÚNG.\n\nXét vì sao các phát biểu khác sai:\n• Phát biểu A (\"Constructor không được có tham số nếu cha không có tham số\"): Sai vì lớp con có thể tự do định nghĩa constructor có bao nhiêu tham số tùy ý, miễn là gọi `super()` hợp lệ trong thân hàm.\n• Phát biểu C (\"Constructor không thể bị nạp chồng\"): Sai hoàn toàn vì nạp chồng constructor (overloaded constructors) là tính năng cực kỳ phổ biến trong Java.\n\n✅ Vì sao đáp án \"B và D\" đúng:\nVì đây là hai quy tắc nền tảng của Java: Constructor không bao giờ được kế thừa, và câu lệnh đầu tiên trong constructor luôn là lời gọi tới `super(...)` hoặc `this(...)`.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa A sai vì constructor của lớp con hoàn toàn có thể có tham số dù lớp cha không có tham số.\n• Các đáp án chứa C sai vì constructor hoàn toàn có thể được nạp chồng với nhiều danh sách tham số khác nhau.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Constructor KHÔNG PHẢI là phương thức (method), do đó:\n  • KHÔNG THỂ kế thừa (`not inherited`).\n  • KHÔNG THỂ ghi đè (`cannot be overridden`).\n  • HOÀN TOÀN CÓ THỂ nạp chồng (`can be overloaded`).",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch05-017",
+    "originalId": 17,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which line of code, inserted at line 19, will not compile?",
+    "textVi": "Cho đoạn mã sau, dòng mã nào sau đây khi chèn vào dòng 19 sẽ gây lỗi biên dịch?",
+    "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
+    "options": [
+      "short y = 7;",
+      "int y = (int) 7.2d;",
+      "Byte y = 7;",
+      "char y = 's';",
+      "int y = 0xface;"
+    ],
+    "optionsVi": [
+      "short y = 7;",
+      "int y = (int) 7.2d;",
+      "Byte y = 7;",
+      "char y = 's';",
+      "int y = 0xface;"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhương thức `int test()` có kiểu trả về là kiểu nguyên thủy `int`.\nKhi câu lệnh `return y;` chạy, giá trị của `y` phải có kiểu tương thích để trả về cho kiểu `int`:\n1. Xét A: `short y = 7;` -> `short` có kích thước 16-bit, tự động nới rộng (widening primitive conversion) lên `int` (32-bit). Hợp lệ.\n2. Xét B: `int y = (int) 7.2d;` -> `7.2d` được ép kiểu tường minh về `int`, `y` là `int`. Hợp lệ.\n3. Xét D: `char y = 's';` -> `char` (16-bit unsigned) tự động nới rộng thành `int` (mã ký tự). Hợp lệ.\n4. Xét E: `int y = 0xface;` -> `0xface` là hằng số nguyên hệ thập lục phân (hexadecimal) hợp lệ của kiểu `int`. Hợp lệ.\n5. Xét C: `Byte y = 7;` -> `Byte` (viết hoa chữ B) là một **Lớp bao bọc đối tượng (Wrapper Class)**, KHÔNG PHẢI kiểu nguyên thủy `byte`. Trong quy chuẩn SCJP (nền tảng cốt lõi của Java), một đối tượng tham chiếu (`Byte` wrapper) không thể tự động chuyển đổi tương thích với kiểu nguyên thủy `int` khác loại. Trình biên dịch sẽ báo lỗi không tương thích kiểu dữ liệu (incompatible types).\n\n✅ Vì sao đáp án \"Byte y = 7;\" đúng:\nVì `Byte` là một kiểu đối tượng tham chiếu (wrapper class), không phải kiểu nguyên thủy, không thể tự động trả về trực tiếp cho phương thức có kiểu trả về nguyên thủy `int`.\n\n❌ Vì sao các đáp án khác sai:\n• \"short y = 7;\" và \"char y = 's';\": Sai vì `short` và `char` đều tự động nới rộng (widening conversion) lên `int` hoàn toàn hợp lệ.\n• \"int y = (int) 7.2d;\": Sai vì đã có ép kiểu tường minh về `int`.\n• \"int y = 0xface;\": Sai vì `0xface` là hằng số hex kiểu `int` chuẩn xác.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phân biệt chữ hoa/thường: `byte` là kiểu nguyên thủy (primitive), còn `Byte` là đối tượng (Object wrapper). Hãy luôn chú ý kiểu trả về của hàm là primitive hay Object!",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch05-018",
+    "originalId": 18,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai dòng mã nào dưới đây nếu chèn độc lập vào dòng 15 sẽ gây lỗi biên dịch? (Chọn hai)",
+    "code": "14.    long test( int x, float y) {\n15.\n16.    }",
+    "options": [
+      "B và E (B: return (long) x / y; & E: return ( y / x );)",
+      "A và B (A: return x; & B: return (long) x / y;)",
+      "A và C (A: return x; & C: return (long) y;)",
+      "E và F (E: return ( y / x ); & F: return x / 7;)"
+    ],
+    "optionsVi": [
+      "B và E (B: return (long) x / y; & E: return ( y / x );)",
+      "A và B (A: return x; & B: return (long) x / y;)",
+      "A và C (A: return x; & C: return (long) y;)",
+      "E và F (E: return ( y / x ); & F: return x / 7;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhương thức `long test(int x, float y)` có kiểu trả về là `long`.\nDo đó, giá trị trả về phải là `long` hoặc một kiểu nguyên thủy có thể tự động nới rộng thành `long` (như `byte`, `short`, `char`, `int`).\nNếu giá trị trả về là số thực (`float`, `double`), Java KHÔNG cho phép tự động chuyển đổi thu hẹp (narrowing) về kiểu `long` mà bắt buộc phải có ép kiểu tường minh.\n\nPhân tích từng phương án:\n1. Dòng B: `return (long) x / y;`\n   • BẪY TOÁN TỬ: Toán tử ép kiểu `(type)` có độ ưu tiên cao hơn toán tử chia `/`.\n   • Do đó, biểu thức được hiểu là: `((long) x) / y`.\n   • Phép ép kiểu chỉ tác động lên biến `x`, biến `x` thành kiểu `long`. Sau đó thực hiện phép chia giữa một số `long` và một số `float` (`y`).\n   • Theo quy tắc thăng cấp số học (numeric promotion) của Java: Khi tính toán giữa số nguyên và `float`, kết quả toàn biểu thức sẽ được thăng cấp thành `float`!\n   • Kết quả trả về là kiểu `float`, không thể tự động gán cho kiểu `long` -> LỖI BIÊN DỊCH!\n2. Dòng E: `return ( y / x );`\n   • `y` là `float`, `x` là `int`. Phép chia `float / int` tạo ra kết quả kiểu `float`.\n   • Trả về `float` cho kiểu `long` mà không ép kiểu -> LỖI BIÊN DỊCH!\n\nCác dòng còn lại đều hợp lệ:\n• A: `return x;`: `x` là `int`, tự động nới rộng thành `long`.\n• C: `return (long) y;`: Đã ép kiểu tường minh `y` (float) thành `long`.\n• F: `return x / 7;`: `int / int` ra `int`, tự động nới rộng thành `long`.\n\n✅ Vì sao đáp án \"B và E\" đúng:\nVì ở cả B và E, kết quả của biểu thức đều mang kiểu số thực `float`, không thể tự động chuyển đổi thu hẹp về kiểu nguyên `long`.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa A, C, F đều sai vì các biểu thức này đều cho kết quả là `int` hoặc `long`, hoàn toàn tương thích với kiểu trả về `long`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cẩn thận độ ưu tiên toán tử: `(long) x / y` CHỈ ÉP KIỂU CHO `x`, kết quả phép chia vẫn là `float`! Muốn ép kiểu toàn bộ phép chia, bắt buộc phải viết: `(long) (x / y)`.",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-019",
+    "originalId": 19,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai)",
+    "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.         // insert code here\n10.\n11.     }\n12.  }",
+    "options": [
+      "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+      "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+      "A và B (A: return null; & B: Object t = new Object(); return t;)",
+      "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+    ],
+    "optionsVi": [
+      "D và F (D: char[][] c = new char[2][2]; return c[0][1]; & F: return 7;)",
+      "A và D (A: return null; & D: char[][] c = new char[2][2]; return c[0][1];)",
+      "A và B (A: return null; & B: Object t = new Object(); return t;)",
+      "E và F (E: char[][] c = new char[2][2]; return c[1]; & F: return 7;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhương thức `Object test()` có kiểu trả về là `Object`.\nTrong Java, một giá trị có thể được trả về cho `Object` khi và chỉ khi nó là một **Kiểu Tham Chiếu (Reference Type)** hoặc giá trị `null`.\nCác kiểu dữ liệu nguyên thủy (`primitive types` như `int`, `char`, `boolean`, `double`,...) không phải là đối tượng và không kế thừa từ `java.lang.Object` (theo chuẩn SCJP cơ bản).\n\nPhân tích các đoạn mã:\n1. Đoạn D:\n   `char[][] c = new char[2][2]; return c[0][1];`\n   • `c` là mảng 2 chiều các ký tự.\n   • Khi truy xuất `c[0][1]`, ta đang lấy ra MỘT PHẦN TỬ đơn lẻ bên trong mảng.\n   • Phần tử này mang kiểu nguyên thủy `char`. Giá trị nguyên thủy `char` không thể tự động trả về cho kiểu `Object` -> LỖI BIÊN DỊCH!\n2. Đoạn F:\n   `return 7;`\n   • `7` là hằng số nguyên thủy kiểu `int`. Không thể trả về kiểu nguyên thủy khi kiểu trả về yêu cầu là `Object` -> LỖI BIÊN DỊCH!\n\nXét các đoạn mã còn lại đều hợp lệ:\n• A: `return null;`: `null` có thể gán cho bất kỳ kiểu tham chiếu đối tượng nào.\n• B: `Object t = new Object(); return t;`: Trả về đối tượng `Object` chuẩn.\n• E: `char[][] c = new char[2][2]; return c[1];`: `c[1]` là một mảng 1 chiều `char[]`. Trong Java, MỌI MẢNG ĐỀU LÀ ĐỐI TƯỢNG (Array is an Object), do đó `char[]` là một `Object` hợp lệ!\n\n✅ Vì sao đáp án \"D và F\" đúng:\nVì cả D và F đều cố gắng trả về một giá trị nguyên thủy (`char` ở D và `int` ở F), không tương thích với kiểu trả về tham chiếu `Object`.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa A sai vì `null` luôn là giá trị hợp lệ của mọi đối tượng.\n• Các đáp án chứa B sai vì trả về thể hiện của `Object` là hoàn toàn đúng.\n• Các đáp án chứa E sai vì `c[1]` là một mảng, và mọi mảng trong Java đều là đối tượng kế thừa từ `java.lang.Object`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Array là Object, nhưng phần tử nguyên thủy trong Array thì KHÔNG PHẢI là Object!\" `c[1]` là mảng (Object), nhưng `c[0][1]` là ký tự thô `char` (Primitive).",
+    "correctLetters": [
+      "D",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch05-020",
+    "originalId": 20,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai đoạn mã nào sau đây khi chèn vào dòng 9/10 sẽ gây lỗi biên dịch? (Chọn hai)",
+    "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+    "options": [
+      "B và F (B: return (Object) 7; & F: return (Float) 4.3;)",
+      "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7;)",
+      "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+      "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+    ],
+    "optionsVi": [
+      "B và F (B: return (Object) 7; & F: return (Float) 4.3;)",
+      "A và B (A: char[][] c = new char[2][2]; return c; & B: return (Object) 7;)",
+      "A và C (A: char[][] c = new char[2][2]; return c; & C: return (Object) (new int[] {1,2,3});)",
+      "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi này kiểm tra tính hợp lệ của toán tử ép kiểu `(Type)` giữa kiểu nguyên thủy và kiểu đối tượng tham chiếu trong Java:\n1. Đoạn B: `return (Object) 7;`\n   • `7` là một giá trị nguyên thủy kiểu `int`.\n   • Không thể sử dụng toán tử ép kiểu trực tiếp từ một kiểu nguyên thủy sang một kiểu tham chiếu đối tượng `(Object) 7`.\n   • Trình biên dịch báo lỗi: \"inconvertible types; cannot cast int to java.lang.Object\".\n2. Đoạn F: `return (Float) 4.3;`\n   • `4.3` là một hằng số số thực dấu phẩy động mặc định có kiểu nguyên thủy là `double`.\n   • `Float` (chữ F hoa) là một lớp đối tượng wrapper.\n   • Không thể ép kiểu thô trực tiếp từ giá trị nguyên thủy `double` sang đối tượng tham chiếu `Float` bằng cú pháp `(Float) 4.3`. Trình biên dịch báo lỗi: \"inconvertible types; cannot cast double to java.lang.Float\".\n\nXét các đoạn mã còn lại:\n• A: `char[][] c = new char[2][2]; return c;`: Mảng 2 chiều là một Object, trả về trực tiếp cho `Object` hoàn toàn hợp lệ.\n• C: `return (Object) (new int[] {1,2,3});`: Mảng `int[]` là một đối tượng, ép kiểu sang `Object` hoàn toàn hợp lệ.\n• E: `return (Object) \"test\";`: `\"test\"` là một đối tượng `String`, ép kiểu sang `Object` (lớp cha của String) hoàn toàn hợp lệ.\n\n✅ Vì sao đáp án \"B và F\" đúng:\nVì cả B và F đều sử dụng cú pháp ép kiểu thô bất hợp pháp từ một giá trị nguyên thủy (`int`, `double`) trực tiếp sang kiểu đối tượng (`Object`, `Float`).\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa A, C, E đều sai vì mảng (`char[][]`, `int[]`) và chuỗi (`String`) vốn đã là các đối tượng trong Java, việc gán hoặc ép kiểu chúng sang `Object` là hoàn toàn đúng cú pháp.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Không thể dùng toán tử ép kiểu `(Cast)` giữa hai thế giới: Kiểu nguyên thủy (Primitive) và Kiểu tham chiếu (Reference Type). Muốn chuyển đổi, phải dùng constructor hoặc phương thức của Wrapper class (ví dụ `new Integer(7)` hoặc `Float.valueOf(4.3f)`).",
+    "correctLetters": [
+      "B",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch05-021",
+    "originalId": 21,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
+    "options": [
+      "Bar Bar Bar Bar Bar Bar",
+      "Foo Bar Foo Bar Foo Bar",
+      "Foo Foo Foo Foo Foo Foo",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "Bar Bar Bar Bar Bar Bar",
+      "Foo Bar Foo Bar Foo Bar",
+      "Foo Foo Foo Foo Foo Foo",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã kết hợp giữa Kiểu trả về Đa hình (Polymorphic Return Type) và Ghi đè phương thức (Method Overriding):\n```java\nclass Test {\n   public static Foo f = new Foo();\n   public static Foo f2;\n   public static Bar b = new Bar();\n\n   public static void main(String [] args) {\n      for (int x=0; x<6; x++) {\n         f2 = getFoo(x);\n         f2.react();\n      }\n   }\n   static Foo getFoo(int y) {\n       if (0 == y % 2) {\n         return f;\n       } else {\n         return b;\n       }\n   }\n}\nclass Bar extends Foo {\n   void react() { System.out.print(\"Bar \"); }\n}\nclass Foo {\n   void react() { System.out.print(\"Foo \"); }\n}\n```\nPhân tích phương thức `getFoo(int y)`:\n• Kiểu trả về được khai báo là `Foo`.\n• Vì `Bar extends Foo` (Bar là con của Foo), nên việc trả về `b` (đối tượng của lớp con `Bar`) là hoàn toàn hợp lệ theo nguyên lý đa hình.\n• Nếu `y` chẵn (`y % 2 == 0`): trả về đối tượng `f` (thể hiện của `Foo`).\n• Nếu `y` lẻ (`y % 2 != 0`): trả về đối tượng `b` (thể hiện của `Bar`).\n\nVòng lặp `for` chạy với `x` từ 0 đến 5 (tổng cộng 6 lần lặp):\n1. `x = 0` (chẵn) -> `f2` trỏ tới `f` (`Foo`) -> `f2.react()` gọi phương thức của `Foo` -> in `\"Foo \"`.\n2. `x = 1` (lẻ)   -> `f2` trỏ tới `b` (`Bar`) -> `f2.react()` theo liên kết động (dynamic binding) sẽ gọi phương thức `react()` của `Bar` -> in `\"Bar \"`.\n3. `x = 2` (chẵn) -> `f2` trỏ tới `f` (`Foo`) -> in `\"Foo \"`.\n4. `x = 3` (lẻ)   -> `f2` trỏ tới `b` (`Bar`) -> in `\"Bar \"`.\n5. `x = 4` (chẵn) -> `f2` trỏ tới `f` (`Foo`) -> in `\"Foo \"`.\n6. `x = 5` (lẻ)   -> `f2` trỏ tới `b` (`Bar`) -> in `\"Bar \"`.\nKết quả toàn bộ chuỗi in ra: `\"Foo Bar Foo Bar Foo Bar \"`.\n\n✅ Vì sao đáp án \"Foo Bar Foo Bar Foo Bar\" đúng:\nVì hàm `getFoo(x)` lần lượt luân phiên trả về đối tượng `Foo` khi `x` chẵn và `Bar` khi `x` lẻ. Nhờ tính đa hình, phương thức `react()` tương ứng với từng đối tượng thực tế trên Heap sẽ được thực thi xen kẽ.\n\n❌ Vì sao các đáp án khác sai:\n• \"Bar Bar Bar Bar Bar Bar\": Sai vì bỏ qua các lần `x` chẵn trả về đối tượng `Foo`.\n• \"Foo Foo Foo Foo Foo Foo\": Sai vì lầm tưởng biến `f2` có kiểu khai báo là `Foo` thì chỉ luôn gọi `react()` của `Foo`. Tại runtime, đối tượng thực tế `Bar` sẽ ghi đè và in `\"Bar \"`.\n• \"Compilation fails\" và \"Runtime Exception\": Sai vì cấu trúc kế thừa và kiểu trả về đa hình hoàn toàn hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Kiểu trả về của một phương thức có thể là lớp cha (`Foo`), nhưng lúc chạy nó có thể trả về bất kỳ đối tượng của lớp con nào (`Bar`). Khi gọi hàm trên đối tượng đó, phiên bản của lớp con sẽ được thực thi!",
+    "correctLetters": [
+      "B"
+    ]
+  }
+]

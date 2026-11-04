@@ -1,0 +1,583 @@
+[
+  {
+    "id": "scjp-ch04-001",
+    "originalId": 1,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+    "options": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
+      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "optionsVi": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)",
+      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra quy tắc nghiêm ngặt của câu lệnh `switch - case` trong Java:\n1. Quy tắc về nhãn `case`:\n   Biểu thức trong nhãn `case` BẮT BUỘC phải là một Biểu thức hằng số tại thời điểm biên dịch (Compile-time Constant Expression).\n2. Phân tích các biến và nhãn case trong bài:\n   • Biến `x` được khai báo là: `final static short x = 2;`\n     - Từ khóa `final` đảm bảo giá trị của `x` không bao giờ thay đổi sau khi khởi tạo.\n     - Do đó, `x` là một compile-time constant. Các biểu thức tính toán từ nó như `case x - 1:` (dòng 8) và `case x:` (dòng 9) đều được compiler tính toán giá trị cố định ngay lúc biên dịch, hoàn toàn hợp lệ!\n   • Biến `y` được khai báo là: `public static int y = 0;`\n     - Lưu ý: Biến `y` KHÔNG ĐƯỢC đánh dấu từ khóa `final`!\n     - Dù `y` đang mang giá trị là 0, nhưng vì không có `final`, trình biên dịch coi `y` là một biến bình thường có thể bị thay đổi giá trị bất cứ lúc nào ở thời điểm runtime.\n   • Tại dòng 7: `case y:`\n     - Vì `y` không phải hằng số compile-time, trình biên dịch Java sẽ chặn lại và báo lỗi biên dịch ngay lập tức: \"constant expression required\".\n\n✅ Vì sao đáp án \"Lỗi biên dịch tại dòng 7 (Compilation fails at line 7)\" đúng:\nVì biến `y` không có từ khóa `final`, do đó `y` không được coi là một hằng số tại thời điểm biên dịch để có thể sử dụng làm nhãn trong câu lệnh `case`.\n\n❌ Vì sao các đáp án khác sai:\n• \"0 1 2\" / \"0 1 2 1 2 2\": Sai vì chương trình không thể biên dịch thành công nên không có kết quả chạy.\n• \"Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)\": Sai vì `x` có từ khóa `final`, biểu thức `x - 1` là một hằng số compile-time hoàn toàn hợp lệ.\n• \"Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)\": Sai vì `case x` hoàn toàn hợp lệ do `x` là hằng số `final`.\n• \"Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\": Sai vì lỗi được bắt ở giai đoạn biên dịch (compile-time), không sinh ra file `.class` để chạy runtime.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhãn `case` trong Java chỉ chấp nhận: Hằng số nguyên thủy (hoặc biểu thức hằng số với biến `final`), enum constant, hoặc chuỗi String (từ Java 7 trở lên). Biến thông thường dù có giá trị khởi tạo cũng KHÔNG ĐƯỢC dùng trong `case`.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch04-002",
+    "originalId": 2,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+    "options": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "2 1 0 1 0 0",
+      "2 1 2 0 1 2",
+      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+    ],
+    "optionsVi": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "2 1 0 1 0 0",
+      "2 1 2 0 1 2",
+      "Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)",
+      "Lỗi biên dịch tại dòng 9 (Compilation fails at line 9)"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra cơ chế \"rơi tự do\" (Fall-through) trong câu lệnh `switch - case`:\n1. Kiểm tra tính hợp lệ:\n   • `x` là `final static short x = 2;`, nên các case:\n     - Dòng 7: `case x:` tương đương `case 2:` -> in `\"0 \"`\n     - Dòng 8: `case x-1:` tương đương `case 1:` -> in `\"1 \"`\n     - Dòng 9: `case x-2:` tương đương `case 0:` -> in `\"2 \"`\n   • Tất cả các nhãn case đều là hằng số hợp lệ và không bị trùng nhau.\n2. Cơ chế Fall-through:\n   • Trong toàn bộ khối `switch`, HOÀN TOÀN KHÔNG CÓ câu lệnh `break;`!\n   • Khi một `case` khớp với giá trị của `z`, luồng thực thi sẽ nhảy vào case đó và tiếp tục chạy tuột xuống tất cả các case bên dưới cho đến khi gặp dấu đóng ngoặc nhọn `}` của khối switch.\n3. Theo dõi vòng lặp `for (int z = 0; z < 3; z++)`:\n   • Lần lặp 1 (`z = 0`):\n     - Khớp với `case x-2` (case 0) tại dòng 9.\n     - Thực thi dòng 9: in `\"2 \"`.\n     - Hết switch. (Đầu ra: `2 `)\n   • Lần lặp 2 (`z = 1`):\n     - Khớp với `case x-1` (case 1) tại dòng 8.\n     - Thực thi dòng 8: in `\"1 \"`.\n     - Do không có `break;`, rơi tiếp xuống dòng 9: in `\"2 \"`.\n     - (Đầu ra lần này: `1 2 `)\n   • Lần lặp 3 (`z = 2`):\n     - Khớp với `case x` (case 2) tại dòng 7.\n     - Thực thi dòng 7: in `\"0 \"`.\n     - Rơi tiếp xuống dòng 8: in `\"1 \"`.\n     - Rơi tiếp xuống dòng 9: in `\"2 \"`.\n     - (Đầu ra lần này: `0 1 2 `)\n4. Ghép toàn bộ kết quả của 3 lần lặp:\n   `2 ` + `1 2 ` + `0 1 2 ` = `2 1 2 0 1 2`.\n\n✅ Vì sao đáp án \"2 1 2 0 1 2\" đúng:\nKhớp chính xác với thứ tự kiểm tra giá trị `z` từ 0, 1, 2 và hiệu ứng rơi tự do (fall-through) qua các case bên dưới khi không có lệnh `break`.\n\n❌ Vì sao các đáp án khác sai:\n• \"0 1 2\": Sai vì nghĩ rằng switch có break và nhầm thứ tự các case tương ứng với giá trị z.\n• \"0 1 2 1 2 2\": Sai vì tính lùi ngược giá trị của z hoặc nhầm thứ tự case.\n• \"2 1 0 1 0 0\": Sai vì tính toán sai luồng fall-through.\n• \"Lỗi biên dịch tại dòng 8 / dòng 9\": Sai vì `x` có từ khóa `final`, các phép tính `x-1` và `x-2` đều là hằng số hợp lệ lúc compile-time.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Không có break là trôi thẳng đáy\": Trong cấu trúc `switch-case`, nếu không có lệnh `break`, code sẽ chạy liên tục qua tất cả các case phía dưới bất kể nhãn của chúng là gì.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-003",
+    "originalId": 3,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
+    "options": [
+      "41",
+      "42",
+      "50",
+      "51",
+      "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
+      "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
+    ],
+    "optionsVi": [
+      "41",
+      "42",
+      "50",
+      "51",
+      "Lỗi biên dịch tại dòng 5 (Compiler fails at line 5)",
+      "Lỗi biên dịch tại dòng 6 (Compiler fails at line 6)"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra giá trị mặc định của biến tĩnh boolean, toán tử logic `&`, và bẫy câu lệnh rỗng (empty statement) với dấu chấm phẩy `;` sau `if`:\n1. Dòng 2: `static boolean b;`\n   • Biến `b` là biến tĩnh (static field), tự động được JVM khởi tạo giá trị mặc định là `false`.\n   • Do đó `!b` sẽ mang giá trị `true`.\n2. Dòng 4: `short hand = 42;`\n3. Dòng 5: `if ( hand < 50 & !b ) hand++;`\n   • `hand < 50` là `42 < 50` (`true`).\n   • `!b` là `true`.\n   • `true & true = true` -> Điều kiện đúng!\n   • `hand++` được thực thi -> `hand` tăng từ 42 lên 43.\n4. Dòng 6: `if ( hand > 50 ) ;`\n   • ĐÂY LÀ ĐIỂM BẪY ĐỀ BÀI: Dấu chấm phẩy `;` ngay sau `if` là một câu lệnh rỗng (empty statement). Nó hoàn toàn hợp lệ về mặt cú pháp trong Java!\n   • Kiểm tra điều kiện `hand > 50`: `43 > 50` là `false`.\n   • Vì điều kiện dòng 6 là `false`, luồng chạy chuyển sang nhánh `else if` ở dòng 7.\n5. Dòng 7 - 9: `else if ( hand > 40 ) { hand += 7; hand++; }`\n   • Kiểm tra điều kiện `hand > 40`: `43 > 40` là `true`!\n   • Khối lệnh được thực thi:\n     - `hand += 7;` -> `hand = 43 + 7 = 50`.\n     - `hand++;` -> `hand` tăng từ 50 lên 51.\n6. Dòng 10 - 11: Nhánh `else` bị bỏ qua.\n7. Dòng 12: `System.out.println(hand);` in ra giá trị cuối cùng là 51.\n\n✅ Vì sao đáp án \"51\" đúng:\nSau dòng 5, `hand` tăng lên 43. Dòng 6 kiểm tra sai nên nhánh `else if` ở dòng 7 được chạy, cộng thêm 7 thành 50 và tăng 1 thành 51.\n\n❌ Vì sao các đáp án khác sai:\n• \"41\": Sai vì rơi vào nhánh `else` (`--hand`) do nghĩ rằng các điều kiện trên đều sai.\n• \"42\": Sai vì tưởng rằng không có câu lệnh tăng giá trị nào được chạy.\n• \"50\": Sai vì quên dòng lệnh `hand++` ở dòng 9.\n• \"Lỗi biên dịch tại dòng 5\": Sai vì toán tử `&` hoàn toàn hợp lệ với kiểu boolean.\n• \"Lỗi biên dịch tại dòng 6\": Sai vì dấu chấm phẩy đứng một mình tạo thành câu lệnh rỗng (null statement) hoàn toàn đúng chuẩn cú pháp Java.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Dấu chấm phẩy `;` đặt ngay sau `if (condition);` không gây lỗi biên dịch, nó chỉ kết thúc câu lệnh `if` ngay lập tức với thân hàm rỗng. Hãy cẩn thận khi đọc code có dấu chấm phẩy bất thường!",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-004",
+    "originalId": 4,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
+    "options": [
+      "0 def 1",
+      "2 1 0 def 1",
+      "2 1 0 def def",
+      "2 1 def 0 def 1",
+      "2 1 2 0 def 1 2",
+      "2 1 0 def 1 def 1"
+    ],
+    "optionsVi": [
+      "0 def 1",
+      "2 1 0 def 1",
+      "2 1 0 def def",
+      "2 1 def 0 def 1",
+      "2 1 2 0 def 1 2",
+      "2 1 0 def 1 def 1"
+    ],
+    "answer": 5,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán phân tích vị trí đặt khối `default` và sự kết hợp giữa `break` với hiện tượng rơi tự do (fall-through) trong `switch-case`:\n1. Vị trí các case:\n   • `x = 2`.\n   • Dòng 7: `case x:` (tương đương `case 2:`) -> in `\"0 \"`. KHÔNG CÓ break.\n   • Dòng 8: `default:` -> in `\"def \"`. KHÔNG CÓ break.\n   • Dòng 9: `case x-1:` (tương đương `case 1:`) -> in `\"1 \"` và CÓ `break;`.\n   • Dòng 10: `case x-2:` (tương đương `case 0:`) -> in `\"2 \"`. KHÔNG CÓ break.\n2. Quy tắc của khối `default`:\n   • `default` KHÔNG BẮT BUỘC phải nằm ở cuối cùng của khối `switch`. Nó có thể nằm ở bất kỳ đâu.\n   • `default` chỉ được kích hoạt khi KHÔNG CÓ BẤT KỲ `case` nào khác khớp giá trị.\n   • Tuy nhiên, nếu một `case` phía trên khớp và không có `break`, luồng chạy sẽ rơi tự do (fall-through) qua `default` như một câu lệnh bình thường!\n3. Theo dõi vòng lặp `for (int z = 0; z < 4; z++)`:\n   • Lần lặp 1 (`z = 0`):\n     - Khớp `case x-2` (dòng 10) -> in `\"2 \"`. Hết khối switch.\n     - (In: `2 `)\n   • Lần lặp 2 (`z = 1`):\n     - Khớp `case x-1` (dòng 9) -> in `\"1 \"`, sau đó gặp `break;` thoát khỏi switch ngay lập tức.\n     - (In: `1 `)\n   • Lần lặp 3 (`z = 2`):\n     - Khớp `case x` (dòng 7) -> in `\"0 \"`.\n     - Vì không có break, rơi tự do vào `default` (dòng 8) -> in `\"def \"`.\n     - Tiếp tục rơi tự do vào `case x-1` (dòng 9) -> in `\"1 \"`, gặp `break;` thoát switch.\n     - (In: `0 def 1 `)\n   • Lần lặp 4 (`z = 3`):\n     - Giá trị 3 không khớp với bất kỳ case nào (2, 1, 0) -> nhảy vào `default` (dòng 8) -> in `\"def \"`.\n     - Do không có break sau `default`, tiếp tục rơi tự do xuống `case x-1` (dòng 9) -> in `\"1 \"`, gặp `break;` thoát switch.\n     - (In: `def 1 `)\n4. Ghép toàn bộ chuỗi kết quả:\n   `2 ` + `1 ` + `0 def 1 ` + `def 1 ` = `2 1 0 def 1 def 1`.\n\n✅ Vì sao đáp án \"2 1 0 def 1 def 1\" đúng:\nKhớp chính xác quy tắc kích hoạt `default` khi không khớp case (ở z = 3) và quy tắc rơi tự do qua `default` rồi tới `case x-1` trước khi gặp `break` (ở z = 2 và z = 3).\n\n❌ Vì sao các đáp án khác sai:\n• \"0 def 1\": Sai vì chỉ xét mỗi trường hợp z = 2.\n• \"2 1 0 def 1\": Sai vì bỏ quên lần lặp z = 3 (khi z = 3, default vẫn được kích hoạt).\n• \"2 1 0 def def\": Sai vì tưởng rằng z = 3 chỉ in \"def\" mà không rơi tự do tiếp xuống dòng 9.\n• \"2 1 def 0 def 1\": Sai thứ tự in ở trường hợp z = 2.\n• \"2 1 2 0 def 1 2\": Sai luồng thực thi các case.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `default` nằm ở giữa switch thì sau khi chạy xong nó vẫn tiếp tục trôi tự do xuống các case phía dưới nếu không có lệnh `break`!",
+    "correctLetters": [
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch04-005",
+    "originalId": 5,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
+    "options": [
+      "0",
+      "1",
+      "101",
+      "111",
+      "1001",
+      "1101"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "101",
+      "111",
+      "1001",
+      "1101"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kết hợp cấu trúc `if` lồng nhau và bẫy phép gán `=` bên trong điều kiện `if`:\n1. Khởi tạo:\n   • `b1` và `b2` là static boolean nên mặc định là `false`.\n   • `int x = 0;`.\n2. Lần lượt theo dõi luồng thực thi:\n   • Dòng 5: `if (!b1)` -> `!false` là `true` -> vào thân if.\n   • Dòng 6: `if (!b2)` -> `!false` là `true` -> vào thân if.\n   • Dòng 7: `b1 = true;` -> lúc này giá trị của `b1` đã trở thành `true`!\n   • Dòng 8: `x++;` -> `x` tăng từ 0 lên 1.\n   • Dòng 9: `if (5 > 6)` -> `false` -> bỏ qua dòng 10.\n   • Dòng 12: `if (!b1)`\n     - Vì `b1` đã thành `true` ở dòng 7, nên `!b1` là `false`.\n     - Nhánh `x = x + 10` bị bỏ qua, chuyển sang kiểm tra `else if` ở dòng 13.\n   • Dòng 13: `else if ( b2 = true )`\n     - ĐÂY LÀ ĐIỂM BẪY LỚN NHẤT: Trong dấu ngoặc là `b2 = true` (toán tử GÁN `=`), KHÔNG PHẢI so sánh bằng `==`!\n     - Biểu thức gán `b2 = true` gán giá trị `true` cho `b2` và trả về kết quả là `true`.\n     - Vì điều kiện trả về `true`, khối `else if` này ĐƯỢC THỰC THI:\n       `x = x + 100;` -> `x = 1 + 100 = 101`.\n   • Dòng 14: `else if ( b1 | b2 )`\n     - Trong chuỗi `if - else if`, khi một nhánh phía trước đã thỏa mãn và chạy xong, TOÀN BỘ các nhánh `else if` và `else` phía sau BỊ BỎ QUA HOÀN TOÀN!\n     - Dòng 14 không được kiểm tra và không được chạy.\n3. Dòng 17: `System.out.println(x);` in ra giá trị của `x` là 101.\n\n✅ Vì sao đáp án \"101\" đúng:\n`x` được tăng lên 1 ở dòng 8. Tại dòng 13, phép gán `b2 = true` trả về giá trị `true`, khiến nhánh `x = x + 100` được chạy, đưa `x` lên 101. Nhánh dòng 14 bị bỏ qua vì nhánh trước đã khớp.\n\n❌ Vì sao các đáp án khác sai:\n• \"0\": Sai vì `x` đã được tăng ở dòng 8 và dòng 13.\n• \"1\": Sai vì tưởng rằng `b2 = true` là phép so sánh `==` (nếu so sánh thì `b2 == true` là false và x giữ nguyên 1).\n• \"111\": Sai vì nghĩ rằng nhánh dòng 12 cũng được chạy.\n• \"1001\" / \"1101\": Sai vì cho rằng nhánh dòng 14 (`b1 | b2`) cũng được chạy, quên mất quy tắc loại trừ của chuỗi `else if`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cực kỳ cảnh giác với `if (b = true)`: Đây là phép gán và luôn luôn đánh giá ra `true`! Muốn so sánh giá trị phải dùng hai dấu bằng `if (b == true)` hoặc viết gọn là `if (b)`.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch04-006",
+    "originalId": 6,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, Which statement is true?",
+    "textVi": "Cho đoạn mã sau, phát biểu nào sau đây là ĐÚNG?",
+    "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
+    "options": [
+      "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
+      "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
+      "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
+      "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
+      "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
+      "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
+    ],
+    "optionsVi": [
+      "Có lỗi cú pháp tại dòng 1 (There is a syntax error on line 1)",
+      "Có lỗi cú pháp tại dòng 1 và dòng 4 (There are syntax errors on lines 1 and 4)",
+      "Có lỗi cú pháp tại dòng 1, dòng 4 và dòng 5 (There are syntax errors on lines 1, 4, and 5)",
+      "Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)",
+      "Có lỗi cú pháp tại dòng 4 và dòng 5 (There are syntax errors on lines 4 and 5)",
+      "Có lỗi cú pháp tại dòng 5 (There is a syntax error on line 5)"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra kiểu dữ liệu của điều kiện trong vòng lặp Java và sự phân biệt hoa-thường đối với từ khóa ngôn ngữ:\n1. Xét dòng 1: `public class While`\n   • Từ khóa của Java là `while` (toàn bộ là chữ thường).\n   • Java là ngôn ngữ phân biệt chữ hoa chữ thường (case-sensitive). Từ `While` (chữ W viết hoa) hoàn toàn không phải là từ khóa, do đó nó là một tên định danh lớp (identifier) hoàn toàn hợp lệ. Dòng 1 không có lỗi cú pháp.\n2. Xét dòng 4: `while ( 1 )`\n   • Trong ngôn ngữ C/C++, số nguyên khác 0 (như 1) được coi là `true`.\n   • NHƯNG TRONG JAVA THÌ KHÔNG! Java yêu cầu điều kiện bên trong các cấu trúc lặp và rẽ nhánh (`while`, `for`, `do-while`, `if`) BẮT BUỘC phải là một biểu thức kiểu `boolean` (chỉ nhận giá trị `true` hoặc `false`).\n   • Trình biên dịch Java không bao giờ tự động ép kiểu từ `int` sang `boolean`. Do đó, `while ( 1 )` gây lỗi biên dịch: \"incompatible types: int cannot be converted to boolean\".\n3. Xét dòng 5: `System.out.print(\"x plus one is \" + (x + 1));`\n   • Biểu thức `(x + 1)` được bọc trong ngoặc đơn nên thực hiện cộng số học trước ra 1, sau đó nối với chuỗi `\"x plus one is \"` tạo thành chuỗi hoàn chỉnh. Dòng 5 hoàn toàn đúng cú pháp.\n\n✅ Vì sao đáp án \"Có lỗi cú pháp tại dòng 4 (There is a syntax error on line 4)\" đúng:\nVì vòng lặp `while` trong Java bắt buộc biểu thức điều kiện phải có kiểu `boolean`, việc truyền số nguyên `1` bị trình biên dịch từ chối.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án có \"dòng 1\": Sai vì `While` viết hoa là tên class hợp lệ, không xung đột với từ khóa `while`.\n• Các đáp án có \"dòng 5\": Sai vì cú pháp nối chuỗi và biểu thức số học ở dòng 5 hoàn toàn hợp lệ.\n• Đáp án \"Có lỗi cú pháp tại dòng 5\": Sai vì dòng 5 không có lỗi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Java là ngôn ngữ gõ kiểu tĩnh cực kỳ nghiêm ngặt: Trong Java chỉ có duy nhất hai giá trị `true` và `false` mới được dùng làm điều kiện logic. Không bao giờ có chuyện dùng số 0 hay 1 như trong C/C++ hay JavaScript.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-007",
+    "originalId": 7,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+    "textVi": "Cho đoạn mã sau và kết quả đầu ra là: x = 0 x = 1. Hai dòng mã nào dưới đây khi chèn độc lập vào dòng 3 sẽ tạo ra kết quả này? (Chọn hai)",
+    "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n5.       }\n6.     }\n7.  }",
+    "options": [
+      "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+      "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+      "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+      "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+    ],
+    "optionsVi": [
+      "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+      "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+      "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+      "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra bản chất luồng thực thi của vòng lặp `for` và sự khác biệt giữa tiền tố (`++x`) và hậu tố (`x++`) trong biểu thức bước lặp:\n1. Cấu trúc chuẩn của vòng lặp `for`:\n   `for (khởi_tạo; điều_kiện_lặp; bước_lặp) { thân_vòng_lặp; }`\n   Luồng chạy chính xác:\n   - Bước 1: Chạy biểu thức `khởi_tạo` (chỉ 1 lần duy nhất).\n   - Bước 2: Kiểm tra `điều_kiện_lặp`. Nếu `false` thì thoát ngay; nếu `true` thì tiếp tục.\n   - Bước 3: Thực thi toàn bộ code trong `thân_vòng_lặp`.\n   - Bước 4: Thực thi biểu thức `bước_lặp`.\n   - Bước 5: Quay lại Bước 2.\n2. Điểm mấu chốt về `x++` và `++x` trong `for`:\n   • Biểu thức bước lặp được thực thi như một câu lệnh độc lập đứng riêng biệt ở cuối mỗi lần lặp.\n   • Vì giá trị trả về của biểu thức bước lặp không được gán cho ai, nên viết `x++` hay `++x` thì kết quả biến `x` đều tăng thêm 1 đơn vị giống hệt nhau!\n3. Kiểm tra từng lựa chọn:\n   • Lựa chọn D: `for (int x = 0; x < 2; x++ ) {`\n     - Khởi tạo: `x = 0`. Thỏa mãn `0 < 2` -> Thân lặp in: `x = 0`.\n     - Bước lặp `x++`: `x` thành 1. Thỏa mãn `1 < 2` -> Thân lặp in: `x = 1`.\n     - Bước lặp `x++`: `x` thành 2. Điều kiện `2 < 2` là `false` -> Thoát vòng lặp.\n     - Đầu ra: `x = 0` và `x = 1`. (Hoàn toàn chính xác)\n   • Lựa chọn E: `for (int x = 0; x < 2; ++x ) {`\n     - Khởi tạo: `x = 0`. Thỏa mãn `0 < 2` -> Thân lặp in: `x = 0`.\n     - Bước lặp `++x`: `x` thành 1. Thỏa mãn `1 < 2` -> Thân lặp in: `x = 1`.\n     - Bước lặp `++x`: `x` thành 2. Điều kiện `2 < 2` là `false` -> Thoát vòng lặp.\n     - Đầu ra: `x = 0` và `x = 1`. (Hoàn toàn chính xác)\n\n✅ Vì sao đáp án \"D và E\" đúng:\nCả D và E đều khởi tạo `x = 0` và dừng lại khi `x = 2`. Trong phần bước lặp của vòng lặp `for`, việc dùng tiền tố `++x` hay hậu tố `x++` không tạo ra bất kỳ sự khác biệt nào.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và D\": Lựa chọn A khởi tạo `x = -1`, lần lặp đầu tiên sẽ in `x = -1`, không khớp với đề bài.\n• \"A và B\": Lựa chọn A in từ -1; Lựa chọn B khởi tạo `x = 1` sẽ in lần đầu là `x = 1` thay vì `x = 0`.\n• \"C và E\": Lựa chọn C có điều kiện `x > 2`. Với `x = 0`, điều kiện `0 > 2` sai ngay từ đầu nên vòng lặp không bao giờ được thực thi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong biểu thức cập nhật của vòng lặp `for`, `i++` và `++i` là hoàn toàn tương đương nhau về mặt hành vi và hiệu năng.",
+    "correctLetters": [
+      "D",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch04-008",
+    "originalId": 8,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
+    "options": [
+      "I is 1",
+      "I is 1 I is 1",
+      "Không in gì ra màn hình (No output is produced)",
+      "Lỗi biên dịch (Compilation error)",
+      "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
+    ],
+    "optionsVi": [
+      "I is 1",
+      "I is 1 I is 1",
+      "Không in gì ra màn hình (No output is produced)",
+      "Lỗi biên dịch (Compilation error)",
+      "Vòng lặp vô hạn in I is 1 liên tục (I is 1 I is 1 ... infinite loop)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã này lồng một vòng lặp `while` bên trong một vòng lặp `do-while` mà không sử dụng dấu ngoặc nhọn `{}`:\n1. Phân tích cấu trúc cú pháp của code:\n   • Cấu trúc `do-while` có dạng:\n     `do <câu_lệnh> while (<điều_kiện>);`\n   • Nếu `<câu_lệnh>` chỉ là một lệnh đơn, Java cho phép không cần dùng cặp ngoặc `{}`.\n   • Ở đây, câu lệnh đơn bên trong `do` chính là toàn bộ vòng lặp `while`:\n     `while ( I < 1 ) System.out.print(\"I is \" + I);`\n   • Và phần kết của `do-while` là dòng 6:\n     `while ( I > 1 ) ;`\n2. Luồng thực thi chi tiết:\n   • Biến `I` được khởi tạo bằng 1 (`int I = 1;`).\n   • Bước 1: Luồng chạy đi vào khối `do`.\n   • Bước 2: Bắt đầu thực thi vòng lặp `while` bên trong:\n     - Đánh giá điều kiện `I < 1`.\n     - Vì `I = 1`, biểu thức `1 < 1` là `false`!\n     - Do điều kiện `false` ngay từ đầu, câu lệnh in `System.out.print(...)` KHÔNG BAO GIỜ ĐƯỢC CHẠY. Vòng lặp `while` kết thúc.\n   • Bước 3: Sau khi phần thân `do` chạy xong, JVM kiểm tra điều kiện của `do-while` tại dòng 6:\n     - Đánh giá điều kiện `I > 1`.\n     - Vì `I = 1`, biểu thức `1 > 1` tiếp tục là `false`!\n     - Vòng lặp `do-while` kết thúc ngay lập tức.\n3. Kết quả: Toàn bộ chương trình chạy xong mà không in ra bất kỳ một ký tự nào.\n\n✅ Vì sao đáp án \"Không in gì ra màn hình (No output is produced)\" đúng:\nVòng lặp `while` bên trong kiểm tra điều kiện `I < 1` bị sai ngay lập tức nên lệnh in không chạy; tiếp đó vòng lặp `do-while` bên ngoài kiểm tra điều kiện `I > 1` cũng bị sai nên vòng lặp dừng ngay lập tức.\n\n❌ Vì sao các đáp án khác sai:\n• \"I is 1\" / \"I is 1 I is 1\": Sai vì nhầm tưởng khối `do` sẽ ép câu lệnh in phải chạy ít nhất 1 lần. Thực tế câu lệnh in nằm trong vòng `while` kiểm tra điều kiện trước, nên không được chạy.\n• \"Lỗi biên dịch (Compilation error)\": Sai vì cấu trúc lồng nhau không dùng ngoặc nhọn này hoàn toàn đúng chuẩn ngữ pháp Java.\n• \"Vòng lặp vô hạn in I is 1 liên tục\": Sai vì cả hai điều kiện lặp đều trả về `false`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhận diện cấu trúc khi không có ngoặc nhọn: Hãy thụt lề chuẩn để thấy rõ:\n  `do {`\n  `    while (I < 1) {`\n  `        System.out.print(\"I is \" + I);`\n  `    }`\n  `} while (I > 1);`",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch04-009",
+    "originalId": 9,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "optionsVi": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra cơ chế nhảy nhãn (labeled break và labeled continue) trong các vòng lặp lồng nhau:\n1. Dòng 11: `int I = 0;`\n2. Dòng 12: Đặt nhãn `outer:` cho vòng lặp `while (true)`.\n3. Dòng 13: Luồng chạy đi vào vòng lặp `while`.\n4. Dòng 14: `I++;` -> `I` tăng từ 0 lên 1.\n5. Dòng 15: Đặt nhãn `inner:` cho vòng lặp `for`.\n6. Dòng 16: Vòng lặp `for` bắt đầu với `j = 0`.\n7. Dòng 17: `I += j;` -> `I += 0` -> `I` vẫn bằng 1.\n8. Dòng 18: `if (j == 3)`\n   • Vì hiện tại `j = 0`, điều kiện `0 == 3` là `false`.\n   • Câu lệnh `continue inner;` ở dòng 19 BỊ BỎ QUA.\n9. Dòng 20: Chạy ngay lệnh `break outer;`!\n   • Lệnh `break outer;` là lệnh break có nhãn. Nó ra lệnh cho JVM lập tức thoát dứt điểm ra khỏi vòng lặp có nhãn `outer` (tức là thoát hẳn ra ngoài vòng lặp `while`).\n   • Mọi câu lệnh còn lại trong vòng `for` và vòng `while` (dòng 21, 22) đều bị bỏ qua.\n10. Dòng 24: `System.out.println(I);` in ra giá trị hiện tại của `I`.\n    • Giá trị của `I` lúc này là 1.\n\n✅ Vì sao đáp án \"1\" đúng:\nNgay ở lần lặp đầu tiên của vòng for (khi j = 0), điều kiện `j == 3` sai nên chương trình chạm ngay tới lệnh `break outer;`, làm thoát hoàn toàn khỏi vòng lặp `while`, in ra giá trị `I = 1`.\n\n❌ Vì sao các đáp án khác sai:\n• \"2\" / \"3\" / \"4\": Sai do người đọc nhầm tưởng vòng lặp `for` sẽ tiếp tục lặp cho đến khi `j == 3`. Thực tế lệnh `break outer;` nằm ngay sau câu lệnh `if` (không có `else`) nên được thực thi ngay lập tức khi `j = 0`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chú ý khối lệnh của `if`: Vì câu lệnh `if (j == 3)` không có cặp ngoặc nhọn `{}`, nên thân của nó CHỈ BAO GỒM DUY NHẤT một dòng 19 (`continue inner;`). Dòng 20 (`break outer;`) là câu lệnh độc lập tiếp theo và sẽ luôn được chạy khi `if` sai!",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch04-010",
+    "originalId": 10,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
+    "options": [
+      "I is 0",
+      "I is 0 I is 1",
+      "Lỗi biên dịch (Compilation fails)",
+      "Không có đáp án nào đúng (None of the above)"
+    ],
+    "optionsVi": [
+      "I is 0",
+      "I is 0 I is 1",
+      "Lỗi biên dịch (Compilation fails)",
+      "Không có đáp án nào đúng (None of the above)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra phạm vi sử dụng hợp lệ của từ khóa `continue` trong Java:\n1. Quy tắc cốt lõi của `continue`:\n   • Câu lệnh `continue` (dù là không có nhãn hay có gắn nhãn) CHỈ ĐƯỢC PHÉP xuất hiện bên trong một cấu trúc vòng lặp (`for`, `while`, `do-while`).\n   • Mục đích của `continue` là bỏ qua phần còn lại của lần lặp hiện tại và nhảy tới lần lặp tiếp theo của vòng lặp đó.\n2. Phân tích đoạn mã:\n   • Tại dòng 2, nhãn `label:` được đặt ngay trước câu lệnh rẽ nhánh `if` (`if (I < 2)`).\n   • Câu lệnh `if` là cấu trúc rẽ nhánh điều kiện (conditional branch), TUYỆT ĐỐI KHÔNG PHẢI là một vòng lặp (loop construct).\n   • Tại dòng 6, lệnh `continue label;` cố gắng quay ngược lại nhãn của một khối lệnh `if`.\n3. Phản ứng của trình biên dịch:\n   • Trình biên dịch Java sẽ phát hiện lỗi ngay tại dòng 6 và từ chối biên dịch: \"continue cannot be used outside of a loop\" hoặc \"not a loop label\".\n\n✅ Vì sao đáp án \"Lỗi biên dịch (Compilation fails)\" đúng:\nVì câu lệnh `continue` chỉ hợp lệ khi nằm trong và trỏ tới một cấu trúc vòng lặp (`for`, `while`, `do-while`). Không thể dùng `continue` với câu lệnh `if`.\n\n❌ Vì sao các đáp án khác sai:\n• \"I is 0\": Sai vì code không thể biên dịch thành công.\n• \"I is 0 I is 1\": Sai vì tưởng rằng `continue` kết hợp với `if` sẽ tạo ra một vòng lặp thủ công. Java cấm triệt để việc dùng `continue` để tạo vòng lặp giả như lệnh `goto`.\n• \"Không có đáp án nào đúng (None of the above)\": Sai vì đã có đáp án chính xác là Lỗi biên dịch.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `break` có thể dùng cho vòng lặp, `switch`, hoặc bất kỳ khối lệnh gắn nhãn nào `{}`.\n• Nhưng `continue` THÌ CHỈ DÀNH RIÊNG CHO VÒNG LẶP (`for`, `while`, `do-while`). Gặp `continue` ngoài vòng lặp -> Chắc chắn Lỗi biên dịch!",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch04-011",
+    "originalId": 11,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+    "textVi": "Cho đoạn mã sau, biết rằng EOFException và FileNotFoundException đều là lớp con của IOException, và giả định khối mã này nằm trong một class hợp lệ. Phát biểu nào sau đây là ĐÚNG NHẤT?",
+    "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
+    "options": [
+      "Mã nguồn không thể biên dịch (The code will not compile)",
+      "Đầu ra: Start Hello world File Not Found.",
+      "Đầu ra: Start Hello world End of file exception.",
+      "Đầu ra: Start Hello world Catch Here File not found."
+    ],
+    "optionsVi": [
+      "Mã nguồn không thể biên dịch (The code will not compile)",
+      "Đầu ra: Start Hello world File Not Found.",
+      "Đầu ra: Start Hello world End of file exception.",
+      "Đầu ra: Start Hello world Catch Here File not found."
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra cấu trúc cú pháp nguyên khối bất khả xâm phạm của khối `try - catch - finally` trong Java:\n1. Quy tắc cú pháp của `try - catch - finally`:\n   • Một khối `try` bắt buộc phải đi liền ngay sau nó bởi ít nhất một khối `catch` hoặc một khối `finally`.\n   • TUYỆT ĐỐI KHÔNG ĐƯỢC CHÈN bất kỳ câu lệnh nào ở giữa dấu ngoặc đóng `}` của khối `try` và từ khóa `catch`.\n   • Tương tự, không được chèn bất kỳ câu lệnh nào ở giữa các khối `catch` với nhau, hay giữa khối `catch` cuối cùng với khối `finally`.\n2. Phân tích đoạn mã:\n   • Dòng 5 kết thúc khối `try` bằng dấu đóng ngoặc `}`.\n   • Tại dòng 6: Có câu lệnh `System.out.print(\" Catch Here \");` chen ngang vào trước khối `catch` ở dòng 7.\n3. Phản ứng của trình biên dịch:\n   • Khi thấy câu lệnh ở dòng 6, trình biên dịch coi khối `try` trước đó đã kết thúc mà không có `catch` hay `finally` đi kèm -> Báo lỗi \"'try' without 'catch', 'finally' or resource declarations\".\n   • Đến dòng 7, khi gặp `catch(EOFException e)` đứng cô lập sau một câu lệnh bình thường -> Báo lỗi \"'catch' without 'try'\".\n   • Do đó mã nguồn hoàn toàn không thể biên dịch.\n\n✅ Vì sao đáp án \"Mã nguồn không thể biên dịch (The code will not compile)\" đúng:\nDòng 6 đã vi phạm cấu trúc cú pháp của Java khi đặt một câu lệnh độc lập xen vào giữa khối `try` và khối `catch`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Đầu ra: Start Hello world File Not Found.\": Sai vì chương trình không biên dịch được. Nếu xóa bỏ dòng 6 đi thì đáp án này mới đúng.\n• \"Đầu ra: Start Hello world End of file exception.\": Sai vì exception ném ra là `FileNotFoundException`, không khớp với `EOFException`.\n• \"Đầu ra: Start Hello world Catch Here File not found.\": Sai vì dòng 6 gây lỗi biên dịch chứ không bao giờ được chạy.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Bộ ba `try - catch - finally` phải gắn liền như \"hình với bóng\". Giữa `}` của `try` và `catch`/`finally` không được có bất kỳ câu lệnh nào khác, dù chỉ là một khai báo biến đơn giản!",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch04-012",
+    "originalId": 12,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
+    "options": [
+      "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
+      "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
+      "Hello world",
+      "Hello world Finally executing"
+    ],
+    "optionsVi": [
+      "Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào. (Nothing. The program will not compile because no exceptions are specified)",
+      "Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào. (Nothing. The program will not compile because no catch clauses are specified)",
+      "Hello world",
+      "Hello world Finally executing"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra tính hợp lệ của cấu trúc `try - finally` (không có `catch`):\n1. Tính hợp lệ về cú pháp:\n   • Nhiều lập trình viên thường nghĩ `try` bắt buộc phải có `catch`. Nhưng trong Java: Một khối `try` chỉ cần có ít nhất một khối `catch` HOẶC một khối `finally`.\n   • Cấu trúc `try - finally` (không có khối `catch`) hoàn toàn hợp lệ và cực kỳ phổ biến trong thực tế khi lập trình viên muốn đảm bảo tài nguyên được giải phóng trong `finally` mà để ngoại lệ tự do lan truyền (propagate) lên tầng trên xử lý.\n2. Luồng thực thi của chương trình:\n   • Bước 1: Luồng chạy đi vào khối `try` ở dòng 3.\n   • Bước 2: Dòng 4 thực thi: in ra `\"Hello world \"`. Không có ngoại lệ nào xảy ra trong khối `try`.\n   • Bước 3: Sau khi khối `try` hoàn tất, khối `finally` LUÔN LUÔN được thực thi.\n   • Bước 4: Dòng 7 thực thi: in tiếp `\"Finally executing \"`.\n3. Kết quả in ra màn hình: `Hello world Finally executing`.\n\n✅ Vì sao đáp án \"Hello world Finally executing\" đúng:\nCấu trúc `try - finally` hoàn toàn hợp lệ trong Java. Khối `try` in ra `\"Hello world \"`, sau đó khối `finally` được thực thi và in tiếp `\"Finally executing \"`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Không in gì. Chương trình không biên dịch vì không chỉ định ngoại lệ nào\": Sai vì `try` không bắt buộc phải ném hay chỉ định ngoại lệ.\n• \"Không in gì. Chương trình không biên dịch vì không có mệnh đề catch nào\": Sai vì mệnh đề `catch` là không bắt buộc nếu đã có mệnh đề `finally`.\n• \"Hello world\": Sai vì bỏ quên khối `finally` (khối `finally` luôn luôn chạy).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Công thức hợp lệ của try block trong Java:\n  - `try + catch` (Hợp lệ)\n  - `try + finally` (Hợp lệ)\n  - `try + catch + finally` (Hợp lệ)\n  - Chỉ có mỗi `try` đứng một mình (Lỗi biên dịch)",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-013",
+    "originalId": 13,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, biết rằng mọi phương thức của lớp FileOutputStream (bao gồm close()) đều khai báo ném ngoại lệ IOException. Phát biểu nào sau đây là ĐÚNG? (Chọn một)",
+    "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
+    "options": [
+      "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
+    ],
+    "optionsVi": [
+      "Chương trình này sẽ biên dịch thành công (This program will compile successfully)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 4 (This program fails to compile due to an error at line 4)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 6 (This program fails to compile due to an error at line 6)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 9 (This program fails to compile due to an error at line 9)",
+      "Chương trình lỗi biên dịch do lỗi tại dòng 13 (This program fails to compile due to an error at line 13)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra cơ chế xử lý Checked Exception và quy tắc \"Bắt hoặc Khai báo\" (Handle or Declare rule) trong Java:\n1. Bản chất của Checked Exception:\n   • `IOException` là một Kiểm tra ngoại lệ (Checked Exception).\n   • Trình biên dịch Java bắt buộc mọi lời gọi phương thức có nguy cơ ném ra checked exception phải được:\n     - Hoặc bọc trong khối `try - catch` để xử lý (Handle),\n     - Hoặc phương thức chứa nó phải khai báo `throws <Exception>` ở phần chữ ký phương thức (Declare).\n2. Phân tích chi tiết từng dòng mã:\n   • Dòng 6 và 7: `new FileOutputStream(...)` và `out.write(...)` đều ném `IOException`, nhưng chúng đã được bọc an toàn bên trong khối `try` (dòng 5 - 8) và có khối `catch (IOException io)` ở dòng 9 bắt lại -> Hoàn toàn hợp lệ!\n   • Dòng 13 trong khối `finally`: Gọi `out.close()`.\n     - Theo đề bài, phương thức `close()` ném ra một ngoại lệ checked là `IOException`.\n     - Lời gọi `out.close()` nằm trong khối `finally`, NẰM NGOÀI khối `try - catch` trước đó!\n     - Phương thức `main` (dòng 3) lại KHÔNG hề khai báo `throws IOException`.\n3. Phản ứng của trình biên dịch:\n   • Trình biên dịch sẽ bắt lỗi ngay tại dòng 13: \"unreported exception java.io.IOException; must be caught or declared to be thrown\".\n   • Để sửa lỗi này, lập trình viên buộc phải bọc `out.close()` vào một khối `try - catch` lồng bên trong `finally`, hoặc khai báo `public static void main(String args[]) throws IOException`.\n\n✅ Vì sao đáp án \"Chương trình lỗi biên dịch do lỗi tại dòng 13\" đúng:\nVì phương thức `out.close()` ném ra `IOException` (Checked Exception) nhưng không được bọc trong khối `try-catch` và phương thức `main` cũng không khai báo `throws IOException`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Chương trình này sẽ biên dịch thành công\": Sai vì vi phạm quy tắc Handle-or-Declare của checked exception ở dòng 13.\n• \"Chương trình lỗi biên dịch do lỗi tại dòng 4\": Sai vì khai báo biến tham chiếu gán `null` là hoàn toàn hợp lệ.\n• \"Chương trình lỗi biên dịch do lỗi tại dòng 6\": Sai vì dòng 6 đã nằm trọn vẹn trong khối `try - catch(IOException)`.\n• \"Chương trình lỗi biên dịch do lỗi tại dòng 9\": Sai vì bắt `IOException` ở dòng 9 là hoàn toàn đúng cú pháp.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Rất nhiều lập trình viên quên rằng lệnh `.close()` tài nguyên trong `finally` cũng ném ra `IOException`! Đây chính là lý do từ Java 7, Sun/Oracle đã bổ sung cú pháp `try-with-resources` để tự động đóng tài nguyên mà không cần viết khối `finally` rườm rà.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch04-014",
+    "originalId": 14,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, which answer most closely indicates the behavior of the program?",
+    "textVi": "Cho đoạn mã sau, đáp án nào mô tả chính xác nhất hành vi của chương trình khi chạy?",
+    "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
+    "options": [
+      "Chương trình sẽ không biên dịch (The program will not compile)",
+      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
+      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
+      "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
+    ],
+    "optionsVi": [
+      "Chương trình sẽ không biên dịch (The program will not compile)",
+      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, sau đó in Done with try block, và cuối cùng in Finally executing",
+      "Chương trình in Hello world, sau đó in thông báo RuntimeException xảy ra, và sau đó in Finally executing",
+      "Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán phân tích thứ tự thực thi giữa việc lan truyền ngoại lệ (exception propagation) và khối lệnh `finally`:\n1. Tính hợp lệ khi biên dịch:\n   • `RuntimeException` là một Ngoại lệ không kiểm tra (Unchecked Exception). Do đó, phương thức `throwit()` ném `RuntimeException` mà không cần khai báo `throws` vẫn biên dịch hoàn toàn bình thường.\n   • Khối `try - finally` (không có `catch`) là cú pháp hợp lệ.\n2. Theo dõi luồng thực thi khi chạy:\n   • Bước 1: `main()` bắt đầu khối `try`. Dòng 7 in ra: `\"Hello world \"`.\n   • Bước 2: Dòng 8 gọi `throwit()`. Phương thức này tạo và ném ra một đối tượng ngoại lệ `RuntimeException`.\n   • Bước 3: Ngoại lệ văng ra khiến khối `try` lập tức bị ngắt quãng. Dòng 9 (`Done with try block`) BỊ BỎ QUA HOÀN TOÀN và không bao giờ được chạy.\n   • Bước 4: Do không có khối `catch` nào bắt ngoại lệ, JVM chuẩn bị đẩy ngoại lệ này ra khỏi hàm `main` để dừng chương trình.\n   • Bước 5: NGUYÊN TẮC VÀNG CỦA FINALLY: Trước khi rời khỏi hàm hoặc lan truyền ngoại lệ ra ngoài làm sập chương trình, khối `finally` BẮT BUỘC PHẢI ĐƯỢC CHẠY TRƯỚC!\n   • Bước 6: Khối `finally` chạy tại dòng 12, in ra: `\"Finally executing \"`.\n   • Bước 7: Sau khi `finally` hoàn tất, ngoại lệ chưa được xử lý mới chính thức được lan truyền ra luồng chính (main thread), in vết ngăn xếp lỗi (stack trace `java.lang.RuntimeException`) ra màn hình và kết thúc tiến trình.\n\n✅ Vì sao đáp án \"Chương trình in Hello world, sau đó in Finally executing, và sau đó mới in thông báo RuntimeException xảy ra\" đúng:\nVì khối `finally` luôn được đảm bảo thực thi TRƯỚC KHI ngoại lệ chưa được bắt (uncaught exception) kịp lan truyền ra ngoài làm dừng chương trình.\n\n❌ Vì sao các đáp án khác sai:\n• \"Chương trình sẽ không biên dịch\": Sai vì `RuntimeException` là unchecked exception, không bắt buộc phải khai báo hay bắt tại chỗ.\n• Các đáp án cho rằng in RuntimeException trước rồi mới in Finally executing: Sai vì khối `finally` luôn được ưu tiên thực thi dọn dẹp trước khi thread bị dừng bởi exception.\n• Đáp án có \"Done with try block\": Sai vì khi exception bị ném ở dòng 8, luồng chạy trong khối `try` bị ngắt ngay lập tức, dòng 9 không bao giờ chạy tới.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Trời sập thì `finally` vẫn phải chạy xong trước\": Dù hàm có bị crash bởi Exception hay bị return sớm, khối `finally` luôn luôn chen chân vào thực thi trước khi JVM bàn giao quyền kiểm soát ra ngoài.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-015",
+    "originalId": 15,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
+    "options": [
+      "hello throwit caught",
+      "Lỗi biên dịch (Compilation fails)",
+      "hello throwit RuntimeException caught after",
+      "hello throwit RuntimeException",
+      "hello throwit caught finally after",
+      "hello throwit caught finally after RuntimeException"
+    ],
+    "optionsVi": [
+      "hello throwit caught",
+      "Lỗi biên dịch (Compilation fails)",
+      "hello throwit RuntimeException caught after",
+      "hello throwit RuntimeException",
+      "hello throwit caught finally after",
+      "hello throwit caught finally after RuntimeException"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán phân tích luồng chạy hoàn chỉnh của cấu trúc `try - catch - finally` khi ngoại lệ được bắt và xử lý thành công:\n1. Lần lượt theo dõi từng dòng lệnh:\n   • Bước 1: `main()` đi vào khối `try`. Dòng 8 in: `\"hello \"`.\n   • Bước 2: Dòng 9 gọi phương thức `throwit()`.\n   • Bước 3: Trong `throwit()`, dòng 3 in: `\"throwit \"`.\n   • Bước 4: Dòng 4 ném `throw new RuntimeException();`.\n   • Bước 5: Ngoại lệ `RuntimeException` được quăng ra khỏi `throwit()` và quay lại khối `try` trong `main()`. Khối `try` lập tức dừng thực thi các lệnh phía sau (nếu có).\n   • Bước 6: Khối `catch (Exception re)` đón bắt ngoại lệ này. Do `RuntimeException` kế thừa từ `Exception`, khối `catch` khớp hoàn toàn.\n   • Bước 7: Dòng 12 trong khối `catch` thực thi, in: `\"caught \"`.\n   • Bước 8: Khối `finally` luôn luôn thực thi. Dòng 15 in: `\"finally \"`.\n   • Bước 9: Vì ngoại lệ đã được bắt và xử lý êm đẹp (handled) trong khối `catch`, chương trình KHÔNG HỀ BỊ CRASH, mà tiếp tục thực thi các câu lệnh bình thường tiếp theo bên dưới khối `try-catch-finally`.\n   • Bước 10: Dòng 17 thực thi, in: `\"after \"`.\n2. Ghép tất cả các đoạn in lại theo đúng trình tự:\n   `hello ` + `throwit ` + `caught ` + `finally ` + `after ` = `hello throwit caught finally after`.\n\n✅ Vì sao đáp án \"hello throwit caught finally after\" đúng:\nKhớp chính xác từng bước của luồng thực thi: `try` chạy in \"hello \", vào hàm in \"throwit \", ném ngoại lệ được `catch` bắt in \"caught \", sau đó `finally` in \"finally \", và cuối cùng chương trình tiếp tục chạy lệnh kế tiếp in \"after \".\n\n❌ Vì sao các đáp án khác sai:\n• \"hello throwit caught\": Sai vì thiếu phần in của khối `finally` và dòng lệnh `after`.\n• \"Lỗi biên dịch (Compilation fails)\": Sai vì mã nguồn hoàn toàn đúng cú pháp.\n• \"hello throwit RuntimeException caught after\" / \"hello throwit RuntimeException\": Sai vì ngoại lệ đã được khối `catch` bắt trọn vẹn, không hề có stack trace RuntimeException nào bị in ra màn hình console.\n• \"... after RuntimeException\": Sai vì chương trình kết thúc êm đẹp, không ném exception ra ngoài.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Ngoại lệ một khi đã được tóm gọn trong khối `catch` thì luồng thực thi của chương trình được phục hồi trở lại bình thường. Sau khi khối `finally` chạy xong, các dòng code phía dưới vẫn tiếp tục chạy mượt mà như chưa từng có lỗi xảy ra.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch04-016",
+    "originalId": 16,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which of the following statements is true?",
+    "textVi": "Phát biểu nào sau đây về Assertions (khẳng định) trong Java là ĐÚNG?",
+    "code": "",
+    "options": [
+      "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
+      "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
+      "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
+      "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
+    ],
+    "optionsVi": [
+      "Trong câu lệnh assert, biểu thức sau dấu hai chấm ( : ) có thể là bất kỳ biểu thức Java nào (In an assert statement, the expression after the colon can be any Java expression)",
+      "Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích (If a switch block has no default, adding an assert default is considered appropriate)",
+      "Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm ( : ) không có giá trị, thông điệp lỗi của assert sẽ để trống (In an assert statement, if the expression after the colon does not have a value, the assert’s error message will be empty)",
+      "Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp (It is appropriate to handle assertion failures using a catch clause)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra các nguyên tắc thiết kế chuẩn mực (Best Practices) và cú pháp của câu lệnh `assert` trong Java:\n1. Cú pháp của câu lệnh `assert`:\n   • Dạng đơn giản: `assert <boolean_expression>;`\n   • Dạng chi tiết: `assert <boolean_expression> : <detail_expression>;`\n   • Quy định về `<detail_expression>`: Biểu thức sau dấu hai chấm BẮT BUỘC PHẢI TRẢ VỀ MỘT GIÁ TRỊ (không được có kiểu trả về là `void`). Giá trị này sẽ được truyền vào constructor của `AssertionError` để làm thông điệp mô tả lỗi.\n2. Phân tích các phát biểu:\n   • Phát biểu [1] (ĐÚNG): Trong một khối `switch - case` mà lập trình viên tin chắc rằng các `case` đã liệt kê đầy đủ mọi tình huống hợp lệ (ví dụ: các hướng Đông, Tây, Nam, Bắc) và không bao giờ có giá trị nào khác lọt vào, thì việc thêm:\n     `default: assert false : \"Giá trị không hợp lệ: \" + value;`\n     được coi là một thực hành thiết kế chuẩn mực (unreachable code assertion) để lập tức phát hiện bug nếu xuất hiện một giá trị không lường trước trong quá trình phát triển/kiểm thử.\n   • Phát biểu [0] (SAI): Không thể là \"bất kỳ biểu thức Java nào\". Một phương thức trả về `void` (ví dụ `System.out.println()`) nếu đặt sau dấu hai chấm sẽ gây lỗi biên dịch.\n   • Phát biểu [2] (SAI): Nếu biểu thức không trả về giá trị (kiểu `void`), mã nguồn sẽ bị lỗi biên dịch ngay lập tức (\"'void' type not allowed here\"), chứ không phải chạy được và để trống thông điệp.\n   • Phát biểu [3] (SAI): Assertions khi thất bại sẽ ném ra `AssertionError` (thuộc nhánh `java.lang.Error`, đại diện cho lỗi nghiêm trọng trong logic của lập trình viên). Thiết kế của Java quy định KHÔNG ĐƯỢC dùng `catch` để bắt và nuốt các lỗi assertion này, vì mục đích của assertion là phải làm sập chương trình để lập trình viên sửa bug.\n\n✅ Vì sao đáp án \"Nếu một khối switch không có default, việc thêm một assert default được coi là hoàn toàn phù hợp và khuyến khích\" đúng:\nĐây là một quy tắc kinh điển trong tài liệu SCJP của Sun Microsystems: Dùng assertion trong nhánh `default` của `switch` để bắt những trường hợp \"không thể xảy ra\" (unreachable code) là một Best Practice được khuyến khích tối đa.\n\n❌ Vì sao các đáp án khác sai:\n• \"Trong câu lệnh assert, biểu thức sau dấu hai chấm... có thể là bất kỳ biểu thức Java nào\": Sai vì biểu thức này bắt buộc phải sinh ra một giá trị cụ thể, không được phép là biểu thức trả về kiểu `void`.\n• \"Trong câu lệnh assert, nếu biểu thức sau dấu hai chấm... không có giá trị, thông điệp lỗi sẽ để trống\": Sai vì code sẽ bị lỗi biên dịch ngay tại compile-time chứ không chạy được.\n• \"Việc xử lý lỗi assertion bằng mệnh đề catch là hoàn toàn phù hợp\": Sai vì `AssertionError` là lỗi logic nghiêm trọng, không bao giờ được cố tình bắt bằng `catch` để che giấu lỗi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• 3 điều KHÔNG NÊN làm với Assertion:\n  1. Không dùng assertion để kiểm tra đối số của các phương thức `public`.\n  2. Không viết code gây ra tác dụng phụ (side-effects làm đổi biến) trong assertion.\n  3. Không bao giờ dùng `catch` để bắt `AssertionError`.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch04-017",
+    "originalId": 17,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which two of the following statements are true? (Choose two.)",
+    "textVi": "Hai phát biểu nào sau đây về Assertion trong Java là ĐÚNG? (Chọn hai)",
+    "code": "",
+    "options": [
+      "A và B (A: Đôi khi việc chủ động ném AssertionError tường minh là một thực hành tốt. & B: Đặt assertion ở những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới là một thực hành tốt.)",
+      "A và C (A: ... & C: Các phương thức getter() và setter() private không nên dùng assertion để kiểm tra đối số.)",
+      "C và D (C: ... & D: Nếu một AssertionError bị ném ra trong khối try-catch, khối finally sẽ bị bỏ qua.)",
+      "B và E (B: ... & E: Việc bắt và xử lý lỗi assertion bằng khối catch (AssertionException ae) là hoàn toàn phù hợp.)"
+    ],
+    "optionsVi": [
+      "A và B (A: Đôi khi việc chủ động ném AssertionError tường minh là một thực hành tốt. & B: Đặt assertion ở những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới là một thực hành tốt.)",
+      "A và C (A: ... & C: Các phương thức getter() và setter() private không nên dùng assertion để kiểm tra đối số.)",
+      "C và D (C: ... & D: Nếu một AssertionError bị ném ra trong khối try-catch, khối finally sẽ bị bỏ qua.)",
+      "B và E (B: ... & E: Việc bắt và xử lý lỗi assertion bằng khối catch (AssertionException ae) là hoàn toàn phù hợp.)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra chi tiết các quy tắc chuẩn mực khi làm việc với `AssertionError` và Assertions trong Java:\n1. Phân tích phát biểu A: \"Đôi khi việc chủ động ném AssertionError tường minh là một thực hành tốt (throw new AssertionError())\" -> ĐÚNG!\n   • Trong các nhánh code mà bạn tin chắc 100% không bao giờ chạy tới (ví dụ: sau một vòng lặp vô hạn hoặc trong nhánh `default` của switch), bạn có thể chủ động viết `throw new AssertionError();`. Cách này đảm bảo chương trình luôn luôn phát hiện lỗi kể cả khi người dùng quên bật cờ `-ea` lúc chạy.\n2. Phân tích phát biểu B: \"Đặt assertion ở những vị trí mà bạn tin rằng luồng thực thi không bao giờ chạm tới là một thực hành tốt\" -> ĐÚNG!\n   • Đây chính là công dụng nổi tiếng nhất của assertion: Unreachable Code Assertion. Nếu luồng chạy lỡ rơi vào vị trí đó, `assert false;` sẽ phát tín hiệu cảnh báo bug ngay.\n3. Phân tích phát biểu C: \"Các phương thức getter() và setter() private không nên dùng assertion để kiểm tra đối số\" -> SAI!\n   • Hoàn toàn ngược lại, trong các phương thức `private`, việc sử dụng assertion để kiểm tra tham số đầu vào (arguments) được xem là chuẩn mực vì các phương thức này do chính lập trình viên trong nội bộ class kiểm soát. (Chỉ các phương thức `public` mới nên dùng `IllegalArgumentException`).\n4. Phân tích phát biểu D: \"Nếu một AssertionError bị ném ra trong khối try-catch, khối finally sẽ bị bỏ qua\" -> SAI!\n   • Khối `finally` LUÔN LUÔN được thực thi bất kể thứ bị ném ra là Exception hay Error (trừ khi JVM bị tắt cưỡng bức bằng `System.exit()`).\n5. Phân tích phát biểu E: \"Xử lý lỗi assertion bằng khối catch (AssertionException ae)\" -> SAI!\n   • Thứ nhất: Trong Java hoàn toàn KHÔNG CÓ lớp nào tên là `AssertionException` (nó là `AssertionError`).\n   • Thứ hai: Lỗi assertion đại diện cho bug hệ thống, không bao giờ được dùng `catch` để nuốt lỗi này.\n\n✅ Vì sao đáp án \"A và B\" đúng:\nCả phát biểu A và B đều phản ánh chính xác các Best Practices trong tài liệu SCJP của Sun Microsystems về việc chủ động ném `AssertionError` và kiểm tra các đoạn mã không thể chạm tới (unreachable code).\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C: Sai vì phương thức `private` hoàn toàn nên dùng assertion để kiểm tra đối số.\n• Các đáp án chứa D: Sai vì khối `finally` không bao giờ bị bỏ qua khi gặp `AssertionError`.\n• Các đáp án chứa E: Sai vì Java không có lớp `AssertionException` và không được `catch` lỗi assertion.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phương thức `public`: Kiểm tra tham số bằng Ngoại lệ (`IllegalArgumentException`, `NullPointerException`).\n• Phương thức `private`: Kiểm tra tham số bằng `assert` (vì code nội bộ do chính ta viết, ta phải tin tưởng luồng gọi).",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch04-018",
+    "originalId": 18,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
+    "options": [
+      "bar",
+      "bar done",
+      "foo done",
+      "bar foo done",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
+    ],
+    "optionsVi": [
+      "bar",
+      "bar done",
+      "foo done",
+      "bar foo done",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra yêu cầu về kiểu trả về của biểu thức thứ hai trong câu lệnh `assert`:\n1. Cú pháp hai tham số của câu lệnh `assert`:\n   `assert <biểu_thức_boolean> : <biểu_thức_thông_điệp>;`\n2. Yêu cầu bắt buộc của `<biểu_thức_thông_điệp>` (sau dấu hai chấm `:`):\n   • Biểu thức này BẮT BUỘC phải sinh ra một giá trị (nó có thể trả về bất kỳ kiểu dữ liệu nguyên thủy hoặc đối tượng nào: `int`, `String`, `Object`...).\n   • Mục đích: Giá trị này sẽ được truyền thẳng vào hàm khởi tạo của `AssertionError` để làm thông điệp lỗi (Error Message).\n   • Vì vậy, biểu thức này TUYỆT ĐỐI KHÔNG ĐƯỢC CÓ KIỂU TRẢ VỀ LÀ `void`!\n3. Phân tích các dòng code:\n   • Dòng 7: `public static int bar(int z)` trả về kiểu `int`.\n     - Dòng 13: `assert t > 0 : bar(7);` -> Hoàn toàn hợp lệ về cú pháp vì `bar(7)` trả về kiểu `int`.\n   • Dòng 3: `public static void foo(int x)` có kiểu trả về là `void`.\n     - Dòng 14: `assert t > 1 : foo(8);`\n     - Vì phương thức `foo(8)` trả về `void` (không có giá trị), nó không thể truyền vào constructor của `AssertionError`!\n4. Phản ứng của trình biên dịch:\n   • Trình biên dịch Java sẽ chặn lại ngay tại dòng 14 và báo lỗi: \"'void' type not allowed here\".\n   • Do đó mã nguồn không thể biên dịch thành công.\n\n✅ Vì sao đáp án \"Lỗi biên dịch (Compilation fails)\" đúng:\nDòng 14 sử dụng một phương thức có kiểu trả về là `void` (`foo(8)`) đặt sau dấu hai chấm của câu lệnh `assert`, vi phạm quy định của Java yêu cầu biểu thức này phải trả về một giá trị.\n\n❌ Vì sao các đáp án khác sai:\n• \"bar\" / \"bar done\" / \"foo done\" / \"bar foo done\": Sai vì chương trình không thể vượt qua bước biên dịch.\n• \"Ném ra một Error tại thời điểm chạy (An error is thrown at runtime)\": Sai vì lỗi được phát hiện ngay tại compile-time, không tạo được file `.class` để chạy runtime.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Biểu thức sau dấu `:` trong `assert` đóng vai trò là \"nội dung tin nhắn báo lỗi\". Bạn không thể gửi một tin nhắn rỗng kiểu `void`! Bất kỳ phương thức nào trả về `void` đặt sau dấu `:` đều gây lỗi biên dịch ngay tức khắc.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch04-019",
+    "originalId": 19,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which two of the following statements are true? (Choose two.)",
+    "textVi": "Hai phát biểu nào sau đây về cờ (flags) runtime của Assertion trong Java là ĐÚNG? (Chọn hai)",
+    "code": "",
+    "options": [
+      "C và D (C: Sử dụng cờ runtime phù hợp có thể đồng thời tắt assertion cho một class cụ thể và bật assertion cho một package cụ thể. & D: Các cờ sau đều là cờ runtime hợp lệ: -ea, -esa, -dsa, -enableassertions, -disablesystemassertions)",
+      "A và C (A: Nếu assertions được biên dịch vào file mã nguồn và không có cờ nào ở runtime, assertions sẽ tự động chạy mặc định. & C: ...)",
+      "A và B (A: ... & B: Kể từ Java phiên bản 1.4, các câu lệnh assertion được biên dịch mặc định.)",
+      "D và E (D: ... & E: Khi đánh giá các tham số dòng lệnh, máy ảo JVM ưu tiên các cờ -ea hơn các cờ -da.)"
+    ],
+    "optionsVi": [
+      "C và D (C: Sử dụng cờ runtime phù hợp có thể đồng thời tắt assertion cho một class cụ thể và bật assertion cho một package cụ thể. & D: Các cờ sau đều là cờ runtime hợp lệ: -ea, -esa, -dsa, -enableassertions, -disablesystemassertions)",
+      "A và C (A: Nếu assertions được biên dịch vào file mã nguồn và không có cờ nào ở runtime, assertions sẽ tự động chạy mặc định. & C: ...)",
+      "A và B (A: ... & B: Kể từ Java phiên bản 1.4, các câu lệnh assertion được biên dịch mặc định.)",
+      "D và E (D: ... & E: Khi đánh giá các tham số dòng lệnh, máy ảo JVM ưu tiên các cờ -ea hơn các cờ -da.)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra chi tiết về cơ chế cấu hình cờ (flags) Assertion trên dòng lệnh của JVM:\n1. Phân tích phát biểu C:\n   • Cú pháp bật/tắt assertion của Java rất linh hoạt và chi tiết đến từng package hoặc từng class.\n   • Bạn hoàn toàn có thể kết hợp nhiều cờ trên cùng một dòng lệnh chạy.\n   • Ví dụ: `java -ea:com.mycompany.service... -da:com.mycompany.service.SpecialService MainClass`\n   • Lệnh trên bật assertion cho toàn bộ package `com.mycompany.service`, nhưng lại tắt riêng assertion cho class `SpecialService`.\n   • Do đó phát biểu C là ĐÚNG.\n2. Phân tích phát biểu D:\n   • Các cờ runtime hợp lệ để điều khiển assertion trong JVM gồm:\n     - `-ea` hoặc `-enableassertions`: Bật assertion cho các lớp người dùng.\n     - `-da` hoặc `-disableassertions`: Tắt assertion cho các lớp người dùng.\n     - `-esa` hoặc `-enablesystemassertions`: Bật assertion cho các lớp hệ thống của Java.\n     - `-dsa` hoặc `-disablesystemassertions`: Tắt assertion cho các lớp hệ thống của Java.\n   • Tất cả các cờ liệt kê trong phát biểu D đều hoàn toàn chính xác theo tài liệu chuẩn của JVM.\n   • Do đó phát biểu D là ĐÚNG.\n3. Phân tích các phát biểu còn lại:\n   • Phát biểu A (SAI): Ở thời điểm runtime, assertions LUÔN LUÔN BỊ TẮT MẶC ĐỊNH (disabled by default) nếu không có cờ `-ea`.\n   • Phát biểu B (SAI): Ở phiên bản Java 1.4, vì từ khóa `assert` mới xuất hiện nên compiler mặc định coi `assert` là tên biến thông thường để tương thích ngược. Muốn compiler nhận diện từ khóa `assert`, bắt buộc phải truyền cờ `-source 1.4`.\n   • Phát biểu E (SAI): JVM KHÔNG HỀ ưu tiên cờ `-ea` hơn `-da`. Các cờ trên dòng lệnh được JVM đọc và đánh giá tuần tự từ TRÁI sang PHẢI. Cờ nào xuất hiện sau sẽ ghi đè thiết lập của cờ đứng trước.\n\n✅ Vì sao đáp án \"C và D\" đúng:\nVì JVM hoàn toàn hỗ trợ kết hợp nhiều cờ bật/tắt chi tiết cho package và class cùng lúc (C), và các cờ `-ea`, `-esa`, `-dsa`, `-enableassertions`, `-disablesystemassertions` đều là các cờ chuẩn của JVM (D).\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa A: Sai vì mặc định ở runtime assertion luôn bị tắt để tối ưu hiệu năng.\n• Các đáp án chứa B: Sai vì trong Java 1.4 cần thêm cờ `-source 1.4` lúc biên dịch.\n• Các đáp án chứa E: Sai vì JVM đánh giá cờ theo thứ tự từ trái sang phải, không ưu tiên `-ea` hơn `-da`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ 2 quy tắc vàng của Assertion runtime:\n  1. Chạy bình thường (`java MyClass`): Assertion luôn BỊ TẮT.\n  2. Muốn bật: Phải thêm cờ `java -ea MyClass` (`-ea` là viết tắt của Enable Assertions).",
+    "correctLetters": [
+      "C",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-020",
+    "originalId": 20,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, which line is an example of an inappropriate use of assertions?",
+    "textVi": "Cho đoạn mã sau, dòng nào là ví dụ về việc sử dụng Assertion KHÔNG PHÙ HỢP (vi phạm nguyên tắc thiết kế)?",
+    "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
+    "options": [
+      "Dòng 8 (Line 8)",
+      "Dòng 9 (Line 9)",
+      "Dòng 11 (Line 11)",
+      "Dòng 15 (Line 15)",
+      "Dòng 18 (Line 18)"
+    ],
+    "optionsVi": [
+      "Dòng 8 (Line 8)",
+      "Dòng 9 (Line 9)",
+      "Dòng 11 (Line 11)",
+      "Dòng 15 (Line 15)",
+      "Dòng 18 (Line 18)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra nguyên tắc tối thượng trong thiết kế và sử dụng Assertion trong Java:\n\"Câu lệnh assertion tuyệt đối KHÔNG ĐƯỢC gây ra tác dụng phụ (Assertions must never cause side effects)!\"\n\n1. Tại sao không được có tác dụng phụ (side-effects)?\n   • Assertion được sinh ra chỉ để phục vụ kiểm thử và debug nội bộ của lập trình viên.\n   • Khi đưa code lên môi trường Production, lập trình viên sẽ TẮT assertions (không dùng cờ `-ea`) để chương trình chạy với hiệu năng cao nhất.\n   • Nếu một câu lệnh assertion làm thay đổi giá trị của biến hoặc trạng thái hệ thống, thì khi BẬT assertion chương trình sẽ chạy một kiểu, còn khi TẮT assertion chương trình sẽ chạy theo kiểu khác! Điều này tạo ra những con bug ma quái cực kỳ nguy hiểm.\n2. Kiểm tra từng dòng assertion trong đề bài:\n   • Dòng 8: `assert z > 0;` -> Khẳng định đơn giản, không làm thay đổi biến, hoàn toàn phù hợp.\n   • Dòng 9: `assert z > 2 : foo(z);` -> `foo(z)` chỉ nhân đôi và trả về giá trị, không làm đổi biến nào, hoàn toàn phù hợp.\n   • Dòng 11: `assert z > 4;` -> Đặt trong khối `if`, hoàn toàn phù hợp.\n   • Dòng 15: `default: assert z < 10;` -> Bắt unreachable code trong khối `switch`, đây là Best Practice được khuyến khích.\n   • Dòng 18: `assert z > 4 : z++;`\n     - Nhìn vào vế thứ hai: `z++`!\n     - Biểu thức này trực tiếp tăng giá trị của biến `z` lên 1 đơn vị khi assertion thất bại.\n     - Đây là hành vi gây tác dụng phụ (side-effect) nghiêm trọng, làm thay đổi dữ liệu của chương trình. Vì vậy dòng 18 là cách sử dụng assertion hoàn toàn sai lầm và không phù hợp!\n\n✅ Vì sao đáp án \"Dòng 18 (Line 18)\" đúng:\nDòng 18 chứa biểu thức `z++` làm thay đổi giá trị của biến `z`, vi phạm nguyên tắc vàng: Assertions không bao giờ được gây ra side effects làm thay đổi trạng thái của chương trình.\n\n❌ Vì sao các đáp án khác sai:\n• \"Dòng 8 (Line 8)\": Sai vì đây là cú pháp assert cơ bản hợp lệ.\n• \"Dòng 9 (Line 9)\": Sai vì gọi phương thức trả về giá trị sau dấu hai chấm là hoàn toàn hợp lệ miễn là hàm đó không làm đổi trạng thái dữ liệu.\n• \"Dòng 11 (Line 11)\": Sai vì việc gọi assert có điều kiện trong lệnh `if` là bình thường.\n• \"Dòng 15 (Line 15)\": Sai vì đặt assert trong nhánh `default` của switch là một chuẩn mực thiết kế (Best Practice).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Quy tắc vàng cần khắc cốt ghi tâm: Code trong `assert` chỉ được phép \"đọc và kiểm tra\", KHÔNG BAO GIỜ được phép \"ghi hoặc thay đổi\" bất kỳ biến nào (`++`, `--`, phép gán `=`).",
+    "correctLetters": [
+      "E"
+    ]
+  }
+]

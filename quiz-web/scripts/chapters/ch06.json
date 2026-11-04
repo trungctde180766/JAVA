@@ -1,0 +1,566 @@
+[
+  {
+    "id": "scjp-ch06-001",
+    "originalId": 1,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
+    "options": [
+      "abcdefghi",
+      "abcdefdef",
+      "abcghidef",
+      "abcghighi",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "abcdefghi",
+      "abcdefdef",
+      "abcghidef",
+      "abcghighi",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. After line 5 executes, both s2 and s3 refer to a String object that contains the value “def”. When line 6 executes, a new String object is created with the value “ghi”, to whichs2 refers. The reference variable s3 still refers to the (immutable) String object with the value “def”. ✗ A, B, D, E, and F are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-002",
+    "originalId": 2,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
+    "options": [
+      "abcXyZ",
+      "abcxyz",
+      "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "XyZabc",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "abcXyZ",
+      "abcxyz",
+      "xyzabc 40 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "XyZabc",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. Line 12 creates a new String object with the value “XYZ”, but this new object is immediately lost because there is no reference to it. Line 13 creates a new String object referenced by y. This new String object has the value “xyz” because there was no “Y” in the String object referred to by x. Line 14 creates a new String object, appends “abc” to the value “xyz”, and refersy to the result. ✗ A, B, D, E, and F are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-003",
+    "originalId": 3,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, how many String objects have been created?",
+    "textVi": "Cho đoạn mã sau, how many String objects have been created?",
+    "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "optionsVi": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 2,
+    "explanation": "C. Line 13 creates two, one referred to by x and the lost String “xyz”. Line 14 creates one (for a total of three). Line 15 creates one more (for a total of four), the concatenated String referred to by x with a value of “xyzabc”. ✗ A, B, and D are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-004",
+    "originalId": 4,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
+    "options": [
+      "apa",
+      "app",
+      "apea",
+      "apep",
+      "papp",
+      "papa"
+    ],
+    "optionsVi": [
+      "apa",
+      "app",
+      "apea",
+      "apep",
+      "papp",
+      "papa"
+    ],
+    "answer": 1,
+    "explanation": "B. Bothsubstring() andcharAt() methods are indexed with a zero-base, and substring() returns a String of length arg2 – arg1. ✗ A, C, D, E, and F are incorrect based on the logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-005",
+    "originalId": 5,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì? 42 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
+    "options": [
+      "wookkeewoo",
+      "wbookkeeper",
+      "wbookkeewoo",
+      "wbookkeeperwoo",
+      "Compilation fails.",
+      "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+    ],
+    "optionsVi": [
+      "wookkeewoo",
+      "wbookkeeper",
+      "wbookkeewoo",
+      "wbookkeeperwoo",
+      "Lỗi biên dịch (Compilation fails)",
+      "An exception is thrown at runtime. Using the java.lang.Math Class (Exam Objective 8.1)"
+    ],
+    "answer": 4,
+    "explanation": "E. In line 7 the code calls a StringBuffer method, append() on a String object. ✗ A, B, C, D, and F are incorrect based on the logic described above. Math (Exam Objective 8.1)",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch06-006",
+    "originalId": 6,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
+    "options": [
+      "same results 0 time(s)",
+      "same results 2 time(s)",
+      "same results 4 time(s)",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "same results 0 time(s)",
+      "same results 2 time(s)",
+      "same results 4 time(s)",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B.Math.round() adds .5 to the argument then performs a floor(). Since the code adds an additional .5 before round() is called, it’s as if we are adding 1 then doing a floor(). The values that start out as integer values will in effect be incremented by 1 on the round() side but not on theceil() side, and the noninteger values will end up equal. ✗ A, C, D, and E are incorrect based on the logic described above. 50 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-007",
+    "originalId": 7,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+    "textVi": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+    "code": "",
+    "options": [
+      "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+      "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+      "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+      "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+    ],
+    "optionsVi": [
+      "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+      "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+      "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+      "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+    ],
+    "answer": 0,
+    "explanation": "A, B, and D. Themax() method is overloaded to take two arguments of type int, long, float,o r double. ✗ C is incorrect because the max() method only takes two arguments.",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-008",
+    "originalId": 8,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+    "textVi": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và C (B: The result is greater than or equal to 0.0.. & C: The result is less than 1.0.)",
+      "A và B (A: The result is less than 0.0. & B: The result is greater than or equal to 0.0..)",
+      "A và D (A: The result is less than 0.0. & D: The result is greater than 1.0.)",
+      "C và F (C: The result is less than 1.0. & F: The result is less than or equal to 1.0.)"
+    ],
+    "optionsVi": [
+      "B và C (B: The result is greater than or equal to 0.0.. & C: The result is less than 1.0.)",
+      "A và B (A: The result is less than 0.0. & B: The result is greater than or equal to 0.0..)",
+      "A và D (A: The result is less than 0.0. & D: The result is greater than 1.0.)",
+      "C và F (C: The result is less than 1.0. & F: The result is less than or equal to 1.0.)"
+    ],
+    "answer": 0,
+    "explanation": "B and C. The result range for random() is 0.0 to < 1.0; 1.0 is not in range. ✗ A, D, E, and F are incorrect based on the logic above.",
+    "correctLetters": [
+      "B",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-009",
+    "originalId": 9,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
+    "options": [
+      "3.0",
+      "–3.0",
+      "NaN",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "3.0",
+      "–3.0",
+      "NaN",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. Thesqrt() method returnsNaN (not a number) when it’s argument is less than zero. ✗ A, B, D, and E are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-010",
+    "originalId": 10,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "textVi": "Cho đoạn mã sau, at what line will the sine of 75 degrees be output? 44 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
+    "options": [
+      "Line 3",
+      "Line 4",
+      "Line 5",
+      "Line 6",
+      "Line 3 and either line 4, 5, or 6",
+      "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+    ],
+    "optionsVi": [
+      "Line 3",
+      "Line 4",
+      "Line 5",
+      "Line 6",
+      "Line 3 and either line 4, 5, or 6",
+      "None of the above Using Wrapper Classes (Exam Objective 8.3)"
+    ],
+    "answer": 2,
+    "explanation": "C. The Math class’ trigonometry methods expect their arguments to be in radians, not degrees. Line 5 can be decoded: “Convert 75 (degrees) into radians, then find the sine of that result.” ✗ A, B, D, E, and F are incorrect based on the logic described above. Wrappers (Exam Objective 8.3)",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-011",
+    "originalId": 11,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two lines will cause compiler errors? (Choose two.)",
+    "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
+    "options": [
+      "B và D (B: Line 4 & D: Line 6)",
+      "A và B (A: Line 3 & B: Line 4)",
+      "A và C (A: Line 3 & C: Line 5)",
+      "D và F (D: Line 6 & F: Line 8)"
+    ],
+    "optionsVi": [
+      "B và D (B: Line 4 & D: Line 6)",
+      "A và B (A: Line 3 & B: Line 4)",
+      "A và C (A: Line 3 & C: Line 5)",
+      "D và F (D: Line 6 & F: Line 8)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. B is incorrect because the valueOf() method returns an Integer object. D is incorrect because the parseInt() method takes a String. ✗ A, C, E, and F all represent valid syntax. Line 5 takes the String “345” to be octal number, and converts it to an integer value 229.",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch06-012",
+    "originalId": 12,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
+    "options": [
+      "42",
+      "42.5",
+      "43",
+      "badnumber",
+      "Compilation fails.",
+      "An uncaught exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "42",
+      "42.5",
+      "43",
+      "badnumber",
+      "Lỗi biên dịch (Compilation fails)",
+      "An uncaught exception is thrown at runtime."
+    ],
+    "answer": 2,
+    "explanation": "C. All of this code is legal, and line 5 creates a new String with a value of “42.5”. Lines 6 and 7 convert the String to a double and then back again. Line 8 is fun— Math.ceil()’s argument expression is evaluated first. We invoke the valueOf() method that returns an anonymous Double object (with a value of 42.5). Then the doubleValue() method is called (invoked on the newly created Double object), and returns a double primitive (there and back again), with a value of (you guessed it) 42.5. The ceil() method converts this to 43.0, which is cast to an int and assigned to x. We know, we know, but stuff like this is on the exam. ✗ A, B, D, E, and F are incorrect based on the logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-013",
+    "originalId": 13,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
+    "options": [
+      "z",
+      "xz",
+      "yz",
+      "xyz",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "z",
+      "xz",
+      "yz",
+      "xyz",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. The compiler fails at line 10 because b1 is a reference variable to a Boolean wrapper object, not a boolean primitive. Logical boolean tests can’t be made on Boolean objects. ✗ A, B, C, D, and F are incorrect based on the logic described above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch06-014",
+    "originalId": 14,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+    "textVi": "Cho đoạn mã sau, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+    "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
+    "options": [
+      "A và B (A: floatf1=Float.floatValue(s); & B: floatf2=Float.valueOf(s);)",
+      "A và C (A: floatf1=Float.floatValue(s); & C: floatf3=newFloat(3.14f).floatValue();)",
+      "C và D (C: floatf3=newFloat(3.14f).floatValue(); & D: floatf4=Float.parseFloat(1.23f);)",
+      "B và F (B: floatf2=Float.valueOf(s); & F: floatf6=(float)Double.parseDouble(\"3.14\");)"
+    ],
+    "optionsVi": [
+      "A và B (A: floatf1=Float.floatValue(s); & B: floatf2=Float.valueOf(s);)",
+      "A và C (A: floatf1=Float.floatValue(s); & C: floatf3=newFloat(3.14f).floatValue();)",
+      "C và D (C: floatf3=newFloat(3.14f).floatValue(); & D: floatf4=Float.parseFloat(1.23f);)",
+      "B và F (B: floatf2=Float.valueOf(s); & F: floatf6=(float)Double.parseDouble(\"3.14\");)"
+    ],
+    "answer": 0,
+    "explanation": "A, B, and D. A won’t compile because thefloatValue() method is an instance method that takes no arguments. B won’t compile because thevalueOf() method returns a wrapper object. D won’t compile because theparseFloat() method takes a String. ✗ C, E,a n dF are all legal (if not terribly useful) ways to return a primitive float. 52 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-015",
+    "originalId": 15,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
+    "options": [
+      "9.0",
+      "badnumber",
+      "Compilation fails on line 13.",
+      "Compilation fails on line 14.",
+      "Compilation fails on lines 13 and 14.",
+      "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+    ],
+    "optionsVi": [
+      "9.0",
+      "badnumber",
+      "Compilation fails on line 13.",
+      "Compilation fails on line 14.",
+      "Compilation fails on lines 13 and 14.",
+      "An uncaught exception is thrown at runtime. 46 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers Using equals() (Exam Objective 5.2)"
+    ],
+    "answer": 0,
+    "explanation": "A is correct. ThexxxValue() methods convert any numeric wrapper object’s value to any primitive type. When narrowing is necessary, significant bits are dropped and the results are difficult to calculate. ✗ B, C, D, E, and F are incorrect based on the logic described above. Equals() (Exam Objective 5.2)",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch06-016",
+    "originalId": 16,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
+    "options": [
+      "result=1",
+      "result=10",
+      "result=11",
+      "result=11010",
+      "result=11011",
+      "result=11111"
+    ],
+    "optionsVi": [
+      "result=1",
+      "result=10",
+      "result=11",
+      "result=11010",
+      "result=11011",
+      "result=11111"
+    ],
+    "answer": 1,
+    "explanation": "B. Line 12 fails because == compares reference values, not object values. Line 13 succeeds because both String and primitive wrapper constructors resolve to the same value (except for the Character wrapper). Lines 14, 15, and 16 fail because the equals() method fails if the object classes being compared are different and not in the same tree hierarchy. ✗ A, C, D, E, and F are incorrect based on the logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-017",
+    "originalId": 17,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
+    "options": [
+      "0",
+      "1",
+      "10",
+      "1100",
+      "10001",
+      "10010"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "10",
+      "1100",
+      "10001",
+      "10010"
+    ],
+    "answer": 5,
+    "explanation": "F. Line 10 fails because b1 and b2 are two different objects. Lines 11 and 14 succeed because the Boolean String constructors are case insensitive. Lines 12 and 13 fail because true is not equal tofalse. ✗ A, B, C, D, and E are incorrect based on the logic described above.",
+    "correctLetters": [
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch06-018",
+    "originalId": 18,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
+    "options": [
+      "1",
+      "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "101",
+      "1001",
+      "1101"
+    ],
+    "optionsVi": [
+      "1",
+      "10 48 Chapter 6: Java.lang—The Math Class, Strings, and Wrappers",
+      "101",
+      "1001",
+      "1101"
+    ],
+    "answer": 4,
+    "explanation": "E. Even though o and oc are reference variables of different types, they are both referring to the same object. This means that == will resolve totrue and that the default equals() method will also resolve to true. ✗ A, B, C, and D are incorrect based on the logic described above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch06-019",
+    "originalId": 19,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
+    "textVi": "Which two statements are true about wrapper or String classes? (Choose two.)",
+    "code": "",
+    "options": [
+      "D và E (D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)",
+      "A và D (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.)",
+      "A và B (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.)",
+      "C và E (C: If x and y are String references and ifx.equals(y) istrue, then x== y istrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)"
+    ],
+    "optionsVi": [
+      "D và E (D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)",
+      "A và D (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes andx.equals(y) istrue, and y.equals(z) istrue, thenz.equals(x) will always betrue.)",
+      "A và B (A: If x and y refer to instances of different wrapper classes, then the fragmentx.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x== y can sometimes be true.)",
+      "C và E (C: If x and y are String references and ifx.equals(y) istrue, then x== y istrue. & E: If x and y are String references and x== y istrue, theny.equals(x) will betrue.)"
+    ],
+    "answer": 0,
+    "explanation": "D and E. D describes an example of the equals() method behaving transitively. By the way, x, y,a n dz will all be the same type of wrapper. E is true because x and y are referring to the same String object. ✗ A is incorrect—the fragment will compile. B is incorrect because x== y means that the two reference variables are referring to the same object. C will only be true if x and y refer to the same String. It is possible for x and y to refer to two different String objects with the same value. EXERCISE ANSWERS Exercise 6-1: Using the Math Class The following code listing is an example of how you might have written code to complete the exercise: class NumberInterrogation { public static void main(String [] argh) { double [] num = {10.5, -10.5, Math.PI, 0}; for(int i=0;i<num.length;++i) { System.out.println(\"abs(\"+num[i]+\")=\"+Math.abs(num[i])); System.out.println(\"ceil(\"+num[i]+\")=\"+Math.ceil(num[i])); System.out.println(\"floor(\"+num[i]+\")=\"+Math.floor(num[i])); System.out.println(); } } } Exercise 6-2: Rounding Random Numbers The following code listing is an example of how you might have written code to complete the exercise: class RandomRound { public static void main(String [] argh) { for(int i=0;i<10;++i) { double num = Math.random() * 100; System.out.print(\"The number \" + num); System.out.println(\" rounds to \" + Math.round(num)); } } } Exercise Answers 53",
+    "correctLetters": [
+      "D",
+      "E"
+    ]
+  }
+]

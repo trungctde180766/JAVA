@@ -38,7 +38,6 @@ export default async function HomePage() {
   const scjpChapters = scjpQuizzes.filter((q) => q.slug.startsWith("scjp-ch0"));
   const interviewQuizzes = quizzes.filter((q) => q.slug.startsWith("interview-"));
   const originalExamQuizzes = quizzes.filter((q) => q.slug.startsWith("quiz-"));
-  const aiGeneratedQuizzes = quizzes.filter((q) => q.slug.startsWith("ai-"));
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
@@ -47,7 +46,6 @@ export default async function HomePage() {
         <div style={{ display: "inline-flex", gap: "0.5rem", marginBottom: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
           <span className="badge badge-accent" style={{ background: "linear-gradient(135deg, #0284c7, #0369a1)", color: "#fff" }}>🎲 SCJP Random 20 Câu</span>
           <span className="badge badge-primary">🏛️ 3 Bộ Đề Gốc Môn Học</span>
-          <span className="badge badge-accent">🤖 3 Bộ Đề AI Mở Rộng</span>
           <span className="badge badge-warning">🎯 Ôn Phỏng Vấn 1-1</span>
           <span className="badge badge-success">🇻🇳 Song Ngữ &amp; Giải Thích Trực Quan</span>
         </div>
@@ -499,82 +497,6 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
-
-      {/* SECTION 3: 3 Bộ Đề Do AI Tạo Dựa Trên Bộ Đề Gốc */}
-      {aiGeneratedQuizzes.length > 0 && (
-        <section>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.25rem", flexWrap: "wrap", gap: "0.5rem" }}>
-            <div>
-              <div style={{ display: "inline-flex", gap: "0.4rem", marginBottom: "0.35rem" }}>
-                <span className="badge badge-accent">🤖 AI Generated</span>
-                <span className="badge badge-warning">Mở Rộng Dựa Trên Đề Gốc</span>
-              </div>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.25rem" }}>
-                3 Bộ Đề Mở Rộng Do AI Tạo (Dựa Trên Bộ Gốc)
-              </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
-                Do AI phát triển dựa trên cấu trúc các bộ đề gốc: bổ sung các bẫy phòng thi chuyên sâu, cú pháp mới và tình huống biên dịch thực chiến giúp bạn nâng cao phản xạ!
-              </p>
-            </div>
-          </div>
-
-          <div className="grid-3">
-            {aiGeneratedQuizzes.map((q) => (
-              <div
-                key={q.slug}
-                className="card"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  borderTop: `4px solid ${q.color || "var(--accent)"}`,
-                  background: "linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, var(--bg-card) 40%)",
-                }}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
-                  <span style={{ fontSize: "2rem" }}>{q.icon || "🤖"}</span>
-                  <div style={{ display: "flex", gap: "0.3rem", alignItems: "center" }}>
-                    <span className="badge badge-warning" style={{ fontSize: "0.74rem" }}>🤖 Do AI Tạo</span>
-                    <span className="badge badge-accent">{q.count || 0} câu</span>
-                  </div>
-                </div>
-
-                <h3 style={{ fontSize: "1.18rem", fontWeight: 700, marginBottom: "0.5rem" }}>
-                  {q.title}
-                </h3>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", flex: 1, marginBottom: "1.25rem", lineHeight: 1.5 }}>
-                  {q.description}
-                </p>
-
-                <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <Link
-                    href={`/quiz/${q.slug}`}
-                    className="btn btn-secondary btn-sm"
-                    style={{ flex: 1 }}
-                  >
-                    📖 Luyện tập
-                  </Link>
-                  <Link
-                    href={`/exam/${q.slug}`}
-                    className="btn btn-primary btn-sm"
-                    style={{ flex: 1 }}
-                    title="Vào phòng thi thử chuẩn Safe Exam Browser (1 tiếng, xáo câu hỏi & đáp án, toàn màn hình)"
-                  >
-                    ⏱️ Thi thử (SEB)
-                  </Link>
-                  <Link
-                    href={`/leaderboard?quiz=${q.slug}`}
-                    className="btn btn-ghost btn-sm"
-                    style={{ border: "1px solid var(--border)", padding: "0.35rem 0.65rem" }}
-                    title="Xem bảng xếp hạng bộ đề này"
-                  >
-                    🏆
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
       {/* Special Learning Modes */}
       <section>

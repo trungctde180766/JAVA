@@ -1,0 +1,583 @@
+[
+  {
+    "id": "scjp-ch04-001",
+    "originalId": 1,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case y: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+    "options": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "Compilation fails at line 7.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "Compilation fails at line 7.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. Case expressions must be constant expressions. Since x is markedfinal, lines 8 and 9 are legal; however y is not afinal so the compiler will fail at line 7. ✗ A, B, D, E, and F, are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch04-002",
+    "originalId": 2,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Switch2 {\n2.     final static short x = 2;\n3.     public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 3; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           case x-1: System.out.print(\"1 \");\n9.           case x-2: System.out.print(\"2 \");\n10.        }\n11.      }\n12.    }\n13.  }",
+    "options": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "2 1 0 1 0 0",
+      "2 1 2 0 1 2",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9."
+    ],
+    "optionsVi": [
+      "0 1 2",
+      "0 1 2 1 2 2",
+      "2 1 0 1 0 0",
+      "2 1 2 0 1 2",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9."
+    ],
+    "answer": 3,
+    "explanation": "D. The case expressions are all legal because x is markedfinal, which means the expressions can be evaluated at compile time. In the first iteration of the for loopcase x-2 matches, so 2 is printed. In the second iteration, x-1 is matched so 1 and 2 are printed (remember, once a match is found all remaining statements are executed until a break statement is encountered). In the third iteration,x is matched so01a n d2a r ep r inted. ✗ A, B, C, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-003",
+    "originalId": 3,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class If1 {\n2.     static boolean b;\n3.     public static void main(String [] args) {\n4.       short hand = 42;\n5.       if ( hand < 50 & !b ) hand++;\n6.       if ( hand > 50 ) ;\n7.       else if ( hand > 40 ) {\n8.          hand += 7;\n9.          hand++;    }\n10.       else\n11.         --hand;\n12.      System.out.println(hand);\n13.    }\n14.  }",
+    "options": [
+      "41",
+      "42",
+      "50",
+      "51",
+      "Compiler fails at line 5.",
+      "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+    ],
+    "optionsVi": [
+      "41",
+      "42",
+      "50",
+      "51",
+      "Compiler fails at line 5.",
+      "Compiler fails at line 6. 64 Chapter 4: Flow Control, Exceptions, and Assertions"
+    ],
+    "answer": 3,
+    "explanation": "D. In Java,boolean instance variables are initialized to false,s ot h eif test on line 5 is true andhand is incremented. Line 6 is legal syntax, a do nothing statement. The else-if is true sohand has 7 added to it and is then incremented. ✗ A, B, C, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-004",
+    "originalId": 4,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Switch2 {\n2.       final static short x = 2;\n3.       public static int y = 0;\n4.     public static void main(String [] args) {\n5.       for (int z=0; z < 4; z++) {\n6.         switch (z) {\n7.           case x: System.out.print(\"0 \");\n8.           default: System.out.print(\"def \");\n9.           case x-1: System.out.print(\"1 \");  break;\n10.          case x-2: System.out.print(\"2 \");\n11.        }\n12.      }\n13.    }\n14.  }",
+    "options": [
+      "0 def 1",
+      "2 1 0 def 1",
+      "2 1 0 def def",
+      "2 1 def 0 def 1",
+      "2 1 2 0 def 1 2",
+      "2 1 0 def 1 def 1"
+    ],
+    "optionsVi": [
+      "0 def 1",
+      "2 1 0 def 1",
+      "2 1 0 def def",
+      "2 1 def 0 def 1",
+      "2 1 2 0 def 1 2",
+      "2 1 0 def 1 def 1"
+    ],
+    "answer": 5,
+    "explanation": "F. Whenz == 0 , case x-2 is matched. Whenz == 1, case x-1 is matched and then the break occurs. Whenz == 2, case x, thendefault, then x-1 are all matched. When z == 3, default, thenx-1 are matched. The rules for default are that it will fall through from above like any other case (for instance whenz == 2), and that it will match when no other cases match (for instance when z= =3 ). ✗ A, B, C, D, and E are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch04-005",
+    "originalId": 5,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class If2 {\n2.     static boolean b1, b2;\n3.     public static void main(String [] args) {\n4.       int x = 0;\n5.       if ( !b1 ) {\n6.         if ( !b2 ) {\n7.           b1 = true;\n8.           x++;\n9.           if ( 5 > 6 ) {\n10.            x++;\n11.          }\n12.          if ( !b1 ) x = x + 10;\n13.          else if ( b2 = true ) x = x + 100;\n14.          else if ( b1 | b2 ) x = x + 1000;\n15.        }\n16.      }\n17.      System.out.println(x);\n18.    }\n19.  }",
+    "options": [
+      "0",
+      "1",
+      "101",
+      "111",
+      "1001",
+      "1101 Flow Control (loops) (Sun Objective 2.2)"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "101",
+      "111",
+      "1001",
+      "1101 Flow Control (loops) (Sun Objective 2.2)"
+    ],
+    "answer": 2,
+    "explanation": "C. As instance variables, b1 andb2 are initialized tofalse. The if tests on lines 5 and 6 are successful sob1 is set totrue andx is incremented. The nextif test to succeed is on line 13 (note that the code is not testing to see ifb2 istrue, it is settingb2 to betrue). Since line 13 was successful, subsequent else-if’s(line 14) will be skipped. ✗ A, B, D, E, and F are incorrect based on the program logic described above. Flow Control (loops) (Sun Objective 2.2)",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch04-006",
+    "originalId": 6,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, Which statement is true?",
+    "textVi": "Cho đoạn mã sau, Phát biểu nào sau đây là ĐÚNG?",
+    "code": "1. public class While {\n2.    public void loop() {\n3.       int x= 0;\n4.       while ( 1 ) {\n5.          System.out.print(\"x plus one is \" + (x + 1));\n6.       }\n7.    }\n8. }",
+    "options": [
+      "There is a syntax error on line 1.",
+      "There are syntax errors on lines 1 and 4.",
+      "There are syntax errors on lines 1, 4, and 5.",
+      "There is a syntax error on line 4.",
+      "There are syntax errors on lines 4 and 5.",
+      "There is a syntax error on line 5."
+    ],
+    "optionsVi": [
+      "There is a syntax error on line 1.",
+      "There are syntax errors on lines 1 and 4.",
+      "There are syntax errors on lines 1, 4, and 5.",
+      "There is a syntax error on line 4.",
+      "There are syntax errors on lines 4 and 5.",
+      "There is a syntax error on line 5."
+    ],
+    "answer": 3,
+    "explanation": "D. Using the integer 1 in the while statement, or any other looping or conditional construct for that matter, will result in a compiler error. This is old C syntax, not valid Java. ✗ A, B, C, E, and F are incorrect because line 1 is valid (Java is case sensitive so While is a valid class name). Line 5 is also valid because an equation may be placed in a String operation as shown.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-007",
+    "originalId": 7,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, and the following output, x = 0 x = 1 which two lines of code (inserted independently) will cause this output? (Choose two.)",
+    "code": "1.   class For {\n2.     public void test() {\n3.\n4.         System.out.println(\"x = \"+ x);\n66 Chapter 4: Flow Control, Exceptions, and Assertions\n5.       }\n6.     }\n7.  }",
+    "options": [
+      "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+      "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+      "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+      "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+    ],
+    "optionsVi": [
+      "D và E (D: for (int x = 0; x < 2; x++ ) { & E: for (int x = 0; x < 2; ++x ) {)",
+      "A và D (A: for (int x = -1; x < 2; ++x) { & D: for (int x = 0; x < 2; x++ ) {)",
+      "A và B (A: for (int x = -1; x < 2; ++x) { & B: for (int x = 1; x < 3; ++x ) {)",
+      "C và E (C: for (int x = 0; x > 2; ++x ) { & E: for (int x = 0; x < 2; ++x ) {)"
+    ],
+    "answer": 0,
+    "explanation": "D and E. It doesn’t matter whether you preincrement or postincrement the variable in a for loop; it is always incremented after the loop executes and before the iteration expression is evaluated. ✗ A and B are incorrect because the first iteration of the loop must be zero. C is incorrect because the test will fail immediately and the for loop will not be entered.",
+    "correctLetters": [
+      "D",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch04-008",
+    "originalId": 8,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Test {\n2.     public static void main(String [] args) {\n3.       int I = 1;\n4.       do while ( I < 1 )\n5.         System.out.print(\"I is \" + I);\n6.       while ( I > 1 ) ;\n7.     }\n8.   }",
+    "options": [
+      "I is 1",
+      "I is 1 I is 1",
+      "No output is produced.",
+      "Compilation error",
+      "I is 1 I is 1 I is 1 in an infinite loop."
+    ],
+    "optionsVi": [
+      "I is 1",
+      "I is 1 I is 1",
+      "No output is produced.",
+      "Compilation error",
+      "I is 1 I is 1 I is 1 in an infinite loop."
+    ],
+    "answer": 2,
+    "explanation": "C. There are two different looping constructs in this problem. The first is a do-while loop and the second is a while loop, nested inside the do-while. The body of the do-while is only a single statement—brackets are not needed. You are assured that the while expression will be evaluated at least once, followed by an evaluation of the do-while expression. Both expressions are false and no output is produced. ✗ A, B, D, and E are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch04-009",
+    "originalId": 9,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "11.  int I = 0;\n12.  outer:\n13.    while (true) {\n14.      I++;\n15.      inner:\n16.        for (int j = 0; j < 10; j++) {\n17.          I += j;\n18.          if (j == 3)\n19.            continue inner;\n20.          break outer;\n21.        }\n22.        continue outer;\n23.     }\n24.   System.out.println(I);\n25.\n26.",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "optionsVi": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 0,
+    "explanation": "A. The program flows as follows: I will be incremented after the while loop is entered, thenI will be incremented (by zero) when the for loop is entered. The if statement evaluates to false, and thecontinue statement is never reached. The break statement tells the JVM to break out of the outer loop, at which point I is printed and the fragment is done. ✗ B, C, and D are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch04-010",
+    "originalId": 10,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  int I = 0;\n2.  label:\n3.     if (I < 2) {\n4.        System.out.print(\"I is \" + I);\n5.        I++;\n6.        continue label;\n7.     }",
+    "options": [
+      "I is 0",
+      "I is 0 I is 1",
+      "Compilation fails.",
+      "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+    ],
+    "optionsVi": [
+      "I is 0",
+      "I is 0 I is 1",
+      "Lỗi biên dịch (Compilation fails)",
+      "None of the above Exceptions (Sun Objectives 2.3 and 2.4)"
+    ],
+    "answer": 2,
+    "explanation": "C. The code will not compile because a continue statement can only occur in a looping construct. If this syntax were legal, the combination of the continue and the if statements would create a kludgey kind of loop, but the compiler will force you to write cleaner code than this. ✗ A, B, and D are incorrect based on the program logic described above. Exceptions (Sun Objectives 2.3 and 2.4)",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch04-011",
+    "originalId": 11,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+    "textVi": "Cho đoạn mã sau, and given that EOFException and FileNotFoundException are both subclasses of IOException, and further assuming this block of code is placed into a class, which statement is most true concerning this code?",
+    "code": "1.  System.out.print(\"Start \");\n2.  try {\n3.     System.out.print(\"Hello world\");\n4.     throw new FileNotFoundException();\n68 Chapter 4: Flow Control, Exceptions, and Assertions\n5.  }\n6.  System.out.print(\" Catch Here \");\n7.  catch(EOFException e) {\n8.     System.out.print(\"End of file exception\");\n9.  }\n10.  catch(FileNotFoundException e) {\n11.     System.out.print(\"File not found\");\n12.  }",
+    "options": [
+      "The code will not compile.",
+      "Code output:Start Hello world File Not Found.",
+      "Code output:Start Hello world End of file exception.",
+      "Code output:Start Hello world Catch Here File not found."
+    ],
+    "optionsVi": [
+      "The code will not compile.",
+      "Code output:Start Hello world File Not Found.",
+      "Code output:Start Hello world End of file exception.",
+      "Code output:Start Hello world Catch Here File not found."
+    ],
+    "answer": 0,
+    "explanation": "A. Line 6 will cause a compiler error. The only legal statements after try blocks are either catch orfinally statements. ✗ B, C, and D are incorrect based on the program logic described above. If line 6 was removed, the code would compile and the correct answer would be B.",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch04-012",
+    "originalId": 12,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class MyProgram {\n2.     public static void main(String args[]){\n3.        try {\n4.           System.out.print(\"Hello world \");\n5.        }\n6.        finally {\n7.           System.out.println(\"Finally executing \");\n8.        }\n9.     }\n10.  }",
+    "options": [
+      "Nothing. The program will not compile because no exceptions are specified.",
+      "Nothing. The program will not compile because nocatch clauses are specified.",
+      "Hello world.",
+      "Hello world Finally executing"
+    ],
+    "optionsVi": [
+      "Nothing. The program will not compile because no exceptions are specified.",
+      "Nothing. The program will not compile because nocatch clauses are specified.",
+      "Hello world.",
+      "Hello world Finally executing"
+    ],
+    "answer": 3,
+    "explanation": "D.Finally clauses are always executed. The program will first execute the try block, printingHello world, and will then execute the finally block, printingFinally executing. ✗ A, B, and C are incorrect based on the program logic described above. Remember that either acatch or afinally statement must follow a try. Since the finally is present, the catch is not required. 76 Chapter 4: Flow Control, Exceptions, and Assertions",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-013",
+    "originalId": 13,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+    "textVi": "Cho đoạn mã sau, and given that all methods of class FileOutputStream, including close(), throw an IOException, which of these is true? (Choose one.)",
+    "code": "1.  import java.io.*;\n2.  public class MyProgram {\n3.     public static void main(String args[]){\n4.        FileOutputStream out = null;\n5.        try {\n6.           out = new FileOutputStream(\"test.txt\");\n7.           out.write(122);\n8.        }\n9.        catch(IOException io) {\n10.            System.out.println(\"IO Error.\");\n11.        }\n12.        finally {\n13.           out.close();\n14.        }\n15.     }\n16.  }",
+    "options": [
+      "This program will compile successfully.",
+      "This program fails to compile due to an error at line 4.",
+      "This program fails to compile due to an error at line 6.",
+      "This program fails to compile due to an error at line 9.",
+      "This program fails to compile due to an error at line 13."
+    ],
+    "optionsVi": [
+      "This program will compile successfully.",
+      "This program fails to compile due to an error at line 4.",
+      "This program fails to compile due to an error at line 6.",
+      "This program fails to compile due to an error at line 9.",
+      "This program fails to compile due to an error at line 13."
+    ],
+    "answer": 4,
+    "explanation": "E. Any method (in this case, the main() method) that throws a checked exception (in this case, out.close() ) must be called within a try clause, or the metho d must declare that it throws the exception. Either main() must declare that it throws an exception, or the call toout.close() in thefinally block must fall inside a (in this case nested) try-catch block. ✗ A, B, C, and D are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch04-014",
+    "originalId": 14,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, which answer most closely indicates the behavior of the program?",
+    "textVi": "Cho đoạn mã sau, which answer most closely indicates the behavior of the program?",
+    "code": "1.  public class MyProgram {\n2.     public static void throwit() {\n3.       throw new RuntimeException();\n4.     }\n5.     public static void main(String args[]){\n6.        try {\n7.           System.out.println(\"Hello world \");\n8.           throwit();\n9.           System.out.println(\"Done with try block \");\n10.        }\n11.        finally {\n12.           System.out.println(\"Finally executing \");\n13.        }\n14.     }\n15.  }",
+    "options": [
+      "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+      "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+      "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+      "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+    ],
+    "optionsVi": [
+      "The program will not compile. 70 Chapter 4: Flow Control, Exceptions, and Assertions",
+      "The program will printHello world, then will print that a RuntimeException has occurred, then will printDone with try block, and then will printFinally executing.",
+      "The program will printHello world, then will print that a RuntimeException has occurred, and then will printFinally executing.",
+      "The program will printHello world, then will printFinally executing, then will print that aRuntimeException has occurred."
+    ],
+    "answer": 3,
+    "explanation": "D. Once the program throws a RuntimeException (in the throwit() method) that is not caught, thefinally block will be executed and the program will be terminated. If a method does not handle an exception, the finally block is executed before the exception is propagated. ✗ A, B, and C are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-015",
+    "originalId": 15,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class RTExcept {\n2.     public static void throwit () {\n3.       System.out.print(\"throwit \");\n4.       throw new RuntimeException();\n5.     }\n6.     public static void main(String [] args) {\n7.       try {\n8.         System.out.print(\"hello \");\n9.         throwit();\n10.      }\n11.      catch (Exception re ) {\n12.        System.out.print(\"caught \");\n13.      }\n14.      finally {\n15.        System.out.print(\"finally \");\n16.      }\n17.      System.out.println(\"after \");\n18.    }\n19.  }",
+    "options": [
+      "hello throwit caught",
+      "Compilation fails",
+      "hello throwit RuntimeException caught after",
+      "hello throwit RuntimeException",
+      "hello throwit caught finally after",
+      "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+    ],
+    "optionsVi": [
+      "hello throwit caught",
+      "Lỗi biên dịch (Compilation fails)",
+      "hello throwit RuntimeException caught after",
+      "hello throwit RuntimeException",
+      "hello throwit caught finally after",
+      "hello throwit caught finally after RuntimeException 72 Chapter 4: Flow Control, Exceptions, and Assertions Assertions (Sun Objectives 2.5 and 2.6)"
+    ],
+    "answer": 4,
+    "explanation": "E. Themain() method properly catches and handles the RuntimeException in the catch block, finally runs (as it always does), and then the code returns to normal. ✗ A, B, C, D, and F are incorrect based on the program logic described above. Remember that properly handled exceptions do not cause the program to stop executing. Assertions (Sun Objectives 2.5 and 2.6)",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch04-016",
+    "originalId": 16,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which of the following statements is true?",
+    "textVi": "Which of the following statements is true?",
+    "code": "",
+    "options": [
+      "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+      "If a switch block has no default, adding an assert default is considered appropriate.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "It is appropriate to handle assertion failures using acatch clause."
+    ],
+    "optionsVi": [
+      "In an assert statement, the expression after the colon ( : ) can be any Java expression.",
+      "If a switch block has no default, adding an assert default is considered appropriate.",
+      "In an assert statement, if the expression after the colon ( : ) does not have a value, the assert’s error message will be empty.",
+      "It is appropriate to handle assertion failures using acatch clause."
+    ],
+    "answer": 1,
+    "explanation": "B. Adding an assertion statement to a switch statement that previously had no default case is considered an excellent use of the assert mechanism. ✗ A is incorrect because only Java expressions that return a value can be used. For instance, a method that returnsvoid is illegal. C is incorrect because the expression after the colon must have a value. D is incorrect because assertions throw errors and not exceptions, and assertion errors do cause program termination and should not be handled.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch04-017",
+    "originalId": 17,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which two of the following statements are true? (Choose two.)",
+    "textVi": "Which two of the following statements are true? (Choose two.)",
+    "code": "",
+    "options": [
+      "A và B (A: It is sometimes good practice to throw an AssertionError explicitly. & B: It is good practice to place assertions where you think execution should never reach.)",
+      "A và C (A: It is sometimes good practice to throw an AssertionError explicitly. & C: Privategetter() andsetter() methods should not use assertions to verify arguments.)",
+      "C và D (C: Privategetter() andsetter() methods should not use assertions to verify arguments. & D: If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.)",
+      "B và E (B: It is good practice to place assertions where you think execution should never reach. & E: It is proper to handle assertion statement failures using a catch (AssertionException ae) block.)"
+    ],
+    "optionsVi": [
+      "A và B (A: It is sometimes good practice to throw an AssertionError explicitly. & B: It is good practice to place assertions where you think execution should never reach.)",
+      "A và C (A: It is sometimes good practice to throw an AssertionError explicitly. & C: Privategetter() andsetter() methods should not use assertions to verify arguments.)",
+      "C và D (C: Privategetter() andsetter() methods should not use assertions to verify arguments. & D: If an AssertionError is thrown in atry-catch block, thefinally block will be bypassed.)",
+      "B và E (B: It is good practice to place assertions where you think execution should never reach. & E: It is proper to handle assertion statement failures using a catch (AssertionException ae) block.)"
+    ],
+    "answer": 0,
+    "explanation": "A and B. A is correct because it is sometimes advisable to thrown an assertion error even if assertions have been disabled. B is correct. One of the most common uses of assert statements in debugging is to verify that locations in code that have been designed to be unreachable are in fact never reached. ✗ C is incorrect because it is considered appropriate to check argument values in private methods using assertions. D is incorrect; finally is never bypassed. E is incorrect because AssertionErrors should never be handled.",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch04-018",
+    "originalId": 18,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Test {\n2.     public static int y;\n3.     public static void foo(int x) {\n4.       System.out.print(\"foo \");\n5.       y = x;\n6.     }\n7.     public static int bar(int z) {\n8.       System.out.print(\"bar \");\n9.       return y = z;\n10.    }\n11.    public static void main(String [] args ) {\n12.      int t = 0;\n13.      assert t > 0 : bar(7);\n14.      assert t > 1 : foo(8);\n15.      System.out.println(\"done \");\n16.    }\n17.  }",
+    "options": [
+      "bar",
+      "bar done",
+      "foo done",
+      "bar foo done",
+      "Compilation fails",
+      "An error is thrown at runtime."
+    ],
+    "optionsVi": [
+      "bar",
+      "bar done",
+      "foo done",
+      "bar foo done",
+      "Lỗi biên dịch (Compilation fails)",
+      "An error is thrown at runtime."
+    ],
+    "answer": 4,
+    "explanation": "E. Thefoo() method returnsvoid. It is a perfectly acceptable method, but because it returnsvoid it cannot be used in an assert statement, so line 14 will not compile. ✗ A, B, C, D, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch04-019",
+    "originalId": 19,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Which two of the following statements are true? (Choose two.)",
+    "textVi": "Which two of the following statements are true? (Choose two.)",
+    "code": "",
+    "options": [
+      "C và D (C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time. & D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions)",
+      "A và C (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.)",
+      "A và B (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & B: As of Java version 1.4, assertion statements are compiled by default.)",
+      "D và E (D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions & E: When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags.)"
+    ],
+    "optionsVi": [
+      "C và D (C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time. & D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions)",
+      "A và C (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & C: With the proper use of runtime arguments, it is possible to instruct the VM to disable assertions for a certain class, and to enable assertions for a certain package, at the same time.)",
+      "A và B (A: If assertions are compiled into a source file, and if no flags are included at runtime, assertions will execute by default. & B: As of Java version 1.4, assertion statements are compiled by default.)",
+      "D và E (D: The following are all valid runtime assertion flags: -ea,-esa,-dsa,-enableassertions, -disablesystemassertions & E: When evaluating command-line arguments, the VM gives–ea flags precedence over–da flags.)"
+    ],
+    "answer": 0,
+    "explanation": "C and D. C is true because multiple VM flags can be used on a single invocation of a Java program. D is true, these are all valid flags for the VM. ✗ A is incorrect because at runtime assertions are ignored by default. B is incorrect because as of Java 1.4 you must add the argument –source 1.4 to the command line if you want the compiler to compile assertion statements. E is incorrect because the VM evaluates all assertion flags left to right.",
+    "correctLetters": [
+      "C",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch04-020",
+    "originalId": 20,
+    "chapterNum": 4,
+    "chapterTitle": "Flow Control, Exceptions, and Assertions",
+    "topic": "exception",
+    "text": "Given the following, which line is an example of an inappropriate use of assertions?",
+    "textVi": "Cho đoạn mã sau, which line is an example of an inappropriate use of assertions?",
+    "code": "1.   public class Test2 {\n2.     public static int x;\n3.     public static int foo(int y) {\n4.       return y * 2;\n5.     }\n6.     public static void main(String [] args) {\n7.       int z = 5;\n8.       assert z > 0;\n9.       assert z > 2: foo(z);\n10.      if ( z < 7 )\n11.      assert z > 4;\n12.      switch (z) {\n13.        case 4: System.out.println(\"4 \");\n14.        case 5: System.out.println(\"5 \");\n15.        default: assert z < 10;\n16.      }\n17.      if ( z < 10 )\n18.        assert z > 4: z++;\n19.      System.out.println(z);\n20.    }\n21.  }",
+    "options": [
+      "Line 8",
+      "Line 9",
+      "Line 11",
+      "Line 15",
+      "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+    ],
+    "optionsVi": [
+      "Line 8",
+      "Line 9",
+      "Line 11",
+      "Line 15",
+      "Line 18 74 Chapter 4: Flow Control, Exceptions, and Assertions"
+    ],
+    "answer": 4,
+    "explanation": "E. Assert statements should not cause side effects. Line 18 changes the value of z if the assert statement is false. ✗ A is fine; a second expression in an assert statement is not required. B is fine because it is perfectly acceptable to call a method with the second expression of an assert statement. C is fine because it is proper to call an assert statement conditionally. D is fine because it is considered good form to add a default assert statement to switch blocks that have no default case. EXERCISE ANSWERS Exercise 4.1: Creating a switch-case Statement The code should look something like this: char temp = 'c'; switch(temp) { case 'a': { System.out.println(\"A\"); break; } case 'b': { System.out.println(\"B\"); break; } case 'c': System.out.println(\"C\"); break; default: System.out.println(\"default\"); } 78 Chapter 4: Flow Control, Exceptions, and Assertions Exercise Answers 79 Exercise 4-2: Creating a Labeled while Loop The code should look something like this: class LoopTest { public static void main(String [] args) { int age = 12; outer: while(age < 21) { age += 1; if(age == 16) { System.out.println(\"Obtain driver's license\"); continue outer; } System.out.println(\"Another year.\"); } } } Exercise 4-3: Propagating and Catching an Exception The code should look something like this: class Propagate { public static void main(String [] args) { try { System.out.println(reverse(\"Hello\")); } catch (Exception e) { System.out.println(\"The string was blank\"); } finally { System.out.println(\"All done!\"); } } public static String reverse(String s) throws Exception { if (s.length() == 0 ) { throw new Exception(); } String reverseStr = \"\"; for(int i=s.length()-1;i>=0;--i) { reverseStr += s.charAt(i); } return reverseStr; } } Exercise 4-4: Creating an Exception The code should look something like this: class BadFoodException extends Exception {} class MyException { public static void main(String [] args) { try { checkFood(args[0]); } catch(BadFoodException e) { e. printStackTrace(); } } public static void checkWord(String s) { String [] badFoods = {\"broccoli\",\"brussel sprouts\",\"sardines\"}; for(int i=0;i<badFoods.length;++i) { if (s.equals(badFoods[i])) throw new BadWFoodException(); } System.out.println(s + \" is ok with me.\"); } } 80 Chapter 4: Flow Control, Exceptions, and Assertions",
+    "correctLetters": [
+      "E"
+    ]
+  }
+]

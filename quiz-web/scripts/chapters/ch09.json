@@ -1,0 +1,602 @@
+[
+  {
+    "id": "scjp-ch09-001",
+    "originalId": 1,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.run();\n6.     }\n7.\n8.     public void run() {\n9.        for(int i=1;i<3;++i) {\n10.           System.out.print(i + \"..\");\n11.        }\n12.     }\n13.  }",
+    "options": [
+      "This code will not compile due to line 4.",
+      "This code will not compile due to line 5.",
+      "1..2..",
+      "1..2..3..",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "This code will not compile due to line 4.",
+      "This code will not compile due to line 5.",
+      "1..2..",
+      "1..2..3..",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. Line 5 calls therun() method, so therun() method executes as a normal method should. ✗ A is incorrect because line 4 is the proper way to create an object. B is incorrect because it is legal to call the run() method, even though this will not start a true thread of execution. The code after line 5 will not execute until the run() method is complete. D is incorrect because the for loop only does two iterations. E is incorrect because the program runs without exception.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch09-002",
+    "originalId": 2,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two of the following methods are defined in class Thread?",
+    "textVi": "Which two of the following methods are defined in class Thread?",
+    "code": "",
+    "options": [
+      "A và D (A: start() & D: run())",
+      "A và B (A: start() & B: wait())",
+      "B và C (B: wait() & C: notify())",
+      "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+    ],
+    "optionsVi": [
+      "A và D (A: start() & D: run())",
+      "A và B (A: start() & B: wait())",
+      "B và C (B: wait() & C: notify())",
+      "D và E (D: run() & E: terminate() 50 Chapter 9: Threads)"
+    ],
+    "answer": 0,
+    "explanation": "A and D. Onlystart() andrun() are defined by the Thread class. ✗ B and C are incorrect because they are methods of the Object class. E is incorrect because there’s no such method in any thread-related class.",
+    "correctLetters": [
+      "A",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch09-003",
+    "originalId": 3,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+    "textVi": "The following block of code creates a Thread using a Runnable target: Runnable target = new MyRunnable(); Thread myThread = new Thread(target); Which of the following classes can be used to create the target, so that the preceding code compiles correctly?",
+    "code": "",
+    "options": [
+      "public class MyRunnable extends Runnable{public void run(){}}",
+      "public class MyRunnable extends Object{public void run(){}}",
+      "public class MyRunnable implements Runnable{public void run(){}}",
+      "public class MyRunnable implements Runnable{void run(){}}",
+      "public class MyRunnable implements Runnable{public void start(){}}"
+    ],
+    "optionsVi": [
+      "public class MyRunnable extends Runnable{public void run(){}}",
+      "public class MyRunnable extends Object{public void run(){}}",
+      "public class MyRunnable implements Runnable{public void run(){}}",
+      "public class MyRunnable implements Runnable{void run(){}}",
+      "public class MyRunnable implements Runnable{public void start(){}}"
+    ],
+    "answer": 2,
+    "explanation": "C. The class correctly implements the Runnable interface with a legal public void run() method. ✗ A is incorrect because interfaces are not extended; they are implemented. B is incorrect because even though the class would compile and it has a valid public void run() method, it does not implement the Runnable interface, so the compiler would complain when creating a Thread with an instance of it. D is incorrect because the run() method must be public. E is incorrect because the method to implement is run(),n o tstart().",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch09-004",
+    "originalId": 4,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result of this code?",
+    "textVi": "Cho đoạn mã sau, what is the result of this code?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        t.start();\n6.        System.out.print(\"one. \");\n7.        t.start();\n8.        System.out.print(\"two. \");\n9.     }\n10.\n11.     public void run() {\n12.        System.out.print(\"Thread \");\n13.     }\n14.  }",
+    "options": [
+      "Compilation fails",
+      "An exception occurs at runtime.",
+      "Thread one. Thread two.",
+      "The output cannot be determined."
+    ],
+    "optionsVi": [
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+      "Thread one. Thread two.",
+      "The output cannot be determined."
+    ],
+    "answer": 1,
+    "explanation": "B. When thestart() method is attempted a second time on a single Thread object, the method will throw an IllegalThreadStateException (you will not need to know this exception name for the exam). Even if the thread has finished running, it is still illegal to callstart() again. ✗ A is incorrect because compilation will succeed. For the most part, the Java compiler only checks for illegal syntax, rather than class-specific logic. C and D are incorrect because of the logic explained above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch09-005",
+    "originalId": 5,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, which of these will create and start this thread?",
+    "textVi": "Cho đoạn mã sau, which of these will create and start this thread?",
+    "code": "1.  public class MyRunnable implements Runnable {\n2.     public void run() {\n3.        // some code here\n4.     }\n5.  }",
+    "options": [
+      "new Runnable(MyRunnable).start();",
+      "new Thread(MyRunnable).run();",
+      "new Thread(new MyRunnable()).start();",
+      "new MyRunnable().start();"
+    ],
+    "optionsVi": [
+      "new Runnable(MyRunnable).start();",
+      "new Thread(MyRunnable).run();",
+      "new Thread(new MyRunnable()).start();",
+      "new MyRunnable().start();"
+    ],
+    "answer": 2,
+    "explanation": "C. Because the class implements Runnable, an instance of it has to be passed to the Thread constructor, and then the instance of the Thread has to be started. ✗ A is incorrect. There is no constructor like this for Runnable because Runnable is an interface, and it is illegal to pass a class or interface name to any constructor. B is incorrect for the same reason; you can’t pass a class or interface name to any constructor.D is incorrect because MyRunnable doesn’t have astart() method, and the only start() method that can start a thread of execution is the start() in the Thread class. 60 Chapter 9: Threads",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch09-006",
+    "originalId": 6,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result of this code?",
+    "textVi": "Cho đoạn mã sau, what is the result of this code?",
+    "code": "1.  class MyThread extends Thread {\n2.\n3.     public static void main(String [] args) {\n4.        MyThread t = new MyThread();\n5.        Thread x = new Thread(t);\n6.        x.start();\n7.     }\n8.\n9.     public void run() {\n10.        for(int i=0;i<3;++i) {\n11.           System.out.print(i + \"..\");\n12.        }\n13.     }\n14.  }",
+    "options": [
+      "Compilation fails.",
+      "1..2..3..",
+      "0..1..2..3..",
+      "0..1..2..",
+      "An exception occurs at runtime."
+    ],
+    "optionsVi": [
+      "Lỗi biên dịch (Compilation fails)",
+      "1..2..3..",
+      "0..1..2..3..",
+      "0..1..2..",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "D. The thread MyThread will start and loop three times (from 0 to 2). ✗ A is incorrect because the Thread class implements the Runnable interface; therefore, in line 5, Thread can take an object of type Thread as an argument in the constructor. B and C are incorrect because the variable i in the for loop starts with a value of 0 and ends with a value of 2. E is incorrect because of the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch09-007",
+    "originalId": 7,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "1.  class Test {\n2.\n3.     public static void main(String [] args) {\n4.        printAll(args);\n5.     }\n6.\n7.     public static void printAll(String[] lines) {\n8.        for(int i=0;i<lines.length;i++){\n9.           System.out.println(lines[i]);\n10.           Thread.currentThread().sleep(1000);\n52 Chapter 9: Threads\n11.        }\n12.     }\n13.  }\nthe static methodThread.currentThread()returns a reference to the currently executing\nThread object. What is the result of this code?",
+    "options": [
+      "Each String in the array lines will output, with a 1-second pause.",
+      "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+      "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+      "This code will not compile."
+    ],
+    "optionsVi": [
+      "Each String in the array lines will output, with a 1-second pause.",
+      "Each String in the array lines will output, with no pause in between because this method is not executed in a Thread.",
+      "Each String in the array lines will output, and there is no guarantee there will be a pause becausecurrentThread() may not retrieve this thread.",
+      "This code will not compile."
+    ],
+    "answer": 3,
+    "explanation": "D. Thesleep() method must be enclosed in a try/catch block, or the method printAll() must declare itthrows the InterruptedException. ✗ A is incorrect, but it would be correct if the InterruptedException was dealt with. B is incorrect, but it would still be incorrect if the InterruptedException was dealt with because all Java code, including the main() method, runs in threads. C is incorrect. Thesleep() method is static, so even if it is called on an instance, it still always affects the currently executing thread.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch09-008",
+    "originalId": 8,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+    "textVi": "Assume you have a class that holds two private variables: a and b. Which of the following pairs can prevent concurrent access problems in that class? (Choose all that apply.)",
+    "code": "",
+    "options": [
+      "B và F (B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})",
+      "A và B (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;})",
+      "A và C (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & C: public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}})",
+      "E và F (E: public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})"
+    ],
+    "optionsVi": [
+      "B và F (B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})",
+      "A và B (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & B: public synchronized int read(int a, int b){return a+b;} public synchronized void set(int a, int b){this.a=a;this.b=b;})",
+      "A và C (A: public int read(int a, int b){return a+b;} public void set(int a, int b){this.a=a;this.b=b;} & C: public int read(int a, int b){synchronized(a){return a+b;}} public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}})",
+      "E và F (E: public synchronized(this) int read(int a, int b){return a+b;} public synchronized(this) void set(int a, int b){this.a=a;this.b=b;} & F: public int read(int a, int b){synchronized(this){return a+b;}} public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}})"
+    ],
+    "answer": 0,
+    "explanation": "B and F. By marking the methods as synchronized, the threads will get the lock of the this object before proceeding. Only one thread will be either setting or reading at any given moment, thereby assuring that read() always returns the addition of a valid pair. ✗ A is incorrect because it is not synchronized; therefore, there is no guarantee that the values added by theread() method belong to the same pair. C and D are incorrect; only objects can be used to synchronize on. E is incorrect because it is not possible to select other objects to synchronize on when declaring a method assynchronized. Even usingthis is incorrect syntax.",
+    "correctLetters": [
+      "B",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch09-009",
+    "originalId": 9,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+    "textVi": "Which class or interface defines the wait(),notify(),a n dnotifyAll() methods?",
+    "code": "",
+    "options": [
+      "Object",
+      "Thread",
+      "Runnable",
+      "Class"
+    ],
+    "optionsVi": [
+      "Object",
+      "Thread",
+      "Runnable",
+      "Class"
+    ],
+    "answer": 0,
+    "explanation": "A. The Object class defines these thread-specific methods. ✗ B, C, and D are incorrect because they do not define these methods. And yes, the Java API does define a class called Class, though you do not need to know it for the exam.",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch09-010",
+    "originalId": 10,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two are true?",
+    "textVi": "Which two are true?",
+    "code": "",
+    "options": [
+      "B và E (B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads & E: When a thread invokeswait(), it releases its locks.)",
+      "A và B (A: A static method cannot be synchronized. & B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads)",
+      "A và C (A: A static method cannot be synchronized. & C: Variables can be protected from concurrent access problems by marking them with the synchronized keyword.)",
+      "D và E (D: When a thread sleeps, it releases its locks. & E: When a thread invokeswait(), it releases its locks.)"
+    ],
+    "optionsVi": [
+      "B và E (B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads & E: When a thread invokeswait(), it releases its locks.)",
+      "A và B (A: A static method cannot be synchronized. & B: If a class has synchronized code, multiple threads can still access the nonsynchronized code. 54 Chapter 9: Threads)",
+      "A và C (A: A static method cannot be synchronized. & C: Variables can be protected from concurrent access problems by marking them with the synchronized keyword.)",
+      "D và E (D: When a thread sleeps, it releases its locks. & E: When a thread invokeswait(), it releases its locks.)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. B is correct because multiple threads are allowed to enter nonsynchronized code, even within a class that has some synchronized methods. E is correct because a wait() call causes the thread to give up its locks. ✗ A is incorrect because static methods can be synchronized; they synchronize on the lock on the instance of class java.lang.Class that represents the class type. C is incorrect because only methods—not variables—can be marked synchronized. D is incorrect because a sleeping thread still maintains its locks.",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch09-011",
+    "originalId": 11,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which three are methods of the Object class? (Choose three.)",
+    "textVi": "Which three are methods of the Object class? (Choose three.)",
+    "code": "",
+    "options": [
+      "A và B (A: notify(); & B: notifyAll();)",
+      "A và C (A: notify(); & C: isInterrupted();)",
+      "C và D (C: isInterrupted(); & D: synchronized();)",
+      "B và H (B: notifyAll(); & H: yield();)"
+    ],
+    "optionsVi": [
+      "A và B (A: notify(); & B: notifyAll();)",
+      "A và C (A: notify(); & C: isInterrupted();)",
+      "C và D (C: isInterrupted(); & D: synchronized();)",
+      "B và H (B: notifyAll(); & H: yield();)"
+    ],
+    "answer": 0,
+    "explanation": "A, B, and F. They are all related to the list of threads waiting on the specified object. ✗ C, E, G, and H are incorrect answers. The methods isInterrupted() and interrupt() are instance methods of Thread. The methods sleep() andyield() are static methods of Thread. D is incorrect because synchronized is a keyword and the synchronized() construct is part of the Java language.",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch09-012",
+    "originalId": 12,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result of trying to compile and run this program?",
+    "textVi": "Cho đoạn mã sau, what is the result of trying to compile and run this program?",
+    "code": "1.  public class WaitTest {\n2.     public static void main(String [] args) {\n3.        System.out.print(\"1 \");\n4.        synchronized(args){\n5.           System.out.print(\"2 \");\n6.           try {\n7.              args.wait();\n8.           }\n9.           catch(InterruptedException e){}\n10.        }\n11.        System.out.print(\"3 \");\n12.     }\n13.  }",
+    "options": [
+      "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+      "1 2 3",
+      "1 3",
+      "1 2",
+      "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+      "It will fail to compile because it has to be synchronized on the this object."
+    ],
+    "optionsVi": [
+      "It fails to compile because the IllegalMonitorStateException ofwait() is not dealt with in line 7.",
+      "1 2 3",
+      "1 3",
+      "1 2",
+      "At runtime, it throws an IllegalMonitorStateException when trying to wait.",
+      "It will fail to compile because it has to be synchronized on the this object."
+    ],
+    "answer": 3,
+    "explanation": "D. 1 and 2 will be printed, but there will be no return from the wait call because no other thread will notify the main thread, so 3 will never be printed. The program is essentially frozen at line 7. ✗ A is incorrect; IllegalMonitorStateException is an unchecked exception so it doesn’t have to be dealt with explicitly. B and C are incorrect; 3 will never be printed, since this program will never terminate because it will wait forever. E is incorrect because IllegalMonitorStateException will never be thrown because the wait() is done on args within a block of code synchronized on args.F is incorrect because any object can be used to synchronize on and, furthermore, there is no this when running a static method.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch09-013",
+    "originalId": 13,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+    "textVi": "Assume the following method is properly synchronized and called from a thread A on an object B: wait(2000); After calling this method, when will the thread A become a candidate to get another turn at the CPU?",
+    "code": "",
+    "options": [
+      "After thread A is notified, or after two seconds.",
+      "After the lock on B is released, or after two seconds.",
+      "Two seconds after thread A is notified.",
+      "Two seconds after lock B is released."
+    ],
+    "optionsVi": [
+      "After thread A is notified, or after two seconds.",
+      "After the lock on B is released, or after two seconds.",
+      "Two seconds after thread A is notified.",
+      "Two seconds after lock B is released."
+    ],
+    "answer": 0,
+    "explanation": "A. Either of the two events (notification or wait time expiration) will make the thread become a candidate for running again. ✗ B is incorrect because a waiting thread will not return to runnable when the lock is released, unless a notification occurs.C is incorrect because the thread will become a candidate immediately after notification, not two seconds afterwards.D is also incorrect because a thread will not come out of a waiting pool just because a lock has been released.",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch09-014",
+    "originalId": 14,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two are true?",
+    "textVi": "Which two are true?",
+    "code": "",
+    "options": [
+      "A và D (A: ThenotifyAll() method must be called from a synchronized context. & D: When a thread is waiting as a result ofwait(), it release its locks.)",
+      "A và B (A: ThenotifyAll() method must be called from a synchronized context. & B: To callwait(), an object must own the lock on the thread.)",
+      "B và C (B: To callwait(), an object must own the lock on the thread. & C: Thenotify() method is defined in class java.lang.Thread.)",
+      "D và F (D: When a thread is waiting as a result ofwait(), it release its locks. & F: The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on.)"
+    ],
+    "optionsVi": [
+      "A và D (A: ThenotifyAll() method must be called from a synchronized context. & D: When a thread is waiting as a result ofwait(), it release its locks.)",
+      "A và B (A: ThenotifyAll() method must be called from a synchronized context. & B: To callwait(), an object must own the lock on the thread.)",
+      "B và C (B: To callwait(), an object must own the lock on the thread. & C: Thenotify() method is defined in class java.lang.Thread.)",
+      "D và F (D: When a thread is waiting as a result ofwait(), it release its locks. & F: The difference betweennotify() andnotifyAll() is thatnotifyAll() notifies all waiting threads, regardless of the object they’re waiting on.)"
+    ],
+    "answer": 0,
+    "explanation": "A and D. A is correct because the notifyAll() method (along withwait() and notify()) must always be called from within a synchronized context. D is correct because a thread blocked on await() call releases its locks, so another thread can get into the synchronized code and eventually call notify() ornotifyAll(). ✗ B is incorrect because to call wait(), the thread must own the lock on the object that wait() is being invoked on, not the other way around. C is wrong becausenotify() is defined in java.lang.Object. E is wrong becausenotify() will not cause a thread to release its locks. The thread can only release its locks by exiting the synchronized code. F is wrong becausenotifyAll() notifies all the threads waiting on a particular locked object, not all threads waiting on any object.",
+    "correctLetters": [
+      "A",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch09-015",
+    "originalId": 15,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+    "textVi": "Assume you create a program and one of your threads (called backgroundThread) does some lengthy numerical processing. What would be the proper way of setting its priority to try to get the rest of the system to be very responsive while the thread is running? (Choose all that apply.)",
+    "code": "",
+    "options": [
+      "C và E (C: backgroundThread.setPriority(1); & E: backgroundThread.setPriority(Thread.MIN_PRIORITY);)",
+      "A và C (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & C: backgroundThread.setPriority(1);)",
+      "A và B (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & B: backgroundThread.setPriority(Thread.MAX_PRIORITY);)",
+      "E và G (E: backgroundThread.setPriority(Thread.MIN_PRIORITY); & G: backgroundThread.setPriority(10);)"
+    ],
+    "optionsVi": [
+      "C và E (C: backgroundThread.setPriority(1); & E: backgroundThread.setPriority(Thread.MIN_PRIORITY);)",
+      "A và C (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & C: backgroundThread.setPriority(1);)",
+      "A và B (A: backgroundThread.setPriority(Thread.LOW_PRIORITY); & B: backgroundThread.setPriority(Thread.MAX_PRIORITY);)",
+      "E và G (E: backgroundThread.setPriority(Thread.MIN_PRIORITY); & G: backgroundThread.setPriority(10);)"
+    ],
+    "answer": 0,
+    "explanation": "C and E. In E, the constant Thread.MIN_PRIORITY is the lowest priority that a thread can have, and the background thread should have a very low priority or the lowest. Answer C is correct because 1 is a low (and usually the minimum) value, although for code clarity it is recommended to use the Thread.MIN_PRIORITY. ✗ A and D are incorrect because there are no such variables in the Thread class.B is incorrect; using MAX_PRIORITY would make other threads have fewer chances of getting a turn of the CPU, even to the point of freezing until the numerical processing is finished. F is incorrect because the thread would still compete for the CPU time and even delay other threads. G is incorrect because 10 is the value of MAX_PRIORITY, so i would be equivalent to answer B. 62 Chapter 9: Threads",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch09-016",
+    "originalId": 16,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which three guarantee that a thread will leave the running state?",
+    "textVi": "Which three guarantee that a thread will leave the running state?",
+    "code": "",
+    "options": [
+      "B và E (B: wait() & E: sleep(1000))",
+      "A và B (A: yield() & B: wait())",
+      "A và C (A: yield() & C: notify())",
+      "E và G (E: sleep(1000) & G: Thread.killThread())"
+    ],
+    "optionsVi": [
+      "B và E (B: wait() & E: sleep(1000))",
+      "A và B (A: yield() & B: wait())",
+      "A và C (A: yield() & C: notify())",
+      "E và G (E: sleep(1000) & G: Thread.killThread())"
+    ],
+    "answer": 0,
+    "explanation": "B, E, and F. B is correct becausewait() always causes the current thread to go into the object’s wait pool. E is correct because sleep() will always pause the currently running thread for at least the duration specified in the sleep argument (unless an interrupted exception is thrown). F is correct because, assuming that the thread you’re callingjoin() on is alive, the thread callingjoin() will immediately block until the thread you’re callingjoin() on is no longer alive. ✗ A is wrong, but tempting. The yield() method is not guaranteed to cause a thread to leave the running state, although if there are runnable threads of the same priority as the currently running thread, then the current thread will probably leave the running state. C and D are incorrect because they don’t cause the thread invoking them to leave the running state. G is wrong because there’s no such method.",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch09-017",
+    "originalId": 17,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two are true?",
+    "textVi": "Which two are true?",
+    "code": "",
+    "options": [
+      "D và F (D: Thewait() method is overloaded to accept a duration. & F: Bothwait() andnotify() must be called from a synchronized context.)",
+      "A và D (A: Deadlock will not occur ifwait()/notify() is used. & D: Thewait() method is overloaded to accept a duration.)",
+      "A và B (A: Deadlock will not occur ifwait()/notify() is used. & B: A thread will resume execution as soon as its sleep duration expires.)",
+      "F và H (F: Bothwait() andnotify() must be called from a synchronized context. & H: sleep() can throw a runtime exception.)"
+    ],
+    "optionsVi": [
+      "D và F (D: Thewait() method is overloaded to accept a duration. & F: Bothwait() andnotify() must be called from a synchronized context.)",
+      "A và D (A: Deadlock will not occur ifwait()/notify() is used. & D: Thewait() method is overloaded to accept a duration.)",
+      "A và B (A: Deadlock will not occur ifwait()/notify() is used. & B: A thread will resume execution as soon as its sleep duration expires.)",
+      "F và H (F: Bothwait() andnotify() must be called from a synchronized context. & H: sleep() can throw a runtime exception.)"
+    ],
+    "answer": 0,
+    "explanation": "D and F. D is correct because thewait() method is overloaded to accept a wait duration in milliseconds. If the thread has not been notified by the time the wait duration has elapsed, then the thread will move back to runnable even without having been notified. F is correct because wait()/notify()/notifyAll() must all be called from within a synchronized, context. A thread must own the lock on the object its invoking wait()/notify()/notifyAll() on. ✗ A is incorrect because wait()/notify() will not prevent deadlock. B is incorrect because a sleeping thread will return to runnable when it wakes up, but it might not necessarily resume execution right away. To resume executing, the newly awakened thread must still be moved from runnable to running by the scheduler.C is incorrect because synchronization prevents two or more threads from accessing the same object. E is incorrect because notify() is not overloaded to accept a duration. G and H are incorrect because wait() andsleep() both declare a checked exception (InterruptedException).",
+    "correctLetters": [
+      "D",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch09-018",
+    "originalId": 18,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Which two are valid constructors for Thread?",
+    "textVi": "Which two are valid constructors for Thread?",
+    "code": "",
+    "options": [
+      "A và B (A: Thread(Runnable r, String name) & B: Thread())",
+      "A và C (A: Thread(Runnable r, String name) & C: Thread(int priority))",
+      "C và D (C: Thread(int priority) & D: Thread(Runnable r, ThreadGroup g))",
+      "B và E (B: Thread() & E: Thread(Runnable r, int priority))"
+    ],
+    "optionsVi": [
+      "A và B (A: Thread(Runnable r, String name) & B: Thread())",
+      "A và C (A: Thread(Runnable r, String name) & C: Thread(int priority))",
+      "C và D (C: Thread(int priority) & D: Thread(Runnable r, ThreadGroup g))",
+      "B và E (B: Thread() & E: Thread(Runnable r, int priority))"
+    ],
+    "answer": 0,
+    "explanation": "A and B are both valid constructors for Thread. ✗ C, D, and E are not legal Thread constructors, although D is close. If you reverse the arguments in D, you’d have a valid constructor.",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch09-019",
+    "originalId": 19,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, class MyThread extends Thread { MyThread() { System.out.print(\" MyThread\"); } public void run() { System.out.print(\" bar\"); } public void run(String s) { System.out.println(\" baz\"); } } public class TestThreads { public static void main (String [] args) { Thread t = new MyThread() { public void run() { 56 Chapter 9: Threads System.out.println(\" foo\"); } }; t.start(); } } Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "foo",
+      "MyThread foo",
+      "MyThread bar",
+      "foo bar",
+      "foo bar baz",
+      "bar foo",
+      "Compilation fails."
+    ],
+    "optionsVi": [
+      "foo",
+      "MyThread foo",
+      "MyThread bar",
+      "foo bar",
+      "foo bar baz",
+      "bar foo",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "answer": 1,
+    "explanation": "B is correct because in the first line of main we’re constructing an instance of an anonymous inner class extending from MyThread. So the MyThread constructor runs and prints “ MyThread”. The next statement in main invokesstart() on the new thread instance, which causes the overridden run() method (therun() method defined in the anonymous inner class) to be invoked, which prints “ foo”. ✗ A, C, D, E, F, and G are all incorrect because of the program logic described above. 64 Chapter 9: Threads",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch09-020",
+    "originalId": 20,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+    "textVi": "Cho đoạn mã sau, public class SyncTest { public static void main (String [] args) { Thread t = new Thread() { Foo f = new Foo(); public void run() { f.increase(20); } }; t.start(); } } class Foo { private int data = 23; public void increase(int amt) { int x = data; data = x + amt; } } and assuming that data must be protected from corruption, what—if anything—can you add to the preceding code to ensure the integrity of data?",
+    "code": "",
+    "options": [
+      "Synchronize the run method.",
+      "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+      "The existing code will not compile.",
+      "The existing code will cause a runtime exception.",
+      "Put in await() call prior to invoking theincrease() method.",
+      "Synchronize theincrease() method"
+    ],
+    "optionsVi": [
+      "Synchronize the run method.",
+      "Wrap a synchronize(this) around the call tof.increase(). 58 Chapter 9: Threads",
+      "The existing code will not compile.",
+      "The existing code will cause a runtime exception.",
+      "Put in await() call prior to invoking theincrease() method.",
+      "Synchronize theincrease() method"
+    ],
+    "answer": 5,
+    "explanation": "F is correct because synchronizing the code that actually does the increase will protect the code from being accessed by more than one thread at a time. ✗ A is incorrect because synchronizing the run() method would stop other threads from running therun() method (a bad idea) but still would not prevent other threads with other runnables from accessing theincrease() method. B is incorrect for virtually the same reason as A—synchronizing the code that calls theincrease() method does not prevent other code from calling the increase() method. C and D are incorrect because the program compiles and runs fine. E is incorrect because it will simply prevent the call to increase() from ever happening from this thread.",
+    "correctLetters": [
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch09-021",
+    "originalId": 21,
+    "chapterNum": 9,
+    "chapterTitle": "Threads",
+    "topic": "threads",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1. public class Test {\n2.  public static void main (String [] args) {\n3.    final Foo f = new Foo();\n4.   Thread t = new Thread(new Runnable() {\n5.         public void run() {\n6.        f.doStuff();\n7.       }\n8.   });\n9.   Thread g = new Thread() {\n10.    public void run() {\n11.         f.doStuff();\n12.      }\n13.     };\n14.     t.start();\n15.     g.start();\n16.  }\n17. }\n1. class Foo {\n2.   int x = 5;\n3.  public void doStuff() {\n4.     if (x < 10) {\n5.       // nothing to do\n6.      try {\n7.         wait();\n8.      } catch(InterruptedException ex) { }\n9.     } else {\n10.      System.out.println(\"x is \" + x++);\n11.      if (x >= 10) {\n12.          notify();\n13.        }\n14.    }\n15.  }\n16. }",
+    "options": [
+      "The code will not compile because of an error on line 12 of class Foo.",
+      "The code will not compile because of an error on line 7 of class Foo.",
+      "The code will not compile because of an error on line 4 of class Test.",
+      "The code will not compile because of some other error in class Test.",
+      "An exception occurs at runtime.",
+      "x is 5 x is 6"
+    ],
+    "optionsVi": [
+      "The code will not compile because of an error on line 12 of class Foo.",
+      "The code will not compile because of an error on line 7 of class Foo.",
+      "The code will not compile because of an error on line 4 of class Test.",
+      "The code will not compile because of some other error in class Test.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+      "x is 5 x is 6"
+    ],
+    "answer": 4,
+    "explanation": "E is correct because the thread does not own the lock of the object it invokes wait() on. If the method were synchronized, the code would run without exception. ✗ A, B, C, and D are incorrect because the code compiles without errors.F is incorrect because the exception is thrown before there is any output. EXERCISE ANSWERS Exercise 9-1: Creating a Thread and Putting It to Sleep The final code should look something like this: class TheCount extends Thread { public void run() { for(int i = 1;i<=100;++i) { System.out.print(i + \" \"); if(i % 10 == 0) System.out.println(\"Hahaha\"); try { Thread.sleep(1000); } catch(InterruptedException e) {} } } public static void main(String [] args) { new TheCount().start(); } } Exercise 9-2: Synchronizing a Block of Code Your code might look something like this when completed: 1. class InSync extends Thread { 2. StringBuffer letter; 3. 4. public InSync(StringBuffer letter) { 5. this.letter = letter; 6. } 7. 8. public void run() { 9. synchronized(letter) { 10. for(int i = 1;i<=100;++i) { 11. System.out.print(letter); 12. } 13. System.out.println(); 14. // Increment the letter in StringBuffer: 15. char temp = letter.charAt(0); 16. ++temp; 17. letter.setCharAt(0, temp); 18. } 19. } 20. 21. public static void main(String [] args) { 22. StringBuffer sb = new StringBuffer(\"A\"); 23. new InSync(sb).start(); 24. new InSync(sb).start(); 25. new InSync(sb).start(); 26. } 27. } Just for fun, try removing lines 9 and 18 then run the program again. It will be unsynchronized, and watch what happens. Exercise Answers 65",
+    "correctLetters": [
+      "E"
+    ]
+  }
+]

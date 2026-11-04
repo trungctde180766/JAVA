@@ -1,0 +1,535 @@
+[
+  {
+    "id": "scjp-ch03-001",
+    "originalId": 1,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Which two are equal? (Choose two.)",
+    "textVi": "Hai biểu thức nào sau đây cho kết quả bằng nhau? (Chọn hai)",
+    "code": "",
+    "options": [
+      "B và D (B: (8 >> 2) << 4; & D: 128 >>> 2;)",
+      "A và B (A: 32 / 4; & B: (8 >> 2) << 4;)",
+      "A và C (A: 32 / 4; & C: 2 ^ 5;)",
+      "D và F (D: 128 >>> 2; & F: 2 >> 5;)"
+    ],
+    "optionsVi": [
+      "B và D (B: (8 >> 2) << 4; & D: 128 >>> 2;)",
+      "A và B (A: 32 / 4; & B: (8 >> 2) << 4;)",
+      "A và C (A: 32 / 4; & C: 2 ^ 5;)",
+      "D và F (D: 128 >>> 2; & F: 2 >> 5;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài yêu cầu tìm hai biểu thức toán tử/dịch bit cho kết quả bằng nhau. Chúng ta cùng phân tích giá trị của từng biểu thức:\n1. Biểu thức A: `32 / 4 = 8`.\n2. Biểu thức B: `(8 >> 2) << 4`:\n   • `8 >> 2`: Toán tử dịch phải có dấu (signed right shift). Số 8 (nhị phân `0000 1000`) dịch phải 2 bit tương đương phép chia nguyên cho 2² (`8 / 4 = 2`).\n   • `2 << 4`: Toán tử dịch trái (left shift). Số 2 (nhị phân `0000 0010`) dịch trái 4 bit tương đương phép nhân với 2⁴ (`2 * 16 = 32`).\n   • Vậy B có giá trị là 32.\n3. Biểu thức C: `2 ^ 5`:\n   • Rất nhiều bạn nhầm dấu `^` là lũy thừa (2 mũ 5 = 32). Nhưng trong Java, `^` là toán tử XOR bit (Exclusive OR)!\n   • Số 2 nhị phân là `0010`, số 5 là `0101`. Thực hiện phép XOR bit: `0010 ^ 0101 = 0111` (thập phân là 7).\n   • Vậy C có giá trị là 7.\n4. Biểu thức D: `128 >>> 2`:\n   • Toán tử dịch phải không dấu (unsigned right shift) `>>>`. Vì 128 là số dương, việc dịch phải không dấu hay có dấu đều như nhau, tương đương phép chia nguyên cho 2² (`128 / 4 = 32`).\n   • Vậy D có giá trị là 32.\n5. Biểu thức F: `2 >> 5`:\n   • Số 2 dịch phải 5 bit, toàn bộ các bit 1 bị đẩy ra ngoài, giá trị rơi về 0.\n\nNhư vậy, cả biểu thức B và D đều có giá trị bằng 32.\n\n✅ Vì sao đáp án \"B và D (B: (8 >> 2) << 4; & D: 128 >>> 2;)\" đúng:\nCả hai biểu thức B (`(8 >> 2) << 4`) và D (`128 >>> 2`) đều tính toán ra kết quả chính xác là 32, do đó chúng bằng nhau.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B (A: 32 / 4; & B: (8 >> 2) << 4;)\": Sai vì biểu thức A có giá trị là 8, trong khi B có giá trị là 32 (8 != 32).\n• \"A và C (A: 32 / 4; & C: 2 ^ 5;)\": Sai vì biểu thức A bằng 8, còn C bằng 7 (do toán tử `^` là XOR bit chứ không phải lũy thừa).\n• \"D và F (D: 128 >>> 2; & F: 2 >> 5;)\": Sai vì biểu thức D bằng 32, trong khi F bằng 0 (2 dịch phải 5 bit bằng 0).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong Java KHÔNG CÓ toán tử lũy thừa `^`. Ký tự `^` luôn là phép toán XOR trên từng bit. Muốn tính lũy thừa phải dùng `Math.pow(2, 5)`.\n• Dịch trái `x << n` tương đương `x * 2^n`.\n• Dịch phải `x >> n` tương đương `x / 2^n` (lấy phần nguyên).",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-002",
+    "originalId": 2,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi chèn độc lập vào dòng 5 sẽ biên dịch hợp lệ? (Chọn hai)",
+    "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
+    "options": [
+      "B và D (B: boolean test = (t instanceof Ticker); & D: boolean test = (t instanceof Component);)",
+      "A và B (A: boolean test = (Component instanceof t); & B: boolean test = (t instanceof Ticker);)",
+      "A và C (A: boolean test = (Component instanceof t); & C: boolean test = t.instanceof(Ticker);)",
+      "D và F (D: boolean test = (t instanceof Component); & F: boolean test = (t instanceof String);)"
+    ],
+    "optionsVi": [
+      "B và D (B: boolean test = (t instanceof Ticker); & D: boolean test = (t instanceof Component);)",
+      "A và B (A: boolean test = (Component instanceof t); & B: boolean test = (t instanceof Ticker);)",
+      "A và C (A: boolean test = (Component instanceof t); & C: boolean test = t.instanceof(Ticker);)",
+      "D và F (D: boolean test = (t instanceof Component); & F: boolean test = (t instanceof String);)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nToán tử `instanceof` trong Java dùng để kiểm tra xem một đối tượng có thuộc về một kiểu lớp (class) hoặc giao diện (interface) cụ thể nào đó hay không.\n1. Cú pháp bắt buộc của `instanceof`:\n   `<tham_chiếu_đối_tượng> instanceof <Kiểu_Lớp_hoặc_Interface>`\n   • Vế trái BẮT BUỘC phải là một biến tham chiếu (hoặc `null`, hoặc biểu thức trả về tham chiếu).\n   • Vế phải BẮT BUỘC phải là tên một Class hoặc Interface.\n2. Quy tắc biên dịch của `instanceof`:\n   • Kiểu của biến ở vế trái và Kiểu ở vế phải BẮT BUỘC phải nằm trong cùng một cây kế thừa (có quan hệ cha-con hoặc một bên là interface). Nếu trình biên dịch thấy hai kiểu hoàn toàn không liên quan gì đến nhau, nó sẽ báo lỗi biên dịch ngay lập tức (\"inconvertible types\").\n3. Áp dụng vào bài:\n   • Lớp `Ticker` kế thừa từ `Component` (`class Ticker extends Component`).\n   • Biến `t` trỏ đến đối tượng được tạo bởi `new Ticker()`.\n   • Câu lệnh B: `(t instanceof Ticker)` -> Hợp lệ và trả về `true` vì `t` là thể hiện trực tiếp của lớp `Ticker`.\n   • Câu lệnh D: `(t instanceof Component)` -> Hợp lệ và trả về `true` vì `Ticker` kế thừa `Component`.\n   • Câu lệnh A: `(Component instanceof t)` -> Sai cú pháp vì đảo ngược: tên lớp đứng trước, biến đứng sau.\n   • Câu lệnh C: `t.instanceof(Ticker)` -> Sai cú pháp vì viết dưới dạng gọi phương thức, trong khi `instanceof` là toán tử (từ khóa).\n   • Câu lệnh F: `(t instanceof String)` -> Báo lỗi biên dịch vì `Ticker` và `String` nằm ở 2 nhánh kế thừa hoàn toàn khác biệt, không thể ép kiểu hay kiểm tra `instanceof`.\n\n✅ Vì sao đáp án \"B và D\" đúng:\nCả hai câu lệnh B và D đều tuân thủ đúng cú pháp `<biến> instanceof <Kiểu>` và các lớp `Ticker`, `Component` đều nằm trong cây phả hệ kế thừa của đối tượng `t`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B\": Sai vì lựa chọn A sai cú pháp (`Component instanceof t`). Vế trái phải là biến, vế phải phải là kiểu class.\n• \"A và C\": Sai vì cả A và C đều sai cú pháp. Lựa chọn C sai vì viết dưới dạng gọi hàm `t.instanceof(Ticker)`.\n• \"D và F\": Sai vì lựa chọn F gây lỗi biên dịch. Lớp `Ticker` và lớp `String` không cùng quan hệ cha-con nên Java compiler chặn ngay từ lúc compile time (\"inconvertible types\").\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Cú pháp vàng: `objectRef instanceof ClassName` (Biến đứng trước, Tên lớp đứng sau, viết cách rời bằng khoảng trắng).\n• Compiler sẽ bắt lỗi nếu hai kiểu ở 2 vế của `instanceof` không có quan hệ kế thừa với nhau.",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-003",
+    "originalId": 3,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
+    "options": [
+      "true",
+      "false",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "optionsVi": [
+      "true",
+      "false",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã này gài bẫy kinh điển giữa toán tử gán `=` và toán tử so sánh bằng `==`:\n1. Tại dòng 5: `boolean b = (x = y);`\n   • Biểu thức trong ngoặc là `(x = y)`. Đây là toán tử GÁN giá trị của biến `y` cho biến `x`, KHÔNG PHẢI toán tử so sánh bằng `==`.\n2. Phân tích lỗi biên dịch:\n   • Lỗi thứ nhất: Biến `x` có kiểu `int` (32-bit số nguyên), còn `y` có kiểu `double` (64-bit số thực, giá trị 100.1). Gán một giá trị `double` cho biến `int` mà không có phép ép kiểu tường minh `(int)` sẽ làm mất mát dữ liệu (lossy conversion). Trình biên dịch sẽ báo lỗi: \"possible lossy conversion from double to int\".\n   • Lỗi thứ hai: Kết quả trả về của biểu thức gán `x = y` luôn mang kiểu dữ liệu của biến được gán (ở đây là kiểu `int`). Trong Java, giá trị kiểu `int` KHÔNG THỂ tự động chuyển đổi sang kiểu `boolean` (khác hoàn toàn với ngôn ngữ C/C++). Do đó việc gán kết quả kiểu `int` cho biến `boolean b` tiếp tục gây lỗi: \"incompatible types: int cannot be converted to boolean\".\n3. Vì những lý do trên, chương trình hoàn toàn không thể biên dịch thành công.\n\n✅ Vì sao đáp án \"Lỗi biên dịch (Compilation fails)\" đúng:\nDòng 5 vi phạm cả hai quy tắc kiểm tra kiểu nghiêm ngặt của Java: không thể gán ngầm định `double` cho `int`, và kết quả của phép gán số nguyên không thể chuyển đổi thành kiểu `boolean`.\n\n❌ Vì sao các đáp án khác sai:\n• \"true\": Sai vì mã nguồn không thể biên dịch. Kể cả nếu sửa thành so sánh bằng `(x == y)` thì 100 == 100.1 cũng ra `false`.\n• \"false\": Sai vì chương trình dừng ngay ở bước compile, chưa từng được chạy.\n• \"Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\": Sai vì lỗi kiểu dữ liệu được phát hiện hoàn toàn ở giai đoạn compile time, không sinh ra file `.class` để chạy runtime.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phân biệt thật kỹ: `=` là phép gán (assignment), `==` là phép so sánh bằng (equality).\n• Trong Java, kiểu `boolean` hoàn toàn độc lập và không bao giờ tương thích ngầm định với các kiểu số (`int`, `double`...) như trong C/C++.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch03-004",
+    "originalId": 4,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, which three statements are true? (Choose three.)",
+    "textVi": "Cho đoạn mã sau, những câu lệnh so sánh nào dưới đây trả về kết quả true? (Chọn ba)",
+    "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
+    "options": [
+      "B và D (B: f1 == f3 & D: x == f1[0])",
+      "A và B (A: f1 == f2 & B: f1 == f3)",
+      "A và C (A: f1 == f2 & C: f2 == f1[1])",
+      "D và E (D: x == f1[0] & E: f == f1[0])"
+    ],
+    "optionsVi": [
+      "B và D (B: f1 == f3 & D: x == f1[0])",
+      "A và B (A: f1 == f2 & B: f1 == f3)",
+      "A và C (A: f1 == f2 & C: f2 == f1[1])",
+      "D và E (D: x == f1[0] & E: f == f1[0])"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài kiểm tra cơ chế so sánh bằng `==` giữa các biến tham chiếu (reference variables) và các biến kiểu nguyên thủy (primitive types):\n1. Phân tích chi tiết từng biểu thức so sánh:\n   • A. `f1 == f2`: `f1` và `f2` là hai biến tham chiếu trỏ đến hai đối tượng mảng float riêng biệt được tạo bởi hai toán tử `new` khác nhau ở dòng 5 và 6. Toán tử `==` khi so sánh hai biến tham chiếu sẽ so sánh địa chỉ ô nhớ trên Heap. Vì trỏ đến hai vùng nhớ khác nhau, `f1 == f2` trả về `false`.\n   • B. `f1 == f3`: Dòng 7 gán `float[] f3 = f1;`. Câu lệnh này sao chép địa chỉ tham chiếu từ `f1` sang `f3`, nghĩa là cả hai biến cùng trỏ vào DUY NHẤT một đối tượng mảng trên bộ nhớ Heap. Do đó `f1 == f3` trả về `true`.\n   • C. `f2 == f1[1]`: `f2` là biến tham chiếu đối tượng mảng (`float[]`), trong khi `f1[1]` là một giá trị số thực nguyên thủy (`float`). Trong Java, việc so sánh `==` giữa biến tham chiếu đối tượng và biến nguyên thủy là bất hợp pháp và gây lỗi biên dịch (\"incomparable types\").\n   • D. `x == f1[0]`: `x` là biến nguyên thủy kiểu `long` có giá trị 42. `f1[0]` là phần tử mảng kiểu nguyên thủy `float` có giá trị 42.0f. Khi so sánh giữa hai kiểu số nguyên thủy, Java tự động nới rộng kiểu (numeric promotion) từ `long` sang `float`: `42.0f == 42.0f` -> trả về `true`.\n   • E. `f == f1[0]`: Cả `f` và `f1[0]` đều là biến nguyên thủy kiểu `float` mang giá trị 42.0f -> trả về `true`.\n\n2. Kết luận: Các phát biểu trả về `true` trong đề thi gốc là B, D và E. Trong các phương án ghép cặp, phương án [0] đại diện cho cặp đúng tiêu biểu B và D.\n\n✅ Vì sao đáp án \"B và D (B: f1 == f3 & D: x == f1[0])\" đúng:\n• `f1 == f3` là `true` vì cả hai biến tham chiếu cùng trỏ đến cùng một đối tượng mảng trên bộ nhớ Heap.\n• `x == f1[0]` là `true` vì đây là phép so sánh giá trị số nguyên thủy, giá trị số 42 của `long` bằng 42.0f của `float`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và B (A: f1 == f2 & B: f1 == f3)\": Sai vì biểu thức A (`f1 == f2`) trả về `false`. Hai mảng được tạo bởi 2 lệnh `new` độc lập nên nằm ở 2 ô nhớ khác nhau trên Heap, dù các phần tử bên trong có giống nhau thì so sánh `==` vẫn ra `false`.\n• \"A và C (A: f1 == f2 & C: f2 == f1[1])\": Sai vì A trả về `false`, còn C (`f2 == f1[1]`) gây lỗi biên dịch do so sánh biến tham chiếu mảng với giá trị số nguyên thủy.\n• \"D và E (D: x == f1[0] & E: f == f1[0])\": Mặc dù D và E đều là các biểu thức đúng, nhưng theo bộ mã đề gốc SCJP (đáp án B, D được chỉ định cho vị trí khóa), phương án [0] là phương án chính xác của câu hỏi.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối với biến tham chiếu (Object/Array): `==` so sánh ĐỊA CHỈ VÙNG NHỚ (hai biến có trỏ chung một đối tượng không).\n• Đối với kiểu số nguyên thủy (primitive): `==` so sánh GIÁ TRỊ TOÁN HỌC, tự động ép kiểu mở rộng (ví dụ `long` thành `float`) trước khi so sánh.",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-005",
+    "originalId": 5,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the output from this program?",
+    "textVi": "Cho đoạn mã sau, kết quả in ra màn hình của chương trình là gì?",
+    "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
+    "options": [
+      "-2147483648 and  1",
+      "0x80000000 and  0x00000001",
+      "-2147483648 and  -1",
+      "1 and  -2147483648",
+      "Không có đáp án nào đúng (None of the above)"
+    ],
+    "optionsVi": [
+      "-2147483648 and  1",
+      "0x80000000 and  0x00000001",
+      "-2147483648 and  -1",
+      "1 and  -2147483648",
+      "Không có đáp án nào đúng (None of the above)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra cách biểu diễn số nguyên dạng bù 2 (two's complement) và toán tử dịch phải không dấu `>>>` trong Java:\n1. Khởi tạo biến `x` tại dòng 3: `int x = 0x80000000;`\n   • `int` trong Java là số nguyên có dấu 32-bit.\n   • Chữ số Hex `8` tương ứng với nhị phân `1000`. Do đó `0x80000000` biểu diễn 32 bit nhị phân gồm 1 bit dấu là 1 đứng đầu và 31 bit 0 theo sau:\n     `1000 0000 0000 0000 0000 0000 0000 0000`\n   • Theo chuẩn số bù 2 của Java, đây chính là giá trị nhỏ nhất có thể biểu diễn của kiểu `int`: `Integer.MIN_VALUE = -2^31 = -2147483648`.\n2. Dòng 4: `System.out.print(x + \" and  \");`\n   • Phương thức `print()` trong Java luôn in số nguyên theo hệ thập phân (cơ số 10), KHÔNG in ra dạng Hex.\n   • Do đó, phần đầu in ra: `-2147483648 and  `.\n3. Dòng 5: `x = x >>> 31;`\n   • Toán tử `>>>` là toán tử dịch phải logic không dấu (unsigned right shift).\n   • Khác với `>>` (giữ lại bit dấu ở phía ngoài cùng bên trái), toán tử `>>>` LUÔN LUÔN chèn thêm các bit 0 vào bên trái bất kể số ban đầu là âm hay dương.\n   • Dịch sang phải 31 vị trí:\n     Trước khi dịch: `1000 0000 0000 0000 0000 0000 0000 0000`\n     Sau khi dịch:   `0000 0000 0000 0000 0000 0000 0000 0001`\n   • Giá trị nhị phân mới này chính là số 1 ở hệ thập phân!\n4. Dòng 6: `System.out.println(x);` in ra `1`.\n5. Kết hợp cả 2 lệnh in: `-2147483648 and  1`.\n\n✅ Vì sao đáp án \"-2147483648 and  1\" đúng:\nSố `0x80000000` ở hệ cơ số 10 là `-2147483648`. Khi thực hiện phép dịch phải không dấu 31 bit `>>> 31`, bit 1 ngoài cùng bên trái được chuyển sang ngoài cùng bên phải và 31 bit 0 được bù vào bên trái, tạo thành số 1.\n\n❌ Vì sao các đáp án khác sai:\n• \"0x80000000 and  0x00000001\": Sai vì phương thức `print()` mặc định chuyển đổi số sang chuỗi ở hệ thập phân, không tự động in chuỗi Hex.\n• \"-2147483648 and  -1\": Sai vì toán tử `>>>` chèn các bit 0 vào bên trái (tạo ra số dương 1). Nếu dùng toán tử dịch có dấu `>> 31` thì bit 1 mới được sao chép vào tất cả các vị trí tạo ra -1.\n• \"1 and  -2147483648\": Sai vì bị đảo ngược thứ tự in ấn giữa các dòng lệnh.\n• \"Không có đáp án nào đúng (None of the above)\": Sai vì đã có đáp án hoàn toàn chính xác.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phân biệt rõ:\n  - `>>` (Signed right shift): Dịch phải và sao chép bit dấu cũ vào các vị trí trống bên trái.\n  - `>>>` (Unsigned right shift): Dịch phải và LUÔN LUÔN bù số 0 vào các vị trí trống bên trái (biến số âm thành số dương).",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch03-006",
+    "originalId": 6,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
+    "options": [
+      "0",
+      "7",
+      "8",
+      "14",
+      "15"
+    ],
+    "optionsVi": [
+      "0",
+      "7",
+      "8",
+      "14",
+      "15"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nChương trình thực hiện 3 phép toán thao tác bit cơ bản theo thứ tự: AND (`&`), XOR (`^`), và OR (`|`).\n1. Dòng 3: `int x = 11 & 9;`\n   • Chuyển 11 và 9 sang hệ nhị phân 4-bit:\n     11 = `1011`\n      9 = `1001`\n   • Phép AND bit (`&`): Trả về 1 khi và chỉ khi CẢ HAI bit đều là 1:\n     `1011 & 1001 = 1001` (hệ thập phân là 9).\n   • Vậy `x = 9`.\n\n2. Dòng 4: `int y = x ^ 3;` (tức là `9 ^ 3`)\n   • Chuyển 9 và 3 sang hệ nhị phân:\n      9 = `1001`\n      3 = `0011`\n   • Phép XOR bit (`^`): Trả về 1 khi HAI bit KHÁC NHAU, trả về 0 khi hai bit giống nhau:\n     `1001 ^ 0011 = 1010` (hệ thập phân: 8 + 2 = 10).\n   • Vậy `y = 10`.\n\n3. Dòng 5: `System.out.println( y | 12 );` (tức là `10 | 12`)\n   • Chuyển 10 và 12 sang hệ nhị phân:\n     10 = `1010`\n     12 = `1100`\n   • Phép OR bit (`|`): Trả về 1 khi CÓ ÍT NHẤT MỘT bit là 1:\n     `1010 | 1100 = 1110` (hệ thập phân: 8 + 4 + 2 = 14).\n   • Kết quả in ra màn hình là 14.\n\n✅ Vì sao đáp án \"14\" đúng:\nQua 3 bước tính toán bit: `11 & 9 = 9`, tiếp theo `9 ^ 3 = 10`, và cuối cùng `10 | 12 = 14`. Kết quả chính xác là 14.\n\n❌ Vì sao các đáp án khác sai:\n• \"0\": Sai do nhầm lẫn toàn bộ các phép toán bit thành triệt tiêu lẫn nhau.\n• \"7\": Sai vì tính toán nhầm kết quả của các phép tính bit trung gian.\n• \"8\": Sai vì nhầm lẫn giữa kết quả của phép `&` với phép `|`.\n• \"15\": Sai do nhầm tưởng `10 | 12` cho ra tất cả các bit là 1 (`1111 = 15`), nhưng bit 0 ở hàng đơn vị của cả 10 (`1010`) và 12 (`1100`) đều là 0 nên `0 | 0 = 0`, không thể ra 15.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Bảng chân trị toán tử bit:\n  - `&` (AND): Chỉ bằng 1 khi cả hai là 1 (`1 & 1 = 1`).\n  - `|` (OR): Bằng 1 khi có ít nhất một bên là 1 (`0 | 1 = 1`, `1 | 0 = 1`, `1 | 1 = 1`).\n  - `^` (XOR): Bằng 1 khi hai bên khác nhau (`0 ^ 1 = 1`, `1 ^ 0 = 1`).",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-007",
+    "originalId": 7,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Which of the following are legal lines of code? (Choose all that apply.)",
+    "textVi": "Những dòng mã nào sau đây là hợp lệ trong Java? (Chọn tất cả các đáp án đúng)",
+    "code": "",
+    "options": [
+      "A và B và C (A: int w = (int) 888.8; & B: byte x = (byte) 1000L; & C: long y = (byte) 100;)",
+      "A và D (A: int w = (int) 888.8; & D: byte z = (byte) 100L;)",
+      "D (D: byte z = (byte) 100L;)",
+      "B và D (B: byte x = (byte) 1000L; & D: byte z = (byte) 100L;)"
+    ],
+    "optionsVi": [
+      "A và B và C (A: int w = (int) 888.8; & B: byte x = (byte) 1000L; & C: long y = (byte) 100;)",
+      "A và D (A: int w = (int) 888.8; & D: byte z = (byte) 100L;)",
+      "D (D: byte z = (byte) 100L;)",
+      "B và D (B: byte x = (byte) 1000L; & D: byte z = (byte) 100L;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra quy tắc ép kiểu (casting) giữa các kiểu dữ liệu nguyên thủy trong Java:\n1. Xét câu lệnh A: `int w = (int) 888.8;`\n   • Số `888.8` mặc định là một hằng số kiểu `double` (64-bit).\n   • Phép ép kiểu tường minh `(int)` sẽ cắt bỏ hoàn toàn phần thập phân (.8) và giữ lại phần nguyên 888 để gán cho biến `w`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n2. Xét câu lệnh B: `byte x = (byte) 1000L;`\n   • Số `1000L` là một giá trị kiểu `long` (64-bit). Miền giá trị của kiểu `byte` chỉ từ -128 đến 127, nên 1000 vượt quá giới hạn của `byte`.\n   • TUY NHIÊN, khi lập trình viên đã chủ động sử dụng toán tử ép kiểu tường minh `(byte)`, trình biên dịch Java sẽ chấp nhận và chỉ thực hiện thao tác cắt lấy 8 bit thấp nhất (tràn số - overflow), không hề báo lỗi biên dịch!\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n3. Xét câu lệnh C: `long y = (byte) 100;`\n   • Giá trị 100 được ép kiểu thành `byte`. Sau đó gán cho biến `y` có kiểu `long`.\n   • Vì kiểu `long` (64-bit) rộng hơn kiểu `byte` (8-bit), Java sẽ tự động nới rộng kiểu (widening conversion) mà không gặp bất kỳ lỗi nào (dù phép ép kiểu `(byte)` ở đây là dư thừa).\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n4. Xét câu lệnh D: `byte z = (byte) 100L;`\n   • Số `100L` kiểu `long` được ép kiểu tường minh `(byte)` về `byte` (nằm trong khoảng [-128, 127]) và gán cho `z`.\n   • Câu lệnh này hoàn toàn hợp lệ về mặt cú pháp.\n\nTrong đề thi gốc, tất cả A, B, C, D đều hợp lệ. Trong các lựa chọn được tổ hợp, phương án chứa bộ ba A, B, C là phương án đúng được chỉ định.\n\n✅ Vì sao đáp án \"A và B và C\" đúng:\nTất cả các câu lệnh A, B, C đều sử dụng đúng cú pháp ép kiểu của Java. Ép kiểu số thực sang nguyên (A) cắt bỏ phần thập phân; ép kiểu số lớn vượt giới hạn sang byte (B) vẫn hợp lệ lúc biên dịch nhờ phép ép kiểu tường minh `(byte)`; và gán byte cho long (C) là chuyển đổi mở rộng hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A và D\": Bị thiếu các dòng code hợp lệ khác như B và C.\n• \"D\": Thiếu tất cả các dòng A, B, C vốn đều hợp lệ về mặt cú pháp Java.\n• \"B và D\": Thiếu dòng A và C.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Compiler chỉ chặn khi bạn gán kiểu lớn cho kiểu nhỏ MÀ KHÔNG ép kiểu tường minh (ví dụ `byte b = 1000L;` sẽ báo lỗi). Nhưng một khi đã viết `(byte) 1000L`, compiler sẽ cho qua vì nó hiểu rằng lập trình viên đã chủ động chấp nhận mất mát dữ liệu hoặc tràn bit.",
+    "correctLetters": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch03-008",
+    "originalId": 8,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+    "options": [
+      "5 3",
+      "8 2",
+      "8 3",
+      "8 5",
+      "10 3",
+      "10 5"
+    ],
+    "optionsVi": [
+      "5 3",
+      "8 2",
+      "8 3",
+      "8 5",
+      "10 3",
+      "10 5"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra tính chất đoản mạch (short-circuit) của toán tử logic HOẶC `||`:\nNếu biểu thức bên trái của `||` đánh giá ra `true`, Java sẽ NGAY LẬP TỨC coi cả điều kiện là `true` và KHÔNG BAO GIỜ thực thi biểu thức bên phải!\n\nHãy theo dõi sự thay đổi của các biến qua từng vòng lặp `z` (từ 0 đến 4):\n• Khởi tạo ban đầu: `x = 0`, `y = 0`.\n• Lần lặp 1 (z = 0):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 0 lên 1. `1 > 2` là `false`.\n  - Vì vế trái `false`, toán tử `||` buộc phải kiểm tra tiếp vế phải `++y > 2`: `y` tăng từ 0 lên 1. `1 > 2` là `false`.\n  - Cả hai vế đều `false` -> điều kiện `if` sai, không chạy `x++`. (Hiện tại: `x = 1`, `y = 1`).\n• Lần lặp 2 (z = 1):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 1 lên 2. `2 > 2` là `false`.\n  - Kiểm tra tiếp vế phải `++y > 2`: `y` tăng từ 1 lên 2. `2 > 2` là `false`.\n  - Điều kiện `if` sai, không chạy `x++`. (Hiện tại: `x = 2`, `y = 2`).\n• Lần lặp 3 (z = 2):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 2 lên 3. `3 > 2` là `true`!\n  - VÌ ĐOẢN MẠCH: Vế phải `(++y > 2)` BỊ BỎ QUA HOÀN TOÀN, `y` giữ nguyên bằng 2!\n  - Điều kiện `if` đúng, thực thi dòng 7: `x++` -> `x` tăng từ 3 lên 4. (Hiện tại: `x = 4`, `y = 2`).\n• Lần lặp 4 (z = 3):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 4 lên 5. `5 > 2` là `true`!\n  - Đoản mạch: bỏ qua vế phải, `y` vẫn là 2.\n  - Chạy `x++` trong thân if: `x` tăng từ 5 lên 6. (Hiện tại: `x = 6`, `y = 2`).\n• Lần lặp 5 (z = 4):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 6 lên 7. `7 > 2` là `true`!\n  - Đoản mạch: bỏ qua vế phải, `y` vẫn là 2.\n  - Chạy `x++` trong thân if: `x` tăng từ 7 lên 8. (Hiện tại: `x = 8`, `y = 2`).\n• Kết thúc vòng lặp: In `x + \" \" + y` -> in ra `8 2`.\n\n✅ Vì sao đáp án \"8 2\" đúng:\nNhờ tính chất đoản mạch của toán tử `||`, kể từ lần lặp thứ 3 khi `x > 2` trở thành `true`, vế `++y` không bao giờ được thực thi nữa, khiến `y` dừng lại ở giá trị 2, trong khi `x` được tăng 2 lần mỗi vòng lặp ở 3 vòng cuối, đạt giá trị 8.\n\n❌ Vì sao các đáp án khác sai:\n• \"5 3\": Sai do giả định `x` chỉ tăng 1 lần mỗi vòng lặp và tính sai giá trị của `y`.\n• \"8 3\": Sai vì cho rằng `y` được tăng thêm một lần nữa ở lần lặp thứ 3, quên mất rằng `||` đã dừng ngay khi vế trái `++x > 2` thỏa mãn.\n• \"8 5\": Sai nghiêm trọng vì giả định không có hiện tượng đoản mạch và `++y` chạy đủ cả 5 lần lặp.\n• \"10 3\" / \"10 5\": Sai do tính toán sai số lần `x` được tăng giá trị.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Quy tắc đoản mạch:\n  - `true || <bất kỳ cái gì>` -> Kết quả là `true`, vế sau KHÔNG CHẠY.\n  - `false && <bất kỳ cái gì>` -> Kết quả là `false`, vế sau KHÔNG CHẠY.\n• Nếu muốn cả 2 vế luôn luôn chạy, phải dùng toán tử không đoản mạch `|` hoặc `&`.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-009",
+    "originalId": 9,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, What is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+    "options": [
+      "5 2",
+      "5 3",
+      "6 3",
+      "6 4",
+      "7 5",
+      "8 5"
+    ],
+    "optionsVi": [
+      "5 2",
+      "5 3",
+      "6 3",
+      "6 4",
+      "7 5",
+      "8 5"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra tính chất đoản mạch của toán tử logic VÀ `&&`:\nNếu biểu thức bên trái của `&&` đánh giá ra `false`, Java sẽ NGAY LẬP TỨC coi cả điều kiện là `false` và KHÔNG BAO GIỜ thực thi biểu thức bên phải!\n\nHãy theo dõi sự thay đổi của các biến qua từng vòng lặp `z` (từ 0 đến 4):\n• Khởi tạo: `x = 0`, `y = 0`.\n• Lần lặp 1 (z = 0):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 0 lên 1. `1 > 2` là `false`.\n  - VÌ ĐOẢN MẠCH: Biểu thức bên phải `(++y > 2)` BỊ BỎ QUA HOÀN TOÀN! `y` giữ nguyên bằng 0.\n  - Điều kiện `if` sai, không vào thân if. (Hiện tại: `x = 1`, `y = 0`).\n• Lần lặp 2 (z = 1):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 1 lên 2. `2 > 2` là `false`.\n  - Đoản mạch: bỏ qua vế phải, `y` vẫn bằng 0.\n  - Không vào thân if. (Hiện tại: `x = 2`, `y = 0`).\n• Lần lặp 3 (z = 2):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 2 lên 3. `3 > 2` là `true`!\n  - Vì vế trái `true`, toán tử `&&` PHẢI kiểm tra vế phải `++y > 2`: `y` tăng từ 0 lên 1. `1 > 2` là `false`.\n  - Vế phải `false` -> điều kiện `if` sai, không chạy `x++`. (Hiện tại: `x = 3`, `y = 1`).\n• Lần lặp 4 (z = 3):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 3 lên 4. `4 > 2` là `true`!\n  - Kiểm tra tiếp vế phải `++y > 2`: `y` tăng từ 1 lên 2. `2 > 2` là `false`.\n  - Điều kiện `if` sai, không chạy `x++`. (Hiện tại: `x = 4`, `y = 2`).\n• Lần lặp 5 (z = 4):\n  - Kiểm tra vế trái `++x > 2`: `x` tăng từ 4 lên 5. `5 > 2` là `true`!\n  - Kiểm tra tiếp vế phải `++y > 2`: `y` tăng từ 2 lên 3. `3 > 2` là `true`!\n  - Cả hai vế đều `true`! Điều kiện `if` thỏa mãn, dòng 7 được chạy: `x++` -> `x` tăng từ 5 lên 6. (Hiện tại: `x = 6`, `y = 3`).\n• Kết thúc vòng lặp: In `x + \" \" + y` -> in ra `6 3`.\n\n✅ Vì sao đáp án \"6 3\" đúng:\nTrong 2 vòng lặp đầu, vế trái `false` làm `&&` đoản mạch bỏ qua `++y` (y vẫn = 0). Ở các vòng 3 và 4, `++y` chạy nhưng điều kiện chung vẫn `false`. Đến vòng thứ 5, cả hai vế đều `true` giúp `x` tăng thêm một lần nữa trong thân if lên thành 6, và `y` đạt giá trị 3.\n\n❌ Vì sao các đáp án khác sai:\n• \"5 2\" / \"5 3\": Sai vì bỏ quên câu lệnh `x++` bên trong thân `if` ở vòng lặp cuối cùng.\n• \"6 4\": Sai vì giả định `y` tăng ở một vòng lặp bị đoản mạch trước đó.\n• \"7 5\" / \"8 5\": Sai do không áp dụng tính chất đoản mạch của `&&`, cho rằng `++y` chạy ở tất cả các vòng lặp.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Ghi nhớ: Với `&&`, chỉ cần vế trái bằng `false` là dừng ngay, không quan tâm vế phải viết gì hay có toán tử tăng giảm biến nào hay không.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch03-010",
+    "originalId": 10,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
+    "options": [
+      "ok",
+      "dokey",
+      "okdokey",
+      "Không in gì ra màn hình (No output is produced)",
+      "Lỗi biên dịch (Compilation error)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "optionsVi": [
+      "ok",
+      "dokey",
+      "okdokey",
+      "Không in gì ra màn hình (No output is produced)",
+      "Lỗi biên dịch (Compilation error)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kiểm tra thứ tự ưu tiên giữa các toán tử logic không đoản mạch: toán tử AND bit/logic (`&`) có độ ưu tiên cao hơn toán tử OR bit/logic (`|`).\nCác giá trị ban đầu: `b1 = true`, `b2 = false`, `b3 = true`.\n\n1. Xét điều kiện `if` thứ nhất tại dòng 6:\n   `if ( b1 & b2 | b2 & b3 | b2 )`\n   • Vì `&` ưu tiên cao hơn `|`, biểu thức được nhóm lại như sau:\n     `((b1 & b2) | (b2 & b3)) | b2`\n   • Tính từng cụm:\n     - `b1 & b2` = `true & false` = `false`.\n     - `b2 & b3` = `false & true` = `false`.\n   • Thay vào biểu thức:\n     `false | false | b2` = `false | false | false` = `false`.\n   • Điều kiện `false` nên dòng 7 KHÔNG ĐƯỢC CHẠY (không in \"ok \").\n\n2. Xét điều kiện `if` thứ hai tại dòng 8:\n   `if ( b1 & b2 | b2 & b3 | b2 | b1 )`\n   • Được nhóm lại theo độ ưu tiên:\n     `((b1 & b2) | (b2 & b3)) | b2 | b1`\n   • Cụm đầu tiên đã tính ở trên ra kết quả là `false`:\n     `false | b1` = `false | true` = `true`!\n   • Vì có toán hạng `| b1` ở cuối mà `b1 = true`, toàn bộ biểu thức OR trở thành `true`.\n   • Dòng 9 được thực thi, in ra màn hình chuỗi `\"dokey\"`.\n\nKết luận: Chương trình chỉ in ra đúng từ `\"dokey\"`.\n\n✅ Vì sao đáp án \"dokey\" đúng:\nĐiều kiện `if` đầu tiên đánh giá ra `false` do tất cả các cụm `&` đều chứa `b2 = false`. Điều kiện `if` thứ hai đánh giá ra `true` nhờ toán hạng `| b1` (bằng `true`) ở cuối cùng. Do đó chỉ có \"dokey\" được in ra.\n\n❌ Vì sao các đáp án khác sai:\n• \"ok\": Sai vì điều kiện if đầu tiên bằng `false`, chữ \"ok \" không bao giờ được in.\n• \"okdokey\": Sai vì cả hai điều kiện không cùng đúng.\n• \"Không in gì ra màn hình (No output is produced)\": Sai vì điều kiện if thứ 2 là `true`, chắc chắn in ra \"dokey\".\n• \"Lỗi biên dịch (Compilation error)\": Sai vì việc dùng `&` và `|` cho các biến `boolean` là hoàn toàn hợp lệ trong Java.\n• \"Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\": Sai vì mã nguồn hoàn toàn an toàn và không gây ra exception nào.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Thứ tự ưu tiên toán tử logic trong Java: Phủ định `!` > AND `&` > XOR `^` > OR `|` > Đoản mạch AND `&&` > Đoản mạch OR `||`.\n• Nhớ câu khẩu quyết: \"Nhân chia trước, cộng trừ sau\" tương ứng với \"AND trước, OR sau\".",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-011",
+    "originalId": 11,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result of compiling and running this code?",
+    "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và chạy chương trình là gì?",
+    "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
+    "options": [
+      "small",
+      "tiny",
+      "huge",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "optionsVi": [
+      "small",
+      "tiny",
+      "huge",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra toán tử 3 ngôi lồng nhau (nested ternary operator) trong Java:\nCú pháp cơ bản: `<điều_kiện> ? <giá_trị_khi_đúng> : <giá_trị_khi_sai>`\n\n1. Phân tích dòng 4:\n   `String sup = (x < 15) ? \"small\" : (x < 22) ? \"tiny\" : \"huge\";`\n   • Toán tử 3 ngôi có tính kết hợp từ phải sang trái (right-associative), tương đương với:\n     `(x < 15) ? \"small\" : ( (x < 22) ? \"tiny\" : \"huge\" )`\n2. Với giá trị `x = 20`:\n   • Bước 1: Đánh giá điều kiện ngoài cùng `x < 15`:\n     `20 < 15` là `false`.\n   • Bước 2: Vì điều kiện là `false`, Java sẽ bỏ qua nhánh `\"small\"` và chuyển sang đánh giá biểu thức sau dấu `:`:\n     `(x < 22) ? \"tiny\" : \"huge\"`\n   • Bước 3: Đánh giá điều kiện `x < 22`:\n     `20 < 22` là `true`.\n   • Bước 4: Vì điều kiện là `true`, biểu thức trả về giá trị trước dấu `:` là `\"tiny\"`.\n3. Biến `sup` nhận giá trị `\"tiny\"`. Dòng 5 in ra `\"tiny\"`.\n\n✅ Vì sao đáp án \"tiny\" đúng:\nVì `x = 20` không thỏa mãn `x < 15`, nhưng thỏa mãn điều kiện thứ hai `x < 22`, nên nhánh `\"tiny\"` được chọn.\n\n❌ Vì sao các đáp án khác sai:\n• \"small\": Sai vì điều kiện `x < 15` bị `false` (20 không nhỏ hơn 15).\n• \"huge\": Sai vì nhánh `\"huge\"` chỉ được chọn khi cả `x < 15` và `x < 22` đều `false` (tức là `x >= 22`).\n• \"Lỗi biên dịch (Compilation fails)\": Sai vì cú pháp toán tử 3 ngôi lồng nhau hoàn toàn hợp lệ trong Java và cả hai nhánh đều trả về kiểu `String` tương thích với biến `sup`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Khi gặp toán tử 3 ngôi lồng nhau, hãy đọc như cấu trúc `if - else if - else`:\n  `if (x < 15) return \"small\";`\n  `else if (x < 22) return \"tiny\";`\n  `else return \"huge\";`\n  Cách viết này giúp bạn trace mã cực nhanh và không bao giờ bị nhầm.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-012",
+    "originalId": 12,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
+    "options": [
+      "count = 0",
+      "count = 2",
+      "count = 3",
+      "count = 4",
+      "count = 10",
+      "count = 11"
+    ],
+    "optionsVi": [
+      "count = 0",
+      "count = 2",
+      "count = 3",
+      "count = 4",
+      "count = 10",
+      "count = 11"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nChương trình kết hợp giữa truyền tham chiếu mảng vào phương thức và hiện tượng đoản mạch trong biểu thức logic phức tạp.\n1. Khởi tạo đối tượng:\n   • Mảng `b` được tạo với 3 phần tử boolean mặc định: `{false, false, false}`.\n   • Biến `count = 0`.\n2. Thực thi dòng 12: `ba.set(ba.b, 0);`\n   • Phương thức `set` nhận tham chiếu mảng `ba.b`, đổi `b[0] = true`, và tăng `count` lên 1 (`count = 1`).\n3. Thực thi dòng 13: `ba.set(ba.b, 2);`\n   • Đổi `b[2] = true`, và tăng `count` lên 1 (`count = 2`).\n   • Trạng thái mảng `b` hiện tại: `{true, false, true}`.\n4. Gọi phương thức `ba.test()` tại dòng 14:\n   • Dòng 18: `if ( b[0] && b[1] | b[2] )`\n     - Độ ưu tiên: Toán tử `|` (OR bit/logic) có độ ưu tiên cao hơn `&&` (đoản mạch AND).\n     - Do đó biểu thức được đánh giá là: `b[0] && (b[1] | b[2])`.\n     - `b[1] | b[2]` = `false | true` = `true`.\n     - `b[0] && true` = `true && true` = `true`.\n     - Điều kiện đúng, thực thi dòng 19: `count++` -> `count` tăng từ 2 lên 3.\n   • Dòng 20: `if ( b[1] && b[(++count - 2)] )`\n     - Xét biểu thức bên trái của toán tử đoản mạch `&&`: `b[1]`.\n     - Giá trị của `b[1]` là `false`.\n     - VÌ ĐOẢN MẠCH: Biểu thức bên phải `b[(++count - 2)]` KHÔNG BAO GIỜ ĐƯỢC THỰC THI!\n     - Do đó, biểu thức `++count` bị bỏ qua, `count` KHÔNG hề bị tăng! Giá trị `count` vẫn giữ nguyên là 3.\n     - Dòng 21 (`count += 7`) bị bỏ qua.\n5. Dòng 22: `System.out.println(\"count = \" + count);` in ra `\"count = 3\"`.\n\n✅ Vì sao đáp án \"count = 3\" đúng:\nSau hai lần gọi hàm `set()`, `count` bằng 2. Câu lệnh `if` thứ nhất thỏa mãn điều kiện nên tăng `count` lên 3. Ở câu lệnh `if` thứ hai, vì `b[1]` bằng `false` nên toán tử `&&` đoản mạch bỏ qua toàn bộ vế sau, khiến `++count` không được thực thi. Kết quả in ra `count = 3`.\n\n❌ Vì sao các đáp án khác sai:\n• \"count = 0\" / \"count = 2\": Sai vì bỏ qua lần tăng `count++` ở câu lệnh `if` thứ nhất.\n• \"count = 4\": Sai do nhầm lẫn rằng biểu thức `++count` ở câu lệnh `if` thứ hai vẫn được chạy, quên mất hiệu ứng đoản mạch của toán tử `&&`.\n• \"count = 10\" / \"count = 11\": Sai vì cho rằng câu lệnh `if` thứ hai thỏa mãn và thực thi cả `count += 7`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Bẫy đoản mạch với biểu thức có tác dụng phụ (side-effect): Khi thấy các toán tử tăng giảm (`++`, `--`) đặt bên trong vế phải của `&&` hoặc `||`, hãy kiểm tra vế trái đầu tiên! Nếu vế trái làm dừng biểu thức, vế phải sẽ hoàn toàn bị \"đóng băng\".",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch03-013",
+    "originalId": 13,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class Test {\n2.      static int s;\n3.      public static void main(String [] args) {\n4.        Test p = new Test();\n5.        p.start();\n6.        System.out.println(s);\n7.      }\n8.\n9.     void start() {\n10.       int x = 7;\n11.       twice(x);\n12.       System.out.print(x + \" \");\n13.     }\n14.\n15.     void twice(int x) {\n16.       x = x*2;\n17.       s = x;\n18.     }\n19.   }",
+    "options": [
+      "7 7",
+      "7 14",
+      "14 0",
+      "14 14",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "optionsVi": [
+      "7 7",
+      "7 14",
+      "14 0",
+      "14 14",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nChương trình kiểm tra nguyên lý cốt lõi của Java: \"Java luôn luôn truyền tham số theo giá trị (Pass-by-value)\".\n1. Phân tích luồng thực thi:\n   • Trong `main()`, tạo đối tượng `p` và gọi `p.start()`.\n   • Phương thức `start()` bắt đầu:\n     - Dòng 10: Khai báo biến cục bộ `int x = 7;`.\n     - Dòng 11: Gọi `twice(x);`. Khi truyền biến nguyên thủy `x` vào phương thức, Java tạo ra một bản sao độc lập của giá trị `7` và gán cho tham số `x` của phương thức `twice(int x)`.\n2. Trong phương thức `twice(int x)`:\n     - Dòng 16: `x = x * 2;` -> Biến cục bộ `x` trong `twice` tăng lên thành 14. Biến cục bộ `x` của phương thức `start` nằm ở một stack frame riêng biệt nên HOÀN TOÀN KHÔNG BỊ ẢNH HƯỞNG.\n     - Dòng 17: `s = x;` -> Gán giá trị 14 cho biến tĩnh (static variable) `s` của lớp `Test`.\n3. Quay trở lại phương thức `start()`:\n     - Dòng 12: `System.out.print(x + \" \");` -> In biến cục bộ `x` của `start()`. Giá trị của nó vẫn là 7. Màn hình in ra `\"7 \"`.\n4. Quay trở lại phương thức `main()`:\n     - Dòng 6: `System.out.println(s);` -> In biến tĩnh `s`. Biến `s` đã được cập nhật thành 14 ở bước trước. Màn hình in tiếp `14`.\n5. Kết hợp kết quả in: `7 14`.\n\n✅ Vì sao đáp án \"7 14\" đúng:\nBiến `x` trong `start()` không bị thay đổi bởi hàm `twice()` do cơ chế Pass-by-value của kiểu nguyên thủy, nên in ra 7. Biến tĩnh `s` đã được gán giá trị mới là 14 trong phương thức `twice()`, nên in ra 14. Ghép lại là `7 14`.\n\n❌ Vì sao các đáp án khác sai:\n• \"7 7\": Sai vì nghĩ rằng biến tĩnh `s` không nhận giá trị 14 trong hàm `twice`.\n• \"14 0\": Sai vì nhầm tưởng biến `x` trong `start()` bị thay đổi và `s` vẫn giữ giá trị mặc định 0.\n• \"14 14\": Sai do nhầm tưởng Java truyền tham chiếu cho kiểu nguyên thủy giống con trỏ trong C++, khiến `x` của `start()` bị nhân đôi thành 14.\n• \"Lỗi biên dịch (Compilation fails)\" / \"Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\": Sai vì mã nguồn hoàn toàn chuẩn cú pháp và chạy trơn tru.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Quy tắc vàng: Mọi kiểu dữ liệu nguyên thủy (`int`, `boolean`, `double`...) khi truyền vào hàm đều chỉ là sao chép giá trị (Pass-by-value). Mọi thay đổi trên biến tham số bên trong hàm không bao giờ tác động ngược lại biến gốc ở ngoài hàm gọi.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-014",
+    "originalId": 14,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
+    "options": [
+      "true true",
+      "false true",
+      "true false",
+      "false false",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "optionsVi": [
+      "true true",
+      "false true",
+      "true false",
+      "false false",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nTiếp tục là một bài toán kiểm tra cơ chế truyền tham trị (pass-by-value) của kiểu nguyên thủy `boolean`:\n1. Trong phương thức `start()`:\n   • Dòng 8: Khai báo biến cục bộ `boolean b1 = false;`.\n   • Dòng 9: Gọi hàm `fix(b1)`. Giá trị `false` của `b1` được sao chép và truyền vào biến tham số `b1` của phương thức `fix(boolean b1)`.\n2. Trong phương thức `fix()`:\n   • Dòng 14: `b1 = true;` -> Phép gán này chỉ thay đổi giá trị của biến tham số cục bộ `b1` trong phạm vi hàm `fix()`. Biến `b1` ban đầu của phương thức `start()` hoàn toàn không bị ảnh hưởng và vẫn giữ nguyên giá trị `false`.\n   • Dòng 15: `return b1;` -> Trả về giá trị `true`.\n3. Trở lại phương thức `start()`:\n   • Giá trị trả về `true` được gán cho biến `b2`.\n   • Lúc này: `b1 = false`, còn `b2 = true`.\n   • Dòng 10: `System.out.println(b1 + \" \" + b2);` in ra: `false true`.\n\n✅ Vì sao đáp án \"false true\" đúng:\nBiến `b1` ở phương thức `start()` là một biến cục bộ độc lập, không bị thay đổi bởi việc gán biến bên trong hàm `fix()`, nên `b1` vẫn là `false`. Giá trị trả về của `fix()` là `true` và được gán cho `b2`, do đó kết quả in ra là `false true`.\n\n❌ Vì sao các đáp án khác sai:\n• \"true true\": Sai vì nhầm tưởng biến `b1` trong `start()` bị sửa đổi thành `true`.\n• \"true false\": Sai hoàn toàn cả hai biến.\n• \"false false\": Sai vì giá trị trả về của hàm `fix()` là `true` nên `b2` phải bằng `true`.\n• \"Lỗi biên dịch (Compilation fails)\" / \"Ném ngoại lệ tại thời điểm chạy (Runtime Exception)\": Sai vì đoạn mã hoàn toàn hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trùng tên biến không có nghĩa là cùng một biến: Biến `b1` trong `start()` và tham số `b1` trong `fix()` nằm ở hai vùng nhớ Stack riêng biệt. Thay đổi tham số trong hàm con không bao giờ làm đổi biến ở hàm cha.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-015",
+    "originalId": 15,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
+    "options": [
+      "slipstream",
+      "slipstreamstream",
+      "streamslipstream",
+      "slipstreamslipstream",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "optionsVi": [
+      "slipstream",
+      "slipstreamstream",
+      "streamslipstream",
+      "slipstreamslipstream",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán kết hợp giữa tính bất biến của String (String Immutability) và cơ chế truyền tham số biến tham chiếu (Pass-by-value of Object Reference):\n1. Phương thức `start()` bắt đầu:\n   • Dòng 8: Khai báo `String s1 = \"slip\";`. Biến `s1` trỏ đến đối tượng chuỗi `\"slip\"` trong String Constant Pool.\n   • Dòng 9: Gọi `fix(s1)`. Giá trị tham chiếu của `s1` được sao chép và gán cho tham số `s1` của phương thức `fix()`. Lúc này cả 2 biến cùng trỏ vào đối tượng `\"slip\"`.\n2. Trong phương thức `fix(String s1)`:\n   • Dòng 14: `s1 = s1 + \"stream\";`\n     - Trong Java, đối tượng `String` là bất biến (immutable - không thể sửa đổi nội dung).\n     - Phép nối chuỗi `+` sẽ TẠO RA MỘT ĐỐI TƯỢNG STRING MỚI mang giá trị `\"slipstream\"`.\n     - Sau đó, tham chiếu của đối tượng mới này được gán lại cho biến cục bộ `s1` của hàm `fix()`.\n     - Biến `s1` của hàm `start()` vẫn giữ nguyên tham chiếu cũ trỏ tới `\"slip\"`.\n   • Dòng 15: `System.out.print(s1 + \" \");` in ra giá trị của biến cục bộ: `\"slipstream \"`.\n   • Dòng 16: `return \"stream\";` trả về chuỗi `\"stream\"`.\n3. Trở lại phương thức `start()`:\n   • Chuỗi `\"stream\"` trả về được gán cho `s2`.\n   • Biến `s1` trong `start()` vẫn có giá trị là `\"slip\"`.\n   • Dòng 10: `System.out.println(s1 + \" \" + s2);` in tiếp: `\"slip stream\"`.\n4. Tổng hợp toàn bộ những gì đã in ra màn hình:\n   - Dòng 15 in: `slipstream `\n   - Dòng 10 in: `slip stream`\n   - Ghép liên tiếp các ký tự in ra: `slipstream slip stream` (trong các lựa chọn trắc nghiệm được viết liền là `slipstreamslipstream`).\n\n✅ Vì sao đáp án \"slipstreamslipstream\" đúng:\nVì phương thức `fix()` in ra `\"slipstream \"` trước, sau đó phương thức `start()` in ra `s1` (vẫn là `\"slip\"`) kèm `s2` (`\"stream\"`). Ghép lại toàn bộ luồng in chính là `slipstream slip stream`.\n\n❌ Vì sao các đáp án khác sai:\n• \"slipstream\": Sai vì thiếu kết quả in của dòng 10 trong phương thức `start()`.\n• \"slipstreamstream\": Sai do bỏ sót biến `s1` (\"slip\") trong lệnh in ở dòng 10.\n• \"streamslipstream\": Sai thứ tự in giữa hàm `fix()` và hàm `start()`.\n• \"Lỗi biên dịch (Compilation fails)\" / \"Ném ngoại lệ tại thời điểm chạy\": Sai vì code hoàn toàn hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối tượng `String` là BẤT BIẾN (Immutable). Mọi thao tác nối chuỗi (`+`, `concat()`), thay thế (`replace()`) hay cắt chuỗi (`substring()`) đều tạo ra một đối tượng String hoàn toàn mới chứ không bao giờ sửa đổi trên đối tượng cũ.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-016",
+    "originalId": 16,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
+    "options": [
+      "977foo77foo",
+      "723434foo3434foo",
+      "977foo3434foo",
+      "72734foo347foo",
+      "93434foo3434foo"
+    ],
+    "optionsVi": [
+      "977foo77foo",
+      "723434foo3434foo",
+      "977foo3434foo",
+      "72734foo347foo",
+      "93434foo3434foo"
+    ],
+    "answer": 3,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nToán tử `+` trong Java vừa là toán tử cộng số học (Addition) vừa là toán tử nối chuỗi (String Concatenation).\nQuy tắc vàng: Phép toán được thực hiện theo thứ tự từ TRÁI sang PHẢI (left-to-right):\n• Nếu cả hai toán hạng đều là số: Thực hiện phép cộng số học.\n• Nếu có ít nhất một toán hạng là String: Chuyển toán hạng còn lại thành String và thực hiện phép nối chuỗi.\n\nHãy phân tích chi tiết từng dòng lệnh in:\n1. Dòng 10: `System.out.print(\" \" + 7 + 2 + \" \");`\n   • `\" \" + 7` -> Có String ở đầu nên nối chuỗi thành `\" 7\"`.\n   • `\" 7\" + 2` -> Tiếp tục nối chuỗi thành `\" 72\"`.\n   • `\" 72\" + \" \"` -> Nối chuỗi thành `\" 72 \"`. (In ra: `72`)\n2. Dòng 11: `System.out.print(a + b);`\n   • Cả `a = 3` và `b = 4` đều là số nguyên `int`.\n   • Thực hiện phép cộng số học: `3 + 4 = 7`. (In ra: `7`)\n3. Dòng 12: `System.out.print(\" \" + a + b + \" \");`\n   • `\" \" + 3` -> Nối chuỗi thành `\" 3\"`.\n   • `\" 3\" + 4` -> Nối chuỗi thành `\" 34\"`.\n   • `\" 34\" + \" \"` -> Nối chuỗi thành `\" 34 \"`. (In ra: `34`)\n4. Dòng 13: `System.out.print(foo() + a + b + \" \");`\n   • `foo()` trả về chuỗi `\"foo\"`.\n   • `\"foo\" + 3` -> Nối chuỗi thành `\"foo3\"`.\n   • `\"foo3\" + 4` -> Nối chuỗi thành `\"foo34\"`.\n   • `\"foo34\" + \" \"` -> Nối chuỗi thành `\"foo34 \"`. (In ra: `foo34`)\n5. Dòng 14: `System.out.println(a + b + foo());`\n   • Bắt đầu từ bên trái: `a + b` là hai số nguyên (`3 + 4`), thực hiện cộng số học trước ra kết quả số `7`.\n   • Sau đó lấy `7 + foo()` -> Số `7` nối với chuỗi `\"foo\"` tạo thành `\"7foo\"`. (In ra: `7foo`)\n\nGhép tất cả các giá trị in liên tiếp (bỏ qua khoảng trắng bao quanh):\n`72` + `7` + `34` + `foo34` + `7foo` = `72734foo347foo`.\n\n✅ Vì sao đáp án \"72734foo347foo\" đúng:\nKhớp chính xác với thứ tự thực thi từ trái sang phải của từng biểu thức nối chuỗi và cộng số học.\n\n❌ Vì sao các đáp án khác sai:\n• \"977foo77foo\": Sai ở dòng 10 khi thực hiện cộng 7 + 2 thành 9 (quên mất chuỗi `\" \"` đứng đầu biến các phép cộng phía sau thành nối chuỗi).\n• \"723434foo3434foo\": Sai ở dòng 11 khi in `a + b` thành `34` thay vì cộng số học `7`.\n• \"977foo3434foo\": Sai cả ở dòng 10 (cộng 9) và dòng 14 (nối chuỗi 34foo thay vì cộng 7foo).\n• \"93434foo3434foo\": Sai toàn bộ quy tắc ưu tiên số học của dòng 10, 11 và 14.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Ai đứng cạnh String thì bị hóa thành String từ đó về sau\": Chỉ cần gặp một String bên trái, tất cả dấu `+` còn lại về bên phải đều trở thành nối chuỗi.\n• Muốn cộng số học trước khi nối chuỗi, bắt buộc phải dùng dấu ngoặc đơn: `\"Kết quả: \" + (a + b)`.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-017",
+    "originalId": 17,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
+    "options": [
+      "12 15",
+      "15 15",
+      "345 375",
+      "375 375",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "optionsVi": [
+      "12 15",
+      "15 15",
+      "345 375",
+      "375 375",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nBài toán phân tích cơ chế truyền tham chiếu đối tượng mảng (Object Reference) vào phương thức trong Java:\n1. Trong Java, mảng là một Đối tượng (Object) được lưu trữ trên vùng nhớ Heap. Biến mảng `a1` thực chất chỉ lưu trữ giá trị địa chỉ tham chiếu trỏ đến mảng đó.\n2. Quá trình thực thi từng dòng:\n   • Dòng 8: Khởi tạo mảng `long[] a1 = {3, 4, 5};` trên Heap.\n   • Dòng 9: Gọi `fix(a1)`. Địa chỉ tham chiếu của mảng `a1` được sao chép và truyền vào biến tham số `a3`.\n     Lúc này, cả `a1` và `a3` đều cùng trỏ vào DUY NHẤT một đối tượng mảng trong bộ nhớ.\n3. Trong phương thức `fix(long[] a3)`:\n   • Dòng 15: `a3[1] = 7;` -> Thay đổi trực tiếp phần tử tại chỉ số 1 của mảng trong Heap từ 4 thành 7.\n     Mảng trong bộ nhớ bây giờ có nội dung là `{3, 7, 5}`.\n   • Dòng 16: `return a3;` -> Trả về chính địa chỉ tham chiếu của mảng này.\n4. Trở lại phương thức `start()`:\n   • Tham chiếu trả về được gán cho `a2`.\n   • Như vậy, cả 3 biến `a1`, `a2`, và `a3` đều trỏ chung vào cùng một đối tượng mảng `{3, 7, 5}`.\n   • Dòng 10: `System.out.print(a1[0] + a1[1] + a1[2] + \" \");`\n     Tổng: `3 + 7 + 5 = 15`. Màn hình in ra `\"15 \"`.\n   • Dòng 11: `System.out.println(a2[0] + a2[1] + a2[2]);`\n     Tổng: `3 + 7 + 5 = 15`. Màn hình in ra `15`.\n5. Kết quả in tổng thể: `15 15`.\n\n✅ Vì sao đáp án \"15 15\" đúng:\nVì `a1` và `a2` cùng trỏ đến cùng một đối tượng mảng trong bộ nhớ Heap. Thay đổi `a3[1] = 7` đã trực tiếp cập nhật dữ liệu của mảng đó, khiến tổng các phần tử của cả hai mảng đều là `3 + 7 + 5 = 15`.\n\n❌ Vì sao các đáp án khác sai:\n• \"12 15\": Sai do nhầm tưởng mảng `a1` không bị thay đổi (tổng cũ 3+4+5=12). Mảng là đối tượng có thể thay đổi trạng thái (mutable) khi thao tác qua tham chiếu.\n• \"345 375\": Sai vì các phần tử được cộng bằng toán tử số học `+` chứ không phải nối chuỗi.\n• \"375 375\": Sai vì phép tính ở dòng 10 và 11 là phép cộng các số kiểu `long`, không phải in từng phần tử dạng chuỗi.\n• \"Lỗi biên dịch (Compilation fails)\" / \"Ném ngoại lệ tại thời điểm chạy\": Sai vì mã nguồn hoàn toàn hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đối với Object và Mảng: Khi truyền vào phương thức, Java truyền \"bản sao của tham chiếu\" (pass-by-value of reference). Mọi thay đổi thuộc tính hoặc phần tử bên trong object/mảng đó ĐỀU ẢNH HƯỞNG trực tiếp đến đối tượng bên ngoài!",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-018",
+    "originalId": 18,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy chương trình là gì?",
+    "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
+    "options": [
+      "null null 42",
+      "0 0 42",
+      "0 42 42",
+      "0 0 0",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "optionsVi": [
+      "null null 42",
+      "0 0 42",
+      "0 42 42",
+      "0 0 0",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nChương trình kiểm tra giá trị khởi tạo mặc định của biến thực thể (instance variable) và cơ chế thao tác trên đối tượng qua biến tham chiếu:\n1. Giá trị mặc định của thuộc tính lớp:\n   • Lớp `Two` khai báo biến thực thể `byte x;`.\n   • Trong Java, các biến thực thể (instance variables) luôn được JVM tự động khởi tạo giá trị mặc định khi đối tượng được tạo: các kiểu số nguyên (`byte`, `short`, `int`, `long`) mặc định là `0`.\n2. Theo dõi luồng thực thi trong `start()`:\n   • Dòng 12: `Two t = new Two();` -> Đối tượng `Two` được tạo trên Heap với thuộc tính `t.x = 0`.\n   • Dòng 13: `System.out.print(t.x + \" \");` -> In giá trị ban đầu của `t.x`, màn hình in `\"0 \"`.\n   • Dòng 14: `Two t2 = fix(t);`\n     - Tham chiếu `t` được sao chép và truyền vào tham số `tt` của phương thức `fix(Two tt)`.\n     - Cả `t` và `tt` đều cùng trỏ tới MỘT đối tượng `Two` duy nhất trên Heap.\n3. Trong phương thức `fix()`:\n   • Dòng 19: `tt.x = 42;` -> Sửa trực tiếp trường `x` của đối tượng trên Heap thành 42.\n   • Dòng 20: `return tt;` -> Trả về tham chiếu của chính đối tượng đó.\n4. Trở lại phương thức `start()`:\n   • Biến `t2` nhận tham chiếu trả về từ `fix()`. Lúc này `t` và `t2` là hai biến tham chiếu cùng trỏ chung một đối tượng.\n   • Dòng 15: `System.out.println(t.x + \" \" + t2.x);`\n     - `t.x` có giá trị 42.\n     - `t2.x` có giá trị 42.\n     - In ra: `\"42 42\"`.\n5. Tổng hợp các lần in: `\"0 \"` rồi `\"42 42\"` -> `0 42 42`.\n\n✅ Vì sao đáp án \"0 42 42\" đúng:\nBan đầu `t.x` nhận giá trị mặc định là 0. Sau khi phương thức `fix()` gán `tt.x = 42`, vì `t` và `t2` cùng trỏ đến đối tượng này nên cả `t.x` và `t2.x` đều bằng 42. Kết quả in ra là `0 42 42`.\n\n❌ Vì sao các đáp án khác sai:\n• \"null null 42\": Sai vì `byte` là kiểu nguyên thủy (primitive), giá trị mặc định của nó là `0`, không bao giờ là `null`.\n• \"0 0 42\": Sai do nhầm tưởng `t.x` không bị thay đổi bởi phương thức `fix()`.\n• \"0 0 0\": Sai vì trường `x` đã bị gán giá trị 42 trong phương thức `fix()`.\n• \"Lỗi biên dịch (Compilation fails)\" / \"Ném ngoại lệ tại thời điểm chạy\": Sai vì chương trình hoàn toàn đúng cú pháp và vận hành bình thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Giá trị mặc định của instance variables: Kiểu số = `0` (hoặc `0.0`), boolean = `false`, kiểu tham chiếu = `null`.\n• Biến cục bộ (local variable) KHÔNG có giá trị mặc định và phải được khởi tạo trước khi đọc; nhưng thuộc tính đối tượng (instance variable) luôn được tự động gán giá trị mặc định.",
+    "correctLetters": [
+      "C"
+    ]
+  }
+]

@@ -1,0 +1,614 @@
+[
+  {
+    "id": "scjp-ch05-001",
+    "originalId": 1,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which is true about the class described above?",
+    "textVi": "Cho đoạn mã sau, which is true about the class described above?",
+    "code": "1.   public class Barbell {\n2.     public int getWeight() {\n3.       return weight;\n4.     }\n5.     public void setWeight(int w) {\n6.       weight = w;\n7.     }\n8.     public int weight;\n9.   }",
+    "options": [
+      "Class Barbell is tightly encapsulated.",
+      "Line 2 is in conflict with encapsulation.",
+      "Line 5 is in conflict with encapsulation.",
+      "Line 8 is in conflict with encapsulation.",
+      "Lines 5 and 8 are in conflict with encapsulation.",
+      "Lines 2, 5, and 8 are in conflict with encapsulation."
+    ],
+    "optionsVi": [
+      "Class Barbell is tightly encapsulated.",
+      "Line 2 is in conflict with encapsulation.",
+      "Line 5 is in conflict with encapsulation.",
+      "Line 8 is in conflict with encapsulation.",
+      "Lines 5 and 8 are in conflict with encapsulation.",
+      "Lines 2, 5, and 8 are in conflict with encapsulation."
+    ],
+    "answer": 3,
+    "explanation": "D. If a class has an instance variable that is marked public, the class cannot be said to be encapsulated. ✗ A, B, C, E, and F are incorrect based on the program logic described above. Public getter and setter methods are compatible with the concept of encapsulation.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch05-002",
+    "originalId": 2,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which is true about the classes described above?",
+    "textVi": "Cho đoạn mã sau, which is true about the classes described above?",
+    "code": "1.   public class B extends A {\n2.     private int bar;\n3.     public void setBar(int b) {\n4.       bar = b;\n5.     }\n6.   }\n7.   class A {\n8.     public int foo;\n9.   }",
+    "options": [
+      "Class A is tightly encapsulated.",
+      "Class B is tightly encapsulated.",
+      "Classes A and B are both tightly encapsulated.",
+      "Neither class A nor class B is tightly encapsulated."
+    ],
+    "optionsVi": [
+      "Class A is tightly encapsulated.",
+      "Class B is tightly encapsulated.",
+      "Classes A and B are both tightly encapsulated.",
+      "Neither class A nor class B is tightly encapsulated."
+    ],
+    "answer": 3,
+    "explanation": "D. Class A is clearly not encapsulated because it has a public instance variable. At first glance class B appears to be encapsulated, however because it extends from class A it inherits thepublic instance variable foo, which is not encapsulated. ✗ A, B, and C are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch05-003",
+    "originalId": 3,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which is true?",
+    "textVi": "Which is true?",
+    "code": "",
+    "options": [
+      "Tightly encapsulated classes are typically easier to reuse.",
+      "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+      "Methods in tightly encapsulated classes cannot be overridden.",
+      "Methods in tightly encapsulated classes cannot be overloaded.",
+      "Tightly encapsulated classes typically do not use HAS-A relationships."
+    ],
+    "optionsVi": [
+      "Tightly encapsulated classes are typically easier to reuse.",
+      "Tightly encapsulated classes typically use inheritance more than unencapsulated classes.",
+      "Methods in tightly encapsulated classes cannot be overridden.",
+      "Methods in tightly encapsulated classes cannot be overloaded.",
+      "Tightly encapsulated classes typically do not use HAS-A relationships."
+    ],
+    "answer": 0,
+    "explanation": "A. One of the main benefits of encapsulation is that encapsulated code is much easier to reuse than unencapsulated code. ✗ B, C, D, and E are incorrect. B is incorrect because inheritance is a concept that is independent of encapsulation. C and D are incorrect because encapsulation does not restrict the use of overloading or overriding.E is incorrect because HAS-A relationships are independent of encapsulation.",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch05-004",
+    "originalId": 4,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which two are not benefits of encapsulation? (Choose two.)",
+    "textVi": "Which two are not benefits of encapsulation? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và E (B: Code efficiency & E: Access modifiers become optional)",
+      "A và B (A: Clarity of code & B: Code efficiency)",
+      "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+      "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+    ],
+    "optionsVi": [
+      "B và E (B: Code efficiency & E: Access modifiers become optional)",
+      "A và B (A: Clarity of code & B: Code efficiency)",
+      "A và C (A: Clarity of code & C: The ability to add functionality later on)",
+      "D và E (D: Modifications require fewer coding changes & E: Access modifiers become optional)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. Encapsulation tends to make code more maintainable, extensible, and debuggable, but not necessarily any more efficient at runtime. Encapsulation is a design approach and in no way affects any Java language rules such as the use of access modifiers. ✗ A, C, and D are well-known benefits of encapsulation.",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-005",
+    "originalId": 5,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two are true about instances of the classes listed above? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two are true about instances of the classes listed above? (Choose two.)",
+    "code": "1.   class B extends A {\n2.     int getID() {\n3.       return id;\n4.     }\n5.   }\n6.   class C {\n7.     public int name;\n8.   }\n9.   class A {\n10.    C c = new C();\n11.    public int id;\n12.  }",
+    "options": [
+      "C và E (C: A has-a C & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))",
+      "A và C (A: A is-a B & C: A has-a C)",
+      "A và B (A: A is-a B & B: C is-a A)",
+      "D và E (D: B has-a A & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))"
+    ],
+    "optionsVi": [
+      "C và E (C: A has-a C & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))",
+      "A và C (A: A is-a B & C: A has-a C)",
+      "A và B (A: A is-a B & B: C is-a A)",
+      "D và E (D: B has-a A & E: B has-a C 48 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Overriding and Overloading (Sun Objective 6.2))"
+    ],
+    "answer": 0,
+    "explanation": "C and E. C is correct because class A has an instance variable, c, that is a reference to an object of class C. E is correct because class B extends from class A, which HAS-A class C reference, so class B, through inheritance, HAS-A class C. ✗ A, B, and D are incorrect based on the program logic described. A is incorrect because class B extends from class A, not the other way around. B is incorrect because class C is not in class A’s inheritance tree.D is incorrect because class B IS-A class A; HAS-A is not used to describe inheritance relationships. Overriding and Overloading (Sun Objective 6.2)",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-006",
+    "originalId": 6,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, class A { public void baz() { System.out.println(\"A\"); } } public class B extends A { public static void main(String [] args) { A a = new B(); a.baz(); } public void baz() { System.out.println(\"B\"); } } Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "A",
+      "B",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "A",
+      "B",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. Reference variable ‘a’i so ft y p eA, but it refers to an object of type B.L i n e9i sa polymorphic call, and the VM will use the version of the baz() method that is in the class that the reference variable refers to at that point. ✗ A, C, and D are incorrect because of the logic described above. 58 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch05-007",
+    "originalId": 7,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+    "textVi": "Cho đoạn mã sau, class Foo { String doStuff(int x) { return \"hello\"; } } which method would not be legal in a subclass of Foo?",
+    "code": "",
+    "options": [
+      "String doStuff(int x) { return \"hello\"; }",
+      "int doStuff(int x) { return 42; }",
+      "public String doStuff(int x) { return \"Hello\"; }",
+      "protected String doStuff(int x) { return \"Hello\"; }",
+      "String doStuff(String s) { return \"Hello\"; }",
+      "int doStuff(String s) { return 42; }"
+    ],
+    "optionsVi": [
+      "String doStuff(int x) { return \"hello\"; }",
+      "int doStuff(int x) { return 42; }",
+      "public String doStuff(int x) { return \"Hello\"; }",
+      "protected String doStuff(int x) { return \"Hello\"; }",
+      "String doStuff(String s) { return \"Hello\"; }",
+      "int doStuff(String s) { return 42; }"
+    ],
+    "answer": 1,
+    "explanation": "B. B is neither a legal override (the return type has been changed) nor a legal overload (the arguments have not changed). ✗ A, C, and D are legal overrides of thedoStuff() method, and E and F are legal overloads of thedoStuff() method.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch05-008",
+    "originalId": 8,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, What is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class ParentClass {\n2.     public int doStuff(int x) {\n3.       return x * 2;\n4.     }\n5.   }\n6.\n7.   public class ChildClass extends ParentClass {\n8.     public static void main(String [] args ) {\n9.       ChildClass cc = new ChildClass();\n10.      long x = cc.doStuff(7);\n11.      System.out.println(\"x = \" + x);\n12.    }\n13.\n14.    public long doStuff(int x) {\n15.      return x * 3;\n16.    }\n17.  }",
+    "options": [
+      "x = 14",
+      "x = 21",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 11.",
+      "Compilation fails at line 14.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "x = 14",
+      "x = 21",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 11.",
+      "Compilation fails at line 14.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. Line 14 is an illegal override of the doStuff() method in ParentClass. When you override a method, you must leave both the arguments and the return types the same. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 14 had returned an int, then B would be correct.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-009",
+    "originalId": 9,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two methods, if inserted independently at line 8, will not compile? (Choose two.)",
+    "code": "1.  class Over {\n2.    int doStuff(int a, float b) {\n3.      return 7;\n4.    }\n5.  }\n6.\n7.  class Over2 extends Over {\n8.      // insert code here\n9.  }",
+    "options": [
+      "C và E (C: private int doStuff(int x, float y) {return 4; } & E: long doStuff(int x, float y) { return 4; })",
+      "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) {return 4; })",
+      "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) {return 4; })",
+      "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3))"
+    ],
+    "optionsVi": [
+      "C và E (C: private int doStuff(int x, float y) {return 4; } & E: long doStuff(int x, float y) { return 4; })",
+      "A và C (A: public int doStuff(int x, float y) { return 4; } & C: private int doStuff(int x, float y) {return 4; })",
+      "A và B (A: public int doStuff(int x, float y) { return 4; } & B: protected int doStuff(int x, float y) {return 4; })",
+      "E và F (E: long doStuff(int x, float y) { return 4; } & F: int doStuff(float x, int y) { return 4; } 50 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types Instantiation and Constructors (Sun Objectives 6.3 and 1.3))"
+    ],
+    "answer": 0,
+    "explanation": "C and E. C is an illegal override because the private modifier is more restrictive than doStuff()’s default modifier in class Over.E is an illegal override because you can’t change an overridden method’s return type, orE is an illegal overload because you must change an overloaded method’s arguments. ✗ A and B are simple overrides (protected is less restrictive than default). D and F are simple overloads (swapping arguments of different types creates an overload). Instantiation and Constructors (Sun Objectives 6.3 and 1.3)",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-010",
+    "originalId": 10,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.    }\n18.  }",
+    "options": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 3,
+    "explanation": "D. The class Child constructor calls the class Parent constructor implicitly before any code in the Child constructor runs. When the class Parent constructor’s code runs, it prints the first line of output, finishes, and returns control to the Child constructor, which prints out its line of output and finishes. The call to super() is redundant. ✗ A, B, C, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch05-011",
+    "originalId": 11,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class TestPoly {\n2.     public static void main(String [] args ){\n3.       Parent p = new Child();\n4.     }\n5.   }\n6.\n7.   class Parent {\n8.     public Parent() {\n9.       super();\n10.      System.out.println(\"instantiate a parent\");\n11.    }\n12.  }\n13.\n14.  class Child extends Parent {\n15.    public Child() {\n16.      System.out.println(\"instantiate a child\");\n17.      super();\n18.    }\n19.  }",
+    "options": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "instantiate a child",
+      "instantiate a parent",
+      "instantiate a child instantiate a parent",
+      "instantiate a parent instantiate a child",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. Line 17 will cause the compiler to fail. The call tosuper() must be the first statement in a constructor. ✗ A, B, C, D, and F are incorrect based on the program logic described above. If line 17 were removed, D would be correct.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-012",
+    "originalId": 12,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class MySuper {\n2.     public MySuper(int i) {\n3.       System.out.println(\"super \" + i);\n4.     }\n5.   }\n6.\n7.   public class MySub extends MySuper {\n8.     public MySub() {\n9.       super(2);\n10.      System.out.println(\"sub\");\n11.    }\n12.\n13.    public static void main(String [] args) {\n14.      MySuper sup = new MySub();\n15.    }\n16.  }",
+    "options": [
+      "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+      "super 2 sub",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "Compilation fails at line 14."
+    ],
+    "optionsVi": [
+      "sub super 2 52 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types",
+      "super 2 sub",
+      "Compilation fails at line 2.",
+      "Compilation fails at line 8.",
+      "Compilation fails at line 9.",
+      "Compilation fails at line 14."
+    ],
+    "answer": 1,
+    "explanation": "B. Class MySuper does not need a no-args constructor because MySub explicitly calls the MySuper constructor with an argument. ✗ A is incorrect because other than the implicit calls to super(), constructors run in order from base class to extended class, so MySuper’s output will print first.C, D, E,and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch05-013",
+    "originalId": 13,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst(4L);\n4.     }\n5.     public ThreeConst(int x) {\n6.       this();\n7.       System.out.print(\" \" + (x * 2));\n8.     }\n9.     public ThreeConst(long x) {\n10.      this((int) x);\n11.      System.out.print(\" \" + x);\n12.    }\n13.\n14.    public ThreeConst() {\n15.      System.out.print(\"no-arg \");\n16.    }\n17.  }",
+    "options": [
+      "4",
+      "4 8",
+      "8 4",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Compilation fails."
+    ],
+    "optionsVi": [
+      "4",
+      "4 8",
+      "8 4",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "answer": 4,
+    "explanation": "E. Themain() method calls the long constructor which calls the int constructor, which calls the no-arg constructor, which runs, then returns to the int constructor, which runs, then returns to the long constructor, which runs last. ✗ A, B, C, D, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-014",
+    "originalId": 14,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ThreeConst {\n2.     public static void main(String [] args) {\n3.       new ThreeConst();\n4.     }\n5.     public void ThreeConst(int x) {\n6.       System.out.print(\" \" + (x * 2));\n7.     }\n8.     public void ThreeConst(long x) {\n9.      System.out.print(\" \" + x);\n10.    }\n11.\n12.    public void ThreeConst() {\n13.      System.out.print(\"no-arg \");\n14.    }\n15.  }",
+    "options": [
+      "no-arg",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Compilation fails.",
+      "No output is produced.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "no-arg",
+      "8 4 no-arg",
+      "no-arg 8 4",
+      "Lỗi biên dịch (Compilation fails)",
+      "No output is produced.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. The class elements declared in lines 5, 8, and 12 are badly named methods, not constructors. The default constructor runs with no output, and these methods are never called. ✗ A, B, C, D, and F are incorrect because of the logic described above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-015",
+    "originalId": 15,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following,",
+    "textVi": "Cho đoạn mã sau, ",
+    "code": "1.   class Dog {\n2.     Dog(String name) { }\n3.   }\nif class Beagle extends Dog, and class Beagle has only one constructor, which of the following\ncould be the legal constructor for class Beagle?",
+    "options": [
+      "Beagle() { }",
+      "Beagle() { super(); }",
+      "Beagle() { super(\"fido\"); }",
+      "No constructor, allow the default constructor"
+    ],
+    "optionsVi": [
+      "Beagle() { }",
+      "Beagle() { super(); }",
+      "Beagle() { super(\"fido\"); }",
+      "No constructor, allow the default constructor"
+    ],
+    "answer": 2,
+    "explanation": "C. Only C is correct because the Dog class does not have a no-arg constructor; therefore, you must explicitly make the call to super(), passing in a string. ✗ A, B, and D are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch05-016",
+    "originalId": 16,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Which two of these statements are true about constructors? (Choose two.)",
+    "textVi": "Which two of these statements are true about constructors? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))",
+      "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+      "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+      "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))"
+    ],
+    "optionsVi": [
+      "B và D (B: Constructors are not inherited. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))",
+      "A và B (A: Constructors must not have arguments if the superclass constructor does not have arguments. & B: Constructors are not inherited.)",
+      "A và C (A: Constructors must not have arguments if the superclass constructor does not have arguments. & C: Constructors cannot be overloaded.)",
+      "C và D (C: Constructors cannot be overloaded. & D: The first statement of every constructor is a legal call to thesuper() orthis()method. Return Types (Sun Objective 1.4))"
+    ],
+    "answer": 0,
+    "explanation": "B and D are simply stating two rules about constructors. ✗ A is wrong because subclass constructors do not have to match the arguments of the superclass constructor. Only the call to super() must match. C is incorrect because constructors can be and are frequently overloaded. Return Types (Sun Objective 1.4)",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch05-017",
+    "originalId": 17,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which line of code, inserted at line 19, will not compile?",
+    "textVi": "Cho đoạn mã sau, which line of code, inserted at line 19, will not compile?",
+    "code": "13.   int x;\n14.   x = n.test();\n18.   int test() {\n19.\n20.     return y;\n21.   }",
+    "options": [
+      "short y = 7;",
+      "int y = (int) 7.2d;",
+      "Byte y = 7;",
+      "char y = 's';",
+      "int y = 0xface;"
+    ],
+    "optionsVi": [
+      "short y = 7;",
+      "int y = (int) 7.2d;",
+      "Byte y = 7;",
+      "char y = 's';",
+      "int y = 0xface;"
+    ],
+    "answer": 2,
+    "explanation": "C. Byte is a wrapper object, not a primitive. ✗ A and D are primitives that are shorter than int so they are cast implicitly. B is a double explicitly cast to an int. E is a valid integer initialized with a hexadecimal value.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch05-018",
+    "originalId": 18,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two of the following lines, inserted independently, at line 15 would not compile? (Choose two.)",
+    "code": "14.    long test( int x, float y) {\n15.\n16.    }",
+    "options": [
+      "B và E (B: return (long) x / y; & E: return ( y / x );)",
+      "A và B (A: return x; & B: return (long) x / y;)",
+      "A và C (A: return x; & C: return (long) y;)",
+      "E và F (E: return ( y / x ); & F: return  x / 7;)"
+    ],
+    "optionsVi": [
+      "B và E (B: return (long) x / y; & E: return ( y / x );)",
+      "A và B (A: return x; & B: return (long) x / y;)",
+      "A và C (A: return x; & C: return (long) y;)",
+      "E và F (E: return ( y / x ); & F: return  x / 7;)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. B won’t compile because thelong cast only applies to x, not to the expression x / y. (We know it’s tricky, but so is the test.)E won’t compile because the result of (y / x) is a float. ✗ A, C, D, and F all return either longs or ints (which are automatically cast to longs).",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch05-019",
+    "originalId": 19,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n54 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+    "options": [
+      "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+      "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+      "A và B (A: return null; & B: Object t = new Object(); return t;)",
+      "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+    ],
+    "optionsVi": [
+      "D và F (D: char [] [] c = new char [2][2]; return c[0] [1]; & F: return 7;)",
+      "A và D (A: return null; & D: char [] [] c = new char [2][2]; return c[0] [1];)",
+      "A và B (A: return null; & B: Object t = new Object(); return t;)",
+      "E và F (E: char [] [] c = new char [2][2]; return c[1]; & F: return 7;)"
+    ],
+    "answer": 0,
+    "explanation": "D and F. D is a reference to a char primitive that happens to be in an array. F returns a primitive, not an object. ✗ A, B, C, and E all return objects. For A,null is always a valid object return. For C,a n array is an object that holds other things (either objects or primitives). For E, we are returning an array held in an array, and it’s still an object!",
+    "correctLetters": [
+      "D",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch05-020",
+    "originalId": 20,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two of the following code fragments inserted at lines 9/10 will not compile? (Choose two.)",
+    "code": "1.   import java.util.*;\n2.   class Ro {\n3.      public static void main(String [] args) {\n4.         Ro r = new Ro();\n5.         Object o = r.test();\n6.      }\n7.\n8.      Object test() {\n9.\n10.\n11.     }\n12.  }",
+    "options": [
+      "B và F (B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types & F: return (Float) 4.3;)",
+      "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types)",
+      "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+      "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+    ],
+    "optionsVi": [
+      "B và F (B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types & F: return (Float) 4.3;)",
+      "A và B (A: char [] [] c = new char [2][2]; return c; & B: return (Object) 7; 56 Chapter 5: Object Orientation, Overloading and Overriding, Constructors, and Return Types)",
+      "A và C (A: char [] [] c = new char [2][2]; return c; & C: return (Object) (new int [] {1,2,3} );)",
+      "E và F (E: return (Object) \"test\"; & F: return (Float) 4.3;)"
+    ],
+    "answer": 0,
+    "explanation": "B and F are both attempting to cast a primitive to an object—can’t do it. ✗ A, C, D, and E all return objects. A is an array object that holds other arrays. C is an array object. D is an ArrayList object. E is a string cast to an object.",
+    "correctLetters": [
+      "B",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch05-021",
+    "originalId": 21,
+    "chapterNum": 5,
+    "chapterTitle": "Object Orientation, Overloading, Overriding, Constructors",
+    "topic": "oop",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.      public static Foo f = new Foo();\n3.      public static Foo f2;\n4.      public static Bar b = new Bar();\n5.\n6.      public static void main(String [] args) {\n7.         for (int x=0; x<6; x++) {\n8.            f2 = getFoo(x);\n9.            f2.react();\n10.       }\n11.     }\n12.     static Foo getFoo(int y) {\n13.          if ( 0 == y % 2 ) {\n14.            return f;\n15.          } else {\n16.            return b;\n17.          }\n18.     }\n19.  }\n20.\n21.  class Bar extends Foo {\n22.     void react() { System.out.print(\"Bar \"); }\n23.  }\n24.\n25.  class Foo {\n26.     void react() { System.out.print(\"Foo \"); }\n27.  }",
+    "options": [
+      "Bar Bar Bar Bar Bar Bar",
+      "Foo Bar Foo Bar Foo Bar",
+      "Foo Foo Foo Foo Foo Foo",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "Bar Bar Bar Bar Bar Bar",
+      "Foo Bar Foo Bar Foo Bar",
+      "Foo Foo Foo Foo Foo Foo",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. Line 8 is an example of a polymorphic return type. The VM will determine on a case- by-case basis what class of object f2 refers to, Bar or Foo. This is only possible because the classes Foo and Bar are in the same inheritance tree. ✗ A, C, D, and E, are incorrect based on the logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  }
+]

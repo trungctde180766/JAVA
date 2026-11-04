@@ -1,0 +1,535 @@
+[
+  {
+    "id": "scjp-ch03-001",
+    "originalId": 1,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Which two are equal? (Choose two.)",
+    "textVi": "Which two are equal? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+      "A và B (A: 32/4; & B: (8>>2)<<4;)",
+      "A và C (A: 32/4; & C: 2^5;)",
+      "D và F (D: 128>>>2; & F: 2>>5;)"
+    ],
+    "optionsVi": [
+      "B và D (B: (8>>2)<<4; & D: 128>>>2;)",
+      "A và B (A: 32/4; & B: (8>>2)<<4;)",
+      "A và C (A: 32/4; & C: 2^5;)",
+      "D và F (D: 128>>>2; & F: 2>>5;)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. B and D both evaluate to 32. B is shifting bits right then left using the signed bit shifters >> and <<. D is shifting bits u sing the unsigned operator >>>, but since the beginning number is positive the sign is maintained. A evaluates to 8, C looks like 2 to the 5 th power, but ^ is the Exclusive OR operator so C evaluates to 7. E evaluates to 16, and F e v a l u a t e st o0( 2> >5i sn o t2t ot h e5 th ).",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-002",
+    "originalId": 2,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two of the following statements, inserted independently, could legally be inserted into line 5 of this code? (Choose two.)",
+    "code": "1.  import java.awt.*;\n2.  class Ticker extends Component {\n3.     public static void main (String [] args) {\n4.        Ticker t = new Ticker();\n5.\n6.     }\n7.  }",
+    "options": [
+      "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+      "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+      "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+      "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+    ],
+    "optionsVi": [
+      "B và D (B: booleantest=(tinstanceofTicker); & D: booleantest=(tinstanceofComponent);)",
+      "A và B (A: booleantest=(Componentinstanceoft); & B: booleantest=(tinstanceofTicker);)",
+      "A và C (A: booleantest=(Componentinstanceoft); & C: booleantest=t.instanceof(Ticker);)",
+      "D và F (D: booleantest=(tinstanceofComponent); & F: booleantest=(tinstanceofString); 52 Chapter 3: Operators and Assignments)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. B is correct because class type Ticker is part of the class hierarchy of t; therefore it is a legal use of the instanceof operator. D is also correct because Component is part of the hierarchy of t, because Ticker extends Component in line 2. ✗ A is incorrect because the syntax is wrong. A variable (or null) always appears before the instanceof operator, and a type appears after it. C and E are incorrect because the statement is used as a method, which is illegal. F is incorrect because the String class is not in the hierarchy of the t object.",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-003",
+    "originalId": 3,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  class Equals {\n2.     public static void main(String [] args) {\n3.        int x = 100;\n4.        double y = 100.1;\n5.        boolean b = (x = y);\n6.        System.out.println(b);\n7.     }\n8.  }",
+    "options": [
+      "true",
+      "false",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "true",
+      "false",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. The code will not compile because in line 5, the line will work only if we use (x==y ) in the line. The == operator compares values to produce a boolean, whereas the = operator assigns a value to variables. ✗ A, B, and D are incorrect because the code does not get as far as compiling. If we corrected this code, the output would be false.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch03-004",
+    "originalId": 4,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, which three statements are true? (Choose three.)",
+    "textVi": "Cho đoạn mã sau, which three statements are true? (Choose three.)",
+    "code": "1.  import java.awt.Button;\n2.  class CompareReference {\n3.     public static void main(String [] args) {\n4.        float f = 42.0f;\n5.        float [] f1 = new float[2];\n6.        float [] f2 = new float[2];\n7.        float [] f3 = f1;\n8.        long x = 42;\n9.        f1[0] = 42.0f;\n10.     }\n11.  }",
+    "options": [
+      "B và D (B: f1==f3 & D: x==f1[0])",
+      "A và B (A: f1==f2 & B: f1==f3)",
+      "A và C (A: f1==f2 & C: f2==f1[1])",
+      "D và E (D: x==f1[0] & E: f==f1[0])"
+    ],
+    "optionsVi": [
+      "B và D (B: f1==f3 & D: x==f1[0])",
+      "A và B (A: f1==f2 & B: f1==f3)",
+      "A và C (A: f1==f2 & C: f2==f1[1])",
+      "D và E (D: x==f1[0] & E: f==f1[0])"
+    ],
+    "answer": 0,
+    "explanation": "B, D, and E. B is correct because the reference variables f1 and f3 refer to the same array object. D is correct because it is legal to compare integer and floating-point types. E is correct because it is legal to compare a variable with an array element. ✗ C is incorrect because f2 is an array object and f1[1] is an array element.",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-005",
+    "originalId": 5,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the output from this program?",
+    "textVi": "Cho đoạn mã sau, what is the output from this program?",
+    "code": "1.  class BitShift {\n2.     public static void main(String [] args) {\n3.        int x = 0x80000000;\n4.        System.out.print(x + \" and  \");\n5.        x = x >>> 31;\n6.        System.out.println(x);\n7.     }\n8.  }",
+    "options": [
+      "-2147483648and1",
+      "0x80000000and0x00000001",
+      "-2147483648and-1",
+      "1and-2147483648",
+      "None of the above"
+    ],
+    "optionsVi": [
+      "-2147483648and1",
+      "0x80000000and0x00000001",
+      "-2147483648and-1",
+      "1and-2147483648",
+      "None of the above"
+    ],
+    "answer": 0,
+    "explanation": "A. The >>> operator moves all bits to the right, zero filling the left bits. The bit transformation looks like this: Before:10000000000000000000000000000000 After:00000000000000000000000000000001 ✗ C is incorrect because the >>> operator zero fills the left bits, which in this case changes the sign of x, as shown. B is incorrect because the output method print() always displays integers in base 10. D is incorrect because this is the reverse order of the two output numbers. E is incorrect because there was a correct answer. 62 Chapter 3: Operators and Assignments",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch03-006",
+    "originalId": 6,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  class Bitwise {\n2.     public static void main(String [] args) {\n3.        int x = 11 & 9;\n4.        int y = x ^ 3;\n5.        System.out.println( y | 12 );\n6.     }\n7.  }",
+    "options": [
+      "0",
+      "7",
+      "8",
+      "14",
+      "15"
+    ],
+    "optionsVi": [
+      "0",
+      "7",
+      "8",
+      "14",
+      "15"
+    ],
+    "answer": 3,
+    "explanation": "D. The & operator produces a 1 bit when both bits are 1. The result of the & operation is 9. The ^ operator produces a 1 bit when exactly one bit is 1; the result of this operation is 10. The | operator produces a 1 bit when at least one bit is 1; the result of this operation is 14. ✗ A, B, C, and E, are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-007",
+    "originalId": 7,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Which of the following are legal lines of code? (Choose all that apply.)",
+    "textVi": "Which of the following are legal lines of code? (Choose all that apply.)",
+    "code": "",
+    "options": [
+      "A và B và C (A: intw=(int)888.8; & B: bytex=(byte)1000L; & C: longy=(byte)100;)",
+      "A và D (A: intw=(int)888.8; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))",
+      "D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)",
+      "B và D (B: bytex=(byte)1000L; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))"
+    ],
+    "optionsVi": [
+      "A và B và C (A: intw=(int)888.8; & B: bytex=(byte)1000L; & C: longy=(byte)100;)",
+      "A và D (A: intw=(int)888.8; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))",
+      "D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3)",
+      "B và D (B: bytex=(byte)1000L; & D: bytez=(byte)100L; 54 Chapter 3: Operators and Assignments Logical Operators (Sun Objective 5.3))"
+    ],
+    "answer": 0,
+    "explanation": "A, B, C, and D. A is correct because when a floating-point number (a double in this case) is cast to an int, it simply loses the digits after the decimal. B and D are correct because a long can be cast into a byte.I ft h elong is over 127, it loses its most significant (leftmost) bits. C actually works, even though a cast is not necessary, because a long can store a byte. ✗ There are no incorrect answer choices. Logical Operators (Sun Objective 5.3)",
+    "correctLetters": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch03-008",
+    "originalId": 8,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) || (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+    "options": [
+      "53",
+      "82",
+      "83",
+      "85",
+      "103",
+      "105"
+    ],
+    "optionsVi": [
+      "53",
+      "82",
+      "83",
+      "85",
+      "103",
+      "105"
+    ],
+    "answer": 1,
+    "explanation": "B. The first two iterations of the for loop both x and y are incremented. On the third iteration x is incremented, and for the first time becomes greater than 2. The short circuit or operator || keeps y from ever being incremented again and x is incremented twice on each of the last three iterations. ✗ A, C, D, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-009",
+    "originalId": 9,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, What is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.     public static void main(String [] args) {\n3.       int x= 0;\n4.       int y= 0;\n5.       for (int z = 0; z < 5; z++) {\n6.          if (( ++x > 2 ) && (++y > 2)) {\n7.             x++;\n8.          }\n9.       }\n10.      System.out.println(x + \" \" + y);\n11.    }\n12.  }",
+    "options": [
+      "52",
+      "53",
+      "63",
+      "64",
+      "75",
+      "85"
+    ],
+    "optionsVi": [
+      "52",
+      "53",
+      "63",
+      "64",
+      "75",
+      "85"
+    ],
+    "answer": 2,
+    "explanation": "C. In the first two iterations x is incremented once and y is not because of the short circuit && operator. In the third and forth iterations x and y are each incremented, and in the fifth iteration x is doubly incremented and y is incremented. ✗ A, B, D, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch03-010",
+    "originalId": 10,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class SSBool {\n2.     public static void main(String [] args) {\n3.       boolean b1 = true;\n4.       boolean b2 = false;\n5.       boolean b3 = true;\n6.       if ( b1 & b2 | b2 & b3 | b2 )\n7.         System.out.print(\"ok \");\n8.       if ( b1 & b2 | b2 & b3 | b2 | b1 )\n9.         System.out.println(\"dokey\");\n10.    }\n11.  }",
+    "options": [
+      "ok",
+      "dokey",
+      "okdokey",
+      "No output is produced",
+      "Compilation error",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "ok",
+      "dokey",
+      "okdokey",
+      "No output is produced",
+      "Compilation error",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. The & operator has a higher precedence than the | operator so that on line 6 b1 and b2 are evaluated together as are b2& b3. The final b1 in line 8 is what causes that if test to be true. ✗ A, C, and D are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-011",
+    "originalId": 11,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result of compiling and running this code?",
+    "textVi": "Cho đoạn mã sau, what is the result of compiling and running this code?",
+    "code": "1.  class Test {\n2.     public static void main(String [] args) {\n3.        int x=20;\n4.        String sup = (x<15)?\"small\":(x<22)?\"tiny\":\"huge\";\n5.        System.out.println(sup);\n6.     }\n7.  }",
+    "options": [
+      "small",
+      "tiny",
+      "huge",
+      "Compilation fails"
+    ],
+    "optionsVi": [
+      "small",
+      "tiny",
+      "huge",
+      "Lỗi biên dịch (Compilation fails)"
+    ],
+    "answer": 1,
+    "explanation": "B. This is an example of a nested ternary operator. The second evaluation (x<22) is true, so the “tiny” value is assigned tosup. ✗ A, C, and D are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-012",
+    "originalId": 12,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class BoolArray {\n2.     boolean [] b = new boolean[3];\n3.     int count = 0;\n4.\n5.     void set(boolean [] x, int i) {\n6.       x[i] = true;\n7.       ++count;\n8.     }\n9.\n10.    public static void main(String [] args) {\n11.      BoolArray ba = new BoolArray();\n12.      ba.set(ba.b, 0);\n13.      ba.set(ba.b, 2);\n14.      ba.test();\n15.    }\n16.\n17.    void test() {\n18.      if ( b[0] && b[1] | b[2] )\n19.        count++;\n20.      if ( b[1] && b[(++count - 2)] )\n21.        count += 7;\n22.      System.out.println(\"count = \" + count);\n23.    }\n24.  }",
+    "options": [
+      "count=0",
+      "count=2",
+      "count=3",
+      "count=4",
+      "count=10",
+      "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+    ],
+    "optionsVi": [
+      "count=0",
+      "count=2",
+      "count=3",
+      "count=4",
+      "count=10",
+      "count=11 Passing Variables into Methods (Sun Objective 5.4)"
+    ],
+    "answer": 2,
+    "explanation": "C. The reference variables b and x both refer to the same boolean array.Count is incremented for each call to the set() method, and once again when the first if test is true. Because of the && short circuit operator, count is not incremented during the second if test. ✗ A, B, D, E, and F are incorrect based on the program logic described above. 64 Chapter 3: Operators and Assignments Passing Variables into Methods (Sun Objective 5.4)",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch03-013",
+    "originalId": 13,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.      static int s;\n3.\n56 Chapter 3: Operators and Assignments\n4.      public static void main(String [] args) {\n5.        Test p = new Test();\n6.        p.start();\n7.        System.out.println(s);\n8.      }\n9.\n10.     void start() {\n11.       int x = 7;\n12.       twice(x);\n13.       System.out.print(x + \" \");\n14.     }\n15.\n16.     void twice(int x) {\n17.       x = x*2;\n18.       s = x;\n19.     }\n20.   }",
+    "options": [
+      "77",
+      "714",
+      "140",
+      "1414",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "77",
+      "714",
+      "140",
+      "1414",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. Theint x in thetwice() method is not the same int x as in thestart() method.Start()’s x is not affected by the twice() method. The instance variable s is updated bytwice()’sx, which is 14. ✗ A, C, and D are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-014",
+    "originalId": 14,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Test {\n2.      public static void main(String [] args) {\n3.        Test p = new Test();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        boolean b1 = false;\n9.        boolean b2 = fix(b1);\n10.       System.out.println(b1 + \" \" + b2);\n11.     }\n12.\n13.     boolean fix(boolean b1) {\n14.       b1 = true;\n15.       return b1;\n16.     }\n17.   }",
+    "options": [
+      "truetrue",
+      "falsetrue",
+      "truefalse",
+      "falsefalse",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "truetrue",
+      "falsetrue",
+      "truefalse",
+      "falsefalse",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. Theboolean b1 in thefix() method is a different boolean than the b1 in the start() method. The b1 in thestart() method is not updated by the fix() method. ✗ A, C, D, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-015",
+    "originalId": 15,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class PassS {\n2.      public static void main(String [] args) {\n3.        PassS p = new PassS();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        String s1 = \"slip\";\n9.        String s2 = fix(s1);\n10.       System.out.println(s1 + \" \" + s2);\n11.     }\n12.\n13.     String fix(String s1) {\n14.       s1 = s1 + \"stream\";\n15.       System.out.print(s1 + \" \");\n16.       return \"stream\";\n17.     }\n18.   }",
+    "options": [
+      "slipstream",
+      "slipstreamstream",
+      "streamslipstream",
+      "slipstreamslipstream",
+      "Compilation fails",
+      "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+    ],
+    "optionsVi": [
+      "slipstream",
+      "slipstreamstream",
+      "streamslipstream",
+      "slipstreamslipstream",
+      "Lỗi biên dịch (Compilation fails)",
+      "An exception is thrown at runtime 58 Chapter 3: Operators and Assignments"
+    ],
+    "answer": 3,
+    "explanation": "D. When thefix() method is first entered, start()’ss1 andfix()’ss1 reference variables both refer to the same String object (with a value of “slip”).Fix()’ss1 is reassigned to a new object that is created when the concatenation occurs (this second String object has a value of “slipstream”). When the program returns tostart(), another String object is created, referred to by s2 and with a value of “stream”. ✗ A, B, C, and E are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-016",
+    "originalId": 16,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class SC2 {\n2.     public static void main(String [] args) {\n3.       SC2 s = new SC2();\n4.       s.start();\n5.     }\n6.\n7.     void start() {\n8.       int a = 3;\n9.       int b = 4;\n10.      System.out.print(\" \" + 7 + 2 + \" \");\n11.      System.out.print(a + b);\n12.      System.out.print(\" \" + a + b + \" \");\n13.      System.out.print(foo() + a + b + \" \");\n14.      System.out.println(a + b + foo());\n15.    }\n16.\n17.    String foo() {\n18.      return \"foo\";\n19.    }\n20.  }",
+    "options": [
+      "977foo77foo",
+      "723434foo3434foo",
+      "977foo3434foo",
+      "72734foo347foo",
+      "93434foo3434foo"
+    ],
+    "optionsVi": [
+      "977foo77foo",
+      "723434foo3434foo",
+      "977foo3434foo",
+      "72734foo347foo",
+      "93434foo3434foo"
+    ],
+    "answer": 3,
+    "explanation": "D. Because all of these expressions use the + operator, there is no precedence to worry about and all of the expressions will be evaluated from left to right. If either operand being evaluated is a String, the + operator will concatenate the two operands; if both operands are numeric, the + operator will add the two operands. ✗ A, B, C, and E are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch03-017",
+    "originalId": 17,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class PassA {\n2.      public static void main(String [] args) {\n3.        PassA p = new PassA();\n4.        p.start();\n5.      }\n6.\n7.      void start() {\n8.        long [] a1 = {3,4,5};\n9.        long [] a2 = fix(a1);\n10.       System.out.print(a1[0] + a1[1] + a1[2] + \" \");\n11.       System.out.println(a2[0] + a2[1] + a2[2]);\n60 Chapter 3: Operators and Assignments\n12.     }\n13.\n14.     long [] fix(long [] a3) {\n15.       a3[1] = 7;\n16.       return a3;\n17.     }\n18.  }",
+    "options": [
+      "1215",
+      "1515",
+      "345375",
+      "375375",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "1215",
+      "1515",
+      "345375",
+      "375375",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "B. The reference variables a1 and a3 refer to the samelong array object. When the [1] element is updated in the fix() method, it is updating the array referred to by a1. The reference variable a2 refers to the same array object. ✗ A, C, D, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch03-018",
+    "originalId": 18,
+    "chapterNum": 3,
+    "chapterTitle": "Operators and Assignments",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   class Two {\n2.     byte x;\n3.   }\n4.\n5.   class PassO {\n6.      public static void main(String [] args) {\n7.        PassO p = new PassO();\n8.        p.start();\n9.      }\n10.\n11.     void start() {\n12.       Two t = new Two();\n13.       System.out.print(t.x + \" \");\n14.       Two t2 = fix(t);\n15.       System.out.println(t.x + \" \" + t2.x);\n16.     }\n17.\n18.     Two fix(Two tt) {\n19.       tt.x = 42;\n20.       return tt;\n21.     }\n22.   }",
+    "options": [
+      "nullnull42",
+      "0042",
+      "04242",
+      "000",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "nullnull42",
+      "0042",
+      "04242",
+      "000",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "C. In thefix() method, the reference variable tt refers to the same object (class Two) as the t reference variable. Updating tt.x in thefix() method updates t.x (they are one in the same object). Remember also that the instance variable x in the Two class is initialized to 0. ✗ A, B, D, E, and F are incorrect based on the program logic described above. EXERCISE ANSWERS Exercise 3-1: Using Shift Operators The program should look something like the following: class BitShift { public static void main(String [] args) { int x = 0x00000001; // or simply 1 x <<= 31; x >>= 31; System.out.println(\"After shift x equals \" + x); } } The number should now equal -1. In bits, this number is 1111 1111 1111 1111 1111 1111 1111 1111 Exercise 3-2: Casting Primitives The program should look something like the following: class Cast { public static void main(String [] args) { float f = 234.56F; short s = (short)f; } } Exercise Answers 65",
+    "correctLetters": [
+      "C"
+    ]
+  }
+]

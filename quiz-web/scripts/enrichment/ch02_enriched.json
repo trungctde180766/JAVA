@@ -1,0 +1,437 @@
+[
+  {
+    "id": "scjp-ch02-001",
+    "originalId": 1,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+    "textVi": "Access modifier nào hạn chế quyền truy cập nhất (most restrictive) mà vẫn cho phép các thành viên của một lớp truy cập vào các thành viên của một lớp khác trong cùng package? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "public",
+      "abstract",
+      "protected",
+      "synchronized",
+      "default access"
+    ],
+    "optionsVi": [
+      "public",
+      "abstract",
+      "protected",
+      "synchronized",
+      "default access (truy cập mặc định / package-private)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Java có 4 cấp độ truy cập (từ khắt khe nhất đến rộng rãi nhất):\n   - `private`: Hạn chế nhất, chỉ duy nhất nội bộ các thành viên trong cùng một class mới nhìn thấy. Các class khác dù ở cùng package cũng KHÔNG THỂ truy cập.\n   - `default access` (truy cập mặc định / package-private, khi không ghi từ khóa nào): Cho phép tất cả các class trong CÙNG PACKAGE nhìn thấy và truy cập lẫn nhau. Chặn hoàn toàn các class ở ngoài package.\n   - `protected`: Rộng hơn default, cho phép các class trong cùng package VÀ các lớp con (subclass) ở ngoài package (thông qua kế thừa) truy cập.\n   - `public`: Thoáng nhất, cho phép truy cập từ bất cứ đâu, trong hay ngoài package.\n2. Đề bài hỏi: Cấp độ nào **hạn chế nhất** (most restrictive) mà **vẫn cho phép** class khác trong cùng package truy cập?\n   - `private` thì quá hẹp (chặn luôn class cùng package).\n   - Vì vậy, mức hẹp nhất thỏa mãn điều kiện bài toán chính là `default access`.\n\n✅ Vì sao đáp án \"E. default access\" đúng:\n`default access` (package-private) là mức truy cập vừa khít để các lớp cùng một package làm việc với nhau, đồng thời khóa chặt không cho bất kỳ lớp ngoài package nào can thiệp.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. public\": Sai vì `public` là mức truy cập thoáng nhất (least restrictive), hoàn toàn trái ngược với yêu cầu \"hạn chế nhất\" (most restrictive).\n• \"C. protected\": Sai vì `protected` có phạm vi rộng hơn `default` (nó mở cửa cho cả lớp con ở package khác).\n• \"B. abstract\" và \"D. synchronized\": Sai vì đây là các non-access modifier, không có chức năng kiểm soát quyền truy cập phạm vi (visibility).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Thứ tự độ khắt khe: `private` (1 lớp) > `default` (cùng package) > `protected` (cùng package + con ngoài package) > `public` (toàn thế giới). Nhớ từ khóa \"most restrictive in same package\" chính là `default`!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-002",
+    "originalId": 2,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+    "textVi": "Để giới hạn quyền truy cập của một phương thức sao cho CHỈ các thành viên trong cùng một class mới có thể truy cập được, bạn sử dụng modifier truy cập nào? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "final",
+      "static",
+      "private",
+      "protected",
+      "volatile",
+      "default access"
+    ],
+    "optionsVi": [
+      "final",
+      "static",
+      "private",
+      "protected",
+      "volatile",
+      "default access (truy cập mặc định)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\n1. Trong lập trình hướng đối tượng với Java, tính đóng gói (encapsulation) yêu cầu ẩn giấu các chi tiết cài đặt nội bộ.\n2. Để đảm bảo một phương thức hoặc thuộc tính CHỈ ĐƯỢC PHÉP gọi bởi các thành viên khác bên trong chính class đó (cấm tuyệt đối mọi lớp bên ngoài, kể cả các lớp con hay lớp cùng package), ta phải khai báo với access modifier là `private`.\n3. Bất kỳ lớp nào khác cố tình gọi phương thức `private` này đều sẽ bị trình biên dịch chặn lại với lỗi truy cập.\n\n✅ Vì sao đáp án \"C. private\" đúng:\n`private` là modifier truy cập hạn chế nhất trong Java, đảm bảo tính bảo mật nội bộ tuyệt đối cho phương thức trong class.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. final\", \"B. static\", \"E. volatile\": Sai vì đây không phải là access modifier. `final` chống ghi đè/gán lại, `static` thuộc về mức lớp, `volatile` dành cho biến đa luồng.\n• \"D. protected\": Sai vì `protected` cho phép các lớp con và các lớp trong cùng package truy cập.\n• \"F. default access\": Sai vì cấp độ mặc định cho phép mọi lớp khác trong cùng package truy cập.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Quy tắc vàng: \"Chỉ riêng mình tôi (class này) dùng\" = `private`!",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch02-003",
+    "originalId": 3,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which three of the following statements are true? (Choose three.)",
+    "textVi": "Cho đoạn mã sau, phát biểu nào dưới đây là đúng? (Chọn đáp án kết hợp đúng)",
+    "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
+    "options": [
+      "A và C (A: Đoạn mã sẽ biên dịch mà không cần thay đổi gì. & C: Class B có quyền khai báo abstract cho m2() hoặc override m2(), nhưng không bắt buộc.)",
+      "A và B (A: Đoạn mã sẽ biên dịch mà không cần thay đổi gì. & B: Class B bắt buộc phải khai báo abstract cho m2() hoặc implement m2().)",
+      "B và D (B: Class B bắt buộc phải khai báo m2() & D: Class A bắt buộc phải khai báo m1().)",
+      "C và F (C: Class B có quyền khai báo m2() nhưng không bắt buộc & F: Nếu class A không abstract thì code không biên dịch.)"
+    ],
+    "optionsVi": [
+      "A và C (A: Đoạn mã sẽ biên dịch mà không cần thay đổi gì. & C: Class B có quyền khai báo abstract cho m2() hoặc override m2(), nhưng không bắt buộc.)",
+      "A và B (A: Đoạn mã sẽ biên dịch mà không cần thay đổi gì. & B: Class B bắt buộc phải khai báo abstract cho m2() hoặc implement m2().)",
+      "B và D (B: Class B bắt buộc phải khai báo m2() & D: Class A bắt buộc phải khai báo m1().)",
+      "C và F (C: Class B có quyền khai báo m2() nhưng không bắt buộc & F: Nếu class A không abstract thì code không biên dịch.)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy phân tích mối quan hệ kế thừa giữa hai lớp trừu tượng `A` và `B`:\n- `abstract class A` có một phương thức abstract là `abstract short m1();` và một phương thức cụ thể là `short m2() { return (short) 420; }`.\n- `abstract class B extends A` kế thừa `A` và đã cài đặt phương thức `short m1() { return (short) 42; }`.\n\nQuy tắc của Java đối với Abstract Class:\n1. Một abstract class con (`B`) khi kế thừa abstract class cha (`A`) KHÔNG BẮT BUỘC phải cài đặt phương thức trừu tượng nào, nhưng nó ĐƯỢC PHÉP cài đặt nếu muốn (ở đây `B` đã cài đặt `m1()`, hoàn toàn hợp lệ).\n2. Đối với phương thức cụ thể `m2()` mà `A` đã có phần thân hàm:\n   - `B` tự động kế thừa implementation này từ `A`.\n   - `B` có quyền override lại nếu muốn, hoặc thậm chí `B` có thể khai báo lại `abstract short m2();` (tái trừu tượng hóa để bắt buộc các lớp con của `B` phải tự viết lại).\n   - Tuy nhiên việc này là TÙY CHỌN, HOÀN TOÀN KHÔNG BẮT BUỘC.\n3. Vì vậy, mã nguồn hiện tại biên dịch hoàn hảo 100% mà không cần sửa đổi bất kỳ dòng nào (khẳng định A đúng). Và khẳng định C (B có quyền làm điều đó nhưng không bắt buộc) cũng đúng.\n\n✅ Vì sao đáp án \"A và C\" đúng:\nKhẳng định A đúng vì mã nguồn hiện tại hoàn toàn hợp lệ và biên dịch không lỗi. Khẳng định C đúng vì việc override hoặc biến `m2()` thành abstract trong lớp con `B` là quyền của `B` chứ không phải nghĩa vụ bắt buộc.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Sai vì khẳng định B cho rằng `B` \"bắt buộc\" (must) phải khai báo lại hoặc implement `m2()`. Thực tế `B` đã nghiễm nhiên thừa hưởng `m2()` từ cha `A` rồi.\n• Phương án chứa D: Sai vì một class con hoàn toàn có thể tự viết thêm phương thức mới mà không cần class cha phải khai báo nó trước.\n• Phương án chứa F: Sai vì trong Java, một abstract class hoàn toàn có thể kế thừa từ một concrete class bình thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Abstract class con rất tự do: phương thức trừu tượng của cha thích thì implement, không thích thì để lớp con cháu sau này implement. Phương thức cụ thể của cha thì thích override cũng được, mà để nguyên dùng cũng được!",
+    "correctLetters": [
+      "A",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch02-004",
+    "originalId": 4,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+    "textVi": "Hai khai báo nào dưới đây là hợp lệ cho các class và interface độc lập ở cấp ngoài cùng (non-nested / top-level)? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "C và F (C: final public class Test {} & F: abstract public class Test {})",
+      "A và C (A: final abstract class Test {} & C: final public class Test {})",
+      "A và B (A: final abstract class Test {} & B: public static interface Test {})",
+      "E và F (E: protected interface Test {} & F: abstract public class Test {})"
+    ],
+    "optionsVi": [
+      "C và F (C: final public class Test {} & F: abstract public class Test {})",
+      "A và C (A: final abstract class Test {} & C: final public class Test {})",
+      "A và B (A: final abstract class Test {} & B: public static interface Test {})",
+      "E và F (E: protected interface Test {} & F: abstract public class Test {})"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy tắc cốt lõi của Java đối với class và interface ở cấp ngoài cùng (top-level / non-nested - không nằm lồng trong class khác):\n1. **Access modifier:** CHỈ ĐƯỢC PHÉP dùng `public` hoặc để mặc định (`default`). TUYỆT ĐỐI KHÔNG ĐƯỢC dùng `protected` hay `private`.\n2. **Không được dùng `static`:** Từ khóa `static` chỉ dành cho thành viên của một lớp (biến, phương thức, inner class). Một top-level class/interface đứng độc lập không thể là `static`.\n3. **Mối quan hệ giữa `abstract` và `final`:**\n   - `abstract` sinh ra là để bắt buộc phải được kế thừa.\n   - `final` sinh ra là để cấm tiệt việc kế thừa.\n   - Hai từ này triệt tiêu nhau, KHÔNG BAO GIỜ được phép đi cùng nhau trên một lớp!\n\nXét từng lựa chọn:\n- A: `final abstract class Test {}` -> Sai vì mâu thuẫn giữa `final` và `abstract`.\n- B: `public static interface Test {}` -> Sai vì top-level interface không thể là `static`.\n- C: `final public class Test {}` -> Hợp lệ! Thứ tự viết `final public` hay `public final` đều được Java chấp nhận.\n- D: `protected class Test {}` -> Sai vì top-level class không được phép dùng `protected`.\n- E: `protected interface Test {}` -> Sai vì top-level interface không được phép dùng `protected`.\n- F: `abstract public class Test {}` -> Hợp lệ! Class trừu tượng ở cấp ngoài cùng có thể khai báo là `abstract public`.\n\n✅ Vì sao đáp án \"C và F\" đúng:\nCả C (`final public class Test {}`) và F (`abstract public class Test {}`) đều tuân thủ đúng mọi quy định về modifier cho một top-level class.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Sai vì `final` và `abstract` như \"nước với lửa\", kết hợp lại sẽ gây lỗi biên dịch ngay.\n• Phương án chứa B: Sai vì interface cấp ngoài cùng không thể mang từ khóa `static`.\n• Phương án chứa E: Sai vì cấp ngoài cùng không thể dùng access modifier `protected`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Top-level class/interface chỉ có thể là `public` hoặc `default`. Không bao giờ có `private`, `protected` hay `static` ở cấp ngoài cùng! Và đừng bao giờ để `final` đứng cạnh `abstract`!",
+    "correctLetters": [
+      "C",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch02-005",
+    "originalId": 5,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+    "textVi": "Trong 6 khai báo phương thức dưới đây, có bao nhiêu khai báo là HỢP LỆ? (Chọn 1 đáp án)\n1 – protected abstract void m1();\n2 – static final void m1(){}\n3 – transient private native void m1() {}\n4 – synchronized public final void m1() {}\n5 – private native void m1();\n6 – static final synchronized protected void m1() {}",
+    "code": "",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "All of them"
+    ],
+    "optionsVi": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "All of them"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy kiểm tra tỉ mỉ từng khai báo một:\n1. `protected abstract void m1();`: **HỢP LỆ**. Phương thức trừu tượng kết thúc bằng dấu chấm phẩy `;` và modifier `protected` hoàn toàn hợp lệ.\n2. `static final void m1(){}`: **HỢP LỆ**. Phương thức tĩnh và không thể bị ghi đè, có thân hàm `{}` đầy đủ.\n3. `transient private native void m1() {}`: **SAI NGHIÊM TRỌNG (2 LỖI)**:\n   - Lỗi 1: `transient` là từ khóa CHỈ DÀNH CHO BIẾN INSTANCE (để bỏ qua khi serialization), TUYỆT ĐỐI KHÔNG ĐƯỢC dùng cho phương thức!\n   - Lỗi 2: Phương thức `native` được viết bằng C/C++, do đó nó bắt buộc phải kết thúc bằng dấu chấm phẩy `;`, KHÔNG ĐƯỢC có thân hàm `{}`.\n4. `synchronized public final void m1() {}`: **HỢP LỆ**. Một method hoàn toàn có thể kết hợp cả 3 modifier này. Trong Java, thứ tự sắp xếp các modifier không quan trọng.\n5. `private native void m1();`: **HỢP LỆ**. Phương thức native kết thúc bằng `;`, modifier `private` hoàn toàn được phép.\n6. `static final synchronized protected void m1() {}`: **HỢP LỆ**. Kết hợp nhiều modifier hợp lệ cho một phương thức cụ thể.\n\nTổng kết: Có đúng 5 khai báo hợp lệ (1, 2, 4, 5, 6). Chỉ duy nhất số 3 là sai.\n\n✅ Vì sao đáp án \"E. 5\" đúng:\nChính xác có 5 khai báo hợp lệ. Khai báo số 3 vi phạm do dùng `transient` cho method và có thân hàm `{}` cho phương thức `native`.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. 1\", \"B. 2\", \"C. 3\", \"D. 4\": Đều đếm thiếu các trường hợp hợp lệ do nhầm tưởng thứ tự modifier bị sai. Trong Java, thứ tự các modifier (`static`, `final`, `synchronized`, `public`...) được viết tùy ý!\n• \"F. All of them\": Sai vì khai báo số 3 không thể biên dịch được.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Hai từ khóa `transient` và `volatile` CHỈ ĐƯỢC ÁP DỤNG CHO BIẾN, cấm tiệt dùng cho method hay class! Phương thức `abstract` và `native` KHÔNG ĐƯỢC CÓ THÂN HÀM `{}`!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-006",
+    "originalId": 6,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which statement is true?",
+    "textVi": "Cho đoạn mã sau gồm hai file ở hai package khác nhau. Phát biểu nào sau đây là ĐÚNG? (Chọn 1 đáp án)",
+    "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
+    "options": [
+      "The code compiles and runs, with output this 420 parent 420.",
+      "If line 8 is removed, the code will compile and run.",
+      "If line 10 is removed, the code will compile and run.",
+      "Both lines 8 and 10 must be removed for the code to compile.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "Mã nguồn biên dịch và chạy bình thường, in ra: \"this 420 parent 420\".",
+      "Nếu xóa dòng 8, mã nguồn sẽ biên dịch và chạy được.",
+      "Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được.",
+      "Cả dòng 8 và dòng 10 đều phải bị xóa thì mã nguồn mới biên dịch được.",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)."
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐây là một trong những câu hỏi kinh điển nhất về access modifier `protected` trong kỳ thi SCJP!\n- Package `testpkg.p1` có lớp `ParentUtil`, chứa phương thức `protected int doStuff()`.\n- Package `testpkg.p2` có lớp `ChildUtil extends ParentUtil` (lớp con nằm ở KHÁC PACKAGE).\n\n**QUY TẮC VÀNG VỀ `protected`:**\nKhi một lớp con ở package khác muốn truy cập thành viên `protected` của lớp cha, nó CHỈ ĐƯỢC PHÉP TRUY CẬP THÔNG QUA TÍNH KẾ THỪA (nghĩa là truy cập qua chính nó: `this.doStuff()` hoặc qua biến tham chiếu có kiểu là `ChildUtil`).\nLớp con KHÔNG ĐƯỢC PHÉP tạo một đối tượng cha độc lập (`ParentUtil p = new ParentUtil();`) rồi gọi `p.doStuff()`! Bởi vì khi đứng ở một package khác, đối với đối tượng `p`, bạn chỉ là một kẻ bên ngoài không cùng package, không có quyền chạm vào thành viên `protected` của nó.\n\nĐối chiếu vào mã nguồn trong `callStuff()`:\n- Dòng 8: `System.out.print(\"this \" + this.doStuff());` -> Gọi thông qua kế thừa (`this`), hoàn toàn **HỢP LỆ**!\n- Dòng 9 - 10: `ParentUtil p = new ParentUtil(); System.out.print(\" parent \" + p.doStuff());` -> Gọi `doStuff()` trên một đối tượng cha `p` ở ngoài package -> **LỖI BIÊN DỊCH TẠI DÒNG 10** (`doStuff() has protected access in ParentUtil`).\n\nDo đó, chỉ cần xóa bỏ dòng 10 là mã nguồn sẽ biên dịch và chạy ngon lành!\n\n✅ Vì sao đáp án \"C. Nếu xóa dòng 10, mã nguồn sẽ biên dịch và chạy được\" đúng:\nDòng 10 là dòng duy nhất gây lỗi biên dịch do vi phạm quy tắc truy cập `protected` từ ngoài package thông qua biến đối tượng cha. Dòng 8 hoàn toàn hợp lệ.\n\n❌ Vì sao các đáp án khác sai:\n• \"A\": Sai vì code hiện tại không biên dịch được do lỗi dòng 10.\n• \"B\": Sai vì dòng 8 không hề có lỗi, xóa dòng 8 thì dòng 10 vẫn còn đó và code vẫn lỗi.\n• \"D\": Sai vì dòng 8 hợp lệ, không cần thiết phải xóa.\n• \"E\": Sai vì lỗi xảy ra ở bước biên dịch (compile-time), chương trình chưa thể chạy để gặp lỗi runtime.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Quy tắc `protected` ngoài package: Lớp con chỉ được gọi phương thức `protected` của cha khi xem nó như là của chính mình (`this.method()` hoặc `super.method()`). Cấm tiệt kiểu `Parent p = new Parent(); p.protectedMethod();`!",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch02-007",
+    "originalId": 7,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và thực thi chương trình là gì? (Chọn 1 đáp án)",
+    "code": "1.   interface Count {\n2.     short counter = 0;\n3.     void countUp();\n4.   }\n5.   public class TestCount implements Count {\n6.\n7.     public static void main(String [] args) {\n8.       TestCount t = new TestCount();\n9.       t.countUp();\n10.    }\n11.    public void countUp() {\n12.      for (int x = 6; x>counter; x--, ++counter) {\n13.         System.out.print(\" \" + counter);\n14.      }\n15.    }\n16.  }",
+    "options": [
+      "012",
+      "123",
+      "0123",
+      "1234",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "012",
+      "123",
+      "0123",
+      "1234",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy nhìn vào khai báo trong interface `Count`:\n- Dòng 2: `short counter = 0;`\n**Quy tắc bất biến của Java:** Tất cả các biến được khai báo bên trong một Interface ĐỀU MẶC ĐỊNH LÀ:\n`public static final` (nghĩa là chúng luôn luôn là hằng số, dù bạn có viết từ khóa hay không).\n\nBây giờ nhìn vào phương thức `countUp()` trong lớp `TestCount`:\n- Dòng 12: `for (int x = 6; x>counter; x--, ++counter)`\nỞ phần bước lặp của vòng for, code thực hiện biểu thức: `++counter`.\nBiểu thức này tương đương với: `counter = (short)(counter + 1);` (thay đổi giá trị của biến `counter`).\nVì `counter` là một hằng số `final`, trình biên dịch Java sẽ lập tức chặn lại và quăng lỗi biên dịch ngay tại dòng 12:\n`cannot assign a value to final variable counter`.\n\n✅ Vì sao đáp án \"E. Lỗi biên dịch (Compilation fails)\" đúng:\nBiến `counter` khai báo trong interface mặc định là `final` (hằng số không thể thay đổi). Phép toán `++counter` tại dòng 12 cố tình thay đổi hằng số nên không thể biên dịch.\n\n❌ Vì sao các đáp án khác sai:\n• \"A. 0 1 2\", \"B. 1 2 3\", \"C. 0 1 2 3\", \"D. 1 2 3 4\": Đều là những đáp án bẫy giả định chương trình chạy được bình thường và in ra các giá trị lặp.\n• \"F. Ném ngoại lệ khi chạy\": Sai vì compiler đã phát hiện lỗi sửa đổi biến `final` ngay từ khâu biên dịch.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Biến trong interface LUÔN LUÔN là: `public static final`. Đã là biến interface thì chỉ được đọc, thấy bất kỳ dấu gán nào (`=`, `++`, `--`) tác động vào nó thì kết luận ngay là LỖI BIÊN DỊCH!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-008",
+    "originalId": 8,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi biên dịch và thực thi chương trình là gì? (Chọn 1 đáp án)",
+    "code": "1.   import java.util.*;\n2.   public class NewTreeSet2 extends NewTreeSet {\n3.     public static void main(String [] args) {\n4.       NewTreeSet2 t = new NewTreeSet2();\n5.       t.count();\n6.     }\n7.   }\n8.   protected class NewTreeSet {\n9.     void count() {\n10.      for (int x = 0; x < 7; x++,x++ ) {\n11.        System.out.print(\" \" + x);\n12.      }\n13.    }\n14.  }",
+    "options": [
+      "024",
+      "0246",
+      "Compilation fails at line 4",
+      "Compilation fails at line 5",
+      "Compilation fails at line 8",
+      "Compilation fails at line 10"
+    ],
+    "optionsVi": [
+      "024",
+      "0246",
+      "Compilation fails at line 4",
+      "Compilation fails at line 5",
+      "Compilation fails at line 8",
+      "Compilation fails at line 10"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuan sát dòng 8 của mã nguồn:\n`protected class NewTreeSet {`\n\nClass `NewTreeSet` ở đây là một lớp độc lập ở cấp ngoài cùng (outer / top-level class).\nQuy định rất nghiêm ngặt của ngôn ngữ Java về lớp ngoài cùng:\n1. Một lớp ngoài cùng chỉ được phép mang một trong hai quyền truy cập:\n   - `public`\n   - Hoặc để mặc định (`default` / package-private - không ghi từ khóa nào).\n2. TUYỆT ĐỐI KHÔNG ĐƯỢC PHÉP dùng `protected` hoặc `private` cho lớp cấp ngoài cùng (chỉ có nested/inner class nằm bên trong thân của một class khác mới được phép dùng `protected` hoặc `private`).\n\nDo vi phạm quy tắc này, trình biên dịch sẽ báo lỗi cú pháp ngay tại dòng 8:\n`modifier protected not allowed here`.\n\n✅ Vì sao đáp án \"E. Lỗi biên dịch tại dòng 8 (Compilation fails at line 8)\" đúng:\nTừ khóa `protected` không được phép sử dụng cho các lớp độc lập ở cấp ngoài cùng (top-level class).\n\n❌ Vì sao các đáp án khác sai:\n• \"A. 0 2 4\" và \"B. 0 2 4 6\": Sai vì chương trình không thể biên dịch ra file `.class` thì không thể chạy để in ra kết quả.\n• \"C. Lỗi tại dòng 4\" và \"D. Lỗi tại dòng 5\": Sai vì nếu dòng 8 hợp lệ thì dòng 4 và 5 hoàn toàn bình thường.\n• \"F. Lỗi tại dòng 10\": Sai vì cú pháp vòng lặp `for (int x = 0; x < 7; x++, x++)` ở dòng 10 hoàn toàn hợp lệ (mỗi bước lặp tăng x lên 2 lần).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Top-level class chỉ có 2 cửa: `public` hoặc `default`. Nhìn thấy `protected class ...` hay `private class ...` đứng độc lập ở ngoài là chọn ngay LỖI BIÊN DỊCH!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-009",
+    "originalId": 9,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai câu lệnh nào dưới đây khi được thêm độc lập vào dòng 1 sẽ giúp mã nguồn biên dịch thành công? (Chọn đáp án kết hợp đúng)",
+    "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
+    "options": [
+      "B và E (B: import java.util.*; & E: import java.util.TreeMap;)",
+      "A và B (A: Không cần câu lệnh nào & B: import java.util.*;)",
+      "A và C (A: Không cần câu lệnh nào & C: import.java.util.Tree*;)",
+      "D và E (D: import java.util.TreeSet; & E: import java.util.TreeMap;)"
+    ],
+    "optionsVi": [
+      "B và E (B: import java.util.*; & E: import java.util.TreeMap;)",
+      "A và B (A: Không cần câu lệnh nào & B: import java.util.*;)",
+      "A và C (A: Không cần câu lệnh nào & C: import.java.util.Tree*;)",
+      "D và E (D: import java.util.TreeSet; & E: import java.util.TreeMap;)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy soi kỹ các class được sử dụng trong mã nguồn:\n1. Ở dòng 2 và dòng 4: Code sử dụng `java.util.TreeSet`. Vì đã viết tên đầy đủ bao gồm cả package (fully-qualified name), nên trình biên dịch luôn nhận diện được `TreeSet` mà không cần bất kỳ câu lệnh `import` nào.\n2. Tuy nhiên, ở dòng 8: `TreeMap m = new TreeMap();`. Ở đây code dùng tên ngắn gọn `TreeMap`. Lớp này nằm trong package `java.util`, nhưng trong file chưa có câu lệnh import nào để compiler biết `TreeMap` ở đâu. Do đó, nếu dòng 1 để trống, code sẽ bị lỗi: `cannot find symbol: class TreeMap`.\n\nĐể giải quyết lỗi này, tại dòng 1 ta có thể thêm:\n- Lệnh B: `import java.util.*;` -> Import toàn bộ các class trong gói `java.util`, bao gồm cả `TreeMap`.\n- Hoặc lệnh E: `import java.util.TreeMap;` -> Import đích danh class `TreeMap`.\nCả hai cách này đều giúp code nhận diện được `TreeMap` và biên dịch thành công.\n\n✅ Vì sao đáp án \"B và E\" đúng:\nCả hai câu lệnh đều cung cấp thông tin import hợp lệ để trình biên dịch nhận diện được lớp `TreeMap` ở dòng 8.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Sai vì nếu không có câu lệnh nào thì dòng 8 sẽ báo lỗi không tìm thấy `TreeMap`.\n• Phương án chứa C (`import.java.util.Tree*;`): Sai cú pháp nghiêm trọng (dư dấu chấm sau `import`, và Java không hỗ trợ ký tự đại diện kiểu `Tree*`).\n• Phương án chứa D (`import java.util.TreeSet;`): Sai vì chỉ import `TreeSet` (vốn đã dùng tên đầy đủ nên không cần), trong khi class thực sự đang thiếu là `TreeMap` thì lại không import.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Đã viết tên đầy đủ (`java.util.TreeSet`) thì không cần import. Viết tên ngắn (`TreeMap`) thì bắt buộc phải import. Cú pháp wildcard của Java chỉ có `.*`, không có `.*Tree*`!",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-010",
+    "originalId": 10,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two are valid declarations within an interface? (Choose two.)",
+    "textVi": "Hai khai báo nào dưới đây là hợp lệ bên trong một interface? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "A và E (A: public static short stop = 23; & E: public Boolean madness(long bow);)",
+      "A và B (A: public static short stop = 23; & B: protected short stop = 23;)",
+      "B và C (B: protected short stop = 23; & C: transient short stop = 23;)",
+      "D và E (D: final void madness(); & E: public Boolean madness(long bow);)"
+    ],
+    "optionsVi": [
+      "A và E (A: public static short stop = 23; & E: public Boolean madness(long bow);)",
+      "A và B (A: public static short stop = 23; & B: protected short stop = 23;)",
+      "B và C (B: protected short stop = 23; & C: transient short stop = 23;)",
+      "D và E (D: final void madness(); & E: public Boolean madness(long bow);)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy tắc của Java đối với các thành viên bên trong Interface:\n1. **Đối với biến (Constants):**\n   - Luôn luôn mặc định là `public static final`.\n   - Có thể ghi rõ các từ khóa này hoặc lược bớt, nhưng TUYỆT ĐỐI KHÔNG ĐƯỢC dùng: `private`, `protected`, `transient`, `volatile`.\n2. **Đối với phương thức (Methods):**\n   - Mặc định luôn là `public abstract`.\n   - Có thể ghi rõ `public`, `abstract` hoặc bỏ trống, kết thúc bằng dấu chấm phẩy `;`.\n   - TUYỆT ĐỐI KHÔNG ĐƯỢC dùng: `private`, `protected`, `final`, `static`, `native`, `synchronized`.\n\nĐánh giá từng khai báo:\n- A: `public static short stop = 23;` -> **HỢP LỆ**. Dù không ghi `final` thì trình biên dịch vẫn tự động ngầm hiểu đây là hằng số `public static final`.\n- B: `protected short stop = 23;` -> **SAI** vì biến interface không được phép là `protected`.\n- C: `transient short stop = 23;` -> **SAI** vì biến interface không được phép là `transient`.\n- D: `final void madness();` -> **SAI** vì phương thức trong interface bắt buộc phải cho phép lớp khác override, không bao giờ được mang từ khóa `final`.\n- E: `public Boolean madness(long bow);` -> **HỢP LỆ**. Đây là khai báo phương thức trừu tượng tiêu chuẩn (trả về kiểu wrapper `Boolean`, nhận tham số `long`).\n\n✅ Vì sao đáp án \"A và E\" đúng:\nA là khai báo hằng số hợp lệ (tự động nhận `final`), và E là khai báo phương thức trừu tượng `public` hợp lệ trong interface.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa B: Biến interface bị cấm dùng modifier `protected`.\n• Phương án chứa C: Biến interface bị cấm dùng modifier `transient`.\n• Phương án chứa D: Phương thức interface bị cấm dùng modifier `final`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Mọi thứ trong Interface đều là CÔNG KHAI (`public`). Biến thì bắt buộc phải là hằng số (`public static final`). Phương thức thì bắt buộc phải là trừu tượng (`public abstract`), cấm tiệt `final`, `private`, `protected`!",
+    "correctLetters": [
+      "A",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-011",
+    "originalId": 11,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which of the following class level (nonlocal) variable declarations will not compile?",
+    "textVi": "Khai báo biến ở cấp độ lớp (biến non-local / biến toàn cục của class) nào dưới đây sẽ KHÔNG THỂ biên dịch? (Chọn 1 đáp án)",
+    "code": "",
+    "options": [
+      "protected int a;",
+      "transient int b = 3;",
+      "public static final int c;",
+      "volatile int d;",
+      "private synchronized int e;"
+    ],
+    "optionsVi": [
+      "protected int a;",
+      "transient int b = 3;",
+      "public static final int c;",
+      "volatile int d;",
+      "private synchronized int e;"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy xem xét mục đích và phạm vi sử dụng của từng từ khóa đối với biến (field) trong class:\n- A: `protected int a;` -> Hợp lệ, `protected` là access modifier hợp lệ cho biến thành viên.\n- B: `transient int b = 3;` -> Hợp lệ, `transient` là modifier chuyên dùng cho biến để báo hiệu không lưu trường này khi serialization.\n- C: `public static final int c;` -> Hợp lệ, đây là \"blank final variable\" (hằng số chưa gán giá trị ngay). Java cho phép khai báo hằng số như vậy miễn là nó được khởi tạo giá trị trong khối `static { c = 10; }` của class.\n- D: `volatile int d;` -> Hợp lệ, `volatile` là modifier chuyên dùng cho biến để thông báo cho JVM luôn đọc/ghi trực tiếp từ bộ nhớ chính (main memory), phục vụ lập trình đa luồng.\n- E: `private synchronized int e;` -> **LỖI BIÊN DỊCH NGHIÊM TRỌNG!**\n  Từ khóa `synchronized` chỉ có thể dùng để đồng bộ hóa hành vi (behavior) - nghĩa là **CHỈ ÁP DỤNG CHO PHƯƠNG THỨC HOẶC KHỐI LỆNH**, TUYỆT ĐỐI KHÔNG ĐƯỢC dùng cho biến! Trình biên dịch sẽ báo lỗi: `modifier synchronized not allowed here`.\n\n✅ Vì sao đáp án \"private synchronized int e;\" đúng:\n`synchronized` không phải là một modifier hợp lệ dành cho biến, dẫn đến lỗi biên dịch.\n\n❌ Vì sao các đáp án khác sai:\n• \"A\", \"B\", \"D\": Đều sử dụng các modifier hợp lệ dành riêng cho biến (`protected`, `transient`, `volatile`).\n• \"C\": Cú pháp khai báo biến hằng số `final` không gán ngay (blank final) là hoàn toàn hợp lệ nếu được khởi tạo sau trong static block.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `synchronized` khóa hành động (phương thức/khối mã), không thể khóa dữ liệu (biến). Biến thì dùng `volatile`, phương thức mới dùng `synchronized`!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-012",
+    "originalId": 12,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi chèn vào dòng 7 và 8 sẽ biên dịch thành công? (Chọn đáp án kết hợp đúng)",
+    "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
+    "options": [
+      "C và E (C: interface AllMath extends DoMath { float getAvg(int h, int l); } & E: abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } })",
+      "A và C (A: class AllMath extends DoMath { double getArea(int r); } & C: interface AllMath extends DoMath { float getAvg(int h, int l); })",
+      "A và B (A: class AllMath extends DoMath { double getArea(int r); } & B: interface AllMath implements MathPlus { double getVol(int x, int y); })",
+      "D và E (D: class AllMath implements MathPlus { double getArea(int rad); } & E: abstract class AllMath implements DoMath, MathPlus ...)"
+    ],
+    "optionsVi": [
+      "C và E (C: interface AllMath extends DoMath { float getAvg(int h, int l); } & E: abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } })",
+      "A và C (A: class AllMath extends DoMath { double getArea(int r); } & C: interface AllMath extends DoMath { float getAvg(int h, int l); })",
+      "A và B (A: class AllMath extends DoMath { double getArea(int r); } & B: interface AllMath implements MathPlus { double getVol(int x, int y); })",
+      "D và E (D: class AllMath implements MathPlus { double getArea(int rad); } & E: abstract class AllMath implements DoMath, MathPlus ...)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐề bài cho 2 interface: `DoMath` (có phương thức `double getArea(int rad);`) và `MathPlus` (có phương thức `double getVol(int b, int h);`).\n\nHãy đối chiếu các quy tắc kế thừa trong Java:\n1. Interface chỉ có thể `extends` interface khác. Interface KHÔNG THỂ `implements`.\n2. Class chỉ có thể `implements` interface. Class KHÔNG THỂ `extends` interface.\n3. Nếu một class là `abstract class`, nó KHÔNG BẮT BUỘC phải cài đặt toàn bộ các phương thức của interface mà nó implements. Nó có thể cài đặt 1 phương thức, nhiều phương thức hoặc không cài đặt cái nào.\n4. Khi override phương thức từ interface, BẮT BUỘC phải dùng modifier `public`.\n\nKiểm tra từng đoạn mã:\n- **A:** `class AllMath extends DoMath` -> Sai ngữ pháp vì class không thể `extends` interface.\n- **B:** `interface AllMath implements MathPlus` -> Sai ngữ pháp vì interface không thể `implements`.\n- **C:** `interface AllMath extends DoMath { float getAvg(int h, int l); }` -> **HỢP LỆ!** Interface kế thừa interface khác bằng `extends` và khai báo thêm phương thức trừu tượng mới.\n- **D:** `class AllMath implements MathPlus { double getArea(int rad); }` -> Sai vì: (1) `AllMath` là class cụ thể nhưng lại chứa phương thức abstract không có thân hàm; (2) `AllMath` không implement phương thức bắt buộc `getVol` của `MathPlus`.\n- **E:** `abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }` -> **HỢP LỆ!** Abstract class có quyền implements cả hai interface, cài đặt một phương thức hợp lệ với từ khóa `public` và để phương thức còn lại cho các lớp con sau này cài đặt.\n\n✅ Vì sao đáp án \"C và E\" đúng:\nCả C (Interface `extends` Interface) và E (Abstract class `implements` nhiều Interface và cài đặt một phần) đều tuân thủ chính xác các quy tắc ngữ pháp của Java.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Sai vì dùng từ khóa `extends` giữa class và interface.\n• Phương án chứa B: Sai vì interface dùng từ khóa `implements`.\n• Phương án chứa D: Sai vì class thông thường (concrete) không được chứa phương thức trừu tượng không có thân hàm.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Interface `extends` Interface. Class `implements` Interface. Chỉ có Class mới `extends` Class. Abstract class thì cực kỳ thoải mái: muốn implement bao nhiêu phương thức của interface tùy thích, không ai ép phải implement hết!",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-013",
+    "originalId": 13,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which three are valid method signatures in an interface? (Choose three.)",
+    "textVi": "Ba khai báo method signature nào dưới đây là hợp lệ bên trong một interface? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "B và C (B: public float getVol(float x); & C: public void main(String[] args);)",
+      "A và B (A: private int getArea(); & B: public float getVol(float x);)",
+      "A và D (A: private int getArea(); & D: public static void main(String[] args);)",
+      "C và E (C: public void main(String[] args); & E: boolean setFlag(Boolean[] test[]);)"
+    ],
+    "optionsVi": [
+      "B và C (B: public float getVol(float x); & C: public void main(String[] args);)",
+      "A và B (A: private int getArea(); & B: public float getVol(float x);)",
+      "A và D (A: private int getArea(); & D: public static void main(String[] args);)",
+      "C và E (C: public void main(String[] args); & E: boolean setFlag(Boolean[] test[]);)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nQuy định về phương thức trong Interface (chuẩn SCJP):\n1. Mọi phương thức trong interface đều mặc định là `public abstract`.\n2. Lập trình viên có thể viết tường minh `public abstract` hoặc lược bỏ.\n3. TUYỆT ĐỐI KHÔNG ĐƯỢC dùng các modifier sau: `private`, `protected`, `final`, `static`, `native`, `synchronized`.\n4. Tên phương thức có thể là bất kỳ định danh hợp lệ nào (kể cả tên `main`), tham số và kiểu trả về có thể là bất kỳ kiểu dữ liệu hợp lệ nào.\n\nPhân tích từng khai báo:\n- A: `private int getArea();` -> **SAI** vì phương thức interface không được phép là `private`.\n- B: `public float getVol(float x);` -> **HỢP LỆ** (khai báo `public` tường minh, kết thúc bằng `;`).\n- C: `public void main(String[] args);` -> **HỢP LỆ** (đây là một phương thức trừu tượng bình thường có tên là `main`, hoàn toàn hợp pháp).\n- D: `public static void main(String[] args);` -> **SAI** vì theo chuẩn Java truyền thống của SCJP, phương thức trong interface không được phép là `static`.\n- E: `boolean setFlag(Boolean[] test[]);` -> **HỢP LỆ** (ngầm định là public abstract, tham số là mảng 2 chiều `Boolean[][]`).\n\nBộ 3 hợp lệ gốc là B, C, E. Trong các phương án lựa chọn, tổ hợp A (`B và C`) là hoàn toàn chính xác.\n\n✅ Vì sao đáp án \"B và C\" đúng:\nCả hai phương thức B và C đều là các khai báo phương thức trừu tượng công khai (`public abstract`) hợp lệ bên trong interface.\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Phương thức interface bị cấm dùng `private`.\n• Phương án chứa D: Phương thức interface trong SCJP bị cấm dùng `static`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong interface: Phương thức LUÔN LUÔN là `public abstract`. Thấy dính `private`, `protected`, `static`, `final` là loại ngay không cần suy nghĩ!",
+    "correctLetters": [
+      "B",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch02-014",
+    "originalId": 14,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+    "textVi": "Hai phát biểu nào dưới đây là ĐÚNG đối với bất kỳ một concrete class (lớp cụ thể) nào implement interface java.lang.Runnable? (Chọn đáp án kết hợp đúng)",
+    "code": "",
+    "options": [
+      "B và F (B: Lớp phải chứa một phương thức tên là run() để từ đó toàn bộ mã lệnh cho thread sẽ được khởi chạy. & F: Phương thức bắt buộc phải là public, kiểu trả về là void, tên là run() và không nhận tham số nào.)",
+      "A và B (A: Bạn có thể extend interface Runnable miễn là override public run(). & B: Lớp phải chứa method run()...)",
+      "A và C (A: Bạn có thể extend Runnable... & C: Lớp phải chứa một method rỗng public void run().)",
+      "D và E (D: Phương thức bắt buộc là start(). & E: Định nghĩa lớp phải có chữ implements Threads...)"
+    ],
+    "optionsVi": [
+      "B và F (B: Lớp phải chứa một phương thức tên là run() để từ đó toàn bộ mã lệnh cho thread sẽ được khởi chạy. & F: Phương thức bắt buộc phải là public, kiểu trả về là void, tên là run() và không nhận tham số nào.)",
+      "A và B (A: Bạn có thể extend interface Runnable miễn là override public run(). & B: Lớp phải chứa method run()...)",
+      "A và C (A: Bạn có thể extend Runnable... & C: Lớp phải chứa một method rỗng public void run().)",
+      "D và E (D: Phương thức bắt buộc là start(). & E: Định nghĩa lớp phải có chữ implements Threads...)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nInterface `java.lang.Runnable` trong thư viện chuẩn Java chỉ chứa duy nhất một phương thức trừu tượng:\n```java\npublic abstract void run();\n```\nKhi một lớp cụ thể (concrete class - không phải abstract) quyết định `implements Runnable`:\n1. Về mặt cú pháp (Phát biểu F): Nó BẮT BUỘC phải cài đặt (override) phương thức này với đầy đủ các tiêu chuẩn:\n   - Tên: `run`\n   - Access modifier: Bắt buộc phải là `public` (không được thu hẹp quyền truy cập).\n   - Kiểu trả về: `void`.\n   - Tham số: Không có tham số đầu vào `()`.\n2. Về mặt hoạt động đa luồng (Phát biểu B): Khi một luồng mới được tạo và gọi hàm `start()`, máy ảo JVM sẽ bắt đầu thực thi mã lệnh của thread đó từ chính phương thức `run()` này. Khi phương thức `run()` kết thúc, vòng đời của thread đó cũng chấm dứt.\n\n✅ Vì sao đáp án \"B và F\" đúng:\nB phản ánh đúng bản chất luồng thực thi của thread trong Java, và F phản ánh đúng 100% chữ ký phương thức bắt buộc của interface `Runnable`.\n\n❌ Vì sao các đáp án khác sai:\n• Phát biểu A: Sai vì class thì `implements Runnable`, class không thể `extend` một interface.\n• Phát biểu C: Sai vì method `run()` dùng để chứa mã lệnh xử lý của thread, không bắt buộc phải để rỗng (\"empty\"). Nếu để rỗng thì thread chạy chẳng có tác dụng gì.\n• Phát biểu D: Sai vì phương thức của Runnable là `run()`, không phải `start()`.\n• Phát biểu E: Sai vì interface là `Runnable`, không có interface nào tên là `Threads`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• `Runnable` chỉ có đúng một phương thức: `public void run()`. Không tham số, không trả về giá trị, và là điểm bắt đầu thực thi của mọi thread dùng Runnable!",
+    "correctLetters": [
+      "B",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch02-015",
+    "originalId": 15,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which two code fragments will compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai đoạn mã nào dưới đây khi biên dịch độc lập sẽ biên dịch thành công? (Chọn đáp án kết hợp đúng)",
+    "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
+    "options": [
+      "C và D (C: abstract class Class2 implements Base {} & D: abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } })",
+      "A và C (A: interface Base2 implements Base {} & C: abstract class Class2 implements Base {})",
+      "A và B (A: interface Base2 implements Base {} & B: abstract class Class2 extends Base { public boolean m1() { return true; } })",
+      "D và E (D: abstract class Class2 implements Base ... & E: class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } })"
+    ],
+    "optionsVi": [
+      "C và D (C: abstract class Class2 implements Base {} & D: abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } })",
+      "A và C (A: interface Base2 implements Base {} & C: abstract class Class2 implements Base {})",
+      "A và B (A: interface Base2 implements Base {} & B: abstract class Class2 extends Base { public boolean m1() { return true; } })",
+      "D và E (D: abstract class Class2 implements Base ... & E: class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } })"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nInterface `Base` có 2 phương thức trừu tượng:\n- `boolean m1();` (ngầm định là `public abstract`)\n- `byte m2(short s);` (ngầm định là `public abstract`)\n\nHãy phân tích từng đoạn mã:\n- **A:** `interface Base2 implements Base {}` -> **LỖI BIÊN DỊCH** vì Interface không thể `implements` interface khác, phải dùng từ khóa `extends`.\n- **B:** `abstract class Class2 extends Base { public boolean m1() { return true; } }` -> **LỖI BIÊN DỊCH** vì Class không thể `extends` một interface, phải dùng từ khóa `implements`.\n- **C:** `abstract class Class2 implements Base {}` -> **HỢP LỆ**. Một abstract class khi implements một interface KHÔNG BẮT BUỘC phải cài đặt phương thức nào.\n- **D:** `abstract class Class2 implements Base { public boolean m1() { return (7 > 4); } }` -> **HỢP LỆ**. Abstract class có quyền cài đặt một phần phương thức (`m1()`). Biểu thức `(7 > 4)` trả về kiểu `boolean` (giá trị `true`), và method có ghi rõ từ khóa `public`.\n- **E:** `class Class2 implements Base { boolean m1() { return false; } byte m2(short s) { return 42; } }` -> **BẪY THI KINH ĐIỂN - LỖI BIÊN DỊCH**:\n  Tất cả các phương thức trong interface mặc định đều là `public`.\n  Khi một class cụ thể override lại chúng, bạn KHÔNG ĐƯỢC PHÉP THU HẸP QUYỀN TRUY CẬP (không được hạ từ `public` xuống `default`).\n  Ở đây `Class2` khai báo `boolean m1()` và `byte m2(short s)` mà không có từ khóa `public` (tức là phạm vi mặc định / package-private). Trình biên dịch sẽ lập tức báo lỗi: `attempting to assign weaker access privileges; was public`.\n\n✅ Vì sao đáp án \"C và D\" đúng:\nCả C và D đều khai báo lớp trừu tượng `abstract class`, do đó hợp lệ dù không implement phương thức nào (C) hoặc chỉ implement 1 phương thức có từ khóa `public` (D).\n\n❌ Vì sao các đáp án khác sai:\n• Phương án chứa A: Sai vì interface dùng `implements`.\n• Phương án chứa B: Sai vì class dùng `extends` với interface.\n• Phương án chứa E: Bẫy thi kinh điển do thiếu từ khóa `public` khi override phương thức của interface, gây lỗi thu hẹp quyền truy cập.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Bất cứ khi nào class implement method của interface: BẮT BUỘC PHẢI CÓ TỪ KHÓA `public`! Thiếu chữ `public` là trượt ngay lập tức! Abstract class thì không bắt buộc phải implement phương thức của interface.",
+    "correctLetters": [
+      "C",
+      "D"
+    ]
+  }
+]

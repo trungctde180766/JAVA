@@ -1,0 +1,437 @@
+[
+  {
+    "id": "scjp-ch02-001",
+    "originalId": 1,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+    "textVi": "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+    "code": "",
+    "options": [
+      "public",
+      "abstract",
+      "protected",
+      "synchronized",
+      "default access"
+    ],
+    "optionsVi": [
+      "public",
+      "abstract",
+      "protected",
+      "synchronized",
+      "default access"
+    ],
+    "answer": 4,
+    "explanation": "E.defaultaccess is the “package oriented” access modifier. ✗ A and C are wrong becausepublic andprotected are less restrictive. B and D are wrong becauseabstract andsynchronized are not access modifiers.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-002",
+    "originalId": 2,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+    "textVi": "Given a method in aprotected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+    "code": "",
+    "options": [
+      "final",
+      "static",
+      "private",
+      "protected",
+      "volatile",
+      "default access"
+    ],
+    "optionsVi": [
+      "final",
+      "static",
+      "private",
+      "protected",
+      "volatile",
+      "default access"
+    ],
+    "answer": 2,
+    "explanation": "C. Theprivate access modifier limits access to members of the same class. ✗ A, B, D, E, and F are wrong becauseprotected anddefault are the wrong access modifiers, andfinal,static ,a n dvolatile are modifiers but not access modifiers.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch02-003",
+    "originalId": 3,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+    "textVi": "Cho đoạn mã sau, which three of the following statements are true? (Choose three.) 76 Chapter 2: Declarations and Access Control",
+    "code": "1.   abstract class A {\n2.     abstract short m1() ;\n3.     short m2() { return (short) 420; }\n4.   }\n5.\n6.   abstract class B extends A {\n7.     // missing code ?\n8.     short m1() { return (short) 42; }\n9.   }",
+    "options": [
+      "A và C (A: The code will compile with no changes. & C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.)",
+      "A và B (A: The code will compile with no changes. & B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.)",
+      "B và D (B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile. & D: As long as line 8 exists, class A must declare methodm1() in some way.)",
+      "C và F (C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile. & F: If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.)"
+    ],
+    "optionsVi": [
+      "A và C (A: The code will compile with no changes. & C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile.)",
+      "A và B (A: The code will compile with no changes. & B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile.)",
+      "B và D (B: Class B must either make anabstract declaration of methodm2() or implement methodm2() to allow the code to compile. & D: As long as line 8 exists, class A must declare methodm1() in some way.)",
+      "C và F (C: It is legal, but not required, for class B to either make an abstract declaration of method m2() or implement methodm2() for the code to compile. & F: If class A was not abstract and methodm1() on line 2 was implemented, the code would not compile.)"
+    ],
+    "answer": 0,
+    "explanation": "A, C, and E. A and C are correct, because an abstract class does not need to implement any of its superclass’ methods.E is correct because as it stands, it is a valid concrete extension of class A. ✗ B is wrong because anabstract class does not need to implement any of its superclass’ methods. D is wrong because a class that extends another class is free to add new methods. F is wrong because it is legal to extend an abstract class from a concrete class.",
+    "correctLetters": [
+      "A",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch02-004",
+    "originalId": 4,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+    "textVi": "Which two of the following are legal declarations for nonnested classes and interfaces? (Choose two.)",
+    "code": "",
+    "options": [
+      "C và F (C: finalpublicclassTest{} & F: abstractpublicclassTest{})",
+      "A và C (A: finalabstractclassTest{} & C: finalpublicclassTest{})",
+      "A và B (A: finalabstractclassTest{} & B: publicstaticinterfaceTest{})",
+      "E và F (E: protectedinterfaceTest{} & F: abstractpublicclassTest{})"
+    ],
+    "optionsVi": [
+      "C và F (C: finalpublicclassTest{} & F: abstractpublicclassTest{})",
+      "A và C (A: finalabstractclassTest{} & C: finalpublicclassTest{})",
+      "A và B (A: finalabstractclassTest{} & B: publicstaticinterfaceTest{})",
+      "E và F (E: protectedinterfaceTest{} & F: abstractpublicclassTest{})"
+    ],
+    "answer": 0,
+    "explanation": "C, F. Both are legal class declarations. ✗ A is wrong because a class cannot be abstract andfinal—there would be no way to use such a class. B is wrong because interfaces and classes cannot be marked as static. D and E are wrong because classes and interfaces cannot be marked as protected.",
+    "correctLetters": [
+      "C",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch02-005",
+    "originalId": 5,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+    "textVi": "How many of the following are legal method declarations? 1 – protected abstract void m1(); 2 – static final void m1(){} 3 – transient private native void m1() {} 4 – synchronized public final void m1() {} 5 – private native void m1(); 6 – static final synchronized protected void m1() {}",
+    "code": "",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "All of them"
+    ],
+    "optionsVi": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "All of them"
+    ],
+    "answer": 4,
+    "explanation": "E. Statements 1, 2, 4, 5, and 6 are legal declarations. ✗ A, B, C, D, and F are incorrect because the only illegal declaration is 3; transient applies only to variable declarations, not to method declarations. As you can see from these other examples, method declarations can be very extensive.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-006",
+    "originalId": 6,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which statement is true?",
+    "textVi": "Cho đoạn mã sau, Phát biểu nào sau đây là ĐÚNG?",
+    "code": "1.  package testpkg.p1;\n2.  public class ParentUtil {\n3.    public int x = 420;\n4.    protected int doStuff() { return x; }\n5.  }\n1.  package testpkg.p2;\n2.  import testpkg.p1.ParentUtil;\n3.  public class ChildUtil extends ParentUtil {\n4.    public static void main(String [] args) {\n5.      new ChildUtil().callStuff();\n6.    }\n7.    void callStuff() {\n8.      System.out.print(\"this \" + this.doStuff() );\n9.      ParentUtil p = new ParentUtil();\n10.     System.out.print(\" parent \" + p.doStuff() );\n11.   }\n12. }",
+    "options": [
+      "The code compiles and runs, with outputthis420parent420 .",
+      "If line 8 is removed, the code will compile and run.",
+      "If line 10 is removed, the code will compile and run.",
+      "Both lines 8 and 10 must be removed for the code to compile.",
+      "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+    ],
+    "optionsVi": [
+      "The code compiles and runs, with outputthis420parent420 .",
+      "If line 8 is removed, the code will compile and run.",
+      "If line 10 is removed, the code will compile and run.",
+      "Both lines 8 and 10 must be removed for the code to compile.",
+      "An exception is thrown at runtime. Declaration Rules (Sun Objective 4.1)"
+    ],
+    "answer": 2,
+    "explanation": "C. The ParentUtil instance p cannot be used to access the doStuff() method. Because doStuff() hasprotected access, and the ChildUtil class is not in the same package as the ParentUtil class, doStuff() can be accessed only by instances of the ChildUtil class (a subclass ofParentUtil). ✗ A, B, D, and E are incorrect because of the access rules described previously. Declaration Rules",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch02-007",
+    "originalId": 7,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   interface Count {\n2.     short counter = 0;\n3.     void countUp();\n4.   }\n5.   public class TestCount implements Count {\n6.\n7.     public static void main(String [] args) {\n8.       TestCount t = new TestCount();\n9.       t.countUp();\n10.    }\n78 Chapter 2: Declarations and Access Control\n11.    public void countUp() {\n12.      for (int x = 6; x>counter; x--, ++counter) {\n13.         System.out.print(\" \" + counter);\n14.      }\n15.    }\n16.  }",
+    "options": [
+      "012",
+      "123",
+      "0123",
+      "1234",
+      "Compilation fails",
+      "An exception is thrown at runtime"
+    ],
+    "optionsVi": [
+      "012",
+      "123",
+      "0123",
+      "1234",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "E. The code will not compile because the variable counter is an interface variable that is by defaultfinalstatic . The compiler will complain at line 12 when the code attempts to 84 Chapter 2: Declarations and Access Control incrementcounter. ✗ A, B, C, and D are incorrect because of the explanation given above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-008",
+    "originalId": 8,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   import java.util.*;\n2.   public class NewTreeSet2 extends NewTreeSet {\n3.     public static void main(String [] args) {\n4.       NewTreeSet2 t = new NewTreeSet2();\n5.       t.count();\n6.     }\n7.   }\n8.   protected class NewTreeSet {\n9.     void count() {\n10.      for (int x = 0; x < 7; x++,x++ ) {\n11.        System.out.print(\" \" + x);\n12.      }\n13.    }\n14.  }",
+    "options": [
+      "024",
+      "0246",
+      "Compilation fails at line 4",
+      "Compilation fails at line 5",
+      "Compilation fails at line 8",
+      "Compilation fails at line 10"
+    ],
+    "optionsVi": [
+      "024",
+      "0246",
+      "Compilation fails at line 4",
+      "Compilation fails at line 5",
+      "Compilation fails at line 8",
+      "Compilation fails at line 10"
+    ],
+    "answer": 4,
+    "explanation": "E. Nonnested classes cannot be marked protected (orfinal for that matter), so the compiler will fail at line 8. ✗ A, B, C, and D are incorrect because of the explanation given above.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-009",
+    "originalId": 9,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, 1. which two statements, added independently at line 1, allow the code to compile? (Choose two.)",
+    "code": "2.   public class NewTreeSet extends java.util.TreeSet{\n3.     public static void main(String [] args) {\n4.       java.util.TreeSet t = new java.util.TreeSet();\n5.       t.clear();\n6.     }\n7.     public void clear() {\n8.        TreeMap m = new TreeMap();\n9.        m.clear();\n10.    }\n11.  }",
+    "options": [
+      "B và E (B: importjava.util.*; & E: importjava.util.TreeMap;)",
+      "A và B (A: No statement is required & B: importjava.util.*;)",
+      "A và C (A: No statement is required & C: import.java.util.Tree*;)",
+      "D và E (D: importjava.util.TreeSet; & E: importjava.util.TreeMap;)"
+    ],
+    "optionsVi": [
+      "B và E (B: importjava.util.*; & E: importjava.util.TreeMap;)",
+      "A và B (A: No statement is required & B: importjava.util.*;)",
+      "A và C (A: No statement is required & C: import.java.util.Tree*;)",
+      "D và E (D: importjava.util.TreeSet; & E: importjava.util.TreeMap;)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. TreeMap is the only class that must be imported. TreeSet does not need an import statement because it is described with a fully qualified name. ✗ A is incorrect because TreeMap must be imported. C is incorrect syntax for an import statement. D is incorrect because it will not import TreeMap, which is required.",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-010",
+    "originalId": 10,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two are valid declarations within an interface? (Choose two.)",
+    "textVi": "Which two are valid declarations within an interface? (Choose two.)",
+    "code": "",
+    "options": [
+      "A và E (A: publicstaticshortstop=23; & E: publicBooleanmadness(longbow);)",
+      "A và B (A: publicstaticshortstop=23; & B: protectedshortstop=23;)",
+      "B và C (B: protectedshortstop=23; & C: transientshortstop=23;)",
+      "E và F (E: publicBooleanmadness(longbow); & F: staticcharmadness(doubleduty);)"
+    ],
+    "optionsVi": [
+      "A và E (A: publicstaticshortstop=23; & E: publicBooleanmadness(longbow);)",
+      "A và B (A: publicstaticshortstop=23; & B: protectedshortstop=23;)",
+      "B và C (B: protectedshortstop=23; & C: transientshortstop=23;)",
+      "E và F (E: publicBooleanmadness(longbow); & F: staticcharmadness(doubleduty);)"
+    ],
+    "answer": 0,
+    "explanation": "A and E are valid interface declarations. ✗ B and C are incorrect because interface variables cannot be either protected or transient. D and F are incorrect because interface methods cannot be final or static.",
+    "correctLetters": [
+      "A",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-011",
+    "originalId": 11,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which of the following class level (nonlocal) variable declarations will not compile?",
+    "textVi": "Which of the following class level (nonlocal) variable declarations will not compile?",
+    "code": "",
+    "options": [
+      "protectedinta;",
+      "transientintb=3;",
+      "publicstaticfinalintc;",
+      "volatileintd;",
+      "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+    ],
+    "optionsVi": [
+      "protectedinta;",
+      "transientintb=3;",
+      "publicstaticfinalintc;",
+      "volatileintd;",
+      "privatesynchronizedinte; 80 Chapter 2: Declarations and Access Control Interface Implementation (Sun Objective 4.2)"
+    ],
+    "answer": 4,
+    "explanation": "E will not compile; the synchronized modifier applies only to methods. ✗ A and B will compile because protected andtransient are legal variable modifiers. C will compile because when a variable is declared final it does not have to be initialized with a value at the same time. D will compile because volatile is a proper variable modifier. Interface Implementation",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-012",
+    "originalId": 12,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two code fragments inserted at lines 7 and 8 will compile? (Choose two.)",
+    "code": "1.  interface DoMath {\n2.     double getArea(int rad); }\n3.\n4.   interface MathPlus {\n5.     double getVol(int b, int h); }\n6.\n7.\n8.",
+    "options": [
+      "C và E (C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);} & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})",
+      "A và C (A: classAllMathextendsDoMath{ doublegetArea(intr);} & C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);})",
+      "A và B (A: classAllMathextendsDoMath{ doublegetArea(intr);} & B: interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);})",
+      "D và E (D: classAllMathimplementsMathPlus{ doublegetArea(intrad); } & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})"
+    ],
+    "optionsVi": [
+      "C và E (C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);} & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})",
+      "A và C (A: classAllMathextendsDoMath{ doublegetArea(intr);} & C: interfaceAllMathextendsDoMath{ floatgetAvg(inth,intl);})",
+      "A và B (A: classAllMathextendsDoMath{ doublegetArea(intr);} & B: interfaceAllMathimplementsMathPlus{ doublegetVol(intx,inty);})",
+      "D và E (D: classAllMathimplementsMathPlus{ doublegetArea(intrad); } & E: abstractclassAllMathimplementsDoMath,MathPlus{ publicdoublegetArea(intrad){returnrad*rad*3.14;}})"
+    ],
+    "answer": 0,
+    "explanation": "C and E. C are E are correct because interfaces and abstract classes do not need to fully implement the interfaces they extend or implement (respectively). ✗ A is incorrect because a class cannot extend an interface. B is incorrect because an interface cannot implement anything. D is incorrect because the method being implemented is from the wrong interface.",
+    "correctLetters": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch02-013",
+    "originalId": 13,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which three are valid method signatures in an interface? (Choose three.)",
+    "textVi": "Which three are valid method signatures in an interface? (Choose three.)",
+    "code": "",
+    "options": [
+      "B và C (B: publicfloatgetVol(floatx); & C: publicvoidmain(String[]args);)",
+      "A và B (A: privateintgetArea(); & B: publicfloatgetVol(floatx);)",
+      "A và D (A: privateintgetArea(); & D: publicstaticvoidmain(String[]args);)",
+      "C và E (C: publicvoidmain(String[]args); & E: booleansetFlag(Boolean[]test[]);)"
+    ],
+    "optionsVi": [
+      "B và C (B: publicfloatgetVol(floatx); & C: publicvoidmain(String[]args);)",
+      "A và B (A: privateintgetArea(); & B: publicfloatgetVol(floatx);)",
+      "A và D (A: privateintgetArea(); & D: publicstaticvoidmain(String[]args);)",
+      "C và E (C: publicvoidmain(String[]args); & E: booleansetFlag(Boolean[]test[]);)"
+    ],
+    "answer": 0,
+    "explanation": "B, C, and E. These are all valid interface method signatures. ✗ A, is incorrect because an interface method must be public; if it is not explicitly declaredpublic it will be madepublic implicitly. D is incorrect because interface methods cannot bestatic.",
+    "correctLetters": [
+      "B",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch02-014",
+    "originalId": 14,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+    "textVi": "Which two statements are true for any concrete class implementing the java.lang.Runnable interface? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và F (B: The class must contain a method calledrun() from which all code for that thread will be initiated. & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)",
+      "A và B (A: You can extend theRunnable interface as long as you override thepublicrun() method. & B: The class must contain a method calledrun() from which all code for that thread will be initiated.)",
+      "A và C (A: You can extend theRunnable interface as long as you override thepublicrun() method. & C: The class must contain an emptypublicvoid method namedrun().)",
+      "E và F (E: The class definition must include the wordsimplementsThreads and contain a method calledrun(). & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)"
+    ],
+    "optionsVi": [
+      "B và F (B: The class must contain a method calledrun() from which all code for that thread will be initiated. & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)",
+      "A và B (A: You can extend theRunnable interface as long as you override thepublicrun() method. & B: The class must contain a method calledrun() from which all code for that thread will be initiated.)",
+      "A và C (A: You can extend theRunnable interface as long as you override thepublicrun() method. & C: The class must contain an emptypublicvoid method namedrun().)",
+      "E và F (E: The class definition must include the wordsimplementsThreads and contain a method calledrun(). & F: The mandatory method must bepublic, with a return type ofvoid, must be called run(), and cannot take any arguments.)"
+    ],
+    "answer": 0,
+    "explanation": "B and F. When a thread’srun() method completes, the thread will die. The run() method must be declared publicvoid and not take any arguments. ✗ A is incorrect because classes can never extend interfaces. C is incorrect because the run() method is typically not empty; if it were, the thread would do nothing. D is incorrect because the mandatory method is run(). E is incorrect because the class implements Runnable.",
+    "correctLetters": [
+      "B",
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch02-015",
+    "originalId": 15,
+    "chapterNum": 2,
+    "chapterTitle": "Declarations and Access Control",
+    "topic": "modifier",
+    "text": "Given the following, which two code fragments will compile? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, which two code fragments will compile? (Choose two.)",
+    "code": "1.   interface Base {\n2.     boolean m1 ();\n3.     byte m2(short s);\n4.   }",
+    "options": [
+      "C và D (C: abstractclassClass2implementsBase{} & D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}})",
+      "A và C (A: interfaceBase2implementsBase{} & C: abstractclassClass2implementsBase{})",
+      "A và B (A: interfaceBase2implementsBase{} & B: abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}})",
+      "D và E (D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}} & E: classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control)"
+    ],
+    "optionsVi": [
+      "C và D (C: abstractclassClass2implementsBase{} & D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}})",
+      "A và C (A: interfaceBase2implementsBase{} & C: abstractclassClass2implementsBase{})",
+      "A và B (A: interfaceBase2implementsBase{} & B: abstractclassClass2extendsBase{ publicbooleanm1(){returntrue;}})",
+      "D và E (D: abstractclassClass2implementsBase{ publicbooleanm1(){return(7>4);}} & E: classClass2implementsBase{ booleanm1(){returnfalse;} bytem2(shorts){return42;}} 82 Chapter 2: Declarations and Access Control)"
+    ],
+    "answer": 0,
+    "explanation": "C and D. C is correct because an abstract class doesn’t have to implement any or all of its interface’s methods.D is correct because the method is correctly implemented ((7 > 4) is aboolean). ✗ A is incorrect because interfaces don’t implement anything.B is incorrect because classes don’t extend interfaces.E is incorrect because interface methods are implicitly public,s ot h e methods being implemented must be public.",
+    "correctLetters": [
+      "C",
+      "D"
+    ]
+  }
+]

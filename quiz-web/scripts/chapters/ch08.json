@@ -1,0 +1,353 @@
+[
+  {
+    "id": "scjp-ch08-001",
+    "originalId": 1,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+    "textVi": "Cho đoạn mã sau, public class MyOuter { public static class MyInner { public static void foo() { } } } which statement, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?",
+    "code": "",
+    "options": [
+      "MyOuter.MyInnerm=newMyOuter.MyInner();",
+      "MyOuter.MyInnermi=newMyInner();",
+      "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+      "MyInnermi=newMyOuter.MyInner();"
+    ],
+    "optionsVi": [
+      "MyOuter.MyInnerm=newMyOuter.MyInner();",
+      "MyOuter.MyInnermi=newMyInner();",
+      "MyOuterm=newMyOuter(); MyOuter.MyInnermi=m.newMyOuter.MyInner();",
+      "MyInnermi=newMyOuter.MyInner();"
+    ],
+    "answer": 0,
+    "explanation": "A. MyInner is a static nested class, so it must be instantiated using the fully-scoped name of MyOuter.MyInner. ✗ B is incorrect because it doesn’t use the enclosing name in thenew. C is incorrect because it uses incorrect syntax. When you instantiate a nested class by invoking new on an instance of the enclosing class, you do not use the enclosing name. The difference between A and C is that C is calling new on an instance of the enclosing class rather than just new by itself. D is incorrect because it doesn’t use the enclosing class name in the variable declaration.",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch08-002",
+    "originalId": 2,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Which two are true about a static nested class?",
+    "textVi": "Which two are true about a static nested class?",
+    "code": "",
+    "options": [
+      "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+      "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+      "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+      "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+    ],
+    "optionsVi": [
+      "B và D (B: It does not have access to nonstatic members of the enclosing class. & D: It can be instantiated usingnewMyOuter.MyInner(); .)",
+      "A và B (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & B: It does not have access to nonstatic members of the enclosing class.)",
+      "A và C (A: You must have a reference to an instance of the enclosing class in order to instantiate it. & C: Its variables and methods must be static.)",
+      "D và E (D: It can be instantiated usingnewMyOuter.MyInner(); . & E: It must extend the enclosing class.)"
+    ],
+    "answer": 0,
+    "explanation": "B and D. B is correct because a static nested class is not tied to an instance of the enclosing class, and thus can’t access the nonstatic members of the class (just as a static method can’t access nonstatic members of a class).D uses the correct syntax for instantiating a static nested class. ✗ A is incorrect because static nested classes do not need (and can’t use) a reference to an instance of the enclosing class. C is incorrect because static nested classes can declare and define nonstatic members. E is wrong because…it just is. There’s no rule that says an inner or nested class has to extend anything.",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch08-003",
+    "originalId": 3,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Which constructs an anonymous inner class instance?",
+    "textVi": "Which constructs an anonymous inner class instance?",
+    "code": "",
+    "options": [
+      "Runnabler=newRunnable(){};",
+      "Runnabler=newRunnable(publicvoidrun(){});",
+      "Runnabler=newRunnable{publicvoidrun(){}};",
+      "Runnabler=newRunnable(){publicvoidrun{}};",
+      "System.out.println(newRunnable() {publicvoidrun(){}});",
+      "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+    ],
+    "optionsVi": [
+      "Runnabler=newRunnable(){};",
+      "Runnabler=newRunnable(publicvoidrun(){});",
+      "Runnabler=newRunnable{publicvoidrun(){}};",
+      "Runnabler=newRunnable(){publicvoidrun{}};",
+      "System.out.println(newRunnable() {publicvoidrun(){}});",
+      "System.out.println(newRunnable(publicvoidrun(){})); 28 Chapter 8: Inner Classes"
+    ],
+    "answer": 4,
+    "explanation": "E is correct. It defines an anonymous inner class instance, which also means it creates an instance of that new anonymous class at the same time. The anonymous class is an implementer of the Runnable interface, so it must override the run() method of Runnable. ý A is incorrect because it doesn’t override therun() method, so it violates the rules of interface implementation. B, C, and D use incorrect syntax.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch08-004",
+    "originalId": 4,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, class Boo { Boo(String s) { } Boo() { } } class Bar extends Boo { Bar() { } Bar(String s) {super(s);} void zoo() { // insert code here } } which two create an anonymous inner class from within class Bar? (Choose two.)",
+    "code": "",
+    "options": [
+      "B và C (B: Boof=newBar(){}; & C: Boof=newBoo(){Strings;};)",
+      "A và B (A: Boof=newBoo(24){}; & B: Boof=newBar(){};)",
+      "A và D (A: Boof=newBoo(24){}; & D: Barf=newBoo(Strings){};)",
+      "C và E (C: Boof=newBoo(){Strings;}; & E: Boof=newBoo.Bar(Strings){};)"
+    ],
+    "optionsVi": [
+      "B và C (B: Boof=newBar(){}; & C: Boof=newBoo(){Strings;};)",
+      "A và B (A: Boof=newBoo(24){}; & B: Boof=newBar(){};)",
+      "A và D (A: Boof=newBoo(24){}; & D: Barf=newBoo(Strings){};)",
+      "C và E (C: Boof=newBoo(){Strings;}; & E: Boof=newBoo.Bar(Strings){};)"
+    ],
+    "answer": 0,
+    "explanation": "B and C. B is correct because anonymous inner classes are no different from any other class when it comes to polymorphism. That means you are always allowed to declare a reference variable of the superclass type and have that reference variable refer to an instance of a subclass type, which in this case is an anonymous subclass of Bar. Since Bar is a subclass of Boo, it all works. C uses correct syntax for creating an instance of Boo. ý A is incorrect because it passes an int to the Boo constructor, and there is no matching constructor in the Boo class. D is incorrect because it violates the rules of polymorphism—you cannot refer to a superclass type using a reference variable declared as the subclass type. The superclass is not guaranteed to have everything the subclass has. E uses incorrect syntax. 34 Chapter 8: Inner Classes",
+    "correctLetters": [
+      "B",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch08-005",
+    "originalId": 5,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+    "textVi": "Cho đoạn mã sau, 1.class Foo { which statement, inserted at line 5, creates an instance of Bar?",
+    "code": "2.   class Bar{ }\n3.}\n4.class Test {\n5.    public static void main (String [] args) {\n6.       Foo f = new Foo();\n7.       // Insert code here\n8.    }\n9.}",
+    "options": [
+      "Foo.Barb=newFoo.Bar();",
+      "Foo.Barb=f.newBar();",
+      "Barb=newf.Bar();",
+      "Barb=f.newBar();",
+      "Foo.Barb=newf.Bar();"
+    ],
+    "optionsVi": [
+      "Foo.Barb=newFoo.Bar();",
+      "Foo.Barb=f.newBar();",
+      "Barb=newf.Bar();",
+      "Barb=f.newBar();",
+      "Foo.Barb=newf.Bar();"
+    ],
+    "answer": 1,
+    "explanation": "B is correct because the syntax is correct—using both names (the enclosing class and the inner class) in the reference declaration, then using a reference to the enclosing class to invoke new on the inner class. ✗ A, C, D, and E all use incorrect syntax. A is incorrect because it doesn’t use a reference to the enclosing class, and also because it includes both names in the new. C is incorrect because it doesn’t use the enclosing class name in the reference variable declaration, and because the new syntax is wrong. D is incorrect because it doesn’t use the enclosing class name in the reference variable declaration. E is incorrect because the new syntax is wrong.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch08-006",
+    "originalId": 6,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Which two are true about a method-local inner class?",
+    "textVi": "Which two are true about a method-local inner class?",
+    "code": "",
+    "options": [
+      "B và E (B: It can be markedabstract. & E: It can access private members of the enclosing class.)",
+      "A và B (A: It must be markedfinal. & B: It can be markedabstract.)",
+      "A và C (A: It must be markedfinal. & C: It can be markedpublic.)",
+      "D và E (D: It can be markedstatic. & E: It can access private members of the enclosing class.)"
+    ],
+    "optionsVi": [
+      "B và E (B: It can be markedabstract. & E: It can access private members of the enclosing class.)",
+      "A và B (A: It must be markedfinal. & B: It can be markedabstract.)",
+      "A và C (A: It must be markedfinal. & C: It can be markedpublic.)",
+      "D và E (D: It can be markedstatic. & E: It can access private members of the enclosing class.)"
+    ],
+    "answer": 0,
+    "explanation": "B and E. B is correct because a method-local inner class can be abstract, although it means a subclass of the inner class must be created if the abstract class is to be used (so an abstract method-local inner class is probably not useful). E is correct because a method-local inner class works like any other inner class—it has a special relationship to an instance of the enclosing class, thus it can access all members of the enclosing class. ✗ A is incorrect because a method-local inner class does not have to be declared final (although it is legal to do so). C and D are incorrect because a method-local inner class cannot be madepublic (remember—you cannot mark any local variables as public), orstatic.",
+    "correctLetters": [
+      "B",
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch08-007",
+    "originalId": 7,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Which is true about an anonymous inner class?",
+    "textVi": "Which is true about an anonymous inner class?",
+    "code": "",
+    "options": [
+      "It can extend exactly one class and implement exactly one interface.",
+      "It can extend exactly one class and can implement multiple interfaces.",
+      "It can extend exactly one class or implement exactly one interface.",
+      "It can implement multiple interfaces regardless of whether it also extends a class.",
+      "It can implement multiple interfaces if it does not extend a class."
+    ],
+    "optionsVi": [
+      "It can extend exactly one class and implement exactly one interface.",
+      "It can extend exactly one class and can implement multiple interfaces.",
+      "It can extend exactly one class or implement exactly one interface.",
+      "It can implement multiple interfaces regardless of whether it also extends a class.",
+      "It can implement multiple interfaces if it does not extend a class."
+    ],
+    "answer": 2,
+    "explanation": "C is correct because the syntax of an anonymous inner class allows for only one named type after thenew, and that type must be either a single interface (in which case the anonymous class implements that one interface) or a single class (in which case the anonymous class extends that one class). ✗ A, B, D, and E are all incorrect because they don’t follow the syntax rules described in the response for answer C.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch08-008",
+    "originalId": 8,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, public class Foo { Foo() {System.out.print(\"foo\");} class Bar{ Bar() {System.out.print(\"bar\");} public void go() {System.out.print(\"hi\");} } public static void main (String [] args) { Foo f = new Foo(); f.makeBar(); } void makeBar() { (new Bar() {}).go(); } } Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "Compilation fails.",
+      "An error occurs at runtime.",
+      "foobarhi",
+      "barhi",
+      "hi 30 Chapter 8: Inner Classes"
+    ],
+    "optionsVi": [
+      "Lỗi biên dịch (Compilation fails)",
+      "An error occurs at runtime.",
+      "foobarhi",
+      "barhi",
+      "hi 30 Chapter 8: Inner Classes"
+    ],
+    "answer": 2,
+    "explanation": "C is correct because first the Foo instance is created, which means the Foo constructor runs and prints “foo”. Next, themakeBar() method is invoked which creates a Bar, which means the Bar constructor runs and prints “bar”, and finally thego() method is invoked on the new Bar instance, which means the go() method prints “hi”. ✗ A, C, D, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch08-009",
+    "originalId": 9,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, 1.public class TestObj { what is the result?",
+    "textVi": "Cho đoạn mã sau, 1.public class TestObj { Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "2.  public static void main (String [] args) {\n3.    Object o = new Object() {\n4.       public boolean equals(Object obj) {\n5.        return true;\n6.       }\n7.    }\n8.     System.out.println(o.equals(\"Fred\"));\n9.   }\n10.}",
+    "options": [
+      "An exception occurs at runtime.",
+      "true",
+      "fred",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 4.",
+      "Compilation fails because of an error on line 8.",
+      "Compilation fails because of an error on a line other than 3, 4, or 8."
+    ],
+    "optionsVi": [
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+      "true",
+      "fred",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 4.",
+      "Compilation fails because of an error on line 8.",
+      "Compilation fails because of an error on a line other than 3, 4, or 8."
+    ],
+    "answer": 6,
+    "explanation": "G. This code would be legal if line 7 ended with a semicolon. Remember that line 3 is a statement that doesn’t end until line 7, and a statement needs a closing semicolon! ✗ A, B, C, D, E, and F are incorrect based on the program logic described above. If the semicolon were added at line 7, then answer B would be correct—the program would print “true”, the return from theequals() method overridden by the anonymous subclass of Object.",
+    "correctLetters": [
+      "G"
+    ]
+  },
+  {
+    "id": "scjp-ch08-010",
+    "originalId": 10,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.   Object obj = new Horse(\"Zippo\");\n10.    Horse h = (Horse) obj;\n11.    System.out.println(h.name);\n12.  }\n13. }",
+    "options": [
+      "An exception occurs at runtime at line 10.",
+      "Zippo",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10.",
+      "Compilation fails because of an error on line 11."
+    ],
+    "optionsVi": [
+      "An exception occurs at runtime at line 10.",
+      "Zippo",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10.",
+      "Compilation fails because of an error on line 11."
+    ],
+    "answer": 1,
+    "explanation": "B. The code in the HorseTest class is perfectly legal. Line 9 creates an instance of the method-local inner class Horse, using a reference variable declared as type Object. Line 10 casts the Horse object to a Horse reference variable, which allows line 11 to compile. If line 10 were removed, the HorseTest code would not compile, because class Object does not have a name variable. ✗ A, C, D, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch08-011",
+    "originalId": 11,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1. public class HorseTest {\n2.   public static void main (String [] args) {\n3.    class Horse {\n4.       public String name;\n5.       public Horse(String s) {\n6.         name = s;\n7.       }\n8.     }\n9.    Object obj = new Horse(\"Zippo\");\n10.    System.out.println(obj.name);\n11.  }\n12. }",
+    "options": [
+      "An exception occurs at runtime at line 10.",
+      "Zippo",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10."
+    ],
+    "optionsVi": [
+      "An exception occurs at runtime at line 10.",
+      "Zippo",
+      "Compilation fails because of an error on line 3.",
+      "Compilation fails because of an error on line 9.",
+      "Compilation fails because of an error on line 10."
+    ],
+    "answer": 4,
+    "explanation": "E. This code is identical to the code in question 10, except the casting statement has been removed. If you use a reference variable of type Object, you can access only those members defined in class Object. ✗ A, B, C, and D are incorrect based on the program logic described above and in the previous question.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch08-012",
+    "originalId": 12,
+    "chapterNum": 8,
+    "chapterTitle": "Inner Classes",
+    "topic": "javacore",
+    "text": "Given the following, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } what is the result?",
+    "textVi": "Cho đoạn mã sau, public abstract class AbstractTest { public int getNum() { return 45; } public abstract class Bar { public int getNum() { return 38; } } public static void main (String [] args) { AbstractTest t = new AbstractTest() { public int getNum() { return 22; } }; AbstractTest.Bar f = t.new Bar() { public int getNum() { return 57; } }; System.out.println(f.getNum() + \" \" + t.getNum()); } } Kết quả khi chạy đoạn mã trên là gì?",
+    "code": "",
+    "options": [
+      "5722",
+      "4538",
+      "4557",
+      "An exception occurs at runtime.",
+      "Compilation fails. 32 Chapter 8: Inner Classes"
+    ],
+    "optionsVi": [
+      "5722",
+      "4538",
+      "4557",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)",
+      "Compilation fails. 32 Chapter 8: Inner Classes"
+    ],
+    "answer": 0,
+    "explanation": "A. You can define an inner class as abstract, which means you can instantiate only concrete subclasses of the abstract inner class. The object referenced by the variable t is an instance of an anonymous subclass of AbstractTest, and the anonymous class overrides the getNum() method to return22. The variable referenced by f is an instance of an anonymous subclass of Bar, and the anonymous Bar subclass also overrides the getNum() method (to return57). Remember that to instantiate a Bar instance, we need an instance of the enclosing AbstractTest class to tie to the new Bar inner class instance. AbstractTest can’t be instantiated because it’s abstract, so we created an anonymous subclass (non-abstract) and then used the instance of that anonymous subclass to tie to the new Bar subclass instance. ✗ B, C, D, E, and F are incorrect based on the program logic described above.",
+    "correctLetters": [
+      "A"
+    ]
+  }
+]

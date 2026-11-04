@@ -1,0 +1,566 @@
+[
+  {
+    "id": "scjp-ch06-001",
+    "originalId": 1,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class StringRef {\n2.    public static void main(String [] args) {\n3.      String s1 = \"abc\";\n4.      String s2 = \"def\";\n5.      String s3 = s2;\n6.      s2 = \"ghi\";\n7.      System.out.println(s1 + s2 + s3);\n8.    }\n9.  }",
+    "options": [
+      "abcdefghi",
+      "abcdefdef",
+      "abcghidef",
+      "abcghighi",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "abcdefghi",
+      "abcdefdef",
+      "abcghidef",
+      "abcghighi",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi này kiểm tra tính chất Bất biến (Immutability) của lớp `String` và cơ chế hoạt động của Biến Tham Chiếu (Reference Variables) trong Java:\n```java\nString s1 = \"abc\";\nString s2 = \"def\";\nString s3 = s2;\ns2 = \"ghi\";\nSystem.out.println(s1 + s2 + s3);\n```\nHãy phân tích từng bước thực thi trên bộ nhớ:\n1. `s1 = \"abc\";`: Biến `s1` trỏ tới chuỗi `\"abc\"`.\n2. `s2 = \"def\";`: Biến `s2` trỏ tới chuỗi `\"def\"`.\n3. `s3 = s2;`: Giá trị tham chiếu (địa chỉ ô nhớ) trong `s2` được sao chép sang `s3`. Lúc này cả `s2` và `s3` cùng trỏ đến ĐÚNG MỘT đối tượng chuỗi `\"def\"` trong bộ nhớ.\n4. `s2 = \"ghi\";`:\n   • QUAN TRỌNG: String trong Java là bất biến (immutable). Một khi đối tượng chuỗi `\"def\"` đã được tạo ra trên bộ nhớ, nội dung của nó KHÔNG BAO GIỜ bị thay đổi!\n   • Câu lệnh này chỉ đơn thuần trỏ biến tham chiếu `s2` sang một đối tượng String mới toanh có nội dung `\"ghi\"`.\n   • Biến `s3` vẫn tiếp tục trỏ tới đối tượng ban đầu là `\"def\"`. `s3` hoàn toàn không bị ảnh hưởng bởi việc `s2` đổi hướng trỏ!\n5. Lệnh in `s1 + s2 + s3`:\n   • `s1` mang giá trị `\"abc\"`\n   • `s2` mang giá trị `\"ghi\"`\n   • `s3` mang giá trị `\"def\"`\n   -> Chuỗi kết quả in ra màn hình là `\"abcghidef\"`.\n\n✅ Vì sao đáp án \"abcghidef\" đúng:\nVì việc gán lại `s2 = \"ghi\"` chỉ thay đổi địa chỉ mà `s2` trỏ tới, trong khi `s3` vẫn giữ nguyên tham chiếu đến chuỗi `\"def\"` ban đầu.\n\n❌ Vì sao các đáp án khác sai:\n• \"abcdefghi\": Sai do tính nhầm thứ tự các biến khi nối chuỗi.\n• \"abcdefdef\": Sai vì không cập nhật giá trị mới `\"ghi\"` của biến `s2`.\n• \"abcghighi\": Sai vì lầm tưởng rằng khi `s2` đổi thành `\"ghi\"` thì `s3` cũng bị đổi theo `\"ghi\"`. Trong Java, phép gán tham chiếu là sao chép giá trị địa chỉ (pass-by-value of reference), không phải liên kết phụ thuộc (alias/pointer-to-pointer).\n• \"Compilation fails\" & \"Runtime Exception\": Sai vì cú pháp gán và cộng chuỗi hoàn toàn chuẩn xác.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Gán lại biến này KHÔNG LÀM ĐỔI biến kia!\" `s3 = s2` chỉ là sao chép địa chỉ tại thời điểm gán. Khi `s2` trỏ đi chỗ khác, `s3` vẫn đứng yên ở vị trí ban đầu.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-002",
+    "originalId": 2,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);",
+    "options": [
+      "abcXyZ",
+      "abcxyz",
+      "xyzabc",
+      "XyZabc",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "abcXyZ",
+      "abcxyz",
+      "xyzabc",
+      "XyZabc",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi này là bài kiểm tra kinh điển về tính chất Bất biến (Immutability) của đối tượng `String` trong Java:\n```java\n11.   String x = \"xyz\";\n12.   x.toUpperCase();\n13.   String y = x.replace('Y', 'y');\n14.   y = y + \"abc\";\n15.   System.out.println(y);\n```\nHãy phân tích từng bước thực thi:\n1. Dòng 11: `String x = \"xyz\";`: Biến `x` trỏ tới chuỗi `\"xyz\"`.\n2. Dòng 12: `x.toUpperCase();`:\n   • BẪY KINH ĐIỂN: Vì `String` là bất biến, phương thức `toUpperCase()` KHÔNG BAO GIỜ sửa trực tiếp trên chuỗi `x` hiện tại. Thay vào đó, nó tạo ra một đối tượng String MỚI có giá trị `\"XYZ\"`.\n   • Tuy nhiên, kết quả trả về của hàm này KHÔNG được gán cho bất kỳ biến nào! (Đối tượng mới `\"XYZ\"` bị bỏ rơi và sẽ bị Garbage Collector dọn dẹp).\n   • Biến `x` vẫn hoàn toàn giữ nguyên giá trị chữ thường là `\"xyz\"`.\n3. Dòng 13: `String y = x.replace('Y', 'y');`:\n   • Phương thức tìm ký tự `'Y'` hoa trong chuỗi `x` (`\"xyz\"`). Vì trong `\"xyz\"` không hề có ký tự `'Y'` hoa nào, chuỗi không có gì thay đổi.\n   • Biến `y` nhận giá trị là `\"xyz\"`.\n4. Dòng 14: `y = y + \"abc\";`:\n   • Chuỗi `\"xyz\"` được nối với `\"abc\"`, tạo thành chuỗi mới `\"xyzabc\"` và gán lại cho `y`.\n5. Dòng 15: In biến `y` ra màn hình -> in `\"xyzabc\"`.\n\n✅ Vì sao đáp án \"xyzabc\" đúng:\nVì `x.toUpperCase()` không được gán lại cho `x` nên không có tác dụng, `x` vẫn là `\"xyz\"`, dẫn đến `y` sau khi nối với `\"abc\"` trở thành `\"xyzabc\"`.\n\n❌ Vì sao các đáp án khác sai:\n• \"XyZabc\", \"abcXyZ\", \"abcxyz\": Đều sai vì nghĩ rằng `x.toUpperCase()` đã làm thay đổi giá trị của `x`.\n• \"Compilation fails\" & \"Runtime Exception\": Sai vì các phương thức của String đều hợp lệ và không phát sinh ngoại lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Các phương thức của String KHÔNG BAO GIỜ làm thay đổi chuỗi gốc!\" Nếu không có phép gán hứng kết quả (ví dụ `x = x.toUpperCase()`), thì mọi lời gọi phương thức trên String như `trim()`, `concat()`, `replace()`, `substring()` đều vô nghĩa!",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-003",
+    "originalId": 3,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, how many String objects have been created?",
+    "textVi": "Cho đoạn mã sau, có bao nhiêu đối tượng String đã được tạo ra trong bộ nhớ?",
+    "code": "13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "optionsVi": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi này yêu cầu bạn đếm chính xác số lượng đối tượng `String` được sinh ra cả trong String Constant Pool (bộ nhớ chuỗi hằng) và trên Heap (vùng nhớ thông thường):\n```java\n13.  String x = new String(\"xyz\");\n14.  y = \"abc\";\n15.  x = x + y;\n```\nHãy theo dõi từng dòng lệnh:\n1. Dòng 13: `String x = new String(\"xyz\");`\n   • Chuỗi ký tự trực tiếp `\"xyz\"` (string literal): JVM kiểm tra trong String Constant Pool, chưa có nên tạo ra **1 đối tượng String** trong Pool với nội dung `\"xyz\"`.\n   • Từ khóa `new String(...)`: Luôn luôn ép buộc cấp phát một đối tượng mới hoàn toàn trên vùng nhớ Heap. Do đó tạo thêm **1 đối tượng String thứ 2** trên Heap.\n   -> Riêng dòng 13 tạo ra **2 đối tượng**.\n2. Dòng 14: `y = \"abc\";`\n   • Chuỗi ký tự trực tiếp `\"abc\"` được đưa vào String Constant Pool -> Tạo thêm **1 đối tượng String thứ 3**.\n3. Dòng 15: `x = x + y;`\n   • Phép toán nối chuỗi `+` giữa hai biến String (khi chạy ở runtime) sẽ thực hiện ghép nội dung của `x` (`\"xyz\"`) và `y` (`\"abc\"`) để tạo ra một đối tượng String mới toanh trên Heap có giá trị `\"xyzabc\"` -> Tạo thêm **1 đối tượng String thứ 4**.\n- Tổng cộng toàn bộ quá trình: 2 + 1 + 1 = **4 đối tượng String** đã được tạo ra!\n\n✅ Vì sao đáp án \"4\" đúng:\nVì dòng 13 tạo 2 đối tượng (1 trong Pool, 1 trên Heap qua từ khóa `new`), dòng 14 tạo 1 đối tượng trong Pool, và dòng 15 tạo 1 đối tượng mới khi nối chuỗi trên Heap.\n\n❌ Vì sao các đáp án khác sai:\n• \"2\": Sai vì quên mất chuỗi trong Pool và chuỗi tạo mới khi cộng chuỗi.\n• \"3\": Sai vì quên mất rằng `new String(\"xyz\")` tạo ra 2 đối tượng chứ không phải 1.\n• \"5\": Sai vì đếm dư đối tượng.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Công thức kinh điển thi SCJP:\n  • `String s = \"abc\";` -> Tạo tối đa 1 đối tượng (trong Pool).\n  • `String s = new String(\"abc\");` -> Tạo 2 đối tượng (1 trong Pool + 1 trên Heap).\n  • Phép cộng chuỗi với biến `s1 + s2` -> Luôn tạo 1 đối tượng mới trên Heap.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-004",
+    "originalId": 4,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);",
+    "options": [
+      "apa",
+      "app",
+      "apea",
+      "apep",
+      "papp",
+      "papa"
+    ],
+    "optionsVi": [
+      "apa",
+      "app",
+      "apea",
+      "apep",
+      "papp",
+      "papa"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã kiểm tra hai phương thức thao tác chuỗi cơ bản: `substring()` và `charAt()`:\n```java\n14.    String a = \"newspaper\";\n15.    a = a.substring(5,7);\n16.    char b = a.charAt(1);\n17.    a = a + b;\n18.    System.out.println(a);\n```\nHãy đánh số chỉ mục (index) của chuỗi `\"newspaper\"` (bắt đầu từ số 0):\n```\nIndex: 0  1  2  3  4  5  6  7  8\nKý tự: n  e  w  s  p  a  p  e  r\n```\nPhân tích từng dòng lệnh:\n1. Dòng 15: `a = a.substring(5, 7);`\n   • Quy tắc phương thức `substring(beginIndex, endIndex)`: Lấy các ký tự từ `beginIndex` (bao gồm) đến `endIndex` (KHÔNG BAO GỒM).\n   • Tức là lấy các ký tự tại index 5 và index 6.\n   • Tại index 5 là ký tự `'a'`.\n   • Tại index 6 là ký tự `'p'`.\n   • (Độ dài chuỗi con luôn bằng `endIndex - beginIndex` = 7 - 5 = 2 ký tự).\n   -> Kết quả: `a = \"ap\"`.\n2. Dòng 16: `char b = a.charAt(1);`\n   • Chuỗi `a` hiện tại là `\"ap\"` (gồm index 0 là `'a'` và index 1 là `'p'`).\n   • `a.charAt(1)` lấy ký tự tại index 1, đó là `'p'`.\n   -> `b = 'p'`.\n3. Dòng 17: `a = a + b;`\n   • Ghép chuỗi `a` (`\"ap\"`) với ký tự `b` (`'p'`).\n   -> `a` trở thành `\"app\"`.\n4. Dòng 18: In ra màn hình biến `a`, kết quả là `\"app\"`.\n\n✅ Vì sao đáp án \"app\" đúng:\nVì `substring(5, 7)` cắt ra chuỗi `\"ap\"`, `charAt(1)` lấy ký tự `'p'`, ghép lại ta được `\"app\"`.\n\n❌ Vì sao các đáp án khác sai:\n• \"apea\", \"apep\": Sai do tính nhầm `substring(5, 7)` bao gồm cả index 7 (ký tự `'e'`). Hãy nhớ `endIndex` là exclusive (loại trừ).\n• \"apa\": Sai do lấy nhầm `charAt(0)` là `'a'`.\n• \"papp\", \"papa\": Sai do nhầm lẫn chỉ mục cắt chuỗi ban đầu.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Trong Java: Mọi hàm có khoảng `(start, end)` như `substring(start, end)` đều tuân theo quy tắc: \"Lấy đầu, bỏ đuôi\" (start inclusive, end exclusive). Độ dài chuỗi con thu được luôn bằng `end - start`.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-005",
+    "originalId": 5,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);",
+    "options": [
+      "wookkeewoo",
+      "wbookkeeper",
+      "wbookkeewoo",
+      "wbookkeeperwoo",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "wookkeewoo",
+      "wbookkeeper",
+      "wbookkeewoo",
+      "wbookkeeperwoo",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy quan sát kỹ từng dòng mã:\n```java\n4.    String d = \"bookkeeper\";\n5.    d.substring(1,7);\n6.    d = \"w\" + d;\n7.    d.append(\"woo\");\n8.    System.out.println(d);\n```\n1. Dòng 4: `d` được khai báo là một biến tham chiếu có kiểu dữ liệu là `java.lang.String`.\n2. Dòng 5: `d.substring(1, 7);` không gán lại nên không làm đổi `d`.\n3. Dòng 6: `d = \"w\" + d;` nối chuỗi, `d` trở thành `\"wbookkeeper\"`.\n4. Dòng 7: `d.append(\"woo\");`:\n   • BẪY THI: Phương thức `append()` là phương thức của các lớp có khả năng thay đổi nội dung như `StringBuffer` hoặc `StringBuilder`.\n   • Lớp `String` là lớp bất biến (immutable), nó HOÀN TOÀN KHÔNG CÓ phương thức nào tên là `append()`! (Lớp `String` chỉ có phương thức `concat()` hoặc toán tử `+`).\n   • Trình biên dịch sẽ báo lỗi ngay tại dòng 7: \"cannot find symbol: method append(String)\".\n\n✅ Vì sao đáp án \"Compilation fails\" đúng:\nVì biến `d` thuộc kiểu `String`, mà lớp `String` trong Java không hề tồn tại phương thức `append()`.\n\n❌ Vì sao các đáp án khác sai:\n• \"wbookkeeperwoo\", \"wookkeewoo\", \"wbookkeewoo\", \"wbookkeeper\": Đều sai vì tưởng rằng `append()` hợp lệ trên String và cố gắng tính toán chuỗi kết quả.\n• \"Runtime Exception\": Sai vì lỗi được phát hiện ngay khi biên dịch (compile-time error), chương trình không thể chạy được.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ bảng phương thức:\n  • `String`: dùng `concat()`, `replace()`, `substring()`, `toUpperCase()`. KHÔNG CÓ `append()`, `insert()`, `reverse()`.\n  • `StringBuffer` / `StringBuilder`: dùng `append()`, `insert()`, `reverse()`, `delete()`.",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch06-006",
+    "originalId": 6,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class Example {\n2.     public static void main(String [] args) {\n3.       double values[] = {-2.3, -1.0, 0.25, 4};\n4.       int cnt = 0;\n5.       for (int x=0; x < values.length; x++) {\n6.         if (Math.round(values[x] + .5) == Math.ceil(values[x])) {\n7.           ++cnt;\n8.         }\n9.       }\n10.     System.out.println(\"same results \" + cnt + \" time(s)\");\n11.    }\n12.   }",
+    "options": [
+      "same results 0 time(s)",
+      "same results 2 time(s)",
+      "same results 4 time(s)",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "same results 0 time(s)",
+      "same results 2 time(s)",
+      "same results 4 time(s)",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã so sánh kết quả giữa `Math.round(val + .5)` và `Math.ceil(val)` trên 4 giá trị số thực `double`:\n`double values[] = {-2.3, -1.0, 0.25, 4};`\n\nTrước hết, hãy hiểu rõ cơ chế hoạt động của 2 hàm trong lớp `Math`:\n1. `Math.ceil(x)`: Trả về số thực nguyên nhỏ nhất LỚN HƠN HOẶC BẰNG `x` (làm tròn lên phía dương vô cùng).\n2. `Math.round(x)` với tham số kiểu `double`: Cơ chế của Java quy định `Math.round(x)` tương đương với `(long) Math.floor(x + 0.5d)`.\n   • Trong đề bài, đối số truyền vào là `(values[x] + 0.5)`.\n   • Do đó: `Math.round(values[x] + 0.5)` tương đương với:\n     `(long) Math.floor((values[x] + 0.5) + 0.5) = (long) Math.floor(values[x] + 1.0)`.\n\nBây giờ ta tính toán chi tiết cho từng phần tử trong mảng:\n• Lần 1: `x = -2.3`\n  - Vế trái: `Math.round(-2.3 + 0.5) = Math.round(-1.8) = (long) Math.floor(-1.8 + 0.5) = (long) Math.floor(-1.3) = -2L`.\n  - Vế phải: `Math.ceil(-2.3)` -> số nguyên nhỏ nhất >= -2.3 là `-2.0`.\n  - So sánh: `-2L == -2.0` -> **TRUE**! (Tăng `cnt` lên 1).\n• Lần 2: `x = -1.0` (số nguyên)\n  - Vế trái: `Math.round(-1.0 + 0.5) = Math.round(-0.5) = (long) Math.floor(-0.5 + 0.5) = (long) Math.floor(0.0) = 0L`.\n  - Vế phải: `Math.ceil(-1.0) = -1.0`.\n  - So sánh: `0L == -1.0` -> **FALSE**!\n• Lần 3: `x = 0.25`\n  - Vế trái: `Math.round(0.25 + 0.5) = Math.round(0.75) = (long) Math.floor(0.75 + 0.5) = (long) Math.floor(1.25) = 1L`.\n  - Vế phải: `Math.ceil(0.25) = 1.0`.\n  - So sánh: `1L == 1.0` -> **TRUE**! (Tăng `cnt` lên 2).\n• Lần 4: `x = 4` (số nguyên)\n  - Vế trái: `Math.round(4.0 + 0.5) = Math.round(4.5) = (long) Math.floor(4.5 + 0.5) = (long) Math.floor(5.0) = 5L`.\n  - Vế phải: `Math.ceil(4.0) = 4.0`.\n  - So sánh: `5L == 4.0` -> **FALSE**!\n\nKết quả: Có đúng 2 lần điều kiện `==` thỏa mãn (`x = -2.3` và `x = 0.25`). Do đó `cnt = 2`.\nChương trình in ra: `\"same results 2 time(s)\"`.\n\n✅ Vì sao đáp án \"same results 2 time(s)\" đúng:\nVì với các số thực không nguyên (-2.3 và 0.25), hai vế cho ra kết quả bằng nhau; còn với các số nguyên (-1.0 và 4.0), việc cộng thêm 0.5 hai lần ở vế trái khiến kết quả bị đẩy tăng thêm 1 đơn vị so với `Math.ceil()`.\n\n❌ Vì sao các đáp án khác sai:\n• \"same results 0 time(s)\": Sai vì bỏ qua 2 giá trị trùng khớp.\n• \"same results 4 time(s)\": Sai vì nhầm tưởng rằng `round` và `ceil` luôn cho kết quả giống nhau.\n• \"Compilation fails\" & \"Runtime Exception\": Sai vì cú pháp và kiểu dữ liệu hoàn toàn hợp lệ.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Chú ý số âm: `Math.ceil(-2.3)` là `-2.0`, KHÔNG PHẢI `-3.0` (vì -2 lớn hơn -2.3).\n• `Math.round(double)` trả về kiểu `long`. `Math.ceil(double)` trả về kiểu `double`. Khi so sánh `==` giữa `long` và `double`, `long` được tự động thăng cấp thành `double` để so sánh.",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-007",
+    "originalId": 7,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Which of the following are valid calls to Math.max? (Choose all that apply.) (Yeah, yeah, we know that on the real exam you’d know how many were correct, but we just want you to work a little harder here.)",
+    "textVi": "Những lời gọi nào sau đây tới Math.max là hợp lệ? (Chọn tất cả các đáp án đúng)",
+    "code": "",
+    "options": [
+      "A và B (A: Math.max(1,4) & B: Math.max(2.3,5))",
+      "A và C (A: Math.max(1,4) & C: Math.max(1,3,5,7))",
+      "C và D (C: Math.max(1,3,5,7) & D: Math.max(-1.5,-2.8f))",
+      "B và D (B: Math.max(2.3,5) & D: Math.max(-1.5,-2.8f))"
+    ],
+    "optionsVi": [
+      "A và B (A: Math.max(1, 4) & B: Math.max(2.3, 5))",
+      "A và C (A: Math.max(1, 4) & C: Math.max(1, 3, 5, 7))",
+      "C và D (C: Math.max(1, 3, 5, 7) & D: Math.max(-1.5, -2.8f))",
+      "B và D (B: Math.max(2.3, 5) & D: Math.max(-1.5, -2.8f))"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nTrong lớp `java.lang.Math`, phương thức `max()` được nạp chồng (overload) với đúng 4 phiên bản:\n1. `public static int max(int a, int b)`\n2. `public static long max(long a, long b)`\n3. `public static float max(float a, float b)`\n4. `public static double max(double a, double b)`\n\nQuy tắc cốt lõi:\n• Tất cả các phiên bản của `Math.max()` đều CHỈ NHẬN ĐÚNG 2 ĐỐI SỐ! Không có bất kỳ phiên bản nào nhận 3, 4 đối số hay nhận mảng/varargs.\n• Tính năng tự động nới rộng kiểu (Widening Conversion): Nếu hai đối số khác kiểu, Java sẽ tự động nới rộng kiểu nhỏ hơn lên kiểu lớn hơn (ví dụ: `int` lên `double`).\n\nXét từng trường hợp:\n• A: `Math.max(1, 4)`: Truyền 2 số `int`, gọi phiên bản `max(int, int)` -> Hoàn toàn hợp lệ.\n• B: `Math.max(2.3, 5)`: Truyền một số `double` (`2.3`) và một số `int` (`5`). Số `5` tự động nới rộng thành `5.0d`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n• C: `Math.max(1, 3, 5, 7)`: Truyền 4 đối số -> Không có phương thức nào nhận 4 tham số -> LỖI BIÊN DỊCH!\n• D: `Math.max(-1.5, -2.8f)`: Truyền một số `double` (`-1.5`) và một số `float` (`-2.8f`). `float` nới rộng thành `double`, gọi phiên bản `max(double, double)` -> Hoàn toàn hợp lệ.\n(Trong các cặp đáp án trắc nghiệm đã ghép, phương án A: A và B là phương án đúng).\n\n✅ Vì sao đáp án \"A và B\" đúng:\nVì cả A và B đều truyền đúng 2 đối số với các kiểu dữ liệu số hợp lệ có thể tự động nới rộng kiểu trong Java.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C đều sai vì `Math.max(1, 3, 5, 7)` truyền 4 tham số, vi phạm định nghĩa hàm của Java và gây lỗi biên dịch ngay lập tức.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Math.max chỉ so sánh được 2 số một lúc!\" Muốn tìm max trong 3 hay 4 số thì phải lồng nhau (ví dụ: `Math.max(a, Math.max(b, c))`), không thể phẩy danh sách vào hàm.",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-008",
+    "originalId": 8,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "What two statements are true about the result obtained from calling Math.random()? (Choose two.)",
+    "textVi": "Hai phát biểu nào sau đây là đúng về kết quả thu được khi gọi Math.random()? (Chọn hai)",
+    "code": "",
+    "options": [
+      "B và C (B: The result is greater than or equal to 0.0 & C: The result is less than 1.0)",
+      "A và B (A: The result is less than 0.0 & B: The result is greater than or equal to 0.0)",
+      "A và D (A: The result is less than 0.0 & D: The result is greater than 1.0)",
+      "C và F (C: The result is less than 1.0 & F: The result is less than or equal to 1.0)"
+    ],
+    "optionsVi": [
+      "B và C (B: Kết quả lớn hơn hoặc bằng 0.0 & C: Kết quả nhỏ hơn 1.0)",
+      "A và B (A: Kết quả nhỏ hơn 0.0 & B: Kết quả lớn hơn hoặc bằng 0.0)",
+      "A và D (A: Kết quả nhỏ hơn 0.0 & D: Kết quả lớn hơn 1.0)",
+      "C và F (C: Kết quả nhỏ hơn 1.0 & F: Kết quả nhỏ hơn hoặc bằng 1.0)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nPhương thức `Math.random()` trong Java được đặc tả rất rõ ràng trong JavaDoc:\n• Kiểu dữ liệu trả về: `double`.\n• Phạm vi giá trị (Range): Trả về một giá trị số thực giả ngẫu nhiên có dấu dương nằm trong nửa khoảng:\n  **`0.0 <= Math.random() < 1.0`**\n• Điểm mấu chốt:\n  1. Cận dưới: Có thể bằng `0.0` (bao gồm 0.0). Do đó: Kết quả luôn lớn hơn hoặc bằng 0.0 (Phát biểu B đúng).\n  2. Cận trên: Luôn nhỏ hơn `1.0` một cách nghiêm ngặt (không bao giờ đạt tới 1.0). Do đó: Kết quả luôn nhỏ hơn 1.0 (Phát biểu C đúng).\n\n✅ Vì sao đáp án \"B và C\" đúng:\nVì theo đặc tả của Java, giá trị trả về của `Math.random()` thuộc khoảng `[0.0, 1.0)`, tức là `>= 0.0` và `< 1.0`.\n\n❌ Vì sao các đáp án khác sai:\n• Các phát biểu \"nhỏ hơn 0.0\" hoặc \"lớn hơn 1.0\" là hoàn toàn sai với khoảng giá trị của hàm.\n• Phát biểu \"nhỏ hơn hoặc bằng 1.0\" (F) tuy về mặt toán học giá trị < 1.0 thì cũng <= 1.0, nhưng phát biểu chuẩn xác nhất của cận trên là \"nghiêm ngặt nhỏ hơn 1.0\" (giá trị 1.0 không bao giờ xảy ra).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ công thức sinh số ngẫu nhiên từ min đến max:\n  `int randomNum = (int)(Math.random() * (max - min + 1)) + min;`\n  Sở dĩ phải nhân và ép kiểu như vậy chính là vì `Math.random()` chỉ chạy từ `0.0` đến xấp xỉ `0.999999...`.",
+    "correctLetters": [
+      "B",
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-009",
+    "originalId": 9,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class SqrtExample {\n2.     public static void main(String [] args) {\n3.       double value = -9.0;\n4.       System.out.println( Math.sqrt(value));\n5.     }\n6.   }",
+    "options": [
+      "3.0",
+      "–3.0",
+      "NaN",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "3.0",
+      "–3.0",
+      "NaN",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã thực hiện tính căn bậc hai của một số âm:\n```java\ndouble value = -9.0;\nSystem.out.println(Math.sqrt(value));\n```\nCơ chế của Java và chuẩn số thực IEEE 754:\n1. Trong toán học thực, căn bậc hai của một số âm không tồn tại.\n2. Nhiều người quen với phép chia cho 0 (`5 / 0`) sẽ bị `ArithmeticException` nên nghĩ rằng `Math.sqrt(-9.0)` cũng sẽ ném ngoại lệ khi chạy.\n3. NHƯNG TRONG JAVA: Các phương thức xử lý số thực `double`/`float` của lớp `Math` (như `Math.sqrt()`) TUYỆT ĐỐI KHÔNG BAO GIỜ NÉM NGOẠI LỆ!\n4. Thay vào đó, khi gặp các phép tính toán học không hợp lệ trên số thực, phương thức sẽ trả về một hằng số đặc biệt:\n   **`Double.NaN`** (viết tắt của \"Not a Number\" - Không phải là một số).\n5. Khi in giá trị `Double.NaN` ra màn hình bằng `System.out.println()`, nó sẽ hiển thị chuỗi chữ `\"NaN\"`.\n\n✅ Vì sao đáp án \"NaN\" đúng:\nVì `Math.sqrt()` với đối số âm không ném ngoại lệ mà trả về giá trị đặc biệt `Double.NaN` theo chuẩn IEEE 754.\n\n❌ Vì sao các đáp án khác sai:\n• \"3.0\" và \"-3.0\": Sai vì căn bậc 2 của -9.0 không thể là một số thực dương hay âm thông thường.\n• \"Compilation fails\": Sai vì cú pháp truyền biến `double` vào hàm nhận `double` hoàn toàn chuẩn xác.\n• \"Runtime Exception\": Sai vì đây là bẫy thi thường gặp; Java không ném lỗi lúc chạy đối với các phép toán vô nghiệm của `Math.sqrt()`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Math trên số thực không bao giờ ném Exception\":\n  • Số âm lấy căn -> `NaN`\n  • Số chia cho `0.0` (số thực) -> `Infinity` hoặc `-Infinity`\n  • `0.0 / 0.0` -> `NaN`\n  (Chỉ có số nguyên chia cho 0 nguyên `int / 0` mới bị `ArithmeticException`).",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-010",
+    "originalId": 10,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, at what line will the sine of 75 degrees be output?",
+    "textVi": "Cho đoạn mã sau, ở dòng nào giá trị sin của góc 75 độ sẽ được in ra màn hình?",
+    "code": "1.  public class Degrees {\n2.    public static void main(String [] args) {\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n7.    }\n8.  }",
+    "options": [
+      "Line 3",
+      "Line 4",
+      "Line 5",
+      "Line 6",
+      "Line 3 and either line 4, 5, or 6",
+      "None of the above"
+    ],
+    "optionsVi": [
+      "Dòng 3",
+      "Dòng 4",
+      "Dòng 5",
+      "Dòng 6",
+      "Dòng 3 và một trong các dòng 4, 5, hoặc 6",
+      "Không có dòng nào ở trên"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã kiểm tra cách sử dụng các hàm lượng giác trong lớp `java.lang.Math`:\n```java\n3.      System.out.println( Math.sin(75) );\n4.      System.out.println( Math.toDegrees(Math.sin(75) ));\n5.      System.out.println( Math.sin(Math.toRadians(75) ));\n6.      System.out.println( Math.toRadians(Math.sin(75) ));\n```\nQuy tắc đặc tả của Java cho các hàm lượng giác (`Math.sin`, `Math.cos`, `Math.tan`):\n• Tất cả các hàm này đều nhận tham số đầu vào là góc đo bằng đơn vị **RADIAN (radians)**, KHÔNG PHẢI ĐỘ (degrees)!\n• Nếu bạn truyền trực tiếp `Math.sin(75)` như ở dòng 3: Java sẽ tính sin của góc 75 radian (tương đương hơn 4297 độ), hoàn toàn sai lệch với yêu cầu tính sin của 75 độ.\n• Để tính sin của 75 độ, ta phải thực hiện 2 bước theo đúng thứ tự:\n  1. Bước 1: Chuyển đổi 75 độ sang đơn vị radian bằng hàm: `Math.toRadians(75)`.\n  2. Bước 2: Truyền kết quả radian đó vào hàm tính sin: `Math.sin(Math.toRadians(75))`.\n• Nhìn vào Dòng 5: Cú pháp `Math.sin(Math.toRadians(75))` thực hiện chính xác trình tự 2 bước này!\n\n✅ Vì sao đáp án \"Line 5\" đúng:\nVì dòng 5 đã dùng `Math.toRadians(75)` để đổi 75 độ sang radian trước khi truyền vào hàm `Math.sin()`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Line 3\": Sai vì tính sin của 75 radian.\n• \"Line 4\": Sai vì tính sin của 75 radian rồi lại đổi kết quả sin đó sang độ.\n• \"Line 6\": Sai vì tính sin của 75 radian rồi đổi kết quả sin sang radian.\n• \"Line 3 and either line 4, 5, or 6\" và \"None of the above\": Sai vì chỉ duy nhất dòng 5 tính đúng.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Hàm lượng giác của Java chỉ ăn Radian\": Muốn tính sin/cos/tan của độ, luôn luôn phải bọc `Math.toRadians(deg)` ở bên trong đối số của hàm: `Math.sin(Math.toRadians(deg))`.",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-011",
+    "originalId": 11,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, which two lines will cause compiler errors? (Choose two.)",
+    "textVi": "Cho đoạn mã sau, hai dòng nào sẽ gây ra lỗi biên dịch? (Chọn hai)",
+    "code": "1.  public class WrapTest2 {\n2.     public static void main(String [] args) {\n3.       Long b = new Long(42);\n4.       int x = Integer.valueOf(\"345\");\n5.       int x2 = (int) Integer.parseInt(\"345\", 8);\n6.       int x3 = Integer.parseInt(42);\n7.       int x4 = Integer.parseInt(\"42\");\n8.       int x5 = b.intValue();\n9.     }\n10. }",
+    "options": [
+      "B và D (B: Line 4 & D: Line 6)",
+      "A và B (A: Line 3 & B: Line 4)",
+      "A và C (A: Line 3 & C: Line 5)",
+      "D và F (D: Line 6 & F: Line 8)"
+    ],
+    "optionsVi": [
+      "B và D (B: Dòng 4 & D: Dòng 6)",
+      "A và B (A: Dòng 3 & B: Dòng 4)",
+      "A và C (A: Dòng 3 & C: Dòng 5)",
+      "D và F (D: Dòng 6 & F: Dòng 8)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi này kiểm tra sự khác biệt cốt lõi giữa hai họ phương thức của Wrapper Class:\n1. Phương thức `parseXxx(String s)`: Chuyển đổi từ `String` sang **kiểu nguyên thủy** (`primitive`).\n2. Phương thức `valueOf(String s)`: Chuyển đổi từ `String` hoặc primitive sang **đối tượng bao bọc** (`Wrapper Object`).\n\nXem xét từng dòng mã:\n• Dòng 4: `int x = Integer.valueOf(\"345\");`\n  - `Integer.valueOf(\"345\")` trả về một đối tượng `java.lang.Integer` (Reference Type).\n  - Biến nhận `int x` lại có kiểu nguyên thủy `int`.\n  - Trong nền tảng chuẩn SCJP (Java 1.4), Java KHÔNG HỖ TRỢ auto-unboxing. Bạn không thể gán trực tiếp một đối tượng `Integer` vào một biến nguyên thủy `int` mà không gọi `.intValue()`. Trình biên dịch báo lỗi: \"incompatible types; found java.lang.Integer, required int\" -> DÒNG 4 LỖI!\n• Dòng 6: `int x3 = Integer.parseInt(42);`\n  - Phương thức `Integer.parseInt(...)` CHỈ NHẬN THAM SỐ LÀ `String` (hoặc `String` kèm cơ số radix).\n  - Nó KHÔNG CÓ phiên bản nạp chồng nào nhận tham số là kiểu nguyên thủy `int`.\n  - Việc truyền trực tiếp số nguyên `42` vào `parseInt` sẽ khiến trình biên dịch báo lỗi không tìm thấy phương thức phù hợp -> DÒNG 6 LỖI!\n\nCác dòng còn lại đều hoàn toàn hợp lệ:\n• Dòng 3: `Long b = new Long(42);`: Constructor `Long(long)` nhận số nguyên `42` (tự động nới rộng từ int sang long).\n• Dòng 5: `int x2 = (int) Integer.parseInt(\"345\", 8);`: Chuyển chuỗi bát phân \"345\" thành int 229, ép kiểu `(int)` thừa nhưng hợp lệ.\n• Dòng 7: `int x4 = Integer.parseInt(\"42\");`: Cú pháp chuẩn nhận String trả về primitive int.\n• Dòng 8: `int x5 = b.intValue();`: Gọi phương thức instance để lấy primitive int từ Long wrapper.\n\n✅ Vì sao đáp án \"B và D (Dòng 4 và Dòng 6)\" đúng:\nVì dòng 4 cố gán đối tượng `Integer` cho biến primitive `int`, còn dòng 6 gọi `parseInt` nhưng lại truyền vào số nguyên thay vì `String`.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa dòng 3, 5, 8 đều sai vì các dòng này đều tuân thủ cú pháp chuẩn xác của wrapper classes.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phân biệt rõ:\n  • `Xxx.parseXxx(String)` -> Trả về PRIMITIVE (ví dụ: `parseInt(\"123\")` -> `int 123`).\n  • `Xxx.valueOf(String)` -> Trả về WRAPPER OBJECT (ví dụ: `Integer.valueOf(\"123\")` -> `Integer` object).\n  • `parseInt()` chỉ nhận String, truyền int vào là lỗi ngay!",
+    "correctLetters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": "scjp-ch06-012",
+    "originalId": 12,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class NFE {\n2.     public static void main(String [] args) {\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) {\n12.        System.out.println(\"bad number\");\n13.      }\n14.    }\n15.  }",
+    "options": [
+      "42",
+      "42.5",
+      "43",
+      "badnumber",
+      "Compilation fails.",
+      "An uncaught exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "42",
+      "42.5",
+      "43",
+      "bad number",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
+    ],
+    "answer": 2,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã đưa chúng ta qua một chuỗi chuyển đổi qua lại giữa `String`, `double`, `Double` wrapper và hàm `Math.ceil()`:\n```java\n3.       String s = \"42\";\n4.       try {\n5.         s = s.concat(\".5\");\n6.         double d = Double.parseDouble(s);\n7.         s = Double.toString(d);\n8.         int x = (int) Math.ceil(Double.valueOf(s).doubleValue());\n9.         System.out.println(x);\n10.      }\n11.      catch (NumberFormatException e) { ... }\n```\nLần theo từng dòng lệnh:\n1. Dòng 3: `s = \"42\"`.\n2. Dòng 5: `s = s.concat(\".5\");` -> Nối chuỗi, `s` trở thành chuỗi `\"42.5\"`.\n3. Dòng 6: `Double.parseDouble(s)` -> Chuyển chuỗi `\"42.5\"` thành số thực nguyên thủy `double d = 42.5`.\n4. Dòng 7: `Double.toString(d)` -> Chuyển số thực `42.5` ngược lại thành chuỗi `\"42.5\"`.\n5. Dòng 8: Bóc tách biểu thức lồng nhau từ trong ra ngoài:\n   • `Double.valueOf(s)`: Nhận chuỗi `\"42.5\"`, trả về một đối tượng wrapper `Double` chứa giá trị 42.5.\n   • `.doubleValue()`: Gọi trên đối tượng `Double` vừa tạo, trả về giá trị số thực nguyên thủy `42.5` (`double`).\n   • `Math.ceil(42.5)`: Làm tròn lên số nguyên nhỏ nhất lớn hơn hoặc bằng 42.5 -> Kết quả là số thực `43.0` (`double`).\n   • `(int) 43.0`: Ép kiểu tường minh từ `double` về `int`, lấy phần nguyên -> Ta được `x = 43`.\n6. Dòng 9: In giá trị của `x` ra màn hình -> In số `43`.\nVì chuỗi `\"42.5\"` là định dạng số hợp lệ nên không có `NumberFormatException` nào xảy ra, khối `catch` hoàn toàn không chạy.\n\n✅ Vì sao đáp án \"43\" đúng:\nVì sau chuỗi chuyển đổi hợp lệ, hàm `Math.ceil(42.5)` làm tròn lên thành `43.0` và ép kiểu về `int` cho ra kết quả `43`.\n\n❌ Vì sao các đáp án khác sai:\n• \"42\" và \"42.5\": Sai vì `Math.ceil` làm tròn lên, 42.5 phải thành 43.\n• \"bad number\": Sai vì chuỗi số hoàn toàn hợp lệ, không phát sinh `NumberFormatException`.\n• \"Compilation fails\" và \"Uncaught exception\": Sai vì tất cả các cú pháp chuyển đổi đều đúng chuẩn Java.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Nhớ 3 hàm làm tròn của `Math`:\n  • `ceil(42.1)` -> luôn lên `43.0`\n  • `floor(42.9)` -> luôn xuống `42.0`\n  • `round(42.5)` -> làm tròn gần nhất `43`",
+    "correctLetters": [
+      "C"
+    ]
+  },
+  {
+    "id": "scjp-ch06-013",
+    "originalId": 13,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.  public class BoolTest {\n2.    public static void main(String [] args) {\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n6.      if (!b2) {\n7.        b2 = true;\n8.        System.out.print(\"x \");\n9.      }\n10.     if (b1 & b2) {\n11.       System.out.print(\"y \");\n12.     }\n13.     System.out.println(\"z\");\n14.   }\n15. }",
+    "options": [
+      "z",
+      "xz",
+      "yz",
+      "xyz",
+      "Compilation fails.",
+      "An exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "z",
+      "xz",
+      "yz",
+      "xyz",
+      "Lỗi biên dịch (Compilation fails)",
+      "Ném ngoại lệ tại thời điểm chạy (Runtime Exception)"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nHãy chú ý kiểu dữ liệu của hai biến `b1` và `b2`:\n```java\n3.      Boolean b1 = new Boolean(\"false\");\n4.      boolean b2;\n5.      b2 = b1.booleanValue();\n...\n10.     if (b1 & b2) {\n```\n1. Dòng 3: `b1` được khai báo là `Boolean` (viết hoa chữ B đầu) -> Đây là một **Đối tượng Wrapper (Reference Type)**.\n2. Dòng 4 & 5: `b2` được khai báo là `boolean` (chữ thường) -> Đây là một **Kiểu nguyên thủy (Primitive Type)**. `b2` nhận giá trị `false`.\n3. Dòng 6-8: `if (!b2)` thỏa mãn (vì `!false` là `true`), `b2` được đổi thành `true` và in ra `\"x \"`.\n4. Dòng 10: `if (b1 & b2)`:\n   • ĐÂY LÀ ĐIỂM CHẾT: Toán tử logic thao tác bit `&` (hoặc `|`, `^`) trong Java chỉ được định nghĩa giữa HAI KIỂU NGUYÊN THỦY (`boolean & boolean` hoặc `int & int`).\n   • Trong chuẩn Java SCJP (trước Java 5), Java hoàn toàn KHÔNG CÓ cơ chế Auto-unboxing.\n   • Trình biên dịch thấy `b1` là một đối tượng `Boolean` (Object), còn `b2` là primitive `boolean`. Java không thể áp dụng toán tử bitwise/logical `&` giữa một Đối tượng và một kiểu nguyên thủy!\n   • Trình biên dịch báo lỗi tại dòng 10: \"operator & cannot be applied to java.lang.Boolean,boolean\".\n\n✅ Vì sao đáp án \"Compilation fails\" đúng:\nVì dòng 10 sử dụng toán tử `&` giữa một đối tượng wrapper `Boolean` (`b1`) và một kiểu nguyên thủy `boolean` (`b2`), điều này không hợp lệ trong Java khi không có autoboxing/unboxing.\n\n❌ Vì sao các đáp án khác sai:\n• \"xz\", \"xyz\", \"z\", \"yz\": Đều sai vì chương trình không thể vượt qua bước biên dịch.\n• \"Runtime Exception\": Sai vì lỗi được phát hiện ngay ở giai đoạn biên dịch.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Phân biệt rõ `Boolean` (Object) và `boolean` (primitive): Các toán tử logic `&`, `|`, `&&`, `||`, `!` chỉ hoạt động trên kiểu nguyên thủy `boolean`. Nếu muốn dùng đối tượng `Boolean`, bắt buộc phải gọi `.booleanValue()` để lấy giá trị thô ra trước!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch06-014",
+    "originalId": 14,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, which three lines inserted independently at line 4 will cause compiler errors? (Choose three.)",
+    "textVi": "Cho đoạn mã sau, ba dòng nào dưới đây nếu chèn độc lập vào dòng 4 sẽ gây ra lỗi biên dịch? (Chọn ba)",
+    "code": "1.   public class WrapTest3 {\n2.     public static void main(String [] args) {\n3.       String s = \"98.6\";\n4.       // insert code here\n5.     }\n6.   }",
+    "options": [
+      "A và B (A: float f1 = Float.floatValue(s); & B: float f2 = Float.valueOf(s);)",
+      "A và C (A: float f1 = Float.floatValue(s); & C: float f3 = new Float(3.14f).floatValue();)",
+      "C và D (C: float f3 = new Float(3.14f).floatValue(); & D: float f4 = Float.parseFloat(1.23f);)",
+      "B và F (B: float f2 = Float.valueOf(s); & F: float f6 = (float) Double.parseDouble(\"3.14\");)"
+    ],
+    "optionsVi": [
+      "A và B (A: float f1 = Float.floatValue(s); & B: float f2 = Float.valueOf(s);)",
+      "A và C (A: float f1 = Float.floatValue(s); & C: float f3 = new Float(3.14f).floatValue();)",
+      "C và D (C: float f3 = new Float(3.14f).floatValue(); & D: float f4 = Float.parseFloat(1.23f);)",
+      "B và F (B: float f2 = Float.valueOf(s); & F: float f6 = (float) Double.parseDouble(\"3.14\");)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã có biến `String s = \"98.6\";`. Chúng ta cần kiểm tra tính hợp lệ của các phương thức trong lớp `Float`:\n1. Dòng A: `float f1 = Float.floatValue(s);`\n   • Phương thức `floatValue()` là một **phương thức thể hiện (instance method)** không nhận tham số, dùng để lấy giá trị primitive từ một đối tượng `Float` (ví dụ `myFloatObj.floatValue()`).\n   • Nó KHÔNG PHẢI là phương thức tĩnh (`static`) và KHÔNG nhận tham số nào cả. Lời gọi tĩnh `Float.floatValue(s)` sẽ gây lỗi biên dịch: \"non-static method floatValue() cannot be referenced from a static context\" -> DÒNG A LỖI!\n2. Dòng B: `float f2 = Float.valueOf(s);`\n   • Phương thức `Float.valueOf(s)` là phương thức tĩnh hợp lệ, nhưng nó trả về một **Đối tượng Wrapper `Float`**, KHÔNG PHẢI kiểu nguyên thủy `float`.\n   • Trong chuẩn SCJP (không có auto-unboxing), không thể gán một đối tượng `Float` cho biến primitive `float f2` mà không gọi `.floatValue()`. Gây lỗi biên dịch: \"incompatible types\" -> DÒNG B LỖI!\n3. Dòng D: `float f4 = Float.parseFloat(1.23f);`\n   • Phương thức `Float.parseFloat(...)` CHỈ NHẬN THAM SỐ LÀ `String`.\n   • Nó KHÔNG CÓ phiên bản nhận tham số là số thực `float`. Việc truyền `1.23f` vào sẽ gây lỗi biên dịch -> DÒNG D LỖI!\n\nCác dòng còn lại hoàn toàn hợp lệ:\n• C: `new Float(3.14f).floatValue()`: Tạo đối tượng rồi gọi instance method `floatValue()`, trả về primitive float. Hợp lệ.\n• E: `Float.parseFloat(s)`: Nhận chuỗi `s` và trả về primitive float. Hợp lệ.\n• F: `(float) Double.parseDouble(\"3.14\")`: Parse ra double rồi ép kiểu về float. Hợp lệ.\n(Trong các phương án ghép đôi, phương án A: A và B là đáp án chỉ ra các dòng gây lỗi biên dịch).\n\n✅ Vì sao đáp án \"A và B\" đúng:\nVì dòng A gọi sai ngữ cảnh phương thức (gọi instance method từ static context kèm tham số), và dòng B cố gán wrapper object `Float` trực tiếp cho biến primitive `float` mà không unbox.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án chứa C hoặc F đều sai vì dòng C và F là các cách hợp lệ để thu được giá trị primitive `float`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Các phương thức dạng `xxxValue()` (như `intValue()`, `floatValue()`) luôn luôn là INSTANCE METHOD không có tham số (gọi từ object).\n• Các phương thức dạng `parseXxx()` và `valueOf()` luôn luôn là STATIC METHOD nhận `String` làm đối số.",
+    "correctLetters": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-015",
+    "originalId": 15,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) {\n19.      System.out.println(\"bad number\");\n20.    }",
+    "options": [
+      "9.0",
+      "bad number",
+      "Compilation fails on line 13.",
+      "Compilation fails on line 14.",
+      "Compilation fails on lines 13 and 14.",
+      "An uncaught exception is thrown at runtime."
+    ],
+    "optionsVi": [
+      "9.0",
+      "bad number",
+      "Lỗi biên dịch tại dòng 13.",
+      "Lỗi biên dịch tại dòng 14.",
+      "Lỗi biên dịch tại cả dòng 13 và 14.",
+      "Ném ngoại lệ chưa được bắt tại thời điểm chạy (Uncaught Exception)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã kiểm tra các phương thức chuyển đổi dữ liệu kế thừa từ lớp trừu tượng `java.lang.Number`:\n```java\n11.    try {\n12.      Float f1 = new Float(\"3.0\");\n13.      int x = f1.intValue();\n14.      byte b = f1.byteValue();\n15.      double d = f1.doubleValue();\n16.      System.out.println(x + b + d);\n17.    }\n18.    catch (NumberFormatException e) { ... }\n```\n1. Lớp `Float` kế thừa từ lớp cha `java.lang.Number`. Lớp `Number` định nghĩa sẵn 6 phương thức chuyển đổi kiểu số cho mọi lớp bao bọc số:\n   • `byteValue()`\n   • `shortValue()`\n   • `intValue()`\n   • `longValue()`\n   • `floatValue()`\n   • `doubleValue()`\n   Do đó, TẤT CẢ các dòng 13, 14, 15 đều HOÀN TOÀN HỢP LỆ và biên dịch thành công! (Nhiều người lầm tưởng `Float` không thể gọi `byteValue()` hay `intValue()`, đó là bẫy thi).\n2. Tính toán giá trị:\n   • Dòng 12: `f1` chứa giá trị `3.0f`.\n   • Dòng 13: `x = f1.intValue();` -> lấy phần nguyên -> `x = 3`.\n   • Dòng 14: `b = f1.byteValue();` -> chuyển sang byte -> `b = 3`.\n   • Dòng 15: `d = f1.doubleValue();` -> chuyển sang double -> `d = 3.0`.\n3. Dòng 16: Phép cộng `x + b + d`:\n   • `x + b` = `3 + 3` = `6` (kiểu int).\n   • `6 + d` = `6 + 3.0` = `9.0` (số nguyên cộng với số thực `double` sẽ tự động thăng cấp thành `double`).\n4. In ra màn hình: `\"9.0\"`.\n\n✅ Vì sao đáp án \"9.0\" đúng:\nVì các phương thức `intValue()`, `byteValue()`, `doubleValue()` đều tồn tại hợp lệ trên đối tượng `Float`, và phép tính `3 + 3 + 3.0` cho ra kết quả `9.0`.\n\n❌ Vì sao các đáp án khác sai:\n• \"Compilation fails on line 13 / 14 / both\": Sai vì mọi wrapper số đều kế thừa các hàm chuyển đổi này từ `java.lang.Number`.\n• \"bad number\": Sai vì chuỗi `\"3.0\"` được parse hoàn toàn hợp lệ thành Float, không phát sinh `NumberFormatException`.\n• \"Uncaught exception\": Sai vì không có bất kỳ ngoại lệ nào phát sinh.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Bất kỳ Number wrapper nào (`Byte`, `Short`, `Integer`, `Long`, `Float`, `Double`) đều có thể ép ra bất kỳ kiểu số nguyên thủy nào\" thông qua họ hàm `xxxValue()`.",
+    "correctLetters": [
+      "A"
+    ]
+  },
+  {
+    "id": "scjp-ch06-016",
+    "originalId": 16,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class WrapTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n11.\n12.      if (x == y) result = 1;\n13.      if (x.equals(y) ) result = result + 10;\n14.      if (x.equals(z) ) result = result + 100;\n15.      if (x.equals(x2) ) result = result + 1000;\n16.      if (x.equals(z2) ) result = result + 10000;\n17.\n18.      System.out.println(\"result = \" + result);\n19.    }\n20.  }",
+    "options": [
+      "result=1",
+      "result=10",
+      "result=11",
+      "result=11010",
+      "result=11011",
+      "result=11111"
+    ],
+    "optionsVi": [
+      "result = 1",
+      "result = 10",
+      "result = 11",
+      "result = 11010",
+      "result = 11011",
+      "result = 11111"
+    ],
+    "answer": 1,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã này là bài kiểm tra đỉnh cao về sự khác biệt giữa toán tử `==` và phương thức `.equals()` trên các Wrapper Class:\n```java\n4.       short s = 42;\n5.       Long x = new Long(\"42\");\n6.       Long y = new Long(42);\n7.       Short z = new Short(\"42\");\n8.       Short x2 = new Short(s);\n9.       Integer y2 = new Integer(\"42\");\n10.      Integer z2 = new Integer(42);\n```\nHãy đánh giá từng câu lệnh điều kiện:\n1. Dòng 12: `if (x == y) result = 1;`\n   • Toán tử `==` trên hai biến tham chiếu đối tượng so sánh **ĐỊA CHỈ Ô NHỚ (tham chiếu)**, chứ không so sánh giá trị bên trong.\n   • Vì `x` và `y` được tạo ra bằng 2 toán tử `new Long(...)` riêng biệt, chúng nằm ở 2 ô nhớ độc lập trên Heap.\n   • Do đó `x == y` là `false`. `result` vẫn giữ nguyên giá trị `0`.\n2. Dòng 13: `if (x.equals(y)) result = result + 10;`\n   • Phương thức `.equals()` của các lớp Wrapper so sánh GIÁ TRỊ bên trong.\n   • `x` có kiểu `Long` mang giá trị 42L. `y` cũng có kiểu `Long` mang giá trị 42L.\n   • Vì CÙNG KIỂU CLASS (`Long`) và CÙNG GIÁ TRỊ (`42L`), nên `x.equals(y)` trả về `true`!\n   • `result = 0 + 10 = 10`.\n3. Dòng 14: `if (x.equals(z)) result = result + 100;`\n   • QUY TẮC VÀNG CỦA EQUALS TRONG WRAPPER CLASS:\n     Hàm `equals()` trong bất kỳ lớp Wrapper nào luôn kiểm tra kiểu dữ liệu đầu tiên:\n     `if (!(obj instanceof Long)) return false;`\n   • Nếu đối tượng truyền vào KHÁC KIỂU CLASS, nó lập tức trả về `false` mà KHÔNG BAO GIỜ ép kiểu hay so sánh giá trị số!\n   • Ở đây `x` là `Long`, còn `z` là `Short`. Khác kiểu class -> Trả về `false` ngay! (Không cộng 100).\n4. Dòng 15: `if (x.equals(x2))` -> `x` (`Long`) khác kiểu với `x2` (`Short`) -> `false`! (Không cộng 1000).\n5. Dòng 16: `if (x.equals(z2))` -> `x` (`Long`) khác kiểu với `z2` (`Integer`) -> `false`! (Không cộng 10000).\nCuối cùng in ra: `result = 10`.\n\n✅ Vì sao đáp án \"result = 10\" đúng:\nVì `x == y` sai do khác đối tượng ô nhớ, các phép `equals` với `Short` và `Integer` đều sai do khác kiểu Wrapper, chỉ duy nhất `x.equals(y)` là đúng (cùng kiểu `Long` và cùng giá trị 42L).\n\n❌ Vì sao các đáp án khác sai:\n• \"result = 1\": Sai vì nhầm tưởng `==` so sánh giá trị đối tượng.\n• \"result = 11\": Sai vì tưởng `x == y` đúng.\n• \"result = 11010\", \"11011\", \"11111\": Đều sai vì ngộ nhận rằng phương thức `equals()` sẽ tự động ép kiểu các số bằng 42 của `Short` hay `Integer` để so sánh với `Long`.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Hai Wrapper khác kiểu đem so `equals()` LUÔN LUÔN LÀ FALSE!\" Ví dụ: `new Integer(42).equals(new Long(42))` CHẮC CHẮN LÀ `false`, không cần tính toán giá trị!",
+    "correctLetters": [
+      "B"
+    ]
+  },
+  {
+    "id": "scjp-ch06-017",
+    "originalId": 17,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class BoolTest {\n2.     public static void main(String [] args) {\n3.       int result = 0;\n4.\n5.       Boolean b1 = new Boolean(\"TRUE\");\n6.       Boolean b2 = new Boolean(\"true\");\n7.       Boolean b3 = new Boolean(\"tRuE\");\n8.       Boolean b4 = new Boolean(\"false\");\n9.\n10.      if (b1 == b2)  result = 1;\n11.      if (b1.equals(b2) ) result = result + 10;\n12.      if (b2 == b4)  result = result + 100;\n13.      if (b2.equals(b4) ) result = result + 1000;\n14.      if (b2.equals(b3) ) result = result + 10000;\n15.\n16.      System.out.println(\"result = \" + result);\n17.    }\n18.  }",
+    "options": [
+      "0",
+      "1",
+      "10",
+      "1100",
+      "10001",
+      "10010"
+    ],
+    "optionsVi": [
+      "0",
+      "1",
+      "10",
+      "1100",
+      "10001",
+      "10010"
+    ],
+    "answer": 5,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi kiểm tra cơ chế khởi tạo và so sánh của lớp bao bọc `Boolean`:\n```java\nBoolean b1 = new Boolean(\"TRUE\");\nBoolean b2 = new Boolean(\"true\");\nBoolean b3 = new Boolean(\"tRuE\");\nBoolean b4 = new Boolean(\"false\");\n```\n1. Cơ chế Constructor `Boolean(String s)`:\n   • JavaDoc quy định: Nếu chuỗi truyền vào không phải là `null` và bằng `\"true\"` (KHÔNG PHÂN BIỆT CHỮ HOA CHỮ THƯỜNG - case-insensitive), thì đối tượng `Boolean` sẽ mang giá trị nguyên thủy là `true`. Mọi chuỗi khác đều tạo ra giá trị `false`.\n   • Do đó:\n     - `b1` (\"TRUE\") mang giá trị `true`.\n     - `b2` (\"true\") mang giá trị `true`.\n     - `b3` (\"tRuE\") mang giá trị `true`.\n     - `b4` (\"false\") mang giá trị `false`.\n2. Đánh giá từng điều kiện:\n   • Dòng 10: `if (b1 == b2)`: `b1` và `b2` được tạo từ 2 toán tử `new` khác nhau -> Khác ô nhớ -> `false`! (result vẫn là 0).\n   • Dòng 11: `if (b1.equals(b2))`: Cả hai đều là đối tượng `Boolean` và cùng mang giá trị `true` -> `true`! -> `result = 0 + 10 = 10`.\n   • Dòng 12: `if (b2 == b4)`: Khác ô nhớ -> `false`!\n   • Dòng 13: `if (b2.equals(b4))`: `b2` mang `true`, `b4` mang `false` -> Khác giá trị -> `false`!\n   • Dòng 14: `if (b2.equals(b3))`: Cả hai đều là `Boolean` và cùng mang giá trị `true` -> `true`! -> `result = 10 + 10000 = 10010`.\n3. In ra: `result = 10010`.\n\n✅ Vì sao đáp án \"10010\" đúng:\nVì chỉ có dòng 11 (`b1.equals(b2)`) cộng 10 và dòng 14 (`b2.equals(b3)`) cộng 10000 thỏa mãn điều kiện, tổng là 10010.\n\n❌ Vì sao các đáp án khác sai:\n• Các đáp án \"0\", \"1\", \"10\", \"1100\", \"10001\": Đều sai do nhầm lẫn giữa so sánh tham chiếu (`==`) và so sánh giá trị (`equals`), hoặc không biết rằng constructor của `Boolean` không phân biệt chữ hoa chữ thường.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• Constructor `new Boolean(String)` chỉ quan tâm chữ cái: `\"True\"`, `\"TRUE\"`, `\"tRuE\"` đều là `true`! Bất kỳ chuỗi nào khác (như `\"yes\"`, `\"1\"`, `\"false\"`) đều là `false`.\n• `==` so sánh địa chỉ ô nhớ, `equals` so sánh giá trị logic bên trong.",
+    "correctLetters": [
+      "F"
+    ]
+  },
+  {
+    "id": "scjp-ch06-018",
+    "originalId": 18,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Given the following, what is the result?",
+    "textVi": "Cho đoạn mã sau, kết quả khi chạy đoạn mã trên là gì?",
+    "code": "1.   public class ObjComp {\n2.     public static void main(String [] args ) {\n3.       int result = 0;\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n6.\n7.       if (o == oc)  result = 1;\n8.       if (o != oc)  result = result + 10;\n9.       if (o.equals(oc) )  result = result + 100;\n10.      if (oc.equals(o) )  result = result + 1000;\n11.\n12.      System.out.println(\"result = \" + result);\n13.    }\n14.  }",
+    "options": [
+      "1",
+      "10",
+      "101",
+      "1001",
+      "1101"
+    ],
+    "optionsVi": [
+      "1",
+      "10",
+      "101",
+      "1001",
+      "1101"
+    ],
+    "answer": 4,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nĐoạn mã kiểm tra quan hệ giữa hai biến tham chiếu cùng trỏ tới một đối tượng và phương thức `equals()` mặc định của lớp `Object`:\n```java\n4.       ObjComp oc = new ObjComp();\n5.       Object o = oc;\n```\n1. Phân tích tham chiếu:\n   • Dòng 4: `new ObjComp()` tạo ra MỘT đối tượng duy nhất trên bộ nhớ Heap, được trỏ bởi biến `oc`.\n   • Dòng 5: `Object o = oc;` gán địa chỉ của `oc` cho biến tham chiếu `o`.\n   • Kết quả: Cả hai biến `o` và `oc` (dù khác kiểu khai báo) đều ĐANG CÙNG TRỎ TỚI ĐÚNG MỘT ĐỐI TƯỢNG DUY NHẤT trên Heap!\n2. Đánh giá từng điều kiện:\n   • Dòng 7: `if (o == oc)`: Cả hai cùng giữ chung một địa chỉ ô nhớ -> `true`! -> `result = 1`.\n   • Dòng 8: `if (o != oc)`: Bằng nhau nên phép so sánh khác `!=` trả về `false`!\n   • Dòng 9: `if (o.equals(oc))`:\n     - Lớp `ObjComp` không tự viết phương thức `equals()`, do đó nó thừa hưởng phương thức `equals()` mặc định từ lớp cha `java.lang.Object`.\n     - Trong lớp `Object`, phương thức `equals()` được cài đặt như sau:\n       `public boolean equals(Object obj) { return (this == obj); }`\n     - Nghĩa là theo mặc định, `equals()` trong `Object` hoạt động hoàn toàn giống hệt toán tử `==` (so sánh địa chỉ ô nhớ).\n     - Vì `o` và `oc` trỏ cùng một đối tượng, `o.equals(oc)` trả về `true`! -> `result = 1 + 100 = 101`.\n   • Dòng 10: `if (oc.equals(o))`: Tương tự, so sánh tính đối xứng -> `true`! -> `result = 101 + 1000 = 1101`.\n3. In ra: `result = 1101`.\n\n✅ Vì sao đáp án \"1101\" đúng:\nVì các điều kiện ở dòng 7 (+1), dòng 9 (+100) và dòng 10 (+1000) đều trả về `true` do hai biến cùng trỏ đến đúng một đối tượng trên Heap và `equals` mặc định của `Object` so sánh bằng địa chỉ ô nhớ.\n\n❌ Vì sao các đáp án khác sai:\n• \"1\", \"10\", \"101\", \"1001\": Đều sai vì tính thiếu các phép so sánh thỏa mãn.\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Nếu class không override hàm `equals()`\": Thì `a.equals(b)` hoàn toàn tương đương với `a == b`. Chúng chỉ trả về `true` khi cả 2 biến cùng trỏ vào một đối tượng!",
+    "correctLetters": [
+      "E"
+    ]
+  },
+  {
+    "id": "scjp-ch06-019",
+    "originalId": 19,
+    "chapterNum": 6,
+    "chapterTitle": "Java.lang – Math, Strings, and Wrappers",
+    "topic": "string",
+    "text": "Which two statements are true about wrapper or String classes? (Choose two.)",
+    "textVi": "Hai phát biểu nào sau đây là đúng về các lớp bao bọc (wrapper) hoặc lớp String trong Java? (Chọn hai)",
+    "code": "",
+    "options": [
+      "D và E (D: If x, y, and z refer to instances of wrapper classes and x.equals(y) is true, and y.equals(z) is true, then z.equals(x) will always be true. & E: If x and y are String references and x == y is true, then y.equals(x) will be true.)",
+      "A và D (A: If x and y refer to instances of different wrapper classes, then the fragment x.equals(y) will cause a compiler failure. & D: If x, y, and z refer to instances of wrapper classes and x.equals(y) is true, and y.equals(z) is true, then z.equals(x) will always be true.)",
+      "A và B (A: If x and y refer to instances of different wrapper classes, then the fragment x.equals(y) will cause a compiler failure. & B: If x and y refer to instances of different wrapper classes, then x == y can sometimes be true.)",
+      "C và E (C: If x and y are String references and if x.equals(y) is true, then x == y is true. & E: If x and y are String references and x == y is true, then y.equals(x) will be true.)"
+    ],
+    "optionsVi": [
+      "D và E (D: Nếu x, y, z là các thể hiện của wrapper class mà x.equals(y) là true và y.equals(z) là true thì z.equals(x) luôn là true & E: Nếu x và y là tham chiếu String và x == y là true thì y.equals(x) luôn là true)",
+      "A và D (A: Nếu x và y là các wrapper khác kiểu thì x.equals(y) gây lỗi biên dịch & D: Nếu x, y, z là các thể hiện của wrapper class mà x.equals(y) là true và y.equals(z) là true thì z.equals(x) luôn là true)",
+      "A và B (A: Nếu x và y là các wrapper khác kiểu thì x.equals(y) gây lỗi biên dịch & B: Nếu x và y là các wrapper khác kiểu thì x == y có thể true)",
+      "C và E (C: Nếu x và y là tham chiếu String mà x.equals(y) là true thì x == y luôn là true & E: Nếu x và y là tham chiếu String và x == y là true thì y.equals(x) luôn là true)"
+    ],
+    "answer": 0,
+    "explanation": "💡 Bản chất & Phân tích chi tiết:\nCâu hỏi này kiểm tra các tính chất toán học và ngữ nghĩa của hợp đồng `equals()` và toán tử `==` trong Java:\n1. Xét phát biểu D:\n   • \"Nếu `x`, `y`, `z` là các thể hiện của wrapper classes và `x.equals(y)` là `true`, `y.equals(z)` là `true`, thì `z.equals(x)` sẽ luôn luôn là `true`.\"\n   • ĐÂY LÀ PHÁT BIỂU ĐÚNG: Nó thể hiện **Tính chất bắc cầu (Transitive property)** - một trong những yêu cầu bắt buộc của hợp đồng `equals()` trong `java.lang.Object`.\n   • Trong các lớp Wrapper: Vì `x.equals(y)` là `true`, `x` và `y` bắt buộc phải CÙNG MỘT KIỂU Wrapper (ví dụ cùng là `Integer`) và cùng chứa một giá trị số. Tương tự, `y` và `z` cũng phải cùng kiểu đó và cùng giá trị. Suy ra `z` và `x` hiển nhiên cùng kiểu và cùng giá trị, nên `z.equals(x)` chắc chắn 100% luôn là `true`.\n2. Xét phát biểu E:\n   • \"Nếu `x` và `y` là các tham chiếu `String` và `x == y` là `true`, thì `y.equals(x)` sẽ là `true`.\"\n   • ĐÂY LÀ PHÁT BIỂU ĐÚNG: Nếu `x == y` là `true`, nghĩa là cả hai biến tham chiếu `x` và `y` đang trỏ tới CÙNG MỘT ĐỐI TƯỢNG String duy nhất trong bộ nhớ. Một đối tượng thì chắc chắn luôn có nội dung bằng chính nó, do đó `y.equals(x)` chắn chắn trả về `true`.\n\nVì sao các phát biểu khác sai:\n• Phát biểu A sai: \"Nếu x và y là hai wrapper khác kiểu thì x.equals(y) gây lỗi biên dịch\" -> Sai! Phương thức `equals(Object obj)` nhận tham số là kiểu `Object`, nên bạn truyền bất kỳ đối tượng nào vào cũng biên dịch hoàn toàn bình thường (khi chạy nó chỉ trả về `false`).\n• Phát biểu B sai: \"Nếu x và y là hai wrapper khác kiểu thì x == y đôi khi có thể true\" -> Sai! Hai wrapper khác cây phả hệ (như `Integer` và `Long`) khi so sánh `==` sẽ bị TRÌNH BIÊN DỊCH BÁO LỖI ngay lập tức (incompatible types), không thể biên dịch và không bao giờ `true`.\n• Phát biểu C sai: \"Nếu x.equals(y) là true thì x == y là true\" -> Sai! Hai chuỗi có cùng nội dung ký tự (ví dụ: `new String(\"hi\")` và `new String(\"hi\")`) thì `equals()` là `true`, nhưng `==` lại là `false` vì chúng nằm ở hai ô nhớ khác nhau trên Heap.\n\n✅ Vì sao đáp án \"D và E\" đúng:\nVì D phản ánh tính bắc cầu đúng đắn của phương thức `equals()` trên các lớp wrapper, và E khẳng định nguyên lý cơ bản: nếu hai biến trỏ cùng một đối tượng (`==`) thì nội dung của chúng hiển nhiên bằng nhau (`equals`).\n\n❌ Vì sao các đáp án khác sai:\n• Phát biểu A sai vì `equals` nhận kiểu `Object` nên không lỗi biên dịch.\n• Phát biểu B sai vì so sánh `==` giữa 2 wrapper khác kiểu gây lỗi biên dịch.\n• Phát biểu C sai vì hai đối tượng String khác nhau vẫn có thể có nội dung giống nhau (`equals` true nhưng `==` false).\n\n⚠️ Mẹo nhớ / Lưu ý:\n• \"Toán tử `==` đúng THÌ `equals()` CHẮC CHẮN ĐÚNG\" (vì cùng 1 đối tượng). Nhưng chiều ngược lại \"`equals()` đúng thì `==` đúng\" là HOÀN TOÀN SAI (có thể là 2 đối tượng riêng biệt có cùng nội dung)!",
+    "correctLetters": [
+      "D",
+      "E"
+    ]
+  }
+]
